@@ -3,16 +3,15 @@
 {
   "consumer": {},
   "factory_counts": {
-    "build": 1,
+    "build": 2,
     "deferred": 28,
-    "discover": 1,
     "published": 7,
     "rejected": 5
   },
-  "observed_at": "2026-11-12T21:43:41.205109+00:00",
+  "observed_at": "2026-11-12T22:14:02.587066+00:00",
   "paper": {},
   "queue": [],
-  "snapshot_generated_at": "2026-11-12T21:24:41+00:00",
+  "snapshot_generated_at": "2026-11-12T21:50:45+00:00",
   "window": {
     "analysis_start": "2026-11-18T04:00:00Z",
     "attempt_minutes": 85,
