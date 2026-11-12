@@ -22,6 +22,7 @@ for rid in ids:
  path=S/'results/scores'/rid/'predictions.csv.gz'
  if not path.exists():continue
  p=pd.read_csv(path);assert np.array_equal(p.row,np.arange(len(y)));setup[rid]=auc_setup(y,p.p.to_numpy());inputs[str(path)]=sha(path)
+if not setup or G < 2:raise ValueError('Insufficient predictions or independent groups for cluster intervals')
 seed=int(hashlib.sha256(ds.encode()).hexdigest()[:8],16);rng=np.random.default_rng(seed);draws=[];invalid=0
 for _ in range(2000):
  w=np.bincount(rng.integers(G,size=G),minlength=G)[g];a=[weighted_auc(v,w) for v in setup.values()]

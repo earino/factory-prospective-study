@@ -5,5 +5,11 @@
   "model_reported": "claude-fable-5-2",
   "real_holdout_downloaded": false,
   "scope": "CLI start/resume, actual ML fit, frozen validation replay, control execution and validation-only scoring. Excluded from prospective study. Later released-baseline scoring branch retains original feature policy; checked separately.",
-  "original_runner_sha256": "4316330c89ebda3c086efda8ae7e70d21743e66d7b42122fb63da834e25d8813"
+  "original_runner_sha256": "4316330c89ebda3c086efda8ae7e70d21743e66d7b42122fb63da834e25d8813",
+  "final_checks": {
+    "clean_checkout_suite": "18 runner tests + 4 controller tests passed",
+    "release_list_binding": "resume rejects changed release list; sealed digest includes file",
+    "validation_replay": "ordinary and released frozen smoke models scored successfully with final engine",
+    "holdout_access": "none in setup smoke"
+  }
 }

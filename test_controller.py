@@ -13,6 +13,16 @@ class Tests(unittest.TestCase):
   r={'dataset':'new-task','release':{'release_tag':'v1'}}
   with patch.object(c,'fetch',side_effect=[b'{"sha":"abc"}',b'{"dataset":"other","version":"v1"}']):
    with self.assertRaises(ValueError):c.pin(r)
+ def test_resume_rejects_changed_release_list(self):
+  from types import SimpleNamespace
+  with tempfile.TemporaryDirectory() as d:
+   root=Path(d)
+   for name in ['run_study.py','agent.md','releases.json']:(root/name).write_text('original')
+   protocol={'runner_sha256':c.runner.sha(root/'run_study.py'),'agent_sha256':c.runner.sha(root/'agent.md'),'release_list_sha256':c.runner.sha(root/'releases.json')}
+   c.runner.write(root/'study.json',protocol)
+   self.assertEqual(c.runner.register(root,SimpleNamespace()),protocol)
+   (root/'releases.json').write_text('changed')
+   with self.assertRaisesRegex(ValueError,'release list changed'):c.runner.register(root,SimpleNamespace())
  def test_runner_has_consistent_predictor_filter(self):
   import ast
   tree=ast.parse(c.runner.ENGINE)

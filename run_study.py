@@ -1243,7 +1243,7 @@ def seal(root):
         for f in folder.rglob("*"):
             if f.is_file() and f != p:
                 files[str(f.relative_to(root))] = {"sha256": sha(f), "bytes": f.stat().st_size}
-    for name in ["study.json", "agent.md", "run_study.py"]:
+    for name in ["study.json", "agent.md", "run_study.py"] + (["releases.json"] if (root / "releases.json").exists() else []):
         files[name] = {"sha256": sha(root / name), "bytes": (root / name).stat().st_size}
     write(p, {"sealed_at": utc(), "files": files})
 
@@ -1362,6 +1362,9 @@ def register(root, args, smoke=False):
                 raise ValueError(f"Registered {name} is {protocol[name]!r}; use a new study for changed settings")
         if protocol["runner_sha256"] != sha(root / "run_study.py") or protocol["agent_sha256"] != sha(root / "agent.md"):
             raise ValueError("Registered runner/prompt changed; preserve this study and create a new one")
+        release_file = root / "releases.json"
+        if protocol.get("release_list_sha256") != (sha(release_file) if release_file.exists() else None):
+            raise ValueError("Registered release list changed; preserve this study and create a new one")
         return protocol
     model = args.model or "claude-fable-5-2"
     jobs,threads=resource_profile(args,smoke)
@@ -1383,6 +1386,7 @@ def register(root, args, smoke=False):
                 "experiment_seconds": 300, "control_seconds": 30 if smoke else 85 * 60,
                 "attempt_total_seconds": 2 * 3600, "push": bool(args.push),
                 "runner_sha256": sha(root / "run_study.py"), "agent_sha256": sha(root / "agent.md"),
+                "release_list_sha256": sha(root / "releases.json") if (root / "releases.json").exists() else None,
                 "cli_version": version, "platform": platform.platform(), "python": sys.version,
                 "cpu_count": os.cpu_count(), "selection": "max replayed validation AUC; ties <=1e-9 earliest trial",
                 "control_budget": "match successful primary validation trial fitting CPU; cap by control wall time; exclude diagnostic/replay CPU; report over/undershoot",

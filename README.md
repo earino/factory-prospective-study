@@ -19,3 +19,11 @@ The controller schedules a bounded analysis/writing run on November 18 and retai
 its output for author review. Scheduling is not proof of a finished or correct
 paper. `STATUS.md`, evidence and paper/SIGNOFF.md distinguish actual outcomes.
 Nothing is automatically submitted or made public.
+
+Install once with `python3 install_monitor.py`. The monitor checks every five
+minutes and captures a dashboard observation every thirty minutes. A separate
+`caffeinate -i` assertion prevents idle sleep through November 18 at 19:00 Paris;
+it does not prevent manual sleep, shutdown or logout. Both jobs are scoped to
+this study. To stop them, use `launchctl bootout gui/$(id -u)/org.earino.factory-prospective-study`
+and the same command with `.awake` appended. The collector becomes inactive
+at the end of the window; remove its plist afterwards if no longer needed.

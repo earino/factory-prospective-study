@@ -15,10 +15,11 @@ def write(p,v):runner.write(p,v)
 def fetch(url):
     with urllib.request.urlopen(url,timeout=60) as r:return r.read()
 def git(args,cwd=ROOT):return runner.command(['git',*args],cwd=cwd,timeout=180).strip()
-def checkpoint(message,push=True):
+def checkpoint(message,push=True,paper=False):
     with (LOCAL/'git.lock').open('w') as lock:
         fcntl.flock(lock,fcntl.LOCK_EX)
         git(['add','--','evidence','queue.json','STATUS.md'])
+        if paper:git(['add','--','paper'])
         if subprocess.run(['git','diff','--cached','--quiet'],cwd=ROOT).returncode==1:git(['commit','-m',message])
         if push:
             git(['push','origin','HEAD']);runner.check_ci(ROOT,git(['rev-parse','HEAD']))
@@ -41,12 +42,15 @@ def collect():
         r['selected']=i<P['max_datasets']
         if not r['selected'] and r['status']=='queued':r['status']='capacity_excluded'
     write(ROOT/'queue.json',q)
+    refresh_status(x,q)
+    return q
+
+def refresh_status(x,q):
     status={'observed_at':now().isoformat(),'snapshot_generated_at':x['generated_at'],'factory_counts':x['candidates']['counts'],
             'window':P,'queue':[{k:r.get(k) for k in ['dataset','verified_at','status','selected','branch','error']} for r in q],
             'consumer':read(LOCAL/'worker.json',{}),'paper':read(LOCAL/'paper.json',{})}
     write(E/'latest.json',status)
     (ROOT/'STATUS.md').write_text('# Prospective study status\n\n'+json.dumps(status,indent=2)+'\n')
-    return q
 
 def pin(r):
     name=r['dataset']
@@ -71,7 +75,7 @@ def execute(r):
     name=r['dataset'];work=LOCAL/'studies'/name;work.mkdir(parents=True,exist_ok=True)
     if not (work/'releases.json').exists():
         for n in ['run_study.py','agent.md']:shutil.copyfile(ROOT/n,work/n)
-        entry=pin(r);write(work/'releases.json',[entry]);runner.ensure_repo(work)
+        entry=pin(r);write(work/'releases.json',[entry]);git(['init','-b','main'],work);runner.ensure_repo(work)
         git(['branch','-m','consumer/'+name],work);git(['remote','add','origin',P['remote']],work)
         # Public predictor contract review happens before any holdout data is obtained.
         runner.prepare_dataset(work,entry)
@@ -146,6 +150,8 @@ def tick():
                 if result:r.update(result)
                 elif r.get('selected') and now()>=parse(P['research_stop']):r['status']='incomplete_at_deadline'
             write(ROOT/'queue.json',q);write(LOCAL/'last-collect.json',{'epoch':time.time()})
+            latest=read(E/'latest.json');latest['queue']=[{k:r.get(k) for k in ['dataset','verified_at','status','selected','branch','error']} for r in q]
+            write(E/'latest.json',latest);(ROOT/'STATUS.md').write_text('# Prospective study status\n\n'+json.dumps(latest,indent=2)+'\n')
             checkpoint('Record prospective factory observation '+now().strftime('%Y-%m-%d %H:%M'),push=True)
         if now()<parse(P['research_stop']):
             spawn('work')
@@ -161,7 +167,7 @@ def paper():
         try:fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
         except BlockingIOError:return
         state=read(LOCAL/'paper.json',{})
-        if state.get('attempts',0)>=2 or state.get('status')=='complete':return
+        if state.get('attempts',0)>=2 or state.get('status')=='draft_produced':return
         if now()>parse(P['paper_ready_due']):return
         # Ensure no consumer process owns its lock before analysis receives holdout results.
         with (LOCAL/'consumer.lock').open('a') as c:
@@ -172,8 +178,9 @@ def paper():
             seconds=min(3*3600,max(1,parse(P['paper_ready_due']).timestamp()-time.time()))
             result=bounded_agent(work,prompt,seconds,LOCAL/'logs'/f'paper-{state.get("attempts",0)}.jsonl')
             complete=(work/'output/paper.pdf').exists() and (work/'SIGNOFF.md').exists()
-            write(LOCAL/'paper.json',{'attempts':state.get('attempts',0)+1,'status':'complete' if complete else 'incomplete','result':result,'at':now().isoformat()})
+            write(LOCAL/'paper.json',{'attempts':state.get('attempts',0)+1,'status':'draft_produced' if complete else 'incomplete','result':result,'at':now().isoformat()})
             write(E/'paper-run.json',read(LOCAL/'paper.json'))
+            checkpoint('Preserve bounded paper preparation output',paper=True)
 
 def main():
     a=argparse.ArgumentParser();a.add_argument('action',choices=['collect','tick','work','paper','status']);args=a.parse_args()
