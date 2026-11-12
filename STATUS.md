@@ -1,8 +1,7 @@
 # Prospective study status
 
 {
-  "observed_at": "2026-11-12T21:34:44.639402+00:00",
-  "snapshot_generated_at": "2026-11-12T21:24:41+00:00",
+  "consumer": {},
   "factory_counts": {
     "build": 1,
     "deferred": 28,
@@ -10,27 +9,28 @@
     "published": 7,
     "rejected": 5
   },
+  "observed_at": "2026-11-12T21:43:41.205109+00:00",
+  "paper": {},
+  "queue": [],
+  "snapshot_generated_at": "2026-11-12T21:24:41+00:00",
   "window": {
-    "registered_at": "2026-11-12T21:27:59.319944+00:00",
-    "cohort_start": "2026-11-12T21:27:59.319944+00:00",
-    "cohort_close": "2026-11-17T17:00:00Z",
-    "research_stop": "2026-11-18T03:00:00Z",
     "analysis_start": "2026-11-18T04:00:00Z",
-    "paper_draft_due": "2026-11-18T11:00:00Z",
-    "paper_ready_due": "2026-11-18T17:00:00Z",
-    "max_datasets": 12,
-    "model": "claude-fable-5-2",
-    "jobs": 3,
-    "threads": 5,
     "attempt_minutes": 85,
-    "per_dataset_wall_hours": 6,
-    "poll_seconds": 1800,
+    "cohort_close": "2026-11-17T17:00:00Z",
+    "cohort_start": "2026-11-12T21:27:59.319944+00:00",
     "dashboard": "https://earino.github.io/dataset-factory-dashboard/dashboard.json",
     "factory_commit": "6238b7dca455b2ec4ac87b1602dd7fa1caad8201",
+    "jobs": 3,
+    "max_datasets": 12,
+    "model": "claude-fable-5-2",
+    "paper_draft_due": "2026-11-18T11:00:00Z",
+    "paper_ready_due": "2026-11-18T17:00:00Z",
+    "per_dataset_wall_hours": 6,
     "pilot_commit": "2e7dd9b117cf76f78eb6a77218a83778fbdaa5df",
-    "remote": "https://github.com/earino/factory-prospective-study.git"
-  },
-  "queue": [],
-  "consumer": {},
-  "paper": {}
+    "poll_seconds": 1800,
+    "registered_at": "2026-11-12T21:27:59.319944+00:00",
+    "remote": "https://github.com/earino/factory-prospective-study.git",
+    "research_stop": "2026-11-18T03:00:00Z",
+    "threads": 5
+  }
 }

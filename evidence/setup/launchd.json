@@ -1,0 +1,46 @@
+{
+  "installed_at": "2026-11-12T21:43:40.970065+00:00",
+  "end": "2026-11-18T18:00:00+00:00",
+  "agents": [
+    {
+      "label": "org.earino.factory-prospective-study",
+      "path": "/Users/earino/Library/LaunchAgents/org.earino.factory-prospective-study.plist",
+      "spec": {
+        "Label": "org.earino.factory-prospective-study",
+        "ProgramArguments": [
+          "/opt/homebrew/opt/python@3.14/bin/python3.14",
+          "/Users/earino/research/factory-prospective-study/controller.py",
+          "tick"
+        ],
+        "WorkingDirectory": "/Users/earino/research/factory-prospective-study",
+        "RunAtLoad": true,
+        "EnvironmentVariables": {
+          "PATH": "/Users/earino/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin"
+        },
+        "StandardOutPath": "/Users/earino/research/factory-prospective-study/.local/logs/org.earino.factory-prospective-study.out.log",
+        "StandardErrorPath": "/Users/earino/research/factory-prospective-study/.local/logs/org.earino.factory-prospective-study.err.log",
+        "StartInterval": 300
+      }
+    },
+    {
+      "label": "org.earino.factory-prospective-study.awake",
+      "path": "/Users/earino/Library/LaunchAgents/org.earino.factory-prospective-study.awake.plist",
+      "spec": {
+        "Label": "org.earino.factory-prospective-study.awake",
+        "ProgramArguments": [
+          "/usr/bin/caffeinate",
+          "-i",
+          "-t",
+          "504979"
+        ],
+        "WorkingDirectory": "/Users/earino/research/factory-prospective-study",
+        "RunAtLoad": true,
+        "EnvironmentVariables": {
+          "PATH": "/Users/earino/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin"
+        },
+        "StandardOutPath": "/Users/earino/research/factory-prospective-study/.local/logs/org.earino.factory-prospective-study.awake.out.log",
+        "StandardErrorPath": "/Users/earino/research/factory-prospective-study/.local/logs/org.earino.factory-prospective-study.awake.err.log"
+      }
+    }
+  ]
+}
