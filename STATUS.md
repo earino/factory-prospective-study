@@ -8,10 +8,10 @@
     "published": 7,
     "rejected": 5
   },
-  "observed_at": "2026-11-12T22:44:19.094005+00:00",
+  "observed_at": "2026-11-12T23:14:41.492485+00:00",
   "paper": {},
   "queue": [],
-  "snapshot_generated_at": "2026-11-12T21:50:45+00:00",
+  "snapshot_generated_at": "2026-11-12T22:50:43+00:00",
   "window": {
     "analysis_start": "2026-11-18T04:00:00Z",
     "attempt_minutes": 85,
