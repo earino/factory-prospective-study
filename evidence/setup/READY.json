@@ -1,0 +1,41 @@
+{
+  "observed_at": "2026-11-12T22:01:52.994877+00:00",
+  "factory_resource_deployment": "6238b7dca455b2ec4ac87b1602dd7fa1caad8201",
+  "resource_evidence_commit": "e0f4a87c953f5151681467a8f47cb88a3dfb19f5",
+  "worker_allowance_eur": 50,
+  "ledger_repository": "earino/dataset-factory",
+  "ledger_branch": "scout/prospective-2026-11",
+  "corrected_initial_commit": "bc9d2d34fd117b05db059fd057c9ed02e3275589",
+  "corrected_initial_ci": "https://github.com/earino/dataset-factory/actions/runs/43315174716",
+  "close_schedule": {
+    "id": "d35f2e1ec147",
+    "name": "scout-prospective-study-close-export",
+    "at": "2026-11-17T17:00:00Z",
+    "one_shot": true,
+    "model_calls": false,
+    "catch_up": true,
+    "confirmation_source": "Scout Telegram confirmation observed 2026-11-12 23:00 Europe/Paris",
+    "destination": "audits/prospective-2026-11/close/"
+  },
+  "analysis_notes": [
+    "The initial/ export is preserved but superseded by initial-corrected/: numeric token redaction and worker field mapping were wrong.",
+    "Production ledger totals include history. Restrict prospective measurements using attempt timestamps; do not present historical totals as study-window usage.",
+    "queue.json is the registered consumer cohort authority, ordered by dashboard verified_at. Scout cohort.json uses done publish attempt finished time; reconcile these timestamps and report discrepancies, never replace the registered consumer cohort.",
+    "Carry-in candidates newly published within the window are eligible. Only the seven previously published dataset IDs are excluded."
+  ],
+  "local_monitor": {
+    "label": "org.earino.factory-prospective-study",
+    "interval_seconds": 300,
+    "observation_seconds": 1800,
+    "verified_exit_code": 0,
+    "automatic_uninstall_after": "2026-11-18T18:00:00Z",
+    "awake_label": "org.earino.factory-prospective-study.awake"
+  },
+  "verification": {
+    "runner_tests": 18,
+    "controller_tests": 6,
+    "clean_checkout_passed": true,
+    "live_fable_smoke_passed": true,
+    "prospective_consumers_started": 0
+  }
+}
