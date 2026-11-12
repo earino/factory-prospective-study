@@ -38,8 +38,7 @@ for rid in json.loads((ROOT/'study.json').read_text())['order']:
  try:
   B=prep(X);R=concat([prep(X.iloc[[i]].reset_index(drop=True)) for i in range(len(X))]);V=prep(X.iloc[::-1].reset_index(drop=True))
   record={'run':rid,'real_validation_rows_checked':len(X),'batch_equals_single_rows':bool(np.allclose(matrix(B),matrix(R),rtol=0,atol=0,equal_nan=True)),'reverse_order_invariant':bool(np.allclose(matrix(B),matrix(V)[::-1],rtol=0,atol=0,equal_nan=True)),'prepare_external_events':list(events),'n_jobs':a['state']['model'].get_params().get('n_jobs'),'feature_count':R.shape[1]}
-  if rid.startswith('fdic'):
-   cols=a['state'].get('cols') or a['state'].get('names');record['selected_feature_names']=cols
+  record['selected_feature_names']=a['state'].get('cols') or a['state'].get('names')
   results.append(record)
  except Exception as e:results.append({'run':rid,'error':repr(e),'prepare_external_events':list(events)})
  (OUT/'artifact-probes.json').write_text(json.dumps(results,indent=2)+'\n');print(json.dumps(results[-1]),flush=True)

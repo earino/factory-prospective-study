@@ -14,7 +14,7 @@ path=str(Path.home()/'.local/bin')+':/opt/homebrew/bin:/usr/local/bin:/usr/bin:/
 records=[]
 for label,args,extra in [
  (base,[sys.executable,str(ROOT/'controller.py'),'tick'],{'StartInterval':300}),
- (base+'.awake',['/usr/bin/caffeinate','-i','-t',str(seconds)],{})]:
+ (base+'.awake',[sys.executable,str(ROOT/'controller.py'),'awake'],{})]:
  spec={'Label':label,'ProgramArguments':args,'WorkingDirectory':str(ROOT),'RunAtLoad':True,
        'EnvironmentVariables':{'PATH':path},'StandardOutPath':str(logs/(label+'.out.log')),
        'StandardErrorPath':str(logs/(label+'.err.log')),**extra}

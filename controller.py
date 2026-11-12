@@ -182,11 +182,16 @@ def paper():
             write(E/'paper-run.json',read(LOCAL/'paper.json'))
             checkpoint('Preserve bounded paper preparation output',paper=True)
 
+def awake():
+    seconds=int((parse(P['paper_ready_due'])+dt.timedelta(hours=1)-now()).total_seconds())
+    if seconds>0:subprocess.run(['/usr/bin/caffeinate','-i','-t',str(seconds)],check=True)
+
 def main():
-    a=argparse.ArgumentParser();a.add_argument('action',choices=['collect','tick','work','paper','status']);args=a.parse_args()
+    a=argparse.ArgumentParser();a.add_argument('action',choices=['collect','tick','work','paper','status','awake']);args=a.parse_args()
     if args.action=='collect':collect()
     elif args.action=='tick':tick()
     elif args.action=='work':work_queue()
     elif args.action=='paper':paper()
+    elif args.action=='awake':awake()
     else:print(json.dumps(read(E/'latest.json',{}),indent=2))
 if __name__=='__main__':main()

@@ -26,20 +26,19 @@
       "label": "org.earino.factory-prospective-study.awake",
       "path": "/Users/earino/Library/LaunchAgents/org.earino.factory-prospective-study.awake.plist",
       "spec": {
-        "Label": "org.earino.factory-prospective-study.awake",
-        "ProgramArguments": [
-          "/usr/bin/caffeinate",
-          "-i",
-          "-t",
-          "504979"
-        ],
-        "WorkingDirectory": "/Users/earino/research/factory-prospective-study",
-        "RunAtLoad": true,
         "EnvironmentVariables": {
           "PATH": "/Users/earino/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin"
         },
+        "Label": "org.earino.factory-prospective-study.awake",
+        "ProgramArguments": [
+          "/opt/homebrew/opt/python@3.14/bin/python3.14",
+          "/Users/earino/research/factory-prospective-study/controller.py",
+          "awake"
+        ],
+        "RunAtLoad": true,
+        "StandardErrorPath": "/Users/earino/research/factory-prospective-study/.local/logs/org.earino.factory-prospective-study.awake.err.log",
         "StandardOutPath": "/Users/earino/research/factory-prospective-study/.local/logs/org.earino.factory-prospective-study.awake.out.log",
-        "StandardErrorPath": "/Users/earino/research/factory-prospective-study/.local/logs/org.earino.factory-prospective-study.awake.err.log"
+        "WorkingDirectory": "/Users/earino/research/factory-prospective-study"
       }
     }
   ]

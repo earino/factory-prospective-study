@@ -7,9 +7,13 @@ OUT=Path(os.environ['REVIEW_OUT']); OUT.mkdir(parents=True,exist_ok=True)
 protocol=json.loads((ROOT/'study.json').read_text()); coverage=[]; requests=[]; attention=[]; costrows=[]
 flag_ids={}
 for rid in protocol['order']:
+ required=[ROOT/'evidence/compliance'/f'{rid}.json',ROOT/'evidence/attempts'/rid/'state.json',ROOT/'evidence/frozen'/rid/'train.py']
+ missing=[str(p.relative_to(ROOT)) for p in required if not p.exists()]
+ if missing:
+  coverage.append({'run':rid,'status':'incomplete','missing':missing});continue
  c=json.loads((ROOT/'evidence/compliance'/f'{rid}.json').read_text()); flag_ids[rid]={x['tool_use_id'] for x in c['tool_access_flags']}
  state=json.loads((ROOT/'evidence/attempts'/rid/'state.json').read_text()); calls=state['invocations'];costs=[x['result']['total_cost_usd'] for x in calls if (x.get('result') or {}).get('total_cost_usd') is not None]
- costrows.append({'run':rid,'session_id':state['session_id'],'invocations':len(calls),'naive_sum_cumulative_cost':sum(costs),'last_reported_session_cost':costs[-1] if costs else None,'monotone_cumulative_cost':all(a<=b+1e-8 for a,b in zip(costs,costs[1:])),'final_invocation_has_result':bool(calls[-1].get('result')),'short_invocations_under_10s':sum(0<x.get('elapsed_s',0)<10 for x in calls)})
+ costrows.append({'run':rid,'session_id':state['session_id'],'invocations':len(calls),'naive_sum_cumulative_cost':sum(costs),'last_reported_session_cost':costs[-1] if costs else None,'monotone_cumulative_cost':all(a<=b+1e-8 for a,b in zip(costs,costs[1:])),'final_invocation_has_result':bool(calls and calls[-1].get('result')),'short_invocations_under_10s':sum(0<x.get('elapsed_s',0)<10 for x in calls)})
  code=ROOT/'evidence/frozen'/rid/'train.py';tree=ast.parse(code.read_text()); io=[]
  for node in ast.walk(tree):
   if isinstance(node,ast.Call):
@@ -51,5 +55,5 @@ for rid in protocol['order']:
 (OUT/'review-inventory.json').write_text(json.dumps(coverage,indent=2)+'\n')
 (OUT/'cost-reconciliation.json').write_text(json.dumps({'basis':'Last available cumulative cost per independent CLI session, not per-invocation sum; estimates, not invoice. Deadline-truncated final invocations may leave unreported usage.','runs':costrows,'sum_last_reported_session_cost':sum(x['last_reported_session_cost'] or 0 for x in costrows),'original_naive_sum':sum(x['naive_sum_cumulative_cost'] for x in costrows)},indent=2)+'\n')
 print('runs',len(coverage),'tool_requests',len(requests),'attention_requests',len(attention))
-for x in coverage:print(x['run'],x['tool_counts'],'IO',x['selected_code_io_calls'],'flag_results',x['existing_flag_results'])
+for x in coverage:print(x['run'],x.get('status','reviewed'),x.get('tool_counts',{}),'IO',x.get('selected_code_io_calls',[]),'flag_results',x.get('existing_flag_results',[]))
 print('cost_last_sessions',sum(x['last_reported_session_cost'] or 0 for x in costrows))
