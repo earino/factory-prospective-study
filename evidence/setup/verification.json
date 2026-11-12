@@ -10,6 +10,7 @@
     "clean_checkout_suite": "18 runner tests + 4 controller tests passed",
     "release_list_binding": "resume rejects changed release list; sealed digest includes file",
     "validation_replay": "ordinary and released frozen smoke models scored successfully with final engine",
-    "holdout_access": "none in setup smoke"
+    "holdout_access": "none in setup smoke",
+    "post_review_smoke": "review_checks, probe_all_training_features, probe_artifacts exited zero on excluded frozen smoke artifact"
   }
 }

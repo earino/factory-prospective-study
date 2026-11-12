@@ -71,6 +71,13 @@ def bounded_agent(work,prompt,seconds,output):
         return {'ok':True,'summary':runner.cli_summary(output)}
     except Exception as e:return {'ok':False,'error':str(e)[-1200:],'summary':runner.cli_summary(output) if output.exists() else {}}
 
+def archive_trace(source,dest):
+    if not source.exists():return
+    dest.parent.mkdir(parents=True,exist_ok=True)
+    with source.open(errors='replace') as src,gzip.open(dest,'wt') as out:
+        for line in src:out.write(runner.redact(line))
+    write(dest.with_suffix('.provenance.json'),{'raw_sha256':runner.sha(source),'archive_sha256':runner.sha(dest),'redaction':'runner credential-pattern and environment-secret redaction; raw retained locally'})
+
 def execute(r):
     name=r['dataset'];work=LOCAL/'studies'/name;work.mkdir(parents=True,exist_ok=True)
     if not (work/'releases.json').exists():
@@ -84,6 +91,7 @@ def execute(r):
         result=bounded_agent(review,prompt,900,review/'pre-review.jsonl')
         dest=E/'reviews'/name;dest.mkdir(parents=True,exist_ok=True)
         write(dest/'pre-review-invocation.json',result)
+        archive_trace(review/'pre-review.jsonl',dest/'pre-review.jsonl.gz')
         for f in ['PRE-REVIEW.md','cluster.json']:
             if (review/f).exists():shutil.copyfile(review/f,dest/f)
         write(dest/'pinned-release.json',entry)
@@ -180,6 +188,7 @@ def paper():
             complete=(work/'output/paper.pdf').exists() and (work/'SIGNOFF.md').exists()
             write(LOCAL/'paper.json',{'attempts':state.get('attempts',0)+1,'status':'draft_produced' if complete else 'incomplete','result':result,'at':now().isoformat()})
             write(E/'paper-run.json',read(LOCAL/'paper.json'))
+            archive_trace(LOCAL/'logs'/f'paper-{state.get("attempts",0)}.jsonl',E/'paper-transcripts'/f'paper-{state.get("attempts",0)}.jsonl.gz')
             checkpoint('Preserve bounded paper preparation output',paper=True)
 
 def awake():
