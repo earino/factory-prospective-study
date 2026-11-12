@@ -8,7 +8,7 @@
     "published": 7,
     "rejected": 5
   },
-  "observed_at": "2026-11-12T22:14:02.587066+00:00",
+  "observed_at": "2026-11-12T22:44:19.094005+00:00",
   "paper": {},
   "queue": [],
   "snapshot_generated_at": "2026-11-12T21:50:45+00:00",
