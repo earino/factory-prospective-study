@@ -13,6 +13,20 @@ class Tests(unittest.TestCase):
   r={'dataset':'new-task','release':{'release_tag':'v1'}}
   with patch.object(c,'fetch',side_effect=[b'{"sha":"abc"}',b'{"dataset":"other","version":"v1"}']):
    with self.assertRaises(ValueError):c.pin(r)
+ def test_expired_tick_does_no_work(self):
+  with patch.object(c,'now',return_value=c.parse(c.P['paper_ready_due'])+c.dt.timedelta(hours=2)),patch.object(c,'retire_monitor') as retire,patch.object(c,'collect') as collect,patch.object(c,'spawn') as spawn:
+   c.tick();retire.assert_called_once();collect.assert_not_called();spawn.assert_not_called()
+ def test_retirement_preserves_evidence_and_removes_only_owned_schedules(self):
+  with tempfile.TemporaryDirectory() as d:
+   home=Path(d);folder=home/'Library/LaunchAgents';folder.mkdir(parents=True);local=home/'local';local.mkdir();e=home/'evidence';e.mkdir();(e/'keep').write_text('keep')
+   base='org.earino.factory-prospective-study'
+   for suffix,action in [('', 'tick'),('.awake','awake')]:
+    label=base+suffix;(folder/(label+'.plist')).write_bytes(c.plistlib.dumps({'Label':label,'WorkingDirectory':str(c.ROOT),'ProgramArguments':['python',str(c.ROOT/'controller.py'),action]}))
+   (folder/'unrelated.plist').write_text('unrelated')
+   with patch.object(Path,'home',return_value=home),patch.object(c,'LOCAL',local),patch.object(c,'E',e),patch.object(c.subprocess,'run') as run:
+    c.retire_monitor()
+    self.assertEqual(run.call_count,2)
+   self.assertEqual((e/'keep').read_text(),'keep');self.assertTrue((folder/'unrelated.plist').exists());self.assertFalse((folder/(base+'.plist')).exists());self.assertTrue((local/'retired-launchagents'/(base+'.plist')).exists())
  def test_resume_rejects_changed_release_list(self):
   from types import SimpleNamespace
   with tempfile.TemporaryDirectory() as d:

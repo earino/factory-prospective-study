@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Prospective study collector and bounded dispatcher. No production mutations."""
-import argparse,datetime as dt,fcntl,gzip,hashlib,json,os,re,shutil,signal,subprocess,sys,time,urllib.request
+import argparse,datetime as dt,fcntl,gzip,hashlib,json,os,plistlib,re,shutil,signal,subprocess,sys,time,urllib.request
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent
 sys.path.insert(0,str(ROOT))
@@ -145,11 +145,39 @@ def work_queue():
             write(LOCAL/'worker.json',result)
             # Evidence is copied by monitor under its Git lock, avoiding concurrent main commits.
 
+def retire_monitor():
+    """Archive only this study's schedules, then unload them. Evidence stays intact."""
+    base='org.earino.factory-prospective-study'
+    folder=Path.home()/'Library/LaunchAgents'
+    owned=[]
+    for label in [base+'.awake',base]:
+        path=folder/(label+'.plist')
+        if path.exists():
+            spec=plistlib.loads(path.read_bytes())
+            if (path.is_symlink() or spec.get('Label')!=label or
+                spec.get('WorkingDirectory')!=str(ROOT) or
+                spec.get('ProgramArguments',[None,None])[1:]!=[str(ROOT/'controller.py'),'awake' if label.endswith('.awake') else 'tick']):
+                raise RuntimeError('Refusing to remove an unrecognized schedule: '+str(path))
+            owned.append((label,path))
+    archive=LOCAL/'retired-launchagents';archive.mkdir(exist_ok=True)
+    for label,path in owned:
+        target=archive/path.name
+        if target.exists() and target.read_bytes()!=path.read_bytes():
+            raise RuntimeError('Retired schedule differs; preserve both for inspection')
+        path.replace(target)
+    write(E/'monitor-stop.json',{'at':now().isoformat(),'reason':'registered window ended',
+          'schedules_archived':[label for label,path in owned],'evidence_preserved':True,
+          'note':'Plists removed before unloading; no reload on next login. Self-unload ends this process.'})
+    # Self is last: launchd can terminate this process when that job is unloaded.
+    for label in [base+'.awake',base]:
+        subprocess.run(['launchctl','bootout',f'gui/{os.getuid()}/'+label],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+
 def tick():
     with (LOCAL/'monitor.lock').open('w') as lock:
         try:fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
         except BlockingIOError:return
-        if now()>parse(P['paper_ready_due'])+dt.timedelta(hours=1):return
+        if now()>=parse(P['paper_ready_due'])+dt.timedelta(hours=1):
+            retire_monitor();return
         last=read(LOCAL/'last-collect.json',{})
         if time.time()-last.get('epoch',0)>=P['poll_seconds']:
             q=collect()
