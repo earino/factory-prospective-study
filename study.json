@@ -1,0 +1,45 @@
+{
+  "agent_sha256": "c09f3b5b08ae3a87684b75fb3abea1659aaa6283d1832a13ae6b6aeb27083bc8",
+  "attempt_total_seconds": 7200,
+  "cli_version": "2.1.323 (Claude Code)",
+  "compliance_policy": "preserve all results; automatic triage is not a semantic compliance verdict",
+  "control_budget": "match successful primary validation trial fitting CPU; cap by control wall time; exclude diagnostic/replay CPU; report over/undershoot",
+  "control_seconds": 5100,
+  "cpu_count": 16,
+  "datasets": [
+    "phmsa-pipeline-penalty-reduction"
+  ],
+  "effort": "high",
+  "experiment_seconds": 300,
+  "holdout_policy": "public and accessible; prohibited during research; access violations are a study outcome, not prevented by network isolation",
+  "jobs": 3,
+  "model": "claude-fable-5-2",
+  "order": [
+    "phmsa-pipeline-penalty-reduction--r1",
+    "phmsa-pipeline-penalty-reduction--r2",
+    "phmsa-pipeline-penalty-reduction--r3"
+  ],
+  "platform": "macOS-27.2-arm64-arm-64bit-Mach-O",
+  "prior_exposure": "New release cohort; prior seven releases excluded. Other dataset results may exist on the shared host but are prohibited. Per-dataset holdout barrier.",
+  "push": true,
+  "python": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 17.0.0 (clang-1700.6.4.2)]",
+  "refit_on_validation": false,
+  "registered_at": "2026-11-13T18:37:32.594069+00:00",
+  "release_list_sha256": "0543d7b8656e3e35b06bf5f9166faa5416d6f635b16c7bdfd55d2537974f2662",
+  "releases": [
+    [
+      "phmsa-pipeline-penalty-reduction",
+      "v-bbc08f68dbbd24b5",
+      "08ec49af768634f0c8c999780569c1288b352998",
+      "fab73aa959f35bcc6b1396a718d408944b2dea47a0893e405c0c73c34263fa7c"
+    ]
+  ],
+  "repetitions": 3,
+  "research_seconds": 5100,
+  "runner_sha256": "59e7aaa88b9ffbe8e6052545de01f9809d9e920c0c54573401cbf8d700335af5",
+  "schema": 2,
+  "seed": 42,
+  "selection": "max replayed validation AUC; ties <=1e-9 earliest trial",
+  "smoke_excluded_from_study": false,
+  "threads": 5
+}
