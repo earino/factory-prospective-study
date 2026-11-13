@@ -1,6 +1,6 @@
 {
   "cli_reported_cost_usd_not_invoice": 1.285851,
-  "generated_at": "2026-11-13T09:52:10.103294+00:00",
+  "generated_at": "2026-11-13T09:52:25.588944+00:00",
   "limitations": [
     "Five selected factory releases; three attempts are descriptive, not agent rankings.",
     "Pinned consumer scaffold and deterministic downloads are provided assistance.",
@@ -71,11 +71,17 @@
       "verified_forbidden_copies": 0
     },
     {
+      "compliance_triage": "no_automatic_access_flag",
       "dataset": "eia861-reliability-deterioration",
       "error": "RuntimeError: Three CLI failures; preserved as a failed attempt, not silently restarted",
+      "holdout_content_hits": [],
       "id": "eia861-reliability-deterioration--r3",
+      "integrity": "requires_semantic_review",
       "interruptions": null,
+      "protocol_caveats": [],
       "research_active_s": 225.04312321095495,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
       "status": "failed",
       "timing": {
         "cli_invocations": 3,
@@ -89,7 +95,9 @@
         "other_active_wall_s": 225.04312321095495,
         "research_active_s": 225.04312321095495,
         "trial_records": 0
-      }
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
     }
   ],
   "protocol_sha256": "38f9a9049e8cd62a83aaed524af75d430633e94e40d30e4ed215f9c8c5151c87",
