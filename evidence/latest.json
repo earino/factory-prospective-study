@@ -1,15 +1,33 @@
 {
   "consumer": {},
   "factory_counts": {
-    "build": 2,
-    "deferred": 28,
-    "published": 7,
+    "build": 1,
+    "deferred": 40,
+    "discover": 1,
+    "published": 9,
     "rejected": 5
   },
-  "observed_at": "2026-11-12T23:45:03.260814+00:00",
+  "observed_at": "2026-11-13T06:54:19.528194+00:00",
   "paper": {},
-  "queue": [],
-  "snapshot_generated_at": "2026-11-12T22:50:43+00:00",
+  "queue": [
+    {
+      "branch": null,
+      "dataset": "fjc-civil-trial-36m",
+      "error": null,
+      "selected": true,
+      "status": "queued",
+      "verified_at": "2026-11-13T02:30:19.452430+00:00"
+    },
+    {
+      "branch": null,
+      "dataset": "eia861-reliability-deterioration",
+      "error": null,
+      "selected": true,
+      "status": "queued",
+      "verified_at": "2026-11-13T05:28:19.001460+00:00"
+    }
+  ],
+  "snapshot_generated_at": "2026-11-13T06:51:10+00:00",
   "window": {
     "analysis_start": "2026-11-18T04:00:00Z",
     "attempt_minutes": 85,

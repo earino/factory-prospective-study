@@ -1,1 +1,80 @@
-[]
+[
+  {
+    "dataset": "fjc-civil-trial-36m",
+    "release": {
+      "artifact_version": "12c60dcef222d140c644711233662e099b37df1325fe5ad1c96ff2d94d0aeff5",
+      "assets": 33,
+      "baseline_display": "See versioned evaluation.json; public validation only",
+      "dataset": "fjc-civil-trial-36m",
+      "destinations": {
+        "github": "https://github.com/earino/factory-fjc-civil-trial-36m/releases/tag/v-86c6129e8102da78",
+        "huggingface": "https://huggingface.co/datasets/earino/factory-fjc-civil-trial-36m"
+      },
+      "detail_id": "source-000048",
+      "disposition": "public",
+      "published": true,
+      "release_tag": "v-86c6129e8102da78",
+      "rows": 838531,
+      "splits": {
+        "eval": {
+          "rows": 124885
+        },
+        "holdout": {
+          "rows": 113510
+        },
+        "train": {
+          "rows": 600136
+        }
+      },
+      "verified": {
+        "github": true,
+        "huggingface": true
+      },
+      "verified_all": true,
+      "verified_at": "2026-11-13T02:30:19.452430+00:00",
+      "workflow": "modern"
+    },
+    "selected": true,
+    "status": "queued",
+    "verified_at": "2026-11-13T02:30:19.452430+00:00"
+  },
+  {
+    "dataset": "eia861-reliability-deterioration",
+    "release": {
+      "artifact_version": "6aa939acba34270679973c9e8b5ea12984814b146a32ca50ec71d3b23ac2790a",
+      "assets": 33,
+      "baseline_display": "See versioned evaluation.json; public validation only",
+      "dataset": "eia861-reliability-deterioration",
+      "destinations": {
+        "github": "https://github.com/earino/factory-eia861-reliability-deterioration/releases/tag/v-498e55482c3ed94b",
+        "huggingface": "https://huggingface.co/datasets/earino/factory-eia861-reliability-deterioration"
+      },
+      "detail_id": "source-000053",
+      "disposition": "public",
+      "published": true,
+      "release_tag": "v-498e55482c3ed94b",
+      "rows": 5809,
+      "splits": {
+        "eval": {
+          "rows": 1294
+        },
+        "holdout": {
+          "rows": 2062
+        },
+        "train": {
+          "rows": 2453
+        }
+      },
+      "verified": {
+        "github": true,
+        "huggingface": true
+      },
+      "verified_all": true,
+      "verified_at": "2026-11-13T05:28:19.001460+00:00",
+      "workflow": "modern"
+    },
+    "selected": true,
+    "status": "queued",
+    "verified_at": "2026-11-13T05:28:19.001460+00:00"
+  }
+]
