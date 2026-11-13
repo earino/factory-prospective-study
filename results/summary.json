@@ -1,6 +1,6 @@
 {
   "cli_reported_cost_usd_not_invoice": 1.285851,
-  "generated_at": "2026-11-13T09:52:25.588944+00:00",
+  "generated_at": "2026-11-13T09:54:00.505624+00:00",
   "limitations": [
     "Five selected factory releases; three attempts are descriptive, not agent rankings.",
     "Pinned consumer scaffold and deterministic downloads are provided assistance.",
@@ -112,5 +112,26 @@
     "output_tokens": 1983
   },
   "requested_model": "claude-fable-5-2",
-  "scores": []
+  "scores": [
+    {
+      "dataset": "eia861-reliability-deterioration",
+      "holdout_auc": 0.6975096903123701,
+      "holdout_brier": 0.13771475728858643,
+      "holdout_rows": 2062,
+      "id": "eia861-reliability-deterioration--ordinary",
+      "kind": "ordinary",
+      "validation_auc": 0.6790162941018044,
+      "validation_brier": 0.12413928687166705
+    },
+    {
+      "dataset": "eia861-reliability-deterioration",
+      "holdout_auc": 0.7112270148473021,
+      "holdout_brier": 0.13109772399706468,
+      "holdout_rows": 2062,
+      "id": "eia861-reliability-deterioration--released",
+      "kind": "released",
+      "validation_auc": 0.6859441729829556,
+      "validation_brier": 0.12008807061910082
+    }
+  ]
 }

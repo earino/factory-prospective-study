@@ -1,6 +1,6 @@
 # Consumer study results
 
-Generated 2026-11-13T09:52:25.588944+00:00
+Generated 2026-11-13T09:54:00.505624+00:00
 
 Measured records are in summary.json and scores.csv. Failures remain in the denominator.
 
@@ -16,6 +16,8 @@ Compliance triage (separate from scores):
 
 Scores (including flagged attempts; do not treat all as compliant results):
 
+- eia861-reliability-deterioration--ordinary: validation AUC 0.679016; holdout AUC 0.697510.
+- eia861-reliability-deterioration--released: validation AUC 0.685944; holdout AUC 0.711227.
 
 ## Limits
 
