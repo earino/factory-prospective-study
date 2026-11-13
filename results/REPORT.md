@@ -1,6 +1,6 @@
 # Consumer study results
 
-Generated 2026-11-13T20:03:43.983186+00:00
+Generated 2026-11-13T20:04:06.958010+00:00
 
 Measured records are in summary.json and scores.csv. Failures remain in the denominator.
 
@@ -11,7 +11,7 @@ Registered attempts: 3; frozen: 3; failed/blocked: 0.
 Compliance triage (separate from scores):
 
 - phmsa-pipeline-penalty-reduction--r1: requires_review; forbidden asset copies 0; tool-access flags 1. Semantic compliance requires review.
-- phmsa-pipeline-penalty-reduction--r2: not yet audited; forbidden asset copies unknown; tool-access flags unknown. Semantic compliance requires review.
+- phmsa-pipeline-penalty-reduction--r2: requires_review; forbidden asset copies 0; tool-access flags 4. Semantic compliance requires review.
 - phmsa-pipeline-penalty-reduction--r3: requires_review; forbidden asset copies 0; tool-access flags 2. Semantic compliance requires review.
 
 Scores (including flagged attempts; do not treat all as compliant results):
