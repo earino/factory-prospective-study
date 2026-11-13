@@ -1,0 +1,100 @@
+{
+  "cli_reported_cost_usd_not_invoice": 0.4070834,
+  "generated_at": "2026-11-13T09:51:53.930120+00:00",
+  "limitations": [
+    "Five selected factory releases; three attempts are descriptive, not agent rankings.",
+    "Pinned consumer scaffold and deterministic downloads are provided assistance.",
+    "CLI-reported model IDs are not independent provider attestation.",
+    "Public holdout isolation and semantic compliance are procedural, not enforced by an OS sandbox.",
+    "CFPB holdout was used in earlier pilot work outside this study.",
+    "Random search matches observed eligible primary-trial fitting CPU, not unlogged diagnostics or token work.",
+    "Fresh Claude trajectories are nondeterministic; frozen artifact replay is reproducible.",
+    "No factory-wide publication yield or spend is inferred from this consumer study."
+  ],
+  "outcomes": [
+    {
+      "dataset": "eia861-reliability-deterioration",
+      "error": null,
+      "id": "eia861-reliability-deterioration--r1",
+      "interruptions": null,
+      "research_active_s": null,
+      "status": "not_finished",
+      "timing": {
+        "cli_invocations": 0,
+        "evaluation_wall_sum_s": 0,
+        "fit_cpu_sum_s": 0,
+        "fit_wall_sum_s": 0,
+        "harness_wall_union_s": 0,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 0,
+        "other_active_wall_s": 0,
+        "research_active_s": 0,
+        "trial_records": 0
+      }
+    },
+    {
+      "compliance_triage": "no_automatic_access_flag",
+      "dataset": "eia861-reliability-deterioration",
+      "error": "RuntimeError: Three CLI failures; preserved as a failed attempt, not silently restarted",
+      "holdout_content_hits": [],
+      "id": "eia861-reliability-deterioration--r2",
+      "integrity": "requires_semantic_review",
+      "interruptions": null,
+      "protocol_caveats": [],
+      "research_active_s": 221.97106941696256,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
+      "status": "failed",
+      "timing": {
+        "cli_invocations": 3,
+        "evaluation_wall_sum_s": 0,
+        "fit_cpu_sum_s": 0,
+        "fit_wall_sum_s": 0,
+        "harness_wall_union_s": 0,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 0,
+        "other_active_wall_s": 221.97106941696256,
+        "research_active_s": 221.97106941696256,
+        "trial_records": 0
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
+    },
+    {
+      "dataset": "eia861-reliability-deterioration",
+      "error": null,
+      "id": "eia861-reliability-deterioration--r3",
+      "interruptions": null,
+      "research_active_s": null,
+      "status": "not_finished",
+      "timing": {
+        "cli_invocations": 0,
+        "evaluation_wall_sum_s": 0,
+        "fit_cpu_sum_s": 0,
+        "fit_wall_sum_s": 0,
+        "harness_wall_union_s": 0,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 0,
+        "other_active_wall_s": 0,
+        "research_active_s": 0,
+        "trial_records": 0
+      }
+    }
+  ],
+  "protocol_sha256": "38f9a9049e8cd62a83aaed524af75d430633e94e40d30e4ed215f9c8c5151c87",
+  "reported_models": [
+    "<synthetic>",
+    "claude-fable-5-2"
+  ],
+  "reported_usage": {
+    "cache_creation_input_tokens": 15814,
+    "cache_read_input_tokens": 29500,
+    "input_tokens": 8,
+    "output_tokens": 630
+  },
+  "requested_model": "claude-fable-5-2",
+  "scores": []
+}

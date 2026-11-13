@@ -1,0 +1,347 @@
+{
+  "attempts": 0,
+  "created_at": "2026-11-13T09:48:11.523420+00:00",
+  "dataset": "eia861-reliability-deterioration",
+  "error": "RuntimeError: Three CLI failures; preserved as a failed attempt, not silently restarted",
+  "finished_at": "2026-11-13T09:51:53.541997+00:00",
+  "guarded": {
+    "CLAUDE.md": "7b5d6f6da87cada9d7ce2e71a2e8852d5368e5c3fbebe3b106d02af24859f681",
+    "_engine.py": "7f88cf7891d732b70ee3eb7001cdcbb097e06ebf7608fbc77374dc39a65c34bd",
+    "evaluate.py": "4058a082deda77182e2f16b69b20bd17a680ec344f4656277ce6f513c10fdebc",
+    "mcp.json": "e93fc8db2b1bd77107fe6c758bca9545fa864cf7cce8ab93a7b2b93a1d566a7b",
+    "release/LICENSE-EVIDENCE.json": "e42a16e9013a232d5a73a5ffc1db6197aa7417d7cf573d88612cf3211c74fed9",
+    "release/LICENSE.md": "3a6aa6fe2a62707ee51429f107f3255567836b96c3e6d41d071e251179e1f65e",
+    "release/MANIFEST.json": "050ce58bacf7c0073e7ccc3c1045438821cc6b76c095409ddb08d132f39e1559",
+    "release/README.md": "2b032e6f12130f1b8ca4771864c2a374d4a3965e4c1860ec6813297ab3059e78",
+    "release/SOURCES.json": "6f062650ffce5320e2b6da73fff1edd6d2b2f5cd33510387388698b51aa89a9f",
+    "release/evaluation.json": "73b4951b670f6482eea54ea9e5b3ff4c99c886860275be3f616112c8de81bdaf",
+    "release/extract/meta.json": "5623e36dec6ec0a313cb0e3d0b2cd033b4731519423d433cb3a7dea42d8e785d",
+    "release/extract/public/eval.csv": "7a6310d4685523a3655cec1b57dd9e1dcf2df739d4bac4540a6bf45b84ce6d78",
+    "release/extract/public/train.csv": "52107eccf49ebf0d76599065baa13c9c7dcad721a27e4e446273470b404c8782",
+    "release/reproduction/build.py": "268e7e918df63581a60e1596426520f0901317c3e3d9fb6a97309a8458b4abb7",
+    "release/reproduction/construction.json": "4ba0e46f119e0524f2dbff39e36f50f0d22cdb939efc9cfd8b3f582b9adab1f0",
+    "release/reproduction/requirements.txt": "5c72f3268174d20364624f76680e189c408a05dba2e7b8cfe12d077b3865e7f0",
+    "release/reproduction/train.py": "a3c6bcf13735bc85c52129ded68f839090dffdc266ebc3810dc61b2e6ea5e7e8"
+  },
+  "id": "eia861-reliability-deterioration--r2",
+  "invocations": [
+    {
+      "argv": [
+        "claude",
+        "-p",
+        "Read CLAUDE.md and TASK.json and execute the research assignment now. Use TASK.json's Python executable for experiments. Never access holdout or other runs. Work until the supervisor deadline; do not stop at a plan or a plateau.",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "high",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--safe-mode",
+        "--setting-sources",
+        "",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "/Users/earino/research/factory-prospective-study/.local/studies/eia861-reliability-deterioration/.study/runs/eia861-reliability-deterioration--r2/mcp.json",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "dontAsk",
+        "--permission-prompts",
+        "none",
+        "--tools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--allowedTools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--no-chrome",
+        "--session-id",
+        "c00d8970-8e37-4e5a-bdbf-a82b73a810c7"
+      ],
+      "assistant_usage": {
+        "cache_creation_input_tokens": 1069,
+        "cache_read_input_tokens": 7776,
+        "input_tokens": 2,
+        "output_tokens": 16
+      },
+      "completed_response_messages_with_usage": 2,
+      "elapsed_s": 2.9306037920177914,
+      "ended_at": "2026-11-13T09:48:14.466884+00:00",
+      "index": 0,
+      "models": [
+        "<synthetic>",
+        "claude-fable-5-2"
+      ],
+      "pid": 90211,
+      "result": {
+        "duration_api_ms": 2005,
+        "duration_ms": 2681,
+        "is_error": true,
+        "modelUsage": {
+          "claude-fable-5-2": {
+            "cacheCreationEphemeral1hInputTokens": 1069,
+            "cacheCreationEphemeral5mInputTokens": 0,
+            "cacheCreationInputTokens": 1069,
+            "cacheReadInputTokens": 7776,
+            "canonicalModel": "claude-fable-5-2",
+            "contextWindow": 1000000,
+            "costBasis": "list",
+            "costUSD": 0.023555200000000002,
+            "inputTokens": 2,
+            "maxOutputTokens": 128000,
+            "outputTokens": 122,
+            "provider": "firstParty",
+            "thinkingTokens": 0,
+            "webSearchRequests": 0
+          }
+        },
+        "num_turns": 2,
+        "session_id": "c00d8970-8e37-4e5a-bdbf-a82b73a810c7",
+        "subtype": "success",
+        "total_cost_usd": 0.023555200000000002,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 1069,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 1069,
+          "cache_read_input_tokens": 7776,
+          "fallback_credit": null,
+          "inference_geo": "global",
+          "input_tokens": 2,
+          "iterations": [],
+          "output_tokens": 122,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        }
+      },
+      "returncode": 1,
+      "session_id": "c00d8970-8e37-4e5a-bdbf-a82b73a810c7",
+      "started_at": "2026-11-13T09:48:11.532139+00:00",
+      "status": "exited",
+      "usage_basis": "CLI final result"
+    },
+    {
+      "argv": [
+        "claude",
+        "-p",
+        "Continue the same research attempt. The supervisor's measured active search time is 93.4 seconds, with 5006.6 seconds remaining. Read TASK.json for the updated deadline. Continue experiments, ablations, research or reproducibility checks. Do not access holdout, change selection rules, or wait idle.",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "high",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--safe-mode",
+        "--setting-sources",
+        "",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "/Users/earino/research/factory-prospective-study/.local/studies/eia861-reliability-deterioration/.study/runs/eia861-reliability-deterioration--r2/mcp.json",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "dontAsk",
+        "--permission-prompts",
+        "none",
+        "--tools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--allowedTools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--no-chrome",
+        "--resume",
+        "c00d8970-8e37-4e5a-bdbf-a82b73a810c7"
+      ],
+      "assistant_usage": {
+        "cache_creation_input_tokens": 4034,
+        "cache_read_input_tokens": 8845,
+        "input_tokens": 4,
+        "output_tokens": 16
+      },
+      "completed_response_messages_with_usage": 2,
+      "elapsed_s": 3.647495415993035,
+      "ended_at": "2026-11-13T09:49:48.590082+00:00",
+      "index": 1,
+      "models": [
+        "<synthetic>",
+        "claude-fable-5-2"
+      ],
+      "pid": 90463,
+      "result": {
+        "duration_api_ms": 5317,
+        "duration_ms": 3377,
+        "is_error": true,
+        "modelUsage": {
+          "claude-fable-5-2": {
+            "cacheCreationEphemeral1hInputTokens": 5103,
+            "cacheCreationEphemeral5mInputTokens": 0,
+            "cacheCreationInputTokens": 5103,
+            "cacheReadInputTokens": 16621,
+            "canonicalModel": "claude-fable-5-2",
+            "contextWindow": 1000000,
+            "costBasis": "list",
+            "costUSD": 0.0993402,
+            "inputTokens": 6,
+            "maxOutputTokens": 128000,
+            "outputTokens": 358,
+            "provider": "firstParty",
+            "thinkingTokens": 0,
+            "webSearchRequests": 0
+          }
+        },
+        "num_turns": 3,
+        "session_id": "c00d8970-8e37-4e5a-bdbf-a82b73a810c7",
+        "subtype": "success",
+        "total_cost_usd": 0.0993402,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 4034,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 4034,
+          "cache_read_input_tokens": 8845,
+          "fallback_credit": null,
+          "inference_geo": "global",
+          "input_tokens": 4,
+          "iterations": [],
+          "output_tokens": 236,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        }
+      },
+      "returncode": 1,
+      "session_id": "c00d8970-8e37-4e5a-bdbf-a82b73a810c7",
+      "started_at": "2026-11-13T09:49:44.940584+00:00",
+      "status": "exited",
+      "usage_basis": "CLI final result"
+    },
+    {
+      "argv": [
+        "claude",
+        "-p",
+        "Continue the same research attempt. The supervisor's measured active search time is 217.5 seconds, with 4882.5 seconds remaining. Read TASK.json for the updated deadline. Continue experiments, ablations, research or reproducibility checks. Do not access holdout, change selection rules, or wait idle.",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "high",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--safe-mode",
+        "--setting-sources",
+        "",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "/Users/earino/research/factory-prospective-study/.local/studies/eia861-reliability-deterioration/.study/runs/eia861-reliability-deterioration--r2/mcp.json",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "dontAsk",
+        "--permission-prompts",
+        "none",
+        "--tools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--allowedTools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--no-chrome",
+        "--resume",
+        "c00d8970-8e37-4e5a-bdbf-a82b73a810c7"
+      ],
+      "assistant_usage": {
+        "cache_creation_input_tokens": 10711,
+        "cache_read_input_tokens": 12879,
+        "input_tokens": 2,
+        "output_tokens": 16
+      },
+      "completed_response_messages_with_usage": 2,
+      "elapsed_s": 4.451853292004671,
+      "ended_at": "2026-11-13T09:51:53.541036+00:00",
+      "index": 2,
+      "models": [
+        "<synthetic>",
+        "claude-fable-5-2"
+      ],
+      "pid": 90798,
+      "result": {
+        "duration_api_ms": 8668,
+        "duration_ms": 3958,
+        "is_error": true,
+        "modelUsage": {
+          "claude-fable-5-2": {
+            "cacheCreationEphemeral1hInputTokens": 15814,
+            "cacheCreationEphemeral5mInputTokens": 0,
+            "cacheCreationInputTokens": 15814,
+            "cacheReadInputTokens": 29500,
+            "canonicalModel": "claude-fable-5-2",
+            "contextWindow": 1000000,
+            "costBasis": "list",
+            "costUSD": 0.284188,
+            "inputTokens": 8,
+            "maxOutputTokens": 128000,
+            "outputTokens": 630,
+            "provider": "firstParty",
+            "thinkingTokens": 0,
+            "webSearchRequests": 0
+          }
+        },
+        "num_turns": 2,
+        "session_id": "c00d8970-8e37-4e5a-bdbf-a82b73a810c7",
+        "subtype": "success",
+        "total_cost_usd": 0.284188,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 10711,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 10711,
+          "cache_read_input_tokens": 12879,
+          "fallback_credit": null,
+          "inference_geo": "global",
+          "input_tokens": 2,
+          "iterations": [],
+          "output_tokens": 272,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        }
+      },
+      "returncode": 1,
+      "session_id": "c00d8970-8e37-4e5a-bdbf-a82b73a810c7",
+      "started_at": "2026-11-13T09:51:49.086672+00:00",
+      "status": "exited",
+      "usage_basis": "CLI final result"
+    }
+  ],
+  "research_active_s": 221.97106941696256,
+  "retry_wait_s": 90.36544450098881,
+  "session_id": "c00d8970-8e37-4e5a-bdbf-a82b73a810c7",
+  "short_resume_wait_s": 120.57570012594806,
+  "status": "failed",
+  "task_contract": {
+    "dataset": "eia861-reliability-deterioration",
+    "experiment_seconds": 300,
+    "python": "/Users/earino/research/factory-prospective-study/.local/studies/eia861-reliability-deterioration/.study/venv/bin/python",
+    "refit_validation": false,
+    "run_id": "eia861-reliability-deterioration--r2",
+    "seed": 42,
+    "selection": "highest validation AUC; ties <=1e-9 earliest trial",
+    "threads": 5
+  }
+}
