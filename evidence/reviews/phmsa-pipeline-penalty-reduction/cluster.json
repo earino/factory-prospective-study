@@ -1,0 +1,14 @@
+{
+  "cluster_columns": [],
+  "reason": "The dependence unit implied by the source and by the release itself is the pipeline operator (README.md:54 says cases cluster by operator and that evaluation should account for operator clustering; the publisher dictionary lists Operator_ID). No operator field is resolved or shipped: build.py OUT_COLUMNS (line 17) and ALIASES (lines 21-36) contain none, construction.json has carry_columns [] and references.entity_columns []. The only identifier, case_id, is unique per row and, after deduplication (build.py:241-242), one-to-one with WMS_Activity_Seq; that addresses shared-inspection dependence at most and does not establish independence across an operator's cases, so declaring each row its own cluster would contradict the release's own limitation. region has 5 levels and denotes the enforcing office, not the respondent. Groupings by notice_date and region would be a manufactured key. Decided from source meaning and public train metadata before holdout scoring; no holdout rows or metrics were read.",
+  "status": "unresolved",
+  "limitations": [
+    "Row-level (i.i.d.) resampling intervals on the 149-row holdout are likely too narrow if operator dependence is material; the size of the effect is unknown because operator multiplicity cannot be measured from the shipped columns.",
+    "In public train, 202 of 670 rows share a notice_date with another row and 131 share notice_date and region, consistent with batched notices; this suggests dependence but does not identify operators.",
+    "case_id embeds region and year (first digit matches region and embedded year equals notice year in all 809 public rows) and carries no operator information.",
+    "The meaning of WMS_Activity_Seq as an inspection-level key is the builder's interpretation; the dictionary says only 'Work Management Sequence Number', and the deduplication count was not available to this review.",
+    "Corporate-parent dependence across operator IDs would remain even with Operator_ID; the release states no corporate-hierarchy reconciliation is attempted.",
+    "Calendar-regime dependence (positive rate 0.184 train, 0.245 eval, 0.396 holdout per meta.json) is not addressed by any entity key.",
+    "Resolvable upstream by carrying Operator_ID as a non-predictor column in a rebuilt release; not done here because this review makes no production changes."
+  ]
+}
