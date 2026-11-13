@@ -1,0 +1,50 @@
+{
+  "dataset": "fjc-civil-trial-36m",
+  "environment": "ebc4d673b04f7331715457533369270826ffca22b2b0f340d7a1680c606de160",
+  "files": {
+    "booster.json": {
+      "bytes": 3662491,
+      "sha256": "8a4ecb8ed59eb7bf7c570f2ad9413106080ca1bcaf8965efc0cdfc39fbe91af3"
+    },
+    "model.pkl": {
+      "bytes": 3816588,
+      "sha256": "4d8fd0966f1ba3387d9118e9085d471f542bd2da7beb7af11a0df0259ecdab4c"
+    },
+    "train.py": {
+      "bytes": 8044,
+      "sha256": "e4bd7a2f698e2e4011b540c4f7aad9231d52ae8b3342f678f021eb52b9d57bd5"
+    },
+    "validation.csv.gz": {
+      "bytes": 1102317,
+      "sha256": "2ea396dd1bd1b5b8fae8eddf58cb0dfb21091040b3df1fc74188acf9356a35ae"
+    },
+    "validation.json": {
+      "bytes": 1180,
+      "sha256": "0101579c046dfcb71b9cfcfe15496190abbc103fbc47acc026f144467427d7c0"
+    }
+  },
+  "frozen_at": "2026-11-13T08:29:24.149795+00:00",
+  "run": "fjc-civil-trial-36m--r1",
+  "selected_trial": {
+    "artifact_sha256": "4d8fd0966f1ba3387d9118e9085d471f542bd2da7beb7af11a0df0259ecdab4c",
+    "auc": 0.7691708624343352,
+    "backtest": {},
+    "brier": 0.005108152498639434,
+    "code_sha256": "e4bd7a2f698e2e4011b540c4f7aad9231d52ae8b3342f678f021eb52b9d57bd5",
+    "elapsed_s": 25.012014083040413,
+    "evaluation_wall_s": 14.105260750046,
+    "finished_epoch": 1794557664.300838,
+    "fit_cpu_s": 33.36988,
+    "fit_wall_s": 9.506050124997273,
+    "id": "6a218d40df524540a3543c7c2e406e7a",
+    "mode": "validation",
+    "note": "H4: robustness fix - release build code can emit DEMANDED as the text MISSING (none in train/validation), which made prepare raise; parse non-numeric as NaN and key integer-valued floats like ints. Predictions with trial-4 params verified identical offline, so paired with colsample_bynode .6 instead of colsample_bytree .8 (3-seed val mean 0.7686 vs 0.7673, LOYO equal: noise-level, not claimed as a real gain)",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/fjc-civil-trial-36m/.study/runs/fjc-civil-trial-36m--r1/trials/6a218d40df524540a3543c7c2e406e7a",
+    "phase": "evaluation",
+    "rows_score": 124885,
+    "rows_train": 600136,
+    "started_epoch": 1794557639.2881331,
+    "status": "ok",
+    "utc": "2026-11-13T08:13:59.288124+00:00"
+  }
+}

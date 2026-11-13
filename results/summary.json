@@ -1,0 +1,120 @@
+{
+  "cli_reported_cost_usd_not_invoice": 195.04242759999997,
+  "generated_at": "2026-11-13T08:29:30.840670+00:00",
+  "limitations": [
+    "Five selected factory releases; three attempts are descriptive, not agent rankings.",
+    "Pinned consumer scaffold and deterministic downloads are provided assistance.",
+    "CLI-reported model IDs are not independent provider attestation.",
+    "Public holdout isolation and semantic compliance are procedural, not enforced by an OS sandbox.",
+    "CFPB holdout was used in earlier pilot work outside this study.",
+    "Random search matches observed eligible primary-trial fitting CPU, not unlogged diagnostics or token work.",
+    "Fresh Claude trajectories are nondeterministic; frozen artifact replay is reproducible.",
+    "No factory-wide publication yield or spend is inferred from this consumer study."
+  ],
+  "outcomes": [
+    {
+      "compliance_triage": "no_automatic_access_flag",
+      "dataset": "fjc-civil-trial-36m",
+      "error": null,
+      "holdout_content_hits": [],
+      "id": "fjc-civil-trial-36m--r1",
+      "integrity": "requires_semantic_review",
+      "interruptions": null,
+      "protocol_caveats": [],
+      "research_active_s": 5100.015178874019,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
+      "status": "frozen",
+      "timing": {
+        "cli_invocations": 14,
+        "evaluation_wall_sum_s": 99.92028666607803,
+        "fit_cpu_sum_s": 160.257588,
+        "fit_wall_sum_s": 53.00401925004553,
+        "harness_wall_union_s": 163.3925976753235,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 8,
+        "other_active_wall_s": 4936.622581198695,
+        "research_active_s": 5100.015178874019,
+        "trial_records": 8
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
+    },
+    {
+      "dataset": "fjc-civil-trial-36m",
+      "error": null,
+      "id": "fjc-civil-trial-36m--r2",
+      "interruptions": null,
+      "research_active_s": null,
+      "status": "not_finished",
+      "timing": {
+        "cli_invocations": 0,
+        "evaluation_wall_sum_s": 475.12186599802226,
+        "fit_cpu_sum_s": 235.13810700000002,
+        "fit_wall_sum_s": 79.72423446108587,
+        "harness_wall_union_s": 0,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 8,
+        "other_active_wall_s": 0,
+        "research_active_s": 0,
+        "trial_records": 8
+      }
+    },
+    {
+      "dataset": "fjc-civil-trial-36m",
+      "error": null,
+      "id": "fjc-civil-trial-36m--r3",
+      "interruptions": null,
+      "research_active_s": 5100.308783126005,
+      "status": "frozen",
+      "timing": {
+        "cli_invocations": 11,
+        "evaluation_wall_sum_s": 157.66012691397918,
+        "fit_cpu_sum_s": 719.631688,
+        "fit_wall_sum_s": 236.34634770895354,
+        "harness_wall_union_s": 407.6207711696625,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 10,
+        "other_active_wall_s": 4692.688011956343,
+        "research_active_s": 5100.308783126005,
+        "trial_records": 10
+      }
+    }
+  ],
+  "protocol_sha256": "c9dbfa2d34849171c19fb3051265a46ea814b9cbf50b8082c500a8ac0d02dba1",
+  "reported_models": [
+    "claude-fable-5-2"
+  ],
+  "reported_usage": {
+    "cache_creation_input_tokens": 321183,
+    "cache_read_input_tokens": 21648366,
+    "input_tokens": 406,
+    "output_tokens": 198515
+  },
+  "requested_model": "claude-fable-5-2",
+  "scores": [
+    {
+      "dataset": "fjc-civil-trial-36m",
+      "holdout_auc": null,
+      "holdout_brier": null,
+      "holdout_rows": null,
+      "id": "fjc-civil-trial-36m--r1",
+      "kind": "agent",
+      "validation_auc": 0.7691708624343352,
+      "validation_brier": 0.005108152498639434
+    },
+    {
+      "dataset": "fjc-civil-trial-36m",
+      "holdout_auc": null,
+      "holdout_brier": null,
+      "holdout_rows": null,
+      "id": "fjc-civil-trial-36m--r3",
+      "kind": "agent",
+      "validation_auc": 0.7681085608525867,
+      "validation_brier": 0.005110355302937605
+    }
+  ]
+}

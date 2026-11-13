@@ -1,0 +1,23 @@
+{
+  "id": "af197e05cb4a404f9d6c021494314a8a",
+  "utc": "2026-11-13T08:20:21.263699+00:00",
+  "started_epoch": 1794558021.263707,
+  "mode": "validation",
+  "note": "H5 simplification: drop RESIDENC, ARBIT, CIRCUIT (permutation importance <=0.004 each; RESIDENC code 25 is mass-tort contaminated). Pre-stated criterion was a scored cohort with a mass-tort wave: second training-only split (fit FY2011-12, score FY2013-14) gives 0.8207/0.7606 excl vs H4 0.8188/0.7569; first backtest leans -0.001; lab val 0.7681 vs 0.7677.",
+  "code_sha256": "23ea43857905a4a265d0a9019f9a1c3d4c3cb50b9ebc54e97fe6555bd1d7593a",
+  "status": "ok",
+  "fit_wall_s": 44.65078008297132,
+  "fit_cpu_s": 135.397672,
+  "phase": "evaluation",
+  "evaluation_wall_s": 20.566868207999505,
+  "auc": 0.7681085608525867,
+  "brier": 0.005110355302937605,
+  "rows_train": 600136,
+  "rows_score": 124885,
+  "backtest": {},
+  "artifact_sha256": "2a05d7eca0954f08c449a531c5cf73afa9a765b6cdfa65ca675b6be9467ef200",
+  "finished_epoch": 1794558087.916498,
+  "elapsed_s": 66.65213762503117,
+  "cold_replay_at": "2026-11-13T08:29:27.458466+00:00",
+  "no_retraining": true
+}

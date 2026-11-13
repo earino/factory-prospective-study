@@ -1,0 +1,23 @@
+{
+  "id": "6a218d40df524540a3543c7c2e406e7a",
+  "utc": "2026-11-13T08:13:59.288124+00:00",
+  "started_epoch": 1794557639.2881331,
+  "mode": "validation",
+  "note": "H4: robustness fix - release build code can emit DEMANDED as the text MISSING (none in train/validation), which made prepare raise; parse non-numeric as NaN and key integer-valued floats like ints. Predictions with trial-4 params verified identical offline, so paired with colsample_bynode .6 instead of colsample_bytree .8 (3-seed val mean 0.7686 vs 0.7673, LOYO equal: noise-level, not claimed as a real gain)",
+  "code_sha256": "e4bd7a2f698e2e4011b540c4f7aad9231d52ae8b3342f678f021eb52b9d57bd5",
+  "status": "ok",
+  "fit_wall_s": 9.506050124997273,
+  "fit_cpu_s": 33.36988,
+  "phase": "evaluation",
+  "evaluation_wall_s": 14.105260750046,
+  "auc": 0.7691708624343352,
+  "brier": 0.005108152498639434,
+  "rows_train": 600136,
+  "rows_score": 124885,
+  "backtest": {},
+  "artifact_sha256": "4d8fd0966f1ba3387d9118e9085d471f542bd2da7beb7af11a0df0259ecdab4c",
+  "finished_epoch": 1794557664.300838,
+  "elapsed_s": 25.012014083040413,
+  "cold_replay_at": "2026-11-13T08:29:23.906928+00:00",
+  "no_retraining": true
+}

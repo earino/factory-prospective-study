@@ -1,0 +1,50 @@
+{
+  "dataset": "fjc-civil-trial-36m",
+  "environment": "ebc4d673b04f7331715457533369270826ffca22b2b0f340d7a1680c606de160",
+  "files": {
+    "booster.json": {
+      "bytes": 13498303,
+      "sha256": "b7f32324cd8bde557e96e7c640b5ba1009f9dae4b44c1a10b9e273dda3a646e6"
+    },
+    "model.pkl": {
+      "bytes": 13470151,
+      "sha256": "2a05d7eca0954f08c449a531c5cf73afa9a765b6cdfa65ca675b6be9467ef200"
+    },
+    "train.py": {
+      "bytes": 7583,
+      "sha256": "23ea43857905a4a265d0a9019f9a1c3d4c3cb50b9ebc54e97fe6555bd1d7593a"
+    },
+    "validation.csv.gz": {
+      "bytes": 1102822,
+      "sha256": "e69789022fa824f6317e0943553ff3698dd38eac60e9621d4c5271e33b5e7588"
+    },
+    "validation.json": {
+      "bytes": 1128,
+      "sha256": "276f9f8a11e31f8b3e9971827a3571ff5ac0a5c4397fcb071a66c0c0202cb5d8"
+    }
+  },
+  "frozen_at": "2026-11-13T08:29:27.767965+00:00",
+  "run": "fjc-civil-trial-36m--r3",
+  "selected_trial": {
+    "artifact_sha256": "2a05d7eca0954f08c449a531c5cf73afa9a765b6cdfa65ca675b6be9467ef200",
+    "auc": 0.7681085608525867,
+    "backtest": {},
+    "brier": 0.005110355302937605,
+    "code_sha256": "23ea43857905a4a265d0a9019f9a1c3d4c3cb50b9ebc54e97fe6555bd1d7593a",
+    "elapsed_s": 66.65213762503117,
+    "evaluation_wall_s": 20.566868207999505,
+    "finished_epoch": 1794558087.916498,
+    "fit_cpu_s": 135.397672,
+    "fit_wall_s": 44.65078008297132,
+    "id": "af197e05cb4a404f9d6c021494314a8a",
+    "mode": "validation",
+    "note": "H5 simplification: drop RESIDENC, ARBIT, CIRCUIT (permutation importance <=0.004 each; RESIDENC code 25 is mass-tort contaminated). Pre-stated criterion was a scored cohort with a mass-tort wave: second training-only split (fit FY2011-12, score FY2013-14) gives 0.8207/0.7606 excl vs H4 0.8188/0.7569; first backtest leans -0.001; lab val 0.7681 vs 0.7677.",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/fjc-civil-trial-36m/.study/runs/fjc-civil-trial-36m--r3/trials/af197e05cb4a404f9d6c021494314a8a",
+    "phase": "evaluation",
+    "rows_score": 124885,
+    "rows_train": 600136,
+    "started_epoch": 1794558021.263707,
+    "status": "ok",
+    "utc": "2026-11-13T08:20:21.263699+00:00"
+  }
+}
