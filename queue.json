@@ -84,5 +84,44 @@
     "started": "2026-11-13T09:44:31.070469+00:00",
     "status": "complete",
     "verified_at": "2026-11-13T05:28:19.001460+00:00"
+  },
+  {
+    "dataset": "phmsa-pipeline-penalty-reduction",
+    "release": {
+      "artifact_version": "04b70fa61c8b4b68fb11974080984ef075ff8470c5ee52379579266b5ccfac1a",
+      "assets": 33,
+      "baseline_display": "See versioned evaluation.json; public validation only",
+      "dataset": "phmsa-pipeline-penalty-reduction",
+      "destinations": {
+        "github": "https://github.com/earino/factory-phmsa-pipeline-penalty-reduction/releases/tag/v-bbc08f68dbbd24b5",
+        "huggingface": "https://huggingface.co/datasets/earino/factory-phmsa-pipeline-penalty-reduction"
+      },
+      "detail_id": "source-000055",
+      "disposition": "public",
+      "published": true,
+      "release_tag": "v-bbc08f68dbbd24b5",
+      "rows": 958,
+      "splits": {
+        "eval": {
+          "rows": 139
+        },
+        "holdout": {
+          "rows": 149
+        },
+        "train": {
+          "rows": 670
+        }
+      },
+      "verified": {
+        "github": true,
+        "huggingface": true
+      },
+      "verified_all": true,
+      "verified_at": "2026-11-13T07:53:15.783341+00:00",
+      "workflow": "modern"
+    },
+    "selected": true,
+    "status": "queued",
+    "verified_at": "2026-11-13T07:53:15.783341+00:00"
   }
 ]

@@ -10,13 +10,13 @@
     "status": "complete"
   },
   "factory_counts": {
-    "build": 1,
     "deferred": 41,
-    "publish": 1,
-    "published": 9,
+    "discover": 1,
+    "evaluate": 1,
+    "published": 10,
     "rejected": 5
   },
-  "observed_at": "2026-11-13T18:01:58.613721+00:00",
+  "observed_at": "2026-11-13T18:32:14.863936+00:00",
   "paper": {},
   "queue": [
     {
@@ -34,9 +34,17 @@
       "selected": true,
       "branch": "consumer/eia861-reliability-deterioration",
       "error": null
+    },
+    {
+      "dataset": "phmsa-pipeline-penalty-reduction",
+      "verified_at": "2026-11-13T07:53:15.783341+00:00",
+      "status": "queued",
+      "selected": true,
+      "branch": null,
+      "error": null
     }
   ],
-  "snapshot_generated_at": "2026-11-13T07:51:12+00:00",
+  "snapshot_generated_at": "2026-11-13T18:13:17+00:00",
   "window": {
     "analysis_start": "2026-11-18T04:00:00Z",
     "attempt_minutes": 85,
