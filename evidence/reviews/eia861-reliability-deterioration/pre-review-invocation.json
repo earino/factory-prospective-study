@@ -1,0 +1,68 @@
+{
+  "error": "\":\"api_error\",\"fast_mode_state\":\"off\",\"fast_mode_disabled_reason\":\"sdk_opt_in_required\",\"subagent_stats\":{\"spawned\":0,\"requested\":{\"background\":0,\"foreground\":0,\"unset\":0},\"started_in_background\":0,\"max_depth\":0,\"spawned_by_subagents\":0,\"completed\":0,\"failed\":0,\"killed\":{\"parent\":0,\"user\":0,\"system\":0},\"refused\":{\"depth_limit\":0,\"concurrency_limit\":0,\"budget\":0},\"by_type\":{}},\"safety_stops\":0,\"is_error\":true,\"num_turns\":9,\"subtype\":\"success\",\"api_error_status\":403,\"api_error_origin\":\"first_party\",\"result\":\"Failed to authenticate. API Error: 403 Attention Required! | Cloudflare\",\"type\":\"result\",\"duration_ms\":144312,\"uuid\":\"50a8c4ed-1a63-4c3c-947c-c295fc2c0620\",\"queued_turn_count\":0,\"result_index\":0,\"model_usage_since_last_result\":{\"claude-fable-5-2\":{\"inputTokens\":10,\"outputTokens\":13371,\"cacheReadInputTokens\":107993,\"cacheCreationInputTokens\":71505,\"webSearchRequests\":0,\"costUSD\":1.7005986000000002,\"contextWindow\":1000000,\"maxOutputTokens\":128000,\"thinkingTokens\":9170,\"cacheCreationEphemeral5mInputTokens\":0,\"cacheCreationEphemeral1hInputTokens\":71505,\"canonicalModel\":\"claude-fable-5-2\",\"provider\":\"firstParty\",\"costBasis\":\"list\"}},\"credential_expires_at\":\"2026-11-19T11:56:15.472Z\"}\n",
+  "ok": false,
+  "summary": {
+    "assistant_usage": {
+      "cache_creation_input_tokens": 71505,
+      "cache_read_input_tokens": 107993,
+      "input_tokens": 10,
+      "output_tokens": 34
+    },
+    "completed_response_messages_with_usage": 6,
+    "models": [
+      "<synthetic>",
+      "claude-fable-5-2"
+    ],
+    "result": {
+      "duration_api_ms": 134518,
+      "duration_ms": 144312,
+      "is_error": true,
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 71505,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 71505,
+          "cacheReadInputTokens": 107993,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": 1.7005986000000002,
+          "inputTokens": 10,
+          "maxOutputTokens": 128000,
+          "outputTokens": 13371,
+          "provider": "firstParty",
+          "thinkingTokens": 9170,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 9,
+      "session_id": "feb0b178-8da2-4b22-8170-b2a1e07efabf",
+      "subtype": "success",
+      "total_cost_usd": 1.7005986000000002,
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 71505,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 71505,
+        "cache_read_input_tokens": 107993,
+        "fallback_credit": null,
+        "inference_geo": "global",
+        "input_tokens": 10,
+        "iterations": [],
+        "output_tokens": 13371,
+        "output_tokens_details": {
+          "thinking_tokens": 9170
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        },
+        "service_tier": "standard",
+        "speed": "standard"
+      }
+    },
+    "session_id": "feb0b178-8da2-4b22-8170-b2a1e07efabf",
+    "usage_basis": "CLI final result"
+  }
+}

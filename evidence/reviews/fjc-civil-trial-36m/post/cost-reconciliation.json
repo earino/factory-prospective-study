@@ -1,0 +1,37 @@
+{
+  "basis": "Last available cumulative cost per independent CLI session, not per-invocation sum; estimates, not invoice. Deadline-truncated final invocations may leave unreported usage.",
+  "runs": [
+    {
+      "run": "fjc-civil-trial-36m--r1",
+      "session_id": "ea493481-03fb-42c7-8adc-a7e28a5942b0",
+      "invocations": 14,
+      "naive_sum_cumulative_cost": 108.5212286,
+      "last_reported_session_cost": 8.748066999999999,
+      "monotone_cumulative_cost": true,
+      "final_invocation_has_result": true,
+      "short_invocations_under_10s": 3
+    },
+    {
+      "run": "fjc-civil-trial-36m--r2",
+      "session_id": "c14a1ee6-2b86-43b5-9867-bdb970cb5415",
+      "invocations": 14,
+      "naive_sum_cumulative_cost": 117.23574560000002,
+      "last_reported_session_cost": 9.313450999999999,
+      "monotone_cumulative_cost": true,
+      "final_invocation_has_result": true,
+      "short_invocations_under_10s": 2
+    },
+    {
+      "run": "fjc-civil-trial-36m--r3",
+      "session_id": "1b21677c-7dfb-4b80-99c3-9e6a23e41132",
+      "invocations": 11,
+      "naive_sum_cumulative_cost": 86.52119900000001,
+      "last_reported_session_cost": 8.6643822,
+      "monotone_cumulative_cost": true,
+      "final_invocation_has_result": true,
+      "short_invocations_under_10s": 3
+    }
+  ],
+  "sum_last_reported_session_cost": 26.725900199999998,
+  "original_naive_sum": 312.2781732
+}

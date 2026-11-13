@@ -1,0 +1,100 @@
+[
+  {
+    "run": "fjc-civil-trial-36m--r1",
+    "trace": "0000.jsonl",
+    "line": 12,
+    "tool_use_id": "toolu_01PPe2S6frvxjXqJR2HaSt2W",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/fjc-civil-trial-36m/.study/runs/fjc-civil-trial-36m--r1; cat release/evaluation.json; cat release/extract/meta.json; ls -la release/extract release/extract/* release/reproduction; cat release/reproduction/construction.json | head -150; cat release/SOURCES.json",
+      "description": "Read evaluation contract, metadata and construction config"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "fjc-civil-trial-36m--r1",
+    "trace": "0000.jsonl",
+    "line": 79,
+    "tool_use_id": "toolu_01J756NQ9Vq6hWDgkKFwMwWN",
+    "tool": "Bash",
+    "input": {
+      "command": "mkdir -p scratch && cat > scratch/h.py <<'EOF'\n\"\"\"Offline diagnostic harness (not eligible for selection). Batch prepare; same train.py code.\"\"\"\nimport sys, json, time, copy, importlib.util\nimport numpy as np, pandas as pd\nfrom sklearn.metrics import roc_auc_score, brier_score_loss\nROOT='/Users/earino/research/factory-prospective-study/.local/studies/fjc-civil-trial-36m/.study/runs/fjc-civil-trial-36m--r1'\nspec=importlib.util.spec_from_file_location('sol',ROOT+'/train.py');sol=importlib.util.module_from_spec(spec);spec.loader.exec_module(sol)\ntr=pd.read_csv(ROOT+'/release/extract/public/train.csv');ev=pd.read_csv(ROOT+'/release/extract/public/eval.csv')\nF=sol.RAW;T='trial_within_36m'\nbt_mask=(pd.to_datetime(tr.FILEDATE)<pd.Timestamp('2013-10-01')).to_numpy()\nBASE=copy.deepcopy(sol.CFG)\ndef run(name,seed=42,bt=True,val=True,**over):\n    cfg=copy.deepcopy(BASE)\n    for k,v in over.items():\n        if k=='params': cfg['params'].update(v)\n        else: cfg[k]=v\n    sol.CFG=cfg;out={}\n    t=time.time()\n    if val:\n        st=sol.fit(tr[F].copy(),tr[T].to_numpy(),seed=seed,threads=5)\n        p=st['model'].predict_proba(sol.prepare(st,ev[F]))[:,1]\n        out['val']=roc_auc_score(ev[T],p);out['brier']=brier_score_loss(ev[T],p)\n    if bt:\n        a,b=tr[bt_mask],tr[~bt_mask]\n        st=sol.fit(a[F].copy(),a[T].to_numpy(),seed=seed,threads=5)\n        p=st['model'].predict_proba(sol.prepare(st,b[F]))[:,1]\n        out['bt']=roc_auc_score(b[T],p)\n    print(f\"{name:50s} val={out.get('val',0):.4f} bt={out.get('bt',0):.4f} brier={out.get('brier',0):.5f} t={time.time()-t:.1f}s\",flush=True)\n    return out\nEOF\ncat > scratch/e1.py <<'EOF'\nfrom h import *\nrun('base native cats + month')\nrun('no month', num=['DEMANDED'])\nrun('+year', num=['DEMANDED','MONTH','YEAR'])\nrun('year only', num=['DEMANDED','YEAR'])\nrun('cluster_cap 200', cluster_cap=200)\nrun('cluster_cap 50', cluster_cap=50)\nrun('decay .7', decay=0.7)\nrun('decay .5', decay=0.5)\nP=dict(n_estimators=300,max_depth=4,learning_rate=0.05,subsample=0.8,colsample_bytree=0.8,min_child_weight=5)\nrun('reg params', params=P)\nrun('reg params cap50', params=P, cluster_cap=50)\nrun('numeric only no native cats', cat=[], num=['DEMANDED','MONTH','NOS_NUM','JURIS_NUM','CIRCUIT_NUM','RES_P','RES_D','JURY_ANY','JURY_DEF','JURY_PLT'], te=[('DISTRICT',),('NOS',)], params=P)\nEOF\ncd scratch && /Users/earino/research/factory-prospective-study/.local/studies/fjc-civil-trial-36m/.study/venv/bin/python e1.py 2>&1 | grep -v Warning",
+      "description": "Create offline harness and run first batch of diagnostics"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "fjc-civil-trial-36m--r1",
+    "trace": "0000.jsonl",
+    "line": 127,
+    "tool_use_id": "toolu_01VkuPQ9u3GxdJaJr2vtxJE3",
+    "tool": "Bash",
+    "input": {
+      "command": "cat > LOG.md <<'EOF'\n# LOG \u2014 fjc-civil-trial-36m--r1\n\nSelection metric: validation ROC AUC from `evaluate.py` (628 positives in 124,885 rows, so\nsingle-trial AUC noise is roughly +/-0.01; small differences are not meaningful).\nOffline harness `scratch/h.py` = same train.py code, batch prepare, diagnostics only.\n\"bt\" = training-only chronological check (fit FY2011-13, score FY2014).\n\n## Trials (evaluator)\n| # | trial id | val AUC | Brier | change |\n|---|----------|---------|-------|--------|\n| 1 | 7f93b47c | 0.73784 | 0.00816 | unchanged starter (FILEDATE_YEAR_MONTH as category -> all NaN at prediction time) |\n| 2 | b0942653 | 0.76130 | 0.00507 | month-of-year numeric instead of year-month category; depth 4, lr .05, 300 trees, subsample/colsample .8, mcw 5 |\n\n## Data findings\n- Positive rate falls 0.0112 (FY2011) -> 0.0075 (FY2014) -> 0.0050 (FY2018 validation).\n- Training contains a mass-tort block: DISTRICT 25 x NOS 365 = ~64k rows, trial rate ~0.0004\n  (RESIDENC 25 dominated). Validation has only 288 district-25 rows. NOS 365 rate is 0.0007 in\n  train vs 0.0049 in validation. This is the main covariate/label drift.\n- District-level trial rates train vs validation correlate only ~0.57.\n- Backtest AUC (~0.83) is much higher than validation (~0.76) because the FY2014 block is\n  dominated by trivially separable mass-tort negatives; backtest level is not comparable.\nEOF\ncat > BACKLOG.md <<'EOF'\n# BACKLOG\n- [x] Baseline reference\n- [x] Year-month category -> month-of-year / drop\n- [ ] Feature ablations (each categorical, DEMANDED)\n- [ ] Derived numerics (RESIDENC digits, jury flags, NOS groups, demand flags)\n- [ ] OOF target encodings (NOS, DISTRICT, pairs), frequency encodings\n- [ ] Drift handling: cap mass-tort cluster weight, recency decay\n- [ ] Regularization sweep: depth, trees/lr, min_child_weight, gamma, max_cat_threshold, onehot\n- [ ] Monotone / interaction constraints (additive model)\n- [ ] Seed-repeat diagnostics, bootstrap of validation differences\nEOF\nsleep 45; cat /private/tmp/claude-501/-Users-earino-research-factory-prospective-study--local-studies-fjc-civil-trial-36m--study-runs-fjc-civil-trial-36m--r1/ea493481-03fb-42c7-8adc-a7e28a5942b0/tasks/b6347sij6.output",
+      "description": "Write log and backlog, then read ablation output"
+    },
+    "reasons": [
+      "process_reference"
+    ]
+  },
+  {
+    "run": "fjc-civil-trial-36m--r1",
+    "trace": "0000.jsonl",
+    "line": 434,
+    "tool_use_id": "toolu_01LkFWK18h2TeCawxEnbCwXh",
+    "tool": "Bash",
+    "input": {
+      "command": "/Users/earino/research/factory-prospective-study/.local/studies/fjc-civil-trial-36m/.study/venv/bin/python - <<'EOF'\nimport pandas as pd\nR='/Users/earino/research/factory-prospective-study/.local/studies/fjc-civil-trial-36m/.study/runs/fjc-civil-trial-36m--r1'\ntr=pd.read_csv(R+'/release/extract/public/train.csv');ev=pd.read_csv(R+'/release/extract/public/eval.csv')\nu=ev[~ev.NOS.isin(tr.NOS.unique())]\nprint(u.groupby('NOS').trial_within_36m.agg(['size','sum']))\nseen=sorted(tr.NOS.unique());print(seen)\np=pd.read_csv(R+'/trials/5e658001d32e448c930690a1882dab8d/validation.csv.gz')\nprint('mean p on unseen-NOS rows',p.p[u.index].mean(),'overall',p.p.mean())\nprint(tr.groupby(tr.FILEDATE.str[:4]).NOS.nunique())\n# NOS codes appearing late in train\nfirst=tr.groupby('NOS').FILEDATE.min();print(first[first>'2010-12-31'])\nEOF",
+      "description": "List validation NOS codes unseen in training"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "fjc-civil-trial-36m--r1",
+    "trace": "0000.jsonl",
+    "line": 631,
+    "tool_use_id": "toolu_01Bssea5x1Q2pgEZNHscKcHE",
+    "tool": "Bash",
+    "input": {
+      "command": "/Users/earino/research/factory-prospective-study/.local/studies/fjc-civil-trial-36m/.study/venv/bin/python - <<'EOF'\nimport pandas as pd, numpy as np\nR='/Users/earino/research/factory-prospective-study/.local/studies/fjc-civil-trial-36m/.study/runs/fjc-civil-trial-36m--r1'\nev=pd.read_csv(R+'/release/extract/public/eval.csv');p=pd.read_csv(R+'/trials/6e1d49291b6942fa817e77593029794a/validation.csv.gz')\nev['p']=p.p;ev['rank']=ev.p.rank(pct=True);T='trial_within_36m'\npos=ev[ev[T]==1]\nprint('positives:',len(pos),'share scored below median:',(pos['rank']<.5).mean().round(3),'below 25th pct:',(pos['rank']<.25).mean().round(3))\nlow=pos[pos['rank']<.5]\nprint(low.groupby('NOS').size().sort_values(ascending=False).head(8))\nprint(low.groupby('DISTRICT').size().sort_values(ascending=False).head(8))\nprint(low.groupby('JURY').size())\nprint(ev[ev.NOS==490].groupby('DISTRICT')[T].agg(['size','sum']).sort_values('sum',ascending=False).head(4))\nprint(ev[ev.NOS==446].groupby('DISTRICT')[T].agg(['size','sum']).sort_values('size',ascending=False).head(4))\nEOF\ndate +%s",
+      "description": "Analyse low-scored validation positives for the report"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "fjc-civil-trial-36m--r2",
+    "trace": "0010.jsonl",
+    "line": 5,
+    "tool_use_id": "toolu_01VF71PA8af2eAA8VVFh1MUs",
+    "tool": "Bash",
+    "input": {
+      "command": "date +%s; PY=$(python3 -c \"import json;print(json.load(open('TASK.json'))['python'])\"); $PY - <<'EOF'\nimport re,ast\nsrc=open('train.py').read();tree=ast.parse(src)\nimports=sorted({(n.names[0].name if isinstance(n,ast.Import) else n.module) for n in ast.walk(tree) if isinstance(n,(ast.Import,ast.ImportFrom))})\nbad=[k for k in ['open(','read_csv','urllib','requests','socket','subprocess','os.environ','glob','pathlib','eval.csv','holdout','trial_within_36m','CASE_ID','FILEDATE\"]'] if k in src]\nfuncs=[n.name for n in tree.body if isinstance(n,ast.FunctionDef)]\nprint('imports',imports,'| flagged tokens',bad,'| functions',funcs)\nopen('LOG.md','a').write(f\"- Static compliance check of the delivered train.py: imports {imports}; no file, network, environment or subprocess access, and no reference to target, identifier, FILEDATE or data paths (flagged tokens: {bad}); public functions fit and prepare present ({'fit' in funcs and 'prepare' in funcs}).\\n\")\nEOF\ngit add LOG.md && git commit -q -m \"Log static compliance check of delivered train.py\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\"; git log --oneline | head -1; date +%s",
+      "description": "Static compliance check of the delivered solution file",
+      "timeout": 30000
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "fjc-civil-trial-36m--r3",
+    "trace": "0000.jsonl",
+    "line": 151,
+    "tool_use_id": "toolu_01PXEyQwFc6BW4sCQMfuNqFQ",
+    "tool": "Read",
+    "input": {
+      "file_path": "/private/tmp/claude-501/-Users-earino-research-factory-prospective-study--local-studies-fjc-civil-trial-36m--study-runs-fjc-civil-trial-36m--r3/1b21677c-7dfb-4b80-99c3-9e6a23e41132/tasks/baknu285d.output"
+    },
+    "reasons": [
+      "outside_path"
+    ]
+  }
+]
