@@ -1,0 +1,82 @@
+{
+  "ok": true,
+  "summary": {
+    "assistant_usage": {
+      "cache_creation_input_tokens": 123655,
+      "cache_read_input_tokens": 930895,
+      "input_tokens": 28,
+      "output_tokens": 107
+    },
+    "completed_response_messages_with_usage": 14,
+    "models": [
+      "claude-fable-5-2"
+    ],
+    "result": {
+      "duration_api_ms": 482293,
+      "duration_ms": 491004,
+      "is_error": false,
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 123655,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 123655,
+          "cacheReadInputTokens": 930895,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": 4.065203,
+          "inputTokens": 28,
+          "maxOutputTokens": 128000,
+          "outputTokens": 47508,
+          "provider": "firstParty",
+          "thinkingTokens": 26112,
+          "webSearchRequests": 0
+        },
+        "claude-haiku-5-5": {
+          "cacheCreationEphemeral1hInputTokens": 0,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "cacheReadInputTokens": 0,
+          "canonicalModel": "claude-haiku-5-5",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": 0.0078671,
+          "inputTokens": 74581,
+          "maxOutputTokens": 128000,
+          "outputTokens": 818,
+          "provider": "firstParty",
+          "thinkingTokens": 553,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 20,
+      "session_id": "68c5fa8b-5bd6-4b5f-96e9-a1d2b7df6f76",
+      "subtype": "success",
+      "total_cost_usd": 4.0730701,
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 123655,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 123655,
+        "cache_read_input_tokens": 930895,
+        "fallback_credit": null,
+        "inference_geo": "global",
+        "input_tokens": 28,
+        "iterations": [],
+        "output_tokens": 47508,
+        "output_tokens_details": {
+          "thinking_tokens": 26112
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        },
+        "service_tier": "standard",
+        "speed": "standard"
+      }
+    },
+    "session_id": "68c5fa8b-5bd6-4b5f-96e9-a1d2b7df6f76",
+    "usage_basis": "CLI final result"
+  }
+}

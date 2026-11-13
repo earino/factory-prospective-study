@@ -1,0 +1,14 @@
+{
+  "cluster_columns": ["DISTRICT"],
+  "reason": "The outcome (termination during or after trial within 36 months, as recorded in PROCPROG and TERMDATE) is generated and coded at the district court: trial calendars, case-management orders, court closures and the clerk's office coding are district-level. Rows are not independent despite unique CASE_ID values: in train one district-by-NOS cell (district 25, NOS 365) holds 63,592 rows with 7 positives, single-day filing bursts reach 764 cases in one district and NOS, and district trial rates range from 0.04% to 3.59%. Those dependence groups are contained within districts. Finer natural units are unavailable in the release (judge fields are blank on public-use files; MDL docket number and party names are not shipped), and CIRCUIT is coarser with only 12 groups, each district nesting in exactly one circuit. DISTRICT is a shipped column with the same 94 codes in train and public validation. Chosen from source meaning and training metadata before holdout scoring; no holdout rows or metrics were read.",
+  "status": "declared",
+  "limitations": [
+    "Cluster sizes are very uneven: the largest district is 10.8% of train rows and the top five are 28.6%; the effective number of clusters is about 33 (train) and 38 (public validation) by rows, not 94.",
+    "Positives are sparse per cluster in a single-year cohort: in public validation 7 of 94 districts have no positive and the median district has 4, so cluster-resampled rank metrics will be noisy and intervals wide.",
+    "Dependence that crosses districts is not captured: nationwide shocks during the outcome horizon, serial filers or related litigations active in several districts, and circuit-level law.",
+    "Each split is a different filing cohort, so the unit is effectively district-by-cohort; dependence between a district's training rows and its scored rows is not addressed by clustering the scored split.",
+    "DISTRICT is also a declared predictor, so resampling districts changes the feature mix as well as the outcome mix.",
+    "Holdout district codes and cluster sizes were not inspected; any district code unseen in train would form its own cluster.",
+    "The mass-filing block that motivates clustering is concentrated in the training years (district 25 is 10.8% of train rows but 0.23% of public validation), so within-district dependence in later cohorts may be weaker or differently structured than in train."
+  ]
+}
