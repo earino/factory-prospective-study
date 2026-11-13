@@ -1,16 +1,16 @@
 # Consumer study results
 
-Generated 2026-11-13T09:51:53.930120+00:00
+Generated 2026-11-13T09:52:10.103294+00:00
 
 Measured records are in summary.json and scores.csv. Failures remain in the denominator.
 
 Requested model: `claude-fable-5-2`. Reported models: <synthetic>, claude-fable-5-2.
 
-Registered attempts: 3; frozen: 0; failed/blocked: 1.
+Registered attempts: 3; frozen: 0; failed/blocked: 3.
 
 Compliance triage (separate from scores):
 
-- eia861-reliability-deterioration--r1: not yet audited; forbidden asset copies unknown; tool-access flags unknown. Semantic compliance requires review.
+- eia861-reliability-deterioration--r1: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
 - eia861-reliability-deterioration--r2: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
 - eia861-reliability-deterioration--r3: not yet audited; forbidden asset copies unknown; tool-access flags unknown. Semantic compliance requires review.
 

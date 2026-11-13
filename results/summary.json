@@ -1,6 +1,6 @@
 {
-  "cli_reported_cost_usd_not_invoice": 0.4070834,
-  "generated_at": "2026-11-13T09:51:53.930120+00:00",
+  "cli_reported_cost_usd_not_invoice": 1.285851,
+  "generated_at": "2026-11-13T09:52:10.103294+00:00",
   "limitations": [
     "Five selected factory releases; three attempts are descriptive, not agent rankings.",
     "Pinned consumer scaffold and deterministic downloads are provided assistance.",
@@ -13,14 +13,20 @@
   ],
   "outcomes": [
     {
+      "compliance_triage": "no_automatic_access_flag",
       "dataset": "eia861-reliability-deterioration",
-      "error": null,
+      "error": "RuntimeError: Three CLI failures; preserved as a failed attempt, not silently restarted",
+      "holdout_content_hits": [],
       "id": "eia861-reliability-deterioration--r1",
+      "integrity": "requires_semantic_review",
       "interruptions": null,
-      "research_active_s": null,
-      "status": "not_finished",
+      "protocol_caveats": [],
+      "research_active_s": 222.9165399169433,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
+      "status": "failed",
       "timing": {
-        "cli_invocations": 0,
+        "cli_invocations": 3,
         "evaluation_wall_sum_s": 0,
         "fit_cpu_sum_s": 0,
         "fit_wall_sum_s": 0,
@@ -28,10 +34,12 @@
         "incomplete_or_failed_trials": 0,
         "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
         "ok_trials": 0,
-        "other_active_wall_s": 0,
-        "research_active_s": 0,
+        "other_active_wall_s": 222.9165399169433,
+        "research_active_s": 222.9165399169433,
         "trial_records": 0
-      }
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
     },
     {
       "compliance_triage": "no_automatic_access_flag",
@@ -64,13 +72,13 @@
     },
     {
       "dataset": "eia861-reliability-deterioration",
-      "error": null,
+      "error": "RuntimeError: Three CLI failures; preserved as a failed attempt, not silently restarted",
       "id": "eia861-reliability-deterioration--r3",
       "interruptions": null,
-      "research_active_s": null,
-      "status": "not_finished",
+      "research_active_s": 225.04312321095495,
+      "status": "failed",
       "timing": {
-        "cli_invocations": 0,
+        "cli_invocations": 3,
         "evaluation_wall_sum_s": 0,
         "fit_cpu_sum_s": 0,
         "fit_wall_sum_s": 0,
@@ -78,8 +86,8 @@
         "incomplete_or_failed_trials": 0,
         "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
         "ok_trials": 0,
-        "other_active_wall_s": 0,
-        "research_active_s": 0,
+        "other_active_wall_s": 225.04312321095495,
+        "research_active_s": 225.04312321095495,
         "trial_records": 0
       }
     }
@@ -90,10 +98,10 @@
     "claude-fable-5-2"
   ],
   "reported_usage": {
-    "cache_creation_input_tokens": 15814,
-    "cache_read_input_tokens": 29500,
-    "input_tokens": 8,
-    "output_tokens": 630
+    "cache_creation_input_tokens": 51337,
+    "cache_read_input_tokens": 88504,
+    "input_tokens": 26,
+    "output_tokens": 1983
   },
   "requested_model": "claude-fable-5-2",
   "scores": []
