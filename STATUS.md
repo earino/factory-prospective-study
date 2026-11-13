@@ -1,7 +1,11 @@
 # Prospective study status
 
 {
-  "consumer": {},
+  "consumer": {
+    "dataset": "fjc-civil-trial-36m",
+    "started": "2026-11-13T06:54:40.366032+00:00",
+    "status": "running"
+  },
   "factory_counts": {
     "build": 1,
     "deferred": 40,
@@ -9,7 +13,7 @@
     "published": 9,
     "rejected": 5
   },
-  "observed_at": "2026-11-13T06:54:19.528194+00:00",
+  "observed_at": "2026-11-13T07:24:41.592220+00:00",
   "paper": {},
   "queue": [
     {
