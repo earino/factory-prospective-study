@@ -1,6 +1,6 @@
 {
   "cli_reported_cost_usd_not_invoice": 312.2781732,
-  "generated_at": "2026-11-13T08:29:55.984931+00:00",
+  "generated_at": "2026-11-13T08:30:20.948330+00:00",
   "limitations": [
     "Five selected factory releases; three attempts are descriptive, not agent rankings.",
     "Pinned consumer scaffold and deterministic downloads are provided assistance.",
@@ -42,11 +42,17 @@
       "verified_forbidden_copies": 0
     },
     {
+      "compliance_triage": "no_automatic_access_flag",
       "dataset": "fjc-civil-trial-36m",
       "error": null,
+      "holdout_content_hits": [],
       "id": "fjc-civil-trial-36m--r2",
+      "integrity": "requires_semantic_review",
       "interruptions": null,
+      "protocol_caveats": [],
       "research_active_s": 5100.123483124131,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
       "status": "frozen",
       "timing": {
         "cli_invocations": 14,
@@ -60,7 +66,9 @@
         "other_active_wall_s": 4535.206268492097,
         "research_active_s": 5100.123483124131,
         "trial_records": 8
-      }
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
     },
     {
       "compliance_triage": "no_automatic_access_flag",
