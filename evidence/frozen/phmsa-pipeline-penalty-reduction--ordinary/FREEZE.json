@@ -1,0 +1,27 @@
+{
+  "dataset": "phmsa-pipeline-penalty-reduction",
+  "files": {
+    "booster.json": {
+      "bytes": 309579,
+      "sha256": "83757a9bbd0fdd2b4f94b9d5d6aa3fe02770b1a8ed5bfcb6a45303583fc146a3"
+    },
+    "model.pkl": {
+      "bytes": 272639,
+      "sha256": "1e0849ba1c9988a4a4c0c699ffad9c2083d1923da73f1242a8aac67c87d6d813"
+    },
+    "train.py": {
+      "bytes": 1161,
+      "sha256": "8ef88b64efd5805e03b546af17e7d6e92fbd39e24bc46a03bcb2b848ba9fb450"
+    },
+    "validation.csv.gz": {
+      "bytes": 1694,
+      "sha256": "870d91e20d245f31ea721f4e2c97bdb05fe86c39b232d8b1c94dd8d820c09f3a"
+    },
+    "validation.json": {
+      "bytes": 797,
+      "sha256": "0e345f7283c2fda085be1206342a152a761cca661d5bad3ef3c1064dc2342c54"
+    }
+  },
+  "frozen_at": "2026-11-13T20:04:35.283390+00:00",
+  "run": "phmsa-pipeline-penalty-reduction--ordinary"
+}

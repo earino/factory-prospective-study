@@ -1,0 +1,49 @@
+{
+  "dataset": "phmsa-pipeline-penalty-reduction",
+  "files": {
+    "booster.json": {
+      "bytes": 21947,
+      "sha256": "eac52d1ef40c23dcb7b07a46543a9678241ee2a90ab1f4757ebd5f32fb68ad4e"
+    },
+    "model.pkl": {
+      "bytes": 34287,
+      "sha256": "0753b9c1210b4714b8d7b5d652512da02acb975bfe7c82ad98e240c016d0879e"
+    },
+    "train.py": {
+      "bytes": 1245,
+      "sha256": "2f09cea3e94873e11e608d2c64fcd08741d350c5fe9658e6f8307e42132d0aa6"
+    },
+    "validation.csv.gz": {
+      "bytes": 1428,
+      "sha256": "4f89a70056f3f40d5ae2aa244ceca9e21137305069533c916fcf026717bb7d2d"
+    },
+    "validation.json": {
+      "bytes": 936,
+      "sha256": "78c4251cf8857b9f21bf0abd9fc05e01c21d53f1a2088ce1772914b1523cdba9"
+    }
+  },
+  "frozen_at": "2026-11-13T20:05:16.060919+00:00",
+  "run": "phmsa-pipeline-penalty-reduction--r1--random",
+  "selected_trial": {
+    "artifact_sha256": "0753b9c1210b4714b8d7b5d652512da02acb975bfe7c82ad98e240c016d0879e",
+    "auc": 0.6579831932773109,
+    "backtest": {},
+    "brier": 0.1801742195635668,
+    "code_sha256": "2f09cea3e94873e11e608d2c64fcd08741d350c5fe9658e6f8307e42132d0aa6",
+    "elapsed_s": 0.07089008297771215,
+    "evaluation_wall_s": 0.05462516704574227,
+    "finished_epoch": 1794600276.835534,
+    "fit_cpu_s": 0.015750000000000153,
+    "fit_wall_s": 0.01072550006210804,
+    "id": "835ef3f0ba9544ac9276e7f0185c3002",
+    "mode": "validation",
+    "note": "{\"n_estimators\": 30, \"max_depth\": 2, \"learning_rate\": 0.1, \"min_child_weight\": 10, \"subsample\": 0.7, \"colsample_bytree\": 0.7, \"reg_lambda\": 30}",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/phmsa-pipeline-penalty-reduction/.study/controls/phmsa-pipeline-penalty-reduction--r1--random/trials/835ef3f0ba9544ac9276e7f0185c3002",
+    "phase": "evaluation",
+    "rows_score": 139,
+    "rows_train": 670,
+    "started_epoch": 1794600276.764139,
+    "status": "ok",
+    "utc": "2026-11-13T20:04:36.764133+00:00"
+  }
+}
