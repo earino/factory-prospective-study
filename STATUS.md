@@ -2,21 +2,18 @@
 
 {
   "consumer": {
-    "branch": "consumer/eia861-reliability-deterioration",
-    "commit": "19735c640ca0e7330e5113f4cd5a19fbc1f7069f",
-    "dataset": "eia861-reliability-deterioration",
-    "finished": "2026-11-13T09:54:18.876957+00:00",
-    "started": "2026-11-13T09:44:31.070469+00:00",
-    "status": "complete"
+    "dataset": "phmsa-pipeline-penalty-reduction",
+    "started": "2026-11-13T18:32:30.303797+00:00",
+    "status": "running"
   },
   "factory_counts": {
-    "deferred": 41,
+    "build": 1,
+    "deferred": 42,
     "discover": 1,
-    "evaluate": 1,
     "published": 10,
     "rejected": 5
   },
-  "observed_at": "2026-11-13T18:32:14.863936+00:00",
+  "observed_at": "2026-11-13T19:02:31.192122+00:00",
   "paper": {},
   "queue": [
     {
@@ -44,7 +41,7 @@
       "error": null
     }
   ],
-  "snapshot_generated_at": "2026-11-13T18:13:17+00:00",
+  "snapshot_generated_at": "2026-11-13T18:51:22+00:00",
   "window": {
     "analysis_start": "2026-11-18T04:00:00Z",
     "attempt_minutes": 85,
