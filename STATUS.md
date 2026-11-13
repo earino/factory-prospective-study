@@ -2,9 +2,12 @@
 
 {
   "consumer": {
-    "dataset": "fjc-civil-trial-36m",
-    "started": "2026-11-13T06:54:40.366032+00:00",
-    "status": "running"
+    "branch": "consumer/eia861-reliability-deterioration",
+    "commit": "19735c640ca0e7330e5113f4cd5a19fbc1f7069f",
+    "dataset": "eia861-reliability-deterioration",
+    "finished": "2026-11-13T09:54:18.876957+00:00",
+    "started": "2026-11-13T09:44:31.070469+00:00",
+    "status": "complete"
   },
   "factory_counts": {
     "build": 1,
@@ -13,23 +16,23 @@
     "published": 9,
     "rejected": 5
   },
-  "observed_at": "2026-11-13T09:25:59.197548+00:00",
+  "observed_at": "2026-11-13T09:56:21.215797+00:00",
   "paper": {},
   "queue": [
     {
       "dataset": "fjc-civil-trial-36m",
       "verified_at": "2026-11-13T02:30:19.452430+00:00",
-      "status": "queued",
+      "status": "complete",
       "selected": true,
-      "branch": null,
+      "branch": "consumer/fjc-civil-trial-36m",
       "error": null
     },
     {
       "dataset": "eia861-reliability-deterioration",
       "verified_at": "2026-11-13T05:28:19.001460+00:00",
-      "status": "queued",
+      "status": "complete",
       "selected": true,
-      "branch": null,
+      "branch": "consumer/eia861-reliability-deterioration",
       "error": null
     }
   ],
