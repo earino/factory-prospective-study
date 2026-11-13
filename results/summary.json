@@ -1,6 +1,6 @@
 {
   "cli_reported_cost_usd_not_invoice": 312.2781732,
-  "generated_at": "2026-11-13T08:30:20.948330+00:00",
+  "generated_at": "2026-11-13T09:43:32.168721+00:00",
   "limitations": [
     "Five selected factory releases; three attempts are descriptive, not agent rankings.",
     "Pinned consumer scaffold and deterministic downloads are provided assistance.",
@@ -114,9 +114,19 @@
   "scores": [
     {
       "dataset": "fjc-civil-trial-36m",
-      "holdout_auc": null,
-      "holdout_brier": null,
-      "holdout_rows": null,
+      "holdout_auc": 0.7106307543317625,
+      "holdout_brier": 0.008497557383475286,
+      "holdout_rows": 113510,
+      "id": "fjc-civil-trial-36m--ordinary",
+      "kind": "ordinary",
+      "validation_auc": 0.7378442942557568,
+      "validation_brier": 0.008156298599182373
+    },
+    {
+      "dataset": "fjc-civil-trial-36m",
+      "holdout_auc": 0.7476899786923299,
+      "holdout_brier": 0.004870561258626927,
+      "holdout_rows": 113510,
       "id": "fjc-civil-trial-36m--r1",
       "kind": "agent",
       "validation_auc": 0.7691708624343352,
@@ -124,9 +134,19 @@
     },
     {
       "dataset": "fjc-civil-trial-36m",
-      "holdout_auc": null,
-      "holdout_brier": null,
-      "holdout_rows": null,
+      "holdout_auc": 0.7229394844139647,
+      "holdout_brier": 0.005682327173466408,
+      "holdout_rows": 113510,
+      "id": "fjc-civil-trial-36m--r1--random",
+      "kind": "random",
+      "validation_auc": 0.7431873463510417,
+      "validation_brier": 0.0059156796322899705
+    },
+    {
+      "dataset": "fjc-civil-trial-36m",
+      "holdout_auc": 0.7460685891913093,
+      "holdout_brier": 0.0048625752419053925,
+      "holdout_rows": 113510,
       "id": "fjc-civil-trial-36m--r2",
       "kind": "agent",
       "validation_auc": 0.7685174050351468,
@@ -134,13 +154,43 @@
     },
     {
       "dataset": "fjc-civil-trial-36m",
-      "holdout_auc": null,
-      "holdout_brier": null,
-      "holdout_rows": null,
+      "holdout_auc": 0.7287865423666984,
+      "holdout_brier": 0.005138957817711584,
+      "holdout_rows": 113510,
+      "id": "fjc-civil-trial-36m--r2--random",
+      "kind": "random",
+      "validation_auc": 0.7462925232678583,
+      "validation_brier": 0.005382009474881417
+    },
+    {
+      "dataset": "fjc-civil-trial-36m",
+      "holdout_auc": 0.7494586603370813,
+      "holdout_brier": 0.004866770721814781,
+      "holdout_rows": 113510,
       "id": "fjc-civil-trial-36m--r3",
       "kind": "agent",
       "validation_auc": 0.7681085608525867,
       "validation_brier": 0.005110355302937605
+    },
+    {
+      "dataset": "fjc-civil-trial-36m",
+      "holdout_auc": 0.723860376749083,
+      "holdout_brier": 0.006037567732945195,
+      "holdout_rows": 113510,
+      "id": "fjc-civil-trial-36m--r3--random",
+      "kind": "random",
+      "validation_auc": 0.7534677588554521,
+      "validation_brier": 0.006247193020196028
+    },
+    {
+      "dataset": "fjc-civil-trial-36m",
+      "holdout_auc": 0.7030102538915766,
+      "holdout_brier": 0.005263505813917729,
+      "holdout_rows": 113510,
+      "id": "fjc-civil-trial-36m--released",
+      "kind": "released",
+      "validation_auc": 0.7345856253648118,
+      "validation_brier": 0.005388478583699715
     }
   ]
 }

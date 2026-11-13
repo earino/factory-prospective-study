@@ -1,6 +1,6 @@
 # Consumer study results
 
-Generated 2026-11-13T08:30:20.948330+00:00
+Generated 2026-11-13T09:43:32.168721+00:00
 
 Measured records are in summary.json and scores.csv. Failures remain in the denominator.
 
@@ -16,9 +16,14 @@ Compliance triage (separate from scores):
 
 Scores (including flagged attempts; do not treat all as compliant results):
 
-- fjc-civil-trial-36m--r1: validation AUC 0.769171; holdout AUC not scored.
-- fjc-civil-trial-36m--r2: validation AUC 0.768517; holdout AUC not scored.
-- fjc-civil-trial-36m--r3: validation AUC 0.768109; holdout AUC not scored.
+- fjc-civil-trial-36m--ordinary: validation AUC 0.737844; holdout AUC 0.710631.
+- fjc-civil-trial-36m--r1: validation AUC 0.769171; holdout AUC 0.747690.
+- fjc-civil-trial-36m--r1--random: validation AUC 0.743187; holdout AUC 0.722939.
+- fjc-civil-trial-36m--r2: validation AUC 0.768517; holdout AUC 0.746069.
+- fjc-civil-trial-36m--r2--random: validation AUC 0.746293; holdout AUC 0.728787.
+- fjc-civil-trial-36m--r3: validation AUC 0.768109; holdout AUC 0.749459.
+- fjc-civil-trial-36m--r3--random: validation AUC 0.753468; holdout AUC 0.723860.
+- fjc-civil-trial-36m--released: validation AUC 0.734586; holdout AUC 0.703010.
 
 ## Limits
 
