@@ -1,6 +1,6 @@
 {
   "cli_reported_cost_usd_not_invoice": 2429.9831104,
-  "generated_at": "2026-11-13T20:03:21.762790+00:00",
+  "generated_at": "2026-11-13T20:03:43.983186+00:00",
   "limitations": [
     "Five selected factory releases; three attempts are descriptive, not agent rankings.",
     "Pinned consumer scaffold and deterministic downloads are provided assistance.",
@@ -13,11 +13,17 @@
   ],
   "outcomes": [
     {
+      "compliance_triage": "requires_review",
       "dataset": "phmsa-pipeline-penalty-reduction",
       "error": null,
+      "holdout_content_hits": [],
       "id": "phmsa-pipeline-penalty-reduction--r1",
+      "integrity": "requires_semantic_review",
       "interruptions": null,
+      "protocol_caveats": [],
       "research_active_s": 5100.06207104295,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
       "status": "frozen",
       "timing": {
         "cli_invocations": 33,
@@ -31,7 +37,9 @@
         "other_active_wall_s": 5084.974400478299,
         "research_active_s": 5100.06207104295,
         "trial_records": 30
-      }
+      },
+      "tool_access_flags": 1,
+      "verified_forbidden_copies": 0
     },
     {
       "dataset": "phmsa-pipeline-penalty-reduction",
