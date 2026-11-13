@@ -1,0 +1,50 @@
+{
+  "dataset": "phmsa-pipeline-penalty-reduction",
+  "environment": "ebc4d673b04f7331715457533369270826ffca22b2b0f340d7a1680c606de160",
+  "files": {
+    "booster.json": {
+      "bytes": 111466,
+      "sha256": "7ec90b2988d06a0dd47fe6ee38457fd5f7dfff210e4dc5b9dfccbb21ed4581d6"
+    },
+    "model.pkl": {
+      "bytes": 143614,
+      "sha256": "e299506b140c01f73fd582a40e45a4c789dd7d16b8014d3d70e49fc29f2a84a9"
+    },
+    "train.py": {
+      "bytes": 6310,
+      "sha256": "516b19f1d358977d75a9d7614e07dc9fb694126738bf3634b459f6a15e3571c8"
+    },
+    "validation.csv.gz": {
+      "bytes": 676,
+      "sha256": "36882a79b393462d2b8b9559f4864815df2526e69c49874450352231106707e1"
+    },
+    "validation.json": {
+      "bytes": 928,
+      "sha256": "99047e29f73ed13483a4c74807255d5d2447757cd0a00901b0a3510aac849ccc"
+    }
+  },
+  "frozen_at": "2026-11-13T20:03:20.639885+00:00",
+  "run": "phmsa-pipeline-penalty-reduction--r2",
+  "selected_trial": {
+    "artifact_sha256": "e299506b140c01f73fd582a40e45a4c789dd7d16b8014d3d70e49fc29f2a84a9",
+    "auc": 0.7785714285714286,
+    "backtest": {},
+    "brier": 0.15446267034510192,
+    "code_sha256": "516b19f1d358977d75a9d7614e07dc9fb694126738bf3634b459f6a15e3571c8",
+    "elapsed_s": 0.14389487507287413,
+    "evaluation_wall_s": 0.05874883302021772,
+    "finished_epoch": 1794595827.838408,
+    "fit_cpu_s": 0.13631799999999994,
+    "fit_wall_s": 0.07392812496982515,
+    "id": "ad517860870345f1aac404baa0873d18",
+    "mode": "validation",
+    "note": "H15 dose-response upper end on H13: recency power 8 (ESS ~0.21n ~ 140 rows) - expect decline if plateau at 1-4 reflects a real bias/variance trade-off",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/phmsa-pipeline-penalty-reduction/.study/runs/phmsa-pipeline-penalty-reduction--r2/trials/ad517860870345f1aac404baa0873d18",
+    "phase": "evaluation",
+    "rows_score": 139,
+    "rows_train": 670,
+    "started_epoch": 1794595827.69426,
+    "status": "ok",
+    "utc": "2026-11-13T18:50:27.694253+00:00"
+  }
+}

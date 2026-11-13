@@ -1,0 +1,50 @@
+{
+  "dataset": "phmsa-pipeline-penalty-reduction",
+  "environment": "ebc4d673b04f7331715457533369270826ffca22b2b0f340d7a1680c606de160",
+  "files": {
+    "booster.json": {
+      "bytes": 69212,
+      "sha256": "0bc40d72bde57173d441e9fdfd5178bd7da4b47b7e97504f1c83c91a22980002"
+    },
+    "model.pkl": {
+      "bytes": 96462,
+      "sha256": "afd802a7b61e01aa185a64e99e0131a19d68fe5c057bde486bf92ec88bc80e63"
+    },
+    "train.py": {
+      "bytes": 5347,
+      "sha256": "9b7f758a2661d30db2a6ecbb4e7888baae5a60400d7847bc46b3278d2387cf40"
+    },
+    "validation.csv.gz": {
+      "bytes": 673,
+      "sha256": "be3e0d8e50e6dd0f73c977f52925f281661b4fff7bb820dab46f2813c3c40462"
+    },
+    "validation.json": {
+      "bytes": 1038,
+      "sha256": "62b97d0f04a7fea07be2119754d3bce20923d6ec2dc7e14ab0ac85a6d0151631"
+    }
+  },
+  "frozen_at": "2026-11-13T20:03:20.751761+00:00",
+  "run": "phmsa-pipeline-penalty-reduction--r3",
+  "selected_trial": {
+    "artifact_sha256": "afd802a7b61e01aa185a64e99e0131a19d68fe5c057bde486bf92ec88bc80e63",
+    "auc": 0.7502801120448178,
+    "backtest": {},
+    "brier": 0.16424478481102148,
+    "code_sha256": "9b7f758a2661d30db2a6ecbb4e7888baae5a60400d7847bc46b3278d2387cf40",
+    "elapsed_s": 0.5869540829444304,
+    "evaluation_wall_s": 0.537853708025068,
+    "finished_epoch": 1794596190.1135302,
+    "fit_cpu_s": 0.06580300000000006,
+    "fit_wall_s": 0.0395951250102371,
+    "id": "26bf7dda677f4db5a4233776a0aa182c",
+    "mode": "validation",
+    "note": "Simplification ablation: keep only Eastern / Southern / Southwest region flags (Central and Western pooled) with H5 settings; region rates for Central and Western are near the base rate in training. Train-only fc 0.642 cv 0.607 vs 0.649/0.601; expect about equal",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/phmsa-pipeline-penalty-reduction/.study/runs/phmsa-pipeline-penalty-reduction--r3/trials/26bf7dda677f4db5a4233776a0aa182c",
+    "phase": "evaluation",
+    "rows_score": 139,
+    "rows_train": 670,
+    "started_epoch": 1794596189.526292,
+    "status": "ok",
+    "utc": "2026-11-13T18:56:29.526285+00:00"
+  }
+}

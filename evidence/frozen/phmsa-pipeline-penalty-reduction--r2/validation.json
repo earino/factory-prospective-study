@@ -1,0 +1,23 @@
+{
+  "id": "ad517860870345f1aac404baa0873d18",
+  "utc": "2026-11-13T18:50:27.694253+00:00",
+  "started_epoch": 1794595827.69426,
+  "mode": "validation",
+  "note": "H15 dose-response upper end on H13: recency power 8 (ESS ~0.21n ~ 140 rows) - expect decline if plateau at 1-4 reflects a real bias/variance trade-off",
+  "code_sha256": "516b19f1d358977d75a9d7614e07dc9fb694126738bf3634b459f6a15e3571c8",
+  "status": "ok",
+  "fit_wall_s": 0.07392812496982515,
+  "fit_cpu_s": 0.13631799999999994,
+  "phase": "evaluation",
+  "evaluation_wall_s": 0.05874883302021772,
+  "auc": 0.7785714285714286,
+  "brier": 0.15446267034510192,
+  "rows_train": 670,
+  "rows_score": 139,
+  "backtest": {},
+  "artifact_sha256": "e299506b140c01f73fd582a40e45a4c789dd7d16b8014d3d70e49fc29f2a84a9",
+  "finished_epoch": 1794595827.838408,
+  "elapsed_s": 0.14389487507287413,
+  "cold_replay_at": "2026-11-13T20:03:20.519743+00:00",
+  "no_retraining": true
+}

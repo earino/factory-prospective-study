@@ -1,0 +1,130 @@
+{
+  "cli_reported_cost_usd_not_invoice": 2429.9831104,
+  "generated_at": "2026-11-13T20:03:21.762790+00:00",
+  "limitations": [
+    "Five selected factory releases; three attempts are descriptive, not agent rankings.",
+    "Pinned consumer scaffold and deterministic downloads are provided assistance.",
+    "CLI-reported model IDs are not independent provider attestation.",
+    "Public holdout isolation and semantic compliance are procedural, not enforced by an OS sandbox.",
+    "CFPB holdout was used in earlier pilot work outside this study.",
+    "Random search matches observed eligible primary-trial fitting CPU, not unlogged diagnostics or token work.",
+    "Fresh Claude trajectories are nondeterministic; frozen artifact replay is reproducible.",
+    "No factory-wide publication yield or spend is inferred from this consumer study."
+  ],
+  "outcomes": [
+    {
+      "dataset": "phmsa-pipeline-penalty-reduction",
+      "error": null,
+      "id": "phmsa-pipeline-penalty-reduction--r1",
+      "interruptions": null,
+      "research_active_s": 5100.06207104295,
+      "status": "frozen",
+      "timing": {
+        "cli_invocations": 33,
+        "evaluation_wall_sum_s": 9.560571247828193,
+        "fit_cpu_sum_s": 8.747835,
+        "fit_wall_sum_s": 5.152687375899404,
+        "harness_wall_union_s": 15.08767056465149,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 30,
+        "other_active_wall_s": 5084.974400478299,
+        "research_active_s": 5100.06207104295,
+        "trial_records": 30
+      }
+    },
+    {
+      "dataset": "phmsa-pipeline-penalty-reduction",
+      "error": null,
+      "id": "phmsa-pipeline-penalty-reduction--r2",
+      "interruptions": null,
+      "research_active_s": 5100.462530877907,
+      "status": "frozen",
+      "timing": {
+        "cli_invocations": 21,
+        "evaluation_wall_sum_s": 4.231826291652396,
+        "fit_cpu_sum_s": 15.127405999999999,
+        "fit_wall_sum_s": 8.666196788079105,
+        "harness_wall_union_s": 13.781022548675537,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 79,
+        "other_active_wall_s": 5086.681508329231,
+        "research_active_s": 5100.462530877907,
+        "trial_records": 79
+      }
+    },
+    {
+      "compliance_triage": "requires_review",
+      "dataset": "phmsa-pipeline-penalty-reduction",
+      "error": null,
+      "holdout_content_hits": [],
+      "id": "phmsa-pipeline-penalty-reduction--r3",
+      "integrity": "requires_semantic_review",
+      "interruptions": null,
+      "protocol_caveats": [],
+      "research_active_s": 5100.137370833312,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
+      "status": "frozen",
+      "timing": {
+        "cli_invocations": 26,
+        "evaluation_wall_sum_s": 27.029330123914406,
+        "fit_cpu_sum_s": 78.835415,
+        "fit_wall_sum_s": 43.4271952053532,
+        "harness_wall_union_s": 70.95037460327148,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 51,
+        "other_active_wall_s": 5029.186996230041,
+        "research_active_s": 5100.137370833312,
+        "trial_records": 51
+      },
+      "tool_access_flags": 2,
+      "verified_forbidden_copies": 0
+    }
+  ],
+  "protocol_sha256": "d96d0836175bfb734cb303cdebb6e2311bfd9fe8b1fddbb9be6281a055cb3dde",
+  "reported_models": [
+    "claude-fable-5-2"
+  ],
+  "reported_usage": {
+    "cache_creation_input_tokens": 1395778,
+    "cache_read_input_tokens": 225716900,
+    "input_tokens": 1646,
+    "output_tokens": 987002
+  },
+  "requested_model": "claude-fable-5-2",
+  "scores": [
+    {
+      "dataset": "phmsa-pipeline-penalty-reduction",
+      "holdout_auc": null,
+      "holdout_brier": null,
+      "holdout_rows": null,
+      "id": "phmsa-pipeline-penalty-reduction--r1",
+      "kind": "agent",
+      "validation_auc": 0.788235294117647,
+      "validation_brier": 0.1556123729196552
+    },
+    {
+      "dataset": "phmsa-pipeline-penalty-reduction",
+      "holdout_auc": null,
+      "holdout_brier": null,
+      "holdout_rows": null,
+      "id": "phmsa-pipeline-penalty-reduction--r2",
+      "kind": "agent",
+      "validation_auc": 0.7785714285714286,
+      "validation_brier": 0.15446267034510192
+    },
+    {
+      "dataset": "phmsa-pipeline-penalty-reduction",
+      "holdout_auc": null,
+      "holdout_brier": null,
+      "holdout_rows": null,
+      "id": "phmsa-pipeline-penalty-reduction--r3",
+      "kind": "agent",
+      "validation_auc": 0.7502801120448178,
+      "validation_brier": 0.16424478481102148
+    }
+  ]
+}

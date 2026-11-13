@@ -1,0 +1,50 @@
+{
+  "dataset": "phmsa-pipeline-penalty-reduction",
+  "environment": "ebc4d673b04f7331715457533369270826ffca22b2b0f340d7a1680c606de160",
+  "files": {
+    "booster.json": {
+      "bytes": 802966,
+      "sha256": "a144770a12641c4e559c0900dc38bcc582790551b4a497cb0b404aba9ce49127"
+    },
+    "model.pkl": {
+      "bytes": 1020415,
+      "sha256": "3a2de9d3afff22ab4983ca36e4faa0953ae115796db678e75b2d689dc1f7c518"
+    },
+    "train.py": {
+      "bytes": 4524,
+      "sha256": "a14b7cc76848d9b6533654d203ebae55d608dfca36ceff1d3c3bf1e9188e07f0"
+    },
+    "validation.csv.gz": {
+      "bytes": 1170,
+      "sha256": "ea034b1eb79486c97f6eaa3be8d4399e7a0a4a7cd9a7087df66642003cabad66"
+    },
+    "validation.json": {
+      "bytes": 1042,
+      "sha256": "6ad7fbd735894cbb75c46a4b65499ee60d2a1795e507496ffec02312c77443d2"
+    }
+  },
+  "frozen_at": "2026-11-13T20:03:20.639954+00:00",
+  "run": "phmsa-pipeline-penalty-reduction--r1",
+  "selected_trial": {
+    "artifact_sha256": "3a2de9d3afff22ab4983ca36e4faa0953ae115796db678e75b2d689dc1f7c518",
+    "auc": 0.788235294117647,
+    "backtest": {},
+    "brier": 0.1556123729196552,
+    "code_sha256": "a14b7cc76848d9b6533654d203ebae55d608dfca36ceff1d3c3bf1e9188e07f0",
+    "elapsed_s": 0.5848005410516635,
+    "evaluation_wall_s": 0.29526933399029076,
+    "finished_epoch": 1794598252.7885811,
+    "fit_cpu_s": 0.4401050000000002,
+    "fit_wall_s": 0.2759683330077678,
+    "id": "f840bf59af304a2696723f1f5f89eca6",
+    "mode": "validation",
+    "note": "Ablation A5 of H8: identical features and parameters (min_child_weight 3.49) but NO recency weights (half_life=None, no use of row order). Diagnostic shows the validation gain of H8 over H6 comes from the lower min_child_weight, not from the weights; this isolates it",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/phmsa-pipeline-penalty-reduction/.study/runs/phmsa-pipeline-penalty-reduction--r1/trials/f840bf59af304a2696723f1f5f89eca6",
+    "phase": "evaluation",
+    "rows_score": 139,
+    "rows_train": 670,
+    "started_epoch": 1794598252.203304,
+    "status": "ok",
+    "utc": "2026-11-13T19:30:52.203298+00:00"
+  }
+}

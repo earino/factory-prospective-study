@@ -1,0 +1,23 @@
+{
+  "id": "f840bf59af304a2696723f1f5f89eca6",
+  "utc": "2026-11-13T19:30:52.203298+00:00",
+  "started_epoch": 1794598252.203304,
+  "mode": "validation",
+  "note": "Ablation A5 of H8: identical features and parameters (min_child_weight 3.49) but NO recency weights (half_life=None, no use of row order). Diagnostic shows the validation gain of H8 over H6 comes from the lower min_child_weight, not from the weights; this isolates it",
+  "code_sha256": "a14b7cc76848d9b6533654d203ebae55d608dfca36ceff1d3c3bf1e9188e07f0",
+  "status": "ok",
+  "fit_wall_s": 0.2759683330077678,
+  "fit_cpu_s": 0.4401050000000002,
+  "phase": "evaluation",
+  "evaluation_wall_s": 0.29526933399029076,
+  "auc": 0.788235294117647,
+  "brier": 0.1556123729196552,
+  "rows_train": 670,
+  "rows_score": 139,
+  "backtest": {},
+  "artifact_sha256": "3a2de9d3afff22ab4983ca36e4faa0953ae115796db678e75b2d689dc1f7c518",
+  "finished_epoch": 1794598252.7885811,
+  "elapsed_s": 0.5848005410516635,
+  "cold_replay_at": "2026-11-13T20:03:20.415160+00:00",
+  "no_retraining": true
+}
