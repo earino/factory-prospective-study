@@ -1,0 +1,19 @@
+[
+  {
+    "ok": true,
+    "tool": "review_checks.py"
+  },
+  {
+    "ok": true,
+    "tool": "probe_all_training_features.py"
+  },
+  {
+    "ok": true,
+    "tool": "probe_artifacts.py"
+  },
+  {
+    "error": "Command exited 1: Traceback (most recent call last):\n  File \"/Users/earino/research/factory-prospective-study/review_tools/bootstrap.py\", line 14, in <module>\n    if decl.get('status')!='declared' or not decl.get('cluster_columns'):raise ValueError('Prescoring dependence structure unresolved')\n                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: Prescoring dependence structure unresolved\n",
+    "ok": false,
+    "tool": "bootstrap.py"
+  }
+]

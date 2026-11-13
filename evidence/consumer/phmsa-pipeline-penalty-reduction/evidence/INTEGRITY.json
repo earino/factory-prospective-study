@@ -1,0 +1,553 @@
+{
+  "files": {
+    "agent.md": {
+      "bytes": 9301,
+      "sha256": "c09f3b5b08ae3a87684b75fb3abea1659aaa6283d1832a13ae6b6aeb27083bc8"
+    },
+    "evidence/COMPLETED.json": {
+      "bytes": 176,
+      "sha256": "9a448a78dd0a6035e2ffb2d0ca22a37ddd5271407c98e39878c16fd5780481e0"
+    },
+    "evidence/HOLDOUT-BARRIER.json": {
+      "bytes": 1038,
+      "sha256": "34bd8564614fb5e54fe277d31cd4550b06156a3a21dfafac7a8ba00ee06edd0c"
+    },
+    "evidence/attempts/phmsa-pipeline-penalty-reduction--r1--random/archive.json": {
+      "bytes": 42779,
+      "sha256": "2f39ba20d00325ea4eb32d50910deb2692d75514c99dabd3a494250433115d70"
+    },
+    "evidence/attempts/phmsa-pipeline-penalty-reduction--r1--random/state.json": {
+      "bytes": 3790,
+      "sha256": "246194ddf520df7cbb3b86668b5111e04c14b02e36aa17d1c7862cbfebd8c920"
+    },
+    "evidence/attempts/phmsa-pipeline-penalty-reduction--r1--random/workspace.tar.gz.part0000": {
+      "bytes": 5166626,
+      "sha256": "f7bdaff5fc5acdf60623c4fd859074093bac79c239b95a7499ddffe068438372"
+    },
+    "evidence/attempts/phmsa-pipeline-penalty-reduction--r1/archive.json": {
+      "bytes": 41109,
+      "sha256": "f4510a513fe813c7acc314740299fbe92b950f66b86b8291cbb76096fe272d54"
+    },
+    "evidence/attempts/phmsa-pipeline-penalty-reduction--r1/state.json": {
+      "bytes": 133518,
+      "sha256": "f1a2e8661ff3397c2a9fbf0cc6ef760f08926965f7878af4a1fc5dac20bc1485"
+    },
+    "evidence/attempts/phmsa-pipeline-penalty-reduction--r1/workspace.tar.gz.part0000": {
+      "bytes": 4938441,
+      "sha256": "a919c2f814fd1f5940b994a9545c9ae747d5fe0298e6bbf8a028bfecdcdff226"
+    },
+    "evidence/attempts/phmsa-pipeline-penalty-reduction--r2--random/archive.json": {
+      "bytes": 79988,
+      "sha256": "51208ad390764bd1c95f77bc6bf0a8f715ee35a567a31c5da2bb4e818b1857a8"
+    },
+    "evidence/attempts/phmsa-pipeline-penalty-reduction--r2--random/state.json": {
+      "bytes": 3782,
+      "sha256": "f60e94a976709e0d0f4f14172332602c708bc37ab85ee506e3614896c3fadc72"
+    },
+    "evidence/attempts/phmsa-pipeline-penalty-reduction--r2--random/workspace.tar.gz.part0000": {
+      "bytes": 6056563,
+      "sha256": "b9fbde211e3c1d96ab42f090ad66199a809e63c23b43a6567eff5842334ec3e3"
+    },
+    "evidence/attempts/phmsa-pipeline-penalty-reduction--r2/archive.json": {
+      "bytes": 96093,
+      "sha256": "8ee73142c2b312c840c26b9c040b715ab6329121c0e7d290f3291d2844be90d6"
+    },
+    "evidence/attempts/phmsa-pipeline-penalty-reduction--r2/state.json": {
+      "bytes": 76520,
+      "sha256": "ab1b3275a89ee892d6aeeea8079fc7c20b8abb6c424918efa5754066e958ae03"
+    },
+    "evidence/attempts/phmsa-pipeline-penalty-reduction--r2/workspace.tar.gz.part0000": {
+      "bytes": 7132086,
+      "sha256": "74634b25871c370cf4c6a1509ae4d236b2ba7f3821ff4748d35f8de82334f5ef"
+    },
+    "evidence/attempts/phmsa-pipeline-penalty-reduction--r3--random/archive.json": {
+      "bytes": 330493,
+      "sha256": "2e7f228b943faf02d52119c258c026a3d8b41866125eec5fe2b500b61a9792b3"
+    },
+    "evidence/attempts/phmsa-pipeline-penalty-reduction--r3--random/state.json": {
+      "bytes": 3784,
+      "sha256": "6cddc82f4d7090c4859c5fd7a4bf0fe2d696d3d2548459e973bbd856d2914f94"
+    },
+    "evidence/attempts/phmsa-pipeline-penalty-reduction--r3--random/workspace.tar.gz.part0000": {
+      "bytes": 30491450,
+      "sha256": "2363943f37facc80156399b35ca4ee81cb036dc4c39c9422023dca2798ceed4b"
+    },
+    "evidence/attempts/phmsa-pipeline-penalty-reduction--r3/archive.json": {
+      "bytes": 70456,
+      "sha256": "a28540590c123962d6e5eb7860216e0d399b66fd8fd336a0aba562aa290907c6"
+    },
+    "evidence/attempts/phmsa-pipeline-penalty-reduction--r3/state.json": {
+      "bytes": 106955,
+      "sha256": "b67e4313a48770d222b3410371caf3e74f3e281cfd8a8d7ef8f1a25f571116b5"
+    },
+    "evidence/attempts/phmsa-pipeline-penalty-reduction--r3/workspace.tar.gz.part0000": {
+      "bytes": 2996769,
+      "sha256": "271959c8e50a53bb5058c13341117787c343d1f26683f1f8acae8be6ff0b8c7f"
+    },
+    "evidence/compliance/phmsa-pipeline-penalty-reduction--r1.json": {
+      "bytes": 2105,
+      "sha256": "7d7e80594308558f45dfdf54038a47d286632f0dd3cb4699a1958f490364ddef"
+    },
+    "evidence/compliance/phmsa-pipeline-penalty-reduction--r2.json": {
+      "bytes": 8254,
+      "sha256": "0aa76f27f54dcd37cf44b14cc2384f57131e2c00cba73b8c7b2a62cb17e5f9a8"
+    },
+    "evidence/compliance/phmsa-pipeline-penalty-reduction--r3.json": {
+      "bytes": 2787,
+      "sha256": "3fd1f7c1c0e5af84d7cfbd7901bdba168def363535506e328872998af693781e"
+    },
+    "evidence/controls/phmsa-pipeline-penalty-reduction--published/reproduction.json": {
+      "bytes": 216,
+      "sha256": "5e8cc83fac3c0f51e96794e58af23ba06e9877699284917c8dd70222ceb86e1e"
+    },
+    "evidence/environment/claude-help.txt": {
+      "bytes": 22494,
+      "sha256": "1e734dc647e2d7c775d2e581b3aa68a8741ff4fdde7e864c4e5799d70777558c"
+    },
+    "evidence/environment/host.json": {
+      "bytes": 201,
+      "sha256": "d807a370e0a2df486a0e36bfa0dce8af197899c9da73486d90db640b566de070"
+    },
+    "evidence/environment/pip-freeze.txt": {
+      "bytes": 439,
+      "sha256": "ebc4d673b04f7331715457533369270826ffca22b2b0f340d7a1680c606de160"
+    },
+    "evidence/environment/python.json": {
+      "bytes": 120,
+      "sha256": "2eef4740b13558586e477e16eeb039a6e3213a5ed61771a54da4102c4165ad5a"
+    },
+    "evidence/events.jsonl": {
+      "bytes": 284226,
+      "sha256": "c83a92e38c6fc5b8a186933c8362d4ec73ba3b6cabd41d2a75eb1764ae52971a"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--ordinary/FREEZE.json": {
+      "bytes": 844,
+      "sha256": "4172b3bd82d21a027ed3e6869851d0e79b0119be05af8d794792b0082009a92e"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--ordinary/booster.json": {
+      "bytes": 309579,
+      "sha256": "83757a9bbd0fdd2b4f94b9d5d6aa3fe02770b1a8ed5bfcb6a45303583fc146a3"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--ordinary/model.pkl": {
+      "bytes": 272639,
+      "sha256": "1e0849ba1c9988a4a4c0c699ffad9c2083d1923da73f1242a8aac67c87d6d813"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--ordinary/train.py": {
+      "bytes": 1161,
+      "sha256": "8ef88b64efd5805e03b546af17e7d6e92fbd39e24bc46a03bcb2b848ba9fb450"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--ordinary/validation.csv.gz": {
+      "bytes": 1694,
+      "sha256": "870d91e20d245f31ea721f4e2c97bdb05fe86c39b232d8b1c94dd8d820c09f3a"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--ordinary/validation.json": {
+      "bytes": 797,
+      "sha256": "0e345f7283c2fda085be1206342a152a761cca661d5bad3ef3c1064dc2342c54"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r1--random/FREEZE.json": {
+      "bytes": 1973,
+      "sha256": "8c1552210c974c5311db5d44a8cc34561ce2ae355c453ffa03699116a498931c"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r1--random/booster.json": {
+      "bytes": 21947,
+      "sha256": "eac52d1ef40c23dcb7b07a46543a9678241ee2a90ab1f4757ebd5f32fb68ad4e"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r1--random/model.pkl": {
+      "bytes": 34287,
+      "sha256": "0753b9c1210b4714b8d7b5d652512da02acb975bfe7c82ad98e240c016d0879e"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r1--random/train.py": {
+      "bytes": 1245,
+      "sha256": "2f09cea3e94873e11e608d2c64fcd08741d350c5fe9658e6f8307e42132d0aa6"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r1--random/validation.csv.gz": {
+      "bytes": 1428,
+      "sha256": "4f89a70056f3f40d5ae2aa244ceca9e21137305069533c916fcf026717bb7d2d"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r1--random/validation.json": {
+      "bytes": 936,
+      "sha256": "78c4251cf8857b9f21bf0abd9fc05e01c21d53f1a2088ce1772914b1523cdba9"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r1/FREEZE.json": {
+      "bytes": 2148,
+      "sha256": "f464922000c8374cddce41be5a4c3eaef84fd5265a2eeb45cccbc2494af7c2da"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r1/booster.json": {
+      "bytes": 802966,
+      "sha256": "a144770a12641c4e559c0900dc38bcc582790551b4a497cb0b404aba9ce49127"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r1/model.pkl": {
+      "bytes": 1020415,
+      "sha256": "3a2de9d3afff22ab4983ca36e4faa0953ae115796db678e75b2d689dc1f7c518"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r1/train.py": {
+      "bytes": 4524,
+      "sha256": "a14b7cc76848d9b6533654d203ebae55d608dfca36ceff1d3c3bf1e9188e07f0"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r1/validation.csv.gz": {
+      "bytes": 1170,
+      "sha256": "ea034b1eb79486c97f6eaa3be8d4399e7a0a4a7cd9a7087df66642003cabad66"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r1/validation.json": {
+      "bytes": 1042,
+      "sha256": "6ad7fbd735894cbb75c46a4b65499ee60d2a1795e507496ffec02312c77443d2"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r2--random/FREEZE.json": {
+      "bytes": 1976,
+      "sha256": "cbec15ceb1262947c7c47bb02e740403801b7d09b7499ad56063cd2549453fee"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r2--random/booster.json": {
+      "bytes": 25850,
+      "sha256": "c19e813f03e5836a5a6f8c33ebba09192a8ebd63e74822355a67ad6c411ab77d"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r2--random/model.pkl": {
+      "bytes": 38754,
+      "sha256": "c81cc177182882ec6bf7f9f1a19d454194e13067273b99bd011f27117af0cb68"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r2--random/train.py": {
+      "bytes": 1245,
+      "sha256": "55f0d9a44538c69ca46ab4ea99b9e3339e5c2ed0cc3843555407b5a2399ffbe0"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r2--random/validation.csv.gz": {
+      "bytes": 1442,
+      "sha256": "0964aa3262a275c808b8ce742f6d6b3d1819999038baa85bf62ed4febcca52c7"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r2--random/validation.json": {
+      "bytes": 939,
+      "sha256": "1f208779478e41d9261398e497ae102c35095e66ccfaab5aeac929f72ffcab47"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r2/FREEZE.json": {
+      "bytes": 2031,
+      "sha256": "45809dd699bbff9efcea4fc802b193f5c9127bf27a27d5f257c925920643aa7a"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r2/booster.json": {
+      "bytes": 111466,
+      "sha256": "7ec90b2988d06a0dd47fe6ee38457fd5f7dfff210e4dc5b9dfccbb21ed4581d6"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r2/model.pkl": {
+      "bytes": 143614,
+      "sha256": "e299506b140c01f73fd582a40e45a4c789dd7d16b8014d3d70e49fc29f2a84a9"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r2/train.py": {
+      "bytes": 6310,
+      "sha256": "516b19f1d358977d75a9d7614e07dc9fb694126738bf3634b459f6a15e3571c8"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r2/validation.csv.gz": {
+      "bytes": 676,
+      "sha256": "36882a79b393462d2b8b9559f4864815df2526e69c49874450352231106707e1"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r2/validation.json": {
+      "bytes": 928,
+      "sha256": "99047e29f73ed13483a4c74807255d5d2447757cd0a00901b0a3510aac849ccc"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r3--random/FREEZE.json": {
+      "bytes": 1976,
+      "sha256": "79c89c604a62b7372e1ec28c39ce159292fb95584711d470c23581a5bea3acdd"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r3--random/booster.json": {
+      "bytes": 23553,
+      "sha256": "6e93bcb8a03116b4033fb09695d797a3f27fc272c6707beca6378ed1b220e838"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r3--random/model.pkl": {
+      "bytes": 35291,
+      "sha256": "87304ad09f324e9f2de7fc129ca18834817e11ba163cb3ae3c241ae306c08845"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r3--random/train.py": {
+      "bytes": 1246,
+      "sha256": "1fa39d6586025eddb37cc8be214386a9845e1376a26b84f1227ae0b1b1453812"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r3--random/validation.csv.gz": {
+      "bytes": 1340,
+      "sha256": "8b903752382bb90e8f2081a553de1da3bd04389766517f39b2226e1350960ada"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r3--random/validation.json": {
+      "bytes": 939,
+      "sha256": "c1cf1b99ad11e357a5e3aa365c827df846d7b6c617b05bdd044349252d9f471d"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r3/FREEZE.json": {
+      "bytes": 2140,
+      "sha256": "c4d247d4a19fdd757d6a9e08d08d196d0f2c6f88dbab7a56df799786ee41cd0e"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r3/booster.json": {
+      "bytes": 69212,
+      "sha256": "0bc40d72bde57173d441e9fdfd5178bd7da4b47b7e97504f1c83c91a22980002"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r3/model.pkl": {
+      "bytes": 96462,
+      "sha256": "afd802a7b61e01aa185a64e99e0131a19d68fe5c057bde486bf92ec88bc80e63"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r3/train.py": {
+      "bytes": 5347,
+      "sha256": "9b7f758a2661d30db2a6ecbb4e7888baae5a60400d7847bc46b3278d2387cf40"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r3/validation.csv.gz": {
+      "bytes": 673,
+      "sha256": "be3e0d8e50e6dd0f73c977f52925f281661b4fff7bb820dab46f2813c3c40462"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--r3/validation.json": {
+      "bytes": 1038,
+      "sha256": "62b97d0f04a7fea07be2119754d3bce20923d6ec2dc7e14ab0ac85a6d0151631"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--released/FREEZE.json": {
+      "bytes": 881,
+      "sha256": "b28e0135b45d5206dc1eafd8d1f013e568994fa55f8e06d6d91ad2a86a5be1ee"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--released/booster.json": {
+      "bytes": 104600,
+      "sha256": "dd248a90383a7c9f2ea7e2ac9ae07e7c33cfb2488530b6995adb48df9be23cc4"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--released/model.pkl": {
+      "bytes": 96899,
+      "sha256": "c07ac768935afaa4770887feca8a0b39ef70fafd81fde17f09166a2302f8f0c3"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--released/train.py": {
+      "bytes": 1160,
+      "sha256": "431a0f15145a8578df4bc149ee13483cbc7f06e15ac8214356c08da99d9e5d21"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--released/validation.csv.gz": {
+      "bytes": 1674,
+      "sha256": "ace370da5cbf21a8eca70d6bb73e382d0cb10b157c685fa87ca7599c63796b4c"
+    },
+    "evidence/frozen/phmsa-pipeline-penalty-reduction--released/validation.json": {
+      "bytes": 807,
+      "sha256": "0944f78d8fa3c38ea4f974fd3488676abc59f7694ceb12bf48dc0016a4b4dd96"
+    },
+    "evidence/holdout-access/phmsa-pipeline-penalty-reduction.json": {
+      "bytes": 274,
+      "sha256": "b867df598f5cd2fd5cf0ad68b93277ed2e7754fbc936121e44db96365857c85a"
+    },
+    "evidence/releases/phmsa-pipeline-penalty-reduction/LICENSE-EVIDENCE.json": {
+      "bytes": 651,
+      "sha256": "9d2abc5924e3955c2934d70222207498c3a1c7f792b32151503d7eb8ad6b5496"
+    },
+    "evidence/releases/phmsa-pipeline-penalty-reduction/LICENSE.md": {
+      "bytes": 948,
+      "sha256": "477fe699db77e1e1b4690879dfd9c51d234ba374847c45db0a5637df093bf23a"
+    },
+    "evidence/releases/phmsa-pipeline-penalty-reduction/MANIFEST.json": {
+      "bytes": 22100,
+      "sha256": "fab73aa959f35bcc6b1396a718d408944b2dea47a0893e405c0c73c34263fa7c"
+    },
+    "evidence/releases/phmsa-pipeline-penalty-reduction/README.md": {
+      "bytes": 5072,
+      "sha256": "0da2d2b1e7dc040b57918c790946fdebb141060d550d872b35328aaa28c65ffa"
+    },
+    "evidence/releases/phmsa-pipeline-penalty-reduction/SOURCES.json": {
+      "bytes": 997,
+      "sha256": "e0b6bffc8f735726fa257341fa70b577c1963633f1ece9b8d2bcfc0c5cbc07ba"
+    },
+    "evidence/releases/phmsa-pipeline-penalty-reduction/evaluation.json": {
+      "bytes": 2280,
+      "sha256": "b1321867156ee9bc8ffd800db903b5724eca7137113e89cb307fb7dbd785fee5"
+    },
+    "evidence/releases/phmsa-pipeline-penalty-reduction/extract/meta.json": {
+      "bytes": 1511,
+      "sha256": "2f925208572551b36fd013a5dafae65bb51da04f014915db22c981a0ec7a4d71"
+    },
+    "evidence/releases/phmsa-pipeline-penalty-reduction/reproduction/build.py": {
+      "bytes": 24214,
+      "sha256": "32b1f0e70cb58713fd3482c9938f8c8bffbf21c17ddd8e64429d05bceb67434b"
+    },
+    "evidence/releases/phmsa-pipeline-penalty-reduction/reproduction/construction.json": {
+      "bytes": 24675,
+      "sha256": "d7b716730c2a8ea9690474ccd6591173c46ca1405e02bd30b087a129f49eed31"
+    },
+    "evidence/releases/phmsa-pipeline-penalty-reduction/reproduction/requirements.txt": {
+      "bytes": 160,
+      "sha256": "5c72f3268174d20364624f76680e189c408a05dba2e7b8cfe12d077b3865e7f0"
+    },
+    "evidence/releases/phmsa-pipeline-penalty-reduction/reproduction/train.py": {
+      "bytes": 2500,
+      "sha256": "a3c6bcf13735bc85c52129ded68f839090dffdc266ebc3810dc61b2e6ea5e7e8"
+    },
+    "evidence/run-logs/phmsa-pipeline-penalty-reduction--ordinary-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/phmsa-pipeline-penalty-reduction--ordinary.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/phmsa-pipeline-penalty-reduction--published.log": {
+      "bytes": 53,
+      "sha256": "23bcaaf3363320ec83f216c222b3a9ce6ef83db577d0218bba8fbc2cc29676fb"
+    },
+    "evidence/run-logs/phmsa-pipeline-penalty-reduction--r1--random-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/phmsa-pipeline-penalty-reduction--r1--random.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/phmsa-pipeline-penalty-reduction--r1-freeze.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/phmsa-pipeline-penalty-reduction--r1-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/phmsa-pipeline-penalty-reduction--r2--random-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/phmsa-pipeline-penalty-reduction--r2--random.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/phmsa-pipeline-penalty-reduction--r2-freeze.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/phmsa-pipeline-penalty-reduction--r2-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/phmsa-pipeline-penalty-reduction--r3--random-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/phmsa-pipeline-penalty-reduction--r3--random.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/phmsa-pipeline-penalty-reduction--r3-freeze.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/phmsa-pipeline-penalty-reduction--r3-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/phmsa-pipeline-penalty-reduction--released-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/phmsa-pipeline-penalty-reduction--released.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/score-attempts/phmsa-pipeline-penalty-reduction--ordinary.json": {
+      "bytes": 175,
+      "sha256": "108793790ca253ca9a887937e96e8b7e5cb037565b39935533b90592e50f09ab"
+    },
+    "evidence/score-attempts/phmsa-pipeline-penalty-reduction--r1--random.json": {
+      "bytes": 175,
+      "sha256": "84070857d013cd0600bee956ed996a4ccf6685e9a280da55075eddb0eedaad5d"
+    },
+    "evidence/score-attempts/phmsa-pipeline-penalty-reduction--r1.json": {
+      "bytes": 175,
+      "sha256": "4e0f98d28ec485c769e7eab7fd64ba6c8865a700193366b62da9ffddd74f5a80"
+    },
+    "evidence/score-attempts/phmsa-pipeline-penalty-reduction--r2--random.json": {
+      "bytes": 175,
+      "sha256": "280c1b6fb235a5b4797619c404a0123c9014ef86bb06c8ab3ed7fc5ab321609e"
+    },
+    "evidence/score-attempts/phmsa-pipeline-penalty-reduction--r2.json": {
+      "bytes": 175,
+      "sha256": "6f7c016dcb2f976996ab2dd85a00ac32938898d289bd3d7cfcd5f38cc4e68697"
+    },
+    "evidence/score-attempts/phmsa-pipeline-penalty-reduction--r3--random.json": {
+      "bytes": 175,
+      "sha256": "00c4c2eb56e6e65ca0364373510b4105dc1ac30bbff69d8f1146b1cc58c25a36"
+    },
+    "evidence/score-attempts/phmsa-pipeline-penalty-reduction--r3.json": {
+      "bytes": 175,
+      "sha256": "7f82bcd3712e7a0ff39e5ff6f5b555d7217a96f7ad7f36891f4a3b7d29453c80"
+    },
+    "evidence/score-attempts/phmsa-pipeline-penalty-reduction--released.json": {
+      "bytes": 175,
+      "sha256": "8c549955f881be7567492ebd94567ed454c64c5a357611400b3b83a837ba1136"
+    },
+    "releases.json": {
+      "bytes": 197,
+      "sha256": "0543d7b8656e3e35b06bf5f9166faa5416d6f635b16c7bdfd55d2537974f2662"
+    },
+    "results/REPORT.md": {
+      "bytes": 2431,
+      "sha256": "9bba664645e019e4bc823f1ed16516437babb1d8fd5ca734a44b2735562be340"
+    },
+    "results/scores.csv": {
+      "bytes": 1397,
+      "sha256": "9312d91a67ce6eda15c774e0fde42431f82de900e486db7a1cf041881d8cef92"
+    },
+    "results/scores/phmsa-pipeline-penalty-reduction--ordinary/predictions.csv.gz": {
+      "bytes": 1738,
+      "sha256": "c419a3c1e36e289ded5dd63b3f6e24ddd08b71b67acf7e6677acafe0e7fd2d49"
+    },
+    "results/scores/phmsa-pipeline-penalty-reduction--ordinary/score.json": {
+      "bytes": 255,
+      "sha256": "039e1102bcd433b4f202a92717b005e4a2b7fa139499f3d3656849dae3695258"
+    },
+    "results/scores/phmsa-pipeline-penalty-reduction--r1--random/predictions.csv.gz": {
+      "bytes": 1481,
+      "sha256": "5a4374185988160f384134587c916f624e5ada7d21053c763bcc755745d70573"
+    },
+    "results/scores/phmsa-pipeline-penalty-reduction--r1--random/score.json": {
+      "bytes": 256,
+      "sha256": "c50fb724ba696c487b98d1277eb63a1093c8855f5204ff42e2fc1a4652c8a84b"
+    },
+    "results/scores/phmsa-pipeline-penalty-reduction--r1/predictions.csv.gz": {
+      "bytes": 1194,
+      "sha256": "5fe00a571dfb660e3bbf42a9d8426dbf0d8fcbd65768c9b1e6c2e48406032378"
+    },
+    "results/scores/phmsa-pipeline-penalty-reduction--r1/score.json": {
+      "bytes": 255,
+      "sha256": "5261d35eaf85a58f7a7d99ab0a8ad6be1ce44c2e8956a1943fea66ee1d4c93d4"
+    },
+    "results/scores/phmsa-pipeline-penalty-reduction--r2--random/predictions.csv.gz": {
+      "bytes": 1496,
+      "sha256": "e8ee5460acfe09fd7ae972ca5346378a2c2cfce44287fd114e4687892317743a"
+    },
+    "results/scores/phmsa-pipeline-penalty-reduction--r2--random/score.json": {
+      "bytes": 255,
+      "sha256": "62520a03a2b5cfb56fdf254e72dfebb12764a6fd2dd9b774201c7e00fe71f42b"
+    },
+    "results/scores/phmsa-pipeline-penalty-reduction--r2/predictions.csv.gz": {
+      "bytes": 721,
+      "sha256": "9b1293673a47a25a5a21270144389aea9300cba2a6782628d54edfec3adf35d8"
+    },
+    "results/scores/phmsa-pipeline-penalty-reduction--r2/score.json": {
+      "bytes": 256,
+      "sha256": "512319193b4afaed08c6e01bc90abc95e2acddabb280f6ed4ca34ade90ba588d"
+    },
+    "results/scores/phmsa-pipeline-penalty-reduction--r3--random/predictions.csv.gz": {
+      "bytes": 1277,
+      "sha256": "c09459115aa0aad8aacdd0af2c488b1c95483e2c78e43f5e01ca1ea523c32f8d"
+    },
+    "results/scores/phmsa-pipeline-penalty-reduction--r3--random/score.json": {
+      "bytes": 256,
+      "sha256": "5b8c456399bc16cabc6c18ac1b7ae1d84d8d4ddf41cdbf96d21030ced584472f"
+    },
+    "results/scores/phmsa-pipeline-penalty-reduction--r3/predictions.csv.gz": {
+      "bytes": 606,
+      "sha256": "cb2107c2a95f19e764f24fd381d673fee7766dbff6ea58d0fa9425e41ad561cb"
+    },
+    "results/scores/phmsa-pipeline-penalty-reduction--r3/score.json": {
+      "bytes": 255,
+      "sha256": "d389f86f9b20fd456c3523fd60fc3e0673e130d345a59295760e287b583c5011"
+    },
+    "results/scores/phmsa-pipeline-penalty-reduction--released/predictions.csv.gz": {
+      "bytes": 1726,
+      "sha256": "557726144bf0ae9291cb968d226e4b1490bc9742ab88859ec28cc3de89a46692"
+    },
+    "results/scores/phmsa-pipeline-penalty-reduction--released/score.json": {
+      "bytes": 255,
+      "sha256": "cb1b582947d7c08d4634226dcbbe64c15ed52234a5217e6e5d0f4e0f55d58193"
+    },
+    "results/summary.json": {
+      "bytes": 7539,
+      "sha256": "55e3e2e60d284b9eee5dacca1ade8ad8ef45fa5ce998972542b3910a0b35357d"
+    },
+    "run_study.py": {
+      "bytes": 102055,
+      "sha256": "59e7aaa88b9ffbe8e6052545de01f9809d9e920c0c54573401cbf8d700335af5"
+    },
+    "study.json": {
+      "bytes": 1945,
+      "sha256": "d96d0836175bfb734cb303cdebb6e2311bfd9fe8b1fddbb9be6281a055cb3dde"
+    }
+  },
+  "sealed_at": "2026-11-13T20:13:21.010998+00:00"
+}

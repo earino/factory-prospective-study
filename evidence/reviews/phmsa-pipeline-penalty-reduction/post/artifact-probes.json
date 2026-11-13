@@ -1,0 +1,52 @@
+[
+  {
+    "run": "phmsa-pipeline-penalty-reduction--r1",
+    "real_validation_rows_checked": 25,
+    "batch_equals_single_rows": true,
+    "reverse_order_invariant": true,
+    "prepare_external_events": [],
+    "n_jobs": 5,
+    "feature_count": 4,
+    "selected_feature_names": [
+      "log_pen",
+      "reg_Eastern",
+      "reg_Southwest",
+      "route_Failure Investigation"
+    ]
+  },
+  {
+    "run": "phmsa-pipeline-penalty-reduction--r2",
+    "real_validation_rows_checked": 25,
+    "batch_equals_single_rows": true,
+    "reverse_order_invariant": true,
+    "prepare_external_events": [
+      {
+        "event": "open",
+        "path": "/Users/earino/research/factory-prospective-study/.local/studies/phmsa-pipeline-penalty-reduction/.study/venv/lib/python3.11/site-packages/pandas/core/methods/__pycache__/to_dict.cpython-311.pyc",
+        "dependency_read": true
+      }
+    ],
+    "n_jobs": 5,
+    "feature_count": 8,
+    "selected_feature_names": [
+      "log_penalty",
+      "log_penalty_per_reg",
+      "log_penalty_per_cat",
+      "region_Central",
+      "region_Eastern",
+      "region_Southern",
+      "region_Southwest",
+      "region_Western"
+    ]
+  },
+  {
+    "run": "phmsa-pipeline-penalty-reduction--r3",
+    "real_validation_rows_checked": 25,
+    "batch_equals_single_rows": true,
+    "reverse_order_invariant": true,
+    "prepare_external_events": [],
+    "n_jobs": 5,
+    "feature_count": 4,
+    "selected_feature_names": null
+  }
+]

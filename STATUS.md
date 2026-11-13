@@ -2,9 +2,12 @@
 
 {
   "consumer": {
+    "branch": "consumer/phmsa-pipeline-penalty-reduction",
+    "commit": "6cc1f4f10fc650333eb54a737994129ee69359ba",
     "dataset": "phmsa-pipeline-penalty-reduction",
-    "started": "2026-11-13T18:32:30.303797+00:00",
-    "status": "running"
+    "finished": "2026-11-13T20:13:45.636134+00:00",
+    "started": "2026-11-13T18:32:30.304079+00:00",
+    "status": "complete"
   },
   "factory_counts": {
     "build": 1,
@@ -13,7 +16,7 @@
     "published": 10,
     "rejected": 5
   },
-  "observed_at": "2026-11-13T20:03:15.859786+00:00",
+  "observed_at": "2026-11-13T20:33:32.462943+00:00",
   "paper": {},
   "queue": [
     {
@@ -35,9 +38,9 @@
     {
       "dataset": "phmsa-pipeline-penalty-reduction",
       "verified_at": "2026-11-13T07:53:15.783341+00:00",
-      "status": "queued",
+      "status": "complete",
       "selected": true,
-      "branch": null,
+      "branch": "consumer/phmsa-pipeline-penalty-reduction",
       "error": null
     }
   ],

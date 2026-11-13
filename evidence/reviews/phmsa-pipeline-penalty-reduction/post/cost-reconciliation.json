@@ -1,0 +1,37 @@
+{
+  "basis": "Last available cumulative cost per independent CLI session, not per-invocation sum; estimates, not invoice. Deadline-truncated final invocations may leave unreported usage.",
+  "runs": [
+    {
+      "run": "phmsa-pipeline-penalty-reduction--r1",
+      "session_id": "abe6686f-bb7a-4de8-a4c0-b6ddf726cb14",
+      "invocations": 33,
+      "naive_sum_cumulative_cost": 872.5580676,
+      "last_reported_session_cost": 31.697189499999997,
+      "monotone_cumulative_cost": true,
+      "final_invocation_has_result": true,
+      "short_invocations_under_10s": 5
+    },
+    {
+      "run": "phmsa-pipeline-penalty-reduction--r2",
+      "session_id": "17fa81e8-369f-48de-9174-20767f993365",
+      "invocations": 21,
+      "naive_sum_cumulative_cost": 693.2095941999995,
+      "last_reported_session_cost": 37.093391799999985,
+      "monotone_cumulative_cost": true,
+      "final_invocation_has_result": true,
+      "short_invocations_under_10s": 4
+    },
+    {
+      "run": "phmsa-pipeline-penalty-reduction--r3",
+      "session_id": "0f9d95c6-c53b-491a-b271-e1cf17611b6d",
+      "invocations": 26,
+      "naive_sum_cumulative_cost": 864.2154486000006,
+      "last_reported_session_cost": 38.19271550000003,
+      "monotone_cumulative_cost": true,
+      "final_invocation_has_result": true,
+      "short_invocations_under_10s": 5
+    }
+  ],
+  "sum_last_reported_session_cost": 106.9832968,
+  "original_naive_sum": 2429.9831104000004
+}
