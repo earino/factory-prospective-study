@@ -1,0 +1,28 @@
+{
+  "dataset": "fjc-civil-trial-36m",
+  "files": {
+    "booster.json": {
+      "bytes": 284360,
+      "sha256": "05003de428e4902f8a45c9814a4a0279a0c03569ff142de617d23c4b89710fc4"
+    },
+    "model.pkl": {
+      "bytes": 281496,
+      "sha256": "cc1323f1df8dda1997aff3333aa560a628db9e35b9ec78158207ef5bc0a9e26d"
+    },
+    "train.py": {
+      "bytes": 1160,
+      "sha256": "431a0f15145a8578df4bc149ee13483cbc7f06e15ac8214356c08da99d9e5d21"
+    },
+    "validation.csv.gz": {
+      "bytes": 1014947,
+      "sha256": "cd4918a0b79253024b214def20ad79c983a078be7e2bf271583b052fec65eba1"
+    },
+    "validation.json": {
+      "bytes": 798,
+      "sha256": "c5fda07d693cf13043793a6abadcbcf4e45ee47fb1267a51cd0ec04779a01e4e"
+    }
+  },
+  "frozen_at": "2026-11-13T08:31:23.715274+00:00",
+  "matches_released_baseline": true,
+  "run": "fjc-civil-trial-36m--released"
+}
