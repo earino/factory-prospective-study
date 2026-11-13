@@ -1,6 +1,6 @@
 {
   "cli_reported_cost_usd_not_invoice": 2429.9831104,
-  "generated_at": "2026-11-13T20:04:06.958010+00:00",
+  "generated_at": "2026-11-13T20:13:20.972879+00:00",
   "limitations": [
     "Five selected factory releases; three attempts are descriptive, not agent rankings.",
     "Pinned consumer scaffold and deterministic downloads are provided assistance.",
@@ -114,9 +114,19 @@
   "scores": [
     {
       "dataset": "phmsa-pipeline-penalty-reduction",
-      "holdout_auc": null,
-      "holdout_brier": null,
-      "holdout_rows": null,
+      "holdout_auc": 0.5569679849340865,
+      "holdout_brier": 0.2804798535879149,
+      "holdout_rows": 149,
+      "id": "phmsa-pipeline-penalty-reduction--ordinary",
+      "kind": "ordinary",
+      "validation_auc": 0.5907563025210084,
+      "validation_brier": 0.21275644595965068
+    },
+    {
+      "dataset": "phmsa-pipeline-penalty-reduction",
+      "holdout_auc": 0.6352165725047082,
+      "holdout_brier": 0.2532086062768839,
+      "holdout_rows": 149,
       "id": "phmsa-pipeline-penalty-reduction--r1",
       "kind": "agent",
       "validation_auc": 0.788235294117647,
@@ -124,9 +134,19 @@
     },
     {
       "dataset": "phmsa-pipeline-penalty-reduction",
-      "holdout_auc": null,
-      "holdout_brier": null,
-      "holdout_rows": null,
+      "holdout_auc": 0.5878531073446328,
+      "holdout_brier": 0.26840422961536264,
+      "holdout_rows": 149,
+      "id": "phmsa-pipeline-penalty-reduction--r1--random",
+      "kind": "random",
+      "validation_auc": 0.6579831932773109,
+      "validation_brier": 0.1801742195635668
+    },
+    {
+      "dataset": "phmsa-pipeline-penalty-reduction",
+      "holdout_auc": 0.6224105461393596,
+      "holdout_brier": 0.25131242249176755,
+      "holdout_rows": 149,
       "id": "phmsa-pipeline-penalty-reduction--r2",
       "kind": "agent",
       "validation_auc": 0.7785714285714286,
@@ -134,13 +154,43 @@
     },
     {
       "dataset": "phmsa-pipeline-penalty-reduction",
-      "holdout_auc": null,
-      "holdout_brier": null,
-      "holdout_rows": null,
+      "holdout_auc": 0.6087570621468926,
+      "holdout_brier": 0.2766408519934878,
+      "holdout_rows": 149,
+      "id": "phmsa-pipeline-penalty-reduction--r2--random",
+      "kind": "random",
+      "validation_auc": 0.6648459383753501,
+      "validation_brier": 0.18445235445149688
+    },
+    {
+      "dataset": "phmsa-pipeline-penalty-reduction",
+      "holdout_auc": 0.618361581920904,
+      "holdout_brier": 0.25655123617830905,
+      "holdout_rows": 149,
       "id": "phmsa-pipeline-penalty-reduction--r3",
       "kind": "agent",
       "validation_auc": 0.7502801120448178,
       "validation_brier": 0.16424478481102148
+    },
+    {
+      "dataset": "phmsa-pipeline-penalty-reduction",
+      "holdout_auc": 0.5970809792843691,
+      "holdout_brier": 0.27847685029336927,
+      "holdout_rows": 149,
+      "id": "phmsa-pipeline-penalty-reduction--r3--random",
+      "kind": "random",
+      "validation_auc": 0.6785714285714285,
+      "validation_brier": 0.18433714204782026
+    },
+    {
+      "dataset": "phmsa-pipeline-penalty-reduction",
+      "holdout_auc": 0.5611111111111111,
+      "holdout_brier": 0.2531191160623722,
+      "holdout_rows": 149,
+      "id": "phmsa-pipeline-penalty-reduction--released",
+      "kind": "released",
+      "validation_auc": 0.6026610644257703,
+      "validation_brier": 0.18910943944325126
     }
   ]
 }

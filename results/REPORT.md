@@ -1,6 +1,6 @@
 # Consumer study results
 
-Generated 2026-11-13T20:04:06.958010+00:00
+Generated 2026-11-13T20:13:20.972879+00:00
 
 Measured records are in summary.json and scores.csv. Failures remain in the denominator.
 
@@ -16,9 +16,14 @@ Compliance triage (separate from scores):
 
 Scores (including flagged attempts; do not treat all as compliant results):
 
-- phmsa-pipeline-penalty-reduction--r1: validation AUC 0.788235; holdout AUC not scored.
-- phmsa-pipeline-penalty-reduction--r2: validation AUC 0.778571; holdout AUC not scored.
-- phmsa-pipeline-penalty-reduction--r3: validation AUC 0.750280; holdout AUC not scored.
+- phmsa-pipeline-penalty-reduction--ordinary: validation AUC 0.590756; holdout AUC 0.556968.
+- phmsa-pipeline-penalty-reduction--r1: validation AUC 0.788235; holdout AUC 0.635217.
+- phmsa-pipeline-penalty-reduction--r1--random: validation AUC 0.657983; holdout AUC 0.587853.
+- phmsa-pipeline-penalty-reduction--r2: validation AUC 0.778571; holdout AUC 0.622411.
+- phmsa-pipeline-penalty-reduction--r2--random: validation AUC 0.664846; holdout AUC 0.608757.
+- phmsa-pipeline-penalty-reduction--r3: validation AUC 0.750280; holdout AUC 0.618362.
+- phmsa-pipeline-penalty-reduction--r3--random: validation AUC 0.678571; holdout AUC 0.597081.
+- phmsa-pipeline-penalty-reduction--released: validation AUC 0.602661; holdout AUC 0.561111.
 
 ## Limits
 

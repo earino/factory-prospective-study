@@ -1,4 +1,9 @@
 dataset,id,kind,validation_auc,validation_brier,holdout_auc,holdout_brier,holdout_rows
-phmsa-pipeline-penalty-reduction,phmsa-pipeline-penalty-reduction--r1,agent,0.788235294117647,0.1556123729196552,,,
-phmsa-pipeline-penalty-reduction,phmsa-pipeline-penalty-reduction--r2,agent,0.7785714285714286,0.15446267034510192,,,
-phmsa-pipeline-penalty-reduction,phmsa-pipeline-penalty-reduction--r3,agent,0.7502801120448178,0.16424478481102148,,,
+phmsa-pipeline-penalty-reduction,phmsa-pipeline-penalty-reduction--ordinary,ordinary,0.5907563025210084,0.21275644595965068,0.5569679849340865,0.2804798535879149,149
+phmsa-pipeline-penalty-reduction,phmsa-pipeline-penalty-reduction--r1,agent,0.788235294117647,0.1556123729196552,0.6352165725047082,0.2532086062768839,149
+phmsa-pipeline-penalty-reduction,phmsa-pipeline-penalty-reduction--r1--random,random,0.6579831932773109,0.1801742195635668,0.5878531073446328,0.26840422961536264,149
+phmsa-pipeline-penalty-reduction,phmsa-pipeline-penalty-reduction--r2,agent,0.7785714285714286,0.15446267034510192,0.6224105461393596,0.25131242249176755,149
+phmsa-pipeline-penalty-reduction,phmsa-pipeline-penalty-reduction--r2--random,random,0.6648459383753501,0.18445235445149688,0.6087570621468926,0.2766408519934878,149
+phmsa-pipeline-penalty-reduction,phmsa-pipeline-penalty-reduction--r3,agent,0.7502801120448178,0.16424478481102148,0.618361581920904,0.25655123617830905,149
+phmsa-pipeline-penalty-reduction,phmsa-pipeline-penalty-reduction--r3--random,random,0.6785714285714285,0.18433714204782026,0.5970809792843691,0.27847685029336927,149
+phmsa-pipeline-penalty-reduction,phmsa-pipeline-penalty-reduction--released,released,0.6026610644257703,0.18910943944325126,0.5611111111111111,0.2531191160623722,149
