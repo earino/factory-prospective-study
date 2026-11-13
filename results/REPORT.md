@@ -1,22 +1,23 @@
 # Consumer study results
 
-Generated 2026-11-13T08:29:30.840670+00:00
+Generated 2026-11-13T08:29:55.984931+00:00
 
 Measured records are in summary.json and scores.csv. Failures remain in the denominator.
 
 Requested model: `claude-fable-5-2`. Reported models: claude-fable-5-2.
 
-Registered attempts: 3; frozen: 2; failed/blocked: 0.
+Registered attempts: 3; frozen: 3; failed/blocked: 0.
 
 Compliance triage (separate from scores):
 
 - fjc-civil-trial-36m--r1: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
 - fjc-civil-trial-36m--r2: not yet audited; forbidden asset copies unknown; tool-access flags unknown. Semantic compliance requires review.
-- fjc-civil-trial-36m--r3: not yet audited; forbidden asset copies unknown; tool-access flags unknown. Semantic compliance requires review.
+- fjc-civil-trial-36m--r3: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
 
 Scores (including flagged attempts; do not treat all as compliant results):
 
 - fjc-civil-trial-36m--r1: validation AUC 0.769171; holdout AUC not scored.
+- fjc-civil-trial-36m--r2: validation AUC 0.768517; holdout AUC not scored.
 - fjc-civil-trial-36m--r3: validation AUC 0.768109; holdout AUC not scored.
 
 ## Limits

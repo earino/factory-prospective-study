@@ -1,6 +1,6 @@
 {
-  "cli_reported_cost_usd_not_invoice": 195.04242759999997,
-  "generated_at": "2026-11-13T08:29:30.840670+00:00",
+  "cli_reported_cost_usd_not_invoice": 312.2781732,
+  "generated_at": "2026-11-13T08:29:55.984931+00:00",
   "limitations": [
     "Five selected factory releases; three attempts are descriptive, not agent rankings.",
     "Pinned consumer scaffold and deterministic downloads are provided assistance.",
@@ -46,28 +46,34 @@
       "error": null,
       "id": "fjc-civil-trial-36m--r2",
       "interruptions": null,
-      "research_active_s": null,
-      "status": "not_finished",
+      "research_active_s": 5100.123483124131,
+      "status": "frozen",
       "timing": {
-        "cli_invocations": 0,
+        "cli_invocations": 14,
         "evaluation_wall_sum_s": 475.12186599802226,
         "fit_cpu_sum_s": 235.13810700000002,
         "fit_wall_sum_s": 79.72423446108587,
-        "harness_wall_union_s": 0,
+        "harness_wall_union_s": 564.9172146320343,
         "incomplete_or_failed_trials": 0,
         "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
         "ok_trials": 8,
-        "other_active_wall_s": 0,
-        "research_active_s": 0,
+        "other_active_wall_s": 4535.206268492097,
+        "research_active_s": 5100.123483124131,
         "trial_records": 8
       }
     },
     {
+      "compliance_triage": "no_automatic_access_flag",
       "dataset": "fjc-civil-trial-36m",
       "error": null,
+      "holdout_content_hits": [],
       "id": "fjc-civil-trial-36m--r3",
+      "integrity": "requires_semantic_review",
       "interruptions": null,
+      "protocol_caveats": [],
       "research_active_s": 5100.308783126005,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
       "status": "frozen",
       "timing": {
         "cli_invocations": 11,
@@ -81,7 +87,9 @@
         "other_active_wall_s": 4692.688011956343,
         "research_active_s": 5100.308783126005,
         "trial_records": 10
-      }
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
     }
   ],
   "protocol_sha256": "c9dbfa2d34849171c19fb3051265a46ea814b9cbf50b8082c500a8ac0d02dba1",
@@ -89,10 +97,10 @@
     "claude-fable-5-2"
   ],
   "reported_usage": {
-    "cache_creation_input_tokens": 321183,
-    "cache_read_input_tokens": 21648366,
-    "input_tokens": 406,
-    "output_tokens": 198515
+    "cache_creation_input_tokens": 499460,
+    "cache_read_input_tokens": 33738301,
+    "input_tokens": 610,
+    "output_tokens": 299550
   },
   "requested_model": "claude-fable-5-2",
   "scores": [
@@ -105,6 +113,16 @@
       "kind": "agent",
       "validation_auc": 0.7691708624343352,
       "validation_brier": 0.005108152498639434
+    },
+    {
+      "dataset": "fjc-civil-trial-36m",
+      "holdout_auc": null,
+      "holdout_brier": null,
+      "holdout_rows": null,
+      "id": "fjc-civil-trial-36m--r2",
+      "kind": "agent",
+      "validation_auc": 0.7685174050351468,
+      "validation_brier": 0.005085394891826779
     },
     {
       "dataset": "fjc-civil-trial-36m",

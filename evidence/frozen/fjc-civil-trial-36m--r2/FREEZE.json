@@ -1,0 +1,50 @@
+{
+  "dataset": "fjc-civil-trial-36m",
+  "environment": "ebc4d673b04f7331715457533369270826ffca22b2b0f340d7a1680c606de160",
+  "files": {
+    "booster.json": {
+      "bytes": 4987563,
+      "sha256": "33bdc86983f67f2253ceae27b7fbf2655ee64f65d4af81b0dec312acb65c8aa6"
+    },
+    "model.pkl": {
+      "bytes": 4605593,
+      "sha256": "875bd411238b325a57d4189532bb6ab5995f193d7e800eb81bdde177014f3fdc"
+    },
+    "train.py": {
+      "bytes": 8136,
+      "sha256": "18c350f3adf56b0da41a2a7606a05e035d7eb326aab59f6838cdaa5e44da649e"
+    },
+    "validation.csv.gz": {
+      "bytes": 1120554,
+      "sha256": "79349e0bc1a5f4f711f4256e79d0af1759745995d1730f56690a1476b0192779"
+    },
+    "validation.json": {
+      "bytes": 1149,
+      "sha256": "20cd4e4fcd666adb428a94938fae16e527ae964ac105c9a889503c9990165104"
+    }
+  },
+  "frozen_at": "2026-11-13T08:29:45.979419+00:00",
+  "run": "fjc-civil-trial-36m--r2",
+  "selected_trial": {
+    "artifact_sha256": "875bd411238b325a57d4189532bb6ab5995f193d7e800eb81bdde177014f3fdc",
+    "auc": 0.7685174050351468,
+    "backtest": {},
+    "brier": 0.005085394891826779,
+    "code_sha256": "18c350f3adf56b0da41a2a7606a05e035d7eb326aab59f6838cdaa5e44da649e",
+    "elapsed_s": 76.62700325000333,
+    "evaluation_wall_s": 57.309726874984335,
+    "finished_epoch": 1794557863.0440042,
+    "fit_cpu_s": 63.473435,
+    "fit_wall_s": 18.026185834023636,
+    "id": "776a5f2417b84aa28219a550c056d52d",
+    "mode": "validation",
+    "note": "H5: nearest-code fallback for unseen NOS is a coin flip in a leave-one-code-out simulation inside training (+0.006,+0.002,-0.004,-0.002). Replace it with a learned code-group feature (floor(NOS/10), numeric) and leave unseen codes missing in the categorical; in the same simulation this had the best average and smallest worst-case loss. Otherwise identical to trial 28754029.",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/fjc-civil-trial-36m/.study/runs/fjc-civil-trial-36m--r2/trials/776a5f2417b84aa28219a550c056d52d",
+    "phase": "evaluation",
+    "rows_score": 124885,
+    "rows_train": 600136,
+    "started_epoch": 1794557786.416321,
+    "status": "ok",
+    "utc": "2026-11-13T08:16:26.416313+00:00"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "776a5f2417b84aa28219a550c056d52d",
+  "utc": "2026-11-13T08:16:26.416313+00:00",
+  "started_epoch": 1794557786.416321,
+  "mode": "validation",
+  "note": "H5: nearest-code fallback for unseen NOS is a coin flip in a leave-one-code-out simulation inside training (+0.006,+0.002,-0.004,-0.002). Replace it with a learned code-group feature (floor(NOS/10), numeric) and leave unseen codes missing in the categorical; in the same simulation this had the best average and smallest worst-case loss. Otherwise identical to trial 28754029.",
+  "code_sha256": "18c350f3adf56b0da41a2a7606a05e035d7eb326aab59f6838cdaa5e44da649e",
+  "status": "ok",
+  "fit_wall_s": 18.026185834023636,
+  "fit_cpu_s": 63.473435,
+  "phase": "evaluation",
+  "evaluation_wall_s": 57.309726874984335,
+  "auc": 0.7685174050351468,
+  "brier": 0.005085394891826779,
+  "rows_train": 600136,
+  "rows_score": 124885,
+  "backtest": {},
+  "artifact_sha256": "875bd411238b325a57d4189532bb6ab5995f193d7e800eb81bdde177014f3fdc",
+  "finished_epoch": 1794557863.0440042,
+  "elapsed_s": 76.62700325000333,
+  "cold_replay_at": "2026-11-13T08:29:45.688881+00:00",
+  "no_retraining": true
+}
