@@ -1,6 +1,6 @@
 {
   "cli_reported_cost_usd_not_invoice": 1634.057735,
-  "generated_at": "2026-11-14T12:36:47.248839+00:00",
+  "generated_at": "2026-11-14T12:37:03.525875+00:00",
   "limitations": [
     "Five selected factory releases; three attempts are descriptive, not agent rankings.",
     "Pinned consumer scaffold and deterministic downloads are provided assistance.",
@@ -63,11 +63,17 @@
       "verified_forbidden_copies": 0
     },
     {
+      "compliance_triage": "no_automatic_access_flag",
       "dataset": "t100-new-route-survival",
       "error": null,
+      "holdout_content_hits": [],
       "id": "t100-new-route-survival--r3",
+      "integrity": "requires_semantic_review",
       "interruptions": null,
+      "protocol_caveats": [],
       "research_active_s": 5100.025497831001,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
       "status": "frozen",
       "timing": {
         "cli_invocations": 23,
@@ -81,7 +87,9 @@
         "other_active_wall_s": 5050.237378991737,
         "research_active_s": 5100.025497831001,
         "trial_records": 17
-      }
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
     }
   ],
   "protocol_sha256": "99c261e2920c83f7f2250fbf3447f14144f1a44e1511edcf731cc5a07c06fe5b",
