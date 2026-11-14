@@ -1,6 +1,6 @@
 # Consumer study results
 
-Generated 2026-11-14T01:40:54.539486+00:00
+Generated 2026-11-14T01:48:09.765960+00:00
 
 Measured records are in summary.json and scores.csv. Failures remain in the denominator.
 
@@ -16,9 +16,14 @@ Compliance triage (separate from scores):
 
 Scores (including flagged attempts; do not treat all as compliant results):
 
-- fda-510k-five-year-recall--r1: validation AUC 0.744334; holdout AUC not scored.
-- fda-510k-five-year-recall--r2: validation AUC 0.745215; holdout AUC not scored.
-- fda-510k-five-year-recall--r3: validation AUC 0.746215; holdout AUC not scored.
+- fda-510k-five-year-recall--ordinary: validation AUC 0.677399; holdout AUC 0.654646.
+- fda-510k-five-year-recall--r1: validation AUC 0.744334; holdout AUC 0.726790.
+- fda-510k-five-year-recall--r1--random: validation AUC 0.684005; holdout AUC 0.664413.
+- fda-510k-five-year-recall--r2: validation AUC 0.745215; holdout AUC 0.726923.
+- fda-510k-five-year-recall--r2--random: validation AUC 0.685015; holdout AUC 0.656172.
+- fda-510k-five-year-recall--r3: validation AUC 0.746215; holdout AUC 0.730756.
+- fda-510k-five-year-recall--r3--random: validation AUC 0.687402; holdout AUC 0.661520.
+- fda-510k-five-year-recall--released: validation AUC 0.679844; holdout AUC 0.660656.
 
 ## Limits
 

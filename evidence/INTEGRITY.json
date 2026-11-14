@@ -1,0 +1,553 @@
+{
+  "files": {
+    "agent.md": {
+      "bytes": 9301,
+      "sha256": "c09f3b5b08ae3a87684b75fb3abea1659aaa6283d1832a13ae6b6aeb27083bc8"
+    },
+    "evidence/COMPLETED.json": {
+      "bytes": 176,
+      "sha256": "ecd98b6d47b98687ab2bf967419a8c1e9a6703d52e7df33d64922c6a76f22f75"
+    },
+    "evidence/HOLDOUT-BARRIER.json": {
+      "bytes": 982,
+      "sha256": "82eb8fd2efe99a38703dae387a79f265d71b64090e9eaecc9f7f034b5e4b67cd"
+    },
+    "evidence/attempts/fda-510k-five-year-recall--r1--random/archive.json": {
+      "bytes": 19681,
+      "sha256": "b20784bd61dc10be2a319925aa07596cecf42e8b8b53aa94f2ae295a889743ad"
+    },
+    "evidence/attempts/fda-510k-five-year-recall--r1--random/state.json": {
+      "bytes": 3742,
+      "sha256": "d06eff4523a0095d18ea80330b78f69c6944dab601b84c2cfb18888c2044346a"
+    },
+    "evidence/attempts/fda-510k-five-year-recall--r1--random/workspace.tar.gz.part0000": {
+      "bytes": 9647182,
+      "sha256": "8101ae6763ba23a48dd513545f4da8a0a10a1681c9bfa9ed1c541e8e7498232a"
+    },
+    "evidence/attempts/fda-510k-five-year-recall--r1/archive.json": {
+      "bytes": 35657,
+      "sha256": "03a72ef277a355c070ab58ee0346cfc0bae8ab4e70d2b64d5e780fa09f0d7f95"
+    },
+    "evidence/attempts/fda-510k-five-year-recall--r1/state.json": {
+      "bytes": 62460,
+      "sha256": "1bb99091196c3c5c25918b31f0a9035aebb299babed8527551a7c2ae0edcf055"
+    },
+    "evidence/attempts/fda-510k-five-year-recall--r1/workspace.tar.gz.part0000": {
+      "bytes": 7985044,
+      "sha256": "626f7fded801b03cac629f2ae7d71f27805f1be96e3c4e618891973cba2ca5a4"
+    },
+    "evidence/attempts/fda-510k-five-year-recall--r2--random/archive.json": {
+      "bytes": 17653,
+      "sha256": "be5398fb5de45c359e7b19945b31ad1566f04a2a7c71e7ece8cd69699d072be3"
+    },
+    "evidence/attempts/fda-510k-five-year-recall--r2--random/state.json": {
+      "bytes": 3730,
+      "sha256": "b48c4d1905dcf67c8a2da4f4a18ff458652699a52bc60136e4880b3ccceeff5b"
+    },
+    "evidence/attempts/fda-510k-five-year-recall--r2--random/workspace.tar.gz.part0000": {
+      "bytes": 5808123,
+      "sha256": "9cf3d187d3120226ddd2bf8bfac18740e0ca235ff5a64c95df3641288b1203fb"
+    },
+    "evidence/attempts/fda-510k-five-year-recall--r2/archive.json": {
+      "bytes": 20658,
+      "sha256": "adb162a73bb859b5d51f60e8590c20aa63cc0f83eaa32ba545243ce754319971"
+    },
+    "evidence/attempts/fda-510k-five-year-recall--r2/state.json": {
+      "bytes": 65756,
+      "sha256": "b8985d8d75cd7bee161deabaded6c3e3b747c61b8f822960d33c2b922b0bee6b"
+    },
+    "evidence/attempts/fda-510k-five-year-recall--r2/workspace.tar.gz.part0000": {
+      "bytes": 16713584,
+      "sha256": "68e76517035a06181818d7130bfa1b4d3e9239cb6670413f05c93e67cb6ec964"
+    },
+    "evidence/attempts/fda-510k-five-year-recall--r3--random/archive.json": {
+      "bytes": 27748,
+      "sha256": "a22402a76885c74eaa02bdb1a07441277a358977f7b2f12ebdddbb3f76b5bd8c"
+    },
+    "evidence/attempts/fda-510k-five-year-recall--r3--random/state.json": {
+      "bytes": 3742,
+      "sha256": "92792b71bfba43cdc3545b8417afd229a0693deb5ba8666b354dc1cf74f91731"
+    },
+    "evidence/attempts/fda-510k-five-year-recall--r3--random/workspace.tar.gz.part0000": {
+      "bytes": 13348269,
+      "sha256": "38e956402b3a5681f52a8c89a7183f6bd4aa42a8b9e9782802f827b4d79ca055"
+    },
+    "evidence/attempts/fda-510k-five-year-recall--r3/archive.json": {
+      "bytes": 33368,
+      "sha256": "0fdf8b0c0888723b7b8f8d8b0f1dd402309571f5da648dbfa8c3c685498a4e9a"
+    },
+    "evidence/attempts/fda-510k-five-year-recall--r3/state.json": {
+      "bytes": 52165,
+      "sha256": "575cb6fdc38833bea126f02cbea33baa63def69219560be0eda6d500df1a7313"
+    },
+    "evidence/attempts/fda-510k-five-year-recall--r3/workspace.tar.gz.part0000": {
+      "bytes": 9392635,
+      "sha256": "a376f33399dcffe61e7565baa78877177f6e169bd5f367847f5330b6bc12d172"
+    },
+    "evidence/compliance/fda-510k-five-year-recall--r1.json": {
+      "bytes": 621,
+      "sha256": "838743ce7c2bbdfd37bf816e4cc8c3468839c8da6bd2890883388e42acca135c"
+    },
+    "evidence/compliance/fda-510k-five-year-recall--r2.json": {
+      "bytes": 621,
+      "sha256": "6d634a3f28269274696289c23536c5580670f982c4386191ba32d1b86ae6ea71"
+    },
+    "evidence/compliance/fda-510k-five-year-recall--r3.json": {
+      "bytes": 621,
+      "sha256": "e769ee3178417caa6e9d1a21cb359b5e50df1b0b1e9fef3456f8ee9639225489"
+    },
+    "evidence/controls/fda-510k-five-year-recall--published/reproduction.json": {
+      "bytes": 215,
+      "sha256": "5d2ac3daf5ca869e9c7c65459c11d6e6e857d42b4f974ab259ee65a31b66ffca"
+    },
+    "evidence/environment/claude-help.txt": {
+      "bytes": 22494,
+      "sha256": "1e734dc647e2d7c775d2e581b3aa68a8741ff4fdde7e864c4e5799d70777558c"
+    },
+    "evidence/environment/host.json": {
+      "bytes": 201,
+      "sha256": "d807a370e0a2df486a0e36bfa0dce8af197899c9da73486d90db640b566de070"
+    },
+    "evidence/environment/pip-freeze.txt": {
+      "bytes": 439,
+      "sha256": "ebc4d673b04f7331715457533369270826ffca22b2b0f340d7a1680c606de160"
+    },
+    "evidence/environment/python.json": {
+      "bytes": 120,
+      "sha256": "2eef4740b13558586e477e16eeb039a6e3213a5ed61771a54da4102c4165ad5a"
+    },
+    "evidence/events.jsonl": {
+      "bytes": 162878,
+      "sha256": "0f3b6994965e16b691459f3a9e46c9b54d93e781fe4aa0e904cc79c87a1a2125"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--ordinary/FREEZE.json": {
+      "bytes": 831,
+      "sha256": "4337eacb768ec2bc528c57644d89875f66b4215af48ca3cb352ae4de40198697"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--ordinary/booster.json": {
+      "bytes": 602910,
+      "sha256": "bee9a3aa89a1fd8e6d1b0b86249e3b9e0587b0f57aa8fa1f6ec9564caac5244a"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--ordinary/model.pkl": {
+      "bytes": 486301,
+      "sha256": "4921e59ac1b1645885d41de93ce874c1b737541f0d63cba204ef1727fe465abc"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--ordinary/train.py": {
+      "bytes": 1161,
+      "sha256": "8ef88b64efd5805e03b546af17e7d6e92fbd39e24bc46a03bcb2b848ba9fb450"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--ordinary/validation.csv.gz": {
+      "bytes": 99128,
+      "sha256": "84468ab065137cde7db61c29de942e0b5c55bb7707cad807dca6dabfcef054e3"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--ordinary/validation.json": {
+      "bytes": 793,
+      "sha256": "7e50a4c09fc3d72e5d40e5a6d974ac509eeb5c7eaacb5758f264be41d9b9aac7"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r1--random/FREEZE.json": {
+      "bytes": 1948,
+      "sha256": "7b9bf10c8a4f81c1fb897f61c3ea6d72aa1eb146ef7542f0cc8c248cb67b2096"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r1--random/booster.json": {
+      "bytes": 242778,
+      "sha256": "cc0a3d45d37a24e38110a150f4e7bbd3034cdcb16615095b7197aa661d94a376"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r1--random/model.pkl": {
+      "bytes": 307896,
+      "sha256": "4095e52b087d050c814c964e1038db50e9d40b75592595e8859d61e76cd39e7f"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r1--random/train.py": {
+      "bytes": 1247,
+      "sha256": "d9116dc25e49a435cb5392927e629807b9d38d916d2a43e8efc5a26d49e216cd"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r1--random/validation.csv.gz": {
+      "bytes": 96949,
+      "sha256": "5503b9fd7aa5e2a391e6b62a7574c4f31ccfb57f9988ceea5be916bdf1646162"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r1--random/validation.json": {
+      "bytes": 936,
+      "sha256": "94f6c44f6737be58dc56f2a172432ae4e81367397b96e96eee75d202b7e9bd86"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r1/FREEZE.json": {
+      "bytes": 2270,
+      "sha256": "07d73816c6d75d9f65685e5c8f280dc4569a5d62d5844311c215152a62dc0eb9"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r1/booster.json": {
+      "bytes": 469285,
+      "sha256": "d429fdf7910f701fcd3ecb5f0d80ae4a1a6e23403de2673e9a1241b4beb62768"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r1/model.pkl": {
+      "bytes": 1852801,
+      "sha256": "2c953695017cdb8a67d4a4bd1c5794897862a5daffa156208178926938b9454b"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r1/train.py": {
+      "bytes": 7294,
+      "sha256": "3c30e634bf1c7cb37f581e1fd68f9b96391bdbf17a7df26b457ba1c1fcd92d26"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r1/validation.csv.gz": {
+      "bytes": 103127,
+      "sha256": "bbc12352bfbbb043223d1c5317b324a2c3e3e05c1776e066117c10da02e039dd"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r1/validation.json": {
+      "bytes": 1190,
+      "sha256": "2316dd409ccf9427389ed981b7526e54f7a4ad320386d6ecedc62c22a210bc67"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r2--random/FREEZE.json": {
+      "bytes": 1949,
+      "sha256": "9259a81f213eee3c56a4eb5d332a76ba30564206ecd6f132558c17481525715f"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r2--random/booster.json": {
+      "bytes": 1084007,
+      "sha256": "b9c7b580fedb2ebfad51f2b5e2c9667e31c21d75cd5f4557de7fac9a0474c2c3"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r2--random/model.pkl": {
+      "bytes": 831755,
+      "sha256": "6821d37b7e12e2641ab999cfafbacbc2209b8088cc37e1c6025340d70bbce9b0"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r2--random/train.py": {
+      "bytes": 1245,
+      "sha256": "b2c492219d7d12a7f092b1d0c58accfda23c85ed2fd7e1c71379b6f0d77c1c25"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r2--random/validation.csv.gz": {
+      "bytes": 100966,
+      "sha256": "c88df6c0c0f1c6e12b14a163067ef3c8c8acb2f57e7e9d65c209c581df084f5f"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r2--random/validation.json": {
+      "bytes": 935,
+      "sha256": "f146a7156656e2ff79b5c42cc3fb592ec4f9b4e448b58b8788f292722f8232ab"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r2/FREEZE.json": {
+      "bytes": 2083,
+      "sha256": "47267333c8cca38f9cfe88e1c07e681be5eac220f9b526e1f548cd63fce82b51"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r2/booster.json": {
+      "bytes": 310098,
+      "sha256": "94e14761e2963b472eb372e34850f1344e0ffeeea28335d297289e0a6b92a4a1"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r2/model.pkl": {
+      "bytes": 4663087,
+      "sha256": "9262b43163910c18ff2a4979367e63ac70309c1b25ca7c27a9bf2c9e87f46699"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r2/train.py": {
+      "bytes": 15419,
+      "sha256": "849894d92a3a194dc26b957770e2c630c5efa28a9cff60876b515d6287b4205c"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r2/validation.csv.gz": {
+      "bytes": 96703,
+      "sha256": "6d18540eb8a256fdf7c50b4c27d116fc9638b8352f61d6e75937f37efa8e2b6f"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r2/validation.json": {
+      "bytes": 1003,
+      "sha256": "6a6c0b264cbf50b58daddba5a4615a7aa65316e858a6e17eec8cccdb63e9579a"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r3--random/FREEZE.json": {
+      "bytes": 1948,
+      "sha256": "8218bbe00026f0410eb744735ac6f2eecd5fce2dd2ebcfc53939792810bd172e"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r3--random/booster.json": {
+      "bytes": 483219,
+      "sha256": "178dade3867770fa74938e7e8f4301d166e6e37465f15eb583217795bb84d5cd"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r3--random/model.pkl": {
+      "bytes": 605860,
+      "sha256": "ec697201bfae29ba1155e58f750d68250a4b07ca10d0f13850dfe9d4e27bdb10"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r3--random/train.py": {
+      "bytes": 1247,
+      "sha256": "fca7fe3fea3b0c906000232cb4b1245408f8aba5387cab8abbf6a1be6ec13004"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r3--random/validation.csv.gz": {
+      "bytes": 99857,
+      "sha256": "cfbd1d9df790987730d642d7cfa7ba748c1bd0b681e3e7a60f03facb3de473d1"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r3--random/validation.json": {
+      "bytes": 936,
+      "sha256": "6ef1b1997509e4d3edd056c6e03a41d57fb648913b401f4ac911a8c993682a95"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r3/FREEZE.json": {
+      "bytes": 2209,
+      "sha256": "ad764c687df874b01d7bc2416bd2f59ebdce8e3ad29c40cb7da7f17f26d88722"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r3/booster.json": {
+      "bytes": 391073,
+      "sha256": "a0e8de3a638e065533b1ab058a2cff4378339c7b7027e2f96aecf36f845a426c"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r3/model.pkl": {
+      "bytes": 2271085,
+      "sha256": "d57b74a595f8269bf1abddcb2df7bcb020d817e00c6d64ee9a3a0cde807715c0"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r3/train.py": {
+      "bytes": 9022,
+      "sha256": "013da88d5e3a7fcde97a08c50bbe932fb0e4d318676f2a4b2106becf39cf8693"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r3/validation.csv.gz": {
+      "bytes": 102786,
+      "sha256": "c24f443ccfda4dd21be09781da7f41e132cb5277e1bd72ac8bce796040b1d892"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--r3/validation.json": {
+      "bytes": 1129,
+      "sha256": "8812812390e1e241b93271ea0da17fe4b6837020f25456a586797cf118f856f4"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--released/FREEZE.json": {
+      "bytes": 868,
+      "sha256": "8427b659595fcffc58646146b086b2e3ced71382d073cf963ee02bad774bdad7"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--released/booster.json": {
+      "bytes": 191140,
+      "sha256": "29cbd177a6375d79a0b908cf47b4d4c98033d29bb38e9c713679fa0532a75870"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--released/model.pkl": {
+      "bytes": 161999,
+      "sha256": "dd9f487f3ee97359e45708169d3fb6bff555e884ee13d5b0b6a921ad275cef1d"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--released/train.py": {
+      "bytes": 1160,
+      "sha256": "431a0f15145a8578df4bc149ee13483cbc7f06e15ac8214356c08da99d9e5d21"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--released/validation.csv.gz": {
+      "bytes": 82101,
+      "sha256": "ea7ec341322af4d126519eb144f6b959c667746bfc09862cfcc093fee885d149"
+    },
+    "evidence/frozen/fda-510k-five-year-recall--released/validation.json": {
+      "bytes": 805,
+      "sha256": "0f04e44f5671a161ea6895c187b9264004335c34e930d5167f57a8f84ff12891"
+    },
+    "evidence/holdout-access/fda-510k-five-year-recall.json": {
+      "bytes": 274,
+      "sha256": "4ecba2a4101d23ddfeb41a0167249b8ab7ca8a7a69733b7fc85a79577449c50b"
+    },
+    "evidence/releases/fda-510k-five-year-recall/LICENSE-EVIDENCE.json": {
+      "bytes": 697,
+      "sha256": "863cdacc293823d37d8480b06ea3a1dc0df4b081ad98acfbda7c50ebb7dd6008"
+    },
+    "evidence/releases/fda-510k-five-year-recall/LICENSE.md": {
+      "bytes": 1172,
+      "sha256": "c451ca1e6eb9b0775760b04b23cfb825f3492c5aabc65ae0f30371c50a33e4f4"
+    },
+    "evidence/releases/fda-510k-five-year-recall/MANIFEST.json": {
+      "bytes": 23831,
+      "sha256": "030ea8a61049388e26f86731ce17beac4a7af8ac20f077539c16e0295495877f"
+    },
+    "evidence/releases/fda-510k-five-year-recall/README.md": {
+      "bytes": 4973,
+      "sha256": "241266950dca7d7c833a12998c41a821f0c80cfd2572a8fcdc7ed8ceeb93d755"
+    },
+    "evidence/releases/fda-510k-five-year-recall/SOURCES.json": {
+      "bytes": 1187,
+      "sha256": "10cfe9b3d784fdc678c823fd3c1ff2a7f66d0838b850029c757b89e24db1e540"
+    },
+    "evidence/releases/fda-510k-five-year-recall/evaluation.json": {
+      "bytes": 2290,
+      "sha256": "54c5ee04d19b8136f2091bb7e6bda575a28ed8053301997e5ac69a4989945be6"
+    },
+    "evidence/releases/fda-510k-five-year-recall/extract/meta.json": {
+      "bytes": 1748,
+      "sha256": "f1eb741be4fbcb543452b835cd6e33d1cdb0be59d635cd3d67e0e7f2514f0853"
+    },
+    "evidence/releases/fda-510k-five-year-recall/reproduction/build.py": {
+      "bytes": 28337,
+      "sha256": "5b7198c03b84241760d2bacd707197a2d2b5b97e8285989bf52ecd5a5723f562"
+    },
+    "evidence/releases/fda-510k-five-year-recall/reproduction/construction.json": {
+      "bytes": 20951,
+      "sha256": "c7ef917f65e5a389807ccd64fc6d4ceece359d0e0b0eae8cbcfb83c92575eafe"
+    },
+    "evidence/releases/fda-510k-five-year-recall/reproduction/requirements.txt": {
+      "bytes": 160,
+      "sha256": "5c72f3268174d20364624f76680e189c408a05dba2e7b8cfe12d077b3865e7f0"
+    },
+    "evidence/releases/fda-510k-five-year-recall/reproduction/train.py": {
+      "bytes": 2500,
+      "sha256": "a3c6bcf13735bc85c52129ded68f839090dffdc266ebc3810dc61b2e6ea5e7e8"
+    },
+    "evidence/run-logs/fda-510k-five-year-recall--ordinary-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/fda-510k-five-year-recall--ordinary.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/fda-510k-five-year-recall--published.log": {
+      "bytes": 53,
+      "sha256": "e2a2d28cba4ee9614b2f6d17f2d285552c701b1319eb8c5e925e22e69d74e3de"
+    },
+    "evidence/run-logs/fda-510k-five-year-recall--r1--random-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/fda-510k-five-year-recall--r1--random.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/fda-510k-five-year-recall--r1-freeze.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/fda-510k-five-year-recall--r1-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/fda-510k-five-year-recall--r2--random-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/fda-510k-five-year-recall--r2--random.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/fda-510k-five-year-recall--r2-freeze.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/fda-510k-five-year-recall--r2-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/fda-510k-five-year-recall--r3--random-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/fda-510k-five-year-recall--r3--random.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/fda-510k-five-year-recall--r3-freeze.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/fda-510k-five-year-recall--r3-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/fda-510k-five-year-recall--released-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/fda-510k-five-year-recall--released.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/score-attempts/fda-510k-five-year-recall--ordinary.json": {
+      "bytes": 175,
+      "sha256": "5bca43f84afc10b38c4c009adb03952a162f6f8922f1621130299368777332ba"
+    },
+    "evidence/score-attempts/fda-510k-five-year-recall--r1--random.json": {
+      "bytes": 175,
+      "sha256": "244b90594b9705745bfef7ebafbba3995c7a100952b8b0bc0501ee86413d8589"
+    },
+    "evidence/score-attempts/fda-510k-five-year-recall--r1.json": {
+      "bytes": 175,
+      "sha256": "edd3bbe1fbc44c9bac36f8b9a7b053062f6c98ab1c076780f2d74308c11fe9b2"
+    },
+    "evidence/score-attempts/fda-510k-five-year-recall--r2--random.json": {
+      "bytes": 175,
+      "sha256": "36f3f00a0499096ebcf08f2362d988796d3874b4d6134fb742b2c1103b7d4b9b"
+    },
+    "evidence/score-attempts/fda-510k-five-year-recall--r2.json": {
+      "bytes": 175,
+      "sha256": "b073df68385fcf50a8810aea4c9a15f63e3aed61811479b1f103f4eaf6501245"
+    },
+    "evidence/score-attempts/fda-510k-five-year-recall--r3--random.json": {
+      "bytes": 175,
+      "sha256": "1853ee5681e43b676b848713b0bef06d9f60728b7feadd352af4215bd66f96de"
+    },
+    "evidence/score-attempts/fda-510k-five-year-recall--r3.json": {
+      "bytes": 175,
+      "sha256": "15a38c998d552c922d727a804d007c4eb4ba51622ca00b7cf123ba90b54c2bc7"
+    },
+    "evidence/score-attempts/fda-510k-five-year-recall--released.json": {
+      "bytes": 175,
+      "sha256": "49873971645d3c8a33e1f0d5a18e0f56e1704031bdc53a6d2cce93ae580c4402"
+    },
+    "releases.json": {
+      "bytes": 190,
+      "sha256": "e0ac6916134f97f17db2a7d030da512f19904f12af730dd20da37031299dc990"
+    },
+    "results/REPORT.md": {
+      "bytes": 2381,
+      "sha256": "ce1a455c1a483697b57751a1ea74c3c63f3ebf4ba237417b133b242d983edaa2"
+    },
+    "results/scores.csv": {
+      "bytes": 1298,
+      "sha256": "c7e2d671c00bb1c98c22c13e742b22435a5643c72f6dcd5bc2042ce5d027c14e"
+    },
+    "results/scores/fda-510k-five-year-recall--ordinary/predictions.csv.gz": {
+      "bytes": 97608,
+      "sha256": "5a79e375342cafdf32c6ec0a4b30ac270bf7f8d523c1bb39737d8a4e02e69f07"
+    },
+    "results/scores/fda-510k-five-year-recall--ordinary/score.json": {
+      "bytes": 256,
+      "sha256": "139aaa6eb369ff55239f84842cb41037bcf2fb28a5cb352c96342a5531dc6a06"
+    },
+    "results/scores/fda-510k-five-year-recall--r1--random/predictions.csv.gz": {
+      "bytes": 95790,
+      "sha256": "b7589b98fd65488aef0e9f235df7bb6970c672810498f15ec0ea9a757ebc1529"
+    },
+    "results/scores/fda-510k-five-year-recall--r1--random/score.json": {
+      "bytes": 257,
+      "sha256": "c08417c57694fb1ea929322cd76621bbbc04468a1a28629ed88cda7d1d172520"
+    },
+    "results/scores/fda-510k-five-year-recall--r1/predictions.csv.gz": {
+      "bytes": 101018,
+      "sha256": "0ffa79c695dcbc50a160d6ceecf1c99b52215caee86e27af3f1f7c56d4d11b09"
+    },
+    "results/scores/fda-510k-five-year-recall--r1/score.json": {
+      "bytes": 257,
+      "sha256": "c728e7cc3c80b98d1fd38923c4742583010d0929174af6634fe14eedee9d664e"
+    },
+    "results/scores/fda-510k-five-year-recall--r2--random/predictions.csv.gz": {
+      "bytes": 99166,
+      "sha256": "f12447a544f87801624322f1d91fc21faef15939c2adce1edba8d70f41b3d9da"
+    },
+    "results/scores/fda-510k-five-year-recall--r2--random/score.json": {
+      "bytes": 257,
+      "sha256": "3f2618774a39547fb985dbb4265ec9505fec741802ed052b55186023d9500d5e"
+    },
+    "results/scores/fda-510k-five-year-recall--r2/predictions.csv.gz": {
+      "bytes": 94264,
+      "sha256": "70ef664c62ce86261abe6f4c5193d70ca1795dfdbb0cd703cd9dcff47992da42"
+    },
+    "results/scores/fda-510k-five-year-recall--r2/score.json": {
+      "bytes": 257,
+      "sha256": "351358dd0918b0cc1a54d7e3c6c0b507676dfd3b817d434c876e66407ea50199"
+    },
+    "results/scores/fda-510k-five-year-recall--r3--random/predictions.csv.gz": {
+      "bytes": 98119,
+      "sha256": "56999fb9c5c3e401784f0bd1f8ed01151a5f4175f40fcde453fe2d203564c87a"
+    },
+    "results/scores/fda-510k-five-year-recall--r3--random/score.json": {
+      "bytes": 257,
+      "sha256": "9198a6b970478278a727dbbd0fb608b154d9a151cd56642f1498597f37671b20"
+    },
+    "results/scores/fda-510k-five-year-recall--r3/predictions.csv.gz": {
+      "bytes": 101064,
+      "sha256": "dd19e5e43a7a74db46af52eed92d443c71055f5f6bda8c1967cad5cdad933df9"
+    },
+    "results/scores/fda-510k-five-year-recall--r3/score.json": {
+      "bytes": 256,
+      "sha256": "6bda06185bea21639cc29134af9d75c8a11f45fa6876b868ced3e2cfde06c14b"
+    },
+    "results/scores/fda-510k-five-year-recall--released/predictions.csv.gz": {
+      "bytes": 81943,
+      "sha256": "ead10e915382ced2952fe1ea8b5359e60fc631d9db3df1ffe8eaa437ea6809b4"
+    },
+    "results/scores/fda-510k-five-year-recall--released/score.json": {
+      "bytes": 256,
+      "sha256": "9a90c9809876937cfb80c0b3257e930d049df1c7903c24380835abf6beea5524"
+    },
+    "results/summary.json": {
+      "bytes": 7427,
+      "sha256": "747ece2f4150b77adfff9e6568c0dd4502e7c6108fc24cd4d88090cd912870a4"
+    },
+    "run_study.py": {
+      "bytes": 102055,
+      "sha256": "59e7aaa88b9ffbe8e6052545de01f9809d9e920c0c54573401cbf8d700335af5"
+    },
+    "study.json": {
+      "bytes": 1910,
+      "sha256": "abb35f31d8f6a1a75192384f8c06ccd6f8d26c4783498d79a2a74e40c49fe8c7"
+    }
+  },
+  "sealed_at": "2026-11-14T01:48:09.811678+00:00"
+}
