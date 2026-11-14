@@ -1,0 +1,1067 @@
+{
+  "snapshot_at": "2026-11-14T10:51:20+00:00",
+  "published_releases": 27,
+  "manifests": [
+    {
+      "dataset": "ucmr5-first-sample-pfas",
+      "workflow": "modern",
+      "url": "https://huggingface.co/datasets/earino/factory-ucmr5-first-sample-pfas/resolve/v-4a630108a6e75a6b/MANIFEST.json",
+      "manifest_sha256": "8ab0f948b992f10527fad689bd14062efe0393b7a2475e6a81aeb12abf94da53",
+      "data_hashes": {
+        "extract/private/holdout.csv": "7824b322a77101a31b0f719cfe249c768c665c81f9557a9320cda02ee88727d0",
+        "extract/public/eval.csv": "f4163dc298227d9b33a66f2f58807b0fe126b62fd32feb159a06e3628879e9e7",
+        "extract/public/train.csv": "4c962f5f9e87f2936818e0636ab4b954a8afbb2900c6d23307d331e95fb5217e",
+        "source-snapshot.tar.gz": "a659459416476b84cbdb9146f3c07d81a4e4e936d8ff8896b3a8829b993df12d"
+      },
+      "source": {
+        "attribution": "U.S. Environmental Protection Agency (EPA)",
+        "citation": "U.S. Environmental Protection Agency. The Fifth Unregulated Contaminant Monitoring Rule (UCMR 5) Data Summary: July 2026. EPA 815-S-26-007.",
+        "documentation_url": "https://www.epa.gov/dwucmr/occurrence-data-unregulated-contaminant-monitoring-rule",
+        "license": "Public domain (U.S. EPA Standard Open Data License; 17 U.S.C. \u00a7105)",
+        "publisher": "U.S. Environmental Protection Agency (EPA)",
+        "redistribution": true,
+        "terms_excerpt": "Unless otherwise specified, all data produced by the U.S EPA is by default in the public domain and is not subject to domestic copyright protection under 17 U.S.C. \u00a7 105.",
+        "terms_url": "https://edg.epa.gov/epa_data_license.html",
+        "urls": [
+          "https://www.epa.gov/system/files/other-files/2023-08/ucmr5-occurrence-data.zip",
+          "https://www.epa.gov/system/files/other-files/2024-04/ucmr3-occurrence-data.zip"
+        ]
+      },
+      "ok": true
+    },
+    {
+      "dataset": "cfpb-bank-account-monetary-relief",
+      "workflow": "modern",
+      "url": "https://huggingface.co/datasets/earino/factory-cfpb-bank-account-monetary-relief/resolve/v-fa7df05b0fd096d9/MANIFEST.json",
+      "manifest_sha256": "cb478312cfefb823355f56b2976cfe3263c30c122301bdaf8f820cc02e6265b4",
+      "data_hashes": {
+        "extract/private/holdout.csv": "f1a0609a45c2bd1efc664e192c255b6aa82b41f4c7e140ca538c103154a2ac9e",
+        "extract/public/eval.csv": "7829a9c56b5096c679096ddd504b11ef3607545f7a8f808c96f12bc79db9ab0c",
+        "extract/public/train.csv": "b873ccb82a0065719c15bd6241998ffe7bb967d2056b81ac89a12140feec7264",
+        "source-snapshot.tar.gz": "92ff483eb62cd76a1c56cc398f21fa73f07490e28ba25b71ae081f8bc28a07b7"
+      },
+      "source": {
+        "attribution": "No mandatory credit; CFPB requests: \u201cPlease consider appropriate citation to the Bureau as the source.\u201d",
+        "citation": "U.S. Consumer Financial Protection Bureau. Consumer Complaint Database. https://www.consumerfinance.gov/data-research/consumer-complaints/ (data as of 2026-11-09).",
+        "documentation_url": "https://cfpb.github.io/api/ccdb/fields.html",
+        "license": "Public domain (U.S. Government work) under 17 U.S.C. \u00a7105, within the United States; CFPB legal notices state that CFPB-created information is in the public domain. No worldwide dedication is claimed: \u00a7105 does not affect protection abroad. Applies to the CFPB-compiled structured complaint records; consumer narratives and other outside-authored material are third-party content and are excluded.",
+        "publisher": "U.S. Consumer Financial Protection Bureau (CFPB)",
+        "redistribution": true,
+        "terms_excerpt": "Information created by the CFPB is in the public domain and you may reproduce, publish, or otherwise use it without the Bureau\u2019s permission.",
+        "terms_url": "https://web.archive.org/web/20261028035549/https://www.consumerfinance.gov/privacy/website-privacy-policy/",
+        "urls": [
+          "https://files.consumerfinance.gov/ccdb/complaints.csv.zip",
+          "https://www.consumerfinance.gov/data-research/consumer-complaints/search/api/v1/?field=all&format=csv&product=Checking%20or%20savings%20account&date_received_min=2019-01-01&date_received_max=2023-12-31&size=10000&from=0&no_aggs=true"
+        ]
+      },
+      "ok": true
+    },
+    {
+      "dataset": "nhtsa-pe-recall",
+      "workflow": "modern",
+      "url": "https://huggingface.co/datasets/earino/factory-nhtsa-pe-recall/resolve/v-76d064ad7e164c41/MANIFEST.json",
+      "manifest_sha256": "e4449c4866ac4d880d620b7656a970fe03db7476161e2be4b37195e44edee07c",
+      "data_hashes": {
+        "extract/private/holdout.csv": "93ca7bfbf095099c642d34471eda0be742b7f928eed74d080be6e5429ffc804d",
+        "extract/public/eval.csv": "fdf29ddc574057c2d14efe13c4f62dc67a151cb339452f1888467d40e96860ca",
+        "extract/public/train.csv": "02390d2b80d997e73b1e1e258e8c2f72d52df06fc7c31ca0d60ce916e2f00970",
+        "source-snapshot.tar.gz": "c00bb26d6f46694d6e396bb44a4cb1bcb80bffcdc6d53f02575ce6e1751035f4"
+      },
+      "source": {
+        "attribution": "National Highway Traffic Safety Administration",
+        "citation": "",
+        "documentation_url": "https://static.nhtsa.gov/odi/ffdd/inv/INV.txt",
+        "license": "Public Domain U.S. Government",
+        "publisher": "National Highway Traffic Safety Administration (NHTSA)",
+        "redistribution": true,
+        "terms_excerpt": "Data and content created by government employees within the scope of their employment are not subject to domestic copyright protection under 17 U.S.C. \u00a7 105.",
+        "terms_url": "https://resources.data.gov/open-licenses/",
+        "urls": [
+          "https://static.nhtsa.gov/odi/ffdd/inv/FLAT_INV.zip",
+          "https://static.nhtsa.gov/odi/ffdd/rcl/FLAT_RCL_PRE_2010.zip",
+          "https://static.nhtsa.gov/odi/ffdd/rcl/FLAT_RCL_POST_2010.zip"
+        ]
+      },
+      "ok": true
+    },
+    {
+      "dataset": "fdic-bank-branch-closure",
+      "workflow": "modern",
+      "url": "https://huggingface.co/datasets/earino/factory-fdic-bank-branch-closure/resolve/v-94c52a9299cf0424/MANIFEST.json",
+      "manifest_sha256": "5d20f3d77b9ba0987bee8759eb32883fe0cdc35fd0a2f2775d7f8568fd26609d",
+      "data_hashes": {
+        "extract/private/holdout.csv": "5c26777c7ab0c665bdfa7e398e380e5558ffb702b04b3ba874b33941bf201cbc",
+        "extract/public/eval.csv": "d41045f04dbff2d3e0fa931f1ba7d880d845c39c4e60d0d57fb83aa0d7328e0f",
+        "extract/public/train.csv": "ac922de346fd2ff99d35f9867dcefd0e2a79e952afba0bb415fe9e8f71696e3c",
+        "source-snapshot.tar.gz": "cbb0fe6dda5c48cd7e259b6ec0f2f422984524be747b79ae51719035638c03d3"
+      },
+      "source": {
+        "attribution": "Federal Deposit Insurance Corporation (FDIC)",
+        "citation": "",
+        "documentation_url": "https://api.fdic.gov/banks/docs/",
+        "license": "U.S. Public Domain (USA.gov Public Domain Label 1.0)",
+        "publisher": "Federal Deposit Insurance Corporation (FDIC)",
+        "redistribution": true,
+        "terms_excerpt": "This distribution is publicly accessible. It may be copied, published, distributed, transmitted, cited, and adapted consistent with the stated license.",
+        "terms_url": "https://www.fdic.gov/data.json",
+        "urls": [
+          "https://api.fdic.gov/banks/sod",
+          "https://api.fdic.gov/banks/history",
+          "https://banks.data.fdic.gov/bankfind-suite/SOD/customDownload"
+        ]
+      },
+      "ok": true
+    },
+    {
+      "dataset": "nih-r01-competing-renewal",
+      "workflow": "modern",
+      "url": "https://huggingface.co/datasets/earino/factory-nih-r01-competing-renewal/resolve/v-a00c2ae77f5ae167/MANIFEST.json",
+      "manifest_sha256": "525864758b87a0fdcec32428e89dfe830061036b3862b5a0493c086622b2a40b",
+      "data_hashes": {
+        "extract/private/holdout.csv": "37943389a16cf5c2fb68f746dacc2dd18a39fc44c3de8c4367f7725ab0ae0ed6",
+        "extract/public/eval.csv": "5d257ecddedcbcdcc09d19ca45bbabac75b2715669e34f8bc85a528658ff55fd",
+        "extract/public/train.csv": "2db27f1aa5e8bade1ee8cf922aa2577eb562173fb9f989cddc834d13f7feb402",
+        "source-snapshot.tar.gz": "d2cffd1ab288946051fa52ff54bd5c9428af293a710fe09ea3fbdcc8e6843b03"
+      },
+      "source": {
+        "attribution": "No credit is legally required; suggested courtesy line (not a condition of use): \"National Institutes of Health, RePORTER/ExPORTER (reporter.nih.gov)\"",
+        "citation": "",
+        "documentation_url": "https://report.nih.gov/exporter-data-dictionary",
+        "license": "U.S. Government work under 17 U.S.C. 105 - not subject to copyright protection in the United States; no publisher licence, registration or account required",
+        "publisher": "U.S. National Institutes of Health, Office of Extramural Research (RePORT/RePORTER ExPORTER)",
+        "redistribution": true,
+        "terms_excerpt": "Copyright protection under this title is not available for any work of the United States Government",
+        "terms_url": "https://uscode.house.gov/us/usc/119-118/t17/s105/",
+        "urls": [
+          "https://reporter.nih.gov/exporter/projects/download/2008",
+          "https://reporter.nih.gov/exporter/projects/download/2012",
+          "https://reporter.nih.gov/exporter/projects/download/2016",
+          "https://reporter.nih.gov/exporter/projects/download/2019"
+        ]
+      },
+      "ok": true
+    },
+    {
+      "dataset": "charity-register-five-year-exit",
+      "workflow": "modern",
+      "url": "https://huggingface.co/datasets/earino/factory-charity-register-five-year-exit/resolve/v-6e90da65ff14dfeb/MANIFEST.json",
+      "manifest_sha256": "1a2f30f252bfdadd65aa6c24e2ad3ade7fbb2a4994c4b912d49e976cf4bd05eb",
+      "data_hashes": {
+        "extract/private/holdout.csv": "bd2ade68d546edaf28e7cb34129f0b0b6c039ed84e6f79ca51ad2e36a0da0e86",
+        "extract/public/eval.csv": "99fa4182453fc21a05314cf7f2e08bd842f38ebf0f92c72b7d3cdcaec062e35b",
+        "extract/public/train.csv": "01ae967c85b4305cffda4a08e106df6bf292d5c8c2b02620607c921aeb5255df",
+        "source-snapshot.tar.gz": "884800b133a4569f3da655aa462bcccc506be6177fd119bdfd420c40b722095a"
+      },
+      "source": {
+        "attribution": "Contains public sector information licensed under the Open Government Licence v3.0.",
+        "citation": "",
+        "documentation_url": "https://prd-ds-register-of-charities.charitycommission.gov.uk/documents/17872866/17970272/Data+Definition.docx/f0a342ce-ef45-1401-ee75-26225f6f0d4f",
+        "license": "Open Government Licence v3.0 (OGL-UK-3.0)",
+        "publisher": "Charity Commission for England and Wales",
+        "redistribution": true,
+        "terms_excerpt": "The Licensor grants you a worldwide, royalty-free, perpetual, non-exclusive licence to use the Information subject to the conditions below.",
+        "terms_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+        "urls": [
+          "https://ccewuksprdoneregsadata1.blob.core.windows.net/data/txt/publicextract.charity.zip",
+          "https://ccewuksprdoneregsadata1.blob.core.windows.net/data/txt/publicextract.charity_classification.zip",
+          "https://ccewuksprdoneregsadata1.blob.core.windows.net/data/txt/publicextract.charity_area_of_operation.zip",
+          "https://ccewuksprdoneregsadata1.blob.core.windows.net/data/txt/publicextract.charity_governing_document.zip"
+        ]
+      },
+      "ok": true
+    },
+    {
+      "dataset": "lust-release-longterm-status",
+      "workflow": "modern",
+      "url": "https://huggingface.co/datasets/earino/factory-lust-release-longterm-status/resolve/v-ce3ea7150377f6a6/MANIFEST.json",
+      "manifest_sha256": "eb43d1f77d4c61afa5db6c15de42a1d8f49c71dba9e8326fb9320d4d86b55680",
+      "data_hashes": {
+        "extract/private/holdout.csv": "7bfd234e12598e68bef38ccec41366522a3229f4e14e373129d9ee21e14c899e",
+        "extract/public/eval.csv": "5c88a8e2801dbfc84c0b06fb6948ca606960d4657e3cb32f72c7ac8c2eabe9f7",
+        "extract/public/train.csv": "3859dbbe0c152e292988708eebd53c6f7de722765feb143eb58c611487cbe1a4",
+        "source-snapshot.tar.gz": "8da1e5f0bb9c27df3c64f674ac497cbad5186a0ab4330e8ea9d7169d8d39ab34"
+      },
+      "source": {
+        "attribution": "EPA's Office of Underground Storage Tanks EPA's Office of Research and Development The Association of State and Territorial Solid Waste Management Officials",
+        "citation": "",
+        "documentation_url": "https://www.epa.gov/ust/ust-finder",
+        "license": "EPA Public Domain License (U.S. public domain; 17 U.S.C. 105)",
+        "publisher": "U.S. Environmental Protection Agency, Office of Underground Storage Tanks and Office of Research and Development, with the Association of State and Territorial Solid Waste Management Officials",
+        "redistribution": true,
+        "terms_excerpt": "Unless otherwise specified, all data produced by the U.S EPA is by default in the public domain and is not subject to domestic copyright protection under 17 U.S.C. \u00a7 105.",
+        "terms_url": "https://edg.epa.gov/EPA_Data_License.html",
+        "urls": [
+          "https://services.arcgis.com/cJ9YHowT8TU7DUyn/arcgis/rest/services/UST_Finder_Feature_Layer_2/FeatureServer/1/query?where=1%3D1&outFields=Facility_ID,LUST_ID,State,County,Reported_Date,Status,Substance,Population_within_1500ft,DomesticWells_within_1500ft,LandUse,Within_SPA,Within_100yr_Floodplain,EPA_Region&f=json&resultOffset=0&resultRecordCount=2000"
+        ]
+      },
+      "ok": true
+    },
+    {
+      "dataset": "fjc-civil-trial-36m",
+      "workflow": "modern",
+      "url": "https://huggingface.co/datasets/earino/factory-fjc-civil-trial-36m/resolve/v-86c6129e8102da78/MANIFEST.json",
+      "manifest_sha256": "ede9562d40a528e596a0ea14d7fe9f9e6b4a68a4f2e214bb3bcd94dc51846760",
+      "data_hashes": {
+        "extract/private/holdout.csv": "7349959ed317c25415752f29c4e49f21d5958a0aec51e7fd1df29c9546610b0c",
+        "extract/public/eval.csv": "7e93a35fd82fac66446d41205e2aae712c49a1191a6c047bf365ee26908bc48a",
+        "extract/public/train.csv": "d550e6b6a15040748d7990e85aa55dba87cc420ce588aac9a0675074e4f070d8",
+        "source-snapshot.tar.gz": "7502a6f6786bb5cdac458fc4bcbd37a6cfb07f54257db9781c78e8878028a1ee"
+      },
+      "source": {
+        "attribution": "Federal Judicial Center, Integrated Database (IDB)",
+        "citation": "",
+        "documentation_url": "https://www.fjc.gov/sites/default/files/idb/codebooks/Civil%20Codebook%201988%20Forward%2010252023.pdf",
+        "license": "U.S. Public Domain (17 U.S.C. \u00a7 105); FJC states publications are not copyrighted unless otherwise noted",
+        "publisher": "Federal Judicial Center (FJC), U.S. federal judiciary",
+        "redistribution": true,
+        "terms_excerpt": "Copyright protection under this title is not available for any work of the United States Government",
+        "terms_url": "https://www.law.cornell.edu/uscode/text/17/105",
+        "urls": [
+          "https://www.fjc.gov/sites/default/files/idb/textfiles/cv88on.zip",
+          "https://www.fjc.gov/research/idb/civil-cases-filed-terminated-and-pending-sy-1988-present"
+        ]
+      },
+      "ok": true
+    },
+    {
+      "dataset": "eia861-reliability-deterioration",
+      "workflow": "modern",
+      "url": "https://huggingface.co/datasets/earino/factory-eia861-reliability-deterioration/resolve/v-498e55482c3ed94b/MANIFEST.json",
+      "manifest_sha256": "050ce58bacf7c0073e7ccc3c1045438821cc6b76c095409ddb08d132f39e1559",
+      "data_hashes": {
+        "extract/private/holdout.csv": "721984dd348b46d1a1e468cf170d7a6e28e3ecf744919a51d7211183972061ff",
+        "extract/public/eval.csv": "7a6310d4685523a3655cec1b57dd9e1dcf2df739d4bac4540a6bf45b84ce6d78",
+        "extract/public/train.csv": "52107eccf49ebf0d76599065baa13c9c7dcad721a27e4e446273470b404c8782",
+        "source-snapshot.tar.gz": "0ededf1f2b306f524d2aa3111541d041c2542ff2651d1ec9031adda7050cabe6"
+      },
+      "source": {
+        "attribution": "Source: U.S. Energy Information Administration, Form EIA-861, Annual Electric Power Industry Report.",
+        "citation": "U.S. Energy Information Administration, Form EIA-861, Annual Electric Power Industry Report.",
+        "documentation_url": "https://www.eia.gov/electricity/data/eia861/",
+        "license": "U.S. government work, public domain under 17 U.S.C. Sec. 105 as stated by EIA: data and files may be used and distributed; EIA requests an acknowledgment naming EIA and a publication date. No publisher licence grant is required or implied for third-party material EIA hosts (photographs, logo).",
+        "publisher": "U.S. Energy Information Administration (EIA), U.S. Department of Energy",
+        "redistribution": true,
+        "terms_excerpt": "U.S. government publications are in the public domain and are not subject to copyright protection. You may use and/or distribute any of our data, files, databases, reports, graphs, charts, and other information products that are on our website or that you receive through our email distribution service.",
+        "terms_url": "https://www.eia.gov/about/copyrights_reuse.php",
+        "urls": [
+          "https://www.eia.gov/electricity/data/eia861/zip/f8612025.zip",
+          "https://www.eia.gov/electricity/data/eia861/archive/zip/f8612024.zip",
+          "https://www.eia.gov/electricity/data/eia861/archive/zip/f8612023.zip",
+          "https://www.eia.gov/electricity/data/eia861/archive/zip/f8612022.zip",
+          "https://www.eia.gov/electricity/data/eia861/archive/zip/f8612021.zip",
+          "https://www.eia.gov/electricity/data/eia861/archive/zip/f8612020.zip",
+          "https://www.eia.gov/electricity/data/eia861/archive/zip/f8612019.zip",
+          "https://www.eia.gov/electricity/data/eia861/archive/zip/f8612018.zip",
+          "https://www.eia.gov/electricity/data/eia861/archive/zip/f8612017.zip",
+          "https://www.eia.gov/electricity/data/eia861/archive/zip/f8612016.zip",
+          "https://www.eia.gov/electricity/data/eia861/archive/zip/f8612015.zip",
+          "https://www.eia.gov/electricity/data/eia861/archive/zip/f8612014.zip",
+          "https://www.eia.gov/electricity/data/eia861/archive/zip/f8612013.zip"
+        ]
+      },
+      "ok": true
+    },
+    {
+      "dataset": "phmsa-pipeline-penalty-reduction",
+      "workflow": "modern",
+      "url": "https://huggingface.co/datasets/earino/factory-phmsa-pipeline-penalty-reduction/resolve/v-bbc08f68dbbd24b5/MANIFEST.json",
+      "manifest_sha256": "fab73aa959f35bcc6b1396a718d408944b2dea47a0893e405c0c73c34263fa7c",
+      "data_hashes": {
+        "extract/private/holdout.csv": "8c408e94871aece221d4d1ed6d420ee9d9ab6574c00e71534ba8aaf0aee5ef1e",
+        "extract/public/eval.csv": "8ee6b14d7148f2a06b622010bbf0b8bb21e647956585764486b803ff055d27dc",
+        "extract/public/train.csv": "adaf6e3a33524ffe745a6d6fadd07ca3dedf2a93c8e110f450559cf56c277f74",
+        "source-snapshot.tar.gz": "996b9e49aefc759eafb59c3890c44842c71971b23d8188d687a3f936a7836c68"
+      },
+      "source": {
+        "attribution": "None required",
+        "citation": "",
+        "documentation_url": "https://primis.phmsa.dot.gov/enforcement-data/Enforcement%20Data%20Dictionary.pdf",
+        "license": "Public Domain U.S. Government (PHMSA/DOT data-inventory designation for the Pipeline Enforcement Transparency Portal); U.S. Government work, 17 U.S.C. \u00a7 105",
+        "publisher": "U.S. Department of Transportation, Pipeline and Hazardous Materials Safety Administration (PHMSA)",
+        "redistribution": true,
+        "terms_excerpt": "Public Domain U.S. Government",
+        "terms_url": "https://data.transportation.gov/Pipelines-and-Hazmat/Pipeline-Enforcement-Transparency-Portal/m28n-9ah6/about_data",
+        "urls": [
+          "https://primis.phmsa.dot.gov/enforcement-documents/PHMSA%20Pipeline%20Enforcement%20Raw%20Data.txt",
+          "https://primis.phmsa.dot.gov/enforcement-data/"
+        ]
+      },
+      "ok": true
+    },
+    {
+      "dataset": "fda-510k-five-year-recall",
+      "workflow": "modern",
+      "url": "https://huggingface.co/datasets/earino/factory-fda-510k-five-year-recall/resolve/v-68e59a5ac91ad404/MANIFEST.json",
+      "manifest_sha256": "030ea8a61049388e26f86731ce17beac4a7af8ac20f077539c16e0295495877f",
+      "data_hashes": {
+        "extract/private/holdout.csv": "b3e91aad60e68bddd48e7452d8d06cbb994766c799e6b988e606a5f11707407d",
+        "extract/public/eval.csv": "825221abdca3a5cddf6df1694107bc8951d1ec9bbed97f346ea75a2d9f7cfa09",
+        "extract/public/train.csv": "3e449ebcacdbaf2919571aa443056b7ee78fd5805221bf68902a5edff6a1f25f",
+        "source-snapshot.tar.gz": "e9cf3993d15e54ddfbdbae0ab51b8870ec822493489ac6e59304fd1362d0bce0"
+      },
+      "source": {
+        "attribution": "None required under CC0 1.0. Recommended credit: 'Source: U.S. Food and Drug Administration, openFDA device/510k and device/recall endpoints (public domain, CC0 1.0)', with the archive date.",
+        "citation": "",
+        "documentation_url": "https://open.fda.gov/apis/device/510k/searchable-fields/",
+        "license": "Public domain: CC0 1.0 Universal dedication by FDA, on the independent statutory basis of 17 U.S.C. 105 (no copyright in U.S. Government works)",
+        "publisher": "U.S. Food and Drug Administration (openFDA, Center for Devices and Radiological Health)",
+        "redistribution": true,
+        "terms_excerpt": "unless otherwise noted, the content, data, documentation, code, and related materials on openFDA is public domain and made available with a Creative Commons CC0 1.0 Universal dedication",
+        "terms_url": "https://open.fda.gov/license/",
+        "urls": [
+          "https://download.open.fda.gov/device/510k/device-510k-0001-of-0001.json.zip",
+          "https://download.open.fda.gov/device/recall/device-recall-0001-of-0001.json.zip"
+        ]
+      },
+      "ok": true
+    },
+    {
+      "dataset": "t100-new-route-survival",
+      "workflow": "modern",
+      "url": "https://huggingface.co/datasets/earino/factory-t100-new-route-survival/resolve/v-d32decf32c315be4/MANIFEST.json",
+      "manifest_sha256": "a4b63af5e04ad87177b4d525a0b4c03986113713da174560314b292ade85a329",
+      "data_hashes": {
+        "extract/private/holdout.csv": "f1d2222651817345b9fe54a969d0055f62121b982c085939f4f3d20c643d9a28",
+        "extract/public/eval.csv": "6c207acf6758e8f1b5b8e82e9e8d98b24915c29d6dddea994acce3ef105bc5a8",
+        "extract/public/train.csv": "ad03c5c26d3dca0e4a36d8817d18ba1f9a4aaa753081b61428b756829e689f83",
+        "source-snapshot.tar.gz": "212986b5b6fef78aad4f3c8ab295662d96035618d02f43cdd430bcb5ec88ef0d"
+      },
+      "source": {
+        "attribution": "U.S. Department of Transportation / Bureau of Transportation Statistics / https://www.bts.gov",
+        "citation": "BTS recommended citation: U.S. Department of Transportation, Bureau of Transportation Statistics, https://www.bts.gov (BTS states 'source citation is required'; add 'T-100 Domestic Segment (U.S. Carriers), TranStats' as the dataset-level source)",
+        "documentation_url": "https://www.transtats.bts.gov/Fields.asp?gnoyr_VQ=FIM",
+        "license": "Public Domain U.S. Government (BTS data-portal designation; federal statutory basis 17 U.S.C. 105)",
+        "publisher": "U.S. Department of Transportation, Bureau of Transportation Statistics (Office of Airline Information), distributed via TranStats",
+        "redistribution": true,
+        "terms_excerpt": "Public Domain U.S. Government",
+        "terms_url": "https://data.bts.gov/Aviation/AFF-T100-Segment-Summary-By-Carrier/q4tb-tbff/about_data",
+        "urls": [
+          "https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FIM&QO_fu146_anzr=Nv4%20Pn44vr45"
+        ]
+      },
+      "ok": true
+    },
+    {
+      "dataset": "sbir-phase1-to-phase2-conversion",
+      "workflow": "modern",
+      "url": "https://huggingface.co/datasets/earino/factory-sbir-phase1-to-phase2-conversion/resolve/v-0d2e623e604ecf78/MANIFEST.json",
+      "manifest_sha256": "7d593685f07eb2d2bd452c53541d786eddda01757298f735a4cb823a9efe20c5",
+      "data_hashes": {
+        "extract/private/holdout.csv": "2e1afa14e7782cc9f0aa2ae4ba38fce95204dd72fc80dcc517970764ec40c148",
+        "extract/public/eval.csv": "006ae31a2ee497b03eba519dd9e5322051397db7e56fbcd99cf66033657a26d7",
+        "extract/public/train.csv": "0f4d0a02478caf671f78888ad423b1b30f8e9e8bb72963d785acdc57dd3f0d49",
+        "source-snapshot.tar.gz": "da86ed891a237481035da79d58d460db80d4503448990934dc63f8851dcd0105"
+      },
+      "source": {
+        "attribution": "No attribution statement is specified by the publisher on SBIR.gov or in the SBIR/STTR Policy Directive; suggested courtesy line: 'Data: U.S. Small Business Administration, SBIR.gov award database'",
+        "citation": "",
+        "documentation_url": "https://www.sbir.gov/data-resources/data-dictionary/award",
+        "license": "U.S. Government work - not subject to copyright in the United States under 17 U.S.C. \u00a7105(a); SBA publishes every award record as an open download with no licence agreement, registration or click-through",
+        "publisher": "U.S. Small Business Administration (SBIR.gov)",
+        "redistribution": true,
+        "terms_excerpt": "Every SBIR/STTR award since the program\u2019s inception is available for download.",
+        "terms_url": "https://www.sbir.gov/data-resources",
+        "urls": [
+          "https://data.www.sbir.gov/mod_awarddatapublic_no_abstract/award_data_no_abstract.csv"
+        ]
+      },
+      "ok": true
+    },
+    {
+      "dataset": "abs-visitor-arrivals-direction",
+      "workflow": "legacy",
+      "url": "https://raw.githubusercontent.com/earino/abs-visitor-arrivals-direction/v2026.10/MANIFEST.json",
+      "manifest_sha256": "117fc83e1f27f504568b25b1626b12bfb02b21ac9e14a2e28db3c4bb64524d9b",
+      "data_hashes": {
+        "private/holdout.csv": "fda47a22596f6d18198ecaab61f78b2be924d6b3d594a97985b22b643fc2c051",
+        "public/eval.csv": "6d92549ecba4175175f78044552af4f1da0270806db2c50d84bc8da9be1a1332",
+        "public/train.csv": "0077b1d05911745fbadb3f267cb0bcaaba2ad13f5ce2e62620e66bcac0d26c3e"
+      },
+      "source": {
+        "name": "Australian Bureau of Statistics - Overseas Arrivals and Departures (OAD_COUNTRY)",
+        "landing_page": "https://www.abs.gov.au/statistics/industry/tourism-and-transport/overseas-arrivals-and-departures-australia",
+        "api": "anonymous SDMX at https://api.data.abs.gov.au",
+        "license": "CC BY 4.0",
+        "licence_evidence": [
+          "ABS 'Privacy and legals' page (https://www.abs.gov.au/privacy-and-legals, read 2026-10-22): 'All material presented on this website is provided under a Creative Commons Attribution 4.0 International licence, with the exception of: the Commonwealth Coat of Arms, the ABS logo, material protected by a trade mark, unit record data (microdata), content supplied by third parties.'",
+          "Same page: 'Where no indication of licensing is provided within the product, full copyright terms will apply.' - the OAD dataflow is standard ABS website material, downloaded from the documented ABS Data API; the API user guide is published under the same site terms.",
+          "ABS conditions of sale (https://www.abs.gov.au/about/legislation-and-policy/purchasing-data/abs-conditions-sale, read 2026-10-22) confirms the general posture: 'Most ABS material is licensed under Creative Commons Attribution'; charged/customised products are the exception."
+        ]
+      },
+      "ok": true
+    },
+    {
+      "dataset": "austin-911-response",
+      "workflow": "legacy",
+      "url": "https://raw.githubusercontent.com/earino/austin-911-response/v2026.09/MANIFEST.json",
+      "manifest_sha256": "b32a8bf7c38bee9a64b326f4f25c27c31fe48490e9fc0743671b1f88c514f443",
+      "data_hashes": {
+        "private/holdout.csv": "738ff7ec245302ff2a8dcfb1be95dd622b6d8e7acaf8e9a025b1823a430cab7a",
+        "public/eval.csv": "241dee5eb84cfdd5e1101a3453d2af4dea9bdf9dfca549d83323584a6e442d7a",
+        "public/train.csv": "6fc37e034447b2e982d737f6d62d0da9a24584d89d25799d5d882ba584604434"
+      },
+      "source": {
+        "name": "Austin Open Data - APD 911 Calls for Service 2023-2026",
+        "dataset_id": "e687-fx2y",
+        "landing_page": "https://datahub.austintexas.gov/d/e687-fx2y",
+        "api": "https://datahub.austintexas.gov/resource/e687-fx2y.json",
+        "accessed": "2026-09-18",
+        "licence": "Public Domain",
+        "licence_evidence": [
+          "Socrata catalog metadata for e687-fx2y reports license = 'Public Domain' (api.us.socrata.com catalog v1, queried 2026-09-18).",
+          "Re-confirmed 2026-09-18 directly from GET https://datahub.austintexas.gov/api/views/e687-fx2y.json: \"license\": {\"name\": \"Public Domain\"}, view name 'APD 911 Calls for Service 2023-2026'."
+        ]
+      },
+      "ok": true
+    },
+    {
+      "dataset": "chicago-doah-adjudication",
+      "workflow": "legacy",
+      "url": "https://raw.githubusercontent.com/earino/chicago-doah-adjudication/v2026.09/MANIFEST.json",
+      "manifest_sha256": "3c945eac9f35fcc85b51c8d7c672a23e344b3d85b81e7f362afd3c2f937da913",
+      "data_hashes": {
+        "private/holdout.csv": "e9855daa7a7d523ea00ad2184867d73d1bf747d4c0d718a8398da5acf749e8be",
+        "public/eval.csv": "bcecdbff8018f74c01697229591b9e9c87b5206c8d61d8f7ef77fa37669c967e",
+        "public/train.csv": "67b2a58379b4d1ca8eb11670f9f8a51b1fe15fb4945a173a805a5f474cd154cb"
+      },
+      "source": {
+        "name": "City of Chicago - Department of Administrative Hearings (DOAH) Ordinance Violations",
+        "dataset_id": "6br9-quuz",
+        "landing_page": "https://data.cityofchicago.org/d/6br9-quuz",
+        "api": "https://data.cityofchicago.org/resource/6br9-quuz.json",
+        "accessed": "2026-09-26",
+        "licence": "City of Chicago Data Terms of Use - see LICENSE.md",
+        "licence_evidence": [
+          "Operator-commissioned licence review completed 2026-09-26: conditionally redistributable under the City of Chicago Data Terms of Use. No standard licence; licenseId = SEE_TERMS_OF_USE. Conditions and verbatim quotes in candidates/chicago-doah-adjudication/license.json."
+        ]
+      },
+      "ok": true
+    },
+    {
+      "dataset": "chicago-food-inspections",
+      "workflow": "legacy",
+      "url": "https://raw.githubusercontent.com/earino/chicago-food-inspections/v2026.10/MANIFEST.json",
+      "manifest_sha256": "f1d9814e91c9e3e85d2df0a7216df4ebf2912f0e784a19f09f250f90066723be",
+      "data_hashes": {
+        "code_01/private/holdout.csv": "a8f4cb00ffb8ae3f9453759b315628edee67bc43f88d638331d3553c33906625",
+        "code_01/public/eval.csv": "4cca1084b232505943285e3cd5d10e8f5fd777f9b4a1755b72cf6d819978dba0",
+        "code_01/public/train.csv": "9822b4e17ab0c77a0b7a037ab8e34ddd9733fb60502f1d51ee56f5f58943fa47",
+        "code_02/private/holdout.csv": "1b5264e02d41654fd7e727505bff402dc8e459b1f66e8c31e7a799a7ae363874",
+        "code_02/public/eval.csv": "d433c2da602fc1b1218ab005558d93de9adea7e2b3f2cf5c94c7014022c09a57",
+        "code_02/public/train.csv": "e276d4afc7ba3cdc5d2278afa8cee8fd301ccfd6a0fca0d0ac9140600ff727d4",
+        "code_03/private/holdout.csv": "7b69a90b4fb8b0bf7d73dd64873fcc3d88b337067f9aa2d9b457a86ec072ea08",
+        "code_03/public/eval.csv": "80786499f117d05824f2e30794c70a95fc2e5d1b5b04e93a9d3cc0d189b14fed",
+        "code_03/public/train.csv": "51d54d5bec828fcfce99c6ec9c33fe69a90b3b9ca6d80f2a29f7d7256a557df6",
+        "code_05/private/holdout.csv": "1a136e374cbcda8c49818163e0178ef79e4aea3911334816cd581cac63fe7ea3",
+        "code_05/public/eval.csv": "70fab87cd7100b296c6dd05ca51d102a4c72d9984754af7cd35b70c212b36aa7",
+        "code_05/public/train.csv": "d908126d4cd51d46f000aee84a6975ce14868b9cdcf665cee33553a680c04a90",
+        "code_06/private/holdout.csv": "323057e442da8e64615078497c3938273a2e6fdc5d56c6def85fd7e82d149036",
+        "code_06/public/eval.csv": "5e1222368436a09d332a6c39e4b5279b4b9abdc3e2f370c0bc61ae29c9316bd7",
+        "code_06/public/train.csv": "6891107dca000e57bb0a509e65fe0e42aa058bdf263ebd12abd917812ce61e0a",
+        "code_08/private/holdout.csv": "7ac537baefd6c10fde60a11e7cf74b03fe6b6f08c381351e2847c813bb3b28ae",
+        "code_08/public/eval.csv": "e4fa49dddc16be09cfc4448b1d6c1b75885262fad5cd700e0577a298f7c4e1b9",
+        "code_08/public/train.csv": "e8ce3a99b99481e4ee7be59c6803b36a8ba878f071ac62e62aa69fcf15e89754",
+        "code_09/private/holdout.csv": "bb06de24c292ae159dd7bc374deaee92b179c1439e68559232dddf75d85daafb",
+        "code_09/public/eval.csv": "2fbd902616bd40ad35e7b642863a41694af5ecb7b2de5e585b497c02ce8cfc5c",
+        "code_09/public/train.csv": "346ace0c286d2a4dd421fd6b0225ac7fc43f76ba2545c85b7fd26f8ae5f4d0dc",
+        "code_10/private/holdout.csv": "e4b7402ce4107ca3bbf1bbd4eca5268bd1b1fcf2ce23a764e966742854db1a8d",
+        "code_10/public/eval.csv": "047c1250212cc6dc48749fcc5a78f7db8ecc588d1d82bf6b0f6ac06e86adccba",
+        "code_10/public/train.csv": "96b8fa78bcedc91e585c6ab237fe680efaedb4d5de212469e4e327904188c0ea",
+        "code_11/private/holdout.csv": "eb6cb17a1d84b1035401464ea04480dd2ae6f4201d9c60dd6b15f6a057cd44ba",
+        "code_11/public/eval.csv": "ea6ae67d07e696a6a813e07f6f12594a2479259e798f1c828f13ca67838de922",
+        "code_11/public/train.csv": "7ebfe08f0f98a5bf7b079c24eaea7b4e69f976cd4ed975b522ad1b86c3647f09",
+        "code_14/private/holdout.csv": "cd64d1bc70baa9c7bd51023582eff060d348c5d5b1835c1eb43adfa4f0c78389",
+        "code_14/public/eval.csv": "d5b7e6a999421548b97f4303a197d716f5571e9a44ff08c6d880ba66175a3328",
+        "code_14/public/train.csv": "e0d7d4e9840eac65febe48a5a189a8b6c96e666a17fd5071df11c305632f0588",
+        "code_16/private/holdout.csv": "35c8d2de36af222c82cee3cc26c06f862c593c88273c37c1fb4a4502c6c85c8e",
+        "code_16/public/eval.csv": "801a172b6437fadedd2a55363c5a45779c45726c51298b6dbc03412780e0dc3f",
+        "code_16/public/train.csv": "dcc8a82c15d75ccd1b4ae90c6465b5125e93940702b1343658e29e281f37e7ac",
+        "code_21/private/holdout.csv": "3438a4eac94d5032c56862f974598c125e34a5cd1b2be8a2ed9afe2b2db975df",
+        "code_21/public/eval.csv": "0184a198a579140595e941a1c1a9f35d94e9d79ef051bdccad94994ea2a86556",
+        "code_21/public/train.csv": "824ae3d8ca1d3c4cb14aa25a0cac00ca4c0360344cbd6bc01f3bfc61bea3688c",
+        "code_22/private/holdout.csv": "b11b360e8d3943e4a4ea1394381e1c7e7c2258e97a3ea2a3aaf434ed97f5301f",
+        "code_22/public/eval.csv": "5cd8e2629a5db8504705a2cfd21519894699a996c03f39aeca1ccdaac8e982a5",
+        "code_22/public/train.csv": "b18b3516fa464b8f71921a5936e91c0843abaaeef894177652a240e190d8cef4",
+        "code_23/private/holdout.csv": "c1e6ec9b53227a0027f3d972f5b20495e6601637aeebbd24aba32cc21c0f73a6",
+        "code_23/public/eval.csv": "21fc26fb8300967dd8f4e6ddf04356cdad94293bec298858560d56ba3f893795",
+        "code_23/public/train.csv": "a3da196a4998578b4f568fa7abc86bad5abfcc8675951db4cff03aa8eca4b5ba",
+        "code_25/private/holdout.csv": "36b323ed06de81d67101b5521fd3f294917f10e1c6e73a8611140b950f8ab6b8",
+        "code_25/public/eval.csv": "a595f5392789b389d1caab671407701faf68ff60f627a26f25e75be26b84fcbd",
+        "code_25/public/train.csv": "4c0dc485f1305a3282b52723dbea069a2b159667a6058c4b6cc70f7f7cb295b2",
+        "code_29/private/holdout.csv": "2c4edd987b50167521a38ce1d35c49a43d93aed63dfcbdb35e352ae96030f621",
+        "code_29/public/eval.csv": "a07658ba89bddab9ddde4972f692f9b1f461179ed746d06b191d6dc5ee1d02fa",
+        "code_29/public/train.csv": "87365abeb2cd017924883a7a7ef7f2eb03bedabb84722d84d415de44ed9e015b",
+        "code_32/private/holdout.csv": "7feed478596f4cca820d64f9a9accc15888d62fc45e82eae72db018ec14c65a5",
+        "code_32/public/eval.csv": "f98108b24dbb3a7338c53257fb0953d63ec67781e2b385b976ae2838166fb497",
+        "code_32/public/train.csv": "250912e756feaa7c950d39042a8a75629c814d0289e5c5fec25689eb1a91581a",
+        "code_33/private/holdout.csv": "4f11d15372a5f6bfd69a12dcfe42b2ad67912a2b3971f7956327fd960c4eb061",
+        "code_33/public/eval.csv": "3babe57a805a06e863371b1853d540f7a3e289fcf3adb45d606625e5f96bd697",
+        "code_33/public/train.csv": "376a11e89f1a8ab1cb574826003e226a9ce33497171175e67ca6bb2d26bec733",
+        "code_35/private/holdout.csv": "5205a7d5e4df637702f4338930c69fc2a501e4a358cc4dd22bc18a667634e855",
+        "code_35/public/eval.csv": "ea58b541d66d103a25eda2d789d7c5ba2e84c0e8f27040f45e1fb262176dd1bd",
+        "code_35/public/train.csv": "39c2c93c849a56d33992e57c7c67ffa0f45f56eec6af898c627bc22d9928246b",
+        "code_36/private/holdout.csv": "3697b7d1cdcb58541fc5e090bfbc511687883e7cce0a1c1a49aeb7c64b078506",
+        "code_36/public/eval.csv": "898bde0cf81e22a1487b7516a4aef40b979d3417b225fa6c37c072c1cbb480e1",
+        "code_36/public/train.csv": "560ba8c642230b89528c812a7a62e80baf077190444f1688614e8dce1106e740",
+        "code_37/private/holdout.csv": "c59c120bd629bb799d3b7a4d8d056771142ec6d79c68d9734caac20a0baa9d44",
+        "code_37/public/eval.csv": "09df2e61a9e75ce2b64f94028d422d1619fc97c30bad4a94b3597bd8782f15d0",
+        "code_37/public/train.csv": "8203c85c3b7b94e266552615d70b176848dd78ac5a4ca84043f6986deaeef217",
+        "code_38/private/holdout.csv": "8301eb8cacd50ff13db2c3bbbb199bafedba9325b105a7b48799b15de8451c99",
+        "code_38/public/eval.csv": "bea08129945dcdb153f84c229349cfff7f7c96c3498ee0b7c2b736c4a3402d16",
+        "code_38/public/train.csv": "9536b07a1c2fd5a79bd253f9b7962a8071eb08761f1d6feb11de4cfba2cace9c",
+        "code_39/private/holdout.csv": "420d64102e5911a4a5ce6f2620d82a729268742287ac92dbe9293031db236350",
+        "code_39/public/eval.csv": "275c3ff6ddab678bc61ae2a2ae7a998ec60e0d77932c84f74aef58be3704f749",
+        "code_39/public/train.csv": "5c15b2d990894f053239ac61e6380ddfd3e6253527d5315edee9571a07df14bf",
+        "code_40/private/holdout.csv": "2d7840680bdd6b668443a7d6b52b3644d8edb485e636bef5972334d2fec46a2f",
+        "code_40/public/eval.csv": "335dffad84620f6b5a6e5390f198ab0a8def0103eafecd6b606b41ef628d7520",
+        "code_40/public/train.csv": "10f5322fc0d67e453856b31a2c422532c8f61b0f6267a7a08990326f821bfd6f",
+        "code_41/private/holdout.csv": "2d23c6f465288083fec5bca9313e261e11a0301fc5fb34178916c433a327eeb1",
+        "code_41/public/eval.csv": "98b92a4bc0adbfcbacb3d49a07af4d1b2897b5df90fa2ea8af1b5aa6c8841471",
+        "code_41/public/train.csv": "1bc1109cdd51f5663452a43ec90b139e88936988f6d7a0f71da2069868949a18",
+        "code_43/private/holdout.csv": "508cf953da3adfb0c6d7e5889e15e204e29c2e4a194e0749639e78f5d04ab961",
+        "code_43/public/eval.csv": "91a5f72e5f381b44b0ae31bd5851678bd71744cfed226461354de3a11cad546d",
+        "code_43/public/train.csv": "d9140a06fc9dba8ea91ea2e30dbfb85ffffe955d92dd107312f74440df2dc7ae",
+        "code_44/private/holdout.csv": "86aff94bb408286c952c9145923cb6d1c9620e1d30b0f9e3ea51d3144ab3c15f",
+        "code_44/public/eval.csv": "25b0906a63039962d345efa4ba1912d328127016cd94f42fb3a27a61c1610d06",
+        "code_44/public/train.csv": "9f611b3bbaf8cfdaac7e403ebefcd2f9313a70f23cb96646781298fcb7faf1d3",
+        "code_45/private/holdout.csv": "e11e61bf7a8b9f9670a34a1f672e5bd0f9bc1d38e3d948d949157a61ccb144a3",
+        "code_45/public/eval.csv": "48045275f9a9dd1990adca20a5f3bb3b9f9a06dd705a337249808d369d7cb224",
+        "code_45/public/train.csv": "8ebb59d78a6b47bc195d3f8fc24bf53b2c079f5ad2909175a1f711b3cfb17c53",
+        "code_47/private/holdout.csv": "cfc0ebe0d885a93447b6a01e49f0451c72e44abd649cae0d937caafae14482c0",
+        "code_47/public/eval.csv": "f9dc0b01dc2940c0dec75dcd476661fd825693f6513f9d55bf157a1e295eedc4",
+        "code_47/public/train.csv": "974beddd2d0356c41605c0fe87cdda17769311578673b844aa7308a7591ce153",
+        "code_48/private/holdout.csv": "62c2cc87af9ea6c099284ac3dbaa2dbdfbbdd7c8fad17c34ea9e76816b9c3211",
+        "code_48/public/eval.csv": "0b0869d517c621ab86bcba7b961cb59988479832624835fe5e846293b6b970af",
+        "code_48/public/train.csv": "8dd3f76b9ae3f58fb4b5edb796fe83ef26ace11fae2072c7f5cac1b77c306069",
+        "code_49/private/holdout.csv": "71169a89bb78bef935b57112c8201098d8b06bf6a4a007c3e3fa05928f3c7aca",
+        "code_49/public/eval.csv": "22ba13228496f7939b000308ec55609b94e8511e3df0f9605027758358b40f97",
+        "code_49/public/train.csv": "ce26ec7f556aa89ce51c32602b970ef539cf706689b44187248cf258891ea4dd",
+        "code_51/private/holdout.csv": "cf3096d371e9c798653d0fbb4714eccf007b69d1d7ee38041a090d9be69660f6",
+        "code_51/public/eval.csv": "b3766809e1174f3c1af7d7e214d0fa6449a517bc9caea2762b1d8fc79536696a",
+        "code_51/public/train.csv": "4ca96fe680c14fcd7c765f65c4a608b7f2bab55c40b26502e8a3748cf3f1a8ef",
+        "code_52/private/holdout.csv": "d71e6278252ce530f04d40617ec01e2b2962b97e4cbf46e3d0c2e20137fa1890",
+        "code_52/public/eval.csv": "018dbf3424cb242bd0f535a015b9b73b2a2b110bc242727f1113fead0e27c6ab",
+        "code_52/public/train.csv": "c56c9960a4ddb6f4a3ca2ecd37e7ff8e2d7f86d1bcd63507b6eaf55d9faedf5b",
+        "code_53/private/holdout.csv": "deadf90b23ec972a7aa30c3041642119675f857f9d1a820c7df7d6e9a01fb9d8",
+        "code_53/public/eval.csv": "cea58365c70814fe107947efa93d288168716707a5c81bd803d45758d33296ed",
+        "code_53/public/train.csv": "f3dba263c7174955f68c9f3611d13789ec3041dccb5473ba27e4a8755be760c3",
+        "code_54/private/holdout.csv": "8c6a3bbd1b0cbe175671c4b968d806056f23677751b8b43ad0a0932ccc3342a8",
+        "code_54/public/eval.csv": "4363e7b64e0c38214a5556e752941409005f65f8e50ca71cd757a0bbbd458b24",
+        "code_54/public/train.csv": "645e3a79bbba6f6509b240e28100210df908f1daf190f79276125d95995a3711",
+        "code_55/private/holdout.csv": "28c5a8ad3983ff1d6cd0498621e85c535d93f38f2ead5a415fa4bc185a34ddab",
+        "code_55/public/eval.csv": "e1f103cc06e7b85366b5b712f70f6a4bc1eeaf4276acefa83a13638c328e9c93",
+        "code_55/public/train.csv": "8885c9ab6c6a407f94f5d95593abb6f165d36f0509b6657ddcb0ac27e490971b",
+        "code_56/private/holdout.csv": "6585796c2acfcf18afa2fa7e6e7b6156f9914a2e259613ded0b4dc04c647eb75",
+        "code_56/public/eval.csv": "41fa8920791d0aeab24008dc68e9ab093a3ae518e784bbb9039ebaf9f92f876e",
+        "code_56/public/train.csv": "26a8f306bfb1c3d8d852c3f5a5f688ceb3aa6ff0f3c552e7d2a8c782d049f49c",
+        "code_57/private/holdout.csv": "199681929b3c05edc248ac4213d58bf2acc976ccb2f458d174b4658a47b7f780",
+        "code_57/public/eval.csv": "f181ba896219ac50b5f4bd0523f89cf1d1cc2f2c5ebb0952d750d7fc54790b21",
+        "code_57/public/train.csv": "82d0bbc0d367fe146a2cb5873d0e0d371049bb76f19e0d1c06ffefc45436a7ec",
+        "code_58/private/holdout.csv": "2757e4429bc46598e1e9e6e411cafac02bf9abfcc41facbbe00c7c1d37e2528a",
+        "code_58/public/eval.csv": "4e44ae0f435042f130861e2f79fe6b8c54a85866516e6eeead8f6cc0cc9895b1",
+        "code_58/public/train.csv": "19b81b41b5db40e1e44882ad3a5ba0913bde30f39a0affe895238c4e66c1a39f",
+        "code_60/private/holdout.csv": "95628fdeef179fbc39c1f1806f04a7119f91cf99e61f8873b88d3cb20266a340",
+        "code_60/public/eval.csv": "af763b4251dadb501c57ab384ab9ea4a8c12412850d52d86b70ad0703b576149",
+        "code_60/public/train.csv": "f29e7641d27b3820e2814215bf21eeeece975f04d5643cd67fb802aaf4dd9a65",
+        "labels.csv": "c891fd333a1691912a37aad1c4f9bfd3df1671aeecd3966ef052f08b511982d1"
+      },
+      "source": {
+        "name": "Food Inspections - Chicago Department of Public Health (City of Chicago Data Portal)",
+        "landing_page": "https://data.cityofchicago.org/Health-Human-Services/Food-Inspections/4ijn-s7e5",
+        "api": "https://data.cityofchicago.org/resource/4ijn-s7e5.json (anonymous Socrata API, no key, paged by inspection_id)",
+        "catalog": "https://data.cityofchicago.org/d/4ijn-s7e5",
+        "accessed": "2026-10-05",
+        "licence": "LicenseRef-CityOfChicago-DataTermsOfUse - the portal's own Data Terms of Use (Socrata licenseId SEE_TERMS_OF_USE); operator-accepted portal-terms posture decided 2026-09-28, reusing the 2026-09-26 DOAH acceptance",
+        "licence_evidence": [
+          {
+            "field": "Socrata metadata licence for dataset 4ijn-s7e5",
+            "quote": "license: {\"name\": \"See Terms of Use\"}; licenseId SEE_TERMS_OF_USE; attribution: City of Chicago - no standard SPDX licence",
+            "url": "https://data.cityofchicago.org/api/views/4ijn-s7e5.json",
+            "read_on": "2026-09-27"
+          },
+          {
+            "field": "City of Chicago Data Terms of Use (the portal terms this dataset is governed by)",
+            "quote": "\"The City may require a user of this data to terminate any and all display, distribution or other use of any or all of the data provided at this website for any reason...\" and \"These Terms of Use do not grant anyone any title or right to any patent, copyright, trademark...\"",
+            "url": "https://data.cityofchicago.org/api/views/4ijn-s7e5.json (licenseId) -> City of Chicago Data Terms of Use; clauses reproduced in release/chicago-doah-adjudication/LICENSE-CITY-OF-CHICAGO-TERMS-OF-USE.md",
+            "read_on": "2026-09-26",
+            "terms": "Same portal-terms decision as chicago-doah-adjudication (candidates/chicago-doah-adjudication/license.json, LicenseRef-CityOfChicago-DataTermsOfUse): redistribution under the City's Terms, no CC0 or other standard open dedication may be claimed. Reusing that decision for this source id must be recorded explicitly before construction."
+          }
+        ]
+      },
+      "ok": true
+    },
+    {
+      "dataset": "ec-merger-phase2-opening",
+      "workflow": "legacy",
+      "url": "https://raw.githubusercontent.com/earino/ec-merger-phase2-opening/v2026.10/MANIFEST.json",
+      "manifest_sha256": "a03b33fc44c15fe3d143de2e51521de8aa4dbc5c9eec69544943179641b5c59c",
+      "data_hashes": {
+        "private/holdout.csv": "5867e34f3ebf714b9ec0ef307989cb4296438148390a6a5ea2bcf88795f703fd",
+        "public/eval.csv": "4fb28c0908e4c79ccf194de3b27f2996c05efc0f01ec4074c953a7eb697f24f6",
+        "public/train.csv": "1619b6f4ad4a7dab0f437335c231f727f6f5c5f0ea02b3454366f5a71ab90a44"
+      },
+      "source": {
+        "name": "European Commission, Directorate-General for Competition - EU Competition: Merger case publications (open data, machine-readable case register, coverage from November 1990, updated daily)",
+        "landing_page": "https://data.europa.eu/data/datasets/cc7e224e-6569-40f0-8037-d3389aa0fae7",
+        "api": "https://compcases-open-data-portal-files-prod.s3.eu-west-1.amazonaws.com/case-data-M.json - anonymous bulk download, no key, stable URL; the register rolls over daily (publisher states one update per day)",
+        "accessed": "2026-10-27",
+        "licence": "European Commission reuse notice -> CC BY 4.0 (DG COMP news 'DG Competition's case data available as Open Data', 2025-03-18, and the Commission legal notice, both read 2026-10-24; evidence recorded in candidates/ec-merger-phase2-opening/record.json license_evidence). Attribution carries through; changes are indicated. Derived research dataset - not a Commission official product.",
+        "licence_evidence": [
+          "DG COMP news 'DG Competition's case data available as Open Data' (https://competition-policy.ec.europa.eu/about/news/dg-competitions-case-data-available-open-data-2025-03-18_en, read 2026-10-24): 'We are releasing the data under the European Commission reuse notice, so that the machine-readable data sets can be processed in any way the users may wish, for commercial or non-commercial purposes, provided that the source is acknowledged.'",
+          "European Commission legal notice (https://ec.europa.eu/info/legal-notice_en, read 2026-10-24): 'The Commission's reuse policy is implemented by the Commission Decision of 12 December 2011 on the reuse of Commission documents... Unless otherwise indicated (e.g. in individual copyright notices), content owned by the EU on this website is licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) licence. This means that reuse is allowed, provided appropriate credit is given and changes are indicated.'",
+          "Scope note: the dataset ships register metadata (case numbers, dates, NACE codes with labels, decision-type labels, case titles). The EC notice adds 'You may be required to clear additional rights if a specific content depicts identifiable private individuals or includes third-party works' - the underlying decision PDFs (caseAttachments) are NOT shipped; only register fields are, and the same fields are the Commission's own published register data. caseTitle carries the parties' names, factual public register data."
+        ]
+      },
+      "ok": true
+    },
+    {
+      "dataset": "eutl-installation-net-short",
+      "workflow": "legacy",
+      "url": "https://raw.githubusercontent.com/earino/eutl-installation-net-short/v2026.10/MANIFEST.json",
+      "manifest_sha256": "b5ba25c2d66ee4db39cd8b4ee2aa8c7ebeb77ffc311b2d40887852cac9892257",
+      "data_hashes": {
+        "private/holdout.csv": "1c694e5e6b0bc0b329c5934e24037fb7229326ffac1806db6e0655fe0439de9b",
+        "public/eval.csv": "0d9f35d5393734a9a63457890a9c4177418199b2cae458b36a8687fdbd4253ab",
+        "public/train.csv": "c7f23c557d9605c92ba787d199922a1978f712f9b1069926ac5d63236331e903"
+      },
+      "source": {
+        "name": "European Commission, Directorate-General for Climate Action - Union Registry Public Website, EUTL public extracts (Data Download section), operators_yearly_activity daily extract",
+        "landing_page": "https://union-registry-data.ec.europa.eu/report/eu-registry-data-download",
+        "api": "https://dlsclimabi.blob.core.windows.net/public-data/eutlpublic_prod/extracts/_all_extracts/operators_yearly_activity/operators_yearly_activity_daily.csv.gz - anonymous bulk daily extract, no key, stable URL; refreshes daily (SNAPSHOT_DATE column)",
+        "accessed": "2026-10-22",
+        "licence": "Commission reuse policy CC BY 4.0 (legal notice read 2026-10-21; EEA metadata for the Union Registry-derived product independently states CC-BY 4.0, copyright holder European Commission / EEA). Attribution carries through; changes are indicated. Derived research dataset - not a Commission official product.",
+        "licence_evidence": [
+          {
+            "note": "Commission Legal notice, read 2026-10-21 at https://commission.europa.eu/legal-notice_en: 'The European Commission's reuse policy is implemented by the Commission Decision of 12 December 2011 on the reuse of Commission documents. Unless otherwise indicated (e.g. in individual copyright notices), content owned by the EU on this website is licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) licence. This means that reuse is allowed, provided appropriate credit is given and changes are indicated.' The Union Registry Public Website is a Commission (DG CLIMA) site carrying this notice, and the EUTL extracts are Commission-owned registry data.",
+            "url": "https://commission.europa.eu/legal-notice_en"
+          },
+          {
+            "note": "EEA ISO-19115 metadata for the EU ETS data from the Union Registry (inside the downloaded zip, read 2026-10-21): 'License CC-BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Copyright holder: European Commission, European Environment Agency (EEA).' Independent confirmation from the EU family that Union Registry-derived data carries CC-BY 4.0 with the Commission as copyright holder.",
+            "url": "https://sdi.eea.europa.eu/data/9eee3fc9-3060-4e3f-bc8d-e22e7c3f6bda"
+          }
+        ]
+      },
+      "ok": true
+    },
+    {
+      "dataset": "ipo-trademark-registration-outcome",
+      "workflow": "legacy",
+      "url": "https://raw.githubusercontent.com/earino/ipo-trademark-registration-outcome/v2026.10/MANIFEST.json",
+      "manifest_sha256": "a5fbe138127da0921fd7955437de1e6306835a3a1babc0dd5411a896c2b9191b",
+      "data_hashes": {
+        "private/holdout.csv": "26cfc5a8a2131bac4d700ee4733a79eee6eae327dc7c6aa5ed93cf1a0589fa41",
+        "public/eval.csv": "54e06a89d7f565ba690f5abe0fd8cdce5a91c55aaa50738690f8efeee474c520",
+        "public/train.csv": "f4bb622df6e985ea3bd85d8e962a90022e029588bf56ae3a4d89721877a25a51"
+      },
+      "source": {
+        "name": "UK trade mark applications open data - opendatadomestic.zip, the frozen 2018-02-13 snapshot of the domestic register (Intellectual Property Office, United Kingdom)",
+        "landing_page": "https://www.gov.uk/government/publications/ipo-trade-mark-data-release",
+        "api": "https://assets.publishing.service.gov.uk/media/5a82e5f4e5274a2e87dc387d/opendatadomestic.zip - single anonymous GET of the whole snapshot; UTF-16LE, pipe-separated, 62 documented columns, 1,189,005 raw rows",
+        "accessed": "2026-10-27 (pinned; the file is a frozen snapshot so the pin is the vintage)",
+        "licence": "Open Government Licence v3.0 (the publication's footer and the dataset's own explained-document, section 5; evidence recorded in candidates/ipo-trademark-registration-outcome/record.json license_evidence). Required attribution carries through: 'Contains public sector information licensed under the Open Government Licence v3.0. Source: UK trade mark applications open data (Intellectual Property Office), opendatadomestic.zip snapshot of 2018-02-13.' Derived research dataset - not an Intellectual Property Office product.",
+        "licence_evidence": [
+          {
+            "quote": "Provision and use of this data is defined under an open government licence",
+            "url": "https://www.gov.uk/government/publications/ipo-trade-mark-data-release/ipo-data-explained-2016",
+            "note": "Section 5 'Open government licence' of the dataset's own documentation, linking OGL version 2; read 2026-10-27."
+          },
+          {
+            "quote": "This publication is licensed under the terms of the Open Government Licence v3.0 except where otherwise stated. ... (C) Crown copyright 2018",
+            "url": "https://www.gov.uk/government/publications/ipo-trade-mark-data-release/ipo-data-explained-2016",
+            "note": "Page footer on the same instrument, read 2026-10-27."
+          },
+          {
+            "quote": "All content is available under the Open Government Licence v3.0, except where otherwise stated",
+            "url": "https://trademarks.ipo.gov.uk/ipo-tmcase/page/Results/1/UK00003171385",
+            "note": "Live trade mark register page footer, read in the supported browser 2026-10-27 (plain clients get HTTP 403). Register content is not redistributed by us; quoted for the fixture verification only."
+          }
+        ]
+      },
+      "ok": true
+    },
+    {
+      "dataset": "msha-enforcement-citations",
+      "workflow": "legacy",
+      "url": "https://raw.githubusercontent.com/earino/msha-enforcement-citations/v2026.10/MANIFEST.json",
+      "manifest_sha256": "56af5f46b2bded9068c4a2834322d8aa7ac2bbca90d8e0530c36d5538686b744",
+      "data_hashes": {
+        "labels.csv": "6e164193b8cda303f18f09d4fb5dbd1029dc9f807e14528c4deac9c11a464f95",
+        "sec_47_41_A/private/holdout.csv": "a0cad6e4eb80f3e9ab14e71b200468c71062e37ff927f744e9debdb3fcaa54e5",
+        "sec_47_41_A/public/eval.csv": "16a77d745f6a2d8afa6b59296c324ce07ecd83a006bf60cb787852d9833ab8b7",
+        "sec_47_41_A/public/train.csv": "b1b6965e98cb85ae16c77927f41aaab0a4525dc2dd372a10fc89b52ddad51631",
+        "sec_50_30_A/private/holdout.csv": "70569bbb88867b6a9a096c157db6052eb909825b4d0838b47ab68670a5c04795",
+        "sec_50_30_A/public/eval.csv": "a99fdd95e5583fba66e2d50bb9c6408ba9b1c1948d0d32e098bf52aba645d752",
+        "sec_50_30_A/public/train.csv": "91591afa91045aeb03c2b79a8e744a5af1f666995f0d5e261ac2a3771e0c8672",
+        "sec_56_1000/private/holdout.csv": "dbf411d6be2a2e2a16512709b0a6106f6cf6ff8abc6ed9cc08ad999c9dca92ce",
+        "sec_56_1000/public/eval.csv": "d5cd8d40993474037af001e7d24a3c5f1a4ff2b7af520def77910bc2d23b6763",
+        "sec_56_1000/public/train.csv": "f8ea982681667e74663501909008c6a5c152e64580311a640b20ec55ca0ee815",
+        "sec_56_11001/private/holdout.csv": "74fb17af1c60bd66d9fa551ae37b1aba070dd95100a335c396fd28090357ad94",
+        "sec_56_11001/public/eval.csv": "745f95c2b8a70034b2d2da3047cca47fff8bd2a8f873fd9eb6ebe26c1d9c886e",
+        "sec_56_11001/public/train.csv": "86dc093667cbc2f1f0afe1b322743cb234c782f11e68e956b2070fdc7e4255da",
+        "sec_56_11002/private/holdout.csv": "b6dcc78bbe535cb1ac24d9c4660e303a598d79b9409258822df91400137058ba",
+        "sec_56_11002/public/eval.csv": "5af9e9a52085e588645e518b10f6e31f644efb8c3385ea6fb845f0e7408e34e6",
+        "sec_56_11002/public/train.csv": "e0ab0e997a9ec44bff2d2adda8fa992cbe14cf26c6b63f2f90873470c56aef4b",
+        "sec_56_11012/private/holdout.csv": "2944b21185c362766bf11ad00b7e0a6edac92c4cb14460d425e049e9fa4f8e42",
+        "sec_56_11012/public/eval.csv": "d375569baaa692ebbc53e1c5feb8ce0fa6c6bc827bd358a2a5f58f46b8ef9055",
+        "sec_56_11012/public/train.csv": "4560c869d899063768a0335509c56deecc211c4bc16f5774838513e6cc7d810f",
+        "sec_56_12004/private/holdout.csv": "d7e4480b2ed02ca166866988a466c85a1839450abec5b00d48f5bb9504a1eb39",
+        "sec_56_12004/public/eval.csv": "2058e608b8b27a81460ef336efd52095bcd82586b294d8d6b514264cc78d0079",
+        "sec_56_12004/public/train.csv": "c8681dd440f3fdb4a2f6e38ae2cd3880e31982ef30d8940697f8cee216173598",
+        "sec_56_12008/private/holdout.csv": "adb04567e9edc2517929fb2d91a983ca447c45977dc0fcf23ef1a21c66d2abcf",
+        "sec_56_12008/public/eval.csv": "c80a53ccde32bafb8abf8471579773bf50792f31351ba10184e82719aee39ff6",
+        "sec_56_12008/public/train.csv": "a140d42c70d57432c3836020eb4d10c737c5a2118e6601de6e095cd1791096b4",
+        "sec_56_12018/private/holdout.csv": "e0bf2dff9e50b298935e09aa5bff3575fb26cebb696437a2f2d8cf5ed8654e53",
+        "sec_56_12018/public/eval.csv": "6d0879a305e5207e1e289ad9b7883bf9cd5a4b61b3693743a963d3d707469439",
+        "sec_56_12018/public/train.csv": "8116aa1a63daddfe9e5fc65af93b1606eeeac5a50ebd0119d0645b9acc75a328",
+        "sec_56_12028/private/holdout.csv": "e62f7699ee9ec0949766351c2172badff048c391a0dae2a5bec2084e6d1d5a49",
+        "sec_56_12028/public/eval.csv": "05aab418e82969f2fcad32c6ca603d26629020ed578b03ba5801d6a7673d5941",
+        "sec_56_12028/public/train.csv": "09f35bbddd701863e335a9da716a4547922cdfb6fee1ad5ec1d102d1308e4d51",
+        "sec_56_12030/private/holdout.csv": "e43e01874608387b5373fd65b8bf7c24acff571b3202ebc5214288d4e3ef04c5",
+        "sec_56_12030/public/eval.csv": "a33f9d6fccaeece74a5633f16c6faf9f9aaad705cc6cc1de2caf78b546931fb3",
+        "sec_56_12030/public/train.csv": "45b113df5211fe1676d4a4635fbd0853d094ba1e52da5408a1e8fe92e766aa8c",
+        "sec_56_12032/private/holdout.csv": "01d16c1cf289e222bcab4fbd98f832716c2bb68f655577d012070eccde5e10ba",
+        "sec_56_12032/public/eval.csv": "f013fafd64cec6c3fb4456373caa789165b07c6ba8f25c397b4f12e42961638c",
+        "sec_56_12032/public/train.csv": "0538bf61bc0a5aecda6ad7955e095dff3dc6974d64e6bf3f267e0c352743fda6",
+        "sec_56_14100_B/private/holdout.csv": "7417234022b3a9b6839c458b895f3a949ca761d2feae914ce040407689056117",
+        "sec_56_14100_B/public/eval.csv": "2d7155b356600e760c12ee0c5de5b637458b3128f247deb125248b3c169d6bd0",
+        "sec_56_14100_B/public/train.csv": "71728b92fd7a917bc4b7a4a5606edfc8e4682d81566f54734ae6dfabe8e7cfce",
+        "sec_56_14100_C/private/holdout.csv": "d606dac6c45362d701d74cbd71ff421a352c34df20b3db790771ea9142849797",
+        "sec_56_14100_C/public/eval.csv": "6bb16a59aed49423b113b0b758cf6944be9a57b754649dda2609d704085e91dc",
+        "sec_56_14100_C/public/train.csv": "339600ed399daee2aae132bf072621dff81f036d9271736e28c3dd37d1ddd8a1",
+        "sec_56_14101_A_2/private/holdout.csv": "ab4b74aef30681d07dbd9467ce9a71e990ad5f55e3db96ae91c91caa4590b026",
+        "sec_56_14101_A_2/public/eval.csv": "797c9c2251e81e310a64f1b0982ba924a90ecccc1fed4d762349452accc2bbb9",
+        "sec_56_14101_A_2/public/train.csv": "c67883d476e2126b376ee385b265eb4214e1ec50bfda7794e58880ab8dac6e4b",
+        "sec_56_14107_A/private/holdout.csv": "615db1666f11ac5686ddd906d2351173134efb2f1d3a517745f548ac75198eb1",
+        "sec_56_14107_A/public/eval.csv": "e510cf39790099ff5c7e5d7efbf9e1cc288739ff9c5c74c24b052fb6b224e531",
+        "sec_56_14107_A/public/train.csv": "8958fc778c18a819e8afe889ebc0808200bfc3105380d8146cb5bf119e1f22cd",
+        "sec_56_14112_A_1/private/holdout.csv": "1efe209a6a595777076c030e8f5a4d99a53d9d283cc79309aea27e9634a3b43f",
+        "sec_56_14112_A_1/public/eval.csv": "dbb851dddbf0bb9d6093f1abe8f65a1ae8244ce1c4662d868f0166623a188ad2",
+        "sec_56_14112_A_1/public/train.csv": "20f8686c24ed642da6e622ba30ec9d0d671f23a02006b461f5b40df137a209bc",
+        "sec_56_14112_B/private/holdout.csv": "c7dee54f6557d07ed7ef3ac30c75a7304f548583f8f39243f995215175905250",
+        "sec_56_14112_B/public/eval.csv": "7a5a25c8a5d3b445e898c620e3575709ce1676697bf64614d9fe69b5b1e84245",
+        "sec_56_14112_B/public/train.csv": "baa46a26f4c2a6df0a2a413f36ed6a115ee8a7c4719be02c534c23f798ca8e14",
+        "sec_56_14132_A/private/holdout.csv": "0a0c6b14b3683b8d2edfbef8c9d920ebd795f19db3b08cecdd81efd948329f73",
+        "sec_56_14132_A/public/eval.csv": "d98f15514512ffb64ae065b2a4006adbfb13b6a353222cec5e5da8b1d2506e7a",
+        "sec_56_14132_A/public/train.csv": "8f172ae2e8e38858ceb07c3b98805056a191dbfe6fa6755bdf1d7b801315007c",
+        "sec_56_14207/private/holdout.csv": "b379639a775837fdce573373a3e3d163b2bf290ca1b257249e4c91d72fca6786",
+        "sec_56_14207/public/eval.csv": "6df3504919b85b5c4d698582f059459e01c5885a4c34ba85d78b609373830fbc",
+        "sec_56_14207/public/train.csv": "966ba667c44edfe4b46e475c4f142f3609356649b0d666b94118aab8123c0a96",
+        "sec_56_16005/private/holdout.csv": "a63ca698409e63214ef96ac061193dfa35f6d03d24b63a8fb3cfd8883e877350",
+        "sec_56_16005/public/eval.csv": "278b8dbc15a7a47c8f374b64fe911880867c536a97884bce738eab2a5a8762be",
+        "sec_56_16005/public/train.csv": "c986816adf3435cbfd82937f69e2e8a4052c0c1bcc25a82b102802a281c29f7c",
+        "sec_56_20003_A/private/holdout.csv": "9ea929bf47de664b7f8e0d5f3fda890c42f3f35c9626d7e786152f197ee2f803",
+        "sec_56_20003_A/public/eval.csv": "605411ec2c0f203179f9e6fec5b312709517d87a949702db19613b821c383780",
+        "sec_56_20003_A/public/train.csv": "84a88f08db457c5c938c2d54db041a768fe2f96704a90f949e735eaf767d9747",
+        "sec_56_4101/private/holdout.csv": "a8515c80e248774033d0d0ed03d9db6b042527962b084db7c3c99efe5d51cd0f",
+        "sec_56_4101/public/eval.csv": "27340b46848a4d968c7d5f379b7bfb43c8cc7353d3998d71c2ca3005776837d0",
+        "sec_56_4101/public/train.csv": "e0cb143a654ac7cdb09f967e2fb1f82be1e61fe3659fca52809671d81316625a",
+        "sec_56_4201_A_2/private/holdout.csv": "c77e48ece4c93efa2379d7dd89feaf645c8cad2a20df57d31554e5185a793bee",
+        "sec_56_4201_A_2/public/eval.csv": "961c7e7882304a126e69b10c4a57a698dfb8fbd4de28f027992411c8c17636eb",
+        "sec_56_4201_A_2/public/train.csv": "d479033ae0ede24e8ac501f378144d58d97866fd130f11ead67729c78c8321af",
+        "sec_56_9300_A/private/holdout.csv": "ef7fe6dabcc8b5560dfbbad75fef53b2dc7c18d59fc4cb3356e06046b238f49d",
+        "sec_56_9300_A/public/eval.csv": "c199d766728daa009a6e2a04f2508b35d2b4781568063fa67baccf1afe535c24",
+        "sec_56_9300_A/public/train.csv": "02bcb4d6f4303ba505cd56ab70129efd565e2282785eda34e5d0d41f1fc686d1",
+        "sec_56_9300_B/private/holdout.csv": "66d12c1696b41b077a26ce939d2048b25d3a2e8fcdee2b47c6661e02ce756bd7",
+        "sec_56_9300_B/public/eval.csv": "84c6dbad1e5747e12b1438e5ad1b5ac47c7f5675ec7e2c2333cd86a8e5a20795",
+        "sec_56_9300_B/public/train.csv": "a0d3d7c969ebe11d63067da49d6e58f0a3d31ee856a4624c053a6e902e806ab1",
+        "sec_75_1100_3/private/holdout.csv": "7539318ac5a0f319d596ddc95d6fec57abeb1c98f9bc10431e27e399061b16ab",
+        "sec_75_1100_3/public/eval.csv": "c35b0d00aae4b1560c16df87907c451e8fc0aca73bee01dbb426c7e2f6b16a01",
+        "sec_75_1100_3/public/train.csv": "aaa1bbbbf49cdb77edf901a8543cabfc15697d6174d2f06b05fa356c499bb0e2",
+        "sec_75_1403/private/holdout.csv": "38f92937fb4f025b7a1b60666e238d5175c37b048d85f91f5c74038f014c4ce3",
+        "sec_75_1403/public/eval.csv": "11d9f3ad1d79f014964505309fdcad6e4fcd86b3729532335b26a53be6efc008",
+        "sec_75_1403/public/train.csv": "1e477eb7e955ea3500d073688413a6d765d6e353347f75b03653e444e81dd1ea",
+        "sec_75_1725_A/private/holdout.csv": "1eccd7a37d8f118e18c02752ea54c69147480e11fc9e1a26ce3d0d89320ece0e",
+        "sec_75_1725_A/public/eval.csv": "efe52d79028bbf4e8e1f88fe65e852831066a06d888d1279f46eba98cbf7217c",
+        "sec_75_1725_A/public/train.csv": "de837d8cf5e949a6eb8afc96fc49447462eb33533cc610b6e04732694c44b183",
+        "sec_75_202_A/private/holdout.csv": "cfe544ded0ff610a071f97f99f3306af48c5185feaaa06b4930760c10d12758e",
+        "sec_75_202_A/public/eval.csv": "bfbe3df10b27d36952d3503feca03be8f8f78d66e3ae0548b12c7a2a4c11740d",
+        "sec_75_202_A/public/train.csv": "88c257ec5cfdc3dfb3a9840a111c270d254cc17b331b4b0f2f42ba1100264712",
+        "sec_75_220_A_1/private/holdout.csv": "f0e8eaf8334be1c91820eae92339d73356611ae8760fcc1b3c50e9d643045ac4",
+        "sec_75_220_A_1/public/eval.csv": "5bacdcbf9f4d39eb846788cdc5ee45fd6283d4a6ad39a921302ae59a3b4cd678",
+        "sec_75_220_A_1/public/train.csv": "b729f549ca34ae2dbad205c915a4ec2c8314a6605ebc89ea3633a729f3560e17",
+        "sec_75_342_A_4/private/holdout.csv": "09de6217b9c0c774b690a1c558bf94f49b259c3d578edb329a6eb48c47f77919",
+        "sec_75_342_A_4/public/eval.csv": "b16b95d52f482d853a78560a992f65cd6388625ae7c299dce36a1e52169ccfee",
+        "sec_75_342_A_4/public/train.csv": "ad06424e4c1a2f1a94265353f50c7265b50ba3b97cb2791ea6c48555d280aa1f",
+        "sec_75_370_A_1/private/holdout.csv": "2e29d53bd50b33e121be9bd6ac74ccc59c425776fda0def0cc58960258e054b5",
+        "sec_75_370_A_1/public/eval.csv": "eb5c4216e556a93f09841e23e88d83b0525c549daa06ff1086b4cd3837192974",
+        "sec_75_370_A_1/public/train.csv": "47176eb309ebffcb9c288d7d6a17519112a3afa9351ad129af6abb94accf4569",
+        "sec_75_400/private/holdout.csv": "a88a638f556df697ea2decffb454e75efdcaeed3cc249503584bd0cf162b4d83",
+        "sec_75_400/public/eval.csv": "85e95ecbfcde1884b71b719ca9bd1bc99bf8eca2b333f76abf289418401fdba6",
+        "sec_75_400/public/train.csv": "b0a5803b45cd6b3584da351b2419f79ecf96f499d8a91348648103d93e133964",
+        "sec_75_403/private/holdout.csv": "bef96e2b06efce6f55b26f3b054ed2143378afd6a78025acb63cdc3f8c44fe57",
+        "sec_75_403/public/eval.csv": "bae96928305d472440b203b1be0aba6131f8fb04724036f0c8ca1d00e3106bc7",
+        "sec_75_403/public/train.csv": "5ec2a4f67753da78f3d173060e6088319577af64be317a570b6f91f939303424",
+        "sec_75_503/private/holdout.csv": "89441db3cd8892bf70cbb4fbccd30b11798f2466796d4c2169f1c5f667dbb126",
+        "sec_75_503/public/eval.csv": "9da8a157dc0608c43addb56d3d67e9183e31bcab5de406281008a6e287309e39",
+        "sec_75_503/public/train.csv": "b1999a35727f7edb4c60727ee2ee25c86b932911c8fba105f033ac084a0b6bbf",
+        "sec_75_512/private/holdout.csv": "23fcb388469cd8aa06539671a90e6fa7eeda56ebdf40707e752cb665502dc0ed",
+        "sec_75_512/public/eval.csv": "c1489f319789303050d0392534035b29d733e4236996f5d060a4ca70a15492ed",
+        "sec_75_512/public/train.csv": "711887050b6101d4bb7c2d3819cdfe698caddf04e43c8ce8eea8c3296762e224",
+        "sec_75_517/private/holdout.csv": "20a44c39a11190b329be39f70a21602e1d6da66bef7b36be117ee6bb275955b2",
+        "sec_75_517/public/eval.csv": "afaa583a1e281f911ce7872321314ab6a7c912ec77121edf06b0da2a91c788d6",
+        "sec_75_517/public/train.csv": "5e6fc66d20deced47cbaafcc67c2de8fe74b068bc3a47b64dea18f6c6671800d",
+        "sec_75_604_B/private/holdout.csv": "298e9b81274130d5a4029082846b8a28b4d18806dcd0f756f965662dc5e10551",
+        "sec_75_604_B/public/eval.csv": "06e1bdfbd9cb99ffc14a31a9b885b09c18ecfd753f5bc03c9cc280f059f9c76c",
+        "sec_75_604_B/public/train.csv": "d4d8a58f8e20715a6755304f650f69e42cb76d41d32aba1aa8ffe0aa6f53e853",
+        "sec_77_1104/private/holdout.csv": "8f0553638d6189757d9014f206c64de424c515c7c3e411eebec0a68225b9b62b",
+        "sec_77_1104/public/eval.csv": "40cd9097c8794812fc7f579a0ee3c9907a35c89e842c32c05b8df5b798ee55e4",
+        "sec_77_1104/public/train.csv": "007260a3ec4ec3c154de5346b2afc7d682b393b262f7a7d577b3c0b420d5c54a",
+        "sec_77_1110/private/holdout.csv": "b395d2d1ca70db6615d8e6a9fab6f2d9dd993f8e3a34114496aa31fc65e5d33a",
+        "sec_77_1110/public/eval.csv": "78fb69e8ff829d4e3f036f00da8bdc43ccd49a7b3d2b847fa6975b6bee4406c1",
+        "sec_77_1110/public/train.csv": "089d755618f96cdd3fde82d25b1f147ecec20f272fe5b7341096c688006a0fd4",
+        "sec_77_1605_D/private/holdout.csv": "eaa983d3df45dfd9c754c720b0989fc780242ca02ccfd6c6690d1e3020321f5d",
+        "sec_77_1605_D/public/eval.csv": "d2f5ea7134d0cc9edf8658006dc4200172bd777bdf7f1a14f71a518d43c45631",
+        "sec_77_1605_D/public/train.csv": "4599427075ca86a0f005cf42cd943f7c8dfce483ce7db5681050f8065fb82a0e",
+        "sec_77_1606_C/private/holdout.csv": "9c2f3442988e0a215bbec1ea6d6cc725bb6464225764902bd7601a354480762c",
+        "sec_77_1606_C/public/eval.csv": "9b9ca9a6dfb31d1e4ad4e5b770d5b4ee252174a9807be4c9a1bf1e19e6c4e662",
+        "sec_77_1606_C/public/train.csv": "5705623e6e0faed6d6a86f47960b33cc9e3974358f60ef9ca4e2f533b44dd22f",
+        "sec_77_404_A/private/holdout.csv": "4529e04ba663f7d1da455a1eba6b1d3017b93a680a3ced42cbed6e7578237aa9",
+        "sec_77_404_A/public/eval.csv": "6a1485f39d45a40e232208256895a9b0e81c7edc523a7ef2f04f8582c04677c7",
+        "sec_77_404_A/public/train.csv": "b6149e08353da5b74140a7b9980f3dd0927fd04babd8f5044776b18a0cd2d891",
+        "sec_77_502/private/holdout.csv": "acd9a6db3632c10b58cab27feec36c365f870df96b0b91ea2f0752e6c7e5a06d",
+        "sec_77_502/public/eval.csv": "26e8acc820e0b381b08f634e45bf6936b76dfd96f7fd7ce93be61268ff7e310a",
+        "sec_77_502/public/train.csv": "745d365279263c80eee7e9a39e8b87e42b26c9843918cdbd75b93465e95d3d81"
+      },
+      "source": {
+        "name": "MSHA Open Government Data Sets: Violations, Inspections and Mines (Mine Safety and Health Administration, US Department of Labor)",
+        "landing_page": "https://www.msha.gov/data-and-reports/data-sources-and-calculators/data-resources/mdsrg/violations-data-set",
+        "api": "https://arlweb.msha.gov/OpenGovernmentData/DataSets/Violations.zip (plus companion Inspections.zip and Mines.zip in the same directory)",
+        "catalog": "https://catalog.data.gov/dataset/msha-violations-dataset",
+        "accessed": "2026-10-12",
+        "licence": "LicenseRef-Public-Domain - US federal government work (17 USC 105); the publisher states no terms; operator decision 2026-10-12, option A",
+        "licence_evidence": [
+          {
+            "field": "Terms on the MSHA data-set landing page and the Violations definition file",
+            "quote": "The MSHA data-sources pages publish the files, the column definitions and update frequency; they state no licence, no terms of use and no redistribution permission.",
+            "url": "https://www.msha.gov/data-and-reports/data-sources-and-calculators/data-resources/mdsrg/violations-data-set",
+            "read_on": "2026-09-27",
+            "terms": "Silent on redistribution - contract #1 is therefore unresolved."
+          },
+          {
+            "field": "data.gov catalogue entry for the MSHA Violations Dataset",
+            "quote": "accessLevel: public; rights: \"true\"; publisher: Mine Safety and Health Administration; temporal 2000-01-01 to present. The entry names no licence.",
+            "url": "https://catalog.data.gov/dataset/msha-violations-dataset",
+            "read_on": "2026-09-27",
+            "terms": "public-domain status is by statute (US federal government work), not by a quotable licence."
+          },
+          {
+            "field": "Third-party precedent for treating MSHA federal works as redistributable (precedent, not permission)",
+            "quote": "emperor-mew/msha-violations declares license: cc0-1.0 for its derived MSHA data and states the underlying federal works are US public domain (it cites 17 USC 105 and '5 USC 105'); FastDOLz/msha-mine-safety-violations-by-operator publishes a CC-BY-4.0 mirror of the same source and registers it on Zenodo.",
+            "url": "https://huggingface.co/api/datasets/emperor-mew/msha-violations, https://huggingface.co/api/datasets/FastDOLz/msha-mine-safety-violations-by-operator",
+            "read_on": "2026-09-27",
+            "terms": "Two independent third parties already redistribute derived MSHA data under an open dedication. This supports the statutory reading but is not a licence grant from the publisher, so the escalation in license_decision stands."
+          },
+          {
+            "field": "Operator decision resolving contract #1 (2026-10-12)",
+            "quote": "Option A selected: treat US federal works as public domain for this source, record that reasoning and the data.gov accessLevel=public entry, and proceed to construction; no written permission is sought. The decision is recorded with its reasoning in candidates/msha-enforcement-citations/license.json (spdx LicenseRef-Public-Domain for the source, CC0-1.0 for our contribution, MIT for code and documentation).",
+            "url": "candidates/msha-enforcement-citations/license.json",
+            "read_on": "2026-10-12",
+            "terms": "Resolves the escalation raised 2026-09-27. No publisher grant is claimed; the public-domain character rests on the statute, not on a quotable grant."
+          }
+        ]
+      },
+      "ok": true
+    },
+    {
+      "dataset": "my-pricecatcher-weekly-increase",
+      "workflow": "legacy",
+      "url": "https://raw.githubusercontent.com/earino/my-pricecatcher-weekly-increase/v2026.10/MANIFEST.json",
+      "manifest_sha256": "12f43f4c7be1feb0ecb5485764c27453318bfeaab698ffcc2ec5f891576e12b7",
+      "data_hashes": {
+        "private/holdout.csv": "2c763488dc121da07ba43bada0d827d81e646d517c4143496be749022cc39621",
+        "public/eval.csv": "62b71ae37f43b05b94d4d56817fd0f2a535cba00d70dd52d21993f4e46e6b834",
+        "public/train.csv": "ff054994020c3fcf95c77e88d69e7fc2ac8e42ec97944e098ac9e62f3289951e"
+      },
+      "source": {
+        "name": "PriceCatcher: transactional records (KPDN and DOSM, data.gov.my)",
+        "landing_page": "https://data.gov.my/data-catalogue/pricecatcher",
+        "api": "anonymous monthly bulk CSV/parquet at https://storage.data.gov.my/pricecatcher/pricecatcher_YYYY-MM.csv",
+        "license": "CC BY 4.0",
+        "licence_evidence": [
+          "Measured 2026-10-21 from https://data.gov.my/data-catalogue/pricecatcher (HTML, page-embedded metadata license_text): 'This data is made open under the Creative Commons Attribution 4.0 International License (CC BY 4.0). A copy of the license is available Here'. The same statement is served by OpenDOSM's mirror (open.dosm.gov.my/data-catalogue/pricecatcher, retrieved via search 2026-10-21).",
+          "CC BY 4.0 permits redistribution and commercial use with attribution; the attribution requirement carries through unchanged to any release. No share-alike, no NC restriction. No risk acceptance needed.",
+          "Publisher caveat measured on the dataset page: the data is collected for price surveillance, is 'excellent for high-frequency analysis of specific items in specific locations', and 'Inflation analysis should be conducted using DOSM's CPI data' - the task below is a pair-level micro-pricing task, not inflation nowcasting, consistent with the publisher's own stated scope."
+        ]
+      },
+      "ok": true
+    },
+    {
+      "dataset": "noaa-tide-flooding",
+      "workflow": "legacy",
+      "url": "https://raw.githubusercontent.com/earino/noaa-tide-flooding/v2026.09/MANIFEST.json",
+      "manifest_sha256": "60ffed39e5ce52f7a5e81d3994d1f1aec054d2111c6a6c720f125a3034bad89e",
+      "data_hashes": {
+        "station_disjoint/private/holdout.csv": "37d772620231806f3aaf7025961d136c91febda3b82b7fe3442180874602c827",
+        "station_disjoint/public/eval.csv": "be50109320c4af5a925d9f34fedeb6905aed675986ddc9f33c59bd9ac0ba1705",
+        "station_disjoint/public/train.csv": "d7d2bff29c71680962f4421d239121e63beac242b600dd0c23c9b77ac046ce3c",
+        "temporal/private/holdout.csv": "89db2e79b60a7185db3e5b937e3b2d29fcbceab016e85c789473c8ac2e104d51",
+        "temporal/public/eval.csv": "a2d733a8297294a14f9c64b5f9182a274a954b41dcefd411ca6ef00dc74191d3",
+        "temporal/public/train.csv": "60854702933b12cc0909f846bf062016830be189297012021340543c1560e339"
+      },
+      "source": {
+        "name": "NOAA CO-OPS verified water levels and flood thresholds",
+        "dataset_id": "co-ops-water-level",
+        "landing_page": "https://tidesandcurrents.noaa.gov/",
+        "api": "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter",
+        "accessed": "2026-09-18",
+        "licence": "Public Domain",
+        "licence_evidence": [
+          "READ 2026-09-19 from the CO-OPS portal itself (the same host the data comes from), https://tidesandcurrents.noaa.gov/disclaimers.html, 'Use of Data and Products': \"The information on government servers are in the public domain, unless specifically annotated otherwise, and may be used freely by the public.\" Same page: \"NOS requests that attribution be given whenever NOS material is reproduced and re-disseminated. Pursuant to 17 U.S.C. 403 ... stating that such material is not subject to copyright protection.\" CONSTRAINT READ ON THE SAME PAGE, honoured in the release: \"This information shall not be modified in content and then presented as official government material\" - any derived dataset must be labelled as derived and must not be presented as official NOS data. Corroborating: nauticalcharts.noaa.gov/data/data-licensing.html records NOAA data released under a CC0-1.0 public-domain dedication (CC BY 4.0 for some products), and the NCEI ISO metadata for CO-OPS stations carries the same CC0 waiver. Attributes: attribution requested as a courtesy, not required."
+        ]
+      },
+      "ok": true
+    },
+    {
+      "dataset": "ocha-fts-appeal-funding-trajectory",
+      "workflow": "legacy",
+      "url": "https://raw.githubusercontent.com/earino/ocha-fts-appeal-funding-trajectory/v2026.11/MANIFEST.json",
+      "manifest_sha256": "6db632988897d8591bac6f4b51e17cb4782401feffa2dc94afc392ff11e5b13a",
+      "data_hashes": {
+        "private/holdout.csv": "ffa427d9e67cd1ed7213c370b805287e58549d9058e9241bb01af40105dd37d9",
+        "public/eval.csv": "c11c03935277ecb164ccde4648fd6541e69d962239a561347832e220c981ef2c",
+        "public/train.csv": "db0c7eea0efd3362f369b64c446d4f237b390d8d5539306dc9b66857e685b787"
+      },
+      "source": {
+        "name": "OCHA Financial Tracking Service - HPC API plan/flow records and the HDX 'Global - Requirements and Funding Data' bulk CSV",
+        "landing_page": "https://fts.unocha.org/ and https://data.humdata.org/dataset/global-requirements-and-funding-data",
+        "api": "https://api.hpc.tools/v2/public/plan/year/{year}, https://api.hpc.tools/v2/public/plan/{planId} and https://api.hpc.tools/v1/public/fts/flow?planId={id}&year={year} - public anonymous endpoints; plan detail carries launch-vintage origRequirements, and the flow endpoint's incoming.fundingTotal is the label numerator (never shipped)",
+        "accessed": "2026-10-29 (HDX CSV, pinned bytes) and 2026-10-30 (HPC API harvest, job fts-appeal-001); the FTS API exposes no historical vintages (checked), so the panel is current-vintage retrospective and no as-of reconstruction is claimed",
+        "licence": "FTS use-and-republish permission (fts.unocha.org/content/about-fts-using-fts-data, read 2026-10-29) plus CC BY-IGO on the HDX record for the bulk CSV; both quoted in the candidate record's license_evidence and carried into LICENSE.md. Derived research dataset - not an OCHA or FTS product.",
+        "licence_evidence": [
+          {
+            "note": "The dataset's own page grants use, API reuse and republishing, explicitly contemplating amended/derived data, with a citation request",
+            "quote": "Can I use and republish the data and information published on FTS website/API? Yes. FTS encourages the fair use of its data, graphs and reports. When directly copying and re-using graphs, tables, charts or data as published by FTS on this site, please cite the Financial Tracking Service (FTS), the publication date of the figures used and the relevant URL. If any amends are made to the data that you download or use via the API, or if the data is combined with another source ... we suggest the following citation: '[YOU/YOUR ORGANIZATION]...based on Financial Tracking Service (FTS) data, [DATE], [URL].'",
+            "read": "2026-10-29",
+            "url": "https://fts.unocha.org/content/about-fts-using-fts-data"
+          },
+          {
+            "note": "The publisher's own HDX record for the identical FTS requirements/funding data carries CC BY-IGO, which permits reproduction, distribution and derivative works with attribution; attribution and the no-endorsement condition carry into LICENSE.md, dataset labelled derived, never an official OCHA product",
+            "quote": "license_id: cc-by-igo, license_title: 'Creative Commons Attribution for Intergovernmental Organisations (CC BY-IGO)', organization: 'OCHA Financial Tracking Service (FTS)'",
+            "read": "2026-10-29",
+            "url": "https://data.humdata.org/api/3/action/package_show?id=global-requirements-and-funding-data"
+          }
+        ]
+      },
+      "ok": true
+    },
+    {
+      "dataset": "pins-planning-appeal-outcome",
+      "workflow": "legacy",
+      "url": "https://raw.githubusercontent.com/earino/pins-planning-appeal-outcome/v2026.10/MANIFEST.json",
+      "manifest_sha256": "77bd6df5ec79294cfd25f4adb6a419bf7629fe2bfddfd252cf76266f1e14cc7a",
+      "data_hashes": {
+        "private/holdout.csv": "3f65dc801e0819bd6e828a101065deb7cfc68b764db339a08b2442deddc6fc96",
+        "public/eval.csv": "2ab9271f70c74f857f0c1a7b696fa299427754a5fb0167a7ee6ab11480dd6e72",
+        "public/train.csv": "299e5af47610af833bec33e15e8a5d8a242f6edebfd401388714b819593c2f65"
+      },
+      "source": {
+        "name": "Planning Inspectorate Casework Database (GOV.UK publication, 2026-10-22 edition) - the two bulk Excel extracts",
+        "landing_page": "https://www.gov.uk/government/publications/planning-inspectorate-appeals-database",
+        "api": "https://assets.publishing.service.gov.uk/media/6ad9fcc1c818345ad8aca325/Casework_Database_-_2610.xlsx and https://assets.publishing.service.gov.uk/media/6ad9fcd12263175ac2aca2f7/Older_Casework_Data_-_2610.xlsx - two anonymous bulk GETs; ~40 documented fields with per-field data-quality grades",
+        "accessed": "2026-10-31 (the build pins the 2026-10-22 edition bytes and fails if they change; the publisher republishes the rolling database monthly-to-quarterly, so the pin is the vintage)",
+        "licence": "Open Government Licence v3.0 (the publication's data-notes page; OGL emblem on the publication page; evidence recorded in candidates/pins-planning-appeal-outcome/record.json license_evidence). Required attribution carries through: 'Contains public sector information licensed under the Open Government Licence v3.0. Source: Planning Inspectorate Casework Database (Planning Inspectorate), Casework_Database_-_2610.xlsx and Older_Casework_Data_-_2610.xlsx, 2026-10-22 edition.' Derived research dataset - not a Planning Inspectorate product.",
+        "licence_evidence": [
+          "Read 2026-10-31 from https://www.gov.uk/government/publications/planning-inspectorate-appeals-database/appeals-data-data-notes-and-guidance: 'This publication is licensed under the terms of the Open Government Licence v3.0 except where otherwise stated.'",
+          "Publication page (read 2026-10-31) carries the Open Government Licence emblem and 'Crown copyright 2026'; no dataset-specific restriction is stated on the publication page or the data notes - the publisher's own caveats are about attribution of outcomes to decision makers, not redistribution.",
+          "Publisher caveats to carry onto any release (data notes + publication page, read 2026-10-31): 'Some categorisation of appeals can be subjective'; 'data can change between different publications of this data set'; decided cases only (in progress / withdrawn / turned away not included); Local Plans Examinations rows removed from the current Casework Database; TPO valid dates removed by the publisher after a data-entry issue (TPO is out of the core task's scope); inspector-name data errors corrected 2025 (field excluded from features anyway); 'The Planning Inspectorate will not entertain a challenge to the appointment of any Decision Maker on the basis of this data.'"
+        ]
+      },
+      "ok": true
+    },
+    {
+      "dataset": "tsb-railway-occurrence-casualty",
+      "workflow": "legacy",
+      "url": "https://raw.githubusercontent.com/earino/tsb-railway-occurrence-casualty/v2026.10/MANIFEST.json",
+      "manifest_sha256": "4c37e12ed6837c47f5cb31f5fff12f904ee0c62a05ad978cc8771907b11633d2",
+      "data_hashes": {
+        "private/holdout.csv": "b00bf00bd4f918ce434b9821535669d465c9a63bab53b21f90f187f4c33c0ac4",
+        "public/eval.csv": "2f1dcafb6cc701b1427a74d1969733f290ed6de030ed849a6988dcab31722a0d",
+        "public/train.csv": "4a032f68c4ad944a0b5d6ef96a904d4d13f3c3eb8b228e2fa74c3174b8054e94"
+      },
+      "source": {
+        "name": "Transportation Safety Board of Canada - Rail Occurrence Database System (RODS), 'Rail transportation occurrence data from January 1983' (RODSdb public CSVs)",
+        "landing_page": "https://www.tsb.gc.ca/eng/stats/rail/data-5.html",
+        "api": "five anonymous bulk CSVs + a CSV data dictionary under https://www.tsb.gc.ca/sites/default/files/stats/ (browser-like header set required; plain clients get HTTP 403); republished on or soon after the 15th of each month",
+        "accessed": "2026-10-21",
+        "licence": "Open Government Licence - Canada 2.0 (open.canada.ca record 4f8d9b0d-c4af-4be2-b751-3f5a403993ff; attribution carries through). Derived research dataset - not a TSB official product.",
+        "licence_evidence": [
+          {
+            "note": "open.canada.ca package records license_id 'ca-ogl-lgo' (Open Government Licence - Canada 2.0) for the TSB railway occurrence data (CKAN package_show, measured 2026-10-21). The TSB dataset page itself (data-5.html) carries no licence text, only: 'The dataset is for information purposes only. The user of the data assumes all responsibilities for the data's use and for verifying their completeness and accuracy for both critical and non-critical uses and applications.' OGL-CA permits commercial and non-commercial redistribution with attribution: 'Acknowledge the source of the Information by including any attribution statement specified by the Information Provider(s) and, where possible, provide a link to this licence. If the Information Provider does not provide a specific attribution statement... you must use the following attribution statement: Contains information licensed under the Open Government Licence - Canada.' (open.canada.ca/en/open-government-licence-canada, fetched 2026-10-21). Licence decision: redistribution permitted under OGL-CA 2.0; source terms preserved; our derived compilation dedicated CC0-1.0 per standing policy; derived, not official.",
+            "url": "https://open.canada.ca/en/open-government-licence-canada"
+          }
+        ]
+      },
+      "ok": true
+    },
+    {
+      "dataset": "who-flunet-activity-exceedance",
+      "workflow": "legacy",
+      "url": "https://raw.githubusercontent.com/earino/who-flunet-activity-exceedance/v2026.10/MANIFEST.json",
+      "manifest_sha256": "9b8cd0fff86649a586dc71cca31923167eff4718e0e574c9c004910dd9ff06c8",
+      "data_hashes": {
+        "private/holdout.csv": "f7dd814a73c864df9d11ff2a1c39a899c97c9efe46b6687cb279c0d3c3ef276e",
+        "public/eval.csv": "7d809b16ed3b833bf13070b50a5f9fba83e3d2fb7569b993408e885eae9ad8e9",
+        "public/train.csv": "2515289b43bdd49b51479b076f81a9f21bc2ec4382f3d0f7153687a8ecafb102"
+      },
+      "source": {
+        "name": "WHO FluNet - Global Influenza Programme (World Health Organization, Geneva)",
+        "landing_page": "https://www.who.int/tools/flunet",
+        "api": "https://xmart-api-public.who.int/FLUMART/VIW_FNT?$format=csv (anonymous, no key, one request returns the full table)",
+        "metadata": "https://xmart-api-public.who.int/FLUMART/VIW_FLU_METADATA?$format=csv&$filter=contains(DatasetName,%20%27FluNet%27) (53 documented fields)",
+        "accessed": "2026-10-20",
+        "licence": "CC BY-NC-SA 3.0 IGO (WHO copyright policy; NC/SA carried through). Derived research dataset - not a WHO official product.",
+        "licence_evidence": [
+          {
+            "note": "WHO copyright policy, read 2026-10-20 via search snippet of https://www.who.int/about/policies/publishing/copyright: 'Permission from WHO is not required for the use of WHO materials issued under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Intergovernmental Organization (CC BY-NC-SA 3.0 IGO) licence.' The licence 'allows users to freely copy, reproduce, reprint, distribute, translate and adapt the work for non-commercial purposes, provided WHO is acknowledged as the source'. Attribution form: '[Title]. [Place of publication]: World Health Organization; [Year]. Licence: CC BY-NC-SA 3.0 IGO.'",
+            "url": "https://www.who.int/about/policies/publishing/copyright"
+          },
+          {
+            "note": "WHO dataset terms at data.who.int, read 2026-10-20 via search snippet of https://data.who.int/about/data/terms-and-conditions: 'Unless specifically indicated otherwise, these Datasets are provided to you under a Creative Commons Attribution 4.0 International License (CC BY 4.0)' with mandatory citation per dataset metadata and a no-emblem clause. The FluNet tool page itself states no dataset-specific licence, so the general WHO posture (CC BY-NC-SA 3.0 IGO) is the conservative reading for this source; either way the terms permit redistribution of derived rows for non-commercial research with attribution, and any NC/SA conditions carry through unchanged.",
+            "url": "https://data.who.int/about/data/terms-and-conditions"
+          },
+          "BLOCKING FINDING 2026-10-21: the FluNet page links a 'Data policy' (https://www.who.int/about/policies/publishing/data-policy), whose linked 'Terms and conditions of use for WHO data compilations, aggregations, evaluations and analyses' (https://www.who.int/about/policies/publishing/data-policy/terms-and-conditions) govern this dataset and are NOT the CC BY-NC-SA 3.0 IGO posture asserted in LICENSE.md. Clause 01 grants use/reproduction/distribution only 'for public health purposes'; clause 04 states 'Any other alteration or modification of the Datasets (including abbreviations, additions, or deletions) may be made only with the prior written authorization of WHO'; clause 05 states 'You will not sell or otherwise transfer the Datasets and/or data contained therein to any third party, except within the Licensed Use.' This release is a substantial alteration (new grain, derived label, row selection), so redistribution without prior written authorization is not established by any WHO instrument we could read. The CC BY-NC-SA 3.0 IGO claim rests on WHO's general publishing copyright page, which the operator's gate 1 explicitly forbids treating as dataset-specific evidence."
+        ]
+      },
+      "ok": true
+    }
+  ],
+  "cross_dataset_matching_data_files": [],
+  "checked_at": "2026-11-14T11:35:39.648703+00:00",
+  "scope": "27 published releases: 13 modern, 14 legacy. Anonymous manifest reads only; no bulk CSV downloads or row-overlap measurement.",
+  "snapshot_sha256": "b645ae785116634858deb25bdfe733a462a1fe2dc9780926b49adfb8e9fd41f5",
+  "study_queue_counts": {
+    "fjc-civil-trial-36m": 1,
+    "eia861-reliability-deterioration": 1,
+    "phmsa-pipeline-penalty-reduction": 1,
+    "fda-510k-five-year-recall": 1,
+    "t100-new-route-survival": 1,
+    "sbir-phase1-to-phase2-conversion": 1
+  },
+  "reused_session_ids": {},
+  "candidate_record_counts": {
+    "modern": 74,
+    "legacy": 149
+  },
+  "source_revisits": [
+    {
+      "modern": "cfpb-bank-account-monetary-relief",
+      "legacy": "cfpb-complaint-relief",
+      "interpretation": "Same complaint database; modern task restricts population and monetary-relief outcome, legacy broad relief task dropped."
+    },
+    {
+      "modern": "fda-recall-class1-at-initiation",
+      "legacy": "openfda-food-recall-classification",
+      "interpretation": "Overlapping FDA recall-classification research; modern deferred, legacy food-only task dropped. Distinct from published 510(k) clearance-to-recall prediction."
+    },
+    {
+      "modern": "msha-e01-significant-substantial",
+      "legacy": "msha-enforcement-citations",
+      "interpretation": "Same MSHA inspection/violation source family; different outcome: any significant-and-substantial citation versus section-specific citation prediction. Modern deferred, legacy published."
+    }
+  ],
+  "limitations": [
+    "No matching declared data-file SHA256 across different published dataset IDs; renamed, filtered or transformed copies need not share hashes.",
+    "Source revisits identified from candidate descriptions; this is not an exhaustive semantic or row-level overlap audit of every abandoned lead.",
+    "Three research repetitions and repeated CLI invocations within the same session are intentional; they are not additional dataset queue admissions."
+  ]
+}
