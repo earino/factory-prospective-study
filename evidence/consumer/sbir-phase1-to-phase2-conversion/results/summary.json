@@ -1,0 +1,196 @@
+{
+  "cli_reported_cost_usd_not_invoice": 1397.4836526,
+  "generated_at": "2026-11-14T14:27:09.347661+00:00",
+  "limitations": [
+    "Five selected factory releases; three attempts are descriptive, not agent rankings.",
+    "Pinned consumer scaffold and deterministic downloads are provided assistance.",
+    "CLI-reported model IDs are not independent provider attestation.",
+    "Public holdout isolation and semantic compliance are procedural, not enforced by an OS sandbox.",
+    "CFPB holdout was used in earlier pilot work outside this study.",
+    "Random search matches observed eligible primary-trial fitting CPU, not unlogged diagnostics or token work.",
+    "Fresh Claude trajectories are nondeterministic; frozen artifact replay is reproducible.",
+    "No factory-wide publication yield or spend is inferred from this consumer study."
+  ],
+  "outcomes": [
+    {
+      "compliance_triage": "no_automatic_access_flag",
+      "dataset": "sbir-phase1-to-phase2-conversion",
+      "error": null,
+      "holdout_content_hits": [],
+      "id": "sbir-phase1-to-phase2-conversion--r1",
+      "integrity": "requires_semantic_review",
+      "interruptions": null,
+      "protocol_caveats": [],
+      "research_active_s": 5100.247856121998,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
+      "status": "frozen",
+      "timing": {
+        "cli_invocations": 14,
+        "evaluation_wall_sum_s": 131.26461833299618,
+        "fit_cpu_sum_s": 8.209487,
+        "fit_wall_sum_s": 4.9189552899988485,
+        "harness_wall_union_s": 136.91170477867126,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 28,
+        "other_active_wall_s": 4963.3361513433265,
+        "research_active_s": 5100.247856121998,
+        "trial_records": 28
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
+    },
+    {
+      "compliance_triage": "no_automatic_access_flag",
+      "dataset": "sbir-phase1-to-phase2-conversion",
+      "error": null,
+      "holdout_content_hits": [],
+      "id": "sbir-phase1-to-phase2-conversion--r2",
+      "integrity": "requires_semantic_review",
+      "interruptions": null,
+      "protocol_caveats": [],
+      "research_active_s": 5100.401464582998,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
+      "status": "frozen",
+      "timing": {
+        "cli_invocations": 14,
+        "evaluation_wall_sum_s": 163.14914716700514,
+        "fit_cpu_sum_s": 39.245517,
+        "fit_wall_sum_s": 20.586312501000066,
+        "harness_wall_union_s": 185.0409541130066,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 36,
+        "other_active_wall_s": 4915.360510469992,
+        "research_active_s": 5100.401464582998,
+        "trial_records": 36
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
+    },
+    {
+      "compliance_triage": "no_automatic_access_flag",
+      "dataset": "sbir-phase1-to-phase2-conversion",
+      "error": null,
+      "holdout_content_hits": [],
+      "id": "sbir-phase1-to-phase2-conversion--r3",
+      "integrity": "requires_semantic_review",
+      "interruptions": null,
+      "protocol_caveats": [],
+      "research_active_s": 5100.361324999001,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
+      "status": "frozen",
+      "timing": {
+        "cli_invocations": 28,
+        "evaluation_wall_sum_s": 65.89364483099598,
+        "fit_cpu_sum_s": 5.406507,
+        "fit_wall_sum_s": 3.042197875995953,
+        "harness_wall_union_s": 69.34292101860046,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 17,
+        "other_active_wall_s": 5031.018403980401,
+        "research_active_s": 5100.361324999001,
+        "trial_records": 17
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
+    }
+  ],
+  "protocol_sha256": "3f979f755a0addfa831ce6d608e275ed0f671b27463e84f26a7e9e1c9063e3ba",
+  "reported_models": [
+    "claude-fable-5-2"
+  ],
+  "reported_usage": {
+    "cache_creation_input_tokens": 1177571,
+    "cache_read_input_tokens": 165036592,
+    "input_tokens": 1364,
+    "output_tokens": 804475
+  },
+  "requested_model": "claude-fable-5-2",
+  "scores": [
+    {
+      "dataset": "sbir-phase1-to-phase2-conversion",
+      "holdout_auc": 0.5791267625296663,
+      "holdout_brier": 0.25460052287113133,
+      "holdout_rows": 1704,
+      "id": "sbir-phase1-to-phase2-conversion--ordinary",
+      "kind": "ordinary",
+      "validation_auc": 0.6272377130327351,
+      "validation_brier": 0.2390557979979536
+    },
+    {
+      "dataset": "sbir-phase1-to-phase2-conversion",
+      "holdout_auc": 0.6079261482619015,
+      "holdout_brier": 0.2381068382776817,
+      "holdout_rows": 1704,
+      "id": "sbir-phase1-to-phase2-conversion--r1",
+      "kind": "agent",
+      "validation_auc": 0.6520888048894234,
+      "validation_brier": 0.2308367715490613
+    },
+    {
+      "dataset": "sbir-phase1-to-phase2-conversion",
+      "holdout_auc": 0.6165014658662571,
+      "holdout_brier": 0.23782839167444145,
+      "holdout_rows": 1704,
+      "id": "sbir-phase1-to-phase2-conversion--r1--random",
+      "kind": "random",
+      "validation_auc": 0.643419200968721,
+      "validation_brier": 0.23162652325145655
+    },
+    {
+      "dataset": "sbir-phase1-to-phase2-conversion",
+      "holdout_auc": 0.6069600725952813,
+      "holdout_brier": 0.24230267322006616,
+      "holdout_rows": 1704,
+      "id": "sbir-phase1-to-phase2-conversion--r2",
+      "kind": "agent",
+      "validation_auc": 0.650901426081834,
+      "validation_brier": 0.23125975043643468
+    },
+    {
+      "dataset": "sbir-phase1-to-phase2-conversion",
+      "holdout_auc": 0.6144304062543627,
+      "holdout_brier": 0.23852056564015484,
+      "holdout_rows": 1704,
+      "id": "sbir-phase1-to-phase2-conversion--r2--random",
+      "kind": "random",
+      "validation_auc": 0.6448121466499758,
+      "validation_brier": 0.23175431972424326
+    },
+    {
+      "dataset": "sbir-phase1-to-phase2-conversion",
+      "holdout_auc": 0.602377495462795,
+      "holdout_brier": 0.24182599115213077,
+      "holdout_rows": 1704,
+      "id": "sbir-phase1-to-phase2-conversion--r3",
+      "kind": "agent",
+      "validation_auc": 0.6557583269924646,
+      "validation_brier": 0.2282004230597794
+    },
+    {
+      "dataset": "sbir-phase1-to-phase2-conversion",
+      "holdout_auc": 0.6165433477593187,
+      "holdout_brier": 0.23688309951921852,
+      "holdout_rows": 1704,
+      "id": "sbir-phase1-to-phase2-conversion--r3--random",
+      "kind": "random",
+      "validation_auc": 0.6363675412974644,
+      "validation_brier": 0.23455287769054645
+    },
+    {
+      "dataset": "sbir-phase1-to-phase2-conversion",
+      "holdout_auc": 0.5852889850621249,
+      "holdout_brier": 0.24527208091178984,
+      "holdout_rows": 1704,
+      "id": "sbir-phase1-to-phase2-conversion--released",
+      "kind": "released",
+      "validation_auc": 0.6206483231470346,
+      "validation_brier": 0.23681453248421827
+    }
+  ]
+}

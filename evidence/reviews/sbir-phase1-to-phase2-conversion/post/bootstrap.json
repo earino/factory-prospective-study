@@ -1,0 +1,72 @@
+{
+  "dataset": "sbir-phase1-to-phase2-conversion",
+  "cluster_columns": [
+    "agency",
+    "branch",
+    "award_year"
+  ],
+  "clusters": 48,
+  "rows": 1704,
+  "positives": 754,
+  "missing_cluster_rows": 759,
+  "largest_cluster": 341,
+  "seed": 1138566864,
+  "valid_replicates": 2000,
+  "invalid_replicates": 0,
+  "comparisons": [
+    {
+      "run": "sbir-phase1-to-phase2-conversion--r1",
+      "control": "sbir-phase1-to-phase2-conversion--ordinary",
+      "delta": 0.02879938573223506,
+      "low": -0.0007892375928554543,
+      "high": 0.0668849779524644
+    },
+    {
+      "run": "sbir-phase1-to-phase2-conversion--r1",
+      "control": "sbir-phase1-to-phase2-conversion--r1--random",
+      "delta": -0.008575317604355814,
+      "low": -0.01921864526731133,
+      "high": 0.005333096424951192
+    },
+    {
+      "run": "sbir-phase1-to-phase2-conversion--r2",
+      "control": "sbir-phase1-to-phase2-conversion--ordinary",
+      "delta": 0.027833310065614958,
+      "low": -0.0012671470576112258,
+      "high": 0.056894770861343376
+    },
+    {
+      "run": "sbir-phase1-to-phase2-conversion--r2",
+      "control": "sbir-phase1-to-phase2-conversion--r2--random",
+      "delta": -0.007470333659081452,
+      "low": -0.028435702545652412,
+      "high": 0.005886871461550721
+    },
+    {
+      "run": "sbir-phase1-to-phase2-conversion--r3",
+      "control": "sbir-phase1-to-phase2-conversion--ordinary",
+      "delta": 0.023250732933128626,
+      "low": -0.004778622115484365,
+      "high": 0.05945692807663825
+    },
+    {
+      "run": "sbir-phase1-to-phase2-conversion--r3",
+      "control": "sbir-phase1-to-phase2-conversion--r3--random",
+      "delta": -0.014165852296523784,
+      "low": -0.02582325952742129,
+      "high": 0.003002669851208035
+    }
+  ],
+  "inputs": {
+    "/Users/earino/research/factory-prospective-study/.local/studies/sbir-phase1-to-phase2-conversion/.study/holdout/sbir-phase1-to-phase2-conversion/holdout.csv": "2e1afa14e7782cc9f0aa2ae4ba38fce95204dd72fc80dcc517970764ec40c148",
+    "/Users/earino/research/factory-prospective-study/evidence/reviews/sbir-phase1-to-phase2-conversion/cluster.json": "2e18d2aa3a2c0c95f1358d47bbfc088218ecf6ba580c5c17d1b66cc65a75443c",
+    "/Users/earino/research/factory-prospective-study/.local/studies/sbir-phase1-to-phase2-conversion/results/scores/sbir-phase1-to-phase2-conversion--ordinary/predictions.csv.gz": "843dcb3746f0c99506bf2f8147e68d27a6d2efd9c697aa70f0a4446b2e63520b",
+    "/Users/earino/research/factory-prospective-study/.local/studies/sbir-phase1-to-phase2-conversion/results/scores/sbir-phase1-to-phase2-conversion--r1/predictions.csv.gz": "8c893e857886d42faef2b2e439fde9a9071c0a001f1ef7913b62dfcb0c91066b",
+    "/Users/earino/research/factory-prospective-study/.local/studies/sbir-phase1-to-phase2-conversion/results/scores/sbir-phase1-to-phase2-conversion--r2/predictions.csv.gz": "5f0f40741291cca0a9ab8d9e517d66831d5624cda996d13056569be7d20d70e4",
+    "/Users/earino/research/factory-prospective-study/.local/studies/sbir-phase1-to-phase2-conversion/results/scores/sbir-phase1-to-phase2-conversion--r3/predictions.csv.gz": "c9fa37b7221885efdf6aa10bc6dd67a10aac07d93a3827dc93b398b84d3a4697",
+    "/Users/earino/research/factory-prospective-study/.local/studies/sbir-phase1-to-phase2-conversion/results/scores/sbir-phase1-to-phase2-conversion--r1--random/predictions.csv.gz": "45b2dff5c2e24205950a94b0586796e04fa8f51440a7b73190e224a029e29703",
+    "/Users/earino/research/factory-prospective-study/.local/studies/sbir-phase1-to-phase2-conversion/results/scores/sbir-phase1-to-phase2-conversion--r2--random/predictions.csv.gz": "63351adfba78efe6e7f026c1804bd074dcef6685cce88f8f4e9a2dbe0c95f837",
+    "/Users/earino/research/factory-prospective-study/.local/studies/sbir-phase1-to-phase2-conversion/results/scores/sbir-phase1-to-phase2-conversion--r3--random/predictions.csv.gz": "bdd224bce04f3f92e74d6df65fe7cfeee907463b250912445b8f4ba9ee23e686"
+  },
+  "method": "2000 paired whole-entity draws, pointwise percentile95%; conditional on fitted models, cohort and declared dependence"
+}

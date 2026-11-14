@@ -2,9 +2,12 @@
 
 {
   "consumer": {
+    "branch": "consumer/sbir-phase1-to-phase2-conversion",
+    "commit": "943f7482d687e6688fc0ae7ba12377a20d73b2de",
     "dataset": "sbir-phase1-to-phase2-conversion",
-    "started": "2026-11-14T12:43:53.530237+00:00",
-    "status": "running"
+    "finished": "2026-11-14T14:27:34.928613+00:00",
+    "started": "2026-11-14T12:43:53.530450+00:00",
+    "status": "complete"
   },
   "factory_counts": {
     "build": 2,
@@ -12,7 +15,7 @@
     "published": 13,
     "rejected": 6
   },
-  "observed_at": "2026-11-14T14:05:24.504666+00:00",
+  "observed_at": "2026-11-14T14:35:47.012721+00:00",
   "paper": {},
   "queue": [
     {
@@ -58,9 +61,9 @@
     {
       "dataset": "sbir-phase1-to-phase2-conversion",
       "verified_at": "2026-11-14T04:36:15.599185+00:00",
-      "status": "queued",
+      "status": "complete",
       "selected": true,
-      "branch": null,
+      "branch": "consumer/sbir-phase1-to-phase2-conversion",
       "error": null
     }
   ],

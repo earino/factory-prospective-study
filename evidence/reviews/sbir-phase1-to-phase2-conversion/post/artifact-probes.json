@@ -1,0 +1,47 @@
+[
+  {
+    "run": "sbir-phase1-to-phase2-conversion--r1",
+    "real_validation_rows_checked": 25,
+    "batch_equals_single_rows": true,
+    "reverse_order_invariant": true,
+    "prepare_external_events": [],
+    "n_jobs": 5,
+    "feature_count": 11,
+    "selected_feature_names": null
+  },
+  {
+    "run": "sbir-phase1-to-phase2-conversion--r2",
+    "real_validation_rows_checked": 25,
+    "batch_equals_single_rows": true,
+    "reverse_order_invariant": true,
+    "prepare_external_events": [
+      {
+        "event": "open",
+        "path": "/Users/earino/research/factory-prospective-study/.local/studies/sbir-phase1-to-phase2-conversion/.study/venv/lib/python3.11/site-packages/pandas/core/methods/__pycache__/to_dict.cpython-311.pyc",
+        "dependency_read": true
+      }
+    ],
+    "n_jobs": 5,
+    "feature_count": 8,
+    "selected_feature_names": [
+      "log_amt",
+      "emp",
+      "sttr",
+      "sttr_nondod",
+      "dod_lag",
+      "dod_tnum",
+      "dod_tlet",
+      "dod_rel_q25"
+    ]
+  },
+  {
+    "run": "sbir-phase1-to-phase2-conversion--r3",
+    "real_validation_rows_checked": 25,
+    "batch_equals_single_rows": true,
+    "reverse_order_invariant": true,
+    "prepare_external_events": [],
+    "n_jobs": 5,
+    "feature_count": 8,
+    "selected_feature_names": null
+  }
+]

@@ -1,0 +1,37 @@
+{
+  "basis": "Last available cumulative cost per independent CLI session, not per-invocation sum; estimates, not invoice. Deadline-truncated final invocations may leave unreported usage.",
+  "runs": [
+    {
+      "run": "sbir-phase1-to-phase2-conversion--r1",
+      "session_id": "d1aca534-d28b-4140-b1d0-4b146a83a6b2",
+      "invocations": 14,
+      "naive_sum_cumulative_cost": 316.3146456,
+      "last_reported_session_cost": 24.76461500000001,
+      "monotone_cumulative_cost": true,
+      "final_invocation_has_result": true,
+      "short_invocations_under_10s": 2
+    },
+    {
+      "run": "sbir-phase1-to-phase2-conversion--r2",
+      "session_id": "72c78ca5-d3f8-4b0c-89bd-3f44a5d8a3df",
+      "invocations": 14,
+      "naive_sum_cumulative_cost": 365.4643874000001,
+      "last_reported_session_cost": 28.603177600000006,
+      "monotone_cumulative_cost": true,
+      "final_invocation_has_result": true,
+      "short_invocations_under_10s": 2
+    },
+    {
+      "run": "sbir-phase1-to-phase2-conversion--r3",
+      "session_id": "9f5c7029-9ed6-4b49-901f-240038c743dd",
+      "invocations": 28,
+      "naive_sum_cumulative_cost": 715.7046196,
+      "last_reported_session_cost": 30.671348700000003,
+      "monotone_cumulative_cost": true,
+      "final_invocation_has_result": true,
+      "short_invocations_under_10s": 3
+    }
+  ],
+  "sum_last_reported_session_cost": 84.03914130000001,
+  "original_naive_sum": 1397.4836526
+}
