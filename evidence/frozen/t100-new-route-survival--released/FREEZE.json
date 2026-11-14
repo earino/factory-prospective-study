@@ -1,0 +1,28 @@
+{
+  "dataset": "t100-new-route-survival",
+  "files": {
+    "booster.json": {
+      "bytes": 166870,
+      "sha256": "bb42d640f3f8e77017ea879b859be38123c696dbaebbdb29fd37b460a05d4e7b"
+    },
+    "model.pkl": {
+      "bytes": 116453,
+      "sha256": "d65490aca16d1c1aab933ef0149d12567b1797b07594d56ad94ff811092a755d"
+    },
+    "train.py": {
+      "bytes": 1160,
+      "sha256": "431a0f15145a8578df4bc149ee13483cbc7f06e15ac8214356c08da99d9e5d21"
+    },
+    "validation.csv.gz": {
+      "bytes": 9304,
+      "sha256": "49693ce5af07dd6075a4c0f74a62436c5c794e5d43cb261d86f6faac4849bbba"
+    },
+    "validation.json": {
+      "bytes": 803,
+      "sha256": "37c73ab1e3d6bba9ae1b721238ae3a1ac5f20ba1b2a5f2c57e4ea07fbbf6ebce"
+    }
+  },
+  "frozen_at": "2026-11-14T12:37:42.075240+00:00",
+  "matches_released_baseline": false,
+  "run": "t100-new-route-survival--released"
+}

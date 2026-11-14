@@ -1,0 +1,49 @@
+{
+  "dataset": "t100-new-route-survival",
+  "files": {
+    "booster.json": {
+      "bytes": 98893,
+      "sha256": "c2a058007b0f661008ae050aaec69269135f62370d3e7a580364196c9b5f7ad8"
+    },
+    "model.pkl": {
+      "bytes": 108568,
+      "sha256": "2aeeea04a08e101bb4aa7fddd9eb97024968de599b3c601f3eedb1f6f4dce82a"
+    },
+    "train.py": {
+      "bytes": 1245,
+      "sha256": "4e7cd8667e3d941a2b4141e93893ddee118f646388d0c04fbf293ece4efe791b"
+    },
+    "validation.csv.gz": {
+      "bytes": 9818,
+      "sha256": "60eb32b976c18bb2d8de04eacc130f09ecd5941fceb291af7e63e26da181e7d6"
+    },
+    "validation.json": {
+      "bytes": 935,
+      "sha256": "45991c35ce97622e2f93c9329a6c56199c801c35b50d49de1a41a48dcb1dfdbb"
+    }
+  },
+  "frozen_at": "2026-11-14T12:40:08.123430+00:00",
+  "run": "t100-new-route-survival--r1--random",
+  "selected_trial": {
+    "artifact_sha256": "2aeeea04a08e101bb4aa7fddd9eb97024968de599b3c601f3eedb1f6f4dce82a",
+    "auc": 0.647840883464427,
+    "backtest": {},
+    "brier": 0.22401006179003413,
+    "code_sha256": "4e7cd8667e3d941a2b4141e93893ddee118f646388d0c04fbf293ece4efe791b",
+    "elapsed_s": 0.7927889580005285,
+    "evaluation_wall_s": 0.7451117079999676,
+    "finished_epoch": 1794660001.6297228,
+    "fit_cpu_s": 0.06534099999999987,
+    "fit_wall_s": 0.03628845799994451,
+    "id": "ce474c22372c47a398562191134e7e4a",
+    "mode": "validation",
+    "note": "{\"n_estimators\": 100, \"max_depth\": 3, \"learning_rate\": 0.2, \"min_child_weight\": 30, \"subsample\": 1.0, \"colsample_bytree\": 0.7, \"reg_lambda\": 1}",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/controls/t100-new-route-survival--r1--random/trials/ce474c22372c47a398562191134e7e4a",
+    "phase": "evaluation",
+    "rows_score": 834,
+    "rows_train": 3734,
+    "started_epoch": 1794660000.836488,
+    "status": "ok",
+    "utc": "2026-11-14T12:40:00.836479+00:00"
+  }
+}
