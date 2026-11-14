@@ -2,12 +2,9 @@
 
 {
   "consumer": {
-    "branch": "consumer/fda-510k-five-year-recall",
-    "commit": "f5bf774a9a6f49d51786a84738eda794a1c27494",
-    "dataset": "fda-510k-five-year-recall",
-    "finished": "2026-11-14T01:48:42.565305+00:00",
-    "started": "2026-11-14T00:06:19.100859+00:00",
-    "status": "complete"
+    "dataset": "t100-new-route-survival",
+    "started": "2026-11-14T11:04:03.810887+00:00",
+    "status": "running"
   },
   "factory_counts": {
     "build": 2,
@@ -15,7 +12,7 @@
     "published": 13,
     "rejected": 6
   },
-  "observed_at": "2026-11-14T11:03:47.756240+00:00",
+  "observed_at": "2026-11-14T11:34:04.547261+00:00",
   "paper": {},
   "queue": [
     {
