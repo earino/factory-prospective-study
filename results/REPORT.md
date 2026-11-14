@@ -1,6 +1,6 @@
 # Consumer study results
 
-Generated 2026-11-14T14:17:59.785353+00:00
+Generated 2026-11-14T14:18:17.503163+00:00
 
 Measured records are in summary.json and scores.csv. Failures remain in the denominator.
 
@@ -11,7 +11,7 @@ Registered attempts: 3; frozen: 3; failed/blocked: 0.
 Compliance triage (separate from scores):
 
 - sbir-phase1-to-phase2-conversion--r1: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
-- sbir-phase1-to-phase2-conversion--r2: not yet audited; forbidden asset copies unknown; tool-access flags unknown. Semantic compliance requires review.
+- sbir-phase1-to-phase2-conversion--r2: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
 - sbir-phase1-to-phase2-conversion--r3: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
 
 Scores (including flagged attempts; do not treat all as compliant results):

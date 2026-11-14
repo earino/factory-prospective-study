@@ -1,6 +1,6 @@
 {
   "cli_reported_cost_usd_not_invoice": 1397.4836526,
-  "generated_at": "2026-11-14T14:17:59.785353+00:00",
+  "generated_at": "2026-11-14T14:18:17.503163+00:00",
   "limitations": [
     "Five selected factory releases; three attempts are descriptive, not agent rankings.",
     "Pinned consumer scaffold and deterministic downloads are provided assistance.",
@@ -42,11 +42,17 @@
       "verified_forbidden_copies": 0
     },
     {
+      "compliance_triage": "no_automatic_access_flag",
       "dataset": "sbir-phase1-to-phase2-conversion",
       "error": null,
+      "holdout_content_hits": [],
       "id": "sbir-phase1-to-phase2-conversion--r2",
+      "integrity": "requires_semantic_review",
       "interruptions": null,
+      "protocol_caveats": [],
       "research_active_s": 5100.401464582998,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
       "status": "frozen",
       "timing": {
         "cli_invocations": 14,
@@ -60,7 +66,9 @@
         "other_active_wall_s": 4915.360510469992,
         "research_active_s": 5100.401464582998,
         "trial_records": 36
-      }
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
     },
     {
       "compliance_triage": "no_automatic_access_flag",
