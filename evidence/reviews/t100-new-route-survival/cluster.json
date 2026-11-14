@@ -1,0 +1,14 @@
+{
+  "cluster_columns": ["unique_carrier"],
+  "reason": "The outcome is the reporting carrier's decision to keep flying a pair, and both the label and the new-route filter are keyed on the carrier string (build.py:570-578, 588-594), so carrier-wide events such as a code consolidation or shutdown set the labels of all that carrier's entries at once. The release itself names carrier as the event key (construction.json:150) and states that entries are not independent within a carrier (construction.json:121, README.md:55). Public train metadata agrees: the label's one-way ANOVA intraclass correlation by carrier is 0.32 across 66 carriers; 83.5% of train rows have a same-carrier, same-month reverse-direction twin with 97.7% label agreement; single carrier-month cohorts reach 343 rows. Mirror twins, batch launch cohorts and repeat episodes of the same pair all nest inside carrier. Finer keys were rejected: episode_id is unique per row but rows are not independent; carrier plus directed market IDs separates mirror twins, and an undirected pair key is not a shipped column; carrier plus entry_month leaves adjacent cohorts sharing two of three label months. unique_carrier is a shipped carry column (build.py:23). Chosen from source meaning, pinned code and train key structure only; no holdout rows or holdout metrics were inspected.",
+  "status": "declared",
+  "limitations": [
+    "Few and uneven clusters: train has 66 carriers with about 18 effective clusters (inverse Herfindahl), largest carrier 16.0% of rows; public validation has 43 carriers, about 19 effective. Carrier-clustered intervals will be wide and can be unstable or anti-conservative with this few clusters.",
+    "The holdout's carrier count and concentration were not inspected.",
+    "Dependence across carriers is not captured: shared city markets and hubs, regional operators flying for the same marketing partner, reporting-code consolidations that link two codes, and the common calendar shock of a single 12-month holdout window.",
+    "unique_carrier is a reporting code, not a corporate group, so affiliated carriers under one holding company are separate clusters.",
+    "Codes are current-vintage spellings and can carry reuse suffixes such as 'XE (1)'; a bare code and its suffixed form are different clusters, which is the intended reading but relies on BTS coding that was not verified here.",
+    "unique_carrier is also consumed as a categorical predictor by the unchanged baseline runner (train.py:27-32), so the grouping column is not a pure non-predictor carry in that baseline.",
+    "The intraclass correlations and twin rates are descriptive counts from public train rows; no model was fitted and no formal test of independence was run."
+  ]
+}
