@@ -129,7 +129,10 @@
     "verified_at": "2026-11-13T07:53:15.783341+00:00"
   },
   {
+    "branch": "consumer/fda-510k-five-year-recall",
+    "commit": "f5bf774a9a6f49d51786a84738eda794a1c27494",
     "dataset": "fda-510k-five-year-recall",
+    "finished": "2026-11-14T01:48:42.565305+00:00",
     "release": {
       "artifact_version": "4402989d50d250e5d9eab6a8f93c00997c3be07ffecedd577a04ceddd1c15d15",
       "assets": 33,
@@ -164,7 +167,86 @@
       "workflow": "modern"
     },
     "selected": true,
-    "status": "queued",
+    "started": "2026-11-14T00:06:19.100859+00:00",
+    "status": "complete",
     "verified_at": "2026-11-13T23:42:15.349488+00:00"
+  },
+  {
+    "dataset": "t100-new-route-survival",
+    "release": {
+      "artifact_version": "fa26f4e978cfd24a70d86394dac2e3dc9ddf148346ed1e186b04b346bd064001",
+      "assets": 33,
+      "baseline_display": "See versioned evaluation.json; public validation only",
+      "dataset": "t100-new-route-survival",
+      "destinations": {
+        "github": "https://github.com/earino/factory-t100-new-route-survival/releases/tag/v-d32decf32c315be4",
+        "huggingface": "https://huggingface.co/datasets/earino/factory-t100-new-route-survival"
+      },
+      "detail_id": "source-000068",
+      "disposition": "public",
+      "published": true,
+      "release_tag": "v-d32decf32c315be4",
+      "rows": 5777,
+      "splits": {
+        "eval": {
+          "rows": 834
+        },
+        "holdout": {
+          "rows": 1209
+        },
+        "train": {
+          "rows": 3734
+        }
+      },
+      "verified": {
+        "github": true,
+        "huggingface": true
+      },
+      "verified_all": true,
+      "verified_at": "2026-11-14T02:04:19.792527+00:00",
+      "workflow": "modern"
+    },
+    "selected": true,
+    "status": "queued",
+    "verified_at": "2026-11-14T02:04:19.792527+00:00"
+  },
+  {
+    "dataset": "sbir-phase1-to-phase2-conversion",
+    "release": {
+      "artifact_version": "a1f22706a52ba521dcb070d0a85877c552f5c62e8752af292e4a31ec27fdbe72",
+      "assets": 33,
+      "baseline_display": "See versioned evaluation.json; public validation only",
+      "dataset": "sbir-phase1-to-phase2-conversion",
+      "destinations": {
+        "github": "https://github.com/earino/factory-sbir-phase1-to-phase2-conversion/releases/tag/v-0d2e623e604ecf78",
+        "huggingface": "https://huggingface.co/datasets/earino/factory-sbir-phase1-to-phase2-conversion"
+      },
+      "detail_id": "source-000072",
+      "disposition": "public",
+      "published": true,
+      "release_tag": "v-0d2e623e604ecf78",
+      "rows": 9686,
+      "splits": {
+        "eval": {
+          "rows": 1408
+        },
+        "holdout": {
+          "rows": 1704
+        },
+        "train": {
+          "rows": 6574
+        }
+      },
+      "verified": {
+        "github": true,
+        "huggingface": true
+      },
+      "verified_all": true,
+      "verified_at": "2026-11-14T04:36:15.599185+00:00",
+      "workflow": "modern"
+    },
+    "selected": true,
+    "status": "queued",
+    "verified_at": "2026-11-14T04:36:15.599185+00:00"
   }
 ]

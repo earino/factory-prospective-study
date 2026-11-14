@@ -1,0 +1,37 @@
+{
+  "basis": "Last available cumulative cost per independent CLI session, not per-invocation sum; estimates, not invoice. Deadline-truncated final invocations may leave unreported usage.",
+  "runs": [
+    {
+      "run": "fda-510k-five-year-recall--r1",
+      "session_id": "b8f1d760-bbad-4ffa-a3e4-16ca187d6e31",
+      "invocations": 17,
+      "naive_sum_cumulative_cost": 297.4814875999999,
+      "last_reported_session_cost": 19.7761692,
+      "monotone_cumulative_cost": true,
+      "final_invocation_has_result": true,
+      "short_invocations_under_10s": 3
+    },
+    {
+      "run": "fda-510k-five-year-recall--r2",
+      "session_id": "7205fbb1-8462-4988-a6a9-3154ce20bddb",
+      "invocations": 18,
+      "naive_sum_cumulative_cost": 343.3500978,
+      "last_reported_session_cost": 21.561400600000002,
+      "monotone_cumulative_cost": true,
+      "final_invocation_has_result": true,
+      "short_invocations_under_10s": 2
+    },
+    {
+      "run": "fda-510k-five-year-recall--r3",
+      "session_id": "00e06763-9f95-4cab-91d9-12710d0faab9",
+      "invocations": 14,
+      "naive_sum_cumulative_cost": 228.7760368000001,
+      "last_reported_session_cost": 17.95893060000001,
+      "monotone_cumulative_cost": true,
+      "final_invocation_has_result": true,
+      "short_invocations_under_10s": 2
+    }
+  ],
+  "sum_last_reported_session_cost": 59.296500400000006,
+  "original_naive_sum": 869.6076222000002
+}

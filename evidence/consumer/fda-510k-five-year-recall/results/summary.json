@@ -1,0 +1,196 @@
+{
+  "cli_reported_cost_usd_not_invoice": 869.6076222,
+  "generated_at": "2026-11-14T01:48:09.765960+00:00",
+  "limitations": [
+    "Five selected factory releases; three attempts are descriptive, not agent rankings.",
+    "Pinned consumer scaffold and deterministic downloads are provided assistance.",
+    "CLI-reported model IDs are not independent provider attestation.",
+    "Public holdout isolation and semantic compliance are procedural, not enforced by an OS sandbox.",
+    "CFPB holdout was used in earlier pilot work outside this study.",
+    "Random search matches observed eligible primary-trial fitting CPU, not unlogged diagnostics or token work.",
+    "Fresh Claude trajectories are nondeterministic; frozen artifact replay is reproducible.",
+    "No factory-wide publication yield or spend is inferred from this consumer study."
+  ],
+  "outcomes": [
+    {
+      "compliance_triage": "no_automatic_access_flag",
+      "dataset": "fda-510k-five-year-recall",
+      "error": null,
+      "holdout_content_hits": [],
+      "id": "fda-510k-five-year-recall--r1",
+      "integrity": "requires_semantic_review",
+      "interruptions": null,
+      "protocol_caveats": [],
+      "research_active_s": 5100.550013539265,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
+      "status": "frozen",
+      "timing": {
+        "cli_invocations": 17,
+        "evaluation_wall_sum_s": 95.78606566984672,
+        "fit_cpu_sum_s": 20.649946999999997,
+        "fit_wall_sum_s": 14.45251416892279,
+        "harness_wall_union_s": 111.60277104377747,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 19,
+        "other_active_wall_s": 4988.947242495487,
+        "research_active_s": 5100.550013539265,
+        "trial_records": 19
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
+    },
+    {
+      "compliance_triage": "no_automatic_access_flag",
+      "dataset": "fda-510k-five-year-recall",
+      "error": null,
+      "holdout_content_hits": [],
+      "id": "fda-510k-five-year-recall--r2",
+      "integrity": "requires_semantic_review",
+      "interruptions": null,
+      "protocol_caveats": [],
+      "research_active_s": 5100.494275795296,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
+      "status": "frozen",
+      "timing": {
+        "cli_invocations": 18,
+        "evaluation_wall_sum_s": 78.29559324809816,
+        "fit_cpu_sum_s": 13.134328,
+        "fit_wall_sum_s": 10.392213501618244,
+        "harness_wall_union_s": 90.08920097351074,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 13,
+        "other_active_wall_s": 5010.405074821785,
+        "research_active_s": 5100.494275795296,
+        "trial_records": 13
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
+    },
+    {
+      "compliance_triage": "no_automatic_access_flag",
+      "dataset": "fda-510k-five-year-recall",
+      "error": null,
+      "holdout_content_hits": [],
+      "id": "fda-510k-five-year-recall--r3",
+      "integrity": "requires_semantic_review",
+      "interruptions": null,
+      "protocol_caveats": [],
+      "research_active_s": 5100.158984916052,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
+      "status": "frozen",
+      "timing": {
+        "cli_invocations": 14,
+        "evaluation_wall_sum_s": 93.12342146236915,
+        "fit_cpu_sum_s": 25.053158,
+        "fit_wall_sum_s": 20.34229696181137,
+        "harness_wall_union_s": 115.0446183681488,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 20,
+        "other_active_wall_s": 4985.114366547903,
+        "research_active_s": 5100.158984916052,
+        "trial_records": 20
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
+    }
+  ],
+  "protocol_sha256": "abb35f31d8f6a1a75192384f8c06ccd6f8d26c4783498d79a2a74e40c49fe8c7",
+  "reported_models": [
+    "claude-fable-5-2"
+  ],
+  "reported_usage": {
+    "cache_creation_input_tokens": 871692,
+    "cache_read_input_tokens": 105111182,
+    "input_tokens": 1104,
+    "output_tokens": 607959
+  },
+  "requested_model": "claude-fable-5-2",
+  "scores": [
+    {
+      "dataset": "fda-510k-five-year-recall",
+      "holdout_auc": 0.6546462828368741,
+      "holdout_brier": 0.0718185621280818,
+      "holdout_rows": 9014,
+      "id": "fda-510k-five-year-recall--ordinary",
+      "kind": "ordinary",
+      "validation_auc": 0.6773990817925342,
+      "validation_brier": 0.07993474288166179
+    },
+    {
+      "dataset": "fda-510k-five-year-recall",
+      "holdout_auc": 0.7267897056286667,
+      "holdout_brier": 0.06923926871175039,
+      "holdout_rows": 9014,
+      "id": "fda-510k-five-year-recall--r1",
+      "kind": "agent",
+      "validation_auc": 0.7443342049144632,
+      "validation_brier": 0.07605532175758968
+    },
+    {
+      "dataset": "fda-510k-five-year-recall",
+      "holdout_auc": 0.6644125067815719,
+      "holdout_brier": 0.07096421412535912,
+      "holdout_rows": 9014,
+      "id": "fda-510k-five-year-recall--r1--random",
+      "kind": "random",
+      "validation_auc": 0.6840054655769832,
+      "validation_brier": 0.07953625634134648
+    },
+    {
+      "dataset": "fda-510k-five-year-recall",
+      "holdout_auc": 0.7269229294093058,
+      "holdout_brier": 0.06935610380221577,
+      "holdout_rows": 9014,
+      "id": "fda-510k-five-year-recall--r2",
+      "kind": "agent",
+      "validation_auc": 0.7452153272837437,
+      "validation_brier": 0.07619855621668674
+    },
+    {
+      "dataset": "fda-510k-five-year-recall",
+      "holdout_auc": 0.6561716402136784,
+      "holdout_brier": 0.07145366362848572,
+      "holdout_rows": 9014,
+      "id": "fda-510k-five-year-recall--r2--random",
+      "kind": "random",
+      "validation_auc": 0.6850154316604657,
+      "validation_brier": 0.07938892393506945
+    },
+    {
+      "dataset": "fda-510k-five-year-recall",
+      "holdout_auc": 0.730755753079311,
+      "holdout_brier": 0.06892391890645062,
+      "holdout_rows": 9014,
+      "id": "fda-510k-five-year-recall--r3",
+      "kind": "agent",
+      "validation_auc": 0.7462145687182253,
+      "validation_brier": 0.07609534037775184
+    },
+    {
+      "dataset": "fda-510k-five-year-recall",
+      "holdout_auc": 0.6615195147917257,
+      "holdout_brier": 0.07110287166833283,
+      "holdout_rows": 9014,
+      "id": "fda-510k-five-year-recall--r3--random",
+      "kind": "random",
+      "validation_auc": 0.6874017030446762,
+      "validation_brier": 0.07940786460132693
+    },
+    {
+      "dataset": "fda-510k-five-year-recall",
+      "holdout_auc": 0.660655714438501,
+      "holdout_brier": 0.07113663555265311,
+      "holdout_rows": 9014,
+      "id": "fda-510k-five-year-recall--released",
+      "kind": "released",
+      "validation_auc": 0.6798441538385072,
+      "validation_brier": 0.07948545344696979
+    }
+  ]
+}

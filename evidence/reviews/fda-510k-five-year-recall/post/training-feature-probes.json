@@ -1,0 +1,44 @@
+[
+  {
+    "run": "fda-510k-five-year-recall--r1",
+    "full_training_rows": 30563,
+    "training_feature_rows": 30563,
+    "checks": [
+      {
+        "row": 0,
+        "changed_own_feature_cells": 0,
+        "max_absolute_change": 0.0,
+        "augmented_copies": 1
+      },
+      {
+        "row": 15281,
+        "changed_own_feature_cells": 0,
+        "max_absolute_change": 0.0,
+        "augmented_copies": 1
+      }
+    ]
+  },
+  {
+    "run": "fda-510k-five-year-recall--r2",
+    "error": "AssertionError()"
+  },
+  {
+    "run": "fda-510k-five-year-recall--r3",
+    "full_training_rows": 30563,
+    "training_feature_rows": 30563,
+    "checks": [
+      {
+        "row": 0,
+        "changed_own_feature_cells": 0,
+        "max_absolute_change": 0.0,
+        "augmented_copies": 1
+      },
+      {
+        "row": 15281,
+        "changed_own_feature_cells": 0,
+        "max_absolute_change": 0.0,
+        "augmented_copies": 1
+      }
+    ]
+  }
+]

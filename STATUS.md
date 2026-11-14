@@ -2,20 +2,20 @@
 
 {
   "consumer": {
-    "branch": "consumer/phmsa-pipeline-penalty-reduction",
-    "commit": "6cc1f4f10fc650333eb54a737994129ee69359ba",
-    "dataset": "phmsa-pipeline-penalty-reduction",
-    "finished": "2026-11-13T20:13:45.636134+00:00",
-    "started": "2026-11-13T18:32:30.304079+00:00",
+    "branch": "consumer/fda-510k-five-year-recall",
+    "commit": "f5bf774a9a6f49d51786a84738eda794a1c27494",
+    "dataset": "fda-510k-five-year-recall",
+    "finished": "2026-11-14T01:48:42.565305+00:00",
+    "started": "2026-11-14T00:06:19.100859+00:00",
     "status": "complete"
   },
   "factory_counts": {
-    "deferred": 50,
-    "discover": 2,
-    "published": 11,
-    "rejected": 5
+    "build": 2,
+    "deferred": 53,
+    "published": 13,
+    "rejected": 6
   },
-  "observed_at": "2026-11-14T00:05:57.248794+00:00",
+  "observed_at": "2026-11-14T08:11:26.252202+00:00",
   "paper": {},
   "queue": [
     {
@@ -45,13 +45,29 @@
     {
       "dataset": "fda-510k-five-year-recall",
       "verified_at": "2026-11-13T23:42:15.349488+00:00",
+      "status": "complete",
+      "selected": true,
+      "branch": "consumer/fda-510k-five-year-recall",
+      "error": null
+    },
+    {
+      "dataset": "t100-new-route-survival",
+      "verified_at": "2026-11-14T02:04:19.792527+00:00",
+      "status": "queued",
+      "selected": true,
+      "branch": null,
+      "error": null
+    },
+    {
+      "dataset": "sbir-phase1-to-phase2-conversion",
+      "verified_at": "2026-11-14T04:36:15.599185+00:00",
       "status": "queued",
       "selected": true,
       "branch": null,
       "error": null
     }
   ],
-  "snapshot_generated_at": "2026-11-13T23:51:27+00:00",
+  "snapshot_generated_at": "2026-11-14T07:51:14+00:00",
   "window": {
     "analysis_start": "2026-11-18T04:00:00Z",
     "attempt_minutes": 85,
