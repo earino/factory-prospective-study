@@ -1,6 +1,6 @@
 # Consumer study results
 
-Generated 2026-11-14T14:18:17.503163+00:00
+Generated 2026-11-14T14:27:09.347661+00:00
 
 Measured records are in summary.json and scores.csv. Failures remain in the denominator.
 
@@ -16,9 +16,14 @@ Compliance triage (separate from scores):
 
 Scores (including flagged attempts; do not treat all as compliant results):
 
-- sbir-phase1-to-phase2-conversion--r1: validation AUC 0.652089; holdout AUC not scored.
-- sbir-phase1-to-phase2-conversion--r2: validation AUC 0.650901; holdout AUC not scored.
-- sbir-phase1-to-phase2-conversion--r3: validation AUC 0.655758; holdout AUC not scored.
+- sbir-phase1-to-phase2-conversion--ordinary: validation AUC 0.627238; holdout AUC 0.579127.
+- sbir-phase1-to-phase2-conversion--r1: validation AUC 0.652089; holdout AUC 0.607926.
+- sbir-phase1-to-phase2-conversion--r1--random: validation AUC 0.643419; holdout AUC 0.616501.
+- sbir-phase1-to-phase2-conversion--r2: validation AUC 0.650901; holdout AUC 0.606960.
+- sbir-phase1-to-phase2-conversion--r2--random: validation AUC 0.644812; holdout AUC 0.614430.
+- sbir-phase1-to-phase2-conversion--r3: validation AUC 0.655758; holdout AUC 0.602377.
+- sbir-phase1-to-phase2-conversion--r3--random: validation AUC 0.636368; holdout AUC 0.616543.
+- sbir-phase1-to-phase2-conversion--released: validation AUC 0.620648; holdout AUC 0.585289.
 
 ## Limits
 
