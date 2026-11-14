@@ -1,0 +1,50 @@
+{
+  "dataset": "fda-510k-five-year-recall",
+  "environment": "ebc4d673b04f7331715457533369270826ffca22b2b0f340d7a1680c606de160",
+  "files": {
+    "booster.json": {
+      "bytes": 310098,
+      "sha256": "94e14761e2963b472eb372e34850f1344e0ffeeea28335d297289e0a6b92a4a1"
+    },
+    "model.pkl": {
+      "bytes": 4663087,
+      "sha256": "9262b43163910c18ff2a4979367e63ac70309c1b25ca7c27a9bf2c9e87f46699"
+    },
+    "train.py": {
+      "bytes": 15419,
+      "sha256": "849894d92a3a194dc26b957770e2c630c5efa28a9cff60876b515d6287b4205c"
+    },
+    "validation.csv.gz": {
+      "bytes": 96703,
+      "sha256": "6d18540eb8a256fdf7c50b4c27d116fc9638b8352f61d6e75937f37efa8e2b6f"
+    },
+    "validation.json": {
+      "bytes": 1003,
+      "sha256": "6a6c0b264cbf50b58daddba5a4615a7aa65316e858a6e17eec8cccdb63e9579a"
+    }
+  },
+  "frozen_at": "2026-11-14T01:40:04.982544+00:00",
+  "run": "fda-510k-five-year-recall--r2",
+  "selected_trial": {
+    "artifact_sha256": "9262b43163910c18ff2a4979367e63ac70309c1b25ca7c27a9bf2c9e87f46699",
+    "auc": 0.7452153272837437,
+    "backtest": {},
+    "brier": 0.07619855621668674,
+    "code_sha256": "849894d92a3a194dc26b957770e2c630c5efa28a9cff60876b515d6287b4205c",
+    "elapsed_s": 6.66798079200089,
+    "evaluation_wall_s": 5.559139541001059,
+    "finished_epoch": 1794617729.899744,
+    "fit_cpu_s": 1.186706,
+    "fit_wall_s": 1.0035654170205817,
+    "id": "28ec06b6d4794b3ba77debabee9c1837",
+    "mode": "validation",
+    "note": "H5: near-additive model (depth 2, 400 trees) for drift robustness. Diag 3-seed: val 0.7452 vs 0.7445, bt 0.7231 vs 0.7217, and training-only staleness diagnostic 3-6y after boundary +0.003/+0.007/+0.008 over depth 4 at three fit boundaries",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/fda-510k-five-year-recall/.study/runs/fda-510k-five-year-recall--r2/trials/28ec06b6d4794b3ba77debabee9c1837",
+    "phase": "evaluation",
+    "rows_score": 9046,
+    "rows_train": 30563,
+    "started_epoch": 1794617723.23154,
+    "status": "ok",
+    "utc": "2026-11-14T00:55:23.231534+00:00"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "9fbc7edfd1234a85a0d08e2bd1debf24",
+  "utc": "2026-11-14T01:31:00.576989+00:00",
+  "started_epoch": 1794619860.5769951,
+  "mode": "validation",
+  "note": "H8: H7 (TE + applicant windows, no chain, own-label fix) with 20 chronological blocks instead of 10. Hypothesis: finer forward blocks give training rows fresher earlier-row windows and less first-block missingness; 3-seed diag at holdout-like distance (fit<2011 -> validation) 0.7180 vs 0.7162, rolling backtest neutral (0.7148 vs 0.7149), validation diag +0.0006",
+  "code_sha256": "013da88d5e3a7fcde97a08c50bbe932fb0e4d318676f2a4b2106becf39cf8693",
+  "status": "ok",
+  "fit_wall_s": 1.275168165913783,
+  "fit_cpu_s": 1.501833,
+  "phase": "evaluation",
+  "evaluation_wall_s": 4.46684691705741,
+  "auc": 0.7462145687182253,
+  "brier": 0.07609534037775184,
+  "rows_train": 30563,
+  "rows_score": 9046,
+  "backtest": {},
+  "artifact_sha256": "d57b74a595f8269bf1abddcb2df7bcb020d817e00c6d64ee9a3a0cde807715c0",
+  "finished_epoch": 1794619866.397541,
+  "elapsed_s": 5.8203325000358745,
+  "cold_replay_at": "2026-11-14T01:40:03.244227+00:00",
+  "no_retraining": true
+}

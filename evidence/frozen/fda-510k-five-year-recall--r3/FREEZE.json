@@ -1,0 +1,50 @@
+{
+  "dataset": "fda-510k-five-year-recall",
+  "environment": "ebc4d673b04f7331715457533369270826ffca22b2b0f340d7a1680c606de160",
+  "files": {
+    "booster.json": {
+      "bytes": 391073,
+      "sha256": "a0e8de3a638e065533b1ab058a2cff4378339c7b7027e2f96aecf36f845a426c"
+    },
+    "model.pkl": {
+      "bytes": 2271085,
+      "sha256": "d57b74a595f8269bf1abddcb2df7bcb020d817e00c6d64ee9a3a0cde807715c0"
+    },
+    "train.py": {
+      "bytes": 9022,
+      "sha256": "013da88d5e3a7fcde97a08c50bbe932fb0e4d318676f2a4b2106becf39cf8693"
+    },
+    "validation.csv.gz": {
+      "bytes": 102786,
+      "sha256": "c24f443ccfda4dd21be09781da7f41e132cb5277e1bd72ac8bce796040b1d892"
+    },
+    "validation.json": {
+      "bytes": 1129,
+      "sha256": "8812812390e1e241b93271ea0da17fe4b6837020f25456a586797cf118f856f4"
+    }
+  },
+  "frozen_at": "2026-11-14T01:40:03.455520+00:00",
+  "run": "fda-510k-five-year-recall--r3",
+  "selected_trial": {
+    "artifact_sha256": "d57b74a595f8269bf1abddcb2df7bcb020d817e00c6d64ee9a3a0cde807715c0",
+    "auc": 0.7462145687182253,
+    "backtest": {},
+    "brier": 0.07609534037775184,
+    "code_sha256": "013da88d5e3a7fcde97a08c50bbe932fb0e4d318676f2a4b2106becf39cf8693",
+    "elapsed_s": 5.8203325000358745,
+    "evaluation_wall_s": 4.46684691705741,
+    "finished_epoch": 1794619866.397541,
+    "fit_cpu_s": 1.501833,
+    "fit_wall_s": 1.275168165913783,
+    "id": "9fbc7edfd1234a85a0d08e2bd1debf24",
+    "mode": "validation",
+    "note": "H8: H7 (TE + applicant windows, no chain, own-label fix) with 20 chronological blocks instead of 10. Hypothesis: finer forward blocks give training rows fresher earlier-row windows and less first-block missingness; 3-seed diag at holdout-like distance (fit<2011 -> validation) 0.7180 vs 0.7162, rolling backtest neutral (0.7148 vs 0.7149), validation diag +0.0006",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/fda-510k-five-year-recall/.study/runs/fda-510k-five-year-recall--r3/trials/9fbc7edfd1234a85a0d08e2bd1debf24",
+    "phase": "evaluation",
+    "rows_score": 9046,
+    "rows_train": 30563,
+    "started_epoch": 1794619860.5769951,
+    "status": "ok",
+    "utc": "2026-11-14T01:31:00.576989+00:00"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "28ec06b6d4794b3ba77debabee9c1837",
+  "utc": "2026-11-14T00:55:23.231534+00:00",
+  "started_epoch": 1794617723.23154,
+  "mode": "validation",
+  "note": "H5: near-additive model (depth 2, 400 trees) for drift robustness. Diag 3-seed: val 0.7452 vs 0.7445, bt 0.7231 vs 0.7217, and training-only staleness diagnostic 3-6y after boundary +0.003/+0.007/+0.008 over depth 4 at three fit boundaries",
+  "code_sha256": "849894d92a3a194dc26b957770e2c630c5efa28a9cff60876b515d6287b4205c",
+  "status": "ok",
+  "fit_wall_s": 1.0035654170205817,
+  "fit_cpu_s": 1.186706,
+  "phase": "evaluation",
+  "evaluation_wall_s": 5.559139541001059,
+  "auc": 0.7452153272837437,
+  "brier": 0.07619855621668674,
+  "rows_train": 30563,
+  "rows_score": 9046,
+  "backtest": {},
+  "artifact_sha256": "9262b43163910c18ff2a4979367e63ac70309c1b25ca7c27a9bf2c9e87f46699",
+  "finished_epoch": 1794617729.899744,
+  "elapsed_s": 6.66798079200089,
+  "cold_replay_at": "2026-11-14T01:40:04.856328+00:00",
+  "no_retraining": true
+}

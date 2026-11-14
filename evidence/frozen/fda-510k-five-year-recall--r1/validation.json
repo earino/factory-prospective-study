@@ -1,0 +1,23 @@
+{
+  "id": "222b3d03e70f4aa49fd32cab861698d9",
+  "utc": "2026-11-14T01:27:20.469885+00:00",
+  "started_epoch": 1794619640.4698932,
+  "mode": "validation",
+  "note": "H8: product encoding out-of-fold over 3 coarse chronological blocks instead of 10 (windows unchanged). Hypothesis: finer blocks let near-in-time sibling recalls inflate training encodings relative to prediction time, where only distant labels exist. Local: block count 100/30/10/4/3 gives monotone small gains for coarser blocks; 3 blocks is >= H5 on all four training-only splits and validation (+0.0009 mean, noise-level)",
+  "code_sha256": "3c30e634bf1c7cb37f581e1fd68f9b96391bdbf17a7df26b457ba1c1fcd92d26",
+  "status": "ok",
+  "fit_wall_s": 0.9856815000530332,
+  "fit_cpu_s": 1.344682,
+  "phase": "evaluation",
+  "evaluation_wall_s": 4.872915958985686,
+  "auc": 0.7443342049144632,
+  "brier": 0.07605532175758968,
+  "rows_train": 30563,
+  "rows_score": 9046,
+  "backtest": {},
+  "artifact_sha256": "2c953695017cdb8a67d4a4bd1c5794897862a5daffa156208178926938b9454b",
+  "finished_epoch": 1794619646.393285,
+  "elapsed_s": 5.922894584015012,
+  "cold_replay_at": "2026-11-14T01:40:04.224220+00:00",
+  "no_retraining": true
+}
