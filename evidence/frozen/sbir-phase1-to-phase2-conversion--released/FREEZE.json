@@ -1,0 +1,28 @@
+{
+  "dataset": "sbir-phase1-to-phase2-conversion",
+  "files": {
+    "booster.json": {
+      "bytes": 229816,
+      "sha256": "41d4df2fb094cb53790fe27d3d483a40b5fc2a48bc223e2d73003ebb53124448"
+    },
+    "model.pkl": {
+      "bytes": 196306,
+      "sha256": "1a5200639a3cfcea3a8dda2d7c2975c3dde0f0cdc3d155ff3b69189be3bf337e"
+    },
+    "train.py": {
+      "bytes": 1160,
+      "sha256": "431a0f15145a8578df4bc149ee13483cbc7f06e15ac8214356c08da99d9e5d21"
+    },
+    "validation.csv.gz": {
+      "bytes": 15097,
+      "sha256": "57297d0c9bb17946aa4c0d11b5324464524b464e6af24690449ed3576286bf3a"
+    },
+    "validation.json": {
+      "bytes": 803,
+      "sha256": "64d7e4014a48eafd31b240630e30875a568b3433f319b23e74843b73cd323503"
+    }
+  },
+  "frozen_at": "2026-11-14T14:18:49.512715+00:00",
+  "matches_released_baseline": true,
+  "run": "sbir-phase1-to-phase2-conversion--released"
+}

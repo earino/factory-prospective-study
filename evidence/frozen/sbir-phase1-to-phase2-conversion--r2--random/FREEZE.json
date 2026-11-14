@@ -1,0 +1,49 @@
+{
+  "dataset": "sbir-phase1-to-phase2-conversion",
+  "files": {
+    "booster.json": {
+      "bytes": 788107,
+      "sha256": "c35f6c60baa5edb85d5f34de73c01334ad78e15bf9f9c4a8955198a6449c7e66"
+    },
+    "model.pkl": {
+      "bytes": 823624,
+      "sha256": "59a5d9cf82100390bd3bf2e6398f83dc1f4ddb71257e22fa99d824fb42b2acc8"
+    },
+    "train.py": {
+      "bytes": 1247,
+      "sha256": "8980e15d59766d4c986ca30eb4ff0ce1d726bb3cb450559ff807e3e732c45222"
+    },
+    "validation.csv.gz": {
+      "bytes": 15857,
+      "sha256": "6bd7f884aecab40c86bccf07a982846051e60032518536932edf20f1b1501f85"
+    },
+    "validation.json": {
+      "bytes": 936,
+      "sha256": "aba44cbe74228f0c8d353c3e409dc44c0ed0d0683d5a1970eead61131de84e37"
+    }
+  },
+  "frozen_at": "2026-11-14T14:25:03.859382+00:00",
+  "run": "sbir-phase1-to-phase2-conversion--r2--random",
+  "selected_trial": {
+    "artifact_sha256": "59a5d9cf82100390bd3bf2e6398f83dc1f4ddb71257e22fa99d824fb42b2acc8",
+    "auc": 0.6448121466499758,
+    "backtest": {},
+    "brier": 0.23175431972424326,
+    "code_sha256": "8980e15d59766d4c986ca30eb4ff0ce1d726bb3cb450559ff807e3e732c45222",
+    "elapsed_s": 3.6382478329996957,
+    "evaluation_wall_s": 3.3501123749992985,
+    "finished_epoch": 1794666230.808407,
+    "fit_cpu_s": 0.4990939999999997,
+    "fit_wall_s": 0.2670410829996399,
+    "id": "05c765ce7d2d4a0d9ec991b45a0a66ab",
+    "mode": "validation",
+    "note": "{\"n_estimators\": 600, \"max_depth\": 4, \"learning_rate\": 0.02, \"min_child_weight\": 100, \"subsample\": 1.0, \"colsample_bytree\": 0.7, \"reg_lambda\": 1}",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/sbir-phase1-to-phase2-conversion/.study/controls/sbir-phase1-to-phase2-conversion--r2--random/trials/05c765ce7d2d4a0d9ec991b45a0a66ab",
+    "phase": "evaluation",
+    "rows_score": 1408,
+    "rows_train": 6574,
+    "started_epoch": 1794666227.169703,
+    "status": "ok",
+    "utc": "2026-11-14T14:23:47.169696+00:00"
+  }
+}
