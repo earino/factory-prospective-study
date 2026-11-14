@@ -1,6 +1,6 @@
 # Consumer study results
 
-Generated 2026-11-14T12:37:03.525875+00:00
+Generated 2026-11-14T12:37:20.541002+00:00
 
 Measured records are in summary.json and scores.csv. Failures remain in the denominator.
 
@@ -10,7 +10,7 @@ Registered attempts: 3; frozen: 3; failed/blocked: 0.
 
 Compliance triage (separate from scores):
 
-- t100-new-route-survival--r1: not yet audited; forbidden asset copies unknown; tool-access flags unknown. Semantic compliance requires review.
+- t100-new-route-survival--r1: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
 - t100-new-route-survival--r2: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
 - t100-new-route-survival--r3: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
 
