@@ -1,0 +1,23 @@
+{
+  "id": "23508b07ccc64dc9ae279af7ad3f15b4",
+  "utc": "2026-11-14T13:57:40.127571+00:00",
+  "started_epoch": 1794664660.127579,
+  "mode": "validation",
+  "note": "H15: keep the one near-clean HHS training year. At the 5% rule HHS 2014 (6.4% missing/zero) is blanked like the back-filled years, so H13 learns nothing HHS-specific about employees. In HHS 2014 counts of 1-2 convert at 0.19-0.23 (n=66), lower than NSF. Threshold 10% keeps HHS 2014 (and three small cells) unmasked. Not testable inside training (no other clean HHS year).",
+  "code_sha256": "cfba3c74e4009b6b78861a26dc26caeef160297f830f3238a04a61634fd488d1",
+  "status": "ok",
+  "fit_wall_s": 0.8587645840016194,
+  "fit_cpu_s": 1.701818,
+  "phase": "evaluation",
+  "evaluation_wall_s": 3.6395302079999965,
+  "auc": 0.650901426081834,
+  "brier": 0.23125975043643468,
+  "rows_train": 6574,
+  "rows_score": 1408,
+  "backtest": {},
+  "artifact_sha256": "c2524d21051ae02a9937ca0ae17f3c3f2502fcdbb9290aeebb6731fd0046967e",
+  "finished_epoch": 1794664664.661358,
+  "elapsed_s": 4.5332882499988045,
+  "cold_replay_at": "2026-11-14T14:17:35.782640+00:00",
+  "no_retraining": true
+}

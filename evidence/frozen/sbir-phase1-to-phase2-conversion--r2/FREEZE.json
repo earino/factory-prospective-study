@@ -1,0 +1,50 @@
+{
+  "dataset": "sbir-phase1-to-phase2-conversion",
+  "environment": "ebc4d673b04f7331715457533369270826ffca22b2b0f340d7a1680c606de160",
+  "files": {
+    "booster.json": {
+      "bytes": 2245801,
+      "sha256": "d67fbf1c73167b84417a34007a34dc54432d798cd6e249ba0775344eb6c4615f"
+    },
+    "model.pkl": {
+      "bytes": 2710007,
+      "sha256": "c2524d21051ae02a9937ca0ae17f3c3f2502fcdbb9290aeebb6731fd0046967e"
+    },
+    "train.py": {
+      "bytes": 14808,
+      "sha256": "cfba3c74e4009b6b78861a26dc26caeef160297f830f3238a04a61634fd488d1"
+    },
+    "validation.csv.gz": {
+      "bytes": 12921,
+      "sha256": "0e33daea052520a59ac267fdda2a9f48056fd0367586a6f88f45a295b286045c"
+    },
+    "validation.json": {
+      "bytes": 1138,
+      "sha256": "47e6352ff8bb20bef987a83b5a92a97d3306e518cdee3547867b97e978c3620a"
+    }
+  },
+  "frozen_at": "2026-11-14T14:17:36.014543+00:00",
+  "run": "sbir-phase1-to-phase2-conversion--r2",
+  "selected_trial": {
+    "artifact_sha256": "c2524d21051ae02a9937ca0ae17f3c3f2502fcdbb9290aeebb6731fd0046967e",
+    "auc": 0.650901426081834,
+    "backtest": {},
+    "brier": 0.23125975043643468,
+    "code_sha256": "cfba3c74e4009b6b78861a26dc26caeef160297f830f3238a04a61634fd488d1",
+    "elapsed_s": 4.5332882499988045,
+    "evaluation_wall_s": 3.6395302079999965,
+    "finished_epoch": 1794664664.661358,
+    "fit_cpu_s": 1.701818,
+    "fit_wall_s": 0.8587645840016194,
+    "id": "23508b07ccc64dc9ae279af7ad3f15b4",
+    "mode": "validation",
+    "note": "H15: keep the one near-clean HHS training year. At the 5% rule HHS 2014 (6.4% missing/zero) is blanked like the back-filled years, so H13 learns nothing HHS-specific about employees. In HHS 2014 counts of 1-2 convert at 0.19-0.23 (n=66), lower than NSF. Threshold 10% keeps HHS 2014 (and three small cells) unmasked. Not testable inside training (no other clean HHS year).",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/sbir-phase1-to-phase2-conversion/.study/runs/sbir-phase1-to-phase2-conversion--r2/trials/23508b07ccc64dc9ae279af7ad3f15b4",
+    "phase": "evaluation",
+    "rows_score": 1408,
+    "rows_train": 6574,
+    "started_epoch": 1794664660.127579,
+    "status": "ok",
+    "utc": "2026-11-14T13:57:40.127571+00:00"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "18016fc011054ba6aa471e450eefc355",
+  "utc": "2026-11-14T14:07:44.212295+00:00",
+  "started_epoch": 1794665264.212302,
+  "mode": "validation",
+  "note": "H9: H8 plus two extra training copies with all amounts x0.95 and x1.1 (references unchanged), to remove a knife-edge found by stress test: H8 drops from 0.655 to 0.629 when validation amounts shift by only 5 percent; diagnostics before scoring: stress x1.05 0.652, val seed-mean +0.001, train-only gap0 -0.003 (fails my strict earlier rule, recorded for robustness)",
+  "code_sha256": "60f831bf11bdc9496caae1f7df1ee64b6e0475ef6e315cfad9cbcf4e148d8e4d",
+  "status": "ok",
+  "fit_wall_s": 0.20523225000033563,
+  "fit_cpu_s": 0.4076310000000001,
+  "phase": "evaluation",
+  "evaluation_wall_s": 3.3844821249986126,
+  "auc": 0.6557583269924646,
+  "brier": 0.2282004230597794,
+  "rows_train": 6574,
+  "rows_score": 1408,
+  "backtest": {},
+  "artifact_sha256": "2f4ef39bc9d8387543b7c2022716a0ee7524ebe6240ccb1a2007e00f89fa2f20",
+  "finished_epoch": 1794665267.822046,
+  "elapsed_s": 3.6092228750003414,
+  "cold_replay_at": "2026-11-14T14:17:35.521084+00:00",
+  "no_retraining": true
+}

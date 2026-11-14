@@ -1,0 +1,23 @@
+{
+  "id": "f8f80a66554c4efa91edcbfbb77e645a",
+  "utc": "2026-11-14T14:10:26.500166+00:00",
+  "started_epoch": 1794665426.500173,
+  "mode": "validation",
+  "note": "H15: upper reference amount at q95 instead of q90 (closer to the actual award cap of the branch). Paired bootstrap vs H13: short-gap +0.0001, training-only long-gap +0.0006, validation under training-row resampling +0.0013 (83% of pairs); a small refinement with non-negative sign on all three fold families",
+  "code_sha256": "7b45e8bd679b59129bd596968e11d8a6418b64cec57ffe83a5550281905ba864",
+  "status": "ok",
+  "fit_wall_s": 0.1233810829999129,
+  "fit_cpu_s": 0.22001899999999996,
+  "phase": "evaluation",
+  "evaluation_wall_s": 4.228650290999212,
+  "auc": 0.6520888048894234,
+  "brier": 0.2308367715490613,
+  "rows_train": 6574,
+  "rows_score": 1408,
+  "backtest": {},
+  "artifact_sha256": "4954474e22a11b20e1d87947ed8c3e5d5efa3a7489058f1f9014651506054779",
+  "finished_epoch": 1794665430.873327,
+  "elapsed_s": 4.372660875000292,
+  "cold_replay_at": "2026-11-14T14:17:35.474537+00:00",
+  "no_retraining": true
+}

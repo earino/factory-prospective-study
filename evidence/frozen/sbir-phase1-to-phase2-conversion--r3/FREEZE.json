@@ -1,0 +1,50 @@
+{
+  "dataset": "sbir-phase1-to-phase2-conversion",
+  "environment": "ebc4d673b04f7331715457533369270826ffca22b2b0f340d7a1680c606de160",
+  "files": {
+    "booster.json": {
+      "bytes": 355148,
+      "sha256": "f011aba142ff20aca720d7a783ecc7dc457e62bf6850a1262443d1789ac8be2f"
+    },
+    "model.pkl": {
+      "bytes": 362227,
+      "sha256": "2f4ef39bc9d8387543b7c2022716a0ee7524ebe6240ccb1a2007e00f89fa2f20"
+    },
+    "train.py": {
+      "bytes": 9158,
+      "sha256": "60f831bf11bdc9496caae1f7df1ee64b6e0475ef6e315cfad9cbcf4e148d8e4d"
+    },
+    "validation.csv.gz": {
+      "bytes": 13330,
+      "sha256": "7dc9c7e13e566c978f54426bed9f160c72f9aeaac4c3bd7c4598e128d280b235"
+    },
+    "validation.json": {
+      "bytes": 1142,
+      "sha256": "0284b6e38ec76f3353c86f09b3786dcd890e66dd227ed963d94bd07583c868e1"
+    }
+  },
+  "frozen_at": "2026-11-14T14:17:35.743292+00:00",
+  "run": "sbir-phase1-to-phase2-conversion--r3",
+  "selected_trial": {
+    "artifact_sha256": "2f4ef39bc9d8387543b7c2022716a0ee7524ebe6240ccb1a2007e00f89fa2f20",
+    "auc": 0.6557583269924646,
+    "backtest": {},
+    "brier": 0.2282004230597794,
+    "code_sha256": "60f831bf11bdc9496caae1f7df1ee64b6e0475ef6e315cfad9cbcf4e148d8e4d",
+    "elapsed_s": 3.6092228750003414,
+    "evaluation_wall_s": 3.3844821249986126,
+    "finished_epoch": 1794665267.822046,
+    "fit_cpu_s": 0.4076310000000001,
+    "fit_wall_s": 0.20523225000033563,
+    "id": "18016fc011054ba6aa471e450eefc355",
+    "mode": "validation",
+    "note": "H9: H8 plus two extra training copies with all amounts x0.95 and x1.1 (references unchanged), to remove a knife-edge found by stress test: H8 drops from 0.655 to 0.629 when validation amounts shift by only 5 percent; diagnostics before scoring: stress x1.05 0.652, val seed-mean +0.001, train-only gap0 -0.003 (fails my strict earlier rule, recorded for robustness)",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/sbir-phase1-to-phase2-conversion/.study/runs/sbir-phase1-to-phase2-conversion--r3/trials/18016fc011054ba6aa471e450eefc355",
+    "phase": "evaluation",
+    "rows_score": 1408,
+    "rows_train": 6574,
+    "started_epoch": 1794665264.212302,
+    "status": "ok",
+    "utc": "2026-11-14T14:07:44.212295+00:00"
+  }
+}
