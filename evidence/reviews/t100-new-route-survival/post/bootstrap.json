@@ -1,0 +1,70 @@
+{
+  "dataset": "t100-new-route-survival",
+  "cluster_columns": [
+    "unique_carrier"
+  ],
+  "clusters": 46,
+  "rows": 1209,
+  "positives": 425,
+  "missing_cluster_rows": 0,
+  "largest_cluster": 199,
+  "seed": 3940008520,
+  "valid_replicates": 2000,
+  "invalid_replicates": 0,
+  "comparisons": [
+    {
+      "run": "t100-new-route-survival--r1",
+      "control": "t100-new-route-survival--ordinary",
+      "delta": -0.00068577430972383,
+      "low": -0.05939107703281099,
+      "high": 0.03706298379725451
+    },
+    {
+      "run": "t100-new-route-survival--r1",
+      "control": "t100-new-route-survival--r1--random",
+      "delta": -0.01699429771908767,
+      "low": -0.06607516350023378,
+      "high": 0.01874038024764668
+    },
+    {
+      "run": "t100-new-route-survival--r2",
+      "control": "t100-new-route-survival--ordinary",
+      "delta": -0.005394657863145191,
+      "low": -0.05965371228260905,
+      "high": 0.04077049836631164
+    },
+    {
+      "run": "t100-new-route-survival--r2",
+      "control": "t100-new-route-survival--r2--random",
+      "delta": 0.003088235294117725,
+      "low": -0.054199574397416336,
+      "high": 0.043972920684134296
+    },
+    {
+      "run": "t100-new-route-survival--r3",
+      "control": "t100-new-route-survival--ordinary",
+      "delta": 0.008819027611044472,
+      "low": -0.08611821063714714,
+      "high": 0.06772936401631534
+    },
+    {
+      "run": "t100-new-route-survival--r3",
+      "control": "t100-new-route-survival--r3--random",
+      "delta": 0.022331932773109298,
+      "low": -0.07420044493133486,
+      "high": 0.0882778844210992
+    }
+  ],
+  "inputs": {
+    "/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/holdout/t100-new-route-survival/holdout.csv": "f1d2222651817345b9fe54a969d0055f62121b982c085939f4f3d20c643d9a28",
+    "/Users/earino/research/factory-prospective-study/evidence/reviews/t100-new-route-survival/cluster.json": "02845b84c4cfc56fe4f30f9e6576475fbcfaa5f2ae9205c91e94814b78fc7991",
+    "/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/results/scores/t100-new-route-survival--ordinary/predictions.csv.gz": "ea14da0dedf7efb38d7442469a1595c69c69e9cfcbda4ec29ed99ae5cee51184",
+    "/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/results/scores/t100-new-route-survival--r1/predictions.csv.gz": "3fbef3a28f1a8c17823861f5a192b8af1dcbe242b3c5d06c88a41d219506d35d",
+    "/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/results/scores/t100-new-route-survival--r2/predictions.csv.gz": "3a78201dfa0a77981311fceff809c45bf5ff6e698d35ee4707115d96992191eb",
+    "/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/results/scores/t100-new-route-survival--r3/predictions.csv.gz": "845e51762c2d01f488032b92586722ff2a3e8c92ff1f08c17a25f72b474f26b3",
+    "/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/results/scores/t100-new-route-survival--r1--random/predictions.csv.gz": "31dbe4c4c2383442640bda404d43e04a94eb2b99804f90c9152c88b354204127",
+    "/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/results/scores/t100-new-route-survival--r2--random/predictions.csv.gz": "326047cbede735b8b0d5918ae0365ea59587a59d209c00db38730cbe91fa266d",
+    "/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/results/scores/t100-new-route-survival--r3--random/predictions.csv.gz": "41728aa556ce36c7c00c0d7508209ffc7fcad5b742de8cf6e01f56450930c66b"
+  },
+  "method": "2000 paired whole-entity draws, pointwise percentile95%; conditional on fitted models, cohort and declared dependence"
+}

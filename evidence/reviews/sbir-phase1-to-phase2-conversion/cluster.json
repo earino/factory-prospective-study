@@ -1,0 +1,18 @@
+{
+  "cluster_columns": [
+    "agency",
+    "branch",
+    "award_year"
+  ],
+  "reason": "Each row is one firm by construction (build.py:471-521, uniqueness asserted at build.py:635-643), so there is no repeated firm to group and record_id uniqueness alone does not show independence. The outcome is a Phase II decision made by the awarding component (agency plus branch) about a fiscal-year cohort of Phase I awardees competing for one Phase II budget, so firms in the same component and award year share selection and appropriation shocks. Train metadata supports this: conversion rates for the same component swing between years far beyond sampling noise (NSF 0.23-0.56, Navy 0.33-0.58, Army 0.45-0.77, counting cohorts of at least 30 rows). Topic-level competition is nested inside this unit. agency x award_year alone gives about 11 clusters per year and ignores that DoD components and HHS divisions (NIH, CDC, FDA) run separate budgets; adding branch gives 17-24 clusters per train year (206 in train). The contract's event key award_date was rejected because 54% of train rows carry an imputed or shared 30 September date that lumps unrelated agencies. Chosen before holdout scoring from source meaning and train.csv only; no holdout rows or holdout metrics were inspected.",
+  "status": "declared",
+  "limitations": [
+    "A blank branch must be treated as its own level, not dropped: branch is blank on 2,477 of 6,574 train rows (all NSF, DOE, USDA, NASA, DHS, ED, DOT and EPA rows, 27 of 59 DOC rows and 3 DoD rows), so for those rows the cluster is agency x award_year.",
+    "Clusters are few and very unequal: the largest cluster is 23-33% of each train year and 22 of 206 train clusters are singletons. With a two-year holdout, roughly 40 clusters are expected; this was estimated from train and not counted on holdout.",
+    "Dependence between clusters remains. Adjacent cohorts of the same component have overlapping four-year label windows, so one budget shock can reach several cohorts.",
+    "One real firm split across identifier namespaces (UEI, DUNS, name plus state; build.py:191-204) cannot be grouped, because the shipped files carry only a hash of the key and no firm-level carry column.",
+    "Component boundaries are taken as published in the current-vintage file; renamed or reorganised components may split or merge cohorts across years. Not checked.",
+    "Geographic dependence (state) and dependence across agencies within a year are not captured.",
+    "award_year is the source's reported fiscal year; if an agency reports a different year convention, cohort membership shifts. Not checked against the raw file."
+  ]
+}

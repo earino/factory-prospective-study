@@ -1,0 +1,534 @@
+[
+  {
+    "run": "t100-new-route-survival--r1",
+    "trace": "0000.jsonl",
+    "line": 409,
+    "tool_use_id": "toolu_01DZKdQnuqeFksBBqsYThmwX",
+    "tool": "Bash",
+    "input": {
+      "command": "date +%s; cat > REPORT.md <<'EOF'\n# REPORT \u2014 t100-new-route-survival--r1\n\nRetrospective prediction under the release's stated assumptions. No holdout result is claimed; holdout rows,\nsource snapshots and other runs were not accessed.\n\n## Result\nBest eligible trial: `c71a06be365f4212b7d6105efaaddbba` \u2014 validation ROC AUC **0.6735**, Brier 0.2021\n(scaffold baseline: AUC 0.6272, Brier 0.2418; majority-prior Brier 0.2107). The gain over the scaffold is\n+0.046 AUC. Row bootstrap 95% interval for the best trial's AUC is about 0.635\u20130.710; with carriers resampled\nas clusters it is about 0.578\u20130.779. The difference versus the scaffold is positive in 100% of row resamples and\n98.8% of carrier-cluster resamples. Differences among my own later variants (\u00b10.005) are not distinguishable.\n\n| trial | val AUC | Brier | what changed |\n|---|---|---|---|\n| `13945a39\u2026` | 0.6272 | 0.2418 | unchanged scaffold: depth 6, 100 trees, lr 0.1 |\n| `7ef90035\u2026` | failed | \u2013 | `--backtest` on scaffold (evaluator defect, below) |\n| `bacad1da\u2026` | 0.6583 | 0.2101 | depth 2, 200 trees, lr 0.03, row/column subsampling; cohort weight n^-0.5; + entry_pax, mkt_min, mkt_ratio |\n| `9e9aa1ea\u2026` | 0.6708 | 0.2041 | cohort weight n^-1 (equal total weight per carrier-month cohort) |\n| `c71a06be\u2026` | 0.6735 | 0.2021 | each boosting round is an 8-tree bagged forest (subsample 0.5, colsample_bynode 0.5) |\n\n## What the final model is\nOne `XGBClassifier` (hist, depth 2, 200 rounds \u00d7 8 parallel trees, lr 0.03, min_child_weight 5, lambda 5) on the 14\nreleased predictors plus three row-local derived columns:\n- `entry_pax` = entry-month departures \u00d7 seats per departure \u00d7 load factor (passengers carried in month M);\n- `mkt_min` = smaller of the two endpoint market departure totals;\n- `mkt_ratio` = smaller / larger endpoint market total.\n\n`prepare` is stateless row arithmetic; row-wise and batch outputs are identical and predictions do not depend on row\norder (checked). No date feature beyond the released `entry_calendar_month` is used. No target encoding, no\nidentifier, no lookup.\n\nTraining rows are weighted by 1 / (number of training rows sharing the same `carrier_departures_prior_12m` and\n`carrier_active_pairs_prior_12m`). Those two values are constant within a carrier's launch cohort for a month, so this\ngives every carrier-month cohort equal total weight. **Disclosure:** this uses a feature fingerprint to group training\nrows for weighting only; it is not used as a feature or to look anything up at prediction time, and it uses no labels.\n\n## Findings\n1. **Labels are cohort-level events more than route-level ones.** 62% of training label variance (49% in validation)\n   lies between carrier-month cohorts. A few cohorts are corporate events, as the README warns: EV 2012-01 (343 rows,\n   3% discontinued), UA 2012-01 (119 rows, 5%), XE 2011-02 (53 rows, 100%), FL 2013-08 (19 rows, 100%). Ten such\n   extreme cohorts hold 554 of 3,734 training rows. Unweighted trees spend capacity isolating them through the\n   carrier-scale columns. Equalising cohort weight was the single most useful change and the only one that improved\n   validation (0.651 \u2192 0.668, 3-seed means), leave-carriers-out CV (0.705 \u2192 0.714) and chronological backtests\n   (0.744 \u2192 0.749) together.\n2. **Capacity must be small.** Depth 2\u20133 and \u2264200 rounds beat depth 4+ or 400+ rounds on every split. The scaffold's\n   depth-6 model is worst on every diagnostic (leave-carriers-out 0.645 vs 0.71+).\n3. **Only two signals transfer across time.** Carrier route attrition (dropping it costs 0.03 validation AUC and 0.06\n   on backtests) and entry-month volume (departures/seats/passengers; within-cohort rank correlation with\n   discontinuation about \u22120.15 in training and \u22120.10 in validation). Distance, pair departures, competitor count and\n   new-at-airport flags change sign within cohorts between training and validation. A 10-feature subset performs the\n   same as the full set locally (0.6727 vs 0.6727).\n4. **The remaining error is carrier-level and not visible in the inputs.** On validation a carrier-identity oracle\n   scores 0.78; the model's carrier-average prediction scores 0.63. Excluding one carrier (YX, 73 rows: attrition 0.50,\n   predicted 0.66, actual 0.21) lifts validation AUC from 0.674 to 0.721. S5, CP and 9E were 81\u201390% discontinued\n   against predictions of 0.37\u20130.54; S5's rows are 100% discontinued in four of five entry months, consistent with a\n   carrier-code change rather than route decisions. I did not verify this against any outside source.\n5. **Drift in thin routes.** Routes with \u226412 entry-month departures on \u2265120-seat aircraft were 43% discontinued in\n   training and 20% in validation. The model predicts 26% for that cell.\n6. **Bagging reduces seed noise.** Validation AUC standard deviation across seeds falls from 0.0030 to 0.0008 with\n   8 parallel trees per round; the mean barely moves (0.667 \u2192 0.668 at the old sampling rates).\n\nThings that did not help (all within \u00b10.005 on every diagnostic): carrier/route interaction constraints, monotone\nconstraints, max_bin 8\u201364, lambda 50, min_child_weight 30, leaf-wise growth, direction-symmetrised features, coarse\nlog carrier scale, 15 further ratio features. `carrier_deps_per_pair` raised validation slightly but lowered\nchronological backtests by 0.02 and was not adopted. Dropping seats per departure raised leave-carriers-out by 0.02\nbut not validation or backtests; not adopted.\n\n## Defects and concerns\n- **Evaluator `--backtest` cannot run on this release.** `_engine.split_backtest` requires a declared column with\n  \"date\" in its name; the time column here is `entry_month`. Every backtest call raises\n  `ValueError: No declared date column for chronological diagnostic`. Primary validation scoring is unaffected, so I\n  did not write BLOCKER.json. Chronological checks were run with `diag/harness.py`, which reads `entry_month` from\n  train.csv only to form splits.\n- **Released baseline is not comparable.** The release's 0.6478 used carrier and city-market codes, which this\n  study's evaluator removes as carry columns. The like-for-like reference is the scaffold's 0.6272.\n- **Label semantics.** Merger/recode cohorts are scored as mass survival or mass discontinuation (README limitation,\n  confirmed in the training rows above). Four training rows and one validation row have identical origin and\n  destination city markets; 28 training rows report distances under 30 miles.\n- No duplicate episode ids, no train/validation id overlap, no identical feature rows with conflicting labels.\n\n## Limitations\n- 834 validation rows from about 40 carriers; the carrier-cluster interval is \u00b10.10. Five primary trials were scored\n  and many more configurations were compared against validation in my local harness, so the best trial's AUC is\n  optimistically selected. Local 3-seed mean for the same configuration is 0.6727.\n- Chronological backtests come from 2011\u20132014 only and share merger cohorts across fit and test; they scored\n  0.74\u20130.76, well above validation. They rank configurations but do not estimate later-period accuracy.\n- Leave-carriers-out folds use carrier codes for splitting only; the fold assignment itself is noisy (\u00b10.005 between\n  seed sets).\n- Cohort weighting assumes validation-era entries are not dominated by one mass cohort; it does not help when a\n  carrier-level event is unobservable in the features.\n- Seed repeats were diagnostics only; no seed ensemble is used.\nEOF\ngit add -A . >/dev/null 2>&1; git commit -qm \"Bagged config, report draft, diagnostics\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\"; git status --short | head",
+      "description": "Write REPORT.md draft and commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r1",
+    "trace": "0000.jsonl",
+    "line": 626,
+    "tool_use_id": "toolu_01L9cWibSc5KAYFSVoGp5cL3",
+    "tool": "Bash",
+    "input": {
+      "command": "cat > REPORT.md <<'EOF'\n# REPORT \u2014 t100-new-route-survival--r1\n\nRetrospective prediction under the release's stated assumptions. No holdout result is claimed; holdout rows,\nsource snapshots and other runs were not accessed.\n\n## Result\nBest eligible trial: `eb891fdd4af749f8bfde660b272de85a` \u2014 validation ROC AUC **0.6762**, Brier 0.2038.\nScaffold baseline: AUC 0.6272, Brier 0.2418. Majority-prior Brier: 0.2107. Gain over the scaffold: +0.049 AUC.\n\n- Row bootstrap (2,000 resamples): best-trial AUC 0.637\u20130.712; gain over scaffold 0.021\u20130.077, positive in 99.95%.\n- Carrier-cluster bootstrap: AUC 0.571\u20130.780; gain \u22120.004\u20130.102, positive in 96.9%. With carriers as the unit, the\n  gain is likely but not established.\n- Differences among my later variants (\u00b10.005) are not distinguishable from noise.\n\n| trial | val AUC | Brier | what changed |\n|---|---|---|---|\n| `13945a39\u2026` | 0.6272 | 0.2418 | unchanged scaffold: depth 6, 100 trees, lr 0.1 |\n| `7ef90035\u2026` | failed | \u2013 | `--backtest` on scaffold (evaluator defect, below) |\n| `bacad1da\u2026` | 0.6583 | 0.2101 | depth 2, 200 trees, lr 0.03, subsampling; cohort weight n^-0.5; + entry_pax, mkt_min, mkt_ratio |\n| `9e9aa1ea\u2026` | 0.6708 | 0.2041 | cohort weight n^-1 (equal total weight per carrier-month cohort) |\n| `c71a06be\u2026` | 0.6735 | 0.2021 | each boosting round is an 8-tree bagged forest (subsample 0.5, colsample_bynode 0.5) |\n| `eb891fdd\u2026` | 0.6762 | 0.2038 | 10 features; monotone priors on attrition (+), entry departures (\u2212), entry passengers (\u2212) |\n| `16583c6d\u2026` | 0.6762 | 0.2038 | same code as previous row: reproducibility check, identical predictions |\n\nThe saved artifact of the best trial was also reloaded and scored row by row outside the evaluator: AUC\n0.6762179413, maximum difference from the saved predictions 1e-16.\n\n## What the final model is\nOne `XGBClassifier` (hist, depth 2, 200 rounds \u00d7 8 parallel trees, lr 0.03, subsample 0.5, colsample_bynode 0.5,\nmin_child_weight 5, lambda 5) on ten columns:\n- released: carrier departures, carrier active pairs, carrier route attrition, entry-month departures, seats per\n  departure, load factor, entry calendar month;\n- derived, row-local: `entry_pax` (departures \u00d7 seats \u00d7 load factor), `mkt_min` (smaller endpoint market total),\n  `mkt_ratio` (smaller / larger endpoint market total).\n\nMonotone constraints: attrition increasing; entry departures and entry_pax decreasing.\n\n`prepare` is stateless row arithmetic. Row-wise and batch outputs are identical and predictions do not depend on row\norder (checked). The only date-derived input is the released `entry_calendar_month`. No target encoding, no\nidentifier, no lookup, no early stopping.\n\nTraining rows are weighted by 1 / (number of training rows with the same `carrier_departures_prior_12m` and\n`carrier_active_pairs_prior_12m`). Those values are constant within one carrier's launch cohort for one month, so every\ncarrier-month cohort gets equal total weight. **Disclosure:** this groups training rows by a feature fingerprint for\nweighting only. It uses no labels and nothing at prediction time. It does implicitly recover carrier-month grouping\nfrom permitted features; a reviewer who considers that an identifier use should prefer trial `13945a39\u2026`'s family\nwithout weights (local 3-seed validation mean for the unweighted shallow model: 0.651).\n\n## Findings\n1. **Labels are cohort events more than route events.** 62% of training label variance (49% in validation) lies\n   between carrier-month cohorts. Ten cohorts of \u226515 rows with \u22645% or \u226595% discontinued hold 554 of 3,734 training\n   rows, e.g. EV 2012-01 (343 rows, 3%), XE 2011-02 (53 rows, 100%), FL 2013-08 (19 rows, 100%). This matches the\n   README's merger/recode limitation. Equalising cohort weight was the most useful single change and moved three\n   diagnostics together: validation 0.651 \u2192 0.668, leave-carriers-out 0.705 \u2192 0.714, chronological backtests\n   0.744 \u2192 0.749 (3-seed means).\n2. **Capacity must be small.** Depth 2\u20133 and \u2264200 rounds beat depth 4+ or 400+ rounds on every split. The scaffold\n   is worst on every diagnostic (leave-carriers-out 0.645 against 0.71+).\n3. **Two signals carry the model.** Permutation on validation: attrition \u22120.064 AUC, entry_pax \u22120.050, seats \u22120.019,\n   each carrier-scale column \u22120.012, mkt_ratio \u22120.010, everything else under 0.003. Within cohorts only entry-month\n   volume has a stable sign across periods (rank correlation with discontinuation about \u22120.15 in training, \u22120.10 in\n   validation). Distance, pair departures, competitor count and new-at-airport flags change sign.\n4. **Simplifying and constraining did not cost anything.** Seven released predictors were dropped. With monotone\n   priors the 10-feature model matched or beat the 17-feature one on all diagnostics (validation 0.6748 vs 0.6727,\n   backtests 0.756 vs 0.753, leave-carriers-out 0.722 vs 0.715, 2-seed means). The margins are within noise; the\n   claim is \"no worse and simpler\", not \"better\".\n5. **Remaining error is carrier-level and not visible in the inputs.** A carrier-identity oracle on validation scores\n   0.78; the model's carrier-average prediction scores 0.656; within-carrier concordance is 0.596. Excluding one\n   carrier (YX, 73 rows: attrition 0.50, actual 21% discontinued) raises AUC from 0.676 to 0.727. S5, CP and 9E were\n   81\u201390% discontinued against predictions near 0.4\u20130.5; S5 is 100% discontinued in four of five entry months, which\n   looks like a carrier-code event. I did not check that against any outside source.\n6. **Carrier identity would not have helped.** As a diagnostic only (carrier code is not a permitted input), scoring\n   validation rows by their carrier's training-period rate gives 0.659, below the model's 0.675 on the same rows.\n   Carrier rates correlate 0.41 between training and validation.\n7. **Thin-route drift.** Routes with \u226412 entry-month departures on \u2265120-seat aircraft were 43% discontinued in\n   training and 20% in validation.\n8. **Bagging reduces seed noise.** Validation AUC standard deviation across seeds fell from 0.0030 to 0.0008\u20130.0009.\n   Final configuration over 8 seeds (diagnostic only): mean 0.6758, range 0.6744\u20130.6771.\n\nTraining-only checks that were not the selection target agree on the ordering scaffold < final:\nchronological backtests 0.691 \u2192 0.756, leave-carriers-out 0.645 \u2192 0.726, leave-one-entry-year-out 0.710 \u2192 0.746.\n\nTried without reliable effect (within \u00b10.005 everywhere): carrier/route interaction constraints, max_bin 8\u201364,\nlambda 1\u201350, min_child_weight 2\u201340, 100\u2013350 rounds, leaf-wise growth, direction-symmetrised features, coarse log\ncarrier scale, shrunken or clipped attrition, extra monotone priors, and about 20 further ratio features.\n`carrier_deps_per_pair` lowered chronological backtests by 0.01\u20130.02 and was not adopted. Dropping seats per\ndeparture raised leave-carriers-out by 0.02 but lowered validation by 0.005; not adopted.\n\n## Defects and concerns\n- **Evaluator `--backtest` cannot run on this release.** `_engine.split_backtest` needs a declared column with \"date\"\n  in its name; the time column here is `entry_month`. Every backtest call raises `ValueError: No declared date column\n  for chronological diagnostic`. Primary validation scoring is unaffected, so I did not write BLOCKER.json.\n  Chronological checks used `diag/harness.py`, which reads `entry_month` from train.csv only to form splits.\n- **Released baseline is not like-for-like.** The release's 0.6478 used carrier and city-market codes, which this\n  study's evaluator removes as carry columns. The comparable reference is the scaffold's 0.6272.\n- **Label semantics.** Merger/recode cohorts are scored as mass survival or mass discontinuation. Four training rows\n  and one validation row have identical origin and destination city markets; 28 training rows report distances under\n  30 miles.\n- Clean checks: no duplicate episode ids, no train/validation id overlap, no identical feature rows with conflicting\n  labels, no load factor above 1, no entry month under 8 departures.\n\n## Process errors (mine)\n- One diagnostic sweep exceeded the 120 s foreground limit and the tool harness moved it to the background, where it\n  ran about four minutes to completion. The assignment prohibits background processes; this was unintended and later\n  sweeps were wrapped in `timeout`. Several of those were cut off before their last configurations (noted in LOG.md).\n- One local commit staged release files, trial artifacts and TASK.json through `git add -A`. I soft-reset that\n  commit and recommitted only my code and notes. No trial, release or task file content was changed.\n- I never modified TASK.json; its working-tree difference from the initial commit predates this session.\n\n## Limitations\n- 834 validation rows from about 40 carriers. Six successful primary trials were scored and roughly 150\n  configurations were compared against validation in my local harness, so the best trial's AUC is optimistically\n  selected.\n- Chronological backtests cover 2011\u20132014 only and share merger cohorts between fit and test; they score 0.74\u20130.76,\n  well above validation. They rank configurations; they do not estimate later-period accuracy.\n- Leave-carriers-out fold assignment is itself noisy (about \u00b10.005 between seed sets).\n- Calibration: mean prediction 0.33 against 0.30 observed; the top prediction quintile is over-predicted\n  (0.60 predicted, 0.45 observed), mostly YX.\n- Cohort weighting cannot help when a carrier-level event is invisible in the features, which is the main error source.\n- Seed repeats were diagnostics only; no seed ensemble is used.\nEOF\ngit add REPORT.md LOG.md BACKLOG.md train.py diag/*.py && git commit -qm \"Final configuration (10 features, monotone priors), report and log\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git status --short; date +%s",
+      "description": "Write full REPORT.md and commit notes and code"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r2",
+    "trace": "0000.jsonl",
+    "line": 15,
+    "tool_use_id": "toolu_016K7pjLT9eWG3X8uAGxDQWa",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/runs/t100-new-route-survival--r2 && sed -n 200,400p release/reproduction/construction.json | cut -c1-1500; cat release/reproduction/train.py; PY=$(python3 -c \"import json;print(json.load(open('TASK.json'))['python'])\"); $PY -c \"\nimport pandas as pd, xgboost, sklearn, numpy, scipy\nprint(xgboost.__version__, sklearn.__version__, pd.__version__, numpy.__version__)\ntr=pd.read_csv('release/extract/public/train.csv'); ev=pd.read_csv('release/extract/public/eval.csv')\npd.set_option('display.width',250); pd.set_option('display.max_columns',30)\nprint(tr.head(8)); print(tr.describe().T); print(ev.describe().T); print(tr.isna().mean()); print(tr.nunique())\nprint(tr.groupby('entry_month').discontinued.agg(['mean','size']))\n\"",
+      "description": "Read rest of construction contract and summarize the data"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r2",
+    "trace": "0000.jsonl",
+    "line": 409,
+    "tool_use_id": "toolu_01Ny8MnvdHDqcYCR5u9JUjz2",
+    "tool": "Bash",
+    "input": {
+      "command": "pkill -f diag/exp16.py; sleep 1; pgrep -fl exp16 || echo \"stopped\"; cat \"/private/tmp/claude-501/-Users-earino-research-factory-prospective-study--local-studies-t100-new-route-survival--study-runs-t100-new-route-survival--r2/b0459020-6bc9-435d-9f60-6c3ada045d5d/tasks/b8y2l65hd.output\" 2>/dev/null | tail -5",
+      "description": "Stop the timed-out experiment so nothing runs in the background"
+    },
+    "reasons": [
+      "process_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0000.jsonl",
+    "line": 12,
+    "tool_use_id": "toolu_017PwWJZt9a8FUgmZGkka49X",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/runs/t100-new-route-survival--r3 && ls -la release/extract release/extract/public release/reproduction && cat release/extract/meta.json && cat release/evaluation.json && cat release/SOURCES.json && cat release/reproduction/construction.json | head -200",
+      "description": "List release files and read metadata and evaluation contract"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0000.jsonl",
+    "line": 44,
+    "tool_use_id": "toolu_0179zj6kY1ZA9hMw3Mk7UpQR",
+    "tool": "Bash",
+    "input": {
+      "command": "mkdir -p lab && cat > lab/common.py <<'EOF'\nimport json, numpy as np, pandas as pd, xgboost as xgb, importlib.util, sys\nfrom sklearn.metrics import roc_auc_score\nR='/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/runs/t100-new-route-survival--r3/'\ntr=pd.read_csv(R+'release/extract/public/train.csv'); ev=pd.read_csv(R+'release/extract/public/eval.csv')\nq=json.load(open(R+'release/reproduction/construction.json'))['quality']\nFEATS=q['features']\nytr=tr.discontinued.to_numpy(); yev=ev.discontinued.to_numpy()\nXtr=tr[FEATS].copy(); Xev=ev[FEATS].copy()\ntrm=pd.to_datetime(tr.entry_month)\n# chronological folds within train: (fit mask, test mask)\nFOLDS=[(trm<'2012-07-01', (trm>='2012-07-01')&(trm<'2013-07-01')),\n       (trm<'2013-01-01', (trm>='2013-01-01')),\n       (trm<'2013-07-01', (trm>='2013-07-01')),\n       (trm<'2012-01-01', (trm>='2012-01-01')&(trm<'2013-01-01'))]\ndef load(path):\n    spec=importlib.util.spec_from_file_location('sol',path); m=importlib.util.module_from_spec(spec); spec.loader.exec_module(m); return m\ndef run(mod, seed=42, folds=True, verbose=True):\n    st=mod.fit(Xtr.copy(),ytr.copy(),seed=seed,threads=5)\n    p=st['model'].predict_proba(mod.prepare(st,Xev))[:,1]\n    out={'val':roc_auc_score(yev,p)}\n    if folds:\n        b=[]\n        for f,t in FOLDS:\n            s=mod.fit(Xtr[f].copy(),ytr[f].copy(),seed=seed,threads=5)\n            b.append(roc_auc_score(ytr[t],s['model'].predict_proba(mod.prepare(s,Xtr[t]))[:,1]))\n        out['bt']=b; out['btmean']=float(np.mean(b))\n    return out,p\nEOF\ncat > lab/uni.py <<'EOF'\nfrom common import *\nfor c in FEATS:\n    a=roc_auc_score(ytr,Xtr[c].fillna(Xtr[c].median())); b=roc_auc_score(yev,Xev[c].fillna(Xtr[c].median()))\n    a2=roc_auc_score(ytr[trm>='2013-01-01'],Xtr[c].fillna(Xtr[c].median())[trm>='2013-01-01'])\n    print(f'{c:40s} train {a:.3f}  train13-14 {a2:.3f}  val {b:.3f}')\nm=load(R+'train.py'); print(run(m)[0])\nEOF\ncd lab && /Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python uni.py",
+      "description": "Create local diagnostics harness and compute univariate AUCs"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0000.jsonl",
+    "line": 141,
+    "tool_use_id": "toolu_01LAMq6SueMbYLh6JuHSuaH4",
+    "tool": "Bash",
+    "input": {
+      "command": "cat > mk.py <<'EOF'\nimport re, sys, json, pprint\ndef make(src, dst, **kw):\n    s=open(src).read()\n    for k,v in kw.items():\n        pat=re.compile(r'^'+k+r' = .*?(?=^\\S)', re.S|re.M)\n        assert pat.search(s), k\n        s=pat.sub(lambda m: k+' = '+pprint.pformat(v, width=110, compact=True)+'\\n', s, count=1)\n    s=s.replace('(lab template 2)','').replace('(lab template)','')\n    open(dst,'w').write(s)\nEOF\ncat > reg1.py <<'EOF'\nfrom mk import make\nAT='carrier_route_attrition_prior_12m'; CD='carrier_departures_prior_12m'; CP='carrier_active_pairs_prior_12m'\nSYM=['distance_miles','entry_calendar_month',CD,CP,AT,'competing_carriers_prior_3m','pair_departures_prior_3m','entry_month_departures','entry_month_seats_per_departure','entry_month_load_factor','mkt_min','mkt_max','new_any','seats','pax']\nMON={AT:1,'seats':-1,'pax':-1,'asm':-1,'rpm':-1,'entry_month_departures':-1}\nmake('cand2.py','../train.py',KEEP=SYM+['asm','rpm','entry_rel_freq'],MONO=MON)\nEOF\nPY=/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python\n$PY reg1.py && head -12 ../train.py && cd .. && $PY evaluate.py --note 'H: direction-symmetric market features (min/max instead of origin/dest), entry capacity totals (seats,pax,asm,rpm), relative frequency, monotone constraints (attrition +, capacity -), depth 3 x 300 lr .03; reason: within-carrier concordance of capacity is stable train->val while origin/dest duplicated direction rows overfit' 2>&1 | tail -1 | cut -c1-900; $PY evaluate.py --backtest --note 'backtest of symmetric+capacity+mono d3' 2>&1 | tail -1 | grep -o '\"auc\": [0-9.]*'; date +%s",
+      "description": "Generate train.py for symmetric+capacity+monotone config and run evaluator and backtest"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0000.jsonl",
+    "line": 281,
+    "tool_use_id": "toolu_015BmtpYHrEHEC8JoiapRGfW",
+    "tool": "Bash",
+    "input": {
+      "command": "cat > reg2.py <<'EOF'\nfrom mk import make\nAT='carrier_route_attrition_prior_12m'; CD='carrier_departures_prior_12m'; CP='carrier_active_pairs_prior_12m'\nS=['distance_miles',CD,CP,AT,'competing_carriers_prior_3m','pair_departures_prior_3m','entry_month_departures','entry_month_seats_per_departure','entry_month_load_factor','mkt_min','mkt_max','new_any','seats','pax','asm','rpm','entry_rel_freq']\nMON={AT:1,'seats':-1,'pax':-1,'asm':-1,'rpm':-1,'entry_month_departures':-1}\nbase={\"n_estimators\": 300, \"max_depth\": 3, \"learning_rate\": 0.03, \"subsample\": 0.8, \"colsample_bytree\": 0.4,\"min_child_weight\": 5, \"reg_lambda\": 5.0}\nmake('cand2.py','../train.py',KEEP=S,MONO=MON,PARAMS=base)\nEOF\nPY=/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python\n$PY reg2.py && (cd .. && $PY evaluate.py --note 'H: colsample_bytree 0.4 decorrelates trees from the dominant attrition/carrier-size fingerprint, and dropping entry_calendar_month removes a feature polluted by the Jan-2012 merger re-coding cohort (462 rows); local 3-seed val .670, training-only chrono folds bt3 .757 vs .753' 2>&1 | tail -1 | grep -o '\"auc\": [0-9.]*, \"brier\": [0-9.]*')\ncat > err.py <<'EOF'\nfrom common import *\nm=load('../train.py')\nst=m.fit(Xtr.copy(),ytr.copy(),seed=42,threads=5)\nev2=ev.copy(); ev2['p']=st['model'].predict_proba(m.prepare(st,Xev))[:,1]\nprint('val',roc_auc_score(yev,ev2.p))\n# oracle between-carrier: carrier's own val rate\nev2['car_rate']=ev2.groupby('unique_carrier').discontinued.transform('mean')\nev2['car_p']=ev2.groupby('unique_carrier').p.transform('mean')\nprint('oracle carrier-rate AUC',roc_auc_score(yev,ev2.car_rate),' model carrier-mean AUC',roc_auc_score(yev,ev2.car_p))\nev2['coh']=ev2.unique_carrier+ev2.entry_month\nev2['coh_rate']=ev2.groupby('coh').discontinued.transform('mean')\nprint('oracle cohort AUC',roc_auc_score(yev,ev2.coh_rate))\n# train-carrier-rate lookup as predictor (diagnostic only: carrier is NOT an allowed feature)\ncr=tr.groupby('unique_carrier').discontinued.mean()\nprint('train carrier rate -> val AUC (diagnostic)',roc_auc_score(yev,ev2.unique_carrier.map(cr).fillna(ytr.mean())))\n# segments\nev2['gauge']=pd.cut(ev2.entry_month_seats_per_departure,[0,20,40,56,80,130,400])\ntr2=tr.copy(); tr2['gauge']=pd.cut(tr2.entry_month_seats_per_departure,[0,20,40,56,80,130,400])\nprint(tr2.groupby('gauge',observed=True).discontinued.agg(['size','mean']).T)\nprint(ev2.groupby('gauge',observed=True).agg(n=('p','size'),rate=('discontinued','mean'),p=('p','mean')).T)\nfor nm,d in [('train',tr2),('val',ev2)]:\n    d['freq']=pd.cut(d.entry_month_departures,[0,10,14,20,31,62,1000])\n    print(nm); print(d.groupby('freq',observed=True).discontinued.agg(['size','mean']).T)\n    d['att']=pd.cut(d.carrier_route_attrition_prior_12m,[-1,.1,.15,.2,.25,.3,.4,.5,1.01])\n    print(d.groupby('att',observed=True).discontinued.agg(['size','mean']).T)\n    d['unserved']=(d.pair_departures_prior_3m==0)\n    print(d.groupby('unserved').discontinued.agg(['size','mean']).T)\n    d['newany']=d.carrier_new_at_origin+d.carrier_new_at_dest\n    print(d.groupby('newany').discontinued.agg(['size','mean']).T)\nEOF\n$PY err.py; date +%s",
+      "description": "Register colsample/no-month trial and run error analysis by carrier and segment"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0000.jsonl",
+    "line": 296,
+    "tool_use_id": "toolu_01K2EqJgofp3bGNrLqg5YDy7",
+    "tool": "Bash",
+    "input": {
+      "command": "cat >> common.py <<'EOF'\n\nfrom sklearn.model_selection import GroupKFold\n_car=tr.unique_carrier.to_numpy()\nGKF=list(GroupKFold(n_splits=6).split(Xtr,ytr,_car))\ndef run_gkf(mod, seed=42):\n    p=np.zeros(len(ytr))\n    for a,b in GKF:\n        s=mod.fit(Xtr.iloc[a].copy(),ytr[a].copy(),seed=seed,threads=5)\n        p[b]=s['model'].predict_proba(mod.prepare(s,Xtr.iloc[b]))[:,1]\n    return roc_auc_score(ytr,p)\ndef T(name, seeds=(42,1,2), src='cand2.py', **kw):\n    m=load(src)\n    for k,v in kw.items(): setattr(m,k,v)\n    rs=[run(m,seed=s)[0] for s in seeds]\n    g=np.mean([run_gkf(m,seed=s) for s in seeds[:2]])\n    v=np.mean([r['val'] for r in rs]); b=np.mean([r['bt'] for r in rs],axis=0)\n    print(f\"{name:50s} val {v:.4f} (s42 {rs[0]['val']:.4f}) bt3 {b[:3].mean():.4f} bt4 {b.mean():.4f} gkf {g:.4f}\",flush=True)\nAT='carrier_route_attrition_prior_12m'; CD='carrier_departures_prior_12m'; CP='carrier_active_pairs_prior_12m'\nSYM=['distance_miles','entry_calendar_month',CD,CP,AT,'competing_carriers_prior_3m','pair_departures_prior_3m','entry_month_departures','entry_month_seats_per_departure','entry_month_load_factor','mkt_min','mkt_max','new_any','seats','pax']\nS2=SYM+['asm','rpm','entry_rel_freq']\nS3=[c for c in S2 if c!='entry_calendar_month']\nMON={AT:1,'seats':-1,'pax':-1,'asm':-1,'rpm':-1,'entry_month_departures':-1}\nBASE={\"n_estimators\": 300, \"max_depth\": 3, \"learning_rate\": 0.03, \"subsample\": 0.8, \"colsample_bytree\": 0.4,\"min_child_weight\": 5, \"reg_lambda\": 5.0}\nEOF\ncat > sweep6.py <<'EOF'\nfrom common import *\nT('raw baseline d6', src='../trials/acf55d807fcf40eea25cd871f2f04a4d/train.py')\nT('raw d3 reg', KEEP=FEATS, PARAMS=dict(BASE,colsample_bytree=0.8))\nT('S2 cs.8 (trial2)', KEEP=S2, MONO=MON, PARAMS=dict(BASE,colsample_bytree=0.8))\nT('S3 cs.4 (trial3)', KEEP=S3, MONO=MON, PARAMS=BASE)\nT('S3 no CD', KEEP=[c for c in S3 if c!=CD], MONO=MON, PARAMS=BASE)\nT('S3 no CP', KEEP=[c for c in S3 if c!=CP], MONO=MON, PARAMS=BASE)\nT('S3 no CD CP', KEEP=[c for c in S3 if c not in (CD,CP)], MONO=MON, PARAMS=BASE)\nT('S3 no CD CP + deps_per_pair', KEEP=[c for c in S3 if c not in (CD,CP)]+['carrier_deps_per_pair_month'], MONO=MON, PARAMS=BASE)\nT('S3 + deps_per_pair', KEEP=S3+['carrier_deps_per_pair_month'], MONO=MON, PARAMS=BASE)\nT('S3 no relfreq', KEEP=[c for c in S3 if c!='entry_rel_freq'], MONO=MON, PARAMS=BASE)\nT('S3 mcw50', KEEP=S3, MONO=MON, PARAMS=dict(BASE,min_child_weight=50))\nT('S3 mcw100', KEEP=S3, MONO=MON, PARAMS=dict(BASE,min_child_weight=100))\nT('S3 weight inv', KEEP=S3, MONO=MON, PARAMS=BASE, WEIGHT='inv')\nT('S3 weight sqrt', KEEP=S3, MONO=MON, PARAMS=BASE, WEIGHT='sqrt')\nT('S3 max_bin 64', KEEP=S3, MONO=MON, PARAMS=dict(BASE,max_bin=64))\nT('S3 d2 500', KEEP=S3, MONO=MON, PARAMS=dict(BASE,max_depth=2,n_estimators=500))\nT('S3 d1 800', KEEP=S3, MONO=MON, PARAMS=dict(BASE,max_depth=1,n_estimators=800,learning_rate=0.05))\nEOF\n/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python sweep6.py 2>&1 | tail -18; date +%s",
+      "description": "Add leave-carrier-out CV diagnostic and sweep carrier-feature treatments"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0000.jsonl",
+    "line": 311,
+    "tool_use_id": "toolu_012muWWwMBHgp21TuerWT9nF",
+    "tool": "Bash",
+    "input": {
+      "command": "cat > reg3.py <<'EOF'\nfrom mk import make\nfrom common import S3, CD, MON, BASE\nmake('cand2.py','../train.py',KEEP=[c for c in S3 if c!=CD],MONO=MON,PARAMS=BASE)\nEOF\nPY=/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python\n$PY reg3.py && (cd .. && $PY evaluate.py --note 'H: drop carrier_departures_prior_12m (keep active pairs + attrition): two carrier-size columns let trees fingerprint carrier-months; training-only leave-carrier-out CV AUC .693->.722 with chrono folds unchanged (.757)' 2>&1 | tail -1 | grep -o '\"auc\": [0-9.]*, \"brier\": [0-9.]*')\ncat > sweep7.py <<'EOF'\nfrom common import *\nK=[c for c in S3 if c!=CD]\nT('K (trial4)', KEEP=K, MONO=MON, PARAMS=BASE)\nfor f in ['pax_per_dep','empty_seats','carrier_deps_per_pair_month','mkt_ratio','entry_share','incumbent_deps_per_carrier','carrier_share_small_mkt','carrier_share_big_mkt','route_share_small_mkt','attr_pairs','month_cos','month_sin','entry_calendar_month','carrier_new_at_origin','origin_market_departures_prior_12m']:\n    T('K + '+f, KEEP=K+[f], MONO=MON, PARAMS=BASE)\nfor f in ['distance_miles','competing_carriers_prior_3m','pair_departures_prior_3m','entry_month_load_factor','mkt_min','mkt_max','new_any','seats','pax','asm','rpm','entry_rel_freq','entry_month_departures','entry_month_seats_per_departure']:\n    T('K - '+f, KEEP=[c for c in K if c!=f], MONO=MON, PARAMS=BASE)\nEOF\n$PY sweep7.py 2>&1 | tail -31; date +%s",
+      "description": "Register drop-carrier-departures trial; add/drop single features sweep"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0000.jsonl",
+    "line": 342,
+    "tool_use_id": "toolu_01PrFmZm3QYotYs7dtcr2A4Q",
+    "tool": "Bash",
+    "input": {
+      "command": "cd .. && cat >> LOG.md <<'EOF'\n3. + colsample_bytree 0.4, drop entry_calendar_month \u2014 0.6693 / 0.2137. Month is polluted by the Jan-2012 re-coding cohort (EV 343 rows at 3% discontinued, UA 119 at 5%).\n4. + drop carrier_departures_prior_12m \u2014 0.6726 / 0.2079. Leave-carrier-out CV on train .693 -> .722, chrono folds unchanged.\n\nDiagnostics (local, not eligible trials)\n- Univariate and within-carrier concordance: only entry capacity (departures, seats, pax, ASM/RPM) keeps the same sign and size from train to validation within carriers (train ~0.34, val ~0.39-0.41 i.e. more capacity -> survives). pair_departures, competing carriers, mkt_max flip sign within carriers between train and validation.\n- Carrier attrition is the dominant feature (univariate AUC train .735, val .609). Oracle AUC from each validation carrier's own realised rate is .781; from carrier-month cohort rate .911. The model's carrier-mean prediction scores .653. So most of the achievable ranking is between carriers/cohorts and is driven by corporate events after the entry month (S5 90%, CP 81%, 9E 82% discontinued in validation).\n- Recency: fitting on 2012+ only gave validation .693 vs .663, but training-only checks say the opposite (test >=2013: fit from 2011 .758 vs from 2012 .716). Entry month is not a permitted input, recovering it from row order would circumvent the predictor contract, and the training-only evidence does not support it. REJECTED, not used.\n- Hyperparameters (depth 1-6, trees/lr, min_child_weight, gamma, lambda, max_bin, random-forest style parallel trees, interaction constraints carrier|route) all land in validation .655-.675 with 3-seed means; differences are inside noise.\n- Cohort inverse-size sample weights: validation +.005, chrono folds -.015. Not adopted.\nEOF\nsleep 45; cat /private/tmp/claude-501/-Users-earino-research-factory-prospective-study--local-studies-t100-new-route-survival--study-runs-t100-new-route-survival--r3/73673264-af1f-4da1-bcf9-3c16b80776fd/tasks/bfvk615sj.output",
+      "description": "Append findings to LOG.md and check sweep output"
+    },
+    "reasons": [
+      "process_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0000.jsonl",
+    "line": 374,
+    "tool_use_id": "toolu_01JnFhamCPHhQfpHtFNB8aAL",
+    "tool": "Bash",
+    "input": {
+      "command": "cd lab && cat > boot.py <<'EOF'\nfrom common import *\nimport gzip, glob, json\nrs={}\nfor f in glob.glob('../trials/*/result.json'):\n    r=json.load(open(f))\n    if r['status']=='ok' and r['mode']=='validation':\n        rs[r['started_epoch']]=(r['id'],r['auc'],pd.read_csv(f.replace('result.json','validation.csv.gz')).p.to_numpy())\nks=sorted(rs); base=rs[ks[0]]; best=max(rs.values(),key=lambda x:x[1])\nprint('baseline',base[1],'best',best[0],best[1])\nrng=np.random.default_rng(0); car=ev.unique_carrier.to_numpy(); ucar=np.unique(car)\nd=[];dc=[];bb=[]\nfor i in range(2000):\n    ix=rng.integers(0,len(yev),len(yev))\n    if yev[ix].min()!=yev[ix].max():\n        a=roc_auc_score(yev[ix],best[2][ix]); b=roc_auc_score(yev[ix],base[2][ix]); d.append(a-b); bb.append(a)\n    cs=rng.choice(ucar,len(ucar)); ix=np.concatenate([np.where(car==c)[0] for c in cs])\n    dc.append(roc_auc_score(yev[ix],best[2][ix])-roc_auc_score(yev[ix],base[2][ix]))\nprint('row bootstrap best AUC 95% CI',np.percentile(bb,[2.5,97.5]).round(4))\nprint('row bootstrap diff best-baseline: mean %.4f CI %s  P(diff<=0)=%.3f'%(np.mean(d),np.percentile(d,[2.5,97.5]).round(4),np.mean(np.array(d)<=0)))\nprint('carrier-cluster bootstrap diff: mean %.4f CI %s  P(diff<=0)=%.3f'%(np.mean(dc),np.percentile(dc,[2.5,97.5]).round(4),np.mean(np.array(dc)<=0)))\n# seed repeats of the best config\nm=load('../trials/%s/train.py'%best[0]); vs=[]\nfor s in range(10):\n    st=m.fit(Xtr.copy(),ytr.copy(),seed=s,threads=5); vs.append(roc_auc_score(yev,st['model'].predict_proba(m.prepare(st,Xev))[:,1]))\nprint('seed repeats (diagnostic) mean %.4f sd %.4f min %.4f max %.4f'%(np.mean(vs),np.std(vs),min(vs),max(vs)))\nm0=load('../trials/%s/train.py'%base[0]); vs=[]\nfor s in range(10):\n    st=m0.fit(Xtr.copy(),ytr.copy(),seed=s,threads=5); vs.append(roc_auc_score(yev,st['model'].predict_proba(m0.prepare(st,Xev))[:,1]))\nprint('baseline seeds mean %.4f sd %.4f'%(np.mean(vs),np.std(vs)))\nEOF\n/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python boot.py; date +%s",
+      "description": "Bootstrap confidence intervals and seed-repeat diagnostics for best trial vs baseline"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0000.jsonl",
+    "line": 394,
+    "tool_use_id": "toolu_019tzuCmW83dCHjygoZX7W6B",
+    "tool": "Bash",
+    "input": {
+      "command": "cat > within2.py <<'EOF'\nfrom common import *\nimport glob,json\ndef within(x,y,grp,minn=4):\n    num=den=0\n    for g,idx in pd.Series(np.arange(len(y))).groupby(grp).groups.items():\n        idx=np.asarray(idx); yy=y[idx]\n        if len(idx)<minn or yy.min()==yy.max(): continue\n        n=yy.sum()*(len(yy)-yy.sum()); num+=roc_auc_score(yy,x[idx])*n; den+=n\n    return num/den, den\ngc=ev.unique_carrier.to_numpy(); gm=(ev.unique_carrier+ev.entry_month).to_numpy()\nfor f in sorted(glob.glob('../trials/*/result.json'),key=lambda f: json.load(open(f))['started_epoch']):\n    r=json.load(open(f))\n    if r['status']!='ok' or r['mode']!='validation': continue\n    p=pd.read_csv(f.replace('result.json','validation.csv.gz')).p.to_numpy()\n    print(r['id'][:6], 'auc %.4f'%r['auc'], 'within-carrier %.4f (pairs %d)'%within(p,yev,gc), 'within-cohort %.4f (pairs %d)'%within(p,yev,gm))\nm=load('cand2.py'); F=m._features(Xev,{})\nfor c in ['seats','pax','asm','rpm','entry_month_departures','entry_rel_freq']:\n    x=-F[c].fillna(F[c].median()).to_numpy()\n    print(c,'within-carrier %.4f'%within(x,yev,gc)[0],'within-cohort %.4f'%within(x,yev,gm)[0])\ntot=yev.sum()*(len(yev)-yev.sum()); print('total pairs',tot)\nEOF\n/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python within2.py; date +%s",
+      "description": "Measure within-carrier and within-cohort discrimination of recorded trials on validation"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0000.jsonl",
+    "line": 474,
+    "tool_use_id": "toolu_01SvR7WEQheiaFMeLiWYeB1S",
+    "tool": "Bash",
+    "input": {
+      "command": "cat > reg4.py <<'EOF'\nfrom mk import make\nfrom common import MON, BASE\nmake('cand2.py','../train.py',KEEP=['distance_miles', 'carrier_route_attrition_prior_12m', 'competing_carriers_prior_3m', 'entry_month_departures', 'mkt_min', 'mkt_max', 'pax', 'rpm'],MONO=MON,PARAMS=BASE)\nEOF\nPY=/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python\n$PY reg4.py && (cd .. && $PY evaluate.py --note 'H: training-only backward elimination (objective = mean of chrono-fold AUC and leave-carrier-out CV AUC, stop rule fixed before looking at validation) yields an 8-feature set; pre-committed to record it whatever the validation result. Tests whether training-period CV transfers to the 2015-16 validation period' 2>&1 | tail -1 | grep -o '\"auc\": [0-9.]*, \"brier\": [0-9.]*')\ncat > sweep9.py <<'EOF'\nfrom common import *\nK=[c for c in S3 if c!=CD]\nfor w in ['sqrt',0.75,'inv']:\n    T(f'K weight {w}', KEEP=K, MONO=MON, PARAMS=BASE, WEIGHT=w)\nT('K mcw50', KEEP=K, MONO=MON, PARAMS=dict(BASE,min_child_weight=50))\nT('K mcw20 sub.6', KEEP=K, MONO=MON, PARAMS=dict(BASE,min_child_weight=20,subsample=0.6))\nT('K d4 mcw30', KEEP=K, MONO=MON, PARAMS=dict(BASE,min_child_weight=30,max_depth=4))\nT('K 600 trees', KEEP=K, MONO=MON, PARAMS=dict(BASE,n_estimators=600))\nT('K 150 trees', KEEP=K, MONO=MON, PARAMS=dict(BASE,n_estimators=150))\nT('K cs.25', KEEP=K, MONO=MON, PARAMS=dict(BASE,colsample_bytree=0.25))\nT('K cs.6', KEEP=K, MONO=MON, PARAMS=dict(BASE,colsample_bytree=0.6))\nEOF\n$PY sweep9.py; date +%s",
+      "description": "Register training-only-selected feature set; sweep weights and regularization on trial-4 set"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0000.jsonl",
+    "line": 573,
+    "tool_use_id": "toolu_01TPPhV9JQg7RBNYpvV3xjDa",
+    "tool": "Bash",
+    "input": {
+      "command": "cd lab && cat > reg5.py <<'EOF'\nfrom mk import make\nfrom common import S3, CD, MON, BASE\nK2=[c for c in S3 if c not in (CD,'entry_month_departures')]\nmake('cand2.py','../train.py',KEEP=K2,MONO={k:v for k,v in MON.items() if k in K2},PARAMS=BASE)\nEOF\nPY=/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python\n$PY reg5.py && (cd .. && $PY evaluate.py --note 'H (simplification): drop raw entry_month_departures; its information is carried by seats/pax/asm/rpm/entry_rel_freq, which are the within-carrier-stable capacity signals, and the raw count lets trees key on the 8-10 departures floor that behaves differently for ULCCs in 2015-16. Training-only diagnostics unchanged (bt3 .755, leave-carrier-out .726)' 2>&1 | tail -1 | grep -o '\"auc\": [0-9.]*, \"brier\": [0-9.]*'); cat /private/tmp/claude-501/-Users-earino-research-factory-prospective-study--local-studies-t100-new-route-survival--study-runs-t100-new-route-survival--r3/73673264-af1f-4da1-bcf9-3c16b80776fd/tasks/b3uob9apq.output | tail -3; date +%s",
+      "description": "Register simplified feature set trial"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0000.jsonl",
+    "line": 616,
+    "tool_use_id": "toolu_01C13HtKRSaaXdH9n8aFwYBt",
+    "tool": "Bash",
+    "input": {
+      "command": "cat > reg6.py <<'EOF'\nfrom mk import make\nfrom common import S3, CD, MON, BASE\nK2=[c for c in S3 if c not in (CD,'entry_month_departures')]\nmake('cand2.py','../train.py',KEEP=K2,MONO=dict({k:v for k,v in MON.items() if k in K2},entry_rel_freq=-1),PARAMS=BASE)\nEOF\nPY=/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python\n$PY reg6.py && (cd .. && $PY evaluate.py --note 'H: add monotone-decreasing constraint on entry_rel_freq (entry departures relative to the carrier average departures per pair-month): within-carrier concordance has the same sign in train (.33) and validation (.41). Training-only diagnostics improve: bt3 .755->.757, leave-carrier-out .726->.733' 2>&1 | tail -1 | grep -o '\"auc\": [0-9.]*, \"brier\": [0-9.]*')\ncat > pd.py <<'EOF'\nfrom common import *\nm=load('../train.py'); st=m.fit(Xtr.copy(),ytr.copy(),seed=42,threads=5)\nP=m.prepare(st,Xev); Ptr=m.prepare(st,Xtr)\nbst=st['model']\nimp=bst.get_booster().get_score(importance_type='total_gain'); tot=sum(imp.values())\nprint({k:round(v/tot,3) for k,v in sorted(imp.items(),key=lambda kv:-kv[1])})\nfor c,grid in [(CP,[5,50,150,300,450,600,800,1000,1300,1700,2200,3000]),('entry_month_seats_per_departure',[9,19,34,50,66,76,100,125,143,160,180]),(AT,[0,.05,.1,.15,.2,.25,.3,.4,.5,.7])]:\n    out=[]\n    for g in grid:\n        Q=Ptr.copy(); Q[c]=g; out.append(round(float(bst.predict_proba(Q)[:,1].mean()),3))\n    print(c,list(zip(grid,out)))\nEOF\n$PY pd.py; date +%s",
+      "description": "Register monotone relative-frequency trial and inspect importances and partial dependence"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0000.jsonl",
+    "line": 640,
+    "tool_use_id": "toolu_014eBftyA6t4XkbU3tWyfXLJ",
+    "tool": "Bash",
+    "input": {
+      "command": "cat > reg7.py <<'EOF'\nfrom mk import make\nfrom common import S3, CD, MON, BASE\nK2=[c for c in S3 if c not in (CD,'entry_month_departures')]\nmake('cand2.py','../train.py',KEEP=K2,MONO=dict({k:v for k,v in MON.items() if k in K2},entry_rel_freq=-1),PARAMS=dict(BASE,n_estimators=150))\nEOF\nPY=/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python\n$PY reg7.py && (cd .. && $PY evaluate.py --note 'H (simplification): 150 trees instead of 300 at lr .03; with monotone constraints and colsample .4 the training-only diagnostics are flat between 150 and 300 trees (bt3 .758, leave-carrier-out .732) and get worse by 600, so the smaller model should do no worse' 2>&1 | tail -1 | grep -o '\"auc\": [0-9.]*, \"brier\": [0-9.]*')\ncat > sweep15.py <<'EOF'\nfrom common import *\nK2=[c for c in S3 if c not in (CD,'entry_month_departures')]\nM3=dict({k:v for k,v in MON.items() if k in K2},entry_rel_freq=-1)\nB=dict(BASE,n_estimators=150)\nT('K2m 150', KEEP=K2, MONO=M3, PARAMS=B)\nT('K2m 150 attr_shrunk k=50 replaces AT', KEEP=[c for c in K2 if c!=AT]+['attr_shrunk'], MONO=dict(M3,attr_shrunk=1), PARAMS=B, SHRINK_K=50)\nT('K2m 150 attr_shrunk k=200 replaces AT', KEEP=[c for c in K2 if c!=AT]+['attr_shrunk'], MONO=dict(M3,attr_shrunk=1), PARAMS=B, SHRINK_K=200)\nT('K2m 150 + attr_pairs', KEEP=K2+['attr_pairs'], MONO=M3, PARAMS=B)\nT('K2m 150 + carrier_deps_per_pair', KEEP=K2+['carrier_deps_per_pair_month'], MONO=M3, PARAMS=B)\nT('K2m 150 + pax_per_dep', KEEP=K2+['pax_per_dep'], MONO=M3, PARAMS=B)\nT('K2m 150 + entry_share', KEEP=K2+['entry_share'], MONO=M3, PARAMS=B)\nT('K2m 150 - lf', KEEP=[c for c in K2 if c!='entry_month_load_factor'], MONO=M3, PARAMS=B)\nT('K2m 150 - lf - competing', KEEP=[c for c in K2 if c not in('entry_month_load_factor','competing_carriers_prior_3m')], MONO=M3, PARAMS=B)\nT('K2m 100', KEEP=K2, MONO=M3, PARAMS=dict(BASE,n_estimators=100))\nT('K2m 80 lr.06', KEEP=K2, MONO=M3, PARAMS=dict(BASE,n_estimators=80,learning_rate=0.06))\nEOF\n$PY sweep15.py; date +%s",
+      "description": "Register 150-tree simplification; test attrition shrinkage and remaining feature variants"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0000.jsonl",
+    "line": 745,
+    "tool_use_id": "toolu_011WCu2RGyYVRNTsdd2snRNr",
+    "tool": "Bash",
+    "input": {
+      "command": "cat > reg8.py <<'EOF'\nimport sys\nfrom mk import make\nfrom common import S3, CD, MON, BASE\nn=int(sys.argv[1])\nK2=[c for c in S3 if c not in (CD,'entry_month_departures')]\nmake('cand2.py','../train.py',KEEP=K2,MONO=dict({k:v for k,v in MON.items() if k in K2},entry_rel_freq=-1),PARAMS=dict(BASE,n_estimators=150),DROP_UNIFORM=(n,'pos'))\nEOF\nPY=/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python\n$PY reg8.py 8 && grep -n \"DROP_UNIFORM = \" ../train.py && (cd .. && $PY evaluate.py --note 'H: exclude from the fitting rows any carrier-month cohort (rows sharing identical carrier_departures/active_pairs values) with >=8 rows whose labels are all discontinued; these are carrier-code disappearances (merger/re-coding, a README-documented label confound), and fitting them teaches a carrier fingerprint that does not transfer in time. Filter uses training labels inside fit only; no prediction-time feature depends on it. Training-only chrono folds (scored on unfiltered later rows) improve bt3 .758->.761, bt4 .711->.742' 2>&1 | tail -1 | grep -o '\"auc\": [0-9.]*, \"brier\": [0-9.]*'); date +%s",
+      "description": "Register trial excluding all-discontinued cohorts of 8+ rows from fitting"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0000.jsonl",
+    "line": 780,
+    "tool_use_id": "toolu_01QL3FS1Ztvz4AJvbxVLquVf",
+    "tool": "Bash",
+    "input": {
+      "command": "cat > reg9.py <<'EOF'\nimport sys, json\nfrom mk import make\nfrom common import S3, CD, MON, BASE\ncfg=json.loads(sys.argv[1])\nK2=[c for c in S3 if c not in (CD,'entry_month_departures')]\nmake('cand2.py','../train.py',KEEP=K2,MONO=dict({k:v for k,v in MON.items() if k in K2},entry_rel_freq=-1),PARAMS=dict(BASE,n_estimators=150,**cfg.get('params',{})),DROP_UNIFORM=tuple(cfg['drop']))\nEOF\nPY=/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python\n$PY reg9.py '{\"drop\":[6,\"pos\",0.9]}' && (cd .. && $PY evaluate.py --note 'Sensitivity / training-only-preferred threshold for the cohort filter: exclude cohorts with >=6 rows and >=90% discontinued (best training-only chrono folds: bt3 .769 vs .761 for >=8 rows & 100%). Recorded to show how the filter threshold chosen without validation performs' 2>&1 | tail -1 | grep -o '\"auc\": [0-9.]*, \"brier\": [0-9.]*')\n$PY reg9.py '{\"drop\":[8,\"pos\"],\"params\":{\"max_depth\":4}}' && (cd .. && $PY evaluate.py --note 'H: with dying-carrier cohorts excluded the carrier-level relation is less dominated by a few fingerprints, so depth 4 may capture gauge x carrier-size x attrition interactions (carrier type) without overfitting; local diagnostics all equal or better than depth 3 (bt3 .761->.764, bt4 .742, leave-carrier-out .721->.724)' 2>&1 | tail -1 | grep -o '\"auc\": [0-9.]*, \"brier\": [0-9.]*'); date +%s",
+      "description": "Register threshold-sensitivity trial and depth-4 trial under the cohort filter"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0000.jsonl",
+    "line": 812,
+    "tool_use_id": "toolu_01DXwByUYKUW7PX8ajToEWi6",
+    "tool": "Bash",
+    "input": {
+      "command": "cat > sweep21.py <<'EOF'\nfrom common import *\nK2=[c for c in S3 if c not in (CD,'entry_month_departures')]\nM3=dict({k:v for k,v in MON.items() if k in K2},entry_rel_freq=-1)\nB=dict(BASE,n_estimators=150,max_depth=4); D=(8,'pos')\nfor w in ['sqrt','inv',('cap',30)]:\n    T(f'F8 d4 weight {w}', KEEP=K2, MONO=M3, PARAMS=B, DROP_UNIFORM=D, WEIGHT=w)\nm=load('../train.py')\ns1=m.fit(Xtr.copy(),ytr.copy(),seed=42,threads=5); s2=m.fit(Xtr.copy(),ytr.copy(),seed=42,threads=5)\np1=s1['model'].predict_proba(m.prepare(s1,Xev))[:,1]; p2=s2['model'].predict_proba(m.prepare(s2,Xev))[:,1]\nprint('refit determinism max abs diff',np.abs(p1-p2).max(),'rows dropped',s1['rows_dropped'],'val',roc_auc_score(yev,p1))\n# row-wise vs batch prepare equality\nrw=pd.concat([m.prepare(s1,Xev.iloc[[i]].reset_index(drop=True)) for i in range(len(Xev))],ignore_index=True)\nprint('row-wise == batch features:',np.allclose(rw.to_numpy(),m.prepare(s1,Xev).to_numpy(),equal_nan=True), 'dtypes float:',set(map(str,rw.dtypes)))\nev2=ev.copy(); ev2['p']=p1\ng=ev2.groupby('unique_carrier').agg(n=('p','size'),rate=('discontinued','mean'),p=('p','mean'),attr=(AT,'mean')).sort_values('n',ascending=False).head(22); print(g.round(3).to_string())\nev2['q']=ev2.entry_month.str[:7]; \nfor qn,d in ev2.groupby(pd.to_datetime(ev2.entry_month).dt.to_period('Q')): print(qn,len(d),round(d.discontinued.mean(),3),round(roc_auc_score(d.discontinued,d.p),3))\nvs=[]\nfor s in range(8):\n    st=m.fit(Xtr.copy(),ytr.copy(),seed=s,threads=5); vs.append(roc_auc_score(yev,st['model'].predict_proba(m.prepare(st,Xev))[:,1]))\nprint('seed repeats trial-11 config: mean %.4f sd %.4f min %.4f max %.4f'%(np.mean(vs),np.std(vs),min(vs),max(vs)))\nEOF\n/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python sweep21.py; date +%s",
+      "description": "Cohort weights under filter, determinism, row-wise equality, per-carrier and per-quarter errors, seed repeats"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0000.jsonl",
+    "line": 828,
+    "tool_use_id": "toolu_012RxUiAggb4SB51XhVdpt3q",
+    "tool": "Bash",
+    "input": {
+      "command": "cat > chk_clean.py <<'EOF'\nfrom common import *\na=load('../trials/'+[r for r in __import__('os').listdir('../trials') if r.startswith('')][0]+'/train.py') if False else None\nimport glob,json\nbest=max((json.load(open(f)) for f in glob.glob('../trials/*/result.json') if json.load(open(f)).get('auc')),key=lambda r:r['auc'])\nprint(best['id'],best['auc'])\nm0=load('../trials/%s/train.py'%best['id']); m1=load('clean.py')\ns0=m0.fit(Xtr.copy(),ytr.copy(),seed=42,threads=5); s1=m1.fit(Xtr.copy(),ytr.copy(),seed=42,threads=5)\np0=s0['model'].predict_proba(m0.prepare(s0,Xev))[:,1]; p1=s1['model'].predict_proba(m1.prepare(s1,Xev))[:,1]\nprint('max abs diff',np.abs(p0-p1).max(), roc_auc_score(yev,p1), s1['rows_dropped'], list(m0.prepare(s0,Xev).columns)==list(m1.prepare(s1,Xev).columns))\nsaved=pd.read_csv('../trials/%s/validation.csv.gz'%best['id']).p.to_numpy(); print('vs saved evaluator predictions max abs diff',np.abs(saved-p1).max())\nEOF\n/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python chk_clean.py; date +%s",
+      "description": "Verify clean solution reproduces best trial predictions exactly"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0000.jsonl",
+    "line": 834,
+    "tool_use_id": "toolu_01EdeLz3WzQqSwrzGjHEbnpM",
+    "tool": "Bash",
+    "input": {
+      "command": "cp clean.py ../train.py && cd .. && /Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python evaluate.py --note 'Reproducibility replay + simplification: hand-cleaned train.py (only the 15 used features, no unused lab options) for the trial-11 configuration; expected identical predictions and AUC (locally max abs prediction diff 0.0)' 2>&1 | tail -1 | grep -o '\"auc\": [0-9.]*, \"brier\": [0-9.]*'; date +%s",
+      "description": "Register clean replay of the best configuration"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0000.jsonl",
+    "line": 868,
+    "tool_use_id": "toolu_01Y35c2oh3BtFPbp1mei7h4s",
+    "tool": "Bash",
+    "input": {
+      "command": "cd lab && cat > boot2.py <<'EOF'\nfrom common import *\nimport json\ndef P(i): return pd.read_csv(f'../trials/{i}/validation.csv.gz').p.to_numpy()\nimport glob\nids={json.load(open(f))['id'][:8]:json.load(open(f))['id'] for f in glob.glob('../trials/*/result.json')}\nbase=P(ids['acf55d80']); t8=P(ids['b4b787c6']); t11=P(ids['42bb90aa'])\nrng=np.random.default_rng(1); car=ev.unique_carrier.to_numpy(); ucar=np.unique(car)\ndef boot(a,b,cluster):\n    d=[]\n    for i in range(2000):\n        if cluster:\n            cs=rng.choice(ucar,len(ucar)); ix=np.concatenate([np.where(car==c)[0] for c in cs])\n        else: ix=rng.integers(0,len(yev),len(yev))\n        if yev[ix].min()==yev[ix].max(): continue\n        d.append(roc_auc_score(yev[ix],a[ix])-(roc_auc_score(yev[ix],b[ix]) if b is not None else 0))\n    d=np.array(d); return round(d.mean(),4), np.percentile(d,[2.5,97.5]).round(4), round((d<=0).mean(),3)\nprint('trial11 AUC row CI',boot(t11,None,False)); print('trial11 AUC carrier-cluster CI',boot(t11,None,True))\nprint('t11 - baseline row',boot(t11,base,False)); print('t11 - baseline cluster',boot(t11,base,True))\nprint('t11 - t8 (filter+depth) row',boot(t11,t8,False)); print('t11 - t8 cluster',boot(t11,t8,True))\n# what carriers drive the t8->t11 change\nev2=ev.copy(); ev2['p8']=t8; ev2['p11']=t11\nprint(ev2.groupby('unique_carrier').agg(n=('p8','size'),rate=('discontinued','mean'),p8=('p8','mean'),p11=('p11','mean')).sort_values('n',ascending=False).head(14).round(3).to_string())\n# 2011 question under the filter (diagnostic only)\nm=load('clean.py')\nfor nm,mask in [('all',trm>='2010'),('2012+',trm>='2012-01-01')]:\n    vs=[]\n    for s in (42,1,2):\n        st=m.fit(Xtr[mask].copy(),ytr[mask.to_numpy()].copy(),seed=s,threads=5); vs.append(roc_auc_score(yev,st['model'].predict_proba(m.prepare(st,Xev))[:,1]))\n    print('with filter, fit on',nm,round(np.mean(vs),4))\nEOF\n/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python boot2.py; date +%s",
+      "description": "Bootstrap intervals for best trial and check the 2011 question under the filter"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0000.jsonl",
+    "line": 905,
+    "tool_use_id": "toolu_01UY8Q9hogPPd3NaZNc3v7tw",
+    "tool": "Bash",
+    "input": {
+      "command": "cd .. && /Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python - <<'EOF'\np='REPORT.md'; s=open(p).read()\na=s.index('## Trials (fixed evaluator, validation)')\ntail='''## Trials (fixed evaluator, validation)\n\n| # | trial | change | AUC | Brier |\n|---|-------|--------|-----|-------|\n| 1 | acf55d80 | scaffold baseline, raw 14 features, depth 6 \u00d7 100 | 0.6272 | 0.2418 |\n| 2 | 63295b36 | symmetric market features, capacity totals, monotone constraints, depth 3 \u00d7 300, lr .03 | 0.6673 | 0.2192 |\n| 3 | 047e9253 | colsample 0.4, drop calendar month | 0.6693 | 0.2137 |\n| 4 | 62ab46a7 | drop carrier_departures_prior_12m | 0.6726 | 0.2079 |\n| 5 | 64f2dcb9 | training-only backward elimination to 8 features (pre-committed) | 0.6476 | 0.2129 |\n| 6 | a3143b04 | trial 4 minus raw entry_month_departures | 0.6799 | 0.2066 |\n| 7 | 510fe685 | monotone-decreasing entry_rel_freq | 0.6816 | 0.2071 |\n| 8 | b4b787c6 | 150 trees instead of 300 | 0.6838 | 0.2032 |\n| 9 | 4f4e5389 | exclude all-discontinued carrier-month cohorts with \u2265 8 rows from fitting | 0.6984 | 0.1917 |\n| 10 | ca84f27c | filter threshold preferred by training-only folds (\u2265 6 rows, \u2265 90% discontinued) | 0.6936 | 0.1927 |\n| 11 | 42bb90aa | trial 9 with depth 4 | **0.7055** | 0.1903 |\n| 12 | 568a9f15 | hand-cleaned `train.py`, same configuration (replay) | 0.7055 | 0.1903 |\n\nOne additional trial directory (`473e9d33\u2026`) is a failed `--backtest` call, see \"Defects\".\nTrials 11 and 12 tie exactly; the selection rule picks the earlier one (trial 11). Its snapshot is the\ngenerated lab template; `train.py` in the attempt root is the cleaned equivalent (prediction difference\n0.0 locally, identical AUC through the evaluator).\n\n## Ablation of the final configuration\n\nLocal diagnostics, 3-seed means, one component removed at a time. \"Chrono\" is the mean of three\ntraining-only chronological folds scored on unfiltered later training rows; \"LCO\" is leave-carrier-out\nCV on train (the carrier column is used only to form folds).\n\n| variant | validation | chrono | LCO |\n|---|---|---|---|\n| final | 0.706 | 0.764 | 0.724 |\n| without cohort filter | 0.682 | 0.758 | 0.730 |\n| raw 14 features (filter kept) | 0.663 | 0.750 | 0.672 |\n| without capacity features (raw departures instead) | 0.674 | 0.749 | 0.711 |\n| origin/dest instead of min/max | 0.693 | 0.758 | 0.719 |\n| colsample 0.8 instead of 0.4 | 0.696 | 0.758 | 0.720 |\n| without `carrier_active_pairs_prior_12m` | 0.698 | 0.762 | 0.706 |\n| without attrition | 0.702 | 0.734 | 0.646 |\n| without monotone constraints | 0.705 | 0.762 | 0.705 |\n| scaffold hyperparameters (depth 6 \u00d7 100, lr .1) | 0.688 | 0.743 | 0.704 |\n\n## Findings\n\n1. **Validation AUC is a between-carrier ranking.** Only 6,655 of 146,333 positive\u2013negative validation\n   pairs (4.5%) are within one carrier. An oracle using each validation carrier's realised rate scores\n   0.781; a carrier-month cohort oracle scores 0.911. The effective sample is roughly 50 carriers, not\n   834 rows.\n2. **Vanishing carrier codes distort the fit.** Eighteen training cohorts (231 rows) are 100%\n   discontinued because the carrier code disappears (CO, XE(1), XJ, OH(1), 0JQ, FL, RP \u2026). Fitting on\n   them teaches \"mid-size, high-attrition carrier \u2192 every new route fails\", which over-predicts\n   carriers such as YX in validation (0.50 attrition, 21% discontinued; mean prediction 0.63 \u2192 0.50 once\n   the cohorts are excluded). Excluding them is worth about +0.02 validation AUC and also improves the\n   training-only chronological folds (0.758 \u2192 0.764 mean of three; the fold fitted on 2011 alone goes\n   from 0.57 to 0.68). It also explains an earlier puzzle: without the filter, dropping all 2011 rows\n   raised validation by 0.03; with the filter, dropping 2011 changes nothing (0.706 vs 0.704).\n3. **The carrier-level signal drifts.** Carrier attrition has univariate AUC 0.735 in train and 0.609 in\n   validation. In the final model, removing attrition costs only 0.004 on validation but 0.03\u20130.08 on\n   the training diagnostics. In validation S5 (90%), CP (81%) and 9E (82%) are almost entirely\n   discontinued and are under-predicted (0.45\u20130.52); nothing in the 14 inputs anticipates these.\n4. **Entry capacity is the stable route-level signal.** Seats, passengers, ASM/RPM and relative\n   frequency keep the same sign train \u2192 validation within carriers (concordance \u2248 0.34 \u2192 0.40; more\n   capacity, more survival). `pair_departures_prior_3m`, `competing_carriers_prior_3m` and `mkt_max`\n   flip sign within carriers. Removing the capacity features costs 0.03.\n5. **Direction symmetry helps.** Each route appears as two directed rows; replacing origin/dest features\n   by min/max is worth about 0.013\u20130.016.\n6. **Training-period CV does not transfer cleanly.** A pre-committed backward elimination on\n   training-only diagnostics raised those diagnostics (chrono 0.757 \u2192 0.771, LCO 0.722 \u2192 0.748) and\n   lowered validation by 0.025 (trial 5). The filter threshold preferred by the chronological folds\n   (trial 10) scored 0.005 below the threshold I had registered first (trial 9). Which period the 2018\n   holdout resembles is unknown.\n7. **Hyperparameters are a plateau.** Depth 1\u20136, 80\u20131000 trees, min_child_weight 1\u2013100, gamma, lambda,\n   max_bin, subsample/colsample, random-forest-style parallel trees, DART and interaction constraints all\n   land within about \u00b10.007 of each other on 3-seed validation means, before and after the filter.\n\n## Rejected or negative experiments (local diagnostics, not eligible trials)\n\n- **Dropping 2011 training rows** (before the filter existed): validation 0.663 \u2192 0.693, but\n  training-only checks said the opposite (test \u2265 2013: fit from 2011 0.758 vs from 2012 0.716), and it\n  would require recovering `entry_month` from row order, which circumvents the predictor contract. Not\n  used. The cohort filter later accounted for the effect without any date information.\n- **Cohort sample weights** (inverse carrier-month cohort size): validation +0.005 to +0.009 before the\n  filter, \u22120.01 after it; chronological folds \u22120.015 to \u22120.03. Not used.\n- **Capped cohort weights / removing the January-2012 re-coding entry cohorts** (EV 343 rows, UA 119\n  rows): validation \u22120.01. Rejected.\n- **More aggressive dead-carrier removal** (also the small all-discontinued cohorts of the same\n  carriers, linked with the lab-only carrier column; or all-negative cohorts too): no further gain\n  (0.694\u20130.698 vs 0.706).\n- Attrition shrinkage by carrier size, attrition \u00d7 pairs, carrier departures per pair, pax per\n  departure, entry share, incumbent departures per carrier, market ratio, cyclic month, gauge classes,\n  regional \u00d7 attrition, per-departure RPM/ASM, empty seats: no consistent gain.\n- Interaction constraints separating carrier-level from route-level features: \u22120.001 to \u22120.003.\n- DART booster: same as gbtree within seed noise and about 20\u00d7 slower.\n\n## Defects and concerns\n\n- **`evaluate.py --backtest` cannot run on this dataset.** `_engine.split_backtest` looks for a declared\n  column whose name contains \"date\"; the time column is `entry_month`, so it raises\n  `ValueError: No declared date column for chronological diagnostic`. This affects only the diagnostic\n  mode. Primary validation trials are unaffected, so no BLOCKER.json was written. I used my own\n  training-only chronological folds in `lab/common.py` instead (splitting rows by `entry_month`, never\n  using it as a feature).\n- **Label concerns from the source (not repaired):** mass re-coding cohorts are counted as route entries\n  and exits. Examples in train: EV 2012-01 (343 \"entries\", 3% discontinued), UA 2012-01 (119, 5%),\n  XE(1) 2011-02 (53, 100%), XJ (55, 100%), OH(1) (69, 93%), FL (96, 75%). These match the README's\n  merger/certificate-transfer limitation. The target and the scored rows were left as released; only\n  which training rows the model is fitted on changed.\n- **The filter cuts both ways.** If a holdout-period carrier code vanishes, its routes are all positives\n  that the filtered model will not flag. Leave-carrier-out CV on train, whose test folds contain the\n  vanished carriers, is flat to slightly lower with the filter (0.730 \u2192 0.724).\n- Three long local sweeps exceeded the tool's foreground time limit and were moved to the background by\n  the harness; one of them I killed. They were local diagnostics only and no evaluator trial overlapped\n  a result I report differently. One foreground `sleep 45` was used once to wait for such a sweep.\n\n## Uncertainty and limitations\n\n- Trial 11 validation AUC 0.7055: row-bootstrap 95% interval [0.668, 0.743], carrier-cluster interval\n  [0.623, 0.789]. Seed repeats (diagnostic only): mean 0.7044, sd 0.0035, range 0.700\u20130.710.\n- Trial 11 minus baseline: +0.078, row interval [+0.052, +0.106], carrier-cluster interval\n  [+0.036, +0.123].\n- Trial 11 minus trial 8 (filter + depth 4): +0.022, row interval [+0.009, +0.035], carrier-cluster\n  interval [\u22120.010, +0.050]. Most of it comes from one carrier (YX). The filter's size threshold is not\n  smooth: 4\u201310 rows give +0.012 to +0.020, 12 or more give nothing. I registered \u2265 8 on the mechanism\n  (four two-direction routes all failing is unlikely by chance) before seeing its evaluator score, but\n  after seeing local validation numbers for several thresholds.\n- Roughly 250 local configurations were scored against validation during development. The selected\n  trial's validation AUC is optimistically biased by that selection; the bias is not quantified.\n- Validation was inspected for error analysis (permitted here). Keeping\n  `carrier_active_pairs_prior_12m` and dropping `entry_month_departures` lean on validation evidence.\n- This is retrospective prediction under the release's assumed 90-day availability lag, not evidence of\n  live forecasting skill.\n\n## Files\n\n- `train.py` \u2014 cleaned final solution (same configuration as the selected trial 11); every tested\n  version is snapshotted under `trials/`.\n- `LOG.md`, `BACKLOG.md` \u2014 chronology and open ideas.\n- `lab/` \u2014 local diagnostic scripts (harness `common.py`, template `cand2.py`, sweeps, `clean.py`).\n'''\nopen(p,'w').write(s[:a]+tail)\nEOF\ncat >> LOG.md <<'EOF'\n12. Hand-cleaned train.py for the trial-11 configuration (replay) \u2014 0.705534636753159, identical to trial 11; local max abs prediction difference 0.0. Row-wise prepare equals batch prepare; refit is deterministic.\n\nClosing diagnostics\n- Bootstrap, trial 11: AUC row CI [.668, .743], carrier-cluster CI [.623, .789]; vs baseline +.078 (cluster CI [+.036, +.123]); vs trial 8 +.022 (row CI [+.009, +.035], cluster CI [-.010, +.050]). The filter mostly moves YX (mean prediction .63 -> .50, actual .21).\n- With the filter, fitting on 2012+ only gives .704 vs .706 for all rows: the earlier \"2011 hurts\" effect is explained by the dead-carrier cohorts.\n- Ablation of the final config (3-seed validation means): no filter .682; raw 14 features .663; no capacity features .674; origin/dest instead of min/max .693; colsample .8 .696; no carrier_active_pairs .698; no attrition .702 (but chrono folds .764 -> .734, leave-carrier-out .724 -> .646); no monotone .705; scaffold hyperparameters .688.\n- Hyperparameter sweep around depth 4 with the filter (100-250 trees, depth 5, min_child_weight 2-15, colsample .3-.55, subsample .6, lambda 20): .699-.710, plateau. Cohort weights with the filter: -.01. Extra capacity-style features (per-departure RPM/ASM, seats per small-market departure, empty seats/ASM): -.002 to -.015.\n- Seed repeats of trial-11 config (diagnostic): mean .7044, sd .0035.\nEOF\ncat > BACKLOG.md <<'EOF'\n# BACKLOG\n\nDone\n- [x] direction-symmetric market features, capacity totals, monotone constraints\n- [x] hyperparameters (depth, min_child_weight, trees/lr, colsample, gamma, lambda, max_bin, DART, parallel trees)\n- [x] interaction constraints carrier | route \u2014 no gain\n- [x] cohort inverse-size and capped sample weights \u2014 no gain\n- [x] calendar month drop / cyclic \u2014 dropped\n- [x] attrition shrinkage for small carriers \u2014 no gain\n- [x] training-only backward elimination \u2014 recorded, did not transfer to validation\n- [x] exclude all-discontinued carrier-month cohorts from fitting \u2014 adopted\n- [x] error analysis by carrier, gauge, frequency, quarter; bootstrap and seed-repeat diagnostics\n- [x] clean train.py and exact replay\n\nOpen (not attempted or not resolved)\n- [ ] Link cohorts of the same carrier across adjacent months from carrier-level values alone, to treat a vanishing carrier consistently (lab oracle version showed no gain, so low priority)\n- [ ] A principled, label-free detector of re-coding *entries* (routes that already existed under another code); removing the two obvious Jan-2012 cohorts hurt validation, reason not understood\n- [ ] Why carrier_active_pairs helps validation but hurts training-period CV (carrier-type proxy vs fingerprint)\n- [ ] Internal early stopping on a cohort-grouped split (tree count is on a plateau from 100 to 250, so little expected)\n- [ ] The built-in `--backtest` mode cannot run here (no column containing \"date\"); needs a harness fix outside my remit\nEOF\ndate +%s",
+      "description": "Rewrite report sections, finalize log and backlog"
+    },
+    "reasons": [
+      "process_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0000.jsonl",
+    "line": 914,
+    "tool_use_id": "toolu_01WWDthFijBsUHtTUKvqDEbn",
+    "tool": "Bash",
+    "input": {
+      "command": "/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python - <<'EOF'\np='REPORT.md'; s=open(p).read()\nold=s[s.index('The gain over the baseline is +0.078 AUC.'):s.index('## What the model is')]\nnew='''The gain over the baseline is +0.078 AUC (paired bootstrap: row-level 95% interval [+0.052, +0.106],\ncarrier-cluster interval [+0.036, +0.123]). The gain over baseline is probably real; the ordering among\nmy own improved trials is much less certain (see \"Uncertainty\").\n\n'''\ns=s.replace(old,new)\ns=s.replace(\"- Roughly 250 local configurations were scored\",\"- Roughly 300 local configurations were scored\")\nold2=s[s.index('- Three long local sweeps'):s.index('## Uncertainty and limitations')]\nnew2='''- Three long local sweeps exceeded the tool's foreground time limit and were moved to the background by\n  the harness; one of them I killed. They were local diagnostics only. Trial 6 was evaluated while one\n  was still running, which can only have affected its recorded runtime. One foreground `sleep 45` was\n  used once to wait for such a sweep.\n\n'''\ns=s.replace(old2,new2)\nopen(p,'w').write(s)\nEOF\ngrep -n \"0.078\\|Roughly 300\\|Trial 6 was\" REPORT.md | head; date +%s",
+      "description": "Patch report wording and counts"
+    },
+    "reasons": [
+      "process_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0000.jsonl",
+    "line": 1002,
+    "tool_use_id": "toolu_01Rc58gRR923N6jBfneJxTP2",
+    "tool": "Bash",
+    "input": {
+      "command": "cat > chk_art.py <<'EOF'\nimport pickle, sys, numpy as np, pandas as pd, json, glob\nfrom common import Xev, yev, FEATS, roc_auc_score\ntid=[json.load(open(f))['id'] for f in glob.glob('../trials/*/result.json') if json.load(open(f))['id'].startswith('42bb90aa')][0]\nart=pickle.loads(open(f'../trials/{tid}/model.pkl','rb').read())\nst,prep=art['state'],art['prepare']\nprint('state keys',sorted(st.keys()),'rows_dropped',st.get('rows_dropped'),'n_jobs',st['model'].get_params()['n_jobs'],'trees',st['model'].get_booster().num_boosted_rounds())\n# shuffled order / single rows give the same predictions as batch\np=st['model'].predict_proba(prep(st,Xev))[:,1]\nperm=np.random.default_rng(0).permutation(len(Xev)); p2=st['model'].predict_proba(prep(st,Xev.iloc[perm].reset_index(drop=True)))[:,1]\nprint('order independence max diff',np.abs(p[perm]-p2).max(),'auc',roc_auc_score(yev,p))\n# rows with missing inputs\nr=Xev.iloc[[0]].copy()\nfor c in FEATS:\n    q=r.copy(); q[c]=np.nan; z=prep(st,q); assert np.isfinite(z.to_numpy()[~np.isnan(z.to_numpy())]).all(); st['model'].predict_proba(z)\nq=r.copy(); q[FEATS]=np.nan; print('all-missing row prediction',st['model'].predict_proba(prep(st,q))[:,1])\nprint('any inf in validation features:',np.isinf(prep(st,Xev).to_numpy()).any(), ' min carrier deps/pairs in train+val:', Xev.carrier_departures_prior_12m.min(), Xev.carrier_active_pairs_prior_12m.min())\nEOF\n/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python chk_art.py; date +%s",
+      "description": "Sanity-check the saved best artifact: order independence and missing-input handling"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0000.jsonl",
+    "line": 1047,
+    "tool_use_id": "toolu_01Sro7v7Zsh4Z9wZnA63kZnd",
+    "tool": "Bash",
+    "input": {
+      "command": "cat > final_diag.py <<'EOF'\nfrom common import *\nimport json,glob\nids={json.load(open(f))['id'][:8]:json.load(open(f))['id'] for f in glob.glob('../trials/*/result.json')}\np=pd.read_csv(f\"../trials/{ids['42bb90aa']}/validation.csv.gz\").p.to_numpy(); p0=pd.read_csv(f\"../trials/{ids['acf55d80']}/validation.csv.gz\").p.to_numpy()\nprint('mean pred %.3f vs rate %.3f ; baseline mean pred %.3f'%(p.mean(),yev.mean(),p0.mean()))\nq=pd.qcut(p,10,labels=False,duplicates='drop'); d=pd.DataFrame({'q':q,'p':p,'y':yev}).groupby('q').agg(n=('y','size'),pred=('p','mean'),obs=('y','mean')).round(3); print(d.T.to_string())\ndef within(x,y,grp):\n    num=den=0\n    for g,idx in pd.Series(np.arange(len(y))).groupby(grp).groups.items():\n        idx=np.asarray(idx); yy=y[idx]\n        if yy.min()==yy.max(): continue\n        n=yy.sum()*(len(yy)-yy.sum()); num+=roc_auc_score(yy,x[idx])*n; den+=n\n    return num/den\ncar=ev.unique_carrier.to_numpy()\nev2=ev.assign(p=p,p0=p0); cm=ev2.groupby('unique_carrier').p.transform('mean').to_numpy(); cm0=ev2.groupby('unique_carrier').p0.transform('mean').to_numpy()\nprint('within-carrier concordance: final %.3f baseline %.3f'%(within(p,yev,car),within(p0,yev,car)))\nprint('carrier-mean prediction AUC: final %.3f baseline %.3f ; oracle carrier rate %.3f'%(roc_auc_score(yev,cm),roc_auc_score(yev,cm0),roc_auc_score(yev,ev2.groupby('unique_carrier').discontinued.transform('mean'))))\ng=pd.cut(ev.entry_month_seats_per_departure,[0,20,56,80,130,400])\nfor k,dd in ev2.groupby(g,observed=True): print(k,len(dd),'rate %.3f pred %.3f auc %.3f'%(dd.discontinued.mean(),dd.p.mean(),roc_auc_score(dd.discontinued,dd.p) if dd.discontinued.nunique()==2 else float('nan')))\n# excluding the S5 rows (vanished code in validation): AUC of final / baseline on the rest \u2014 diagnostic only\nmk=car!='S5'; print('AUC excluding S5 rows (diagnostic): final %.4f baseline %.4f'%(roc_auc_score(yev[mk],p[mk]),roc_auc_score(yev[mk],p0[mk])))\nEOF\n/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python final_diag.py; date +%s",
+      "description": "Calibration, within/between-carrier decomposition and segment AUCs for the final trial"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0000.jsonl",
+    "line": 1163,
+    "tool_use_id": "toolu_01P3qSMBCWCLX9rALLeAEmRP",
+    "tool": "Bash",
+    "input": {
+      "command": "sed -e 's/\"n_estimators\": 150, \"max_depth\": 4, \"learning_rate\": 0.03/\"n_estimators\": 600, \"max_depth\": 4, \"learning_rate\": 0.0075/' clean.py > ../train.py && grep -n '\"n_estimators\"' ../train.py && cd .. && /Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python evaluate.py --note 'Robustness / variance check: same configuration as trial 11 with 4x the trees at 1/4 the learning rate (600 x 0.0075), which averages out subsampling noise (local seed sd .0007 vs .0036; local mean .701 vs .705). Expected about .701: the seed-noise-free value of this configuration, recorded for honesty about how much of .7055 is seed luck' 2>&1 | tail -1 | grep -o '\"auc\": [0-9.]*, \"brier\": [0-9.]*'; date +%s",
+      "description": "Register low-variance equivalent of the best configuration"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0001.jsonl",
+    "line": 17,
+    "tool_use_id": "toolu_01BDfYcJhTj8DznvYkbjYamv",
+    "tool": "Bash",
+    "input": {
+      "command": "/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python - <<'EOF'\np='LOG.md'; s=open(p).read()\nold=\"(The last config of that sweep, depth 6, overran the foreground limit and was killed.)\"\nnew=\"(That sweep overran the foreground limit on its last config, depth 6, and was moved to the background; it completed on its own before my kill command reached it. Depth 6 result not recorded here.)\"\nassert old in s; open(p,'w').write(s.replace(old,new,1))\nEOF\ncd lab && cat > optimism.py <<'EOF'\nfrom common import *\nimport json,glob\nrs=sorted([json.load(open(f)) for f in glob.glob('../trials/*/result.json')],key=lambda r:r['started_epoch'])\nrs=[r for r in rs if r['status']=='ok' and r['mode']=='validation']\nP=np.array([pd.read_csv(f\"../trials/{r['id']}/validation.csv.gz\").p.to_numpy() for r in rs]); full=np.array([r['auc'] for r in rs])\ncar=ev.unique_carrier.to_numpy(); ucar=np.unique(car); rng=np.random.default_rng(0)\ngapA=[]; pick=[]; heldB=[]; bestB=[]; t11B=[]; i11=[i for i,r in enumerate(rs) if r['id'].startswith('42bb90aa')][0]; i13=[i for i,r in enumerate(rs) if r['id'].startswith('d39bd498')][0]\nfor it in range(2000):\n    perm=rng.permutation(ucar); A=np.isin(car,perm[:len(perm)//2]); B=~A\n    if yev[A].min()==yev[A].max() or yev[B].min()==yev[B].max(): continue\n    a=np.array([roc_auc_score(yev[A],p[A]) for p in P]); b=np.array([roc_auc_score(yev[B],p[B]) for p in P])\n    k=int(a.argmax()); pick.append(k); gapA.append(a[k]-a[i13]); heldB.append(b[k]-b[i13]); bestB.append(b.max()-b[k])\npick=np.array(pick)\nprint('trials:',[(i+1,round(x,4)) for i,x in enumerate(full)])\nprint('carrier-split halves, 2000 splits: trial chosen on half A (counts by trial #):',{int(k)+1:int((pick==k).sum()) for k in np.unique(pick)})\nprint('advantage of the half-A winner over the low-variance trial 13: on half A (selection half) mean %+.4f ; on half B (held-out half) mean %+.4f'%(np.mean(gapA),np.mean(heldB)))\nprint('regret on half B vs the best trial for half B: mean %.4f'%np.mean(bestB))\nEOF\n/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python optimism.py; date +%s",
+      "description": "Fix log wording; estimate selection optimism with carrier-split halves of validation"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0001.jsonl",
+    "line": 92,
+    "tool_use_id": "toolu_01SRWD34MzWFxNrTKTYykYqK",
+    "tool": "Bash",
+    "input": {
+      "command": "/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python - <<'EOF'\ns=open('clean.py').read()\na=s.index('COLS = ['); b=s.index('# Attrition raises discontinuation')\nnew='''COLS = [\"distance_miles\", \"carrier_active_pairs_prior_12m\", \"carrier_route_attrition_prior_12m\",\n        \"entry_month_seats_per_departure\", \"mkt_min\", \"mkt_max\", \"seats\", \"pax\", \"asm\", \"rpm\",\n        \"entry_rel_freq\"]\n\n'''\ns=s[:a]+new+s[b:]\ns=s.replace('\"n_estimators\": 150, \"max_depth\": 4, \"learning_rate\": 0.03','\"n_estimators\": 600, \"max_depth\": 4, \"learning_rate\": 0.0075')\ns=s.replace(\"One XGBClassifier on 15 features computed from the single scored row.\",\"One XGBClassifier on 11 features computed from the single scored row.\")\nopen('clean11.py','w').write(s)\nEOF\ncp clean11.py ../train.py && cd .. && /Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python evaluate.py --note 'H (simplification, training-only motivation): drop the four features whose univariate direction is unstable across training entry years 2011-2014 with dead cohorts excluded (competing_carriers, pair_departures, load factor, new_any); keep the year-stable ones (attrition, gauge, seats, pax, asm, rpm) plus carrier pairs, market min/max, distance, relative frequency. Low-variance fit 600 x .0075. Training diagnostics equal to the 15-feature model (bt3 .766, leave-carrier-out .723); local validation .705' 2>&1 | tail -1 | grep -o '\"auc\": [0-9.]*, \"brier\": [0-9.]*'; date +%s",
+      "description": "Register 11-feature year-stable simplification with low-variance fit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0001.jsonl",
+    "line": 139,
+    "tool_use_id": "toolu_01TjqzXUxMm3koRhR72eEFNi",
+    "tool": "Bash",
+    "input": {
+      "command": "cd lab && cat > luck.py <<'EOF'\nfrom common import *\nm=load('clean.py'); base=list(m.COLS); rng=np.random.default_rng(3); vs=[]\nfor i in range(60):\n    m.COLS=list(rng.permutation(base)); s=int(rng.integers(1,10**6))\n    st=m.fit(Xtr.copy(),ytr.copy(),seed=s,threads=5); vs.append(roc_auc_score(yev,st['model'].predict_proba(m.prepare(st,Xev))[:,1]))\nvs=np.array(vs); print('selected configuration (150 trees) over 60 random seeds x column orders: mean %.4f sd %.4f, 5th-95th pct %s, share >= 0.7055: %.2f'%(vs.mean(),vs.std(),np.percentile(vs,[5,95]).round(4),(vs>=0.7055).mean()))\nm0=load('../trials/acf55d807fcf40eea25cd871f2f04a4d/train.py'); st=m0.fit(Xtr.copy(),ytr.copy(),seed=42,threads=5); b=roc_auc_score(yev,st['model'].predict_proba(m0.prepare(st,Xev))[:,1])\nprint('baseline %.4f ; share of draws above baseline %.2f ; mean gain %+.4f'%(b,(vs>b).mean(),vs.mean()-b))\nEOF\n/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python luck.py; date +%s",
+      "description": "Distribution of the selected configuration over seeds and column orders"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0002.jsonl",
+    "line": 7,
+    "tool_use_id": "toolu_01RRtK9kKxdemJBGn7DnHQtG",
+    "tool": "Bash",
+    "input": {
+      "command": "cat TASK.json | grep deadline; date +%s; cd lab && cat > replay.py <<'EOF'\nimport sys, json, glob, numpy as np, pandas as pd\nsys.path.insert(0,'..')\nimport _engine as E\nfrom pathlib import Path\nif __name__=='__main__':\n    root=Path('..').resolve(); m,tr,ev,drop,pos=E.data(root)\n    y=(ev[m['target']]==pos).astype(int).to_numpy(); X=ev.drop(columns=drop,errors='ignore')\n    for tid in ['42bb90aa','568a9f15','01394169']:\n        d=[p for p in glob.glob('../trials/*') if Path(p).name.startswith(tid)][0]\n        rec=json.load(open(d+'/result.json'))\n        assert E.sha(d+'/model.pkl')==rec['artifact_sha256'] and E.sha(d+'/train.py')==rec['code_sha256']\n        p=E.score_rows(Path(d+'/model.pkl').read_bytes(),X,5); saved=pd.read_csv(d+'/validation.csv.gz')\n        print(tid,'cold replay auc %.15f recorded %.15f max abs pred diff %.2e hashes ok'%(E.metrics(y,p)['auc'],rec['auc'],np.abs(saved.p.to_numpy()-p).max()))\nEOF\n/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python replay.py; date +%s",
+      "description": "Cold-replay saved artifacts through the evaluator's own row-wise scoring path"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0003.jsonl",
+    "line": 7,
+    "tool_use_id": "toolu_01Uut8a6Kzq4xMNzTUEjp9Dx",
+    "tool": "Bash",
+    "input": {
+      "command": "grep deadline TASK.json; date +%s; cd lab && cat > robust_in.py <<'EOF'\nimport pickle, glob, numpy as np, pandas as pd\nfrom common import *\nfrom sklearn.metrics import brier_score_loss\nd=[p for p in glob.glob('../trials/*') if p.split('/')[-1].startswith('42bb90aa')][0]\nart=pickle.loads(open(d+'/model.pkl','rb').read()); st,prep=art['state'],art['prepare']\np=st['model'].predict_proba(prep(st,Xev))[:,1]\nrng=np.random.default_rng(0); Xs=Xev[list(rng.permutation(Xev.columns))]; p2=st['model'].predict_proba(prep(st,Xs))[:,1]\nXi=Xev.copy(); Xi['entry_calendar_month']=Xi['entry_calendar_month'].astype('int64'); Xi['junk']=1.0; p3=st['model'].predict_proba(prep(st,Xi))[:,1]\nX0=Xev.copy(); before=X0.copy(); _=prep(st,X0)\nprint('input column order shuffled: max diff %.1e | extra column + int dtype: max diff %.1e | prepare leaves its input unchanged: %s'%(np.abs(p-p2).max(),np.abs(p-p3).max(),X0.equals(before)))\n# secondary metric, noise-averaged\nK2=[c for c in S3 if c not in (CD,'entry_month_departures')]\nM3=dict({k:v for k,v in MON.items() if k in K2},entry_rel_freq=-1)\nB=dict(BASE,n_estimators=150,max_depth=4)\ndef br(drop,keep=K2,mono=M3,params=B,n=20):\n    m=load('cand2.py'); m.PARAMS=params; m.DROP_UNIFORM=drop; r=np.random.default_rng(7); vs=[]\n    for i in range(n):\n        m.KEEP=list(r.permutation(keep)); m.MONO={a:b for a,b in mono.items() if a in keep}; s=int(r.integers(1,10**6))\n        stt=m.fit(Xtr.copy(),ytr.copy(),seed=s,threads=5); vs.append(brier_score_loss(yev,stt['model'].predict_proba(m.prepare(stt,Xev))[:,1]))\n    return np.mean(vs),np.std(vs)\nprint('Brier (mean, sd over 20 refits): final %.4f %.4f | no filter %.4f %.4f | raw 14 + filter %.4f %.4f | constant base rate %.4f'%(*br((8,'pos')),*br(None),*br((8,'pos'),keep=FEATS,mono={}),brier_score_loss(yev,np.full(len(yev),ytr.mean()))))\nEOF\n/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python robust_in.py; date +%s",
+      "description": "Check artifact robustness to input column order and extra columns; noise-averaged Brier"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0008.jsonl",
+    "line": 5,
+    "tool_use_id": "toolu_013xBRm4VybqPd36RiGb7kV7",
+    "tool": "Bash",
+    "input": {
+      "command": "grep deadline TASK.json; date +%s; cd lab && cat > overlap.py <<'EOF'\nfrom common import *\nimport glob\nd=[p for p in glob.glob('../trials/*') if p.split('/')[-1].startswith('42bb90aa')][0]; p=pd.read_csv(d+'/validation.csv.gz').p.to_numpy()\nb=[q for q in glob.glob('../trials/*') if q.split('/')[-1].startswith('acf55d80')][0]; p0=pd.read_csv(b+'/validation.csv.gz').p.to_numpy()\nk=lambda df:(df.unique_carrier+'_'+np.minimum(df.origin_city_market_id,df.dest_city_market_id).astype(str)+'_'+np.maximum(df.origin_city_market_id,df.dest_city_market_id).astype(str))\nseen_route=k(ev).isin(k(tr)).to_numpy(); seen_car=ev.unique_carrier.isin(tr.unique_carrier).to_numpy()\npair=lambda df:(np.minimum(df.origin_city_market_id,df.dest_city_market_id).astype(str)+'_'+np.maximum(df.origin_city_market_id,df.dest_city_market_id).astype(str))\nseen_pair=pair(ev).isin(pair(tr)).to_numpy()\nfor nm,mk in [('all rows',np.ones(len(yev),bool)),('carrier+route not in train',~seen_route),('carrier+route also launched in train',seen_route),('city pair (any carrier) not in train',~seen_pair),('city pair in train',seen_pair),('carrier seen in train',seen_car)]:\n    if yev[mk].min()==yev[mk].max(): print(nm,int(mk.sum()),'single class'); continue\n    print(f'{nm:38s} n {int(mk.sum()):4d} rate {yev[mk].mean():.3f}  selected {roc_auc_score(yev[mk],p[mk]):.4f}  baseline {roc_auc_score(yev[mk],p0[mk]):.4f}')\nEOF\n/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python overlap.py; date +%s",
+      "description": "Check validation performance on rows with and without train overlap"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0009.jsonl",
+    "line": 5,
+    "tool_use_id": "toolu_015scorRRpXPMSp8JzfDgMPK",
+    "tool": "Bash",
+    "input": {
+      "command": "grep deadline TASK.json; date +%s; cd lab && cat > seg.py <<'EOF'\nfrom common import *\nimport glob\nd=[p for p in glob.glob('../trials/*') if p.split('/')[-1].startswith('42bb90aa')][0]; p=pd.read_csv(d+'/validation.csv.gz').p.to_numpy()\nsegs={'pair unserved in prior 3 months':(ev.pair_departures_prior_3m==0).to_numpy(),'pair served, no competing carrier listed':((ev.pair_departures_prior_3m>0)&(ev.competing_carriers_prior_3m==0)).to_numpy(),\n      'pair served by 1-2 other carriers':((ev.competing_carriers_prior_3m>=1)&(ev.competing_carriers_prior_3m<=2)).to_numpy(),'pair served by 3+ other carriers':(ev.competing_carriers_prior_3m>=3).to_numpy(),\n      'gauge <= 80 seats':(ev.entry_month_seats_per_departure<=80).to_numpy(),'gauge > 80 seats':(ev.entry_month_seats_per_departure>80).to_numpy()}\nfor nm,mk in segs.items():\n    print(f'{nm:42s} n {int(mk.sum()):4d} rate {yev[mk].mean():.3f} mean pred {p[mk].mean():.3f} AUC {roc_auc_score(yev[mk],p[mk]):.3f} carriers {ev.unique_carrier[mk].nunique()}')\nEOF\n/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python seg.py; date +%s",
+      "description": "Segment validation performance by prior service on the pair and aircraft gauge"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0013.jsonl",
+    "line": 5,
+    "tool_use_id": "toolu_015LitN84qQV4RBhz3fYNLkD",
+    "tool": "Bash",
+    "input": {
+      "command": "grep deadline TASK.json; date +%s; cd lab && /Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python - <<'EOF'\nfrom common import *\nimport glob\nd=[p for p in glob.glob('../trials/*') if p.split('/')[-1].startswith('42bb90aa')][0]; p=pd.read_csv(d+'/validation.csv.gz').p.to_numpy()\ne=ev.assign(p=p); top=e[e.p>=np.quantile(p,0.9)]\nprint('top decile rows',len(top),'observed rate %.3f mean pred %.3f'%(top.discontinued.mean(),top.p.mean()))\nprint(top.groupby('unique_carrier').agg(n=('p','size'),rate=('discontinued','mean')).sort_values('n',ascending=False).head(6).round(2).to_string())\nprint(e[e.unique_carrier.isin(['S5','CP (2)','9E','YX'])].groupby('unique_carrier').agg(n=('p','size'),rate=('discontinued','mean'),pred=('p','mean')).round(3).to_string())\nEOF\ndate +%s",
+      "description": "Verify report claims about the top prediction decile and under-predicted carriers"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0016.jsonl",
+    "line": 5,
+    "tool_use_id": "toolu_013vTuRQt2ytb3VnBkxzev2j",
+    "tool": "Bash",
+    "input": {
+      "command": "grep deadline TASK.json; date +%s; /Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/venv/bin/python - <<'EOF'\nimport re,glob\nd=[p for p in glob.glob('trials/*') if p.split('/')[-1].startswith('42bb90aa')][0]; src=open(d+'/train.py').read()\nprint('selected trial snapshot: file/network/env access:', bool(re.search(r'\\bopen\\(|read_csv|requests|urllib|socket|os\\.environ|subprocess',src)), '| imports:', sorted(set(re.findall(r'^import (\\w+)',src,re.M))))\nfor k in ['KEEP','DROP_UNIFORM','WEIGHT','SHRINK_K','INTER','MONO','PARAMS']:\n    m=re.search(r'^'+k+r' = .*?(?=^\\S)',src,re.S|re.M); print(' ',' '.join(m.group(0).split())[:230])\nEOF\ndate +%s",
+      "description": "Scan the selected trial's own code snapshot for forbidden access and show its configuration"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "trace": "0016.jsonl",
+    "line": 8,
+    "tool_use_id": "toolu_01FB9kcDRpD8kdLi2tEXe9jN",
+    "tool": "Bash",
+    "input": {
+      "command": "cat >> LOG.md <<'EOF'\n\nSixteenth continuation (about 2.5 min)\n- The selected trial's own code snapshot (trials/42bb90aa.../train.py, the generated lab template that will be frozen) was scanned as well: imports only numpy, pandas, xgboost; no file, network, environment or subprocess access; its active configuration is the 15-feature list, cohort filter (8, all-discontinued), no sample weights, no attrition shrinkage, no interaction constraints, the six monotone constraints and 150 x .03 depth-4 parameters \u2014 the same configuration as the cleaned root train.py, as the identical trial-12 replay AUC already showed.\n- Final state: 16 eligible trials; selected trial 11 (42bb90aa), 0.705534636753159.\nEOF\ndate +%s",
+      "description": "Record scan of the selected trial snapshot"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  }
+]

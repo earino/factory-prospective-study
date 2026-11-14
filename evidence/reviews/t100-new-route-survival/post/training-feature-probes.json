@@ -1,0 +1,44 @@
+[
+  {
+    "run": "t100-new-route-survival--r1",
+    "full_training_rows": 3734,
+    "training_feature_rows": 7468,
+    "checks": [
+      {
+        "row": 0,
+        "changed_own_feature_cells": 0,
+        "max_absolute_change": 0.0,
+        "augmented_copies": 2
+      },
+      {
+        "row": 1867,
+        "changed_own_feature_cells": 0,
+        "max_absolute_change": 0.0,
+        "augmented_copies": 2
+      }
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r2",
+    "full_training_rows": 3734,
+    "training_feature_rows": 29872,
+    "checks": [
+      {
+        "row": 0,
+        "changed_own_feature_cells": 0,
+        "max_absolute_change": 0.0,
+        "augmented_copies": 8
+      },
+      {
+        "row": 1867,
+        "changed_own_feature_cells": 0,
+        "max_absolute_change": 0.0,
+        "augmented_copies": 8
+      }
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "error": "AssertionError()"
+  }
+]

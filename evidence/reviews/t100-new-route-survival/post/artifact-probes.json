@@ -1,0 +1,57 @@
+[
+  {
+    "run": "t100-new-route-survival--r1",
+    "real_validation_rows_checked": 25,
+    "batch_equals_single_rows": true,
+    "reverse_order_invariant": true,
+    "prepare_external_events": [],
+    "n_jobs": 5,
+    "feature_count": 8,
+    "selected_feature_names": [
+      "carrier_departures_prior_12m",
+      "carrier_active_pairs_prior_12m",
+      "carrier_route_attrition_prior_12m",
+      "big_aircraft",
+      "entry_pax",
+      "entry_calendar_month",
+      "mkt_min",
+      "mkt_ratio"
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r2",
+    "real_validation_rows_checked": 25,
+    "batch_equals_single_rows": true,
+    "reverse_order_invariant": true,
+    "prepare_external_events": [],
+    "n_jobs": 5,
+    "feature_count": 16,
+    "selected_feature_names": null
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "real_validation_rows_checked": 25,
+    "batch_equals_single_rows": true,
+    "reverse_order_invariant": true,
+    "prepare_external_events": [],
+    "n_jobs": 5,
+    "feature_count": 15,
+    "selected_feature_names": [
+      "distance_miles",
+      "carrier_active_pairs_prior_12m",
+      "carrier_route_attrition_prior_12m",
+      "competing_carriers_prior_3m",
+      "pair_departures_prior_3m",
+      "entry_month_seats_per_departure",
+      "entry_month_load_factor",
+      "mkt_min",
+      "mkt_max",
+      "new_any",
+      "seats",
+      "pax",
+      "asm",
+      "rpm",
+      "entry_rel_freq"
+    ]
+  }
+]
