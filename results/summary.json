@@ -1,6 +1,6 @@
 {
   "cli_reported_cost_usd_not_invoice": 1634.057735,
-  "generated_at": "2026-11-14T12:37:20.541002+00:00",
+  "generated_at": "2026-11-14T12:43:29.086255+00:00",
   "limitations": [
     "Five selected factory releases; three attempts are descriptive, not agent rankings.",
     "Pinned consumer scaffold and deterministic downloads are provided assistance.",
@@ -114,9 +114,19 @@
   "scores": [
     {
       "dataset": "t100-new-route-survival",
-      "holdout_auc": null,
-      "holdout_brier": null,
-      "holdout_rows": null,
+      "holdout_auc": 0.601343037214886,
+      "holdout_brier": 0.23626259393689364,
+      "holdout_rows": 1209,
+      "id": "t100-new-route-survival--ordinary",
+      "kind": "ordinary",
+      "validation_auc": 0.6272474424770899,
+      "validation_brier": 0.2418056636530164
+    },
+    {
+      "dataset": "t100-new-route-survival",
+      "holdout_auc": 0.6006572629051621,
+      "holdout_brier": 0.226618879262137,
+      "holdout_rows": 1209,
       "id": "t100-new-route-survival--r1",
       "kind": "agent",
       "validation_auc": 0.6855425638782775,
@@ -124,9 +134,19 @@
     },
     {
       "dataset": "t100-new-route-survival",
-      "holdout_auc": null,
-      "holdout_brier": null,
-      "holdout_rows": null,
+      "holdout_auc": 0.6176515606242499,
+      "holdout_brier": 0.2321469418715119,
+      "holdout_rows": 1209,
+      "id": "t100-new-route-survival--r1--random",
+      "kind": "random",
+      "validation_auc": 0.647840883464427,
+      "validation_brier": 0.22401006179003413
+    },
+    {
+      "dataset": "t100-new-route-survival",
+      "holdout_auc": 0.5959483793517407,
+      "holdout_brier": 0.22352059405099117,
+      "holdout_rows": 1209,
       "id": "t100-new-route-survival--r2",
       "kind": "agent",
       "validation_auc": 0.7014822357226327,
@@ -134,13 +154,43 @@
     },
     {
       "dataset": "t100-new-route-survival",
-      "holdout_auc": null,
-      "holdout_brier": null,
-      "holdout_rows": null,
+      "holdout_auc": 0.5928601440576231,
+      "holdout_brier": 0.24057515481609038,
+      "holdout_rows": 1209,
+      "id": "t100-new-route-survival--r2--random",
+      "kind": "random",
+      "validation_auc": 0.6427360882371032,
+      "validation_brier": 0.2258421026338016
+    },
+    {
+      "dataset": "t100-new-route-survival",
+      "holdout_auc": 0.6101620648259303,
+      "holdout_brier": 0.22753865874032,
+      "holdout_rows": 1209,
       "id": "t100-new-route-survival--r3",
       "kind": "agent",
       "validation_auc": 0.705534636753159,
       "validation_brier": 0.19029957961223112
+    },
+    {
+      "dataset": "t100-new-route-survival",
+      "holdout_auc": 0.5878301320528212,
+      "holdout_brier": 0.22919474113440966,
+      "holdout_rows": 1209,
+      "id": "t100-new-route-survival--r3--random",
+      "kind": "random",
+      "validation_auc": 0.6413966774411786,
+      "validation_brier": 0.2171492656586603
+    },
+    {
+      "dataset": "t100-new-route-survival",
+      "holdout_auc": 0.5959693877551021,
+      "holdout_brier": 0.22463008366903883,
+      "holdout_rows": 1209,
+      "id": "t100-new-route-survival--released",
+      "kind": "released",
+      "validation_auc": 0.6245515365638646,
+      "validation_brier": 0.23069898133772251
     }
   ]
 }

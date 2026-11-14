@@ -1,6 +1,6 @@
 # Consumer study results
 
-Generated 2026-11-14T12:37:20.541002+00:00
+Generated 2026-11-14T12:43:29.086255+00:00
 
 Measured records are in summary.json and scores.csv. Failures remain in the denominator.
 
@@ -16,9 +16,14 @@ Compliance triage (separate from scores):
 
 Scores (including flagged attempts; do not treat all as compliant results):
 
-- t100-new-route-survival--r1: validation AUC 0.685543; holdout AUC not scored.
-- t100-new-route-survival--r2: validation AUC 0.701482; holdout AUC not scored.
-- t100-new-route-survival--r3: validation AUC 0.705535; holdout AUC not scored.
+- t100-new-route-survival--ordinary: validation AUC 0.627247; holdout AUC 0.601343.
+- t100-new-route-survival--r1: validation AUC 0.685543; holdout AUC 0.600657.
+- t100-new-route-survival--r1--random: validation AUC 0.647841; holdout AUC 0.617652.
+- t100-new-route-survival--r2: validation AUC 0.701482; holdout AUC 0.595948.
+- t100-new-route-survival--r2--random: validation AUC 0.642736; holdout AUC 0.592860.
+- t100-new-route-survival--r3: validation AUC 0.705535; holdout AUC 0.610162.
+- t100-new-route-survival--r3--random: validation AUC 0.641397; holdout AUC 0.587830.
+- t100-new-route-survival--released: validation AUC 0.624552; holdout AUC 0.595969.
 
 ## Limits
 
