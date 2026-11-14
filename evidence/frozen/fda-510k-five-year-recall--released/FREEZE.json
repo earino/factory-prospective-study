@@ -1,0 +1,28 @@
+{
+  "dataset": "fda-510k-five-year-recall",
+  "files": {
+    "booster.json": {
+      "bytes": 191140,
+      "sha256": "29cbd177a6375d79a0b908cf47b4d4c98033d29bb38e9c713679fa0532a75870"
+    },
+    "model.pkl": {
+      "bytes": 161999,
+      "sha256": "dd9f487f3ee97359e45708169d3fb6bff555e884ee13d5b0b6a921ad275cef1d"
+    },
+    "train.py": {
+      "bytes": 1160,
+      "sha256": "431a0f15145a8578df4bc149ee13483cbc7f06e15ac8214356c08da99d9e5d21"
+    },
+    "validation.csv.gz": {
+      "bytes": 82101,
+      "sha256": "ea7ec341322af4d126519eb144f6b959c667746bfc09862cfcc093fee885d149"
+    },
+    "validation.json": {
+      "bytes": 805,
+      "sha256": "0f04e44f5671a161ea6895c187b9264004335c34e930d5167f57a8f84ff12891"
+    }
+  },
+  "frozen_at": "2026-11-14T01:41:22.490908+00:00",
+  "matches_released_baseline": true,
+  "run": "fda-510k-five-year-recall--released"
+}

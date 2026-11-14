@@ -1,0 +1,49 @@
+{
+  "dataset": "fda-510k-five-year-recall",
+  "files": {
+    "booster.json": {
+      "bytes": 1084007,
+      "sha256": "b9c7b580fedb2ebfad51f2b5e2c9667e31c21d75cd5f4557de7fac9a0474c2c3"
+    },
+    "model.pkl": {
+      "bytes": 831755,
+      "sha256": "6821d37b7e12e2641ab999cfafbacbc2209b8088cc37e1c6025340d70bbce9b0"
+    },
+    "train.py": {
+      "bytes": 1245,
+      "sha256": "b2c492219d7d12a7f092b1d0c58accfda23c85ed2fd7e1c71379b6f0d77c1c25"
+    },
+    "validation.csv.gz": {
+      "bytes": 100966,
+      "sha256": "c88df6c0c0f1c6e12b14a163067ef3c8c8acb2f57e7e9d65c209c581df084f5f"
+    },
+    "validation.json": {
+      "bytes": 935,
+      "sha256": "f146a7156656e2ff79b5c42cc3fb592ec4f9b4e448b58b8788f292722f8232ab"
+    }
+  },
+  "frozen_at": "2026-11-14T01:44:27.482328+00:00",
+  "run": "fda-510k-five-year-recall--r2--random",
+  "selected_trial": {
+    "artifact_sha256": "6821d37b7e12e2641ab999cfafbacbc2209b8088cc37e1c6025340d70bbce9b0",
+    "auc": 0.6850154316604657,
+    "backtest": {},
+    "brier": 0.07938892393506945,
+    "code_sha256": "b2c492219d7d12a7f092b1d0c58accfda23c85ed2fd7e1c71379b6f0d77c1c25",
+    "elapsed_s": 4.301422458025627,
+    "evaluation_wall_s": 4.081935417023487,
+    "finished_epoch": 1794620641.0339751,
+    "fit_cpu_s": 0.3927069999999999,
+    "fit_wall_s": 0.1655603749677539,
+    "id": "08c3c957f6a8471fb7fb0a79ce16e145",
+    "mode": "validation",
+    "note": "{\"n_estimators\": 100, \"max_depth\": 8, \"learning_rate\": 0.1, \"min_child_weight\": 1, \"subsample\": 1.0, \"colsample_bytree\": 1.0, \"reg_lambda\": 30}",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/fda-510k-five-year-recall/.study/controls/fda-510k-five-year-recall--r2--random/trials/08c3c957f6a8471fb7fb0a79ce16e145",
+    "phase": "evaluation",
+    "rows_score": 9046,
+    "rows_train": 30563,
+    "started_epoch": 1794620636.7320478,
+    "status": "ok",
+    "utc": "2026-11-14T01:43:56.732040+00:00"
+  }
+}
