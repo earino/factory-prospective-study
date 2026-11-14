@@ -1,6 +1,6 @@
 # Consumer study results
 
-Generated 2026-11-14T01:40:07.677191+00:00
+Generated 2026-11-14T01:40:31.415176+00:00
 
 Measured records are in summary.json and scores.csv. Failures remain in the denominator.
 
@@ -10,7 +10,7 @@ Registered attempts: 3; frozen: 3; failed/blocked: 0.
 
 Compliance triage (separate from scores):
 
-- fda-510k-five-year-recall--r1: not yet audited; forbidden asset copies unknown; tool-access flags unknown. Semantic compliance requires review.
+- fda-510k-five-year-recall--r1: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
 - fda-510k-five-year-recall--r2: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
 - fda-510k-five-year-recall--r3: not yet audited; forbidden asset copies unknown; tool-access flags unknown. Semantic compliance requires review.
 
