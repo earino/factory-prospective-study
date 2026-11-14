@@ -2,8 +2,8 @@
 
 {
   "consumer": {
-    "dataset": "t100-new-route-survival",
-    "started": "2026-11-14T11:04:03.810887+00:00",
+    "dataset": "sbir-phase1-to-phase2-conversion",
+    "started": "2026-11-14T12:43:53.530237+00:00",
     "status": "running"
   },
   "factory_counts": {
@@ -12,7 +12,7 @@
     "published": 13,
     "rejected": 6
   },
-  "observed_at": "2026-11-14T12:34:35.980763+00:00",
+  "observed_at": "2026-11-14T13:04:52.215225+00:00",
   "paper": {},
   "queue": [
     {
@@ -50,9 +50,9 @@
     {
       "dataset": "t100-new-route-survival",
       "verified_at": "2026-11-14T02:04:19.792527+00:00",
-      "status": "queued",
+      "status": "complete",
       "selected": true,
-      "branch": null,
+      "branch": "consumer/t100-new-route-survival",
       "error": null
     },
     {
@@ -64,7 +64,7 @@
       "error": null
     }
   ],
-  "snapshot_generated_at": "2026-11-14T11:51:15+00:00",
+  "snapshot_generated_at": "2026-11-14T12:51:17+00:00",
   "window": {
     "analysis_start": "2026-11-18T04:00:00Z",
     "attempt_minutes": 85,
