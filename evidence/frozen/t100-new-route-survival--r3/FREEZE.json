@@ -1,0 +1,50 @@
+{
+  "dataset": "t100-new-route-survival",
+  "environment": "ebc4d673b04f7331715457533369270826ffca22b2b0f340d7a1680c606de160",
+  "files": {
+    "booster.json": {
+      "bytes": 264817,
+      "sha256": "f13bcc8042e72045bdf18251b138bef5727ddf4faa0cb032db92617081c61d12"
+    },
+    "model.pkl": {
+      "bytes": 231299,
+      "sha256": "a70f47dbc539263239250af5ce6d8a7d718c5c31a47896d38f38214e387c849a"
+    },
+    "train.py": {
+      "bytes": 5003,
+      "sha256": "f09c1c7e1bc7159d778a0515886a99b1a2ac807d0464dcdcda8c2b93dc63d08d"
+    },
+    "validation.csv.gz": {
+      "bytes": 9532,
+      "sha256": "daa6d983ad0b3a4fd40176185165f3e28474c4d521657b4b54beea0d57f0ec10"
+    },
+    "validation.json": {
+      "bytes": 1097,
+      "sha256": "b49f25e987bfb05d8df9f388dde47b867af5103ef76241c0c75861f6ecca2e26"
+    }
+  },
+  "frozen_at": "2026-11-14T12:36:46.266932+00:00",
+  "run": "t100-new-route-survival--r3",
+  "selected_trial": {
+    "artifact_sha256": "a70f47dbc539263239250af5ce6d8a7d718c5c31a47896d38f38214e387c849a",
+    "auc": 0.705534636753159,
+    "backtest": {},
+    "brier": 0.19029957961223112,
+    "code_sha256": "f09c1c7e1bc7159d778a0515886a99b1a2ac807d0464dcdcda8c2b93dc63d08d",
+    "elapsed_s": 2.7191350829998555,
+    "evaluation_wall_s": 2.6286243330005163,
+    "finished_epoch": 1794656980.6462479,
+    "fit_cpu_s": 0.14060399999999995,
+    "fit_wall_s": 0.07734612500007643,
+    "id": "42bb90aa737c4c9eaab59d7c0ca209d2",
+    "mode": "validation",
+    "note": "H: with dying-carrier cohorts excluded the carrier-level relation is less dominated by a few fingerprints, so depth 4 may capture gauge x carrier-size x attrition interactions (carrier type) without overfitting; local diagnostics all equal or better than depth 3 (bt3 .761->.764, bt4 .742, leave-carrier-out .721->.724)",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/runs/t100-new-route-survival--r3/trials/42bb90aa737c4c9eaab59d7c0ca209d2",
+    "phase": "evaluation",
+    "rows_score": 834,
+    "rows_train": 3734,
+    "started_epoch": 1794656977.926867,
+    "status": "ok",
+    "utc": "2026-11-14T11:49:37.926859+00:00"
+  }
+}

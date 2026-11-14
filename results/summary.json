@@ -1,0 +1,130 @@
+{
+  "cli_reported_cost_usd_not_invoice": 1634.057735,
+  "generated_at": "2026-11-14T12:36:47.248839+00:00",
+  "limitations": [
+    "Five selected factory releases; three attempts are descriptive, not agent rankings.",
+    "Pinned consumer scaffold and deterministic downloads are provided assistance.",
+    "CLI-reported model IDs are not independent provider attestation.",
+    "Public holdout isolation and semantic compliance are procedural, not enforced by an OS sandbox.",
+    "CFPB holdout was used in earlier pilot work outside this study.",
+    "Random search matches observed eligible primary-trial fitting CPU, not unlogged diagnostics or token work.",
+    "Fresh Claude trajectories are nondeterministic; frozen artifact replay is reproducible.",
+    "No factory-wide publication yield or spend is inferred from this consumer study."
+  ],
+  "outcomes": [
+    {
+      "dataset": "t100-new-route-survival",
+      "error": null,
+      "id": "t100-new-route-survival--r1",
+      "interruptions": null,
+      "research_active_s": 5100.613791292999,
+      "status": "frozen",
+      "timing": {
+        "cli_invocations": 16,
+        "evaluation_wall_sum_s": 34.45028108400038,
+        "fit_cpu_sum_s": 11.596661999999998,
+        "fit_wall_sum_s": 6.288041708000492,
+        "harness_wall_union_s": 41.07436728477478,
+        "incomplete_or_failed_trials": 1,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 15,
+        "other_active_wall_s": 5059.539424008224,
+        "research_active_s": 5100.613791292999,
+        "trial_records": 16
+      }
+    },
+    {
+      "compliance_triage": "no_automatic_access_flag",
+      "dataset": "t100-new-route-survival",
+      "error": null,
+      "holdout_content_hits": [],
+      "id": "t100-new-route-survival--r2",
+      "integrity": "requires_semantic_review",
+      "interruptions": null,
+      "protocol_caveats": [],
+      "research_active_s": 5100.376318209001,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
+      "status": "frozen",
+      "timing": {
+        "cli_invocations": 30,
+        "evaluation_wall_sum_s": 38.01347554400127,
+        "fit_cpu_sum_s": 6.711108999999999,
+        "fit_wall_sum_s": 3.3962343350012816,
+        "harness_wall_union_s": 41.70423865318298,
+        "incomplete_or_failed_trials": 1,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 15,
+        "other_active_wall_s": 5058.672079555818,
+        "research_active_s": 5100.376318209001,
+        "trial_records": 16
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
+    },
+    {
+      "dataset": "t100-new-route-survival",
+      "error": null,
+      "id": "t100-new-route-survival--r3",
+      "interruptions": null,
+      "research_active_s": 5100.025497831001,
+      "status": "frozen",
+      "timing": {
+        "cli_invocations": 23,
+        "evaluation_wall_sum_s": 46.536982334000186,
+        "fit_cpu_sum_s": 5.283289,
+        "fit_wall_sum_s": 2.951578126000186,
+        "harness_wall_union_s": 49.788118839263916,
+        "incomplete_or_failed_trials": 1,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 16,
+        "other_active_wall_s": 5050.237378991737,
+        "research_active_s": 5100.025497831001,
+        "trial_records": 17
+      }
+    }
+  ],
+  "protocol_sha256": "99c261e2920c83f7f2250fbf3447f14144f1a44e1511edcf731cc5a07c06fe5b",
+  "reported_models": [
+    "claude-fable-5-2"
+  ],
+  "reported_usage": {
+    "cache_creation_input_tokens": 1094646,
+    "cache_read_input_tokens": 157668867,
+    "input_tokens": 1390,
+    "output_tokens": 735193
+  },
+  "requested_model": "claude-fable-5-2",
+  "scores": [
+    {
+      "dataset": "t100-new-route-survival",
+      "holdout_auc": null,
+      "holdout_brier": null,
+      "holdout_rows": null,
+      "id": "t100-new-route-survival--r1",
+      "kind": "agent",
+      "validation_auc": 0.6855425638782775,
+      "validation_brier": 0.20392908259396508
+    },
+    {
+      "dataset": "t100-new-route-survival",
+      "holdout_auc": null,
+      "holdout_brier": null,
+      "holdout_rows": null,
+      "id": "t100-new-route-survival--r2",
+      "kind": "agent",
+      "validation_auc": 0.7014822357226327,
+      "validation_brier": 0.1925924072291397
+    },
+    {
+      "dataset": "t100-new-route-survival",
+      "holdout_auc": null,
+      "holdout_brier": null,
+      "holdout_rows": null,
+      "id": "t100-new-route-survival--r3",
+      "kind": "agent",
+      "validation_auc": 0.705534636753159,
+      "validation_brier": 0.19029957961223112
+    }
+  ]
+}

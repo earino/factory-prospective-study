@@ -1,0 +1,50 @@
+{
+  "dataset": "t100-new-route-survival",
+  "environment": "ebc4d673b04f7331715457533369270826ffca22b2b0f340d7a1680c606de160",
+  "files": {
+    "booster.json": {
+      "bytes": 1205540,
+      "sha256": "7278fa9807edb6385dadc43e8e7670543fd169e94f08eba83abe2acd787cb27b"
+    },
+    "model.pkl": {
+      "bytes": 1425777,
+      "sha256": "d12f7acf85ab2e5c8a8d937bf19075e7371390b7d84a34bbfe5587a88841dd3a"
+    },
+    "train.py": {
+      "bytes": 4081,
+      "sha256": "1e38df0a1f57fae095a63011fae3182df3a51d51cd9d40cb5849c0e7a88cf54b"
+    },
+    "validation.csv.gz": {
+      "bytes": 9000,
+      "sha256": "85a1b3023a7f975f5f34bf9056eb739e8ff75d2c8258ce4d825c0524e9830c61"
+    },
+    "validation.json": {
+      "bytes": 963,
+      "sha256": "7e3d9e0b9a36d3c5e7508de20c52e7bf94811f4f5c1c3cb678fd3f7a3004cf73"
+    }
+  },
+  "frozen_at": "2026-11-14T12:36:46.266855+00:00",
+  "run": "t100-new-route-survival--r1",
+  "selected_trial": {
+    "artifact_sha256": "d12f7acf85ab2e5c8a8d937bf19075e7371390b7d84a34bbfe5587a88841dd3a",
+    "auc": 0.6855425638782775,
+    "backtest": {},
+    "brier": 0.20392908259396508,
+    "code_sha256": "1e38df0a1f57fae095a63011fae3182df3a51d51cd9d40cb5849c0e7a88cf54b",
+    "elapsed_s": 2.4308375840000735,
+    "evaluation_wall_s": 2.027307374999509,
+    "finished_epoch": 1794658378.020528,
+    "fit_cpu_s": 0.7928669999999998,
+    "fit_wall_s": 0.38372325000000274,
+    "id": "e4cfde1ab62a4c7489df90d855240767",
+    "mode": "validation",
+    "note": "H9 simplification: also drop entry_month_load_factor (contained in entry_pax; permutation importance .001); local val +.002, chrono bt +.003, reverse-time +.005, leave-carriers-out +.002",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/runs/t100-new-route-survival--r1/trials/e4cfde1ab62a4c7489df90d855240767",
+    "phase": "evaluation",
+    "rows_score": 834,
+    "rows_train": 3734,
+    "started_epoch": 1794658375.5891619,
+    "status": "ok",
+    "utc": "2026-11-14T12:12:55.589153+00:00"
+  }
+}

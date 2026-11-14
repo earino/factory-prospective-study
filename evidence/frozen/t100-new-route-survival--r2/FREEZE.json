@@ -1,0 +1,50 @@
+{
+  "dataset": "t100-new-route-survival",
+  "environment": "ebc4d673b04f7331715457533369270826ffca22b2b0f340d7a1680c606de160",
+  "files": {
+    "booster.json": {
+      "bytes": 395938,
+      "sha256": "5096a98399edf9633c11f48eef3b3e08058e1a864f65eef5bda0f72d898772a0"
+    },
+    "model.pkl": {
+      "bytes": 372956,
+      "sha256": "c37af4bbd463c31cf6cf63d3cde28179b31d21f5776777ed6e9cff39da187a32"
+    },
+    "train.py": {
+      "bytes": 4930,
+      "sha256": "2330d1ad2d3ef1a6783499474d06094ab70bde154603af236bdbef44094ba3ea"
+    },
+    "validation.csv.gz": {
+      "bytes": 9770,
+      "sha256": "47b3a3d4245e50e1ffb310ab7dcc3c508dff09747019407e638b65309c9c502a"
+    },
+    "validation.json": {
+      "bytes": 1109,
+      "sha256": "beb8ed3f0252dd550e9b73ef60d1d141a70dc32acc6fa0153ddcb25f12a74412"
+    }
+  },
+  "frozen_at": "2026-11-14T12:36:45.935114+00:00",
+  "run": "t100-new-route-survival--r2",
+  "selected_trial": {
+    "artifact_sha256": "c37af4bbd463c31cf6cf63d3cde28179b31d21f5776777ed6e9cff39da187a32",
+    "auc": 0.7014822357226327,
+    "backtest": {},
+    "brier": 0.1925924072291397,
+    "code_sha256": "2330d1ad2d3ef1a6783499474d06094ab70bde154603af236bdbef44094ba3ea",
+    "elapsed_s": 3.878334041999551,
+    "evaluation_wall_s": 3.4560502079993967,
+    "finished_epoch": 1794657919.995827,
+    "fit_cpu_s": 0.88472,
+    "fit_wall_s": 0.3952393750005285,
+    "id": "7ca53849c7994788a8ef8f88976be8bc",
+    "mode": "validation",
+    "note": "H11: sign constraint (-) on the gravity demand proxy, consistent with the other demand/commitment priors. Passed the pre-declared four-view rule vs trial b7dfe9af config by negligible margins (val .7021 vs .7018, gapped .7760 vs .7755, long-gap .7658 vs .7650, carrier-grouped CV .6965 vs .6964); effectively equivalent. Last trial of the search.",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/t100-new-route-survival/.study/runs/t100-new-route-survival--r2/trials/7ca53849c7994788a8ef8f88976be8bc",
+    "phase": "evaluation",
+    "rows_score": 834,
+    "rows_train": 3734,
+    "started_epoch": 1794657916.116989,
+    "status": "ok",
+    "utc": "2026-11-14T12:05:16.116976+00:00"
+  }
+}

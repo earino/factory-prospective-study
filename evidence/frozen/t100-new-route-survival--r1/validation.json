@@ -1,0 +1,23 @@
+{
+  "id": "e4cfde1ab62a4c7489df90d855240767",
+  "utc": "2026-11-14T12:12:55.589153+00:00",
+  "started_epoch": 1794658375.5891619,
+  "mode": "validation",
+  "note": "H9 simplification: also drop entry_month_load_factor (contained in entry_pax; permutation importance .001); local val +.002, chrono bt +.003, reverse-time +.005, leave-carriers-out +.002",
+  "code_sha256": "1e38df0a1f57fae095a63011fae3182df3a51d51cd9d40cb5849c0e7a88cf54b",
+  "status": "ok",
+  "fit_wall_s": 0.38372325000000274,
+  "fit_cpu_s": 0.7928669999999998,
+  "phase": "evaluation",
+  "evaluation_wall_s": 2.027307374999509,
+  "auc": 0.6855425638782775,
+  "brier": 0.20392908259396508,
+  "rows_train": 3734,
+  "rows_score": 834,
+  "backtest": {},
+  "artifact_sha256": "d12f7acf85ab2e5c8a8d937bf19075e7371390b7d84a34bbfe5587a88841dd3a",
+  "finished_epoch": 1794658378.020528,
+  "elapsed_s": 2.4308375840000735,
+  "cold_replay_at": "2026-11-14T12:36:46.110793+00:00",
+  "no_retraining": true
+}

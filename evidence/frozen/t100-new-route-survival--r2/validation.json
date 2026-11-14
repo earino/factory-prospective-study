@@ -1,0 +1,23 @@
+{
+  "id": "7ca53849c7994788a8ef8f88976be8bc",
+  "utc": "2026-11-14T12:05:16.116976+00:00",
+  "started_epoch": 1794657916.116989,
+  "mode": "validation",
+  "note": "H11: sign constraint (-) on the gravity demand proxy, consistent with the other demand/commitment priors. Passed the pre-declared four-view rule vs trial b7dfe9af config by negligible margins (val .7021 vs .7018, gapped .7760 vs .7755, long-gap .7658 vs .7650, carrier-grouped CV .6965 vs .6964); effectively equivalent. Last trial of the search.",
+  "code_sha256": "2330d1ad2d3ef1a6783499474d06094ab70bde154603af236bdbef44094ba3ea",
+  "status": "ok",
+  "fit_wall_s": 0.3952393750005285,
+  "fit_cpu_s": 0.88472,
+  "phase": "evaluation",
+  "evaluation_wall_s": 3.4560502079993967,
+  "auc": 0.7014822357226327,
+  "brier": 0.1925924072291397,
+  "rows_train": 3734,
+  "rows_score": 834,
+  "backtest": {},
+  "artifact_sha256": "c37af4bbd463c31cf6cf63d3cde28179b31d21f5776777ed6e9cff39da187a32",
+  "finished_epoch": 1794657919.995827,
+  "elapsed_s": 3.878334041999551,
+  "cold_replay_at": "2026-11-14T12:36:45.766984+00:00",
+  "no_retraining": true
+}

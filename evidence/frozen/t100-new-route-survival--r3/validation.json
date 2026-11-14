@@ -1,0 +1,23 @@
+{
+  "id": "42bb90aa737c4c9eaab59d7c0ca209d2",
+  "utc": "2026-11-14T11:49:37.926859+00:00",
+  "started_epoch": 1794656977.926867,
+  "mode": "validation",
+  "note": "H: with dying-carrier cohorts excluded the carrier-level relation is less dominated by a few fingerprints, so depth 4 may capture gauge x carrier-size x attrition interactions (carrier type) without overfitting; local diagnostics all equal or better than depth 3 (bt3 .761->.764, bt4 .742, leave-carrier-out .721->.724)",
+  "code_sha256": "f09c1c7e1bc7159d778a0515886a99b1a2ac807d0464dcdcda8c2b93dc63d08d",
+  "status": "ok",
+  "fit_wall_s": 0.07734612500007643,
+  "fit_cpu_s": 0.14060399999999995,
+  "phase": "evaluation",
+  "evaluation_wall_s": 2.6286243330005163,
+  "auc": 0.705534636753159,
+  "brier": 0.19029957961223112,
+  "rows_train": 3734,
+  "rows_score": 834,
+  "backtest": {},
+  "artifact_sha256": "a70f47dbc539263239250af5ce6d8a7d718c5c31a47896d38f38214e387c849a",
+  "finished_epoch": 1794656980.6462479,
+  "elapsed_s": 2.7191350829998555,
+  "cold_replay_at": "2026-11-14T12:36:46.093531+00:00",
+  "no_retraining": true
+}
