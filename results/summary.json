@@ -1,6 +1,6 @@
 {
   "cli_reported_cost_usd_not_invoice": 869.6076222,
-  "generated_at": "2026-11-14T01:40:31.415176+00:00",
+  "generated_at": "2026-11-14T01:40:54.539486+00:00",
   "limitations": [
     "Five selected factory releases; three attempts are descriptive, not agent rankings.",
     "Pinned consumer scaffold and deterministic downloads are provided assistance.",
@@ -71,11 +71,17 @@
       "verified_forbidden_copies": 0
     },
     {
+      "compliance_triage": "no_automatic_access_flag",
       "dataset": "fda-510k-five-year-recall",
       "error": null,
+      "holdout_content_hits": [],
       "id": "fda-510k-five-year-recall--r3",
+      "integrity": "requires_semantic_review",
       "interruptions": null,
+      "protocol_caveats": [],
       "research_active_s": 5100.158984916052,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
       "status": "frozen",
       "timing": {
         "cli_invocations": 14,
@@ -89,7 +95,9 @@
         "other_active_wall_s": 4985.114366547903,
         "research_active_s": 5100.158984916052,
         "trial_records": 20
-      }
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
     }
   ],
   "protocol_sha256": "abb35f31d8f6a1a75192384f8c06ccd6f8d26c4783498d79a2a74e40c49fe8c7",
