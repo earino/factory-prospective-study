@@ -15,7 +15,7 @@
     "published": 13,
     "rejected": 6
   },
-  "observed_at": "2026-11-14T08:11:26.252202+00:00",
+  "observed_at": "2026-11-14T11:03:47.756240+00:00",
   "paper": {},
   "queue": [
     {
@@ -67,7 +67,7 @@
       "error": null
     }
   ],
-  "snapshot_generated_at": "2026-11-14T07:51:14+00:00",
+  "snapshot_generated_at": "2026-11-14T10:51:20+00:00",
   "window": {
     "analysis_start": "2026-11-18T04:00:00Z",
     "attempt_minutes": 85,
