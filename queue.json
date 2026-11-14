@@ -127,5 +127,44 @@
     "started": "2026-11-13T18:32:30.304079+00:00",
     "status": "complete",
     "verified_at": "2026-11-13T07:53:15.783341+00:00"
+  },
+  {
+    "dataset": "fda-510k-five-year-recall",
+    "release": {
+      "artifact_version": "4402989d50d250e5d9eab6a8f93c00997c3be07ffecedd577a04ceddd1c15d15",
+      "assets": 33,
+      "baseline_display": "See versioned evaluation.json; public validation only",
+      "dataset": "fda-510k-five-year-recall",
+      "destinations": {
+        "github": "https://github.com/earino/factory-fda-510k-five-year-recall/releases/tag/v-68e59a5ac91ad404",
+        "huggingface": "https://huggingface.co/datasets/earino/factory-fda-510k-five-year-recall"
+      },
+      "detail_id": "source-000064",
+      "disposition": "public",
+      "published": true,
+      "release_tag": "v-68e59a5ac91ad404",
+      "rows": 48623,
+      "splits": {
+        "eval": {
+          "rows": 9046
+        },
+        "holdout": {
+          "rows": 9014
+        },
+        "train": {
+          "rows": 30563
+        }
+      },
+      "verified": {
+        "github": true,
+        "huggingface": true
+      },
+      "verified_all": true,
+      "verified_at": "2026-11-13T23:42:15.349488+00:00",
+      "workflow": "modern"
+    },
+    "selected": true,
+    "status": "queued",
+    "verified_at": "2026-11-13T23:42:15.349488+00:00"
   }
 ]

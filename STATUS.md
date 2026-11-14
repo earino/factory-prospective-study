@@ -10,13 +10,12 @@
     "status": "complete"
   },
   "factory_counts": {
-    "build": 1,
-    "deferred": 48,
-    "discover": 1,
-    "published": 10,
+    "deferred": 50,
+    "discover": 2,
+    "published": 11,
     "rejected": 5
   },
-  "observed_at": "2026-11-13T23:35:35.188035+00:00",
+  "observed_at": "2026-11-14T00:05:57.248794+00:00",
   "paper": {},
   "queue": [
     {
@@ -42,9 +41,17 @@
       "selected": true,
       "branch": "consumer/phmsa-pipeline-penalty-reduction",
       "error": null
+    },
+    {
+      "dataset": "fda-510k-five-year-recall",
+      "verified_at": "2026-11-13T23:42:15.349488+00:00",
+      "status": "queued",
+      "selected": true,
+      "branch": null,
+      "error": null
     }
   ],
-  "snapshot_generated_at": "2026-11-13T22:50:59+00:00",
+  "snapshot_generated_at": "2026-11-13T23:51:27+00:00",
   "window": {
     "analysis_start": "2026-11-18T04:00:00Z",
     "attempt_minutes": 85,
