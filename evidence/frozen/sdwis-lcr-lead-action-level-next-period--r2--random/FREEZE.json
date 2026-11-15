@@ -1,0 +1,49 @@
+{
+  "dataset": "sdwis-lcr-lead-action-level-next-period",
+  "files": {
+    "booster.json": {
+      "bytes": 249200,
+      "sha256": "4a7f90ee9c1e1085a50db6080d42ac6832667a0624dbe7930af17946b5d9725c"
+    },
+    "model.pkl": {
+      "bytes": 236983,
+      "sha256": "b5bb296d4cd92df09b985d2b238436a5d5072ea523283d19888332e5bc1359d9"
+    },
+    "train.py": {
+      "bytes": 1244,
+      "sha256": "c78e95cdb6d3caace91dfefcb7e99a1aafcdb02266568561f0a1aa7bff7340fb"
+    },
+    "validation.csv.gz": {
+      "bytes": 195549,
+      "sha256": "274216d120a0fe8e6667ef3268ba2aa53364f2c3132d93a1790b1282fa44cc27"
+    },
+    "validation.json": {
+      "bytes": 937,
+      "sha256": "3a4e042fcc24f8a94c97cb0ca4e166cf03ef333e525cff5113ed49687e3af87b"
+    }
+  },
+  "frozen_at": "2026-11-15T21:48:14.800640+00:00",
+  "run": "sdwis-lcr-lead-action-level-next-period--r2--random",
+  "selected_trial": {
+    "artifact_sha256": "b5bb296d4cd92df09b985d2b238436a5d5072ea523283d19888332e5bc1359d9",
+    "auc": 0.8093614719842451,
+    "backtest": {},
+    "brier": 0.021821643654482605,
+    "code_sha256": "c78e95cdb6d3caace91dfefcb7e99a1aafcdb02266568561f0a1aa7bff7340fb",
+    "elapsed_s": 6.078230749990325,
+    "evaluation_wall_s": 5.410378040993237,
+    "finished_epoch": 1794779253.0439098,
+    "fit_cpu_s": 1.3288570000000002,
+    "fit_wall_s": 0.42827033399953507,
+    "id": "414a201b837745869f0dca6b18fae824",
+    "mode": "validation",
+    "note": "{\"n_estimators\": 100, \"max_depth\": 4, \"learning_rate\": 0.1, \"min_child_weight\": 1, \"subsample\": 0.7, \"colsample_bytree\": 0.7, \"reg_lambda\": 1}",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/sdwis-lcr-lead-action-level-next-period/.study/controls/sdwis-lcr-lead-action-level-next-period--r2--random/trials/414a201b837745869f0dca6b18fae824",
+    "phase": "evaluation",
+    "rows_score": 17368,
+    "rows_train": 257379,
+    "started_epoch": 1794779246.965408,
+    "status": "ok",
+    "utc": "2026-11-15T21:47:26.965398+00:00"
+  }
+}

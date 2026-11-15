@@ -1,0 +1,49 @@
+{
+  "dataset": "sdwis-lcr-lead-action-level-next-period",
+  "files": {
+    "booster.json": {
+      "bytes": 257268,
+      "sha256": "a96c6839d1edcab1e2109b8d4ffa064eca5c4c903bde6f1aaae1141838ae0200"
+    },
+    "model.pkl": {
+      "bytes": 321954,
+      "sha256": "eaac5f66213f94d7274e0ba605b6040684a497a2511ee8526131bf977286f631"
+    },
+    "train.py": {
+      "bytes": 1247,
+      "sha256": "d9116dc25e49a435cb5392927e629807b9d38d916d2a43e8efc5a26d49e216cd"
+    },
+    "validation.csv.gz": {
+      "bytes": 190875,
+      "sha256": "53cb0a9c77931501e2250230d0a36369c3eb1209b84a4234d9fd3d98c098fea9"
+    },
+    "validation.json": {
+      "bytes": 935,
+      "sha256": "5e121e1f27efea93aad0033824dc9c4dc671fbd05480c17aeb83838bd7958dc6"
+    }
+  },
+  "frozen_at": "2026-11-15T21:46:51.060523+00:00",
+  "run": "sdwis-lcr-lead-action-level-next-period--r1--random",
+  "selected_trial": {
+    "artifact_sha256": "eaac5f66213f94d7274e0ba605b6040684a497a2511ee8526131bf977286f631",
+    "auc": 0.8054190621937054,
+    "backtest": {},
+    "brier": 0.021828354836606,
+    "code_sha256": "d9116dc25e49a435cb5392927e629807b9d38d916d2a43e8efc5a26d49e216cd",
+    "elapsed_s": 6.260662167012924,
+    "evaluation_wall_s": 5.357607457990525,
+    "finished_epoch": 1794779165.2894459,
+    "fit_cpu_s": 2.2902539999999996,
+    "fit_wall_s": 0.656421624997165,
+    "id": "78610e7de9184d789694fb7ff015c293",
+    "mode": "validation",
+    "note": "{\"n_estimators\": 300, \"max_depth\": 2, \"learning_rate\": 0.05, \"min_child_weight\": 10, \"subsample\": 0.7, \"colsample_bytree\": 1.0, \"reg_lambda\": 10}",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/sdwis-lcr-lead-action-level-next-period/.study/controls/sdwis-lcr-lead-action-level-next-period--r1--random/trials/78610e7de9184d789694fb7ff015c293",
+    "phase": "evaluation",
+    "rows_score": 17368,
+    "rows_train": 257379,
+    "started_epoch": 1794779159.028543,
+    "status": "ok",
+    "utc": "2026-11-15T21:45:59.028533+00:00"
+  }
+}

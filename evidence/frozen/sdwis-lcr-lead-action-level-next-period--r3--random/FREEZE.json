@@ -1,0 +1,49 @@
+{
+  "dataset": "sdwis-lcr-lead-action-level-next-period",
+  "files": {
+    "booster.json": {
+      "bytes": 739223,
+      "sha256": "2a2059460b3a45688d547475a20d355a793b1f3fb1f57c69ac89c7b3c08ed4f7"
+    },
+    "model.pkl": {
+      "bytes": 696184,
+      "sha256": "45ef50e5def9e29ab599ff9d539efd4eca237921fca0f483dcf0d4b5928253cb"
+    },
+    "train.py": {
+      "bytes": 1246,
+      "sha256": "5319dfe1f213d1f4a88fa25b5187d72a2adc3e68004f871ce61ebbbdba5881cd"
+    },
+    "validation.csv.gz": {
+      "bytes": 197247,
+      "sha256": "dafd16d3b92536ea159a3b9bae02d628d1fc94f1f36525e9bf9b8c54f7fbcf54"
+    },
+    "validation.json": {
+      "bytes": 936,
+      "sha256": "cf25343d7e449ec086d7992f1e60700a10bf1bd6f68160248eeeb0c17729a625"
+    }
+  },
+  "frozen_at": "2026-11-15T21:50:37.812927+00:00",
+  "run": "sdwis-lcr-lead-action-level-next-period--r3--random",
+  "selected_trial": {
+    "artifact_sha256": "45ef50e5def9e29ab599ff9d539efd4eca237921fca0f483dcf0d4b5928253cb",
+    "auc": 0.8090810563536864,
+    "backtest": {},
+    "brier": 0.02188678620392483,
+    "code_sha256": "5319dfe1f213d1f4a88fa25b5187d72a2adc3e68004f871ce61ebbbdba5881cd",
+    "elapsed_s": 6.765681792006944,
+    "evaluation_wall_s": 5.502919833001215,
+    "finished_epoch": 1794779377.988914,
+    "fit_cpu_s": 3.5393280000000007,
+    "fit_wall_s": 1.0225881669903174,
+    "id": "1e3970806d704d468795d4ca2ba788f8",
+    "mode": "validation",
+    "note": "{\"n_estimators\": 300, \"max_depth\": 4, \"learning_rate\": 0.02, \"min_child_weight\": 10, \"subsample\": 0.7, \"colsample_bytree\": 1.0, \"reg_lambda\": 1}",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/sdwis-lcr-lead-action-level-next-period/.study/controls/sdwis-lcr-lead-action-level-next-period--r3--random/trials/1e3970806d704d468795d4ca2ba788f8",
+    "phase": "evaluation",
+    "rows_score": 17368,
+    "rows_train": 257379,
+    "started_epoch": 1794779371.222781,
+    "status": "ok",
+    "utc": "2026-11-15T21:49:31.222771+00:00"
+  }
+}
