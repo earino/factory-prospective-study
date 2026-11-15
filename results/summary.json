@@ -1,6 +1,6 @@
 {
   "cli_reported_cost_usd_not_invoice": 0.0,
-  "generated_at": "2026-11-15T12:34:39.036417+00:00",
+  "generated_at": "2026-11-15T12:35:05.444595+00:00",
   "limitations": [
     "Five selected factory releases; three attempts are descriptive, not agent rankings.",
     "Pinned consumer scaffold and deterministic downloads are provided assistance.",
@@ -14,13 +14,13 @@
   "outcomes": [
     {
       "dataset": "fra-form54-hazmat-release",
-      "error": null,
+      "error": "RuntimeError: Three CLI failures; preserved as a failed attempt, not silently restarted",
       "id": "fra-form54-hazmat-release--r1",
       "interruptions": null,
-      "research_active_s": null,
-      "status": "not_finished",
+      "research_active_s": 213.89597420899372,
+      "status": "failed",
       "timing": {
-        "cli_invocations": 0,
+        "cli_invocations": 3,
         "evaluation_wall_sum_s": 0,
         "fit_cpu_sum_s": 0,
         "fit_wall_sum_s": 0,
@@ -28,20 +28,26 @@
         "incomplete_or_failed_trials": 0,
         "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
         "ok_trials": 0,
-        "other_active_wall_s": 0,
-        "research_active_s": 0,
+        "other_active_wall_s": 213.89597420899372,
+        "research_active_s": 213.89597420899372,
         "trial_records": 0
       }
     },
     {
+      "compliance_triage": "no_automatic_access_flag",
       "dataset": "fra-form54-hazmat-release",
-      "error": null,
+      "error": "RuntimeError: Three CLI failures; preserved as a failed attempt, not silently restarted",
+      "holdout_content_hits": [],
       "id": "fra-form54-hazmat-release--r2",
+      "integrity": "requires_semantic_review",
       "interruptions": null,
-      "research_active_s": null,
-      "status": "not_finished",
+      "protocol_caveats": [],
+      "research_active_s": 213.9297412899905,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
+      "status": "failed",
       "timing": {
-        "cli_invocations": 0,
+        "cli_invocations": 3,
         "evaluation_wall_sum_s": 0,
         "fit_cpu_sum_s": 0,
         "fit_wall_sum_s": 0,
@@ -49,10 +55,12 @@
         "incomplete_or_failed_trials": 0,
         "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
         "ok_trials": 0,
-        "other_active_wall_s": 0,
-        "research_active_s": 0,
+        "other_active_wall_s": 213.9297412899905,
+        "research_active_s": 213.9297412899905,
         "trial_records": 0
-      }
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
     },
     {
       "compliance_triage": "no_automatic_access_flag",
