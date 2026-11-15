@@ -1,6 +1,6 @@
 # Consumer study results
 
-Generated 2026-11-15T21:43:56.037380+00:00
+Generated 2026-11-15T21:44:11.806443+00:00
 
 Measured records are in summary.json and scores.csv. Failures remain in the denominator.
 
@@ -10,7 +10,7 @@ Registered attempts: 3; frozen: 3; failed/blocked: 0.
 
 Compliance triage (separate from scores):
 
-- sdwis-lcr-lead-action-level-next-period--r1: not yet audited; forbidden asset copies unknown; tool-access flags unknown. Semantic compliance requires review.
+- sdwis-lcr-lead-action-level-next-period--r1: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
 - sdwis-lcr-lead-action-level-next-period--r2: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
 - sdwis-lcr-lead-action-level-next-period--r3: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
 
