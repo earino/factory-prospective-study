@@ -1,0 +1,68 @@
+{
+  "cli_reported_cost_usd_not_invoice": 429.33752220000014,
+  "generated_at": "2026-11-15T23:19:04.841985+00:00",
+  "limitations": [
+    "Five selected factory releases; three attempts are descriptive, not agent rankings.",
+    "Pinned consumer scaffold and deterministic downloads are provided assistance.",
+    "CLI-reported model IDs are not independent provider attestation.",
+    "Public holdout isolation and semantic compliance are procedural, not enforced by an OS sandbox.",
+    "CFPB holdout was used in earlier pilot work outside this study.",
+    "Random search matches observed eligible primary-trial fitting CPU, not unlogged diagnostics or token work.",
+    "Fresh Claude trajectories are nondeterministic; frozen artifact replay is reproducible.",
+    "No factory-wide publication yield or spend is inferred from this consumer study."
+  ],
+  "outcomes": [
+    {
+      "compliance_triage": "no_automatic_access_flag",
+      "dataset": "seattle-building-permit-completion",
+      "error": null,
+      "holdout_content_hits": [],
+      "id": "seattle-building-permit-completion--r1",
+      "integrity": "requires_semantic_review",
+      "interruptions": null,
+      "protocol_caveats": [],
+      "research_active_s": 5100.108542583082,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
+      "status": "frozen",
+      "timing": {
+        "cli_invocations": 20,
+        "evaluation_wall_sum_s": 333.98606175104214,
+        "fit_cpu_sum_s": 102.594422,
+        "fit_wall_sum_s": 40.03629350000119,
+        "harness_wall_union_s": 375.9765055179596,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 31,
+        "other_active_wall_s": 4724.132037065123,
+        "research_active_s": 5100.108542583082,
+        "trial_records": 31
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
+    }
+  ],
+  "protocol_sha256": "ba6ebbcc87022dd326d1375a03f11ec325079e777ea446ff3ddd331675234eb9",
+  "reported_models": [
+    "claude-fable-5-2"
+  ],
+  "reported_usage": {
+    "cache_creation_input_tokens": 348606,
+    "cache_read_input_tokens": 42052070,
+    "input_tokens": 404,
+    "output_tokens": 235715
+  },
+  "requested_model": "claude-fable-5-2",
+  "scores": [
+    {
+      "dataset": "seattle-building-permit-completion",
+      "holdout_auc": null,
+      "holdout_brier": null,
+      "holdout_rows": null,
+      "id": "seattle-building-permit-completion--r1",
+      "kind": "agent",
+      "validation_auc": 0.6587075534859927,
+      "validation_brier": 0.17050737329378451
+    }
+  ]
+}

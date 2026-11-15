@@ -1,0 +1,2065 @@
+{
+  "attempts": 0,
+  "created_at": "2026-11-15T21:53:42.234038+00:00",
+  "dataset": "seattle-building-permit-completion",
+  "finished_at": "2026-11-15T23:18:56.165746+00:00",
+  "freeze_sha256": "798a40de1fd97b64fe67cf64047998516cca79a9a768dfa881438e7135e4a385",
+  "guarded": {
+    "CLAUDE.md": "a786f8e34e9ec31af6274ce015abd0627e0bf7dae3b1c7a4850905c871282921",
+    "_engine.py": "7f88cf7891d732b70ee3eb7001cdcbb097e06ebf7608fbc77374dc39a65c34bd",
+    "evaluate.py": "4058a082deda77182e2f16b69b20bd17a680ec344f4656277ce6f513c10fdebc",
+    "mcp.json": "e93fc8db2b1bd77107fe6c758bca9545fa864cf7cce8ab93a7b2b93a1d566a7b",
+    "release/LICENSE-EVIDENCE.json": "ff7141e98807cf0373bd8c0a0bce28cbc0bb0409f80211778639668f1ed148b0",
+    "release/LICENSE.md": "f33b585718c4e0cf2c51e5e34184b41df83b074f0b932495b11f2b107a660477",
+    "release/MANIFEST.json": "c8d716bd8365da0a786ee1e26c5c6cfb1d2b1efe788d6f6a36369f9980e56589",
+    "release/README.md": "07dae93ceefcb4e1155cf52e67d3f4fa1becb0d45d67bf4e4ba8b939d75585ef",
+    "release/SOURCES.json": "04758e5354cc9d2eaf154a77f3d2ba0225b00bf3fd2d65c0f382a57220998c0d",
+    "release/evaluation.json": "c81d73707f4851236dacfd8752c741be5a79d089d40cbfe02a715a5abf90e379",
+    "release/extract/meta.json": "767e29ef2df31a06b97bf83f62027fe7a40e376bf3b98ce238b79e7a5c6acf68",
+    "release/extract/public/eval.csv": "db5726b6c72f69815bade3f012146a198b8772589f255bccb3af094c5d076017",
+    "release/extract/public/train.csv": "525fdf9a69b3449654fecebcc0087e1155c1fe00a4de72175cbf7366566da283",
+    "release/reproduction/build.py": "38de47212ea79f8afe764f4b359bcc6a41f3343620dc6e5c7d484e78d76a3d37",
+    "release/reproduction/construction.json": "75cf2be1eff93324e133dca424efecf1ff0f67a0037500362d59cab4601d4420",
+    "release/reproduction/requirements.txt": "5c72f3268174d20364624f76680e189c408a05dba2e7b8cfe12d077b3865e7f0",
+    "release/reproduction/train.py": "a3c6bcf13735bc85c52129ded68f839090dffdc266ebc3810dc61b2e6ea5e7e8"
+  },
+  "id": "seattle-building-permit-completion--r1",
+  "invocations": [
+    {
+      "argv": [
+        "claude",
+        "-p",
+        "Read CLAUDE.md and TASK.json and execute the research assignment now. Use TASK.json's Python executable for experiments. Never access holdout or other runs. Work until the supervisor deadline; do not stop at a plan or a plateau.",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "high",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--safe-mode",
+        "--setting-sources",
+        "",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-2/.study/runs/seattle-building-permit-completion--r1/mcp.json",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "dontAsk",
+        "--permission-prompts",
+        "none",
+        "--tools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--allowedTools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--no-chrome",
+        "--session-id",
+        "93982a34-eabc-432c-b486-cda329240626"
+      ],
+      "assistant_usage": {
+        "cache_creation_input_tokens": 306907,
+        "cache_read_input_tokens": 24843444,
+        "input_tokens": 264,
+        "output_tokens": 1693
+      },
+      "completed_response_messages_with_usage": 132,
+      "elapsed_s": 4568.271388874986,
+      "ended_at": "2026-11-15T23:09:50.534866+00:00",
+      "index": 0,
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "pid": 37888,
+      "result": {
+        "duration_api_ms": 2158409,
+        "duration_ms": 4567811,
+        "is_error": false,
+        "modelUsage": {
+          "claude-fable-5-2": {
+            "cacheCreationEphemeral1hInputTokens": 306907,
+            "cacheCreationEphemeral5mInputTokens": 0,
+            "cacheCreationInputTokens": 306907,
+            "cacheReadInputTokens": 24843444,
+            "canonicalModel": "claude-fable-5-2",
+            "contextWindow": 1000000,
+            "costBasis": "list",
+            "costUSD": 18.087312799999996,
+            "inputTokens": 264,
+            "maxOutputTokens": 128000,
+            "outputTokens": 205150,
+            "provider": "firstParty",
+            "thinkingTokens": 72793,
+            "webSearchRequests": 0
+          }
+        },
+        "num_turns": 134,
+        "session_id": "93982a34-eabc-432c-b486-cda329240626",
+        "subtype": "success",
+        "total_cost_usd": 18.087312799999996,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 306907,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 306907,
+          "cache_read_input_tokens": 24843444,
+          "fallback_credit": null,
+          "inference_geo": "global",
+          "input_tokens": 264,
+          "iterations": [],
+          "output_tokens": 205150,
+          "output_tokens_details": {
+            "thinking_tokens": 72793
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        }
+      },
+      "returncode": 0,
+      "session_id": "93982a34-eabc-432c-b486-cda329240626",
+      "started_at": "2026-11-15T21:53:42.236746+00:00",
+      "status": "exited",
+      "usage_basis": "CLI final result"
+    },
+    {
+      "argv": [
+        "claude",
+        "-p",
+        "Continue the same research attempt. The supervisor's measured active search time is 4568.3 seconds, with 531.7 seconds remaining. Read TASK.json for the updated deadline. Continue experiments, ablations, research or reproducibility checks. Do not access holdout, change selection rules, or wait idle.",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "high",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--safe-mode",
+        "--setting-sources",
+        "",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-2/.study/runs/seattle-building-permit-completion--r1/mcp.json",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "dontAsk",
+        "--permission-prompts",
+        "none",
+        "--tools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--allowedTools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--no-chrome",
+        "--resume",
+        "93982a34-eabc-432c-b486-cda329240626"
+      ],
+      "assistant_usage": {
+        "cache_creation_input_tokens": 12723,
+        "cache_read_input_tokens": 4164344,
+        "input_tokens": 28,
+        "output_tokens": 80
+      },
+      "completed_response_messages_with_usage": 13,
+      "elapsed_s": 171.6604017500067,
+      "ended_at": "2026-11-15T23:12:42.202992+00:00",
+      "index": 1,
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "pid": 47081,
+      "result": {
+        "duration_api_ms": 2278222,
+        "duration_ms": 171315,
+        "is_error": false,
+        "modelUsage": {
+          "claude-fable-5-2": {
+            "cacheCreationEphemeral1hInputTokens": 319630,
+            "cacheCreationEphemeral5mInputTokens": 0,
+            "cacheCreationInputTokens": 319630,
+            "cacheReadInputTokens": 29007788,
+            "canonicalModel": "claude-fable-5-2",
+            "contextWindow": 1000000,
+            "costBasis": "list",
+            "costUSD": 19.5530136,
+            "inputTokens": 292,
+            "maxOutputTokens": 128000,
+            "outputTokens": 215876,
+            "provider": "firstParty",
+            "thinkingTokens": 74353,
+            "webSearchRequests": 0
+          }
+        },
+        "num_turns": 13,
+        "session_id": "93982a34-eabc-432c-b486-cda329240626",
+        "subtype": "success",
+        "total_cost_usd": 19.5530136,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 12723,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 12723,
+          "cache_read_input_tokens": 4164344,
+          "fallback_credit": null,
+          "inference_geo": "global",
+          "input_tokens": 28,
+          "iterations": [],
+          "output_tokens": 10726,
+          "output_tokens_details": {
+            "thinking_tokens": 1560
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        }
+      },
+      "returncode": 0,
+      "session_id": "93982a34-eabc-432c-b486-cda329240626",
+      "started_at": "2026-11-15T23:09:50.541017+00:00",
+      "status": "exited",
+      "usage_basis": "CLI final result"
+    },
+    {
+      "argv": [
+        "claude",
+        "-p",
+        "Continue the same research attempt. The supervisor's measured active search time is 4739.9 seconds, with 360.1 seconds remaining. Read TASK.json for the updated deadline. Continue experiments, ablations, research or reproducibility checks. Do not access holdout, change selection rules, or wait idle.",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "high",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--safe-mode",
+        "--setting-sources",
+        "",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-2/.study/runs/seattle-building-permit-completion--r1/mcp.json",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "dontAsk",
+        "--permission-prompts",
+        "none",
+        "--tools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--allowedTools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--no-chrome",
+        "--resume",
+        "93982a34-eabc-432c-b486-cda329240626"
+      ],
+      "assistant_usage": {
+        "cache_creation_input_tokens": 4407,
+        "cache_read_input_tokens": 1316848,
+        "input_tokens": 10,
+        "output_tokens": 423
+      },
+      "completed_response_messages_with_usage": 4,
+      "elapsed_s": 48.84486712500802,
+      "ended_at": "2026-11-15T23:13:31.051882+00:00",
+      "index": 2,
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "pid": 47546,
+      "result": {
+        "duration_api_ms": 2314922,
+        "duration_ms": 48229,
+        "is_error": false,
+        "modelUsage": {
+          "claude-fable-5-2": {
+            "cacheCreationEphemeral1hInputTokens": 324037,
+            "cacheCreationEphemeral5mInputTokens": 0,
+            "cacheCreationInputTokens": 324037,
+            "cacheReadInputTokens": 30324636,
+            "canonicalModel": "claude-fable-5-2",
+            "contextWindow": 1000000,
+            "costBasis": "list",
+            "costUSD": 20.0098952,
+            "inputTokens": 302,
+            "maxOutputTokens": 128000,
+            "outputTokens": 218949,
+            "provider": "firstParty",
+            "thinkingTokens": 74732,
+            "webSearchRequests": 0
+          }
+        },
+        "num_turns": 4,
+        "session_id": "93982a34-eabc-432c-b486-cda329240626",
+        "subtype": "success",
+        "total_cost_usd": 20.0098952,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 4407,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 4407,
+          "cache_read_input_tokens": 1316848,
+          "fallback_credit": null,
+          "inference_geo": "global",
+          "input_tokens": 10,
+          "iterations": [],
+          "output_tokens": 3073,
+          "output_tokens_details": {
+            "thinking_tokens": 379
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        }
+      },
+      "returncode": 0,
+      "session_id": "93982a34-eabc-432c-b486-cda329240626",
+      "started_at": "2026-11-15T23:12:42.206250+00:00",
+      "status": "exited",
+      "usage_basis": "CLI final result"
+    },
+    {
+      "argv": [
+        "claude",
+        "-p",
+        "Continue the same research attempt. The supervisor's measured active search time is 4788.8 seconds, with 311.2 seconds remaining. Read TASK.json for the updated deadline. Continue experiments, ablations, research or reproducibility checks. Do not access holdout, change selection rules, or wait idle.",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "high",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--safe-mode",
+        "--setting-sources",
+        "",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-2/.study/runs/seattle-building-permit-completion--r1/mcp.json",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "dontAsk",
+        "--permission-prompts",
+        "none",
+        "--tools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--allowedTools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--no-chrome",
+        "--resume",
+        "93982a34-eabc-432c-b486-cda329240626"
+      ],
+      "assistant_usage": {
+        "cache_creation_input_tokens": 1645,
+        "cache_read_input_tokens": 664338,
+        "input_tokens": 6,
+        "output_tokens": 330
+      },
+      "completed_response_messages_with_usage": 2,
+      "elapsed_s": 30.49178191702231,
+      "ended_at": "2026-11-15T23:14:01.547839+00:00",
+      "index": 3,
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "pid": 47675,
+      "result": {
+        "duration_api_ms": 2329259,
+        "duration_ms": 30006,
+        "is_error": false,
+        "modelUsage": {
+          "claude-fable-5-2": {
+            "cacheCreationEphemeral1hInputTokens": 325682,
+            "cacheCreationEphemeral5mInputTokens": 0,
+            "cacheCreationInputTokens": 325682,
+            "cacheReadInputTokens": 30988974,
+            "canonicalModel": "claude-fable-5-2",
+            "contextWindow": 1000000,
+            "costBasis": "list",
+            "costUSD": 20.213330799999998,
+            "inputTokens": 308,
+            "maxOutputTokens": 128000,
+            "outputTokens": 220054,
+            "provider": "firstParty",
+            "thinkingTokens": 74810,
+            "webSearchRequests": 0
+          }
+        },
+        "num_turns": 2,
+        "session_id": "93982a34-eabc-432c-b486-cda329240626",
+        "subtype": "success",
+        "total_cost_usd": 20.213330799999998,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 1645,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 1645,
+          "cache_read_input_tokens": 664338,
+          "fallback_credit": null,
+          "inference_geo": "global",
+          "input_tokens": 6,
+          "iterations": [],
+          "output_tokens": 1105,
+          "output_tokens_details": {
+            "thinking_tokens": 78
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        }
+      },
+      "returncode": 0,
+      "session_id": "93982a34-eabc-432c-b486-cda329240626",
+      "started_at": "2026-11-15T23:13:31.055268+00:00",
+      "status": "exited",
+      "usage_basis": "CLI final result"
+    },
+    {
+      "argv": [
+        "claude",
+        "-p",
+        "Continue the same research attempt. The supervisor's measured active search time is 4819.3 seconds, with 280.7 seconds remaining. Read TASK.json for the updated deadline. Continue experiments, ablations, research or reproducibility checks. Do not access holdout, change selection rules, or wait idle.",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "high",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--safe-mode",
+        "--setting-sources",
+        "",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-2/.study/runs/seattle-building-permit-completion--r1/mcp.json",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "dontAsk",
+        "--permission-prompts",
+        "none",
+        "--tools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--allowedTools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--no-chrome",
+        "--resume",
+        "93982a34-eabc-432c-b486-cda329240626"
+      ],
+      "assistant_usage": {
+        "cache_creation_input_tokens": 1607,
+        "cache_read_input_tokens": 667543,
+        "input_tokens": 6,
+        "output_tokens": 11
+      },
+      "completed_response_messages_with_usage": 2,
+      "elapsed_s": 16.814397041976918,
+      "ended_at": "2026-11-15T23:14:18.366341+00:00",
+      "index": 4,
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "pid": 47804,
+      "result": {
+        "duration_api_ms": 2344195,
+        "duration_ms": 16455,
+        "is_error": false,
+        "modelUsage": {
+          "claude-fable-5-2": {
+            "cacheCreationEphemeral1hInputTokens": 327289,
+            "cacheCreationEphemeral5mInputTokens": 0,
+            "cacheCreationInputTokens": 327289,
+            "cacheReadInputTokens": 31656517,
+            "canonicalModel": "claude-fable-5-2",
+            "contextWindow": 1000000,
+            "costBasis": "list",
+            "costUSD": 20.422639399999998,
+            "inputTokens": 314,
+            "maxOutputTokens": 128000,
+            "outputTokens": 221305,
+            "provider": "firstParty",
+            "thinkingTokens": 74937,
+            "webSearchRequests": 0
+          }
+        },
+        "num_turns": 2,
+        "session_id": "93982a34-eabc-432c-b486-cda329240626",
+        "subtype": "success",
+        "total_cost_usd": 20.422639399999998,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 1607,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 1607,
+          "cache_read_input_tokens": 667543,
+          "fallback_credit": null,
+          "inference_geo": "global",
+          "input_tokens": 6,
+          "iterations": [],
+          "output_tokens": 1251,
+          "output_tokens_details": {
+            "thinking_tokens": 127
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        }
+      },
+      "returncode": 0,
+      "session_id": "93982a34-eabc-432c-b486-cda329240626",
+      "started_at": "2026-11-15T23:14:01.551038+00:00",
+      "status": "exited",
+      "usage_basis": "CLI final result"
+    },
+    {
+      "argv": [
+        "claude",
+        "-p",
+        "Continue the same research attempt. The supervisor's measured active search time is 4836.1 seconds, with 263.9 seconds remaining. Read TASK.json for the updated deadline. Continue experiments, ablations, research or reproducibility checks. Do not access holdout, change selection rules, or wait idle.",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "high",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--safe-mode",
+        "--setting-sources",
+        "",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-2/.study/runs/seattle-building-permit-completion--r1/mcp.json",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "dontAsk",
+        "--permission-prompts",
+        "none",
+        "--tools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--allowedTools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--no-chrome",
+        "--resume",
+        "93982a34-eabc-432c-b486-cda329240626"
+      ],
+      "assistant_usage": {
+        "cache_creation_input_tokens": 1974,
+        "cache_read_input_tokens": 670915,
+        "input_tokens": 6,
+        "output_tokens": 555
+      },
+      "completed_response_messages_with_usage": 2,
+      "elapsed_s": 18.311982542014448,
+      "ended_at": "2026-11-15T23:14:36.684305+00:00",
+      "index": 5,
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "pid": 47879,
+      "result": {
+        "duration_api_ms": 2360798,
+        "duration_ms": 18048,
+        "is_error": false,
+        "modelUsage": {
+          "claude-fable-5-2": {
+            "cacheCreationEphemeral1hInputTokens": 329263,
+            "cacheCreationEphemeral5mInputTokens": 0,
+            "cacheCreationInputTokens": 329263,
+            "cacheReadInputTokens": 32327432,
+            "canonicalModel": "claude-fable-5-2",
+            "contextWindow": 1000000,
+            "costBasis": "list",
+            "costUSD": 20.647454399999997,
+            "inputTokens": 320,
+            "maxOutputTokens": 128000,
+            "outputTokens": 222780,
+            "provider": "firstParty",
+            "thinkingTokens": 74937,
+            "webSearchRequests": 0
+          }
+        },
+        "num_turns": 2,
+        "session_id": "93982a34-eabc-432c-b486-cda329240626",
+        "subtype": "success",
+        "total_cost_usd": 20.647454399999997,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 1974,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 1974,
+          "cache_read_input_tokens": 670915,
+          "fallback_credit": null,
+          "inference_geo": "global",
+          "input_tokens": 6,
+          "iterations": [],
+          "output_tokens": 1475,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        }
+      },
+      "returncode": 0,
+      "session_id": "93982a34-eabc-432c-b486-cda329240626",
+      "started_at": "2026-11-15T23:14:18.371416+00:00",
+      "status": "exited",
+      "usage_basis": "CLI final result"
+    },
+    {
+      "argv": [
+        "claude",
+        "-p",
+        "Continue the same research attempt. The supervisor's measured active search time is 4854.4 seconds, with 245.6 seconds remaining. Read TASK.json for the updated deadline. Continue experiments, ablations, research or reproducibility checks. Do not access holdout, change selection rules, or wait idle.",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "high",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--safe-mode",
+        "--setting-sources",
+        "",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-2/.study/runs/seattle-building-permit-completion--r1/mcp.json",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "dontAsk",
+        "--permission-prompts",
+        "none",
+        "--tools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--allowedTools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--no-chrome",
+        "--resume",
+        "93982a34-eabc-432c-b486-cda329240626"
+      ],
+      "assistant_usage": {
+        "cache_creation_input_tokens": 1932,
+        "cache_read_input_tokens": 674922,
+        "input_tokens": 6,
+        "output_tokens": 391
+      },
+      "completed_response_messages_with_usage": 2,
+      "elapsed_s": 17.85892229201272,
+      "ended_at": "2026-11-15T23:14:54.547415+00:00",
+      "index": 6,
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "pid": 47957,
+      "result": {
+        "duration_api_ms": 2376736,
+        "duration_ms": 17385,
+        "is_error": false,
+        "modelUsage": {
+          "claude-fable-5-2": {
+            "cacheCreationEphemeral1hInputTokens": 331195,
+            "cacheCreationEphemeral5mInputTokens": 0,
+            "cacheCreationInputTokens": 331195,
+            "cacheReadInputTokens": 33002354,
+            "canonicalModel": "claude-fable-5-2",
+            "contextWindow": 1000000,
+            "costBasis": "list",
+            "costUSD": 20.8649588,
+            "inputTokens": 326,
+            "maxOutputTokens": 128000,
+            "outputTokens": 224069,
+            "provider": "firstParty",
+            "thinkingTokens": 74937,
+            "webSearchRequests": 0
+          }
+        },
+        "num_turns": 2,
+        "session_id": "93982a34-eabc-432c-b486-cda329240626",
+        "subtype": "success",
+        "total_cost_usd": 20.8649588,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 1932,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 1932,
+          "cache_read_input_tokens": 674922,
+          "fallback_credit": null,
+          "inference_geo": "global",
+          "input_tokens": 6,
+          "iterations": [],
+          "output_tokens": 1289,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        }
+      },
+      "returncode": 0,
+      "session_id": "93982a34-eabc-432c-b486-cda329240626",
+      "started_at": "2026-11-15T23:14:36.687512+00:00",
+      "status": "exited",
+      "usage_basis": "CLI final result"
+    },
+    {
+      "argv": [
+        "claude",
+        "-p",
+        "Continue the same research attempt. The supervisor's measured active search time is 4872.3 seconds, with 227.7 seconds remaining. Read TASK.json for the updated deadline. Continue experiments, ablations, research or reproducibility checks. Do not access holdout, change selection rules, or wait idle.",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "high",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--safe-mode",
+        "--setting-sources",
+        "",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-2/.study/runs/seattle-building-permit-completion--r1/mcp.json",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "dontAsk",
+        "--permission-prompts",
+        "none",
+        "--tools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--allowedTools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--no-chrome",
+        "--resume",
+        "93982a34-eabc-432c-b486-cda329240626"
+      ],
+      "assistant_usage": {
+        "cache_creation_input_tokens": 1545,
+        "cache_read_input_tokens": 678622,
+        "input_tokens": 6,
+        "output_tokens": 381
+      },
+      "completed_response_messages_with_usage": 2,
+      "elapsed_s": 17.329655000008643,
+      "ended_at": "2026-11-15T23:15:11.883508+00:00",
+      "index": 7,
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "pid": 48027,
+      "result": {
+        "duration_api_ms": 2392671,
+        "duration_ms": 16633,
+        "is_error": false,
+        "modelUsage": {
+          "claude-fable-5-2": {
+            "cacheCreationEphemeral1hInputTokens": 332740,
+            "cacheCreationEphemeral5mInputTokens": 0,
+            "cacheCreationInputTokens": 332740,
+            "cacheReadInputTokens": 33680976,
+            "canonicalModel": "claude-fable-5-2",
+            "contextWindow": 1000000,
+            "costBasis": "list",
+            "costUSD": 21.073211200000003,
+            "inputTokens": 332,
+            "maxOutputTokens": 128000,
+            "outputTokens": 225263,
+            "provider": "firstParty",
+            "thinkingTokens": 75023,
+            "webSearchRequests": 0
+          }
+        },
+        "num_turns": 2,
+        "session_id": "93982a34-eabc-432c-b486-cda329240626",
+        "subtype": "success",
+        "total_cost_usd": 21.073211200000003,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 1545,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 1545,
+          "cache_read_input_tokens": 678622,
+          "fallback_credit": null,
+          "inference_geo": "global",
+          "input_tokens": 6,
+          "iterations": [],
+          "output_tokens": 1194,
+          "output_tokens_details": {
+            "thinking_tokens": 86
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        }
+      },
+      "returncode": 0,
+      "session_id": "93982a34-eabc-432c-b486-cda329240626",
+      "started_at": "2026-11-15T23:14:54.552873+00:00",
+      "status": "exited",
+      "usage_basis": "CLI final result"
+    },
+    {
+      "argv": [
+        "claude",
+        "-p",
+        "Continue the same research attempt. The supervisor's measured active search time is 4889.6 seconds, with 210.4 seconds remaining. Read TASK.json for the updated deadline. Continue experiments, ablations, research or reproducibility checks. Do not access holdout, change selection rules, or wait idle.",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "high",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--safe-mode",
+        "--setting-sources",
+        "",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-2/.study/runs/seattle-building-permit-completion--r1/mcp.json",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "dontAsk",
+        "--permission-prompts",
+        "none",
+        "--tools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--allowedTools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--no-chrome",
+        "--resume",
+        "93982a34-eabc-432c-b486-cda329240626"
+      ],
+      "assistant_usage": {
+        "cache_creation_input_tokens": 1570,
+        "cache_read_input_tokens": 681709,
+        "input_tokens": 6,
+        "output_tokens": 271
+      },
+      "completed_response_messages_with_usage": 2,
+      "elapsed_s": 14.821365250012605,
+      "ended_at": "2026-11-15T23:15:26.708942+00:00",
+      "index": 8,
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "pid": 48131,
+      "result": {
+        "duration_api_ms": 2405342,
+        "duration_ms": 14179,
+        "is_error": false,
+        "modelUsage": {
+          "claude-fable-5-2": {
+            "cacheCreationEphemeral1hInputTokens": 334310,
+            "cacheCreationEphemeral5mInputTokens": 0,
+            "cacheCreationInputTokens": 334310,
+            "cacheReadInputTokens": 34362685,
+            "canonicalModel": "claude-fable-5-2",
+            "contextWindow": 1000000,
+            "costBasis": "list",
+            "costUSD": 21.276121000000003,
+            "inputTokens": 338,
+            "maxOutputTokens": 128000,
+            "outputTokens": 226298,
+            "provider": "firstParty",
+            "thinkingTokens": 75023,
+            "webSearchRequests": 0
+          }
+        },
+        "num_turns": 2,
+        "session_id": "93982a34-eabc-432c-b486-cda329240626",
+        "subtype": "success",
+        "total_cost_usd": 21.276121000000003,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 1570,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 1570,
+          "cache_read_input_tokens": 681709,
+          "fallback_credit": null,
+          "inference_geo": "global",
+          "input_tokens": 6,
+          "iterations": [],
+          "output_tokens": 1035,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        }
+      },
+      "returncode": 0,
+      "session_id": "93982a34-eabc-432c-b486-cda329240626",
+      "started_at": "2026-11-15T23:15:11.886545+00:00",
+      "status": "exited",
+      "usage_basis": "CLI final result"
+    },
+    {
+      "argv": [
+        "claude",
+        "-p",
+        "Continue the same research attempt. The supervisor's measured active search time is 4904.4 seconds, with 195.6 seconds remaining. Read TASK.json for the updated deadline. Continue experiments, ablations, research or reproducibility checks. Do not access holdout, change selection rules, or wait idle.",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "high",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--safe-mode",
+        "--setting-sources",
+        "",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-2/.study/runs/seattle-building-permit-completion--r1/mcp.json",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "dontAsk",
+        "--permission-prompts",
+        "none",
+        "--tools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--allowedTools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--no-chrome",
+        "--resume",
+        "93982a34-eabc-432c-b486-cda329240626"
+      ],
+      "assistant_usage": {
+        "cache_creation_input_tokens": 1688,
+        "cache_read_input_tokens": 684732,
+        "input_tokens": 6,
+        "output_tokens": 313
+      },
+      "completed_response_messages_with_usage": 2,
+      "elapsed_s": 16.332080042018788,
+      "ended_at": "2026-11-15T23:15:43.047764+00:00",
+      "index": 9,
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "pid": 48196,
+      "result": {
+        "duration_api_ms": 2419608,
+        "duration_ms": 15682,
+        "is_error": false,
+        "modelUsage": {
+          "claude-fable-5-2": {
+            "cacheCreationEphemeral1hInputTokens": 335998,
+            "cacheCreationEphemeral5mInputTokens": 0,
+            "cacheCreationInputTokens": 335998,
+            "cacheReadInputTokens": 35047417,
+            "canonicalModel": "claude-fable-5-2",
+            "contextWindow": 1000000,
+            "costBasis": "list",
+            "costUSD": 21.485323400000006,
+            "inputTokens": 344,
+            "maxOutputTokens": 128000,
+            "outputTokens": 227428,
+            "provider": "firstParty",
+            "thinkingTokens": 75023,
+            "webSearchRequests": 0
+          }
+        },
+        "num_turns": 2,
+        "session_id": "93982a34-eabc-432c-b486-cda329240626",
+        "subtype": "success",
+        "total_cost_usd": 21.485323400000006,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 1688,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 1688,
+          "cache_read_input_tokens": 684732,
+          "fallback_credit": null,
+          "inference_geo": "global",
+          "input_tokens": 6,
+          "iterations": [],
+          "output_tokens": 1130,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        }
+      },
+      "returncode": 0,
+      "session_id": "93982a34-eabc-432c-b486-cda329240626",
+      "started_at": "2026-11-15T23:15:26.714292+00:00",
+      "status": "exited",
+      "usage_basis": "CLI final result"
+    },
+    {
+      "argv": [
+        "claude",
+        "-p",
+        "Continue the same research attempt. The supervisor's measured active search time is 4920.7 seconds, with 179.3 seconds remaining. Read TASK.json for the updated deadline. Continue experiments, ablations, research or reproducibility checks. Do not access holdout, change selection rules, or wait idle.",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "high",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--safe-mode",
+        "--setting-sources",
+        "",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-2/.study/runs/seattle-building-permit-completion--r1/mcp.json",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "dontAsk",
+        "--permission-prompts",
+        "none",
+        "--tools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--allowedTools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--no-chrome",
+        "--resume",
+        "93982a34-eabc-432c-b486-cda329240626"
+      ],
+      "assistant_usage": {
+        "cache_creation_input_tokens": 1421,
+        "cache_read_input_tokens": 688150,
+        "input_tokens": 6,
+        "output_tokens": 436
+      },
+      "completed_response_messages_with_usage": 2,
+      "elapsed_s": 15.818550291005522,
+      "ended_at": "2026-11-15T23:15:58.870576+00:00",
+      "index": 10,
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "pid": 48278,
+      "result": {
+        "duration_api_ms": 2433720,
+        "duration_ms": 15559,
+        "is_error": false,
+        "modelUsage": {
+          "claude-fable-5-2": {
+            "cacheCreationEphemeral1hInputTokens": 337419,
+            "cacheCreationEphemeral5mInputTokens": 0,
+            "cacheCreationInputTokens": 337419,
+            "cacheReadInputTokens": 35735567,
+            "canonicalModel": "claude-fable-5-2",
+            "contextWindow": 1000000,
+            "costBasis": "list",
+            "costUSD": 21.687937400000006,
+            "inputTokens": 350,
+            "maxOutputTokens": 128000,
+            "outputTokens": 228483,
+            "provider": "firstParty",
+            "thinkingTokens": 75023,
+            "webSearchRequests": 0
+          }
+        },
+        "num_turns": 2,
+        "session_id": "93982a34-eabc-432c-b486-cda329240626",
+        "subtype": "success",
+        "total_cost_usd": 21.687937400000006,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 1421,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 1421,
+          "cache_read_input_tokens": 688150,
+          "fallback_credit": null,
+          "inference_geo": "global",
+          "input_tokens": 6,
+          "iterations": [],
+          "output_tokens": 1055,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        }
+      },
+      "returncode": 0,
+      "session_id": "93982a34-eabc-432c-b486-cda329240626",
+      "started_at": "2026-11-15T23:15:43.050974+00:00",
+      "status": "exited",
+      "usage_basis": "CLI final result"
+    },
+    {
+      "argv": [
+        "claude",
+        "-p",
+        "Continue the same research attempt. The supervisor's measured active search time is 4936.6 seconds, with 163.4 seconds remaining. Read TASK.json for the updated deadline. Continue experiments, ablations, research or reproducibility checks. Do not access holdout, change selection rules, or wait idle.",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "high",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--safe-mode",
+        "--setting-sources",
+        "",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-2/.study/runs/seattle-building-permit-completion--r1/mcp.json",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "dontAsk",
+        "--permission-prompts",
+        "none",
+        "--tools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--allowedTools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--no-chrome",
+        "--resume",
+        "93982a34-eabc-432c-b486-cda329240626"
+      ],
+      "assistant_usage": {
+        "cache_creation_input_tokens": 1532,
+        "cache_read_input_tokens": 691115,
+        "input_tokens": 6,
+        "output_tokens": 356
+      },
+      "completed_response_messages_with_usage": 2,
+      "elapsed_s": 14.263808666000841,
+      "ended_at": "2026-11-15T23:16:13.140398+00:00",
+      "index": 11,
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "pid": 48342,
+      "result": {
+        "duration_api_ms": 2445835,
+        "duration_ms": 13595,
+        "is_error": false,
+        "modelUsage": {
+          "claude-fable-5-2": {
+            "cacheCreationEphemeral1hInputTokens": 338951,
+            "cacheCreationEphemeral5mInputTokens": 0,
+            "cacheCreationInputTokens": 338951,
+            "cacheReadInputTokens": 36426682,
+            "canonicalModel": "claude-fable-5-2",
+            "contextWindow": 1000000,
+            "costBasis": "list",
+            "costUSD": 21.890160400000006,
+            "inputTokens": 356,
+            "maxOutputTokens": 128000,
+            "outputTokens": 229469,
+            "provider": "firstParty",
+            "thinkingTokens": 75023,
+            "webSearchRequests": 0
+          }
+        },
+        "num_turns": 2,
+        "session_id": "93982a34-eabc-432c-b486-cda329240626",
+        "subtype": "success",
+        "total_cost_usd": 21.890160400000006,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 1532,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 1532,
+          "cache_read_input_tokens": 691115,
+          "fallback_credit": null,
+          "inference_geo": "global",
+          "input_tokens": 6,
+          "iterations": [],
+          "output_tokens": 986,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        }
+      },
+      "returncode": 0,
+      "session_id": "93982a34-eabc-432c-b486-cda329240626",
+      "started_at": "2026-11-15T23:15:58.875573+00:00",
+      "status": "exited",
+      "usage_basis": "CLI final result"
+    },
+    {
+      "argv": [
+        "claude",
+        "-p",
+        "Continue the same research attempt. The supervisor's measured active search time is 4950.8 seconds, with 149.2 seconds remaining. Read TASK.json for the updated deadline. Continue experiments, ablations, research or reproducibility checks. Do not access holdout, change selection rules, or wait idle.",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "high",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--safe-mode",
+        "--setting-sources",
+        "",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-2/.study/runs/seattle-building-permit-completion--r1/mcp.json",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "dontAsk",
+        "--permission-prompts",
+        "none",
+        "--tools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--allowedTools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--no-chrome",
+        "--resume",
+        "93982a34-eabc-432c-b486-cda329240626"
+      ],
+      "assistant_usage": {
+        "cache_creation_input_tokens": 1509,
+        "cache_read_input_tokens": 694099,
+        "input_tokens": 6,
+        "output_tokens": 435
+      },
+      "completed_response_messages_with_usage": 2,
+      "elapsed_s": 14.783627500000875,
+      "ended_at": "2026-11-15T23:16:27.928627+00:00",
+      "index": 12,
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "pid": 48445,
+      "result": {
+        "duration_api_ms": 2458926,
+        "duration_ms": 14532,
+        "is_error": false,
+        "modelUsage": {
+          "claude-fable-5-2": {
+            "cacheCreationEphemeral1hInputTokens": 340460,
+            "cacheCreationEphemeral5mInputTokens": 0,
+            "cacheCreationInputTokens": 340460,
+            "cacheReadInputTokens": 37120781,
+            "canonicalModel": "claude-fable-5-2",
+            "contextWindow": 1000000,
+            "costBasis": "list",
+            "costUSD": 22.096772200000007,
+            "inputTokens": 362,
+            "maxOutputTokens": 128000,
+            "outputTokens": 230559,
+            "provider": "firstParty",
+            "thinkingTokens": 75023,
+            "webSearchRequests": 0
+          }
+        },
+        "num_turns": 2,
+        "session_id": "93982a34-eabc-432c-b486-cda329240626",
+        "subtype": "success",
+        "total_cost_usd": 22.096772200000007,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 1509,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 1509,
+          "cache_read_input_tokens": 694099,
+          "fallback_credit": null,
+          "inference_geo": "global",
+          "input_tokens": 6,
+          "iterations": [],
+          "output_tokens": 1090,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        }
+      },
+      "returncode": 0,
+      "session_id": "93982a34-eabc-432c-b486-cda329240626",
+      "started_at": "2026-11-15T23:16:13.143965+00:00",
+      "status": "exited",
+      "usage_basis": "CLI final result"
+    },
+    {
+      "argv": [
+        "claude",
+        "-p",
+        "Continue the same research attempt. The supervisor's measured active search time is 4965.6 seconds, with 134.4 seconds remaining. Read TASK.json for the updated deadline. Continue experiments, ablations, research or reproducibility checks. Do not access holdout, change selection rules, or wait idle.",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "high",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--safe-mode",
+        "--setting-sources",
+        "",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-2/.study/runs/seattle-building-permit-completion--r1/mcp.json",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "dontAsk",
+        "--permission-prompts",
+        "none",
+        "--tools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--allowedTools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--no-chrome",
+        "--resume",
+        "93982a34-eabc-432c-b486-cda329240626"
+      ],
+      "assistant_usage": {
+        "cache_creation_input_tokens": 1262,
+        "cache_read_input_tokens": 697196,
+        "input_tokens": 6,
+        "output_tokens": 335
+      },
+      "completed_response_messages_with_usage": 2,
+      "elapsed_s": 12.252825082978234,
+      "ended_at": "2026-11-15T23:16:40.187623+00:00",
+      "index": 13,
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "pid": 48509,
+      "result": {
+        "duration_api_ms": 2469987,
+        "duration_ms": 11742,
+        "is_error": false,
+        "modelUsage": {
+          "claude-fable-5-2": {
+            "cacheCreationEphemeral1hInputTokens": 341722,
+            "cacheCreationEphemeral5mInputTokens": 0,
+            "cacheCreationInputTokens": 341722,
+            "cacheReadInputTokens": 37817977,
+            "canonicalModel": "claude-fable-5-2",
+            "contextWindow": 1000000,
+            "costBasis": "list",
+            "costUSD": 22.289091400000007,
+            "inputTokens": 368,
+            "maxOutputTokens": 128000,
+            "outputTokens": 231375,
+            "provider": "firstParty",
+            "thinkingTokens": 75023,
+            "webSearchRequests": 0
+          }
+        },
+        "num_turns": 2,
+        "session_id": "93982a34-eabc-432c-b486-cda329240626",
+        "subtype": "success",
+        "total_cost_usd": 22.289091400000007,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 1262,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 1262,
+          "cache_read_input_tokens": 697196,
+          "fallback_credit": null,
+          "inference_geo": "global",
+          "input_tokens": 6,
+          "iterations": [],
+          "output_tokens": 816,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        }
+      },
+      "returncode": 0,
+      "session_id": "93982a34-eabc-432c-b486-cda329240626",
+      "started_at": "2026-11-15T23:16:27.933653+00:00",
+      "status": "exited",
+      "usage_basis": "CLI final result"
+    },
+    {
+      "argv": [
+        "claude",
+        "-p",
+        "Continue the same research attempt. The supervisor's measured active search time is 4977.9 seconds, with 122.1 seconds remaining. Read TASK.json for the updated deadline. Continue experiments, ablations, research or reproducibility checks. Do not access holdout, change selection rules, or wait idle.",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "high",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--safe-mode",
+        "--setting-sources",
+        "",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-2/.study/runs/seattle-building-permit-completion--r1/mcp.json",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "dontAsk",
+        "--permission-prompts",
+        "none",
+        "--tools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--allowedTools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--no-chrome",
+        "--resume",
+        "93982a34-eabc-432c-b486-cda329240626"
+      ],
+      "assistant_usage": {
+        "cache_creation_input_tokens": 1419,
+        "cache_read_input_tokens": 699620,
+        "input_tokens": 6,
+        "output_tokens": 303
+      },
+      "completed_response_messages_with_usage": 2,
+      "elapsed_s": 14.808597750001354,
+      "ended_at": "2026-11-15T23:16:55.000441+00:00",
+      "index": 14,
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "pid": 48584,
+      "result": {
+        "duration_api_ms": 2483521,
+        "duration_ms": 14214,
+        "is_error": false,
+        "modelUsage": {
+          "claude-fable-5-2": {
+            "cacheCreationEphemeral1hInputTokens": 343141,
+            "cacheCreationEphemeral5mInputTokens": 0,
+            "cacheCreationInputTokens": 343141,
+            "cacheReadInputTokens": 38517597,
+            "canonicalModel": "claude-fable-5-2",
+            "contextWindow": 1000000,
+            "costBasis": "list",
+            "costUSD": 22.48872740000001,
+            "inputTokens": 374,
+            "maxOutputTokens": 128000,
+            "outputTokens": 232299,
+            "provider": "firstParty",
+            "thinkingTokens": 75023,
+            "webSearchRequests": 0
+          }
+        },
+        "num_turns": 2,
+        "session_id": "93982a34-eabc-432c-b486-cda329240626",
+        "subtype": "success",
+        "total_cost_usd": 22.48872740000001,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 1419,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 1419,
+          "cache_read_input_tokens": 699620,
+          "fallback_credit": null,
+          "inference_geo": "global",
+          "input_tokens": 6,
+          "iterations": [],
+          "output_tokens": 924,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        }
+      },
+      "returncode": 0,
+      "session_id": "93982a34-eabc-432c-b486-cda329240626",
+      "started_at": "2026-11-15T23:16:40.191043+00:00",
+      "status": "exited",
+      "usage_basis": "CLI final result"
+    },
+    {
+      "argv": [
+        "claude",
+        "-p",
+        "Continue the same research attempt. The supervisor's measured active search time is 4992.7 seconds, with 107.3 seconds remaining. Read TASK.json for the updated deadline. Continue experiments, ablations, research or reproducibility checks. Do not access holdout, change selection rules, or wait idle.",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "high",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--safe-mode",
+        "--setting-sources",
+        "",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-2/.study/runs/seattle-building-permit-completion--r1/mcp.json",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "dontAsk",
+        "--permission-prompts",
+        "none",
+        "--tools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--allowedTools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--no-chrome",
+        "--resume",
+        "93982a34-eabc-432c-b486-cda329240626"
+      ],
+      "assistant_usage": {
+        "cache_creation_input_tokens": 959,
+        "cache_read_input_tokens": 702426,
+        "input_tokens": 6,
+        "output_tokens": 195
+      },
+      "completed_response_messages_with_usage": 2,
+      "elapsed_s": 11.242398708011024,
+      "ended_at": "2026-11-15T23:17:06.249513+00:00",
+      "index": 15,
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "pid": 48654,
+      "result": {
+        "duration_api_ms": 2493739,
+        "duration_ms": 10841,
+        "is_error": false,
+        "modelUsage": {
+          "claude-fable-5-2": {
+            "cacheCreationEphemeral1hInputTokens": 344100,
+            "cacheCreationEphemeral5mInputTokens": 0,
+            "cacheCreationInputTokens": 344100,
+            "cacheReadInputTokens": 39220023,
+            "canonicalModel": "claude-fable-5-2",
+            "contextWindow": 1000000,
+            "costBasis": "list",
+            "costUSD": 22.66428460000001,
+            "inputTokens": 380,
+            "maxOutputTokens": 128000,
+            "outputTokens": 232791,
+            "provider": "firstParty",
+            "thinkingTokens": 75069,
+            "webSearchRequests": 0
+          }
+        },
+        "num_turns": 2,
+        "session_id": "93982a34-eabc-432c-b486-cda329240626",
+        "subtype": "success",
+        "total_cost_usd": 22.66428460000001,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 959,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 959,
+          "cache_read_input_tokens": 702426,
+          "fallback_credit": null,
+          "inference_geo": "global",
+          "input_tokens": 6,
+          "iterations": [],
+          "output_tokens": 492,
+          "output_tokens_details": {
+            "thinking_tokens": 46
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        }
+      },
+      "returncode": 0,
+      "session_id": "93982a34-eabc-432c-b486-cda329240626",
+      "started_at": "2026-11-15T23:16:55.005983+00:00",
+      "status": "exited",
+      "usage_basis": "CLI final result"
+    },
+    {
+      "argv": [
+        "claude",
+        "-p",
+        "Continue the same research attempt. The supervisor's measured active search time is 5003.9 seconds, with 96.1 seconds remaining. Read TASK.json for the updated deadline. Continue experiments, ablations, research or reproducibility checks. Do not access holdout, change selection rules, or wait idle.",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "high",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--safe-mode",
+        "--setting-sources",
+        "",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-2/.study/runs/seattle-building-permit-completion--r1/mcp.json",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "dontAsk",
+        "--permission-prompts",
+        "none",
+        "--tools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--allowedTools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--no-chrome",
+        "--resume",
+        "93982a34-eabc-432c-b486-cda329240626"
+      ],
+      "assistant_usage": {
+        "cache_creation_input_tokens": 1184,
+        "cache_read_input_tokens": 704247,
+        "input_tokens": 6,
+        "output_tokens": 341
+      },
+      "completed_response_messages_with_usage": 2,
+      "elapsed_s": 14.316907375003211,
+      "ended_at": "2026-11-15T23:17:20.570992+00:00",
+      "index": 16,
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "pid": 48726,
+      "result": {
+        "duration_api_ms": 2506259,
+        "duration_ms": 14001,
+        "is_error": false,
+        "modelUsage": {
+          "claude-fable-5-2": {
+            "cacheCreationEphemeral1hInputTokens": 345284,
+            "cacheCreationEphemeral5mInputTokens": 0,
+            "cacheCreationInputTokens": 345284,
+            "cacheReadInputTokens": 39924270,
+            "canonicalModel": "claude-fable-5-2",
+            "contextWindow": 1000000,
+            "costBasis": "list",
+            "costUSD": 22.86056600000001,
+            "inputTokens": 386,
+            "maxOutputTokens": 128000,
+            "outputTokens": 233702,
+            "provider": "firstParty",
+            "thinkingTokens": 75069,
+            "webSearchRequests": 0
+          }
+        },
+        "num_turns": 2,
+        "session_id": "93982a34-eabc-432c-b486-cda329240626",
+        "subtype": "success",
+        "total_cost_usd": 22.86056600000001,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 1184,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 1184,
+          "cache_read_input_tokens": 704247,
+          "fallback_credit": null,
+          "inference_geo": "global",
+          "input_tokens": 6,
+          "iterations": [],
+          "output_tokens": 911,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        }
+      },
+      "returncode": 0,
+      "session_id": "93982a34-eabc-432c-b486-cda329240626",
+      "started_at": "2026-11-15T23:17:06.252929+00:00",
+      "status": "exited",
+      "usage_basis": "CLI final result"
+    },
+    {
+      "argv": [
+        "claude",
+        "-p",
+        "Continue the same research attempt. The supervisor's measured active search time is 5018.2 seconds, with 81.8 seconds remaining. Read TASK.json for the updated deadline. Continue experiments, ablations, research or reproducibility checks. Do not access holdout, change selection rules, or wait idle.",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "high",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--safe-mode",
+        "--setting-sources",
+        "",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-2/.study/runs/seattle-building-permit-completion--r1/mcp.json",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "dontAsk",
+        "--permission-prompts",
+        "none",
+        "--tools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--allowedTools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--no-chrome",
+        "--resume",
+        "93982a34-eabc-432c-b486-cda329240626"
+      ],
+      "assistant_usage": {
+        "cache_creation_input_tokens": 1405,
+        "cache_read_input_tokens": 706750,
+        "input_tokens": 6,
+        "output_tokens": 282
+      },
+      "completed_response_messages_with_usage": 2,
+      "elapsed_s": 14.318275208002888,
+      "ended_at": "2026-11-15T23:17:34.895921+00:00",
+      "index": 17,
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "pid": 48796,
+      "result": {
+        "duration_api_ms": 2518472,
+        "duration_ms": 13635,
+        "is_error": false,
+        "modelUsage": {
+          "claude-fable-5-2": {
+            "cacheCreationEphemeral1hInputTokens": 346689,
+            "cacheCreationEphemeral5mInputTokens": 0,
+            "cacheCreationInputTokens": 346689,
+            "cacheReadInputTokens": 40631020,
+            "canonicalModel": "claude-fable-5-2",
+            "contextWindow": 1000000,
+            "costBasis": "list",
+            "costUSD": 23.060804000000008,
+            "inputTokens": 392,
+            "maxOutputTokens": 128000,
+            "outputTokens": 234611,
+            "provider": "firstParty",
+            "thinkingTokens": 75069,
+            "webSearchRequests": 0
+          }
+        },
+        "num_turns": 2,
+        "session_id": "93982a34-eabc-432c-b486-cda329240626",
+        "subtype": "success",
+        "total_cost_usd": 23.060804000000008,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 1405,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 1405,
+          "cache_read_input_tokens": 706750,
+          "fallback_credit": null,
+          "inference_geo": "global",
+          "input_tokens": 6,
+          "iterations": [],
+          "output_tokens": 909,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        }
+      },
+      "returncode": 0,
+      "session_id": "93982a34-eabc-432c-b486-cda329240626",
+      "started_at": "2026-11-15T23:17:20.576536+00:00",
+      "status": "exited",
+      "usage_basis": "CLI final result"
+    },
+    {
+      "argv": [
+        "claude",
+        "-p",
+        "Continue the same research attempt. The supervisor's measured active search time is 5032.5 seconds, with 67.5 seconds remaining. Read TASK.json for the updated deadline. Continue experiments, ablations, research or reproducibility checks. Do not access holdout, change selection rules, or wait idle.",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "high",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--safe-mode",
+        "--setting-sources",
+        "",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-2/.study/runs/seattle-building-permit-completion--r1/mcp.json",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "dontAsk",
+        "--permission-prompts",
+        "none",
+        "--tools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--allowedTools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--no-chrome",
+        "--resume",
+        "93982a34-eabc-432c-b486-cda329240626"
+      ],
+      "assistant_usage": {
+        "cache_creation_input_tokens": 1034,
+        "cache_read_input_tokens": 709501,
+        "input_tokens": 6,
+        "output_tokens": 262
+      },
+      "completed_response_messages_with_usage": 2,
+      "elapsed_s": 10.71259154198924,
+      "ended_at": "2026-11-15T23:17:45.612681+00:00",
+      "index": 18,
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "pid": 48888,
+      "result": {
+        "duration_api_ms": 2528191,
+        "duration_ms": 10400,
+        "is_error": false,
+        "modelUsage": {
+          "claude-fable-5-2": {
+            "cacheCreationEphemeral1hInputTokens": 347723,
+            "cacheCreationEphemeral5mInputTokens": 0,
+            "cacheCreationInputTokens": 347723,
+            "cacheReadInputTokens": 41340521,
+            "canonicalModel": "claude-fable-5-2",
+            "contextWindow": 1000000,
+            "costBasis": "list",
+            "costUSD": 23.24597620000001,
+            "inputTokens": 398,
+            "maxOutputTokens": 128000,
+            "outputTokens": 235278,
+            "provider": "firstParty",
+            "thinkingTokens": 75069,
+            "webSearchRequests": 0
+          }
+        },
+        "num_turns": 2,
+        "session_id": "93982a34-eabc-432c-b486-cda329240626",
+        "subtype": "success",
+        "total_cost_usd": 23.24597620000001,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 1034,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 1034,
+          "cache_read_input_tokens": 709501,
+          "fallback_credit": null,
+          "inference_geo": "global",
+          "input_tokens": 6,
+          "iterations": [],
+          "output_tokens": 667,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        }
+      },
+      "returncode": 0,
+      "session_id": "93982a34-eabc-432c-b486-cda329240626",
+      "started_at": "2026-11-15T23:17:34.899221+00:00",
+      "status": "exited",
+      "usage_basis": "CLI final result"
+    },
+    {
+      "argv": [
+        "claude",
+        "-p",
+        "Continue the same research attempt. The supervisor's measured active search time is 5043.3 seconds, with 56.7 seconds remaining. Read TASK.json for the updated deadline. Continue experiments, ablations, research or reproducibility checks. Do not access holdout, change selection rules, or wait idle.",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "high",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--safe-mode",
+        "--setting-sources",
+        "",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-2/.study/runs/seattle-building-permit-completion--r1/mcp.json",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "dontAsk",
+        "--permission-prompts",
+        "none",
+        "--tools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--allowedTools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--no-chrome",
+        "--resume",
+        "93982a34-eabc-432c-b486-cda329240626"
+      ],
+      "assistant_usage": {
+        "cache_creation_input_tokens": 883,
+        "cache_read_input_tokens": 711549,
+        "input_tokens": 6,
+        "output_tokens": 186
+      },
+      "completed_response_messages_with_usage": 2,
+      "elapsed_s": 9.723661250027362,
+      "ended_at": "2026-11-15T23:17:55.340803+00:00",
+      "index": 19,
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "pid": 48957,
+      "result": {
+        "duration_api_ms": 2536765,
+        "duration_ms": 9202,
+        "is_error": false,
+        "modelUsage": {
+          "claude-fable-5-2": {
+            "cacheCreationEphemeral1hInputTokens": 348606,
+            "cacheCreationEphemeral5mInputTokens": 0,
+            "cacheCreationInputTokens": 348606,
+            "cacheReadInputTokens": 42052070,
+            "canonicalModel": "claude-fable-5-2",
+            "contextWindow": 1000000,
+            "costBasis": "list",
+            "costUSD": 23.41994200000001,
+            "inputTokens": 404,
+            "maxOutputTokens": 128000,
+            "outputTokens": 235715,
+            "provider": "firstParty",
+            "thinkingTokens": 75069,
+            "webSearchRequests": 0
+          }
+        },
+        "num_turns": 2,
+        "session_id": "93982a34-eabc-432c-b486-cda329240626",
+        "subtype": "success",
+        "total_cost_usd": 23.41994200000001,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 883,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 883,
+          "cache_read_input_tokens": 711549,
+          "fallback_credit": null,
+          "inference_geo": "global",
+          "input_tokens": 6,
+          "iterations": [],
+          "output_tokens": 437,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        }
+      },
+      "returncode": 0,
+      "session_id": "93982a34-eabc-432c-b486-cda329240626",
+      "started_at": "2026-11-15T23:17:45.616136+00:00",
+      "status": "exited",
+      "usage_basis": "CLI final result"
+    }
+  ],
+  "research_active_s": 5100.108542583082,
+  "selected": {
+    "artifact_sha256": "ab64312f19e4680e57a24bfa13ef614629ad91a55554cae37fab1f4a7f8622cd",
+    "auc": 0.6587075534859927,
+    "backtest": {},
+    "brier": 0.17050737329378451,
+    "code_sha256": "73a90309b31833805111e547d9f880e8e7f24cb796cdb2f68dbcdb8a15d1259d",
+    "elapsed_s": 15.851194833987392,
+    "evaluation_wall_s": 12.866159541998059,
+    "finished_epoch": 1794784097.524579,
+    "fit_cpu_s": 7.1188020000000005,
+    "fit_wall_s": 2.891146125009982,
+    "id": "7bb99f3f89c741e496b57cb865c15a21",
+    "mode": "validation",
+    "note": "H14: H13 with reg_lambda 5 -> 10. Stronger L2 was favoured by long-horizon fits at every stage (H6/H7/H10/H13: +.001 to +.003) and by a 4-origin rolling training-only check (.6204 -> .6223); local validation +.0004, Brier +.0003 worse",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-2/.study/runs/seattle-building-permit-completion--r1/trials/7bb99f3f89c741e496b57cb865c15a21",
+    "phase": "evaluation",
+    "rows_score": 7135,
+    "rows_train": 11286,
+    "started_epoch": 1794784081.673085,
+    "status": "ok",
+    "utc": "2026-11-15T23:08:01.673078+00:00"
+  },
+  "session_id": "93982a34-eabc-432c-b486-cda329240626",
+  "short_resume_wait_s": 47.1304716670129,
+  "status": "frozen",
+  "task_contract": {
+    "dataset": "seattle-building-permit-completion",
+    "experiment_seconds": 300,
+    "python": "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-2/.study/venv/bin/python",
+    "refit_validation": false,
+    "run_id": "seattle-building-permit-completion--r1",
+    "seed": 42,
+    "selection": "highest validation AUC; ties <=1e-9 earliest trial",
+    "threads": 5
+  }
+}

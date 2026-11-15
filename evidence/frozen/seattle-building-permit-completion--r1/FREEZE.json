@@ -1,0 +1,50 @@
+{
+  "dataset": "seattle-building-permit-completion",
+  "environment": "25da8bd4a246c5c78ad693276de09eadf5101df88801ff3a001bba60c8643400",
+  "files": {
+    "booster.json": {
+      "bytes": 6837661,
+      "sha256": "7aea5bb80a4ab752eaf9e4319593d09307dc05a038343233926d7b18de7f1009"
+    },
+    "model.pkl": {
+      "bytes": 6935474,
+      "sha256": "ab64312f19e4680e57a24bfa13ef614629ad91a55554cae37fab1f4a7f8622cd"
+    },
+    "train.py": {
+      "bytes": 4739,
+      "sha256": "73a90309b31833805111e547d9f880e8e7f24cb796cdb2f68dbcdb8a15d1259d"
+    },
+    "validation.csv.gz": {
+      "bytes": 76272,
+      "sha256": "885f07308d8a449abe980c3d7e60a22bed6890cdce015f4bab8e2480d6dd94cf"
+    },
+    "validation.json": {
+      "bytes": 1011,
+      "sha256": "88f546092ca71240795d452f807223a4295c4f2f4d7caa6c7fbc7865b44bd998"
+    }
+  },
+  "frozen_at": "2026-11-15T23:18:56.158593+00:00",
+  "run": "seattle-building-permit-completion--r1",
+  "selected_trial": {
+    "artifact_sha256": "ab64312f19e4680e57a24bfa13ef614629ad91a55554cae37fab1f4a7f8622cd",
+    "auc": 0.6587075534859927,
+    "backtest": {},
+    "brier": 0.17050737329378451,
+    "code_sha256": "73a90309b31833805111e547d9f880e8e7f24cb796cdb2f68dbcdb8a15d1259d",
+    "elapsed_s": 15.851194833987392,
+    "evaluation_wall_s": 12.866159541998059,
+    "finished_epoch": 1794784097.524579,
+    "fit_cpu_s": 7.1188020000000005,
+    "fit_wall_s": 2.891146125009982,
+    "id": "7bb99f3f89c741e496b57cb865c15a21",
+    "mode": "validation",
+    "note": "H14: H13 with reg_lambda 5 -> 10. Stronger L2 was favoured by long-horizon fits at every stage (H6/H7/H10/H13: +.001 to +.003) and by a 4-origin rolling training-only check (.6204 -> .6223); local validation +.0004, Brier +.0003 worse",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-2/.study/runs/seattle-building-permit-completion--r1/trials/7bb99f3f89c741e496b57cb865c15a21",
+    "phase": "evaluation",
+    "rows_score": 7135,
+    "rows_train": 11286,
+    "started_epoch": 1794784081.673085,
+    "status": "ok",
+    "utc": "2026-11-15T23:08:01.673078+00:00"
+  }
+}
