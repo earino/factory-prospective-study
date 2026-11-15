@@ -1,6 +1,6 @@
 # Consumer study results
 
-Generated 2026-11-15T11:32:38.228779+00:00
+Generated 2026-11-15T11:34:50.994107+00:00
 
 Measured records are in summary.json and scores.csv. Failures remain in the denominator.
 
@@ -16,6 +16,8 @@ Compliance triage (separate from scores):
 
 Scores (including flagged attempts; do not treat all as compliant results):
 
+- faa-wildlife-strike-substantial-damage--ordinary: validation AUC 0.885059; holdout AUC 0.893779.
+- faa-wildlife-strike-substantial-damage--released: validation AUC 0.889853; holdout AUC 0.893618.
 
 ## Limits
 
