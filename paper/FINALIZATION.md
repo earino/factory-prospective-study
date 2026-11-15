@@ -51,3 +51,19 @@ final export; replay produced exactly the three prior numerical records. Seattle
 r1 remains live (PID 37888 observed at 22:43 UTC); no duplicate launched.
 The separate Seattle combination script is prepared but must be run and verified
 only after retry-2 and its postchecks are complete.
+
+Final integration notes: the scheduled export may have cutoff=null; use its
+declared window_close (07:00 UTC), preserving the raw export. Its cohort.json is
+capped at 12: derive all production publications from candidate/attempt records
+for costs and latency, while consumers stay the first 12. capture_final_inputs.py
+implements this distinction and is not yet run. Check any missing active-session
+usage explicitly. At closeout, replace the long chronological SIGNOFF with a
+current claim-to-evidence sign-off, preserving the old file/history. Update model
+wording to match the two recorded provider aliases.
+
+23:08 UTC: Final-snapshot loading, table/figure generation and numerical checks
+are prepared. A temporary replay reproduced all existing table cells, comparison
+records and prior derived values exactly. The final-data branch still awaits the
+actual recovery results and production export. Consumers remain the selected
+twelve even if the publication queue grows; all window publications enter cost
+and production accounting. Earlier evidence snapshots remain unchanged.

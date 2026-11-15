@@ -2,6 +2,10 @@
 from pathlib import Path
 import collections, datetime, hashlib, json, re, statistics, subprocess
 P=Path(__file__).resolve().parents[1]
+if (P/'analysis/final-inputs-2026-11-16.json').exists():
+ import runpy
+ runpy.run_path(str(P/'analysis/verify_final.py'), run_name='__main__')
+ raise SystemExit(0)
 names=['draft-inputs.json','update-inputs-2026-11-15.json','evening-inputs-2026-11-15.json']
 snapshots=[json.loads((P/'analysis'/n).read_text()) for n in names]
 D={}; execution={}

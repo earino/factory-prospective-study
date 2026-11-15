@@ -46,7 +46,7 @@ summary = {
     'selection_rule': 'Fresh authorized retry-2 r1 plus original retry-1 r2/r3; no score-based choice. Raw blocked r1 remains in retry-1 evidence.',
     'execution_by_run': {DS + '--r1': NEW, DS + '--r2': OLD, DS + '--r3': OLD},
     'outcomes': new['outcomes'] + [r for r in old['outcomes'] if r['id'].endswith(('--r2', '--r3'))],
-    'scores': base_old + [r for r in new['scores'] if r['kind'] != 'ordinary'] + [r for r in old['scores'] if r['kind'] != 'ordinary'],
+    'scores': base_old + [r for r in new['scores'] if r['kind'] in ('agent', 'random')] + [r for r in old['scores'] if r['kind'] in ('agent', 'random')],
 }
 assert len({r['id'] for r in summary['scores']}) == len(summary['scores']) == 7
 write('summary.json', summary)

@@ -1,11 +1,11 @@
 # Dataset Factory paper draft
 
-The revised full draft is [the six-page PDF](output/paper.pdf).
+The revised full draft is [the seven-page PDF](output/paper.pdf).
 The draft includes all 12 cohort publications and 29 scored consumer models from
 ten datasets, including all three quota-recovery evaluations completed by 20:08 UTC
 on 15 November. Nine datasets have three models; Seattle has two and one blocked
-attempt. Drinking-water evaluation is running; utility-reliability access failures
-remain. Production costs still use the 64.93-hour export ending at 14:24 UTC that
+attempt. Drinking-water evaluation has finished and awaits integration. A single
+Seattle recovery is running; the utility-reliability recovery is queued. Production costs still use the 64.93-hour export ending at 14:24 UTC that
 day and its 11-publication denominator.
 
 The paragraph-value audit has been applied; the earlier three full-paper readability passes are
@@ -23,6 +23,12 @@ reading keys without repeating the discussion. Source-quality findings remain se
 Section V now gives four design lessons linked to observed evidence. Related Work
 positions the contribution through continuing production, operational evidence,
 and separate consumer use, without claiming that prior work lacks every component.
+
+The original SBIR acceptance packet is now reconstructed in
+[the acceptance audit](analysis/final-2026-11-16/SBIR-ACCEPTANCE-AUDIT.md). The paper
+separates service maintenance from dataset production. All twelve cohort artifacts
+have exact-version qualification receipts. Selected-code and conduct review is
+complete for the 32 currently frozen solutions; four recovery solutions remain.
 
 This remains an interim author-review draft. Its 22 references support the
 methods, production reliability, artifact evaluation, and human-work discussion.
