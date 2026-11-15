@@ -1,4 +1,9 @@
 dataset,id,kind,validation_auc,validation_brier,holdout_auc,holdout_brier,holdout_rows
-faa-wildlife-strike-substantial-damage,faa-wildlife-strike-substantial-damage--r1,agent,0.9054085112938564,0.010247497955428193,,,
-faa-wildlife-strike-substantial-damage,faa-wildlife-strike-substantial-damage--r2,agent,0.9026829900278499,0.010210711558317709,,,
-faa-wildlife-strike-substantial-damage,faa-wildlife-strike-substantial-damage--r3,agent,0.9068884072107284,0.010379482252322861,,,
+faa-wildlife-strike-substantial-damage,faa-wildlife-strike-substantial-damage--ordinary,ordinary,0.8850593504096096,0.010890016101097005,0.893778797250377,0.00661702185122716,25425
+faa-wildlife-strike-substantial-damage,faa-wildlife-strike-substantial-damage--r1,agent,0.9054085112938564,0.010247497955428193,0.9128234649648987,0.005930137289441799,25425
+faa-wildlife-strike-substantial-damage,faa-wildlife-strike-substantial-damage--r1--random,random,0.8960392386193632,0.010673797983234359,0.9091333933302965,0.0062290068898524205,25425
+faa-wildlife-strike-substantial-damage,faa-wildlife-strike-substantial-damage--r2,agent,0.9026829900278499,0.010210711558317709,0.9195533745338731,0.005791554900154072,25425
+faa-wildlife-strike-substantial-damage,faa-wildlife-strike-substantial-damage--r2--random,random,0.8961849849659522,0.010794214890154946,0.9048748516994669,0.006419046977267978,25425
+faa-wildlife-strike-substantial-damage,faa-wildlife-strike-substantial-damage--r3,agent,0.9068884072107284,0.010379482252322861,0.9081156843825051,0.006018066525599985,25425
+faa-wildlife-strike-substantial-damage,faa-wildlife-strike-substantial-damage--r3--random,random,0.8978420584947042,0.010634668193708908,0.9042419674082124,0.0063388615534280485,25425
+faa-wildlife-strike-substantial-damage,faa-wildlife-strike-substantial-damage--released,released,0.8898529197621798,0.01047778924850881,0.8936182229332609,0.005903907578749198,25425

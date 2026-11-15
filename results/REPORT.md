@@ -1,6 +1,6 @@
 # Consumer study results
 
-Generated 2026-11-15T16:19:22.996261+00:00
+Generated 2026-11-15T16:43:44.716211+00:00
 
 Measured records are in summary.json and scores.csv. Failures remain in the denominator.
 
@@ -16,9 +16,14 @@ Compliance triage (separate from scores):
 
 Scores (including flagged attempts; do not treat all as compliant results):
 
-- faa-wildlife-strike-substantial-damage--r1: validation AUC 0.905409; holdout AUC not scored.
-- faa-wildlife-strike-substantial-damage--r2: validation AUC 0.902683; holdout AUC not scored.
-- faa-wildlife-strike-substantial-damage--r3: validation AUC 0.906888; holdout AUC not scored.
+- faa-wildlife-strike-substantial-damage--ordinary: validation AUC 0.885059; holdout AUC 0.893779.
+- faa-wildlife-strike-substantial-damage--r1: validation AUC 0.905409; holdout AUC 0.912823.
+- faa-wildlife-strike-substantial-damage--r1--random: validation AUC 0.896039; holdout AUC 0.909133.
+- faa-wildlife-strike-substantial-damage--r2: validation AUC 0.902683; holdout AUC 0.919553.
+- faa-wildlife-strike-substantial-damage--r2--random: validation AUC 0.896185; holdout AUC 0.904875.
+- faa-wildlife-strike-substantial-damage--r3: validation AUC 0.906888; holdout AUC 0.908116.
+- faa-wildlife-strike-substantial-damage--r3--random: validation AUC 0.897842; holdout AUC 0.904242.
+- faa-wildlife-strike-substantial-damage--released: validation AUC 0.889853; holdout AUC 0.893618.
 
 ## Limits
 

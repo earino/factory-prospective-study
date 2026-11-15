@@ -1,0 +1,561 @@
+{
+  "files": {
+    "agent.md": {
+      "bytes": 9301,
+      "sha256": "c09f3b5b08ae3a87684b75fb3abea1659aaa6283d1832a13ae6b6aeb27083bc8"
+    },
+    "evidence/COMPLETED.json": {
+      "bytes": 176,
+      "sha256": "2930c96c2fc55902bf4980d696c36bc975cf76039f8d285f652f9bb894479632"
+    },
+    "evidence/HOLDOUT-BARRIER.json": {
+      "bytes": 1086,
+      "sha256": "b4d7d2349b203282a69063d48c12974ca7b92b2be128d0720307bf9ebebe0ddc"
+    },
+    "evidence/attempts/faa-wildlife-strike-substantial-damage--r1--random/archive.json": {
+      "bytes": 16662,
+      "sha256": "0a4ac955db1413b24063b57265890a4be77f3e5d25acc3803bed34299506dfc1"
+    },
+    "evidence/attempts/faa-wildlife-strike-substantial-damage--r1--random/state.json": {
+      "bytes": 3841,
+      "sha256": "78aac81b5ba5c80469a7127b95c593337cd459fc4b9a7950fffba1e471383901"
+    },
+    "evidence/attempts/faa-wildlife-strike-substantial-damage--r1--random/workspace.tar.gz.part0000": {
+      "bytes": 11843296,
+      "sha256": "2938bdacd56bde5afaeb6e841783dc0ffc751aae4ad20f92aa569424dc66636c"
+    },
+    "evidence/attempts/faa-wildlife-strike-substantial-damage--r1/archive.json": {
+      "bytes": 31157,
+      "sha256": "1ebf96cebcf4f57ec89d80ea874e8d7b535ef2a1e4d31177ec0c7e6a350f0496"
+    },
+    "evidence/attempts/faa-wildlife-strike-substantial-damage--r1/state.json": {
+      "bytes": 80443,
+      "sha256": "78e3143389b22222e2d8fdb06f3b0fdd1a87a4cc14924f8dc1322229f4b6dd93"
+    },
+    "evidence/attempts/faa-wildlife-strike-substantial-damage--r1/workspace.tar.gz.part0000": {
+      "bytes": 15856147,
+      "sha256": "8a266bf8d2ab111a7497f1efeac0716192b6dc1b7d019d8cf1d1133b925448bd"
+    },
+    "evidence/attempts/faa-wildlife-strike-substantial-damage--r2--random/archive.json": {
+      "bytes": 6566,
+      "sha256": "b2e9c9e0a4e7c61647663ab0453e9cd3f4b15ed8380861b7c10b4b5264a8167e"
+    },
+    "evidence/attempts/faa-wildlife-strike-substantial-damage--r2--random/state.json": {
+      "bytes": 3850,
+      "sha256": "ec24b24e1e97c7d1e4bf481ad64502dc427806a84cbacb4887d41e1b0a2825ee"
+    },
+    "evidence/attempts/faa-wildlife-strike-substantial-damage--r2--random/workspace.tar.gz.part0000": {
+      "bytes": 3155647,
+      "sha256": "bacbb1059ce13860b44fea0639a9c2785bb79fb388e1a57e4594a4568f665237"
+    },
+    "evidence/attempts/faa-wildlife-strike-substantial-damage--r2/archive.json": {
+      "bytes": 29933,
+      "sha256": "ba8bb806e39392c4cb00f9c0e359a4120c2733a03b0dc299ca0b536e2bee78aa"
+    },
+    "evidence/attempts/faa-wildlife-strike-substantial-damage--r2/state.json": {
+      "bytes": 75339,
+      "sha256": "3db7649aa3c7a47e91c2b13d63e0480c22dda200132b534eedbf2f268e4ede00"
+    },
+    "evidence/attempts/faa-wildlife-strike-substantial-damage--r2/workspace.tar.gz.part0000": {
+      "bytes": 8457354,
+      "sha256": "a502fd60e39e893b4e5c874c8adda522a53eb30cc6a35725daa8328633fdd84f"
+    },
+    "evidence/attempts/faa-wildlife-strike-substantial-damage--r3--random/archive.json": {
+      "bytes": 82399,
+      "sha256": "2da9688c3bf907224e0e5ca1d324a8310345bef762f06a1e1e6388c3346c850a"
+    },
+    "evidence/attempts/faa-wildlife-strike-substantial-damage--r3--random/state.json": {
+      "bytes": 3841,
+      "sha256": "0b704a59a72764bd4bf101b7c965a7aafdae6787dcbdbede8e449a115bed7fae"
+    },
+    "evidence/attempts/faa-wildlife-strike-substantial-damage--r3--random/workspace.tar.gz.part0000": {
+      "bytes": 33554432,
+      "sha256": "3c1001974b45447f41d8a7da848d52734da525081eed8afb943c6bbe352f1465"
+    },
+    "evidence/attempts/faa-wildlife-strike-substantial-damage--r3--random/workspace.tar.gz.part0001": {
+      "bytes": 18040899,
+      "sha256": "077a1ff162aab495aa433554527b169c49e8b99d8081eb346805daa364e9bfe5"
+    },
+    "evidence/attempts/faa-wildlife-strike-substantial-damage--r3/archive.json": {
+      "bytes": 68923,
+      "sha256": "070b069e211d8a807b6f9df3d1ecc8893fe33237b4bcbbd49b01b2b4540b5076"
+    },
+    "evidence/attempts/faa-wildlife-strike-substantial-damage--r3/state.json": {
+      "bytes": 66600,
+      "sha256": "9a6c90f780531855385e1640fdff53fef8870a635d5a8a16dbbf0167caef67ad"
+    },
+    "evidence/attempts/faa-wildlife-strike-substantial-damage--r3/workspace.tar.gz.part0000": {
+      "bytes": 33554432,
+      "sha256": "7c6f0e4c8f2b5278ca6abf50440b77cbe7c5530c729add4e6c45ffb8ab063536"
+    },
+    "evidence/attempts/faa-wildlife-strike-substantial-damage--r3/workspace.tar.gz.part0001": {
+      "bytes": 26010354,
+      "sha256": "f63d2bf403b94b5be236fec90612e6f6fb4fc28c30bde097c52cd003530cdc90"
+    },
+    "evidence/compliance/faa-wildlife-strike-substantial-damage--r1.json": {
+      "bytes": 634,
+      "sha256": "2109040d71c95e0cd7db617359c2795b44261359f250e1d7b9619ee43559fe5c"
+    },
+    "evidence/compliance/faa-wildlife-strike-substantial-damage--r2.json": {
+      "bytes": 634,
+      "sha256": "c8e060ceeca6058236e109c80b0fea95fe207f95836f4f1503a289191b705f10"
+    },
+    "evidence/compliance/faa-wildlife-strike-substantial-damage--r3.json": {
+      "bytes": 634,
+      "sha256": "c88df627603d58a80d63643d6910ff3716f4176a879db2671949e66cf5b9b35e"
+    },
+    "evidence/controls/faa-wildlife-strike-substantial-damage--published/reproduction.json": {
+      "bytes": 217,
+      "sha256": "f2cd39b8b4d5a7bc5a3f803f9a06144c00b9ed28656cf94d075ddd5dd4d9be30"
+    },
+    "evidence/environment/claude-help.txt": {
+      "bytes": 22494,
+      "sha256": "1e734dc647e2d7c775d2e581b3aa68a8741ff4fdde7e864c4e5799d70777558c"
+    },
+    "evidence/environment/host.json": {
+      "bytes": 201,
+      "sha256": "d807a370e0a2df486a0e36bfa0dce8af197899c9da73486d90db640b566de070"
+    },
+    "evidence/environment/pip-freeze.txt": {
+      "bytes": 424,
+      "sha256": "25da8bd4a246c5c78ad693276de09eadf5101df88801ff3a001bba60c8643400"
+    },
+    "evidence/environment/python.json": {
+      "bytes": 149,
+      "sha256": "7245a6256e5c5289e5b7baba2c5ef506d0410b39e9b50fcfe2defba0e121ce89"
+    },
+    "evidence/events.jsonl": {
+      "bytes": 201405,
+      "sha256": "7390d49785e6283a16678ca9b87e3b366db47c1f882edd8cf10b354ab1d50202"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--ordinary/FREEZE.json": {
+      "bytes": 858,
+      "sha256": "67ee9ac0c9a8db524b077ab27d3bc8d4bea91e0957ec3843f45c7ef6979f81fc"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--ordinary/booster.json": {
+      "bytes": 650094,
+      "sha256": "2fe65ef9dddb3a3b2f3f0302207eb9a9e93995d1453baad78fcd58ff5f0b6097"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--ordinary/model.pkl": {
+      "bytes": 555032,
+      "sha256": "c8ad19547efd06282a1187136cdec71fa9b1362a75752a0b78c8d07c5285959f"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--ordinary/train.py": {
+      "bytes": 1161,
+      "sha256": "8ef88b64efd5805e03b546af17e7d6e92fbd39e24bc46a03bcb2b848ba9fb450"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--ordinary/validation.csv.gz": {
+      "bytes": 384004,
+      "sha256": "ef47fcf68d8ffba942d970c7e44b433f76ac5b750c92dc3257c18011ff1664f2"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--ordinary/validation.json": {
+      "bytes": 784,
+      "sha256": "24dc210cabd6c6946d59dd2593cebcdf2843425abcd6ebce0c079798ab70ade9"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r1--random/FREEZE.json": {
+      "bytes": 2012,
+      "sha256": "6fc00358eb6be2786b89b23a87c9e2fa76a52cc40d13a253124f0af8971355e3"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r1--random/booster.json": {
+      "bytes": 997675,
+      "sha256": "45b0ffb0e4d1ed1bc6a54e211d22a3983fcdc332dfb757674ee246a0a9fedfc4"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r1--random/model.pkl": {
+      "bytes": 987723,
+      "sha256": "b553a861b3dc304a9b0646cfa309010c890653b0a00ea7621da9e3bee094a045"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r1--random/train.py": {
+      "bytes": 1247,
+      "sha256": "68a0b0aa671dc88018fed6827c79fc8bd41b9436a51095bb1b3b656e12f8fb5a"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r1--random/validation.csv.gz": {
+      "bytes": 385213,
+      "sha256": "a150b9f9fa056efe68e812959b79c873e75bbb64160e4f6caf268681c3a7b09d"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r1--random/validation.json": {
+      "bytes": 939,
+      "sha256": "5ba11154ca18354a963a7de22c4c195d4afa5ff41e826e1717af456e8d2d12e4"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r1/FREEZE.json": {
+      "bytes": 2266,
+      "sha256": "b5bd53947f029a037485180a495adf0ba12a4b64c4e73681eeea888cc96f44e4"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r1/booster.json": {
+      "bytes": 1383392,
+      "sha256": "0b9c18fa581d56ae60ca94811ed682d41018cbafe384ce96089d1b496c6acf1b"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r1/model.pkl": {
+      "bytes": 974259,
+      "sha256": "e2e9bc2c97e1aa74d8249fc29ff8942affaae263fd09540413098efde8d2a181"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r1/train.py": {
+      "bytes": 6968,
+      "sha256": "6c5c537b9b8169659edec54c04235ac4ad9dde4407b53efbb0f20c64e27b4043"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r1/validation.csv.gz": {
+      "bytes": 372167,
+      "sha256": "f9f85fdabeedd71b8730d9c1903f8ba9c08dcc54b199e7fe9ea60cffd2a68a22"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r1/validation.json": {
+      "bytes": 1126,
+      "sha256": "be65c59ddf4f85c307f2d2bad6754c5ae5afefaf5c0ee448e53d3874ddb851cf"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r2--random/FREEZE.json": {
+      "bytes": 2012,
+      "sha256": "997c72721ef065e0a69d922b7f9bceb80ca68c0d6dda3f9b300ed326dc73cdb7"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r2--random/booster.json": {
+      "bytes": 762700,
+      "sha256": "8eaa54670c326d063c8355a885bba9f2470bd9e80c10b1374b3a57017fdfb610"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r2--random/model.pkl": {
+      "bytes": 609273,
+      "sha256": "1a8303a6c392e593d0387f0e144c1850ce04efdf09f10d95bf6037a56e0e4622"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r2--random/train.py": {
+      "bytes": 1246,
+      "sha256": "dec54af7c386838d0626c96cf90446ddaacfef56147b185a46758b285e64690f"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r2--random/validation.csv.gz": {
+      "bytes": 385788,
+      "sha256": "2bb580bec9f22e86bbc64ae9e92d8a561a5b46bd31fb85cc229174556421a3d1"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r2--random/validation.json": {
+      "bytes": 939,
+      "sha256": "b3f267da8d1a562c52b75b8a97d19eddc9910f22b516697fd56bf7a8d50392d4"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r2/FREEZE.json": {
+      "bytes": 2129,
+      "sha256": "3330d131d9aa101ed7dd75ffe8861efe6a94b6c4bb73bbb444eae86a1899cc6d"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r2/booster.json": {
+      "bytes": 428970,
+      "sha256": "30af8cfe2ddaee472044278c9553c047c6c289e2d243bf81e2f38b2f4e8fe9a1"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r2/model.pkl": {
+      "bytes": 314090,
+      "sha256": "d9e98571d05652a679b0296dc93621aac75df55292a5f342c58eb7e056966056"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r2/train.py": {
+      "bytes": 6114,
+      "sha256": "e01b490471ae5834509bd49b5f23babee107135f36a03a731430ca72f5bc6d4a"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r2/validation.csv.gz": {
+      "bytes": 370277,
+      "sha256": "2b0bb884baca8924ada376368b1d4aca88870363b9b827a51247269c23f36fc5"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r2/validation.json": {
+      "bytes": 991,
+      "sha256": "0e3f12cb66add70fd0c9297ae316da4ffd347701022018224ec08a523a9eeb50"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r3--random/FREEZE.json": {
+      "bytes": 2012,
+      "sha256": "79606b0c62ae04769221831d0d345e43698156fde0f11d58600dff5e140feeed"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r3--random/booster.json": {
+      "bytes": 4600788,
+      "sha256": "382828cfe1e5c0a38f4c51c9cd91bb6c9084fcf136f0919edbda8a5fb53757a5"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r3--random/model.pkl": {
+      "bytes": 3650916,
+      "sha256": "5e3adacb8bc7e927d1177e4fb6fd34e4c765a39a3b8f979260ff50ef55333bc9"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r3--random/train.py": {
+      "bytes": 1247,
+      "sha256": "f979ba9a57d98e451b26354295a6a8128380ef1bc8aff290bd32b28d07efe287"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r3--random/validation.csv.gz": {
+      "bytes": 385442,
+      "sha256": "a5b5c306d400af35ecc4130cbe578cec1795cfd6fab885b92a935e5094f6d7e5"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r3--random/validation.json": {
+      "bytes": 937,
+      "sha256": "7e0b5aa92fdd1f0d5776b370978605b224865b6912072b3d16b9ce4fe11d8f1d"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r3/FREEZE.json": {
+      "bytes": 2189,
+      "sha256": "3c95d544c7021ad43afccedff75ed00a380b7ce5d333b0c424b2f152965dc75f"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r3/booster.json": {
+      "bytes": 1269743,
+      "sha256": "2656e4a8784eea32af3efdeae4c614426df6443a4b54c53b0ab0d0a41b7023c9"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r3/model.pkl": {
+      "bytes": 962135,
+      "sha256": "8f8916b44174b63295a09edca512a49563a73c6874b859411b69a5282f601074"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r3/train.py": {
+      "bytes": 16292,
+      "sha256": "7e84072a38ff166bd77fbc84520943227306b2c0da63b4ed5b60b4ec44d847bb"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r3/validation.csv.gz": {
+      "bytes": 385182,
+      "sha256": "637427f87dc7e6ef72369c87520ae80da5b1b56591eeee35b835f88c8f0e5a44"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--r3/validation.json": {
+      "bytes": 1048,
+      "sha256": "65cd4f54974a22b681c4029c4f2adf4a15910aec95b0a4d19f74ca62d97af464"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--released/FREEZE.json": {
+      "bytes": 895,
+      "sha256": "c631418ff868de8224d50d85f8c733f579b0fdb259a067dcae18cd06e79ae1bf"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--released/booster.json": {
+      "bytes": 246536,
+      "sha256": "fe7c2e82438eeb251cb78bfcec19a4e829f74c74b99934887a907668299617a9"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--released/model.pkl": {
+      "bytes": 212102,
+      "sha256": "b3db4b649904578f8ca10e001f33b1efe12e504edc376200e4ef3930ae65ba52"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--released/train.py": {
+      "bytes": 1160,
+      "sha256": "431a0f15145a8578df4bc149ee13483cbc7f06e15ac8214356c08da99d9e5d21"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--released/validation.csv.gz": {
+      "bytes": 347036,
+      "sha256": "6a17c9f7ca7b61912fecb857d424b84f17bfdc4c3e960c40d79fd0f2149d88d2"
+    },
+    "evidence/frozen/faa-wildlife-strike-substantial-damage--released/validation.json": {
+      "bytes": 802,
+      "sha256": "f167816adbd39409e3805950ef2c2162b576b4cb038828ea8f9b9ff5afe94f5a"
+    },
+    "evidence/holdout-access/faa-wildlife-strike-substantial-damage.json": {
+      "bytes": 274,
+      "sha256": "f6cd0eab9b447543bb7737e42ef45ac3b37d62b7e903603d73d64dfb585f039e"
+    },
+    "evidence/releases/faa-wildlife-strike-substantial-damage/LICENSE-EVIDENCE.json": {
+      "bytes": 675,
+      "sha256": "361514ee844d897c04b414b2f124e4b5dd6766ac15a9fdf1d089fd49bba872ea"
+    },
+    "evidence/releases/faa-wildlife-strike-substantial-damage/LICENSE.md": {
+      "bytes": 1333,
+      "sha256": "c5747fe28b4a7e16c3181646c59ab19c0af5a967ae429175033800062fc07c29"
+    },
+    "evidence/releases/faa-wildlife-strike-substantial-damage/MANIFEST.json": {
+      "bytes": 32352,
+      "sha256": "1ddf9894795b09057f90c304ef8e48b45568c6a4f46336e8db9e1f3126acd040"
+    },
+    "evidence/releases/faa-wildlife-strike-substantial-damage/README.md": {
+      "bytes": 6461,
+      "sha256": "ccea2fd575b8f0c32e0f858b5fea782d3f84cc3e18a3ebfc50b88604efaa8b0e"
+    },
+    "evidence/releases/faa-wildlife-strike-substantial-damage/SOURCES.json": {
+      "bytes": 826,
+      "sha256": "43c70a543a546d9246de6001ae857ab207f21d11ca248d8785f2125ce4ccb50e"
+    },
+    "evidence/releases/faa-wildlife-strike-substantial-damage/evaluation.json": {
+      "bytes": 3188,
+      "sha256": "17e6ab77d38ab1c074ed211397b50344dd046711c5f25285634c9615e4684531"
+    },
+    "evidence/releases/faa-wildlife-strike-substantial-damage/extract/meta.json": {
+      "bytes": 1742,
+      "sha256": "0d47b6bb7c9334b3cdf41648492da7bc8a83379fc14c811a57696b195237f951"
+    },
+    "evidence/releases/faa-wildlife-strike-substantial-damage/reproduction/build.py": {
+      "bytes": 31658,
+      "sha256": "48e56bb6e681be0c11a5143d7a93075eca9f29cbafdcfc1a1ad34d2bb459bc1a"
+    },
+    "evidence/releases/faa-wildlife-strike-substantial-damage/reproduction/construction.json": {
+      "bytes": 50122,
+      "sha256": "9ffa25f550fb05541e11eca81b157d7313f3e9a7fb397a37b5e8108e87cf55f7"
+    },
+    "evidence/releases/faa-wildlife-strike-substantial-damage/reproduction/requirements.txt": {
+      "bytes": 160,
+      "sha256": "5c72f3268174d20364624f76680e189c408a05dba2e7b8cfe12d077b3865e7f0"
+    },
+    "evidence/releases/faa-wildlife-strike-substantial-damage/reproduction/train.py": {
+      "bytes": 2500,
+      "sha256": "a3c6bcf13735bc85c52129ded68f839090dffdc266ebc3810dc61b2e6ea5e7e8"
+    },
+    "evidence/run-logs/faa-wildlife-strike-substantial-damage--ordinary-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/faa-wildlife-strike-substantial-damage--ordinary.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/faa-wildlife-strike-substantial-damage--published.log": {
+      "bytes": 53,
+      "sha256": "ed299c9780caa39260f33d0ba87347f6f985e50d1844649429c885c768e8a5f2"
+    },
+    "evidence/run-logs/faa-wildlife-strike-substantial-damage--r1--random-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/faa-wildlife-strike-substantial-damage--r1--random.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/faa-wildlife-strike-substantial-damage--r1-freeze.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/faa-wildlife-strike-substantial-damage--r1-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/faa-wildlife-strike-substantial-damage--r2--random-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/faa-wildlife-strike-substantial-damage--r2--random.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/faa-wildlife-strike-substantial-damage--r2-freeze.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/faa-wildlife-strike-substantial-damage--r2-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/faa-wildlife-strike-substantial-damage--r3--random-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/faa-wildlife-strike-substantial-damage--r3--random.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/faa-wildlife-strike-substantial-damage--r3-freeze.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/faa-wildlife-strike-substantial-damage--r3-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/faa-wildlife-strike-substantial-damage--released-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/faa-wildlife-strike-substantial-damage--released.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/score-attempts/faa-wildlife-strike-substantial-damage--ordinary.json": {
+      "bytes": 175,
+      "sha256": "bcb9b99455f9d2620532c1809548e5513e45d54c57f4cdf08fb3ad344b92849a"
+    },
+    "evidence/score-attempts/faa-wildlife-strike-substantial-damage--r1--random.json": {
+      "bytes": 175,
+      "sha256": "75f8f1d06032f38eda12279b14d99e7877075a1c758942bd2316024352f68b7f"
+    },
+    "evidence/score-attempts/faa-wildlife-strike-substantial-damage--r1.json": {
+      "bytes": 175,
+      "sha256": "4de9e95d5f70900dd1d336e15fcb895730777fa5c1125f0f23d87d314f262ff3"
+    },
+    "evidence/score-attempts/faa-wildlife-strike-substantial-damage--r2--random.json": {
+      "bytes": 175,
+      "sha256": "f3843f8aebfdc40eecdf4b00397b06a45f71b644b074dfa903cede879ca352ed"
+    },
+    "evidence/score-attempts/faa-wildlife-strike-substantial-damage--r2.json": {
+      "bytes": 175,
+      "sha256": "c4f2d81ada218fa97427b43652835bd1e5134e76d585b078cfabb20d97cd07b0"
+    },
+    "evidence/score-attempts/faa-wildlife-strike-substantial-damage--r3--random.json": {
+      "bytes": 175,
+      "sha256": "46da8b3d62f8d56d640ced3c40afcdc6bcba01d44689adfcdf0b3432f216379d"
+    },
+    "evidence/score-attempts/faa-wildlife-strike-substantial-damage--r3.json": {
+      "bytes": 175,
+      "sha256": "a6d1aebe2f5cd3ef52369c8ca8400b528297fcbc77cf6ae17c47b8373dc0eeba"
+    },
+    "evidence/score-attempts/faa-wildlife-strike-substantial-damage--released.json": {
+      "bytes": 175,
+      "sha256": "0bd90f70c2271b39840d06b7898079880914c44804cd0d837f0abcc20924393a"
+    },
+    "releases.json": {
+      "bytes": 203,
+      "sha256": "3f34a6b3b3e439727e2aa8b46625cece14b5c8230194ce6813cf56263bf43452"
+    },
+    "results/REPORT.md": {
+      "bytes": 2524,
+      "sha256": "9b24d7a0f2d02c1ad0a34181383b69d8212ba8a72dea5acbd5a857e236804330"
+    },
+    "results/scores.csv": {
+      "bytes": 1532,
+      "sha256": "c5fd44d67791c3b75708da3439fcdadc06e565d75b20878924ca66cf3afabc67"
+    },
+    "results/scores/faa-wildlife-strike-substantial-damage--ordinary/predictions.csv.gz": {
+      "bytes": 290098,
+      "sha256": "d2f0bf024e738dfcc1b804ab2fbaa6fddf790d79271430ee69cf99add7a9589a"
+    },
+    "results/scores/faa-wildlife-strike-substantial-damage--ordinary/score.json": {
+      "bytes": 257,
+      "sha256": "1eb7da0d14789658af18dbc2e7de5b3cf7ae444947d1d4e9adc3d4eeea10df97"
+    },
+    "results/scores/faa-wildlife-strike-substantial-damage--r1--random/predictions.csv.gz": {
+      "bytes": 290909,
+      "sha256": "afae47a6997d3a6c5e3abb28bd49150a4c831e3edb7dd9abe377479f22e1638a"
+    },
+    "results/scores/faa-wildlife-strike-substantial-damage--r1--random/score.json": {
+      "bytes": 260,
+      "sha256": "d1b6bf82ffc734141baa8c6c3ccfa788b8cad9e43d4217e699359599af36c1fc"
+    },
+    "results/scores/faa-wildlife-strike-substantial-damage--r1/predictions.csv.gz": {
+      "bytes": 281401,
+      "sha256": "9680bda49984a68da5ae54179621aed8cc82b3fdfedde697c33a453e9640bef9"
+    },
+    "results/scores/faa-wildlife-strike-substantial-damage--r1/score.json": {
+      "bytes": 259,
+      "sha256": "fe38719d744f32032990a800ffae7fc33995730f5a7d06a02e775b5f51344ee7"
+    },
+    "results/scores/faa-wildlife-strike-substantial-damage--r2--random/predictions.csv.gz": {
+      "bytes": 291265,
+      "sha256": "dad5a2d587f63f7056c59fb6b539c5e8ecad734ee1b371a6a618513619633d90"
+    },
+    "results/scores/faa-wildlife-strike-substantial-damage--r2--random/score.json": {
+      "bytes": 259,
+      "sha256": "4d6482d5a9260385923fc5178af3c11cfd915bc64a6bb027a1994a5b2ba88627"
+    },
+    "results/scores/faa-wildlife-strike-substantial-damage--r2/predictions.csv.gz": {
+      "bytes": 279662,
+      "sha256": "d656c7bb703777786698f95f9b52a34b8158c2d70802564aa39c3a2c0f084dc8"
+    },
+    "results/scores/faa-wildlife-strike-substantial-damage--r2/score.json": {
+      "bytes": 259,
+      "sha256": "67d44bf5d5349cef81443058d9e3fe72ca6f4d833933e21a4078ebdfacf22409"
+    },
+    "results/scores/faa-wildlife-strike-substantial-damage--r3--random/predictions.csv.gz": {
+      "bytes": 291048,
+      "sha256": "bb82b976911cd9087dd7f80fa5817ca05983a4e4597fa72e76629c09a17eb6fc"
+    },
+    "results/scores/faa-wildlife-strike-substantial-damage--r3--random/score.json": {
+      "bytes": 260,
+      "sha256": "71b048e14e902415cb9faa48e9822ab9361f4901475bc25d43a5e09e31936a9c"
+    },
+    "results/scores/faa-wildlife-strike-substantial-damage--r3/predictions.csv.gz": {
+      "bytes": 290931,
+      "sha256": "c210825349fcd7e30f69a0464c6bef8ed5630427db1c24ca8cd28f3586db2882"
+    },
+    "results/scores/faa-wildlife-strike-substantial-damage--r3/score.json": {
+      "bytes": 259,
+      "sha256": "eac8ea1db7d86d32757b417a602195d5c101586419a49f98174747eb7521a5b1"
+    },
+    "results/scores/faa-wildlife-strike-substantial-damage--released/predictions.csv.gz": {
+      "bytes": 262589,
+      "sha256": "d0e5e436af1a59a581837afc55258f08eabf63b7c53f4ba60e6f58496f13ce6c"
+    },
+    "results/scores/faa-wildlife-strike-substantial-damage--released/score.json": {
+      "bytes": 259,
+      "sha256": "55716996cbea98117f6fb8bf6a6b4cc863b6bc1b64138337fabac91fb3d3f692"
+    },
+    "results/summary.json": {
+      "bytes": 7734,
+      "sha256": "c59d728f709077c723391f88002c46770792295feaaf75eaf3709918b4f9112e"
+    },
+    "run_study.py": {
+      "bytes": 102055,
+      "sha256": "59e7aaa88b9ffbe8e6052545de01f9809d9e920c0c54573401cbf8d700335af5"
+    },
+    "study.json": {
+      "bytes": 1975,
+      "sha256": "b78ca936943a10365f508fb2e80332062647b863fbf81baa5a49fdbf3a434d26"
+    }
+  },
+  "sealed_at": "2026-11-15T16:43:44.792619+00:00"
+}

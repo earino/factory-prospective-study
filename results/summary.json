@@ -1,6 +1,6 @@
 {
   "cli_reported_cost_usd_not_invoice": 985.3844272000001,
-  "generated_at": "2026-11-15T16:19:22.996261+00:00",
+  "generated_at": "2026-11-15T16:43:44.716211+00:00",
   "limitations": [
     "Five selected factory releases; three attempts are descriptive, not agent rankings.",
     "Pinned consumer scaffold and deterministic downloads are provided assistance.",
@@ -114,9 +114,19 @@
   "scores": [
     {
       "dataset": "faa-wildlife-strike-substantial-damage",
-      "holdout_auc": null,
-      "holdout_brier": null,
-      "holdout_rows": null,
+      "holdout_auc": 0.893778797250377,
+      "holdout_brier": 0.00661702185122716,
+      "holdout_rows": 25425,
+      "id": "faa-wildlife-strike-substantial-damage--ordinary",
+      "kind": "ordinary",
+      "validation_auc": 0.8850593504096096,
+      "validation_brier": 0.010890016101097005
+    },
+    {
+      "dataset": "faa-wildlife-strike-substantial-damage",
+      "holdout_auc": 0.9128234649648987,
+      "holdout_brier": 0.005930137289441799,
+      "holdout_rows": 25425,
       "id": "faa-wildlife-strike-substantial-damage--r1",
       "kind": "agent",
       "validation_auc": 0.9054085112938564,
@@ -124,9 +134,19 @@
     },
     {
       "dataset": "faa-wildlife-strike-substantial-damage",
-      "holdout_auc": null,
-      "holdout_brier": null,
-      "holdout_rows": null,
+      "holdout_auc": 0.9091333933302965,
+      "holdout_brier": 0.0062290068898524205,
+      "holdout_rows": 25425,
+      "id": "faa-wildlife-strike-substantial-damage--r1--random",
+      "kind": "random",
+      "validation_auc": 0.8960392386193632,
+      "validation_brier": 0.010673797983234359
+    },
+    {
+      "dataset": "faa-wildlife-strike-substantial-damage",
+      "holdout_auc": 0.9195533745338731,
+      "holdout_brier": 0.005791554900154072,
+      "holdout_rows": 25425,
       "id": "faa-wildlife-strike-substantial-damage--r2",
       "kind": "agent",
       "validation_auc": 0.9026829900278499,
@@ -134,13 +154,43 @@
     },
     {
       "dataset": "faa-wildlife-strike-substantial-damage",
-      "holdout_auc": null,
-      "holdout_brier": null,
-      "holdout_rows": null,
+      "holdout_auc": 0.9048748516994669,
+      "holdout_brier": 0.006419046977267978,
+      "holdout_rows": 25425,
+      "id": "faa-wildlife-strike-substantial-damage--r2--random",
+      "kind": "random",
+      "validation_auc": 0.8961849849659522,
+      "validation_brier": 0.010794214890154946
+    },
+    {
+      "dataset": "faa-wildlife-strike-substantial-damage",
+      "holdout_auc": 0.9081156843825051,
+      "holdout_brier": 0.006018066525599985,
+      "holdout_rows": 25425,
       "id": "faa-wildlife-strike-substantial-damage--r3",
       "kind": "agent",
       "validation_auc": 0.9068884072107284,
       "validation_brier": 0.010379482252322861
+    },
+    {
+      "dataset": "faa-wildlife-strike-substantial-damage",
+      "holdout_auc": 0.9042419674082124,
+      "holdout_brier": 0.0063388615534280485,
+      "holdout_rows": 25425,
+      "id": "faa-wildlife-strike-substantial-damage--r3--random",
+      "kind": "random",
+      "validation_auc": 0.8978420584947042,
+      "validation_brier": 0.010634668193708908
+    },
+    {
+      "dataset": "faa-wildlife-strike-substantial-damage",
+      "holdout_auc": 0.8936182229332609,
+      "holdout_brier": 0.005903907578749198,
+      "holdout_rows": 25425,
+      "id": "faa-wildlife-strike-substantial-damage--released",
+      "kind": "released",
+      "validation_auc": 0.8898529197621798,
+      "validation_brier": 0.01047778924850881
     }
   ]
 }
