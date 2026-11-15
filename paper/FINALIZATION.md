@@ -88,3 +88,9 @@ The composite now contains all three Seattle models, preserving original r2/r3
 and the earlier blocked r1. Fixed baseline predictions match exactly after
 decompression. Utility retry-1 started at 23:41 UTC through controller.py work
 (exec session 73081); three new research runs follow its prescoring review.
+
+23:44 UTC: Methods now name both recorded production routes and specify that
+random-search CPU matches successful primary validation fits, excluding backtests.
+PDF and portable source rebuilt: seven pages, numerical checks unchanged, clean
+bundle build and embedded-font checks pass. Changed pages 1–2 inspected. Final
+results and the complete final-page review still await the remaining evidence.
