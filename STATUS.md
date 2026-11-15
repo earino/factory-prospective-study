@@ -2,21 +2,19 @@
 
 {
   "consumer": {
-    "branch": "consumer/fra-form54-hazmat-release",
-    "commit": "498e4818e18fa3ac55b9e24f7b7e88127b233288",
-    "dataset": "fra-form54-hazmat-release",
-    "finished": "2026-11-15T12:37:15.579878+00:00",
-    "started": "2026-11-15T12:30:02.379484+00:00",
-    "status": "complete"
+    "dataset": "faa-wildlife-strike-substantial-damage",
+    "execution_id": "faa-wildlife-strike-substantial-damage-retry-1",
+    "started": "2026-11-15T14:41:22.642195+00:00",
+    "status": "running"
   },
   "factory_counts": {
     "build": 1,
     "deferred": 80,
-    "discover": 1,
+    "publish": 1,
     "published": 18,
     "rejected": 7
   },
-  "observed_at": "2026-11-15T14:23:43.615045+00:00",
+  "observed_at": "2026-11-15T14:54:05.156177+00:00",
   "paper": {},
   "queue": [
     {
@@ -108,7 +106,24 @@
       "error": null
     }
   ],
-  "snapshot_generated_at": "2026-11-15T13:51:49+00:00",
+  "retries": [
+    {
+      "dataset": "faa-wildlife-strike-substantial-damage",
+      "execution_id": "faa-wildlife-strike-substantial-damage-retry-1",
+      "outcome": {}
+    },
+    {
+      "dataset": "seattle-building-permit-completion",
+      "execution_id": "seattle-building-permit-completion-retry-1",
+      "outcome": {}
+    },
+    {
+      "dataset": "fra-form54-hazmat-release",
+      "execution_id": "fra-form54-hazmat-release-retry-1",
+      "outcome": {}
+    }
+  ],
+  "snapshot_generated_at": "2026-11-15T14:51:48+00:00",
   "window": {
     "analysis_start": "2026-11-16T10:00:00Z",
     "attempt_minutes": 85,
