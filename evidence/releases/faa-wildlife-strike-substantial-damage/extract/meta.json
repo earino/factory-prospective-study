@@ -1,0 +1,57 @@
+{
+  "name": "faa-wildlife-strike-substantial-damage",
+  "description": "Given only what is known when a wildlife strike is reported, will the aircraft be assessed as substantially damaged or destroyed (ICAO major damage)?",
+  "target": "substantial_damage",
+  "positive_label": 1,
+  "id_columns": [
+    "index_nr"
+  ],
+  "columns": [
+    "index_nr",
+    "incident_date",
+    "ac_mass",
+    "ac_class",
+    "num_engs",
+    "type_eng",
+    "phase_of_flt",
+    "height_agl",
+    "speed_kts",
+    "distance_nm",
+    "birds_struck",
+    "birds_seen",
+    "size",
+    "warned",
+    "time_of_day",
+    "sky",
+    "precip",
+    "month",
+    "state",
+    "operator_class",
+    "substantial_damage"
+  ],
+  "rows": {
+    "train": 84196,
+    "eval": 33250,
+    "holdout": 25425
+  },
+  "positive_rate": {
+    "train": 0.03386146610290275,
+    "eval": 0.010616541353383458,
+    "holdout": 0.004208456243854474
+  },
+  "split": {
+    "eval": {
+      "end": "2019-01-01T00:00:00.000",
+      "start": "2014-01-01T00:00:00.000"
+    },
+    "holdout": {
+      "end": "2023-01-01T00:00:00.000",
+      "start": "2019-01-01T00:00:00.000"
+    },
+    "train": {
+      "end": "2014-01-01T00:00:00.000",
+      "start": "1990-01-01T00:00:00.000"
+    }
+  },
+  "split_description": "Fixed cut on INCIDENT_DATE, no random resampling: train 1990-01-01 to 2013-12-31; eval 2014-01-01 to 2018-12-31; holdout 2019-01-01 to 2022-12-31. No embargo is required inside the series because each row is one independent strike and every feature is fixed at strike time, so a later row cannot reveal an earlier label; the 2022-12-31 end cut is a reporting/validation lag buffer of about 3.7 years against a snapshot current to August 2026. Boundaries are frozen before any modelling."
+}

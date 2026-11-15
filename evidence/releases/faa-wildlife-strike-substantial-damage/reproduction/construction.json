@@ -1,0 +1,624 @@
+{
+  "construction_notes": "Feature-encoding repair; population, target rule, splits, feature selection and references are unchanged (persistence stays null because each row is one independent strike event). Two concrete source-semantic errors from the prior review are fixed. (1) NUM_STRUCK and NUM_SEEN are FAA report-form animal-number bands (1, 2-10, 11-100, more than 100), not counts; the prior build passed them through a numeric parser, which silently erased every multi-animal band. They are now parsed by a dedicated band encoder that emits the label vocabulary 0, 1, 2-10, 11-100, >100, keeps a blank missing, folds a raw integer into the band containing it, and widens an unexpected explicit range to the band containing its upper bound. Tokens that still match nothing are collected with sample IDs and fail construction only when they occur inside the frozen population, so codes elsewhere in the download cannot abort the build. The band check carries kind=unit because it validates the unit and frame of the two count-like fields, and it reports the raw token inventory for both columns so any future vocabulary drift is visible rather than invisible. (2) PRECIPITATION NONE is the documented no-precipitation category, not a missing flag; the prior shared missing-token set collapsed it. Precip now uses a field-specific missing set that excludes NONE, so the dominant no-precipitation share is emitted as a value, and a separate check reports the retained NONE row count plus the top precipitation values and fails if the category is absent. NONE tokens seen in SKY, TIME_OF_DAY, WARNED and SIZE are counted for audit and still treated as missing, because no publisher evidence shows a category meaning for them there; that residual assumption is recorded in construction_notes rather than guessed into a value. Descriptive corrections only, no task change: birds_struck and birds_seen meanings and measurements now say ordinal band rather than count; precip meaning and availability say NONE is a category; the OPID limitation no longer claims unrecognised tokens fail construction (they are counted, left missing, never guessed); the source example list says NUM_STRUCK and NUM_SEEN are bands; the emitted width is corrected to 21 columns; the majority-class reference notes the frozen labelled rate is near 2 percent rather than the FAA's all-report 1 percent, measured in the prior build. Unresolved or unverified, stated honestly: there is still no full-row availability ledger, so historical availability of these report columns is assumed and training label timing stays unverified; the band widening rule for an explicit range such as 1-10 is a documented convention, not a publisher statement; the M? code continues to be coded 0 per the frozen target rule even though it means undetermined severity, which mixes unknown severity with true negatives. Source access is unchanged and still through source_io.fetch on the publisher ZIP.",
+  "quality": {
+    "carry_columns": [],
+    "evaluation_contract": {
+      "access": "isolated_rows",
+      "cross_row_audit": {
+        "auxiliary_files_review": "Only the three declared CSVs are produced; no auxiliary evaluation files.",
+        "probes": [],
+        "rationale": "Each row is an independent strike event. No cross-row joins, aggregate rates or label-derived features are shipped."
+      },
+      "feature_evidence": {
+        "ac_class": {
+          "availability": "Documented aircraft descriptor on the current FAA field list; assumed present on historical reports. Missing tokens stay missing. Population requires at least one of ac_class or ac_mass.",
+          "source": "FAA Wildlife Strike Database field list, https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "status": "assumed"
+        },
+        "ac_mass": {
+          "availability": "Documented aircraft descriptor on the current FAA field list; assumed present on historical reports. Missing tokens stay missing. Population requires at least one of ac_class or ac_mass.",
+          "source": "FAA Wildlife Strike Database field list, https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "status": "assumed"
+        },
+        "birds_seen": {
+          "availability": "NUM_SEEN records the pilot-reported animal-number band (1, 2-10, 11-100, more than 100) as printed on the strike report; observed in the current workbook and assumed present on historical reports. Kept as an ordinal category and never coerced into a count; blank stays missing.",
+          "source": "FAA Form 5200-7 animal-number item (review evidence) and FAA Wildlife Strike Database field list, https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "status": "verified"
+        },
+        "birds_struck": {
+          "availability": "NUM_STRUCK records the reporter's animal-number band (1, 2-10, 11-100, more than 100) as printed on the strike report; observed in the current workbook and assumed present on historical reports. Kept as an ordinal category and never coerced into a count; blank stays missing.",
+          "source": "FAA Form 5200-7 animal-number item (review evidence) and FAA Wildlife Strike Database field list, https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "status": "verified"
+        },
+        "distance_nm": {
+          "availability": "Documented numeric strike-report field; assumed present on historical reports. Missing or unparseable values stay missing, not zero.",
+          "source": "FAA Wildlife Strike Database field list, https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "status": "assumed"
+        },
+        "height_agl": {
+          "availability": "Documented numeric strike-report field; assumed present on historical reports. Missing or unparseable values stay missing, not zero.",
+          "source": "FAA Wildlife Strike Database field list, https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "status": "assumed"
+        },
+        "incident_date": {
+          "availability": "Incident date recorded on the strike report; used as the event time and for chronological splits.",
+          "source": "FAA Wildlife Strike Database field list, https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "status": "verified"
+        },
+        "index_nr": {
+          "availability": "Unique record number in the source workbook; used as the stable row ID.",
+          "source": "FAA Wildlife Strike Database field list, https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "status": "verified"
+        },
+        "month": {
+          "availability": "Derived from incident_date at construction; no additional source field. Missing only when incident_date is missing.",
+          "source": "derived from incident_date; FAA field list documents INCIDENT_DATE",
+          "status": "assumed"
+        },
+        "num_engs": {
+          "availability": "Documented numeric strike-report field; assumed present on historical reports. Missing or unparseable values stay missing, not zero.",
+          "source": "FAA Wildlife Strike Database field list, https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "status": "assumed"
+        },
+        "operator_class": {
+          "availability": "Derived from OPID using documented airline/BUS/PVT/GOV/MIL categories; blank or unknown-token OPID stays missing and is counted.",
+          "source": "derived from OPID; FAA field list documents OPID",
+          "status": "assumed"
+        },
+        "phase_of_flt": {
+          "availability": "Documented coded strike-report field; assumed present on historical reports. Missing values stay missing.",
+          "source": "FAA Wildlife Strike Database field list, https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "status": "assumed"
+        },
+        "precip": {
+          "availability": "PRECIPITATION records the coded weather at the strike, and its NONE code is the documented no-precipitation category, retained as a value; only a blank field stays missing. Observed in the current workbook and assumed present on historical reports.",
+          "source": "FAA Form 5200-7 item 16 (review evidence) and FAA Wildlife Strike Database field list, https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "status": "verified"
+        },
+        "size": {
+          "availability": "Documented coded strike-report field; assumed present on historical reports. Missing values stay missing.",
+          "source": "FAA Wildlife Strike Database field list, https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "status": "assumed"
+        },
+        "sky": {
+          "availability": "Documented coded strike-report field; assumed present on historical reports. Missing values stay missing, and NONE tokens in this field are counted for audit rather than read as a category.",
+          "source": "FAA Wildlife Strike Database field list, https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "status": "assumed"
+        },
+        "speed_kts": {
+          "availability": "Documented numeric strike-report field; assumed present on historical reports. Missing or unparseable values stay missing, not zero.",
+          "source": "FAA Wildlife Strike Database field list, https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "status": "assumed"
+        },
+        "state": {
+          "availability": "Documented strike-report location field; restricted to the 50 U.S. states or DC. Missing or non-U.S. state is excluded.",
+          "source": "FAA Wildlife Strike Database field list, https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "status": "assumed"
+        },
+        "time_of_day": {
+          "availability": "Documented coded strike-report field; assumed present on historical reports. Missing values stay missing.",
+          "source": "FAA Wildlife Strike Database field list, https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "status": "assumed"
+        },
+        "type_eng": {
+          "availability": "Documented coded strike-report field; assumed present on historical reports. Missing values stay missing.",
+          "source": "FAA Wildlife Strike Database field list, https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "status": "assumed"
+        },
+        "warned": {
+          "availability": "Documented coded strike-report field; assumed present on historical reports. Missing values stay missing.",
+          "source": "FAA Wildlife Strike Database field list, https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "status": "assumed"
+        }
+      },
+      "limitations": [
+        "Current-vintage FAA export; no full-row availability ledger. Historical availability of strike-report fields is assumed, so training label timing is unverified.",
+        "Voluntary reporting is biased toward damaging strikes, so the positive rate is not an aircraft-level risk estimate.",
+        "DAMAGE is an adjudicated code selected after the event; it is used only as the target and is not a feature.",
+        "Blank DAMAGE rows are dropped, which is an outcome-availability filter and not a random sample; the prior build measured a realized positive rate near 2.3 percent (3,311 of 142,871) in the frozen population, above the FAA's published 1 percent, because unlabelled rows are removed before the rate is formed.",
+        "NUM_STRUCK and NUM_SEEN are ordinal bands on the report form, so the animal-number features carry band membership rather than an exact count; a strike with 3 animals and one with 10 animals share a single category, and a raw integer entered in the workbook is folded into the band containing it.",
+        "SPECIES and other post-strike or part-inspection fields are excluded even though species mass is a strong damage predictor.",
+        "The selected member in this snapshot is Public.xlsx sheet Sheet1; the builder still resolves roles by normalised alias and fails with the selected member, the observed header list and the unresolved role names if the publisher renames a field.",
+        "Rows with OPID tokens that are not three-letter airline codes and not BUS, PVT, GOV or MIL are counted, left missing and never guessed into a class, so operator information is lost for that share; no emitted value falls outside the documented vocabulary.",
+        "No persistence reference applies because each row is an independent strike event; the calendar/identity reference uses state, month and ac_mass and must be fit on training labels only.",
+        "No label-derived group-rate features are shipped; any reference rate must use only training labels whose outcome windows closed before each scored row."
+      ],
+      "selection": {
+        "evidence": "Eligibility uses incident_date, state, ac_class, ac_mass and nonblank DAMAGE; DAMAGE is the adjudicated target and is not a feature. Blank DAMAGE is dropped, not labelled 0.",
+        "kind": "prediction_time"
+      },
+      "training_label_timing": "unverified",
+      "use": "retrospective_research",
+      "vintage": {
+        "evidence": "FAA Wildlife Strike Database current export; records are edited and consolidated after reporting, and the download is a current snapshot rather than a historical register.",
+        "kind": "current_snapshot"
+      }
+    },
+    "event_key_column": "incident_date",
+    "expected_duplicate_ids": 0,
+    "features": [
+      "ac_mass",
+      "ac_class",
+      "num_engs",
+      "type_eng",
+      "phase_of_flt",
+      "height_agl",
+      "speed_kts",
+      "distance_nm",
+      "birds_struck",
+      "birds_seen",
+      "size",
+      "warned",
+      "time_of_day",
+      "sky",
+      "precip",
+      "month",
+      "state",
+      "operator_class"
+    ],
+    "features_documented_at": "prediction_time",
+    "high_cardinality_columns": [
+      "index_nr",
+      "incident_date"
+    ],
+    "id_columns": [
+      "index_nr"
+    ],
+    "label_source_columns": [
+      "DAMAGE"
+    ],
+    "measurements": [
+      {
+        "column": "damage",
+        "frame": "adjudicated by the NWSD manager after the strike; used only as the target",
+        "unit": "ICAO damage code N, M, M?, S or D"
+      },
+      {
+        "column": "height_agl",
+        "frame": "reported at the strike",
+        "unit": "feet above ground level"
+      },
+      {
+        "column": "speed_kts",
+        "frame": "reported at the strike",
+        "unit": "knots indicated airspeed"
+      },
+      {
+        "column": "distance_nm",
+        "frame": "reported at the strike",
+        "unit": "nautical miles from airport"
+      },
+      {
+        "column": "birds_struck",
+        "frame": "reported at the strike by the flight crew as a band, not a count",
+        "unit": "ordinal animal-number band: 0, 1, 2-10, 11-100, more than 100"
+      },
+      {
+        "column": "birds_seen",
+        "frame": "reported at the strike by the flight crew as a band, not a count",
+        "unit": "ordinal animal-number band: 0, 1, 2-10, 11-100, more than 100"
+      },
+      {
+        "column": "num_engs",
+        "frame": "aircraft descriptor at the strike",
+        "unit": "engines"
+      },
+      {
+        "column": "ac_mass",
+        "frame": "aircraft descriptor at the strike",
+        "unit": "FAA aircraft mass category 1 to 5"
+      },
+      {
+        "column": "precip",
+        "frame": "reported at the strike, NONE is the no-precipitation category",
+        "unit": "coded precipitation category"
+      },
+      {
+        "column": "month",
+        "frame": "derived from incident_date",
+        "unit": "calendar month 1-12"
+      }
+    ],
+    "name": "faa-wildlife-strike-substantial-damage",
+    "positive_label": 1,
+    "post_hoc_columns": [
+      "DAMAGE",
+      "SPECIES",
+      "AOS",
+      "EFFECT",
+      "NR_INJURIES",
+      "NR_FATALITIES",
+      "REMARKS",
+      "COMMENTS",
+      "COST_REPAIR",
+      "COST_OTHER",
+      "DAM_*",
+      "STR_*",
+      "ING_*",
+      "REMAINS_*"
+    ],
+    "reason": "The FAA/USDA National Wildlife Strike Database is a single directly downloadable, field-documented, U.S.-public-domain microdata file of roughly 343,000 independent strike events, each with an ICAO-coded damage severity outcome. A feature set restricted to what is on the strike report at the moment of the strike leaves roughly 4,000-5,000 substantial-or-destroyed positives spread over 1990-2022, enough for fixed chronological train/eval/holdout cuts with no panel, no account, no join and no scraping.",
+    "source": {
+      "construction": {
+        "access_recipe": "GET https://wildlife.faa.gov/assets/database_excel.zip through source_io.fetch with name database_excel.zip. No account, key or form. The ZIP holds one large strike workbook named Public.xlsx plus a read-me; select the largest .xlsx member, extract it to cache, and stream it with openpyxl load_workbook in read_only and data_only mode. The header is the first row of sheet Sheet1 and carries roughly 102 columns; resolve roles by normalised alias, for example NUM_STRUCK and NUM_SEEN for the animal-number bands, HEIGHT, SPEED and DISTANCE for encounter geometry, PHASE_OF_FLIGHT, DAMAGE_LEVEL for the manager-selected severity code, and OPID for the operator identifier. Keep NUM_STRUCK and NUM_SEEN as the published ordinal bands rather than numeric counts, and keep PRECIPITATION NONE as the no-precipitation category rather than a missing value. On failure report the selected member, the observed header list, the unresolved roles and their alias candidates. Read only the needed columns per row and never load the whole workbook into pandas. The export is a current-vintage snapshot, not a historical register; record the fetch URL and SHA256 in the release manifest.",
+        "expected_size": "About 343,000-353,000 rows observed (343,556 strikes for 1990-2025 in the FAA report; 342,890 in an April 2026 extract), roughly 145 MB as XLSX, dropping to a few tens of MB once only the 21 emitted columns are kept. Positive class about 1.2-1.5 percent of all reports; the frozen labelled population runs higher because unlabelled rows are dropped. FAA reports 3,894 substantial and 54 destroyed among 328,949 bird reports for 1990-2025, so expect roughly 4,000-5,000 positives in total including mammal and reptile strikes - construction should print exact split counts.",
+        "format": "ZIP archive containing a large XLSX workbook (one row per strike report, about 102 columns) plus a read-me field list; the release emits train/eval/holdout CSVs with 21 columns (stable ID, event date, 18 frozen features and one binary target).",
+        "source_examples": "DAMAGE codes N/M/M?/S/D with printed ICAO definitions; AC_MASS 1-5 (category 1 is 2,250 kg or less up to category 5 above 272,000 kg); TYPE_ENG A/B/C/D/E/F/Y; AC_CLASS A/B/C/D/F/I/J/Y/Z; HEIGHT in feet AGL; SPEED in knots; DISTANCE in nautical miles; NUM_STRUCK and NUM_SEEN as the report-form animal-number bands 1, 2-10, 11-100 and more than 100; INDEX_NR a unique record number; SIZE as the pilot's relative size scale; PRECIPITATION coded None/Fog/Rain/Snow."
+      },
+      "dataset_id": "faa-wildlife-strike-substantial-damage",
+      "evidence": [
+        {
+          "claim": "The database holds voluntary strike reports from 1990 onward and about 344,000 reports through 2025",
+          "quote": "The FAA Wildlife Strike Database contains records of reported wildlife strikes since 1990. Strike reporting is voluntary.",
+          "url": "https://wildlife.faa.gov/home"
+        },
+        {
+          "claim": "DAMAGE is an adjudicated field, not reporter input, and has defined ICAO codes",
+          "quote": "Level of damage selected by the Database Manager.",
+          "url": "https://wildlife.faa.gov/assets/fieldlist.pdf"
+        },
+        {
+          "claim": "Definition of the substantial-damage class used as the positive label",
+          "quote": "When the aircraft incurs damage or structural failure which adversely affects the structure strength, performance or flight characteristics of the aircraft and which would normally require major repair or replacement of the affected component.",
+          "url": "https://wildlife.faa.gov/assets/fieldlist.pdf"
+        },
+        {
+          "claim": "Observed positive-class counts over the full series",
+          "quote": "3,894 (1%) reported substantial damage; and 54 reports (less than 1%) indicated the aircraft was destroyed because of the bird strike",
+          "url": "https://www.faa.gov/airports/airport_safety/wildlife/arp-Wildlife-Strike-Report-1990-2025.pdf"
+        },
+        {
+          "claim": "Observed series length and row count",
+          "quote": "343,556 strikes were reported",
+          "url": "https://www.faa.gov/airports/airport_safety/wildlife/arp-Wildlife-Strike-Report-1990-2025.pdf"
+        },
+        {
+          "claim": "Reports are edited into a single consolidated record by the database manager, which is why the label is a coded adjudication",
+          "quote": "The FAA NWSD Manager edits all strike reports to ensure consistent, error-free data before entering a single, consolidated report into the database.",
+          "url": "https://www.faa.gov/documentLibrary/media/Advisory_Circular/AC-150-5200-32C-Wildlife-Strikes.pdf"
+        },
+        {
+          "claim": "Species identification arrives after the strike, which is why SPECIES is excluded",
+          "quote": "The species identification turn-around time is usually 24 hours from receipt if sufficient material is submitted and unless the sample is submitted for DNA analysis.",
+          "url": "https://www.faa.gov/documentLibrary/media/Advisory_Circular/AC-150-5200-32C-Wildlife-Strikes.pdf"
+        },
+        {
+          "claim": "Documented selection bias in what gets reported, which caps what the label base rate means",
+          "quote": "there is an overall bias toward the reporting of damaging strikes compared to non-damaging strikes",
+          "url": "https://www.faa.gov/documentLibrary/media/Advisory_Circular/AC-150-5200-32C-Wildlife-Strikes.pdf"
+        },
+        {
+          "claim": "Statutory basis for reuse of U.S. federal employee works without a publisher licence",
+          "quote": "Data and content created by government employees within the scope of their employment are not subject to domestic copyright protection under 17 U.S.C. \u00a7 105.",
+          "url": "https://resources.data.gov/open-licenses/"
+        },
+        {
+          "claim": "FAA credit line for the strike data programme",
+          "quote": "U.S. Department of Agriculture / Animal and Plant Health Inspection Service / Wildlife Services.",
+          "url": "https://www.faa.gov/airports/airport_safety/wildlife"
+        }
+      ],
+      "limitations": [
+        "Strike reporting is voluntary and FAA states an overall bias toward reporting damaging strikes, so the positive rate is a reporting artefact and not an aircraft-level risk of damage.",
+        "SPECIES is excluded even though the FAA finds body mass the best single predictor of damage, because identification is usually done after the strike; SIZE is a coarse pilot-perceived proxy.",
+        "The label is an adjudicated code selected by the NWSD manager from the report and can be revised; the snapshot is current-vintage, so this shows what can be reconstructed retrospectively, not that the damage code was available at the time.",
+        "Dropping rows with blank DAMAGE is a label-availability filter applied after the event and may correlate with reporting quality.",
+        "17 U.S.C. Sec. 105 is a U.S. domestic basis only; no worldwide dedication is asserted.",
+        "Fleet mix and reporting practice drift heavily across 1990-2022, so the chronological holdout tests transport under drift rather than stationarity.",
+        "NUM_STRUCK and NUM_SEEN are ordinal bands, so the animal-number features cannot separate a 2-animal strike from a 10-animal strike; the banded encoding is the publisher's instrument, not a construction shortcut.",
+        "Positives are rare enough that the 2019-2022 holdout should contain only several hundred positive events, so subgroup and calibration estimates there will be noisy."
+      ],
+      "reason": "The FAA/USDA National Wildlife Strike Database is a single directly downloadable, fully field-documented, U.S.-public-domain microdata file of roughly 343,000 independent strike events, each with an ICAO-coded damage severity outcome. A feature set restricted to what is on the strike report at the moment of the strike (aircraft class/mass/engines, phase, height, speed, pilot-reported animal size and number bands, light/weather, month, state) leaves roughly 4,000-5,000 substantial-or-destroyed positives spread over 1990-2022, enough for fixed chronological train/eval/holdout cuts with no panel, no account, no join and no scraping.",
+      "source": {
+        "attribution": "U.S. Department of Agriculture / Animal and Plant Health Inspection Service / Wildlife Services",
+        "citation": "Dolbeer, R.A., M.J. Begier, P.R. Miller, J.R. Weller, and W. Major. 2026. Wildlife Strikes to Civil Aircraft in the United States, 1990-2025. National Wildlife Strike Database Serial Report Number 32. Federal Aviation Administration, Washington, DC.",
+        "documentation_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+        "license": "U.S. Government work - public domain in the United States under 17 U.S.C. Sec. 105 (no licence grant applied by FAA)",
+        "publisher": "Federal Aviation Administration (FAA) and U.S. Department of Agriculture, Wildlife Services (USDA/WS), National Wildlife Strike Database",
+        "redistribution": true,
+        "terms_excerpt": "Data and content created by government employees within the scope of their employment are not subject to domestic copyright protection under 17 U.S.C. \u00a7 105.",
+        "terms_url": "https://resources.data.gov/open-licenses/",
+        "urls": [
+          "https://wildlife.faa.gov/assets/database_excel.zip"
+        ]
+      },
+      "task": {
+        "decision_user": "Airport operations officer or airport wildlife hazard biologist receiving the strike report, deciding whether to escalate immediately (maintenance inspection, engine borescope, operator notification) and whether to re-prioritise that species/season in the airport's wildlife hazard management plan.",
+        "features": [
+          {
+            "availability": "Documented aircraft descriptor on the current FAA field list; assumed present on historical reports. Missing tokens stay missing. Population requires at least one of ac_class or ac_mass.",
+            "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+            "meaning": "FAA aircraft mass category 1 to 5, where category 1 is 2,250 kg or less and category 5 is above 272,000 kg",
+            "name": "ac_mass"
+          },
+          {
+            "availability": "Documented aircraft descriptor on the current FAA field list; assumed present on historical reports. Missing tokens stay missing. Population requires at least one of ac_class or ac_mass.",
+            "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+            "meaning": "Aircraft type code: A airplane, B helicopter, C glider, D balloon, F dirigible, I gyroplane, J ultralight, Y other, Z unknown",
+            "name": "ac_class"
+          },
+          {
+            "availability": "Documented numeric strike-report field; assumed present on historical reports. Missing or unparseable values stay missing, not zero.",
+            "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+            "meaning": "Number of engines on the aircraft",
+            "name": "num_engs"
+          },
+          {
+            "availability": "Documented coded strike-report field; assumed present on historical reports. Missing values stay missing.",
+            "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+            "meaning": "Powerplant type: A reciprocating, B turbojet, C turboprop, D turbofan, E none, F turboshaft, Y other",
+            "name": "type_eng"
+          },
+          {
+            "availability": "Documented coded strike-report field; assumed present on historical reports. Missing values stay missing.",
+            "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+            "meaning": "Phase of flight during the strike (approach, climb, en route, landing roll, take-off run, taxi, parked, local, unknown)",
+            "name": "phase_of_flt"
+          },
+          {
+            "availability": "Documented numeric strike-report field; assumed present on historical reports. Missing or unparseable values stay missing, not zero.",
+            "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+            "meaning": "Height above ground level in feet at the strike",
+            "name": "height_agl"
+          },
+          {
+            "availability": "Documented numeric strike-report field; assumed present on historical reports. Missing or unparseable values stay missing, not zero.",
+            "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+            "meaning": "Indicated airspeed in knots at the strike",
+            "name": "speed_kts"
+          },
+          {
+            "availability": "Documented numeric strike-report field; assumed present on historical reports. Missing or unparseable values stay missing, not zero.",
+            "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+            "meaning": "Distance from the airport in nautical miles at the strike",
+            "name": "distance_nm"
+          },
+          {
+            "availability": "NUM_STRUCK is the report-form animal-number band, not a count. The bands 1, 2-10, 11-100 and more than 100 are kept as an ordinal category, with a zero band and a single-animal band kept separate and a raw integer folded into its containing band; blank stays missing. Observed in the current workbook and assumed present on historical reports.",
+            "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+            "meaning": "Reported number of animals struck, as the published ordinal band (0, 1, 2-10, 11-100, more than 100) rather than an exact count",
+            "name": "birds_struck"
+          },
+          {
+            "availability": "NUM_SEEN is the report-form animal-number band, not a count. The bands 1, 2-10, 11-100 and more than 100 are kept as an ordinal category, with a zero band and a single-animal band kept separate and a raw integer folded into its containing band; blank stays missing. Observed in the current workbook and assumed present on historical reports.",
+            "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+            "meaning": "Number of animals seen by the pilot, as the published ordinal band (0, 1, 2-10, 11-100, more than 100) rather than an exact count",
+            "name": "birds_seen"
+          },
+          {
+            "availability": "Documented coded strike-report field; assumed present on historical reports. Missing values stay missing.",
+            "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+            "meaning": "Pilot's perceived relative size of the animal struck; ordinal, with the larger animal entered when several are involved",
+            "name": "size"
+          },
+          {
+            "availability": "Documented coded strike-report field; assumed present on historical reports. Missing values stay missing.",
+            "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+            "meaning": "Whether the pilot was warned of birds or wildlife before the strike",
+            "name": "warned"
+          },
+          {
+            "availability": "Documented coded strike-report field; assumed present on historical reports. Missing values stay missing.",
+            "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+            "meaning": "Light conditions at the strike",
+            "name": "time_of_day"
+          },
+          {
+            "availability": "Documented coded strike-report field; assumed present on historical reports. Missing values stay missing, and NONE tokens here are counted for audit rather than read as a category.",
+            "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+            "meaning": "Cloud cover reported at the strike",
+            "name": "sky"
+          },
+          {
+            "availability": "PRECIPITATION is a coded strike-report field whose NONE code is the documented no-precipitation category and is retained as a value; only a blank field is missing. Observed in the current workbook and assumed present on historical reports.",
+            "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+            "meaning": "Precipitation reported at the strike, with NONE as the no-precipitation category alongside Fog, Rain and Snow",
+            "name": "precip"
+          },
+          {
+            "availability": "Derived from incident_date at construction; no additional source field. Missing only when incident_date is missing.",
+            "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+            "meaning": "Calendar month of the strike, for seasonality",
+            "name": "month"
+          },
+          {
+            "availability": "Documented strike-report location field; restricted to the 50 U.S. states or DC. Missing or non-U.S. state is excluded.",
+            "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+            "meaning": "U.S. state of the airport where the strike is located",
+            "name": "state"
+          },
+          {
+            "availability": "Derived from OPID using documented airline/BUS/PVT/GOV/MIL categories; blank or unrecognised OPID stays missing and is counted, never guessed.",
+            "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+            "meaning": "Operator type derived from OPID: airline for a three-letter ICAO code, versus BUS, PVT, GOV or MIL",
+            "name": "operator_class"
+          }
+        ],
+        "outcome_horizon": "Same event: severity is established by inspection after the aircraft returns to service and is coded by the NWSD manager, usually within days; records are subsequently revised (LUPDATE), so this is a coded outcome, not a scheduled future event.",
+        "population": "Reported civil-aircraft wildlife strikes with incident_date from 1990-01-01 through 2022-12-31, state in the 50 U.S. states or DC, at least one of ac_class or ac_mass present, and a DAMAGE value in N, M, M?, S or D. Eligibility is otherwise strike-time: date, location, aircraft descriptors and reported encounter facts. The one later quantity used in eligibility is the damage code itself, and only to drop unlabelled rows.",
+        "prediction_time": "At the strike report, on the day of the strike, before the post-flight maintenance inspection and before laboratory species identification. Features are aircraft descriptors, encounter geometry, pilot observations, date/location and operator class; DAMAGE and all post-strike fields are excluded.",
+        "question": "Given only what is known when a wildlife strike is reported, will the aircraft be assessed as substantially damaged or destroyed (ICAO major damage)?",
+        "simple_references": "Majority class (about 2 percent positive in the frozen labelled 1990-2022 population, because unlabelled rows are dropped; the FAA's published 1 percent covers all reports); a train-only calendar-and-identity control using only month, state and ac_mass; an aircraft-mass-only control. No persistence baseline applies because the unit is one independent strike event, not a panel, so there is no prior state to carry forward.",
+        "split_policy": "Fixed cut on INCIDENT_DATE, no random resampling: train 1990-01-01 to 2013-12-31; eval 2014-01-01 to 2018-12-31; holdout 2019-01-01 to 2022-12-31. No embargo is required inside the series because each row is one independent strike and every feature is fixed at strike time, so a later row cannot reveal an earlier label; the 2022-12-31 end cut is a reporting/validation lag buffer of about 3.7 years against a snapshot current to August 2026. Boundaries are frozen before any modelling.",
+        "target": "1 if DAMAGE is S (substantial) or D (destroyed); 0 if DAMAGE is N (none), M (minor) or M? (undetermined level). Rows with a blank DAMAGE are dropped, not labelled 0.",
+        "usefulness": "Substantial damage is not a field the reporter predicts: it is an adjudicated ICAO severity category that must be inferred from aircraft configuration, encounter geometry and coarse animal-size cues, and identical circumstances mean very different things for a two-seat trainer and a twin-jet airliner. The task is to build an intake-triage score and to test whether that relationship survives 30 years of fleet-mix change, reporting-practice change and a tenfold rise in report volume; the temporal drift, not the label, is the hard part."
+      },
+      "title": "Will a reported U.S. wildlife strike substantially damage the aircraft? Forward severity prediction from strike-time circumstances in the FAA National Wildlife Strike Database",
+      "verdict": "ready"
+    },
+    "split_windows": {
+      "eval": {
+        "end": "2019-01-01T00:00:00.000",
+        "start": "2014-01-01T00:00:00.000"
+      },
+      "holdout": {
+        "end": "2023-01-01T00:00:00.000",
+        "start": "2019-01-01T00:00:00.000"
+      },
+      "train": {
+        "end": "2014-01-01T00:00:00.000",
+        "start": "1990-01-01T00:00:00.000"
+      }
+    },
+    "splits": {
+      "eval": "public/eval.csv",
+      "holdout": "private/holdout.csv",
+      "train": "public/train.csv"
+    },
+    "target": "substantial_damage",
+    "task": {
+      "features": [
+        {
+          "availability": "Documented aircraft descriptor on the current FAA field list; assumed present on historical reports. Missing tokens stay missing. Population requires at least one of ac_class or ac_mass.",
+          "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "meaning": "FAA aircraft mass category 1 to 5, where category 1 is 2,250 kg or less and category 5 is above 272,000 kg",
+          "name": "ac_mass"
+        },
+        {
+          "availability": "Documented aircraft descriptor on the current FAA field list; assumed present on historical reports. Missing tokens stay missing. Population requires at least one of ac_class or ac_mass.",
+          "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "meaning": "Aircraft type code: A airplane, B helicopter, C glider, D balloon, F dirigible, I gyroplane, J ultralight, Y other, Z unknown",
+          "name": "ac_class"
+        },
+        {
+          "availability": "Documented numeric strike-report field; assumed present on historical reports. Missing or unparseable values stay missing, not zero.",
+          "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "meaning": "Number of engines on the aircraft",
+          "name": "num_engs"
+        },
+        {
+          "availability": "Documented coded strike-report field; assumed present on historical reports. Missing values stay missing.",
+          "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "meaning": "Powerplant type: A reciprocating, B turbojet, C turboprop, D turbofan, E none, F turboshaft, Y other",
+          "name": "type_eng"
+        },
+        {
+          "availability": "Documented coded strike-report field; assumed present on historical reports. Missing values stay missing.",
+          "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "meaning": "Phase of flight during the strike (approach, climb, en route, landing roll, take-off run, taxi, parked, local, unknown)",
+          "name": "phase_of_flt"
+        },
+        {
+          "availability": "Documented numeric strike-report field; assumed present on historical reports. Missing or unparseable values stay missing, not zero.",
+          "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "meaning": "Height above ground level in feet at the strike",
+          "name": "height_agl"
+        },
+        {
+          "availability": "Documented numeric strike-report field; assumed present on historical reports. Missing or unparseable values stay missing, not zero.",
+          "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "meaning": "Indicated airspeed in knots at the strike",
+          "name": "speed_kts"
+        },
+        {
+          "availability": "Documented numeric strike-report field; assumed present on historical reports. Missing or unparseable values stay missing, not zero.",
+          "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "meaning": "Distance from the airport in nautical miles at the strike",
+          "name": "distance_nm"
+        },
+        {
+          "availability": "NUM_STRUCK is the report-form animal-number band, not a count. The bands 1, 2-10, 11-100 and more than 100 are kept as an ordinal category, with a zero band and a single-animal band kept separate and a raw integer folded into its containing band; blank stays missing. Observed in the current workbook and assumed present on historical reports.",
+          "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "meaning": "Reported number of animals struck, as the published ordinal band (0, 1, 2-10, 11-100, more than 100) rather than an exact count",
+          "name": "birds_struck"
+        },
+        {
+          "availability": "NUM_SEEN is the report-form animal-number band, not a count. The bands 1, 2-10, 11-100 and more than 100 are kept as an ordinal category, with a zero band and a single-animal band kept separate and a raw integer folded into its containing band; blank stays missing. Observed in the current workbook and assumed present on historical reports.",
+          "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "meaning": "Number of animals seen by the pilot, as the published ordinal band (0, 1, 2-10, 11-100, more than 100) rather than an exact count",
+          "name": "birds_seen"
+        },
+        {
+          "availability": "Documented coded strike-report field; assumed present on historical reports. Missing values stay missing.",
+          "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "meaning": "Pilot's perceived relative size of the animal struck; ordinal, with the larger animal entered when several are involved",
+          "name": "size"
+        },
+        {
+          "availability": "Documented coded strike-report field; assumed present on historical reports. Missing values stay missing.",
+          "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "meaning": "Whether the pilot was warned of birds or wildlife before the strike",
+          "name": "warned"
+        },
+        {
+          "availability": "Documented coded strike-report field; assumed present on historical reports. Missing values stay missing.",
+          "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "meaning": "Light conditions at the strike",
+          "name": "time_of_day"
+        },
+        {
+          "availability": "Documented coded strike-report field; assumed present on historical reports. Missing values stay missing, and NONE tokens here are counted for audit rather than read as a category.",
+          "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "meaning": "Cloud cover reported at the strike",
+          "name": "sky"
+        },
+        {
+          "availability": "PRECIPITATION is a coded strike-report field whose NONE code is the documented no-precipitation category and is retained as a value; only a blank field is missing. Observed in the current workbook and assumed present on historical reports.",
+          "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "meaning": "Precipitation reported at the strike, with NONE as the no-precipitation category alongside Fog, Rain and Snow",
+          "name": "precip"
+        },
+        {
+          "availability": "Derived from incident_date at construction; no additional source field. Missing only when incident_date is missing.",
+          "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "meaning": "Calendar month of the strike, for seasonality",
+          "name": "month"
+        },
+        {
+          "availability": "Documented strike-report location field; restricted to the 50 U.S. states or DC. Missing or non-U.S. state is excluded.",
+          "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "meaning": "U.S. state of the airport where the strike is located",
+          "name": "state"
+        },
+        {
+          "availability": "Derived from OPID using documented airline/BUS/PVT/GOV/MIL categories; blank or unrecognised OPID stays missing and is counted, never guessed.",
+          "evidence_url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+          "meaning": "Operator type derived from OPID: airline for a three-letter ICAO code, versus BUS, PVT, GOV or MIL",
+          "name": "operator_class"
+        }
+      ],
+      "population": "Reported civil-aircraft wildlife strikes with incident_date from 1990-01-01 through 2022-12-31, state in the 50 U.S. states or DC, at least one of ac_class or ac_mass present, and a DAMAGE value in N, M, M?, S or D. Eligibility is otherwise strike-time: date, location, aircraft descriptors and reported encounter facts. The one later quantity used in eligibility is the damage code itself, and only to drop unlabelled rows.",
+      "prediction_time": "At the strike report, on the day of the strike, before the post-flight maintenance inspection and before laboratory species identification. Features are aircraft descriptors, encounter geometry, pilot observations, date/location and operator class; DAMAGE and all post-strike fields are excluded.",
+      "question": "Given only what is known when a wildlife strike is reported, will the aircraft be assessed as substantially damaged or destroyed (ICAO major damage)?",
+      "simple_references": "Majority class (about 2 percent positive in the frozen labelled 1990-2022 population, because unlabelled rows are dropped; the FAA's published 1 percent covers all reports); a train-only calendar-and-identity control using only month, state and ac_mass; an aircraft-mass-only control. No persistence baseline applies because the unit is one independent strike event, not a panel, so there is no prior state to carry forward.",
+      "usefulness": "Substantial damage is not a field the reporter predicts: it is an adjudicated ICAO severity category that must be inferred from aircraft configuration, encounter geometry and coarse animal-size cues, and identical circumstances mean very different things for a two-seat trainer and a twin-jet airliner. The task is to build an intake-triage score and to test whether that relationship survives 30 years of fleet-mix change, reporting-practice change and a tenfold rise in report volume; the temporal drift, not the label, is the hard part."
+    },
+    "time_column": "incident_date",
+    "timing": {
+      "features": {
+        "period": null,
+        "published_days_after_period_end": null,
+        "source_kind": "administrative_record"
+      },
+      "observations": [],
+      "prediction_instant": {
+        "citation": "Strike-time fields are recorded on the report at the incident; DAMAGE is adjudicated after the event and used only as the target.",
+        "days_after_period_end": null,
+        "kind": "event_time",
+        "period": null
+      },
+      "row_selection": {
+        "fields": [
+          "incident_date",
+          "state",
+          "ac_class",
+          "ac_mass",
+          "damage"
+        ],
+        "latest_period_used": null,
+        "rule": "Retain rows with incident_date from 1990-01-01 through 2022-12-31, state in the 50 U.S. states or DC, at least one of ac_class or ac_mass present after normalising missing tokens, and damage in N, M, M?, S or D. Blank damage is dropped and never labelled 0. Nonblank unexpected damage codes in that base population fail construction."
+      }
+    },
+    "title": "Will a reported U.S. wildlife strike substantially damage the aircraft? Forward severity prediction from strike-time circumstances in the FAA National Wildlife Strike Database"
+  },
+  "references": {
+    "entity_columns": [
+      "state",
+      "month",
+      "ac_mass"
+    ],
+    "persistence_column": null,
+    "persistence_direction": 1
+  },
+  "source_access_recipe": "GET https://wildlife.faa.gov/assets/database_excel.zip through source_io.fetch with name database_excel.zip. No account, key or form. The ZIP holds one large strike workbook named Public.xlsx plus a read-me; select the largest .xlsx member, extract it to cache, and stream it with openpyxl load_workbook in read_only and data_only mode. The header is the first row of sheet Sheet1 and carries roughly 102 columns; resolve roles by normalised alias: NUM_STRUCK and NUM_SEEN for the animal-number bands, HEIGHT, SPEED and DISTANCE for encounter geometry, PHASE_OF_FLIGHT, DAMAGE_LEVEL for the manager-selected severity code, OPID for the operator identifier, PRECIPITATION for the weather code. Keep NUM_STRUCK and NUM_SEEN as the published ordinal bands rather than numeric counts, and keep PRECIPITATION NONE as the no-precipitation category rather than mapping it to missing. On failure report the selected member, the observed header list, the unresolved roles and their alias candidates. Read only the needed columns per row and never load the whole workbook into pandas. The export is a current-vintage snapshot, not a historical register; record the fetch URL and SHA256 in the release manifest."
+}
