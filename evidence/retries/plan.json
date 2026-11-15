@@ -1,0 +1,148 @@
+{
+  "authorized_at": "2026-11-15T14:41:13.732210+00:00",
+  "authorization": "Eduardo reset the Fable quota and explicitly requested rerunning the three affected datasets.",
+  "model": "claude-fable-5-2",
+  "repetitions": 3,
+  "research_minutes": 85,
+  "jobs": 3,
+  "threads": 5,
+  "reason": "Retry failed consumer runs following Fable quota reset; preserve original evidence.",
+  "analysis": "Use these fresh retries as the recovery evaluation for the three datasets, retaining all original failed attempts. Do not select the better of original/retry scores. Do not count retries as new datasets. Same source bytes and controls; new CLI sessions. Prior holdout scores exist elsewhere on the shared host, are prohibited to retry agents, and are not supplied to them.",
+  "runs": [
+    {
+      "dataset": "faa-wildlife-strike-substantial-damage",
+      "execution_id": "faa-wildlife-strike-substantial-damage-retry-1",
+      "release": {
+        "artifact_version": "ae75ab5acd1b27aeb29c4d414aa78610d797fe43068062bafd1574bb272dc2f9",
+        "assets": 33,
+        "baseline_display": "See versioned evaluation.json; public validation only",
+        "dataset": "faa-wildlife-strike-substantial-damage",
+        "destinations": {
+          "github": "https://github.com/earino/factory-faa-wildlife-strike-substantial-damage/releases/tag/v-d654c9f4ddfcf60c",
+          "huggingface": "https://huggingface.co/datasets/earino/factory-faa-wildlife-strike-substantial-damage"
+        },
+        "detail_id": "source-000096",
+        "disposition": "public",
+        "published": true,
+        "release_tag": "v-d654c9f4ddfcf60c",
+        "rows": 142871,
+        "splits": {
+          "eval": {
+            "rows": 33250
+          },
+          "holdout": {
+            "rows": 25425
+          },
+          "train": {
+            "rows": 84196
+          }
+        },
+        "verified": {
+          "github": true,
+          "huggingface": true
+        },
+        "verified_all": true,
+        "verified_at": "2026-11-15T09:22:16.250788+00:00",
+        "workflow": "modern"
+      },
+      "pinned_release": [
+        "faa-wildlife-strike-substantial-damage",
+        "v-d654c9f4ddfcf60c",
+        "1463654328b312c085db26dd7934a4b876860f89",
+        "1ddf9894795b09057f90c304ef8e48b45568c6a4f46336e8db9e1f3126acd040"
+      ],
+      "original_branch": "consumer/faa-wildlife-strike-substantial-damage",
+      "original_commit": "49de5907b0fcb37161020cb606ddaf510ef5f5c3"
+    },
+    {
+      "dataset": "seattle-building-permit-completion",
+      "execution_id": "seattle-building-permit-completion-retry-1",
+      "release": {
+        "artifact_version": "a220e68c960ee6b6aa473f015112be0993353ab3d12f9820c31551164f0ee677",
+        "assets": 33,
+        "baseline_display": "See versioned evaluation.json; public validation only",
+        "dataset": "seattle-building-permit-completion",
+        "destinations": {
+          "github": "https://github.com/earino/factory-seattle-building-permit-completion/releases/tag/v-67a46c698fa813cc",
+          "huggingface": "https://huggingface.co/datasets/earino/factory-seattle-building-permit-completion"
+        },
+        "detail_id": "source-000100",
+        "disposition": "public",
+        "published": true,
+        "release_tag": "v-67a46c698fa813cc",
+        "rows": 24747,
+        "splits": {
+          "eval": {
+            "rows": 7135
+          },
+          "holdout": {
+            "rows": 6326
+          },
+          "train": {
+            "rows": 11286
+          }
+        },
+        "verified": {
+          "github": true,
+          "huggingface": true
+        },
+        "verified_all": true,
+        "verified_at": "2026-11-15T11:13:20.100537+00:00",
+        "workflow": "modern"
+      },
+      "pinned_release": [
+        "seattle-building-permit-completion",
+        "v-67a46c698fa813cc",
+        "26a6cab683e1845d7fa2f6b05caee76bf79536fe",
+        "c8d716bd8365da0a786ee1e26c5c6cfb1d2b1efe788d6f6a36369f9980e56589"
+      ],
+      "original_branch": "consumer/seattle-building-permit-completion",
+      "original_commit": "2ff2d43b1c3da5c3111cb6b11105e0def1454165"
+    },
+    {
+      "dataset": "fra-form54-hazmat-release",
+      "execution_id": "fra-form54-hazmat-release-retry-1",
+      "release": {
+        "artifact_version": "aedd811fdb6a80fdeb6828c1ba8bc2eeb80c8446d597ba57a536adb8e384da7e",
+        "assets": 33,
+        "baseline_display": "See versioned evaluation.json; public validation only",
+        "dataset": "fra-form54-hazmat-release",
+        "destinations": {
+          "github": "https://github.com/earino/factory-fra-form54-hazmat-release/releases/tag/v-c59d614ee9c4ce97",
+          "huggingface": "https://huggingface.co/datasets/earino/factory-fra-form54-hazmat-release"
+        },
+        "detail_id": "source-000099",
+        "disposition": "public",
+        "published": true,
+        "release_tag": "v-c59d614ee9c4ce97",
+        "rows": 25427,
+        "splits": {
+          "eval": {
+            "rows": 7697
+          },
+          "holdout": {
+            "rows": 5189
+          },
+          "train": {
+            "rows": 12541
+          }
+        },
+        "verified": {
+          "github": true,
+          "huggingface": true
+        },
+        "verified_all": true,
+        "verified_at": "2026-11-15T11:22:19.117088+00:00",
+        "workflow": "modern"
+      },
+      "pinned_release": [
+        "fra-form54-hazmat-release",
+        "v-c59d614ee9c4ce97",
+        "e612b9530e919863929f1f3bc00c80dcee949b9d",
+        "c6132a372c1f4a14051c6ea13b01e743eff7874d73212077707bc252fd562dd6"
+      ],
+      "original_branch": "consumer/fra-form54-hazmat-release",
+      "original_commit": "498e4818e18fa3ac55b9e24f7b7e88127b233288"
+    }
+  ]
+}

@@ -3,6 +3,20 @@ from pathlib import Path
 from unittest.mock import patch
 import controller as c
 class Tests(unittest.TestCase):
+ def test_retry_does_not_reopen_or_overwrite_original_outcome(self):
+  with tempfile.TemporaryDirectory() as d:
+   root=Path(d);local=root/'local';e=root/'evidence';(local/'outcomes').mkdir(parents=True);(e/'retries').mkdir(parents=True)
+   original=local/'outcomes/task.json';original.write_text('{"status":"complete"}')
+   (root/'queue.json').write_text(json.dumps([{'dataset':'task','selected':True},{'dataset':'next','selected':True}]))
+   (e/'retries/plan.json').write_text(json.dumps({'runs':[{'dataset':'task','execution_id':'task-retry-1'}]}))
+   with patch.object(c,'ROOT',root),patch.object(c,'LOCAL',local),patch.object(c,'E',e):
+    self.assertEqual([c.execution_id(x) for x in c.pending_work()],['task-retry-1','next'])
+    (local/'outcomes/task-retry-1.json').write_text('{"status":"complete"}')
+    self.assertEqual([c.execution_id(x) for x in c.pending_work()],['next'])
+   self.assertEqual(original.read_text(),'{"status":"complete"}')
+ def test_retry_identity_rejects_path_escape(self):
+  with self.assertRaisesRegex(ValueError,'Unsafe execution ID'):
+   c.execution_id({'dataset':'task','execution_id':'../task'})
  def test_cohort_uses_fixed_window_and_does_not_select_by_scores(self):
   start=c.P['cohort_start'];end=c.P['cohort_close']
   def row(ds,t,score):return dict(dataset=ds,workflow='modern',published=True,verified_at=t,baseline_auc=score)

@@ -48,7 +48,10 @@ def collect():
 def refresh_status(x,q):
     status={'observed_at':now().isoformat(),'snapshot_generated_at':x['generated_at'],'factory_counts':x['candidates']['counts'],
             'window':P,'queue':[{k:r.get(k) for k in ['dataset','verified_at','status','selected','branch','error']} for r in q],
-            'consumer':read(LOCAL/'worker.json',{}),'paper':read(LOCAL/'paper.json',{})}
+            'consumer':read(LOCAL/'worker.json',{}),'paper':read(LOCAL/'paper.json',{}),
+            'retries':[dict(execution_id=r['execution_id'],dataset=r['dataset'],
+                           outcome=read(LOCAL/'outcomes'/f"{r['execution_id']}.json",{}))
+                       for r in read(E/'retries/plan.json',{}).get('runs',[])]}
     write(E/'latest.json',status)
     (ROOT/'STATUS.md').write_text('# Prospective study status\n\n'+json.dumps(status,indent=2)+'\n')
 
@@ -78,26 +81,34 @@ def archive_trace(source,dest):
         for line in src:out.write(runner.redact(line))
     write(dest.with_suffix('.provenance.json'),{'raw_sha256':runner.sha(source),'archive_sha256':runner.sha(dest),'redaction':'runner credential-pattern and environment-secret redaction; raw retained locally'})
 
+def execution_id(r):
+    value=r.get('execution_id',r['dataset'])
+    if not re.fullmatch('[a-z0-9][a-z0-9-]+',value):raise ValueError('Unsafe execution ID')
+    return value
+
 def execute(r):
-    name=r['dataset'];work=LOCAL/'studies'/name;work.mkdir(parents=True,exist_ok=True)
+    name=r['dataset'];identity=execution_id(r)
+    work=LOCAL/'studies'/identity;work.mkdir(parents=True,exist_ok=True)
     if not (work/'releases.json').exists():
         for n in ['run_study.py','agent.md']:shutil.copyfile(ROOT/n,work/n)
-        entry=pin(r);write(work/'releases.json',[entry]);git(['init','-b','main'],work);runner.ensure_repo(work)
-        git(['branch','-m','consumer/'+name],work);git(['remote','add','origin',P['remote']],work)
+        entry=r.get('pinned_release') or pin(r)
+        if entry[0]!=name or entry[1]!=r['release']['release_tag']:raise ValueError('Retry pin identity mismatch')
+        write(work/'releases.json',[entry]);git(['init','-b','main'],work);runner.ensure_repo(work)
+        git(['branch','-m','consumer/'+identity],work);git(['remote','add','origin',P['remote']],work)
         # Public predictor contract review happens before any holdout data is obtained.
         runner.prepare_dataset(work,entry)
-        review=LOCAL/'reviews'/name;review.mkdir(parents=True,exist_ok=True)
+        review=LOCAL/'reviews'/identity;review.mkdir(parents=True,exist_ok=True)
         prompt=(ROOT/'prompts/pre-review.md').read_text().replace('{STUDY}',str(work))
         result=bounded_agent(review,prompt,900,review/'pre-review.jsonl')
-        dest=E/'reviews'/name;dest.mkdir(parents=True,exist_ok=True)
+        dest=E/'reviews'/identity;dest.mkdir(parents=True,exist_ok=True)
         write(dest/'pre-review-invocation.json',result)
         archive_trace(review/'pre-review.jsonl',dest/'pre-review.jsonl.gz')
         for f in ['PRE-REVIEW.md','cluster.json']:
             if (review/f).exists():shutil.copyfile(review/f,dest/f)
         write(dest/'pinned-release.json',entry)
-        checkpoint('Pin release and record prescoring contract review: '+name)
+        checkpoint('Pin release and record prescoring contract review: '+identity)
     deadline=min(parse(P['research_stop']).timestamp(),time.time()+P['per_dataset_wall_hours']*3600)
-    log=LOCAL/'logs'/f'{name}.log';log.parent.mkdir(exist_ok=True)
+    log=LOCAL/'logs'/f'{identity}.log';log.parent.mkdir(exist_ok=True)
     argv=[sys.executable,work/'run_study.py','run','--model',P['model'],'--jobs',str(P['jobs']),'--threads',str(P['threads']),'--push']
     with log.open('ab') as out:
         proc=subprocess.Popen(argv,cwd=work,env=runner.clean_env(5),stdout=out,stderr=subprocess.STDOUT,start_new_session=True)
@@ -111,22 +122,27 @@ def execute(r):
             raise TimeoutError('Registered study wall-time or global deadline reached; preserved as incomplete')
         if code:raise RuntimeError(f'Consumer runner exited {code}; see {log}')
     runner.command([sys.executable,work/'run_study.py','verify'],cwd=work,timeout=120)
-    out=E/'consumer'/name;out.mkdir(parents=True,exist_ok=True)
+    out=E/'consumer'/identity;out.mkdir(parents=True,exist_ok=True)
     for src in ['study.json','results/summary.json','results/scores.csv','results/REPORT.md','evidence/COMPLETED.json','evidence/INTEGRITY.json']:
         f=work/src
         if f.exists():
             d=out/src;d.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(f,d)
     # Derived checks run after the per-dataset holdout barrier; originals stay sealed.
-    review_out=E/'reviews'/name/'post';review_out.mkdir(parents=True,exist_ok=True)
-    env=runner.clean_env(5);env.update(STUDY_ROOT=str(work),REVIEW_OUT=str(review_out),CLUSTER_FILE=str(E/'reviews'/name/'cluster.json'))
+    review_out=E/'reviews'/identity/'post';review_out.mkdir(parents=True,exist_ok=True)
+    env=runner.clean_env(5);env.update(STUDY_ROOT=str(work),REVIEW_OUT=str(review_out),CLUSTER_FILE=str(E/'reviews'/identity/'cluster.json'))
     checks=[]
     for tool in ['review_checks.py','probe_all_training_features.py','probe_artifacts.py','bootstrap.py']:
         try:
-            runner.command([work/'.study/venv/bin/python',ROOT/'review_tools'/tool],cwd=ROOT,timeout=900,env=env,output=LOCAL/'logs'/f'{name}-{tool}.log')
+            runner.command([work/'.study/venv/bin/python',ROOT/'review_tools'/tool],cwd=ROOT,timeout=900,env=env,output=LOCAL/'logs'/f'{identity}-{tool}.log')
             checks.append({'tool':tool,'ok':True})
         except Exception as e:checks.append({'tool':tool,'ok':False,'error':str(e)[-1200:]})
     write(review_out/'execution.json',checks)
     return git(['rev-parse','HEAD'],work)
+
+def pending_work():
+    retries=read(E/'retries/plan.json',{}).get('runs',[])
+    regular=[r for r in read(ROOT/'queue.json',[]) if r.get('selected')]
+    return [r for r in retries+regular if not (LOCAL/'outcomes'/f'{execution_id(r)}.json').exists()]
 
 def work_queue():
     with (LOCAL/'consumer.lock').open('w') as lock:
@@ -134,14 +150,14 @@ def work_queue():
         except BlockingIOError:return
         while now()<parse(P['research_stop']):
             # Queue writer is the monitor; this worker communicates via per-dataset result files.
-            q=read(ROOT/'queue.json',[])
-            choices=[r for r in q if r.get('selected') and not (LOCAL/'outcomes'/f"{r['dataset']}.json").exists()]
+            choices=pending_work()
             if not choices:return
-            r=choices[0];name=r['dataset'];write(LOCAL/'worker.json',{'dataset':name,'started':now().isoformat(),'status':'running'})
-            result={'dataset':name,'branch':'consumer/'+name,'started':now().isoformat()}
+            r=choices[0];name=r['dataset'];identity=execution_id(r)
+            write(LOCAL/'worker.json',{'dataset':name,'execution_id':identity,'started':now().isoformat(),'status':'running'})
+            result={'dataset':name,'execution_id':identity,'branch':'consumer/'+identity,'started':now().isoformat()}
             try:result.update(status='complete',commit=execute(r))
             except Exception as e:result.update(status='incomplete',error=str(e)[-2000:])
-            result['finished']=now().isoformat();write(LOCAL/'outcomes'/f'{name}.json',result);write(E/'outcomes'/f'{name}.json',result)
+            result['finished']=now().isoformat();write(LOCAL/'outcomes'/f'{identity}.json',result);write(E/'outcomes'/f'{identity}.json',result)
             write(LOCAL/'worker.json',result)
             # Evidence is copied by monitor under its Git lock, avoiding concurrent main commits.
 
