@@ -1,0 +1,23 @@
+{
+  "id": "803694136a5d4c0383a6044d07743331",
+  "utc": "2026-11-15T02:54:12.913344+00:00",
+  "started_epoch": 1794711252.913354,
+  "mode": "validation",
+  "note": "H: NaN volume conflates no-prior-year-report rows (riskier) with rows that reported without a volume field (620 low-risk Quebec 2019 rows). Sentinel -1 for volume missing while periods>0 keeps NaN single-meaning. 5-seed diag: backtest 0.8870 -> 0.8903, val +0.0003",
+  "code_sha256": "6c62373dca29824366fe81d7ed441fa87c7066f78f0b7441791922af2306000f",
+  "status": "ok",
+  "fit_wall_s": 0.4931076659995597,
+  "fit_cpu_s": 0.9476640000000005,
+  "phase": "evaluation",
+  "evaluation_wall_s": 7.412537333002547,
+  "auc": 0.9077826493812363,
+  "brier": 0.08485908983036727,
+  "rows_train": 8244,
+  "rows_score": 5894,
+  "backtest": {},
+  "artifact_sha256": "4eb98ea6fbf049d3aee523eb074e7b78b34df9685b8b4e57d2847cba8f80f854",
+  "finished_epoch": 1794711260.892128,
+  "elapsed_s": 7.978239167001448,
+  "cold_replay_at": "2026-11-15T03:45:30.569348+00:00",
+  "no_retraining": true
+}

@@ -1,0 +1,50 @@
+{
+  "dataset": "wser-effluent-exceedance",
+  "environment": "d2dddbe882fa9156f69be9189c1154ed8268468f1829a0db86a89ac6b119448b",
+  "files": {
+    "booster.json": {
+      "bytes": 828473,
+      "sha256": "0909db3b9d6cb24dcec7509ddd794300b9324b1940797ec52ecc952db2a4af2c"
+    },
+    "model.pkl": {
+      "bytes": 926088,
+      "sha256": "028443f01bdb853caf73e814310bc60471490b8b88a10080fd158e0a58a79452"
+    },
+    "train.py": {
+      "bytes": 6956,
+      "sha256": "12e41b1c2f4da20e44f37ac8a7fb55ef6e48c3fdd4380f7b9d8ceb1beb9ccf23"
+    },
+    "validation.csv.gz": {
+      "bytes": 65506,
+      "sha256": "7b221aa6e213eaf2cf2609014d0026ee778bc0dd60d439801abf67f1c48263b7"
+    },
+    "validation.json": {
+      "bytes": 1024,
+      "sha256": "fdc4da1c53c2d8d6a8efe69d53a059023dbeab7c693b5a1acf3ea9c81519c925"
+    }
+  },
+  "frozen_at": "2026-11-15T03:45:30.557254+00:00",
+  "run": "wser-effluent-exceedance--r3",
+  "selected_trial": {
+    "artifact_sha256": "028443f01bdb853caf73e814310bc60471490b8b88a10080fd158e0a58a79452",
+    "auc": 0.9085061108024235,
+    "backtest": {},
+    "brier": 0.08477797287472084,
+    "code_sha256": "12e41b1c2f4da20e44f37ac8a7fb55ef6e48c3fdd4380f7b9d8ceb1beb9ccf23",
+    "elapsed_s": 6.711598750000121,
+    "evaluation_wall_s": 6.2267020829967805,
+    "finished_epoch": 1794710830.288259,
+    "fit_cpu_s": 0.9135959999999996,
+    "fit_wall_s": 0.43991833300242433,
+    "id": "14237f1897274d4ab37885f3daa5c587",
+    "mode": "validation",
+    "note": "H4: history x static interactions add nothing; interaction constraints (history group | static group, province+treatment shared) pool static-risk learning across history states. Local 3-seed val mean 0.90858 vs 0.90816, rolling bt 0.8873 vs 0.8864",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3/trials/14237f1897274d4ab37885f3daa5c587",
+    "phase": "evaluation",
+    "rows_score": 5894,
+    "rows_train": 8244,
+    "started_epoch": 1794710823.576192,
+    "status": "ok",
+    "utc": "2026-11-15T02:47:03.576183+00:00"
+  }
+}

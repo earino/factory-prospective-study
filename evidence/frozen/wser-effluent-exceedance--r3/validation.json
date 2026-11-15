@@ -1,0 +1,23 @@
+{
+  "id": "14237f1897274d4ab37885f3daa5c587",
+  "utc": "2026-11-15T02:47:03.576183+00:00",
+  "started_epoch": 1794710823.576192,
+  "mode": "validation",
+  "note": "H4: history x static interactions add nothing; interaction constraints (history group | static group, province+treatment shared) pool static-risk learning across history states. Local 3-seed val mean 0.90858 vs 0.90816, rolling bt 0.8873 vs 0.8864",
+  "code_sha256": "12e41b1c2f4da20e44f37ac8a7fb55ef6e48c3fdd4380f7b9d8ceb1beb9ccf23",
+  "status": "ok",
+  "fit_wall_s": 0.43991833300242433,
+  "fit_cpu_s": 0.9135959999999996,
+  "phase": "evaluation",
+  "evaluation_wall_s": 6.2267020829967805,
+  "auc": 0.9085061108024235,
+  "brier": 0.08477797287472084,
+  "rows_train": 8244,
+  "rows_score": 5894,
+  "backtest": {},
+  "artifact_sha256": "028443f01bdb853caf73e814310bc60471490b8b88a10080fd158e0a58a79452",
+  "finished_epoch": 1794710830.288259,
+  "elapsed_s": 6.711598750000121,
+  "cold_replay_at": "2026-11-15T03:45:30.369861+00:00",
+  "no_retraining": true
+}

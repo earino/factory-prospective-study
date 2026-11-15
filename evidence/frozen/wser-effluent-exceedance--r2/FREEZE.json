@@ -1,0 +1,50 @@
+{
+  "dataset": "wser-effluent-exceedance",
+  "environment": "d2dddbe882fa9156f69be9189c1154ed8268468f1829a0db86a89ac6b119448b",
+  "files": {
+    "booster.json": {
+      "bytes": 612059,
+      "sha256": "e967f37897b560ff394d6b5b00a25f6b3157c2d8d52b37dc5e68d70331d4e137"
+    },
+    "model.pkl": {
+      "bytes": 765176,
+      "sha256": "4eb98ea6fbf049d3aee523eb074e7b78b34df9685b8b4e57d2847cba8f80f854"
+    },
+    "train.py": {
+      "bytes": 2635,
+      "sha256": "6c62373dca29824366fe81d7ed441fa87c7066f78f0b7441791922af2306000f"
+    },
+    "validation.csv.gz": {
+      "bytes": 63801,
+      "sha256": "548f4179d3d7b18976a971bf117203e0ad43a367f040119d354394610e6a468a"
+    },
+    "validation.json": {
+      "bytes": 1039,
+      "sha256": "5dff8c9652f66e75455417e90a146c094f417e8fb8294f77f1fc2c5d7c039bde"
+    }
+  },
+  "frozen_at": "2026-11-15T03:45:30.686574+00:00",
+  "run": "wser-effluent-exceedance--r2",
+  "selected_trial": {
+    "artifact_sha256": "4eb98ea6fbf049d3aee523eb074e7b78b34df9685b8b4e57d2847cba8f80f854",
+    "auc": 0.9077826493812363,
+    "backtest": {},
+    "brier": 0.08485908983036727,
+    "code_sha256": "6c62373dca29824366fe81d7ed441fa87c7066f78f0b7441791922af2306000f",
+    "elapsed_s": 7.978239167001448,
+    "evaluation_wall_s": 7.412537333002547,
+    "finished_epoch": 1794711260.892128,
+    "fit_cpu_s": 0.9476640000000005,
+    "fit_wall_s": 0.4931076659995597,
+    "id": "803694136a5d4c0383a6044d07743331",
+    "mode": "validation",
+    "note": "H: NaN volume conflates no-prior-year-report rows (riskier) with rows that reported without a volume field (620 low-risk Quebec 2019 rows). Sentinel -1 for volume missing while periods>0 keeps NaN single-meaning. 5-seed diag: backtest 0.8870 -> 0.8903, val +0.0003",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r2/trials/803694136a5d4c0383a6044d07743331",
+    "phase": "evaluation",
+    "rows_score": 5894,
+    "rows_train": 8244,
+    "started_epoch": 1794711252.913354,
+    "status": "ok",
+    "utc": "2026-11-15T02:54:12.913344+00:00"
+  }
+}

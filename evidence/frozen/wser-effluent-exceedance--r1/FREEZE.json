@@ -1,0 +1,50 @@
+{
+  "dataset": "wser-effluent-exceedance",
+  "environment": "d2dddbe882fa9156f69be9189c1154ed8268468f1829a0db86a89ac6b119448b",
+  "files": {
+    "booster.json": {
+      "bytes": 436390,
+      "sha256": "f48294e536d5dbf6e4c281b76bb9e8e34346a982c88b6eebae81d8499f7e1cda"
+    },
+    "model.pkl": {
+      "bytes": 641302,
+      "sha256": "ec0aec8b76c8042b95ea8d0c21a0d750717e106fbdd2db7a7217450e328b8f0b"
+    },
+    "train.py": {
+      "bytes": 11197,
+      "sha256": "9b992317cf1a4056e996e07217b049c1bf1347b4de6b9a7658ca266b9730519f"
+    },
+    "validation.csv.gz": {
+      "bytes": 56644,
+      "sha256": "a5effc345f55875140c54f81b0e93ae5ce0fcfb7c1d8905addb06be14ed07ffb"
+    },
+    "validation.json": {
+      "bytes": 1304,
+      "sha256": "f6ede130d705457ca06c2d87863204343888f357f2ec13894c6fa9eecce024e0"
+    }
+  },
+  "frozen_at": "2026-11-15T03:45:30.279304+00:00",
+  "run": "wser-effluent-exceedance--r1",
+  "selected_trial": {
+    "artifact_sha256": "ec0aec8b76c8042b95ea8d0c21a0d750717e106fbdd2db7a7217450e328b8f0b",
+    "auc": 0.909352184578504,
+    "backtest": {},
+    "brier": 0.08433731614617046,
+    "code_sha256": "9b992317cf1a4056e996e07217b049c1bf1347b4de6b9a7658ca266b9730519f",
+    "elapsed_s": 4.823188792004657,
+    "evaluation_wall_s": 4.547668083003373,
+    "finished_epoch": 1794713456.804652,
+    "fit_cpu_s": 0.4612099999999999,
+    "fit_wall_s": 0.23245095799939008,
+    "id": "3d52ab923b4b4ef48281a65f470b2929",
+    "mode": "validation",
+    "note": "H15: add a third OOF encoding, treatment_family x reporting_frequency, to trial 16 (treatment type and number of reporting periods jointly set exposure). It was the runner-up in the deterministic forward ranking. Pre-stated rule: record only if 10-seed means improve by >=0.0005 on BOTH validation and single-split backtest -> passed (+0.0008 / +0.0008). Rolling origin is -0.0004 (4 seeds) and the deterministic two-view test with both other encodings present was +0.0009 / -0.0004, so evidence is mixed like the second encoding",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r1/trials/3d52ab923b4b4ef48281a65f470b2929",
+    "phase": "evaluation",
+    "rows_score": 5894,
+    "rows_train": 8244,
+    "started_epoch": 1794713451.981185,
+    "status": "ok",
+    "utc": "2026-11-15T03:30:51.981177+00:00"
+  }
+}
