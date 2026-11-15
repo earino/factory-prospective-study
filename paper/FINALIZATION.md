@@ -94,3 +94,10 @@ random-search CPU matches successful primary validation fits, excluding backtest
 PDF and portable source rebuilt: seven pages, numerical checks unchanged, clean
 bundle build and embedded-font checks pass. Changed pages 1–2 inspected. Final
 results and the complete final-page review still await the remaining evidence.
+
+23:51 UTC: Utility pre-scoring source review completed. Three research runs
+started at 23:49 UTC and are due to finish their 85-minute allowance near 01:15 UTC.
+Codex checked the actual predictor filter and row-wise scorer: the review
+assumption about utility ID/calendar inputs does not apply to these consumers
+or the ordinary/random controls. The bounded follow-up retains timing, selection
+and grouping limits without turning them into unsupported leakage claims.
