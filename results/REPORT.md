@@ -1,6 +1,6 @@
 # Consumer study results
 
-Generated 2026-11-15T12:35:05.444595+00:00
+Generated 2026-11-15T12:35:26.271980+00:00
 
 Measured records are in summary.json and scores.csv. Failures remain in the denominator.
 
@@ -10,7 +10,7 @@ Registered attempts: 3; frozen: 0; failed/blocked: 3.
 
 Compliance triage (separate from scores):
 
-- fra-form54-hazmat-release--r1: not yet audited; forbidden asset copies unknown; tool-access flags unknown. Semantic compliance requires review.
+- fra-form54-hazmat-release--r1: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
 - fra-form54-hazmat-release--r2: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
 - fra-form54-hazmat-release--r3: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
 
