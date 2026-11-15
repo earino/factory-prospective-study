@@ -10,12 +10,13 @@
     "status": "complete"
   },
   "factory_counts": {
-    "build": 2,
+    "build": 1,
     "deferred": 75,
-    "published": 16,
+    "discover": 1,
+    "published": 18,
     "rejected": 7
   },
-  "observed_at": "2026-11-15T11:52:02.988838+00:00",
+  "observed_at": "2026-11-15T12:22:25.876002+00:00",
   "paper": {},
   "queue": [
     {
@@ -89,9 +90,25 @@
       "selected": true,
       "branch": "consumer/faa-wildlife-strike-substantial-damage",
       "error": null
+    },
+    {
+      "dataset": "seattle-building-permit-completion",
+      "verified_at": "2026-11-15T11:13:20.100537+00:00",
+      "status": "queued",
+      "selected": true,
+      "branch": null,
+      "error": null
+    },
+    {
+      "dataset": "fra-form54-hazmat-release",
+      "verified_at": "2026-11-15T11:22:19.117088+00:00",
+      "status": "queued",
+      "selected": true,
+      "branch": null,
+      "error": null
     }
   ],
-  "snapshot_generated_at": "2026-11-15T10:51:49+00:00",
+  "snapshot_generated_at": "2026-11-15T11:52:53+00:00",
   "window": {
     "analysis_start": "2026-11-16T10:00:00Z",
     "attempt_minutes": 85,

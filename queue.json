@@ -385,5 +385,83 @@
     "started": "2026-11-15T10:21:16.734063+00:00",
     "status": "complete",
     "verified_at": "2026-11-15T09:22:16.250788+00:00"
+  },
+  {
+    "dataset": "seattle-building-permit-completion",
+    "release": {
+      "artifact_version": "a220e68c960ee6b6aa473f015112be0993353ab3d12f9820c31551164f0ee677",
+      "assets": 33,
+      "baseline_display": "See versioned evaluation.json; public validation only",
+      "dataset": "seattle-building-permit-completion",
+      "destinations": {
+        "github": "https://github.com/earino/factory-seattle-building-permit-completion/releases/tag/v-67a46c698fa813cc",
+        "huggingface": "https://huggingface.co/datasets/earino/factory-seattle-building-permit-completion"
+      },
+      "detail_id": "source-000100",
+      "disposition": "public",
+      "published": true,
+      "release_tag": "v-67a46c698fa813cc",
+      "rows": 24747,
+      "splits": {
+        "eval": {
+          "rows": 7135
+        },
+        "holdout": {
+          "rows": 6326
+        },
+        "train": {
+          "rows": 11286
+        }
+      },
+      "verified": {
+        "github": true,
+        "huggingface": true
+      },
+      "verified_all": true,
+      "verified_at": "2026-11-15T11:13:20.100537+00:00",
+      "workflow": "modern"
+    },
+    "selected": true,
+    "status": "queued",
+    "verified_at": "2026-11-15T11:13:20.100537+00:00"
+  },
+  {
+    "dataset": "fra-form54-hazmat-release",
+    "release": {
+      "artifact_version": "aedd811fdb6a80fdeb6828c1ba8bc2eeb80c8446d597ba57a536adb8e384da7e",
+      "assets": 33,
+      "baseline_display": "See versioned evaluation.json; public validation only",
+      "dataset": "fra-form54-hazmat-release",
+      "destinations": {
+        "github": "https://github.com/earino/factory-fra-form54-hazmat-release/releases/tag/v-c59d614ee9c4ce97",
+        "huggingface": "https://huggingface.co/datasets/earino/factory-fra-form54-hazmat-release"
+      },
+      "detail_id": "source-000099",
+      "disposition": "public",
+      "published": true,
+      "release_tag": "v-c59d614ee9c4ce97",
+      "rows": 25427,
+      "splits": {
+        "eval": {
+          "rows": 7697
+        },
+        "holdout": {
+          "rows": 5189
+        },
+        "train": {
+          "rows": 12541
+        }
+      },
+      "verified": {
+        "github": true,
+        "huggingface": true
+      },
+      "verified_all": true,
+      "verified_at": "2026-11-15T11:22:19.117088+00:00",
+      "workflow": "modern"
+    },
+    "selected": true,
+    "status": "queued",
+    "verified_at": "2026-11-15T11:22:19.117088+00:00"
   }
 ]
