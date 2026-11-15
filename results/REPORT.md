@@ -1,6 +1,6 @@
 # Consumer study results
 
-Generated 2026-11-15T18:17:27.678856+00:00
+Generated 2026-11-15T18:28:56.682763+00:00
 
 Measured records are in summary.json and scores.csv. Failures remain in the denominator.
 
@@ -16,8 +16,12 @@ Compliance triage (separate from scores):
 
 Scores (including flagged attempts; do not treat all as compliant results):
 
-- seattle-building-permit-completion--r2: validation AUC 0.656601; holdout AUC not scored.
-- seattle-building-permit-completion--r3: validation AUC 0.656591; holdout AUC not scored.
+- seattle-building-permit-completion--ordinary: validation AUC 0.619376; holdout AUC 0.617937.
+- seattle-building-permit-completion--r2: validation AUC 0.656601; holdout AUC 0.647392.
+- seattle-building-permit-completion--r2--random: validation AUC 0.644286; holdout AUC 0.634720.
+- seattle-building-permit-completion--r3: validation AUC 0.656591; holdout AUC 0.655183.
+- seattle-building-permit-completion--r3--random: validation AUC 0.641562; holdout AUC 0.632832.
+- seattle-building-permit-completion--released: validation AUC 0.626825; holdout AUC 0.619947.
 
 ## Limits
 

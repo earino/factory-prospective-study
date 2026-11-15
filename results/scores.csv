@@ -1,3 +1,7 @@
 dataset,id,kind,validation_auc,validation_brier,holdout_auc,holdout_brier,holdout_rows
-seattle-building-permit-completion,seattle-building-permit-completion--r2,agent,0.6566011611617636,0.17031022974011256,,,
-seattle-building-permit-completion,seattle-building-permit-completion--r3,agent,0.6565911309708891,0.17010653874750195,,,
+seattle-building-permit-completion,seattle-building-permit-completion--ordinary,ordinary,0.6193763018351905,0.18066629106210508,0.6179365855905143,0.18231139992070838,6326
+seattle-building-permit-completion,seattle-building-permit-completion--r2,agent,0.6566011611617636,0.17031022974011256,0.6473918284596301,0.16644326889691763,6326
+seattle-building-permit-completion,seattle-building-permit-completion--r2--random,random,0.6442855495040071,0.17400685760344903,0.6347200596465576,0.17250741124438113,6326
+seattle-building-permit-completion,seattle-building-permit-completion--r3,agent,0.6565911309708891,0.17010653874750195,0.6551826709794852,0.16581913836209253,6326
+seattle-building-permit-completion,seattle-building-permit-completion--r3--random,random,0.641561516832332,0.17410696005240045,0.6328318542832856,0.1743433350150328,6326
+seattle-building-permit-completion,seattle-building-permit-completion--released,released,0.6268251812957001,0.1754951025937614,0.6199467903361817,0.1742387968456463,6326
