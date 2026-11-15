@@ -1,0 +1,28 @@
+{
+  "dataset": "wser-effluent-exceedance",
+  "files": {
+    "booster.json": {
+      "bytes": 176764,
+      "sha256": "d89a6b037552a51473a3f075eda67db498de77a32f65f1a50cd04bc1388ea8df"
+    },
+    "model.pkl": {
+      "bytes": 144939,
+      "sha256": "c5dcd8cd936465a93018e4946ae3b1e025ee1746f8f83f539a930967b6d648dc"
+    },
+    "train.py": {
+      "bytes": 1160,
+      "sha256": "431a0f15145a8578df4bc149ee13483cbc7f06e15ac8214356c08da99d9e5d21"
+    },
+    "validation.csv.gz": {
+      "bytes": 52187,
+      "sha256": "8bbba15422a89261fc556a352ff51a3b46076aebd0f46ff7e166b66ece19aa90"
+    },
+    "validation.json": {
+      "bytes": 803,
+      "sha256": "e49d9d3dba6f3bb785f96ecc1c566fb4123b380bdf7145dea0bee152e060c6ca"
+    }
+  },
+  "frozen_at": "2026-11-15T03:46:37.545303+00:00",
+  "matches_released_baseline": false,
+  "run": "wser-effluent-exceedance--released"
+}

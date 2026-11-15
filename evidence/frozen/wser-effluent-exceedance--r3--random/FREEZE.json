@@ -1,0 +1,49 @@
+{
+  "dataset": "wser-effluent-exceedance",
+  "files": {
+    "booster.json": {
+      "bytes": 464066,
+      "sha256": "2163ae94c48c2f53bdaeea3ff9141e61f1d090b7dabfb37d3c6a84604de9dd4f"
+    },
+    "model.pkl": {
+      "bytes": 580098,
+      "sha256": "ac8fe4e3ab0e7b5d4f14f8ca2e2b608633efc055ba5217c2be04839547268c2f"
+    },
+    "train.py": {
+      "bytes": 1247,
+      "sha256": "fca7fe3fea3b0c906000232cb4b1245408f8aba5387cab8abbf6a1be6ec13004"
+    },
+    "validation.csv.gz": {
+      "bytes": 64417,
+      "sha256": "08641452dfa4eba2118671784e556a49889c61d53e849c53b54c67f3a4c7b02b"
+    },
+    "validation.json": {
+      "bytes": 937,
+      "sha256": "28d876a9658628a315b4d7fedc738172705d68627f36a9e07fe84110a87c969b"
+    }
+  },
+  "frozen_at": "2026-11-15T03:51:14.173343+00:00",
+  "run": "wser-effluent-exceedance--r3--random",
+  "selected_trial": {
+    "artifact_sha256": "ac8fe4e3ab0e7b5d4f14f8ca2e2b608633efc055ba5217c2be04839547268c2f",
+    "auc": 0.9074951250265889,
+    "backtest": {},
+    "brier": 0.08511144282471154,
+    "code_sha256": "fca7fe3fea3b0c906000232cb4b1245408f8aba5387cab8abbf6a1be6ec13004",
+    "elapsed_s": 4.0156157500023255,
+    "evaluation_wall_s": 3.789974457999051,
+    "finished_epoch": 1794714659.216954,
+    "fit_cpu_s": 0.41431400000000007,
+    "fit_wall_s": 0.18957462500111433,
+    "id": "b14730a86164410a815f74d850013b49",
+    "mode": "validation",
+    "note": "{\"n_estimators\": 600, \"max_depth\": 2, \"learning_rate\": 0.05, \"min_child_weight\": 10, \"subsample\": 0.7, \"colsample_bytree\": 1.0, \"reg_lambda\": 30}",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/controls/wser-effluent-exceedance--r3--random/trials/b14730a86164410a815f74d850013b49",
+    "phase": "evaluation",
+    "rows_score": 5894,
+    "rows_train": 8244,
+    "started_epoch": 1794714655.200813,
+    "status": "ok",
+    "utc": "2026-11-15T03:50:55.200807+00:00"
+  }
+}
