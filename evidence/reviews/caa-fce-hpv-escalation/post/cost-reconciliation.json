@@ -1,0 +1,37 @@
+{
+  "basis": "Last available cumulative cost per independent CLI session, not per-invocation sum; estimates, not invoice. Deadline-truncated final invocations may leave unreported usage.",
+  "runs": [
+    {
+      "run": "caa-fce-hpv-escalation--r1",
+      "session_id": "e9024005-cbf8-4abe-9629-e02b34e12233",
+      "invocations": 22,
+      "naive_sum_cumulative_cost": 288.04265259999994,
+      "last_reported_session_cost": 15.572929199999999,
+      "monotone_cumulative_cost": true,
+      "final_invocation_has_result": true,
+      "short_invocations_under_10s": 2
+    },
+    {
+      "run": "caa-fce-hpv-escalation--r2",
+      "session_id": "bcedf966-5974-4a3d-8f0e-e5c3a92432ba",
+      "invocations": 11,
+      "naive_sum_cumulative_cost": 131.42871979999995,
+      "last_reported_session_cost": 13.128322399999995,
+      "monotone_cumulative_cost": true,
+      "final_invocation_has_result": true,
+      "short_invocations_under_10s": 2
+    },
+    {
+      "run": "caa-fce-hpv-escalation--r3",
+      "session_id": "350e9b3a-9156-487b-be68-e756547be55a",
+      "invocations": 10,
+      "naive_sum_cumulative_cost": 115.45871339999997,
+      "last_reported_session_cost": 12.775104199999994,
+      "monotone_cumulative_cost": true,
+      "final_invocation_has_result": true,
+      "short_invocations_under_10s": 1
+    }
+  ],
+  "sum_last_reported_session_cost": 41.476355799999986,
+  "original_naive_sum": 534.9300857999999
+}

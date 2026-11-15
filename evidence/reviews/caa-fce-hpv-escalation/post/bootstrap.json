@@ -1,0 +1,70 @@
+{
+  "dataset": "caa-fce-hpv-escalation",
+  "cluster_columns": [
+    "state"
+  ],
+  "clusters": 54,
+  "rows": 20011,
+  "positives": 149,
+  "missing_cluster_rows": 0,
+  "largest_cluster": 2403,
+  "seed": 1365364387,
+  "valid_replicates": 2000,
+  "invalid_replicates": 0,
+  "comparisons": [
+    {
+      "run": "caa-fce-hpv-escalation--r1",
+      "control": "caa-fce-hpv-escalation--ordinary",
+      "delta": 0.01650735714010565,
+      "low": -0.00750777609788045,
+      "high": 0.03667845720320102
+    },
+    {
+      "run": "caa-fce-hpv-escalation--r1",
+      "control": "caa-fce-hpv-escalation--r1--random",
+      "delta": 0.012378532680867083,
+      "low": -0.0051894249047052645,
+      "high": 0.03305015093071325
+    },
+    {
+      "run": "caa-fce-hpv-escalation--r2",
+      "control": "caa-fce-hpv-escalation--ordinary",
+      "delta": 0.01954982669006744,
+      "low": -0.0013221646962745775,
+      "high": 0.03898399106570507
+    },
+    {
+      "run": "caa-fce-hpv-escalation--r2",
+      "control": "caa-fce-hpv-escalation--r2--random",
+      "delta": 0.008705031157942744,
+      "low": -0.008853796457640183,
+      "high": 0.03274018170834416
+    },
+    {
+      "run": "caa-fce-hpv-escalation--r3",
+      "control": "caa-fce-hpv-escalation--ordinary",
+      "delta": 0.00830005561866809,
+      "low": -0.016981217170139864,
+      "high": 0.02840671279487583
+    },
+    {
+      "run": "caa-fce-hpv-escalation--r3",
+      "control": "caa-fce-hpv-escalation--r3--random",
+      "delta": 0.007956916144213788,
+      "low": -0.0036420869197111654,
+      "high": 0.01942791717499138
+    }
+  ],
+  "inputs": {
+    "/Users/earino/research/factory-prospective-study/.local/studies/caa-fce-hpv-escalation/.study/holdout/caa-fce-hpv-escalation/holdout.csv": "328cae91ac22bb739cc8c93a341862ad3cd2bb5ece033702ffab0efcb907f619",
+    "/Users/earino/research/factory-prospective-study/evidence/reviews/caa-fce-hpv-escalation/cluster.json": "24186bf04ed5a2a36f8173359cd2a12619df38636112912b0565d896c4207950",
+    "/Users/earino/research/factory-prospective-study/.local/studies/caa-fce-hpv-escalation/results/scores/caa-fce-hpv-escalation--ordinary/predictions.csv.gz": "68509f21b9584f3dc3adc2e8853cd6e2104c9d437c9000e4669f4fe653d298e2",
+    "/Users/earino/research/factory-prospective-study/.local/studies/caa-fce-hpv-escalation/results/scores/caa-fce-hpv-escalation--r1/predictions.csv.gz": "bbf1ecc195c78b4dcbca52ec0905c6dc848d55609e856772846ea9455133c10b",
+    "/Users/earino/research/factory-prospective-study/.local/studies/caa-fce-hpv-escalation/results/scores/caa-fce-hpv-escalation--r2/predictions.csv.gz": "760107c770840056ccd9978dd61e1071bbf3cf6b4659d08124e99ec26b34bbf6",
+    "/Users/earino/research/factory-prospective-study/.local/studies/caa-fce-hpv-escalation/results/scores/caa-fce-hpv-escalation--r3/predictions.csv.gz": "89131d948ec60dc77f922128af2f4f1935f75538dd9b0020020c2e2a65f17362",
+    "/Users/earino/research/factory-prospective-study/.local/studies/caa-fce-hpv-escalation/results/scores/caa-fce-hpv-escalation--r1--random/predictions.csv.gz": "4fc6e7d1575f1eef09a0bc7ae7a1cef0f23edc154f25599a430c5eaf222e33ce",
+    "/Users/earino/research/factory-prospective-study/.local/studies/caa-fce-hpv-escalation/results/scores/caa-fce-hpv-escalation--r2--random/predictions.csv.gz": "58854a8dc067d081527eaf4cf7a7281bd5bb4b7378fa72844b8cd77ba086b0c9",
+    "/Users/earino/research/factory-prospective-study/.local/studies/caa-fce-hpv-escalation/results/scores/caa-fce-hpv-escalation--r3--random/predictions.csv.gz": "f53a5b1f222bcc875437f5ad95a9281a8f8a85e7a9591cbdb43871ef1ca09dac"
+  },
+  "method": "2000 paired whole-entity draws, pointwise percentile95%; conditional on fitted models, cohort and declared dependence"
+}

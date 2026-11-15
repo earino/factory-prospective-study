@@ -258,7 +258,10 @@
     "verified_at": "2026-11-14T04:36:15.599185+00:00"
   },
   {
+    "branch": "consumer/caa-fce-hpv-escalation",
+    "commit": "1f4600d942d308db066c465442b125dc6584de55",
     "dataset": "caa-fce-hpv-escalation",
+    "finished": "2026-11-15T01:56:47.894817+00:00",
     "release": {
       "artifact_version": "2a1b8fe5efdf2f0bae9a7777de98d0019bb70404c8aafbe0291a615e93f0573b",
       "assets": 33,
@@ -293,7 +296,47 @@
       "workflow": "modern"
     },
     "selected": true,
-    "status": "queued",
+    "started": "2026-11-15T00:12:29.322881+00:00",
+    "status": "complete",
     "verified_at": "2026-11-14T22:55:16.477819+00:00"
+  },
+  {
+    "dataset": "wser-effluent-exceedance",
+    "release": {
+      "artifact_version": "15ee03d514ebc5eaedefc7fba7611d2525fd4b9c828bdfb120ae55b8b8f4c1b4",
+      "assets": 33,
+      "baseline_display": "See versioned evaluation.json; public validation only",
+      "dataset": "wser-effluent-exceedance",
+      "destinations": {
+        "github": "https://github.com/earino/factory-wser-effluent-exceedance/releases/tag/v-3ceae5479cda761c",
+        "huggingface": "https://huggingface.co/datasets/earino/factory-wser-effluent-exceedance"
+      },
+      "detail_id": "source-000083",
+      "disposition": "public",
+      "published": true,
+      "release_tag": "v-3ceae5479cda761c",
+      "rows": 18126,
+      "splits": {
+        "eval": {
+          "rows": 5894
+        },
+        "holdout": {
+          "rows": 3988
+        },
+        "train": {
+          "rows": 8244
+        }
+      },
+      "verified": {
+        "github": true,
+        "huggingface": true
+      },
+      "verified_all": true,
+      "verified_at": "2026-11-15T01:17:16.726399+00:00",
+      "workflow": "modern"
+    },
+    "selected": true,
+    "status": "queued",
+    "verified_at": "2026-11-15T01:17:16.726399+00:00"
   }
 ]

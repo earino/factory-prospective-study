@@ -2,17 +2,21 @@
 
 {
   "consumer": {
+    "branch": "consumer/caa-fce-hpv-escalation",
+    "commit": "1f4600d942d308db066c465442b125dc6584de55",
     "dataset": "caa-fce-hpv-escalation",
-    "started": "2026-11-15T00:12:29.322441+00:00",
-    "status": "running"
+    "finished": "2026-11-15T01:56:47.894817+00:00",
+    "started": "2026-11-15T00:12:29.322881+00:00",
+    "status": "complete"
   },
   "factory_counts": {
-    "build": 2,
-    "deferred": 60,
-    "published": 14,
+    "build": 1,
+    "deferred": 62,
+    "discover": 1,
+    "published": 15,
     "rejected": 7
   },
-  "observed_at": "2026-11-15T01:43:15.118321+00:00",
+  "observed_at": "2026-11-15T02:13:37.163226+00:00",
   "paper": {},
   "queue": [
     {
@@ -66,13 +70,21 @@
     {
       "dataset": "caa-fce-hpv-escalation",
       "verified_at": "2026-11-14T22:55:16.477819+00:00",
+      "status": "complete",
+      "selected": true,
+      "branch": "consumer/caa-fce-hpv-escalation",
+      "error": null
+    },
+    {
+      "dataset": "wser-effluent-exceedance",
+      "verified_at": "2026-11-15T01:17:16.726399+00:00",
       "status": "queued",
       "selected": true,
       "branch": null,
       "error": null
     }
   ],
-  "snapshot_generated_at": "2026-11-15T00:51:34+00:00",
+  "snapshot_generated_at": "2026-11-15T01:52:01+00:00",
   "window": {
     "analysis_start": "2026-11-18T04:00:00Z",
     "attempt_minutes": 85,

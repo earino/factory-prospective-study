@@ -1,0 +1,46 @@
+[
+  {
+    "run": "caa-fce-hpv-escalation--r1",
+    "selected_code_sha256": "bb96ffa628a478a34ae7b9429567ca26ec794cc10e3998d3b9f8e1b434e6140f",
+    "selected_code_io_calls": [],
+    "transcripts_scanned": 22,
+    "unique_tool_requests": 132,
+    "tool_counts": {
+      "Bash": 130,
+      "Write": 1,
+      "Read": 1
+    },
+    "existing_flag_results": [],
+    "protected_input_changes": []
+  },
+  {
+    "run": "caa-fce-hpv-escalation--r2",
+    "selected_code_sha256": "700dcafd0e876b95a131aaf3b64f95a8c55fa3a100ff01fc7cfd96e23b83fe35",
+    "selected_code_io_calls": [
+      {
+        "line": 38,
+        "call": "X['prior_evaluations_3y'].to_numpy"
+      }
+    ],
+    "transcripts_scanned": 11,
+    "unique_tool_requests": 121,
+    "tool_counts": {
+      "Bash": 121
+    },
+    "existing_flag_results": [],
+    "protected_input_changes": []
+  },
+  {
+    "run": "caa-fce-hpv-escalation--r3",
+    "selected_code_sha256": "21d11477f83acc89ee3b828760bd4aec1dc98430ae6469a8b19f068631df2588",
+    "selected_code_io_calls": [],
+    "transcripts_scanned": 10,
+    "unique_tool_requests": 109,
+    "tool_counts": {
+      "Bash": 107,
+      "Write": 2
+    },
+    "existing_flag_results": [],
+    "protected_input_changes": []
+  }
+]
