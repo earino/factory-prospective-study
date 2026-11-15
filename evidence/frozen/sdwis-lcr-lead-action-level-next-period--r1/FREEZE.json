@@ -1,0 +1,50 @@
+{
+  "dataset": "sdwis-lcr-lead-action-level-next-period",
+  "environment": "25da8bd4a246c5c78ad693276de09eadf5101df88801ff3a001bba60c8643400",
+  "files": {
+    "booster.json": {
+      "bytes": 1519984,
+      "sha256": "b501886304fcbb2439693b5ecd8fdbc7a5c97124b29fd7139fc77c86cb137e06"
+    },
+    "model.pkl": {
+      "bytes": 1252596,
+      "sha256": "39975ad5ce08b2beca685883250d72e1ecf8e654f546848c4d4a8ddc049c1cb1"
+    },
+    "train.py": {
+      "bytes": 4764,
+      "sha256": "2f4c225d1b95add9d7531c0f6772eec88385128fb696839abe6491325cca244e"
+    },
+    "validation.csv.gz": {
+      "bytes": 199842,
+      "sha256": "249ad21108a89785071f357eaff358e081fdabd1f8050483c3d6fa58c87844f3"
+    },
+    "validation.json": {
+      "bytes": 1064,
+      "sha256": "61d2b810802e2e80fdc9ca2e87ffcb44a7d3f36d14b24e6aeb05457908b110dd"
+    }
+  },
+  "frozen_at": "2026-11-15T21:43:39.463245+00:00",
+  "run": "sdwis-lcr-lead-action-level-next-period--r1",
+  "selected_trial": {
+    "artifact_sha256": "39975ad5ce08b2beca685883250d72e1ecf8e654f546848c4d4a8ddc049c1cb1",
+    "auc": 0.8124651873389116,
+    "backtest": {},
+    "brier": 0.021985263572889307,
+    "code_sha256": "2f4c225d1b95add9d7531c0f6772eec88385128fb696839abe6491325cca244e",
+    "elapsed_s": 7.384213792000082,
+    "evaluation_wall_s": 5.121073707996402,
+    "finished_epoch": 1794776353.0170639,
+    "fit_cpu_s": 6.433773,
+    "fit_wall_s": 1.9822256659972481,
+    "id": "a9be1aa03e504be695740d90ddb42476",
+    "mode": "validation",
+    "note": "H (drift-robust simplification): replace raw gap/period day counts with month-rounded period length + cycle length (removes leap-day calendar proxies) and cap prior-period count at 10 (large counts are out-of-range time proxies). Offline 4-seed paired: bt mean +0.0015, val +0.0026 vs 55d83813",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/sdwis-lcr-lead-action-level-next-period/.study/runs/sdwis-lcr-lead-action-level-next-period--r1/trials/a9be1aa03e504be695740d90ddb42476",
+    "phase": "evaluation",
+    "rows_score": 17368,
+    "rows_train": 257379,
+    "started_epoch": 1794776345.6325939,
+    "status": "ok",
+    "utc": "2026-11-15T20:59:05.632585+00:00"
+  }
+}

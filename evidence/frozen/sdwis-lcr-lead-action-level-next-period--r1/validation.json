@@ -1,0 +1,23 @@
+{
+  "id": "a9be1aa03e504be695740d90ddb42476",
+  "utc": "2026-11-15T20:59:05.632585+00:00",
+  "started_epoch": 1794776345.6325939,
+  "mode": "validation",
+  "note": "H (drift-robust simplification): replace raw gap/period day counts with month-rounded period length + cycle length (removes leap-day calendar proxies) and cap prior-period count at 10 (large counts are out-of-range time proxies). Offline 4-seed paired: bt mean +0.0015, val +0.0026 vs 55d83813",
+  "code_sha256": "2f4c225d1b95add9d7531c0f6772eec88385128fb696839abe6491325cca244e",
+  "status": "ok",
+  "fit_wall_s": 1.9822256659972481,
+  "fit_cpu_s": 6.433773,
+  "phase": "evaluation",
+  "evaluation_wall_s": 5.121073707996402,
+  "auc": 0.8124651873389116,
+  "brier": 0.021985263572889307,
+  "rows_train": 257379,
+  "rows_score": 17368,
+  "backtest": {},
+  "artifact_sha256": "39975ad5ce08b2beca685883250d72e1ecf8e654f546848c4d4a8ddc049c1cb1",
+  "finished_epoch": 1794776353.0170639,
+  "elapsed_s": 7.384213792000082,
+  "cold_replay_at": "2026-11-15T21:43:39.317787+00:00",
+  "no_retraining": true
+}

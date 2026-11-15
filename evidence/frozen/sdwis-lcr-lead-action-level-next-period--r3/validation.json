@@ -1,0 +1,23 @@
+{
+  "id": "945c097629c44d51801b73f95adb0dfe",
+  "utc": "2026-11-15T20:41:20.852922+00:00",
+  "started_epoch": 1794775280.852934,
+  "mode": "validation",
+  "note": "H2: agency handled as ordinal code + one-hot + label-free per-agency training statistics (mean log lead, zero share, exceed share, schedule mix); offline 3-fold backtest mean +0.006 vs ordinal only, val expected flat",
+  "code_sha256": "affbfa568d0eb44d1b006f9c6d96d57a50bc3fd654b4bf46b71e631bccb42c4b",
+  "status": "ok",
+  "fit_wall_s": 2.6736548750050133,
+  "fit_cpu_s": 8.675320000000001,
+  "phase": "evaluation",
+  "evaluation_wall_s": 5.632385542005068,
+  "auc": 0.8096589748883727,
+  "brier": 0.02185001541944505,
+  "rows_train": 257379,
+  "rows_score": 17368,
+  "backtest": {},
+  "artifact_sha256": "56c51d424d82afc3843c283229c5c775711306ecbcc581dbe3f877b6c5143cd0",
+  "finished_epoch": 1794775289.43104,
+  "elapsed_s": 8.577824291001889,
+  "cold_replay_at": "2026-11-15T21:43:39.487510+00:00",
+  "no_retraining": true
+}

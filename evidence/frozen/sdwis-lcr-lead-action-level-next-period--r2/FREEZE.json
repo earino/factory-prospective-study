@@ -1,0 +1,50 @@
+{
+  "dataset": "sdwis-lcr-lead-action-level-next-period",
+  "environment": "25da8bd4a246c5c78ad693276de09eadf5101df88801ff3a001bba60c8643400",
+  "files": {
+    "booster.json": {
+      "bytes": 875945,
+      "sha256": "adf85c201ac3dc08280a767e14e916f232fc06d98c591194503b9666949354ad"
+    },
+    "model.pkl": {
+      "bytes": 816064,
+      "sha256": "825c26a120364623dcf4b78ce671d3f5bbe0d9a3cad87747c535193abd31249b"
+    },
+    "train.py": {
+      "bytes": 11068,
+      "sha256": "8fb4e34a9b83fa1f945bc969fcaed9866c3bb01eac7346857458b9bd7d694fbd"
+    },
+    "validation.csv.gz": {
+      "bytes": 196071,
+      "sha256": "e604a349a6bc3b7d101be84e026e4d7f20e6d5e439c735e6d16d597a13715986"
+    },
+    "validation.json": {
+      "bytes": 1224,
+      "sha256": "875a24d9d5c607d89a872a6d21aac5a2d91dae5cc84cfb2a42b68b30ecf92c0e"
+    }
+  },
+  "frozen_at": "2026-11-15T21:43:39.427295+00:00",
+  "run": "sdwis-lcr-lead-action-level-next-period--r2",
+  "selected_trial": {
+    "artifact_sha256": "825c26a120364623dcf4b78ce671d3f5bbe0d9a3cad87747c535193abd31249b",
+    "auc": 0.8124161234662577,
+    "backtest": {},
+    "brier": 0.021749123951026135,
+    "code_sha256": "8fb4e34a9b83fa1f945bc969fcaed9866c3bb01eac7346857458b9bd7d694fbd",
+    "elapsed_s": 6.832751833004295,
+    "evaluation_wall_s": 5.009178542008158,
+    "finished_epoch": 1794776048.348104,
+    "fit_cpu_s": 5.243221,
+    "fit_wall_s": 1.558038791990839,
+    "id": "93f2b952ee9d44d6b485eaad160e45a7",
+    "mode": "validation",
+    "note": "H4: H3 with exact population_served_count replaced by 7 LCR regulatory size classes (<=100, 101-500, 501-3300, 3301-10k, 10k-50k, 50k-100k, >100k). Hypothesis: population matters through sampling-tier size class, not as a fine-grained quasi-identifier of systems; coarse classes should lose nothing and remove any system-fingerprint memorisation. Lab: VAL 0.8124, contiguous backtests 0.7894 (= H3), 5y-gap 0.7767 (= H3); no population at all loses ~0.011.",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/sdwis-lcr-lead-action-level-next-period/.study/runs/sdwis-lcr-lead-action-level-next-period--r2/trials/93f2b952ee9d44d6b485eaad160e45a7",
+    "phase": "evaluation",
+    "rows_score": 17368,
+    "rows_train": 257379,
+    "started_epoch": 1794776041.514654,
+    "status": "ok",
+    "utc": "2026-11-15T20:54:01.514646+00:00"
+  }
+}

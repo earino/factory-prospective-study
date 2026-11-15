@@ -1,0 +1,50 @@
+{
+  "dataset": "sdwis-lcr-lead-action-level-next-period",
+  "environment": "25da8bd4a246c5c78ad693276de09eadf5101df88801ff3a001bba60c8643400",
+  "files": {
+    "booster.json": {
+      "bytes": 790367,
+      "sha256": "8a5dda32a1eefe40f8aba5f83c4a1874bcc04af78c073501c74a18e193817a4d"
+    },
+    "model.pkl": {
+      "bytes": 665264,
+      "sha256": "56c51d424d82afc3843c283229c5c775711306ecbcc581dbe3f877b6c5143cd0"
+    },
+    "train.py": {
+      "bytes": 8342,
+      "sha256": "affbfa568d0eb44d1b006f9c6d96d57a50bc3fd654b4bf46b71e631bccb42c4b"
+    },
+    "validation.csv.gz": {
+      "bytes": 199099,
+      "sha256": "5f54f7407cdd625c25ad6982259c05f5129fcc5ca288191cdff898e7e7219243"
+    },
+    "validation.json": {
+      "bytes": 992,
+      "sha256": "0b6bd0ffa535613b1e812cc5f85dc82da6e4ddbadf595ddbe77328dcbd7eea1a"
+    }
+  },
+  "frozen_at": "2026-11-15T21:43:39.579968+00:00",
+  "run": "sdwis-lcr-lead-action-level-next-period--r3",
+  "selected_trial": {
+    "artifact_sha256": "56c51d424d82afc3843c283229c5c775711306ecbcc581dbe3f877b6c5143cd0",
+    "auc": 0.8096589748883727,
+    "backtest": {},
+    "brier": 0.02185001541944505,
+    "code_sha256": "affbfa568d0eb44d1b006f9c6d96d57a50bc3fd654b4bf46b71e631bccb42c4b",
+    "elapsed_s": 8.577824291001889,
+    "evaluation_wall_s": 5.632385542005068,
+    "finished_epoch": 1794775289.43104,
+    "fit_cpu_s": 8.675320000000001,
+    "fit_wall_s": 2.6736548750050133,
+    "id": "945c097629c44d51801b73f95adb0dfe",
+    "mode": "validation",
+    "note": "H2: agency handled as ordinal code + one-hot + label-free per-agency training statistics (mean log lead, zero share, exceed share, schedule mix); offline 3-fold backtest mean +0.006 vs ordinal only, val expected flat",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/sdwis-lcr-lead-action-level-next-period/.study/runs/sdwis-lcr-lead-action-level-next-period--r3/trials/945c097629c44d51801b73f95adb0dfe",
+    "phase": "evaluation",
+    "rows_score": 17368,
+    "rows_train": 257379,
+    "started_epoch": 1794775280.852934,
+    "status": "ok",
+    "utc": "2026-11-15T20:41:20.852922+00:00"
+  }
+}

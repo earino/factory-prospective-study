@@ -1,0 +1,23 @@
+{
+  "id": "93f2b952ee9d44d6b485eaad160e45a7",
+  "utc": "2026-11-15T20:54:01.514646+00:00",
+  "started_epoch": 1794776041.514654,
+  "mode": "validation",
+  "note": "H4: H3 with exact population_served_count replaced by 7 LCR regulatory size classes (<=100, 101-500, 501-3300, 3301-10k, 10k-50k, 50k-100k, >100k). Hypothesis: population matters through sampling-tier size class, not as a fine-grained quasi-identifier of systems; coarse classes should lose nothing and remove any system-fingerprint memorisation. Lab: VAL 0.8124, contiguous backtests 0.7894 (= H3), 5y-gap 0.7767 (= H3); no population at all loses ~0.011.",
+  "code_sha256": "8fb4e34a9b83fa1f945bc969fcaed9866c3bb01eac7346857458b9bd7d694fbd",
+  "status": "ok",
+  "fit_wall_s": 1.558038791990839,
+  "fit_cpu_s": 5.243221,
+  "phase": "evaluation",
+  "evaluation_wall_s": 5.009178542008158,
+  "auc": 0.8124161234662577,
+  "brier": 0.021749123951026135,
+  "rows_train": 257379,
+  "rows_score": 17368,
+  "backtest": {},
+  "artifact_sha256": "825c26a120364623dcf4b78ce671d3f5bbe0d9a3cad87747c535193abd31249b",
+  "finished_epoch": 1794776048.348104,
+  "elapsed_s": 6.832751833004295,
+  "cold_replay_at": "2026-11-15T21:43:39.336815+00:00",
+  "no_retraining": true
+}
