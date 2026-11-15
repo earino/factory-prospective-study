@@ -1,0 +1,404 @@
+[
+  {
+    "dataset": "fjc-civil-trial-36m",
+    "execution": "fjc-civil-trial-36m",
+    "run": "fjc-civil-trial-36m--r1",
+    "code": ".local/studies/fjc-civil-trial-36m/evidence/frozen/fjc-civil-trial-36m--r1/train.py",
+    "lines": 212,
+    "io": [],
+    "protected_changes": [],
+    "flags": []
+  },
+  {
+    "dataset": "fjc-civil-trial-36m",
+    "execution": "fjc-civil-trial-36m",
+    "run": "fjc-civil-trial-36m--r2",
+    "code": ".local/studies/fjc-civil-trial-36m/evidence/frozen/fjc-civil-trial-36m--r2/train.py",
+    "lines": 188,
+    "io": [],
+    "protected_changes": [],
+    "flags": []
+  },
+  {
+    "dataset": "fjc-civil-trial-36m",
+    "execution": "fjc-civil-trial-36m",
+    "run": "fjc-civil-trial-36m--r3",
+    "code": ".local/studies/fjc-civil-trial-36m/evidence/frozen/fjc-civil-trial-36m--r3/train.py",
+    "lines": 167,
+    "io": [],
+    "protected_changes": [],
+    "flags": []
+  },
+  {
+    "dataset": "phmsa-pipeline-penalty-reduction",
+    "execution": "phmsa-pipeline-penalty-reduction",
+    "run": "phmsa-pipeline-penalty-reduction--r1",
+    "code": ".local/studies/phmsa-pipeline-penalty-reduction/evidence/frozen/phmsa-pipeline-penalty-reduction--r1/train.py",
+    "lines": 108,
+    "io": [],
+    "protected_changes": [],
+    "flags": [
+      {
+        "trace": "0021.jsonl",
+        "line": 7,
+        "tool_use_id": "toolu_016bmtNm9HDQUMnZNo9pnNTJ",
+        "result": "minutes left: 6\ntracked files:\n.gitignore\nBACKLOG.md\nCLAUDE.md\nLOG.md\nREPORT.md\nTASK.json\n_engine.py\ndiag.py\nevaluate.py\nexperimental_train_te.py\ntrain.py\nfiles changed since scaffold commit:\nA\tBACKLOG.md\nA\tLOG.md\nA\tREPORT.md\nA\tdiag.py\nA\texperimental_train_te.py\nM\ttrain.py\nprotected files untouched vs scaffold commit:\nevaluate.py, _engine.py identical in history\n-  \"search_deadline_epoch\": 1794600198.599863,\n+  \"search_deadline_epoch\": 1794600199.305395,\nrelease files present 12 hash mismatches [] | holdout file present locally: False",
+        "is_error": false
+      }
+    ]
+  },
+  {
+    "dataset": "phmsa-pipeline-penalty-reduction",
+    "execution": "phmsa-pipeline-penalty-reduction",
+    "run": "phmsa-pipeline-penalty-reduction--r2",
+    "code": ".local/studies/phmsa-pipeline-penalty-reduction/evidence/frozen/phmsa-pipeline-penalty-reduction--r2/train.py",
+    "lines": 161,
+    "io": [],
+    "protected_changes": [],
+    "flags": [
+      {
+        "trace": "0000.jsonl",
+        "line": 1350,
+        "tool_use_id": "toolu_01VfNAErTQCxpxKMYbqSN9DN",
+        "result": " M TASK.json\n M train.py\n?? .processes/\n?? .study-owned\n?? BACKLOG.md\n?? LOG.md\n?? REPORT.md\n?? mcp.json\n?? release/\n?? scratch/\n?? trials/\nextract/public/train.csv sha256 matches manifest: True\nextract/public/eval.csv sha256 matches manifest: True\nextract/meta.json sha256 matches manifest: True\nREADME.md sha256 matches manifest: True\nevaluation.json sha256 matches manifest: True\nreproduction/build.py sha256 matches manifest: True\nreproduction/construction.json sha256 matches manifest: True\ncolumns passed to fit/prepare: ['proposed_penalty_usd', 'violation_category_count', 'cited_regulation_count', 'integrity_management_flag', 'pipeline_type', 'region', 'discovery_route', 'notice_actions', 'proposed_compliance_order']\ndropped by evaluator: ['case_id', 'notice_date', 'penalty_reduced']\nprivate dir present locally: False",
+        "is_error": false
+      },
+      {
+        "trace": "0000.jsonl",
+        "line": 1396,
+        "tool_use_id": "toolu_01MYWAxU3HxrNg2FcMDUAntP",
+        "result": "remaining 2750\nBACKLOG.md\nCLAUDE.md\nLOG.md\nREPORT.md\nTASK.json\n__pycache__\n_engine.py\ncli\nevaluate.py\nmcp.json\nrelease\nscratch\ntrain.py\ntrials\n__pycache__ both.py cv.py g1.py g10.py g11.py g12.py g13.py g14.py g15.py g16.py g17.py g18.py g2.py g3.py g4.py g5.py g6.py g7.py g8.py g9.py gapcv.py placebo.py resid.py seeds.py train_final_simplified.py train_research_version.py trainboot.py uni.py window.py",
+        "is_error": false
+      },
+      {
+        "trace": "0010.jsonl",
+        "line": 7,
+        "tool_use_id": "toolu_01NvpLiy3ZpmgBgEfKj3v9rb",
+        "result": "  \"search_deadline_epoch\": 1794600199.2552013,\nrelease files match manifest: True | private dir present: False\nprotected files changed vs git HEAD: none\ntrials 79 | code/artifact hash mismatches: []\nrule-selected: ad517860 0.7785714285714286 | train.py == recommended snapshot: True\nREPORT.md 34819 bytes\nLOG.md 60470 bytes\nBACKLOG.md 7130 bytes\nremaining 368",
+        "is_error": false
+      },
+      {
+        "trace": "0010.jsonl",
+        "line": 9,
+        "tool_use_id": "toolu_019UAG5CaqZWF1VMLdGx45J4",
+        "result": "| 41 | 342c5d6a | A7 | 0.7402 | 0.1654 | 0.6329 | 0.04 |\n| 42 | 36ebea8c | A8 | 0.7473 | 0.1678 | 0.6442 | 0.08 |\n| 43 | b7011aab | H33 | 0.7620 | 0.1636 | 0.6557 | 0.12 |\nremaining 363",
+        "is_error": false
+      }
+    ]
+  },
+  {
+    "dataset": "phmsa-pipeline-penalty-reduction",
+    "execution": "phmsa-pipeline-penalty-reduction",
+    "run": "phmsa-pipeline-penalty-reduction--r3",
+    "code": ".local/studies/phmsa-pipeline-penalty-reduction/evidence/frozen/phmsa-pipeline-penalty-reduction--r3/train.py",
+    "lines": 103,
+    "io": [],
+    "protected_changes": [],
+    "flags": [
+      {
+        "trace": "0014.jsonl",
+        "line": 7,
+        "tool_use_id": "toolu_015DV2jCVYNsVzhADGzBrafx",
+        "result": "  \"search_deadline_epoch\": 1794600199.2800345,\n1794599840\n72 Python files parsed; syntax errors: []\nfiles referencing holdout or snapshot paths: []\ntrain.py reads files or network: False\n1794599840",
+        "is_error": false
+      },
+      {
+        "trace": "0014.jsonl",
+        "line": 9,
+        "tool_use_id": "toolu_011LdHZpTqsVeY5EmkEKfFdu",
+        "result": "ok\nown files all committed\n1794599843",
+        "is_error": false
+      }
+    ]
+  },
+  {
+    "dataset": "fda-510k-five-year-recall",
+    "execution": "fda-510k-five-year-recall",
+    "run": "fda-510k-five-year-recall--r1",
+    "code": ".local/studies/fda-510k-five-year-recall/evidence/frozen/fda-510k-five-year-recall--r1/train.py",
+    "lines": 168,
+    "io": [],
+    "protected_changes": [],
+    "flags": []
+  },
+  {
+    "dataset": "fda-510k-five-year-recall",
+    "execution": "fda-510k-five-year-recall",
+    "run": "fda-510k-five-year-recall--r2",
+    "code": ".local/studies/fda-510k-five-year-recall/evidence/frozen/fda-510k-five-year-recall--r2/train.py",
+    "lines": 317,
+    "io": [],
+    "protected_changes": [],
+    "flags": []
+  },
+  {
+    "dataset": "fda-510k-five-year-recall",
+    "execution": "fda-510k-five-year-recall",
+    "run": "fda-510k-five-year-recall--r3",
+    "code": ".local/studies/fda-510k-five-year-recall/evidence/frozen/fda-510k-five-year-recall--r3/train.py",
+    "lines": 209,
+    "io": [],
+    "protected_changes": [],
+    "flags": []
+  },
+  {
+    "dataset": "t100-new-route-survival",
+    "execution": "t100-new-route-survival",
+    "run": "t100-new-route-survival--r1",
+    "code": ".local/studies/t100-new-route-survival/evidence/frozen/t100-new-route-survival--r1/train.py",
+    "lines": 69,
+    "io": [],
+    "protected_changes": [],
+    "flags": []
+  },
+  {
+    "dataset": "t100-new-route-survival",
+    "execution": "t100-new-route-survival",
+    "run": "t100-new-route-survival--r2",
+    "code": ".local/studies/t100-new-route-survival/evidence/frozen/t100-new-route-survival--r2/train.py",
+    "lines": 81,
+    "io": [],
+    "protected_changes": [],
+    "flags": []
+  },
+  {
+    "dataset": "t100-new-route-survival",
+    "execution": "t100-new-route-survival",
+    "run": "t100-new-route-survival--r3",
+    "code": ".local/studies/t100-new-route-survival/evidence/frozen/t100-new-route-survival--r3/train.py",
+    "lines": 97,
+    "io": [],
+    "protected_changes": [],
+    "flags": []
+  },
+  {
+    "dataset": "sbir-phase1-to-phase2-conversion",
+    "execution": "sbir-phase1-to-phase2-conversion",
+    "run": "sbir-phase1-to-phase2-conversion--r1",
+    "code": ".local/studies/sbir-phase1-to-phase2-conversion/evidence/frozen/sbir-phase1-to-phase2-conversion--r1/train.py",
+    "lines": 78,
+    "io": [],
+    "protected_changes": [],
+    "flags": []
+  },
+  {
+    "dataset": "sbir-phase1-to-phase2-conversion",
+    "execution": "sbir-phase1-to-phase2-conversion",
+    "run": "sbir-phase1-to-phase2-conversion--r2",
+    "code": ".local/studies/sbir-phase1-to-phase2-conversion/evidence/frozen/sbir-phase1-to-phase2-conversion--r2/train.py",
+    "lines": 288,
+    "io": [],
+    "protected_changes": [],
+    "flags": []
+  },
+  {
+    "dataset": "sbir-phase1-to-phase2-conversion",
+    "execution": "sbir-phase1-to-phase2-conversion",
+    "run": "sbir-phase1-to-phase2-conversion--r3",
+    "code": ".local/studies/sbir-phase1-to-phase2-conversion/evidence/frozen/sbir-phase1-to-phase2-conversion--r3/train.py",
+    "lines": 184,
+    "io": [],
+    "protected_changes": [],
+    "flags": []
+  },
+  {
+    "dataset": "caa-fce-hpv-escalation",
+    "execution": "caa-fce-hpv-escalation",
+    "run": "caa-fce-hpv-escalation--r1",
+    "code": ".local/studies/caa-fce-hpv-escalation/evidence/frozen/caa-fce-hpv-escalation--r1/train.py",
+    "lines": 155,
+    "io": [],
+    "protected_changes": [],
+    "flags": []
+  },
+  {
+    "dataset": "caa-fce-hpv-escalation",
+    "execution": "caa-fce-hpv-escalation",
+    "run": "caa-fce-hpv-escalation--r2",
+    "code": ".local/studies/caa-fce-hpv-escalation/evidence/frozen/caa-fce-hpv-escalation--r2/train.py",
+    "lines": 180,
+    "io": [
+      {
+        "line": 38,
+        "call": "X['prior_evaluations_3y'].to_numpy"
+      }
+    ],
+    "protected_changes": [],
+    "flags": []
+  },
+  {
+    "dataset": "caa-fce-hpv-escalation",
+    "execution": "caa-fce-hpv-escalation",
+    "run": "caa-fce-hpv-escalation--r3",
+    "code": ".local/studies/caa-fce-hpv-escalation/evidence/frozen/caa-fce-hpv-escalation--r3/train.py",
+    "lines": 159,
+    "io": [],
+    "protected_changes": [],
+    "flags": []
+  },
+  {
+    "dataset": "wser-effluent-exceedance",
+    "execution": "wser-effluent-exceedance",
+    "run": "wser-effluent-exceedance--r1",
+    "code": ".local/studies/wser-effluent-exceedance/evidence/frozen/wser-effluent-exceedance--r1/train.py",
+    "lines": 213,
+    "io": [],
+    "protected_changes": [],
+    "flags": []
+  },
+  {
+    "dataset": "wser-effluent-exceedance",
+    "execution": "wser-effluent-exceedance",
+    "run": "wser-effluent-exceedance--r2",
+    "code": ".local/studies/wser-effluent-exceedance/evidence/frozen/wser-effluent-exceedance--r2/train.py",
+    "lines": 54,
+    "io": [],
+    "protected_changes": [],
+    "flags": [
+      {
+        "trace": "0024.jsonl",
+        "line": 6,
+        "tool_use_id": "toolu_019Qy3ewrPy1hnLzYa2tncBc",
+        "result": "No matches found\n\nFound 0 total occurrences across 0 files.",
+        "is_error": null
+      }
+    ]
+  },
+  {
+    "dataset": "wser-effluent-exceedance",
+    "execution": "wser-effluent-exceedance",
+    "run": "wser-effluent-exceedance--r3",
+    "code": ".local/studies/wser-effluent-exceedance/evidence/frozen/wser-effluent-exceedance--r3/train.py",
+    "lines": 133,
+    "io": [
+      {
+        "line": 39,
+        "call": "X['system_type'].where"
+      },
+      {
+        "line": 71,
+        "call": "X[['system_type', 'avg_daily_effluent_volume_m3', 'owner_type_operator_type', 'hydraulic_retention_ge_5_days', 'receiving_water_type']].isna().sum(axis=1).astype"
+      },
+      {
+        "line": 71,
+        "call": "X[['system_type', 'avg_daily_effluent_volume_m3', 'owner_type_operator_type', 'hydraulic_retention_ge_5_days', 'receiving_water_type']].isna().sum"
+      },
+      {
+        "line": 71,
+        "call": "X[['system_type', 'avg_daily_effluent_volume_m3', 'owner_type_operator_type', 'hydraulic_retention_ge_5_days', 'receiving_water_type']].isna"
+      }
+    ],
+    "protected_changes": [],
+    "flags": []
+  },
+  {
+    "dataset": "faa-wildlife-strike-substantial-damage",
+    "execution": "faa-wildlife-strike-substantial-damage-retry-1",
+    "run": "faa-wildlife-strike-substantial-damage--r1",
+    "code": ".local/studies/faa-wildlife-strike-substantial-damage-retry-1/evidence/frozen/faa-wildlife-strike-substantial-damage--r1/train.py",
+    "lines": 142,
+    "io": [],
+    "protected_changes": [],
+    "flags": []
+  },
+  {
+    "dataset": "faa-wildlife-strike-substantial-damage",
+    "execution": "faa-wildlife-strike-substantial-damage-retry-1",
+    "run": "faa-wildlife-strike-substantial-damage--r2",
+    "code": ".local/studies/faa-wildlife-strike-substantial-damage-retry-1/evidence/frozen/faa-wildlife-strike-substantial-damage--r2/train.py",
+    "lines": 129,
+    "io": [],
+    "protected_changes": [],
+    "flags": []
+  },
+  {
+    "dataset": "faa-wildlife-strike-substantial-damage",
+    "execution": "faa-wildlife-strike-substantial-damage-retry-1",
+    "run": "faa-wildlife-strike-substantial-damage--r3",
+    "code": ".local/studies/faa-wildlife-strike-substantial-damage-retry-1/evidence/frozen/faa-wildlife-strike-substantial-damage--r3/train.py",
+    "lines": 326,
+    "io": [],
+    "protected_changes": [],
+    "flags": []
+  },
+  {
+    "dataset": "seattle-building-permit-completion",
+    "execution": "seattle-building-permit-completion-retry-1",
+    "run": "seattle-building-permit-completion--r2",
+    "code": ".local/studies/seattle-building-permit-completion-retry-1/evidence/frozen/seattle-building-permit-completion--r2/train.py",
+    "lines": 118,
+    "io": [],
+    "protected_changes": [],
+    "flags": []
+  },
+  {
+    "dataset": "seattle-building-permit-completion",
+    "execution": "seattle-building-permit-completion-retry-1",
+    "run": "seattle-building-permit-completion--r3",
+    "code": ".local/studies/seattle-building-permit-completion-retry-1/evidence/frozen/seattle-building-permit-completion--r3/train.py",
+    "lines": 159,
+    "io": [],
+    "protected_changes": [],
+    "flags": []
+  },
+  {
+    "dataset": "fra-form54-hazmat-release",
+    "execution": "fra-form54-hazmat-release-retry-1",
+    "run": "fra-form54-hazmat-release--r1",
+    "code": ".local/studies/fra-form54-hazmat-release-retry-1/evidence/frozen/fra-form54-hazmat-release--r1/train.py",
+    "lines": 97,
+    "io": [],
+    "protected_changes": [],
+    "flags": []
+  },
+  {
+    "dataset": "fra-form54-hazmat-release",
+    "execution": "fra-form54-hazmat-release-retry-1",
+    "run": "fra-form54-hazmat-release--r2",
+    "code": ".local/studies/fra-form54-hazmat-release-retry-1/evidence/frozen/fra-form54-hazmat-release--r2/train.py",
+    "lines": 231,
+    "io": [],
+    "protected_changes": [],
+    "flags": []
+  },
+  {
+    "dataset": "fra-form54-hazmat-release",
+    "execution": "fra-form54-hazmat-release-retry-1",
+    "run": "fra-form54-hazmat-release--r3",
+    "code": ".local/studies/fra-form54-hazmat-release-retry-1/evidence/frozen/fra-form54-hazmat-release--r3/train.py",
+    "lines": 166,
+    "io": [],
+    "protected_changes": [],
+    "flags": []
+  },
+  {
+    "dataset": "sdwis-lcr-lead-action-level-next-period",
+    "execution": "sdwis-lcr-lead-action-level-next-period",
+    "run": "sdwis-lcr-lead-action-level-next-period--r1",
+    "code": ".local/studies/sdwis-lcr-lead-action-level-next-period/evidence/frozen/sdwis-lcr-lead-action-level-next-period--r1/train.py",
+    "lines": 90,
+    "io": [],
+    "protected_changes": [],
+    "flags": []
+  },
+  {
+    "dataset": "sdwis-lcr-lead-action-level-next-period",
+    "execution": "sdwis-lcr-lead-action-level-next-period",
+    "run": "sdwis-lcr-lead-action-level-next-period--r2",
+    "code": ".local/studies/sdwis-lcr-lead-action-level-next-period/evidence/frozen/sdwis-lcr-lead-action-level-next-period--r2/train.py",
+    "lines": 231,
+    "io": [],
+    "protected_changes": [],
+    "flags": []
+  },
+  {
+    "dataset": "sdwis-lcr-lead-action-level-next-period",
+    "execution": "sdwis-lcr-lead-action-level-next-period",
+    "run": "sdwis-lcr-lead-action-level-next-period--r3",
+    "code": ".local/studies/sdwis-lcr-lead-action-level-next-period/evidence/frozen/sdwis-lcr-lead-action-level-next-period--r3/train.py",
+    "lines": 162,
+    "io": [],
+    "protected_changes": [],
+    "flags": []
+  }
+]

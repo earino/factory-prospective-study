@@ -1,0 +1,46 @@
+{
+  "sha": "202b83b26fdb6becfcf0ac6e304e7d291693130e",
+  "commit": {
+    "author": {
+      "name": "Scout (Hermes)",
+      "email": "scout@nousresearch.com",
+      "date": "2026-11-13T18:16:07Z"
+    },
+    "committer": {
+      "name": "Scout (Hermes)",
+      "email": "scout@nousresearch.com",
+      "date": "2026-11-13T18:16:07Z"
+    },
+    "message": "Route model tasks through ollama-cloud with no fallback chain\n\nFactory research/code sessions are explicitly pinned to provider\nollama-cloud, model deepseek-v4.1-flash (previously nous). The host\nfallback chain was cleared separately, so a failed primary fails the\ntask instead of silently switching providers \u2014 no fallback route.",
+    "tree": {
+      "sha": "0be624b80b3db9e81569649ba7b691018cd6d245",
+      "url": "https://api.github.com/repos/earino/dataset-factory/git/trees/0be624b80b3db9e81569649ba7b691018cd6d245"
+    },
+    "url": "https://api.github.com/repos/earino/dataset-factory/git/commits/202b83b26fdb6becfcf0ac6e304e7d291693130e",
+    "comment_count": 0,
+    "verification": {
+      "verified": false,
+      "reason": "unsigned",
+      "signature": null,
+      "payload": null,
+      "verified_at": null
+    }
+  },
+  "parents": [
+    "6238b7dca455b2ec4ac87b1602dd7fa1caad8201"
+  ],
+  "files": [
+    {
+      "sha": "6c3f41981a217d8067d593c657ca7953533b71e2",
+      "filename": "config/pipeline.json",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "blob_url": "https://github.com/earino/dataset-factory/blob/202b83b26fdb6becfcf0ac6e304e7d291693130e/config%2Fpipeline.json",
+      "raw_url": "https://github.com/earino/dataset-factory/raw/202b83b26fdb6becfcf0ac6e304e7d291693130e/config%2Fpipeline.json",
+      "contents_url": "https://api.github.com/repos/earino/dataset-factory/contents/config%2Fpipeline.json?ref=202b83b26fdb6becfcf0ac6e304e7d291693130e",
+      "patch": "@@ -18,8 +18,8 @@\n     \"max_artifact_mb\": 1024\n   },\n   \"model\": {\n-    \"model\": \"deepseek/deepseek-v4.1-flash-1017\",\n-    \"provider\": \"nous\",\n+    \"model\": \"deepseek-v4.1-flash\",\n+    \"provider\": \"ollama-cloud\",\n     \"research_toolset\": \"web\",\n     \"research_turns\": 12,\n     \"code_turns\": 6,"
+    }
+  ]
+}

@@ -1,0 +1,458 @@
+{
+  "status": "32-solution review complete; Seattle r1 and utility recovery pending",
+  "runs": [
+    {
+      "execution": "fjc-civil-trial-36m",
+      "run": "fjc-civil-trial-36m--r1",
+      "code_sha256": "e4bd7a2f698e2e4011b540c4f7aad9231d52ae8b3342f678f021eb52b9d57bd5",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 0
+    },
+    {
+      "execution": "fjc-civil-trial-36m",
+      "run": "fjc-civil-trial-36m--r2",
+      "code_sha256": "18c350f3adf56b0da41a2a7606a05e035d7eb326aab59f6838cdaa5e44da649e",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 0
+    },
+    {
+      "execution": "fjc-civil-trial-36m",
+      "run": "fjc-civil-trial-36m--r3",
+      "code_sha256": "23ea43857905a4a265d0a9019f9a1c3d4c3cb50b9ebc54e97fe6555bd1d7593a",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 0
+    },
+    {
+      "execution": "phmsa-pipeline-penalty-reduction",
+      "run": "phmsa-pipeline-penalty-reduction--r1",
+      "code_sha256": "a14b7cc76848d9b6533654d203ebae55d608dfca36ceff1d3c3bf1e9188e07f0",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 1
+    },
+    {
+      "execution": "phmsa-pipeline-penalty-reduction",
+      "run": "phmsa-pipeline-penalty-reduction--r2",
+      "code_sha256": "516b19f1d358977d75a9d7614e07dc9fb694126738bf3634b459f6a15e3571c8",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 4
+    },
+    {
+      "execution": "phmsa-pipeline-penalty-reduction",
+      "run": "phmsa-pipeline-penalty-reduction--r3",
+      "code_sha256": "9b7f758a2661d30db2a6ecbb4e7888baae5a60400d7847bc46b3278d2387cf40",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 2
+    },
+    {
+      "execution": "fda-510k-five-year-recall",
+      "run": "fda-510k-five-year-recall--r1",
+      "code_sha256": "3c30e634bf1c7cb37f581e1fd68f9b96391bdbf17a7df26b457ba1c1fcd92d26",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 0
+    },
+    {
+      "execution": "fda-510k-five-year-recall",
+      "run": "fda-510k-five-year-recall--r2",
+      "code_sha256": "849894d92a3a194dc26b957770e2c630c5efa28a9cff60876b515d6287b4205c",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 0
+    },
+    {
+      "execution": "fda-510k-five-year-recall",
+      "run": "fda-510k-five-year-recall--r3",
+      "code_sha256": "013da88d5e3a7fcde97a08c50bbe932fb0e4d318676f2a4b2106becf39cf8693",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 0
+    },
+    {
+      "execution": "t100-new-route-survival",
+      "run": "t100-new-route-survival--r1",
+      "code_sha256": "1e38df0a1f57fae095a63011fae3182df3a51d51cd9d40cb5849c0e7a88cf54b",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 0
+    },
+    {
+      "execution": "t100-new-route-survival",
+      "run": "t100-new-route-survival--r2",
+      "code_sha256": "2330d1ad2d3ef1a6783499474d06094ab70bde154603af236bdbef44094ba3ea",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 0
+    },
+    {
+      "execution": "t100-new-route-survival",
+      "run": "t100-new-route-survival--r3",
+      "code_sha256": "f09c1c7e1bc7159d778a0515886a99b1a2ac807d0464dcdcda8c2b93dc63d08d",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 0
+    },
+    {
+      "execution": "sbir-phase1-to-phase2-conversion",
+      "run": "sbir-phase1-to-phase2-conversion--r1",
+      "code_sha256": "7b45e8bd679b59129bd596968e11d8a6418b64cec57ffe83a5550281905ba864",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 0
+    },
+    {
+      "execution": "sbir-phase1-to-phase2-conversion",
+      "run": "sbir-phase1-to-phase2-conversion--r2",
+      "code_sha256": "cfba3c74e4009b6b78861a26dc26caeef160297f830f3238a04a61634fd488d1",
+      "imports": [
+        "numpy",
+        "pandas",
+        "re",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 0
+    },
+    {
+      "execution": "sbir-phase1-to-phase2-conversion",
+      "run": "sbir-phase1-to-phase2-conversion--r3",
+      "code_sha256": "60f831bf11bdc9496caae1f7df1ee64b6e0475ef6e315cfad9cbcf4e148d8e4d",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 0
+    },
+    {
+      "execution": "caa-fce-hpv-escalation",
+      "run": "caa-fce-hpv-escalation--r1",
+      "code_sha256": "bb96ffa628a478a34ae7b9429567ca26ec794cc10e3998d3b9f8e1b434e6140f",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 0
+    },
+    {
+      "execution": "caa-fce-hpv-escalation",
+      "run": "caa-fce-hpv-escalation--r2",
+      "code_sha256": "700dcafd0e876b95a131aaf3b64f95a8c55fa3a100ff01fc7cfd96e23b83fe35",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 0
+    },
+    {
+      "execution": "caa-fce-hpv-escalation",
+      "run": "caa-fce-hpv-escalation--r3",
+      "code_sha256": "21d11477f83acc89ee3b828760bd4aec1dc98430ae6469a8b19f068631df2588",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 0
+    },
+    {
+      "execution": "wser-effluent-exceedance",
+      "run": "wser-effluent-exceedance--r1",
+      "code_sha256": "9b992317cf1a4056e996e07217b049c1bf1347b4de6b9a7658ca266b9730519f",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 0
+    },
+    {
+      "execution": "wser-effluent-exceedance",
+      "run": "wser-effluent-exceedance--r2",
+      "code_sha256": "6c62373dca29824366fe81d7ed441fa87c7066f78f0b7441791922af2306000f",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 1
+    },
+    {
+      "execution": "wser-effluent-exceedance",
+      "run": "wser-effluent-exceedance--r3",
+      "code_sha256": "12e41b1c2f4da20e44f37ac8a7fb55ef6e48c3fdd4380f7b9d8ceb1beb9ccf23",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 0
+    },
+    {
+      "execution": "faa-wildlife-strike-substantial-damage-retry-1",
+      "run": "faa-wildlife-strike-substantial-damage--r1",
+      "code_sha256": "6c5c537b9b8169659edec54c04235ac4ad9dde4407b53efbb0f20c64e27b4043",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 0
+    },
+    {
+      "execution": "faa-wildlife-strike-substantial-damage-retry-1",
+      "run": "faa-wildlife-strike-substantial-damage--r2",
+      "code_sha256": "e01b490471ae5834509bd49b5f23babee107135f36a03a731430ca72f5bc6d4a",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 0
+    },
+    {
+      "execution": "faa-wildlife-strike-substantial-damage-retry-1",
+      "run": "faa-wildlife-strike-substantial-damage--r3",
+      "code_sha256": "7e84072a38ff166bd77fbc84520943227306b2c0da63b4ed5b60b4ec44d847bb",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 0
+    },
+    {
+      "execution": "seattle-building-permit-completion-retry-1",
+      "run": "seattle-building-permit-completion--r2",
+      "code_sha256": "f70b5243c595bee2f68ad85bad5af20e9f588afd717e951a038f0b46847fe89c",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 0
+    },
+    {
+      "execution": "seattle-building-permit-completion-retry-1",
+      "run": "seattle-building-permit-completion--r3",
+      "code_sha256": "d68b730063551d362dc1affcddac5c00a638de0c1bbb50bc3679b3eaa1c555fe",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 0
+    },
+    {
+      "execution": "fra-form54-hazmat-release-retry-1",
+      "run": "fra-form54-hazmat-release--r1",
+      "code_sha256": "682054be8f2a75f632bd4214a76ca65ee5e21b86836ea989b1d8cd87852a9af9",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 0
+    },
+    {
+      "execution": "fra-form54-hazmat-release-retry-1",
+      "run": "fra-form54-hazmat-release--r2",
+      "code_sha256": "cdbaddc81f23235f1d41e3b2c79b3efff5e404ae7c38c3edcbb1bee73eac4ad8",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 0
+    },
+    {
+      "execution": "fra-form54-hazmat-release-retry-1",
+      "run": "fra-form54-hazmat-release--r3",
+      "code_sha256": "19a5aff2fb6a8f2ae213e87760eb3f9fcb9606124ed7efb26e9c7d100516d6fe",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 0
+    },
+    {
+      "execution": "sdwis-lcr-lead-action-level-next-period",
+      "run": "sdwis-lcr-lead-action-level-next-period--r1",
+      "code_sha256": "2f4c225d1b95add9d7531c0f6772eec88385128fb696839abe6491325cca244e",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 0
+    },
+    {
+      "execution": "sdwis-lcr-lead-action-level-next-period",
+      "run": "sdwis-lcr-lead-action-level-next-period--r2",
+      "code_sha256": "8fb4e34a9b83fa1f945bc969fcaed9866c3bb01eac7346857458b9bd7d694fbd",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 0
+    },
+    {
+      "execution": "sdwis-lcr-lead-action-level-next-period",
+      "run": "sdwis-lcr-lead-action-level-next-period--r3",
+      "code_sha256": "affbfa568d0eb44d1b006f9c6d96d57a50bc3fd654b4bf46b71e631bccb42c4b",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 0
+    }
+  ],
+  "scanner_attention_reason_counts": {
+    "access_reference": 424,
+    "process_reference": 20,
+    "outside_path": 5,
+    "web_tool": 4,
+    "existing_flag": 8,
+    "network_or_source_reference": 8
+  },
+  "access_reference_path_screen": {
+    "own_run_reference": 354,
+    "no_explicit_run_reference": 70
+  },
+  "scope_limits": [
+    "Manual review covered selected fitting/preparation and label-statistic code, not every exploratory program.",
+    "Flagged results and exceptional access/process requests were inspected; general access-reference paths were screened and unmatched lines inspected.",
+    "No OS isolation or universal compliance claim."
+  ],
+  "observed_prohibited_holdout_reads": 0,
+  "procedural_exceptions": [
+    "CLI backgrounded long diagnostics",
+    "PHMSA own scratch code under /tmp",
+    "CAA r2 process-stop command broader than its attempt"
+  ],
+  "source_report_sha256": {
+    "fjc-civil-trial-36m": "2b416e03497c139dd1738c1f49e9503fa2a94ec2d5d4d71d4de4a178c3cf4e63",
+    "phmsa-pipeline-penalty-reduction": "b6dccad6eb8338d2c607b73e9ecffd3b8b412eb12ee3add4c35927f3df19d697",
+    "fda-510k-five-year-recall": "12f26df395fbddce20a6d00d890a96fbe4ba450cf60f5523525c6a9c02a72ad2",
+    "t100-new-route-survival": "2ce556f4c86ba48b4d92527da71079e3036b1fe3cb5ce3508fb9752b7b47de5c",
+    "sbir-phase1-to-phase2-conversion": "db283e03b0972e0e8fdeb5201be5bef3c38f9f6da473c4d4d6a0159d7d5121b4",
+    "caa-fce-hpv-escalation": "f0380c70821eba8e39d684b2667cf998bc2a98b99f4d39849c1a8c68102e59e1",
+    "wser-effluent-exceedance": "426793e8882171ec0eb107fb9a98b2e6ae004c1d7239912ec5bf710fd8032f35",
+    "faa-wildlife-strike-substantial-damage-retry-1": "5853485a39a0d6b57c75914d8ac595c734937ef8ca6078b799c2a6ecf6f785b9",
+    "seattle-building-permit-completion-retry-1": "4ab685561c787e3ef5cd10153f429a51d13a12517d50f1f2088e067b97a8adec",
+    "fra-form54-hazmat-release-retry-1": "f95791e79ed686022a5dbc999fd0eb22c5329069818f0ab6c032d6ea90e7637c",
+    "sdwis-lcr-lead-action-level-next-period": "62c862f31447c775895d1cbaf208fb368ecc8d129ab12ba82e7a181bdd18bf07"
+  }
+}
