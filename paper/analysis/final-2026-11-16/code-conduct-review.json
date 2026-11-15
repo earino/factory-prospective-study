@@ -1,5 +1,5 @@
 {
-  "status": "32-solution review complete; Seattle r1 and utility recovery pending",
+  "status": "33-solution review complete; three utility recovery solutions pending",
   "runs": [
     {
       "execution": "fjc-civil-trial-36m",
@@ -417,6 +417,20 @@
       "review_scope": "fit, prepare, label-statistic helpers, conditional settings and whole-module access screening",
       "protected_input_changes": [],
       "original_flags_reviewed": 0
+    },
+    {
+      "execution": "seattle-building-permit-completion-retry-2",
+      "run": "seattle-building-permit-completion--r1",
+      "code_sha256": "73a90309b31833805111e547d9f880e8e7f24cb796cdb2f68dbcdb8a15d1259d",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "Complete selected module; fit, prepare, conditional settings; both access-reference requests and their recorded results",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 0,
+      "finding": "No target encoding or data access. Labels enter classifier fitting only; category levels use training covariates; geographic regions are fixed. Both flagged references address own released metadata or scratch files."
     }
   ],
   "scanner_attention_reason_counts": {

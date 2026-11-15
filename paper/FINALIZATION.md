@@ -74,3 +74,9 @@ also passed. Seattle remains live; check its outcome after research ends around
 23:19 UTC, then run the prepared composite and review the new selected solution.
 The queued utility recovery can start through the existing controller once the
 consumer lock is released. Do not run a second coordinator.
+
+23:22 UTC: Seattle retry-2 r1 froze successfully after its 85-minute allowance.
+Selected code and both attention requests were inspected; no selected-code data
+access or prohibited holdout read was found. The reviewed solution count is 33.
+Deterministic controls and post-scoring probes are still running. Three utility
+recovery solutions remain. This is not a scoring or final-paper sign-off.

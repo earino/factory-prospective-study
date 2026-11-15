@@ -1,0 +1,30 @@
+[
+  {
+    "run": "seattle-building-permit-completion--r1",
+    "trace": "0000.jsonl",
+    "line": 23,
+    "tool_use_id": "toolu_01MFhoftHCf95jCE3uXWZ8oq",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-2/.study/runs/seattle-building-permit-completion--r1 && python3 - <<'E'\nimport json\nc=json.load(open('release/reproduction/construction.json'))\nprint(list(c))\nq=c['quality']\nprint(list(q))\nfor k in ['features','id_columns','carry_columns','post_hoc_columns','label_source_columns']:\n    print(k,q.get(k))\nfor k in c:\n    if k!='quality': print(k, json.dumps(c[k])[:1500])\nfor k in q:\n    if k not in ['features']: print('Q',k, json.dumps(q[k])[:800])\nE\ncat release/reproduction/train.py; head -3 release/extract/public/train.csv",
+      "description": "Inspect construction contract, baseline trainer, and first training rows"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "seattle-building-permit-completion--r1",
+    "trace": "0000.jsonl",
+    "line": 424,
+    "tool_use_id": "toolu_01RciqCyzHFMjzdVLXBLBpGJ",
+    "tool": "Bash",
+    "input": {
+      "command": "cd scratch && $PWD/../release/../TASK.json 2>/dev/null; cd .. ; python3 - <<'E'\ns=open('scratch/c2.py').read()\ns=s.replace('MONO = None','MONO = None\\nTE = []      # columns to target-encode (out-of-fold in fit)\\nTE_M = 100.0\\nTE_ONEHOT_DROP = True')\ns=s.replace('''    Z = prepare(state, X_train)\n    kw = {}''','''    state[\"te\"] = {}\n    Z = prepare(state, X_train)\n    y = np.asarray(y_train, dtype=float); prior = float(y.mean())\n    for c in TE:\n        key = X_train[c].astype(\"string\").fillna(\"__na__\").to_numpy()\n        fold = np.random.RandomState(seed).randint(0, 5, len(y)); oof = np.zeros(len(y))\n        for k in range(5):\n            a = fold != k; pk = y[a].mean()   # prior and counts exclude the held-out fold (so each row's own label)\n            g = pd.DataFrame({\"k\": key[a], \"y\": y[a]}).groupby(\"k\")[\"y\"].agg([\"sum\", \"count\"])\n            mp = ((g[\"sum\"] + TE_M * pk) / (g[\"count\"] + TE_M)).to_dict()\n            oof[~a] = [mp.get(v, pk) for v in key[~a]]\n        Z[\"te_\" + c] = oof\n        g = pd.DataFrame({\"k\": key, \"y\": y}).groupby(\"k\")[\"y\"].agg([\"sum\", \"count\"])\n        state[\"te\"][c] = {\"map\": ((g[\"sum\"] + TE_M * prior) / (g[\"count\"] + TE_M)).to_dict(), \"prior\": prior}\n    kw = {}''')\ns=s.replace('''    return f.drop(columns=[c for c in DROPF if c in f])''','''    for c, d in state.get(\"te\", {}).items():\n        f[\"te_\" + c] = [d[\"map\"].get(v, d[\"prior\"]) for v in X[c].astype(\"string\").fillna(\"__na__\")]\n    drop = list(DROPF) + ([k for k in f.columns if any(k.startswith(c + \"=\") for c in TE)] if TE_ONEHOT_DROP else [])\n    return f.drop(columns=[c for c in drop if c in f])''')\nopen('scratch/c3.py','w').write(s)\nE\nPY=$(python3 -c \"import json;print(json.load(open('TASK.json'))['python'])\"); timeout 115 $PY - 2>/dev/null <<'E'\nimport sys;sys.path.insert(0,'scratch')\nfrom g import *\nm=h.load('scratch/c3.py');P=dict(m.PARAMS);P['num_parallel_tree']=4;m.PARAMS=P\nboth(m,'c3 base (=H5 npt4)')\nboth(m,'TE zip m100 (no onehot)',TE=['originalzip'])\nboth(m,'TE zip m300 (no onehot)',TE=['originalzip'],TE_M=300.)\nboth(m,'TE zip m30 (no onehot)',TE=['originalzip'],TE_M=30.)\nboth(m,'TE zip m100 + onehot',TE=['originalzip'],TE_M=100.,TE_ONEHOT_DROP=False)\nboth(m,'drop doc+city_days',TE=[],DROPF=['doc','city_days'])\nboth(m,'drop doc+city_days+a2i_minus',TE=[],DROPF=['doc','city_days','a2i_minus_tdpr'])\nE",
+      "description": "Test out-of-fold target encoding for ZIP and dropping censored review features"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  }
+]
