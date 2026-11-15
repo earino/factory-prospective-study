@@ -8,15 +8,16 @@ attempt. Drinking-water evaluation is running; utility-reliability access failur
 remain. Production costs still use the 64.93-hour export ending at 14:24 UTC that
 day and its 11-publication denominator.
 
-The accepted-review revision is complete, with three full-paper review passes
+The readability revision is complete, with three new full-paper review passes
 recorded in [REVISION-REVIEW.md](REVISION-REVIEW.md). The paper separates operation,
 independent use, and source validity while retaining the integrated factory as its
 contribution. Cost is a bounded operating-window ratio, not total construction cost.
 
 The current interpretation centers the factory's datasets. Untuned XGBoost is the
-primary performance comparison for modeling headroom; tuned random search is a
-secondary control for added agent benefit. Both appear side by side in the main
-figure. Source-quality findings remain separate. The agreed reasoning is saved in
+reference for modeling headroom; tuned random search tests
+added agent benefit. Both appear side by side in the main
+figure, with rows ordered by median gain over untuned XGBoost. Captions retain
+reading keys without repeating the discussion. Source-quality findings remain separate. The agreed reasoning is saved in
 [PAPER-DIRECTION.md](PAPER-DIRECTION.md#use-independent-consumption-to-assess-output-value).
 
 This remains an interim author-review draft. Its 20 references support the

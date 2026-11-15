@@ -232,3 +232,28 @@ Interim cost evidence is now available in [the cost report](../evidence/costs/20
 The [first full draft](README.md) is now written in LaTeX and compiled to seven
 IEEE pages. Update it from the final evidence; retain the interim snapshot and
 use [SIGNOFF.md](SIGNOFF.md) to track the concrete remaining review work.
+
+
+## Readability correction — 15 November, after external-review revision
+
+Keep manuscript prose about the work, evidence, and meaning. Keep editing history,
+responses to imagined claims, and repetitive contribution announcements in these
+working notes. This correction removes inventory items 1–13 from the chat audit
+or rewrites their useful content directly. One introduction statement identifies
+the contribution; the rest of the paper develops it.
+
+Both existing controls remain equally visible. The manuscript now describes what
+each comparison measures without the post-hoc primary/secondary presentation
+hierarchy. The history of that emphasis is preserved above, not erased. No
+experimental methods, outcome selection, comparisons, or evidence changed.
+
+The user explicitly asked to retain draft-status notices until a later single
+completion pass. Do not remove the planned cutoff, pending evaluation, planned
+public evidence release, or incomplete-review disclosures in this prose pass.
+Three new complete readings and their results are recorded in REVISION-REVIEW.md.
+
+
+Caption and figure follow-up: keep captions to the information needed to read
+the display; do not repeat methods, discussion or editorial history. Figure 3
+uses one shared order, ascending median gain over untuned XGBoost. The order
+needs no explanatory caption sentence. No observations or intervals change.

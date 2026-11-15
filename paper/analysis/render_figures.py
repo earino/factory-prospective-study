@@ -47,6 +47,10 @@ fig.tight_layout(w_pad=2);fig.savefig(figdir/'operations.pdf');plt.close(fig)
 # All available paired intervals, no best-run selection.
 fig,axes=plt.subplots(1,2,figsize=(7,3.35),sharey=True)
 with_ci=[r for r in cohort if (review_path(r['dataset'],'bootstrap.json') in D and len(D[review_path(r['dataset'],'bootstrap.json')]['comparisons']))]
+# Keep both panels aligned; order by median run-level gain over untuned XGBoost.
+def median_untuned_gain(r):
+ return statistics.median(c['delta'] for c in D[review_path(r['dataset'],'bootstrap.json')]['comparisons'] if c['control'].endswith('--ordinary'))
+with_ci.sort(key=lambda r:(median_untuned_gain(r),r['dataset']))
 comparison_summary={}
 for panel,(control,title) in enumerate([('ordinary','(a) Versus untuned XGBoost'),('random','(b) Versus tuned random search')]):
  ax=axes[panel];ax.axvline(0,color=grey,lw=.9);titles=[]
@@ -62,7 +66,7 @@ for panel,(control,title) in enumerate([('ordinary','(a) Versus untuned XGBoost'
    assert -.095<c['low']<=c['delta']<=c['high']<.11,(ds,c)
    ax.errorbar(c['delta'],j+(i-1)*.21,xerr=[[c['delta']-c['low']],[c['high']-c['delta']]],fmt=['o','s','^'][i],color=[blue,teal,gold][i],capsize=2,ms=2.5,lw=.9,label=f'Run {i+1}' if j==0 else None)
  ax.set_yticks(range(len(titles)),titles,fontsize=7.5);ax.set_xlim(-.095,.11);ax.set_xticks([-.05,0,.05,.10]);ax.tick_params(axis='x',labelsize=7);ax.grid(axis='x',alpha=.15);ax.set_xlabel('Holdout AUC difference',fontsize=8);ax.set_title(title,fontsize=8.5,loc='left')
-axes[0].invert_yaxis();axes[1].legend(frameon=False,loc='upper right',fontsize=6)
+axes[0].invert_yaxis();axes[1].legend(frameon=False,loc='lower left',fontsize=6)
 fig.tight_layout(w_pad=1);fig.savefig(figdir/'consumer-intervals.pdf');plt.close(fig)
 (P/'analysis/comparator-summary.json').write_text(json.dumps(comparison_summary,indent=2)+'\n')
 # Tables are computed; paper interpretation is kept in the manuscript.

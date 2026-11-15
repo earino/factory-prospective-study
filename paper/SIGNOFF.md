@@ -1,6 +1,6 @@
 # Draft evidence and verification — 15 November 2026
 
-**Current revision:** the accepted external-review revision at the end of this
+**Current revision:** the readability revision at the end of this
 file supersedes prior editorial wording. The evening consumer update remains the
 evidence boundary. Earlier sections retain the provenance of previous drafts.
 
@@ -292,3 +292,18 @@ Verification:
 This signs off the requested editorial revision, not the remaining scientific or
 submission work. Final collection/accounting, unresolved code/transcript review,
 and the author's submission read-through remain as stated above.
+
+
+## Readability and caption revision — 15 November
+
+Addressed all 13 editorial-commentary items, retained the protected draft notices,
+and completed three new full-paper self-reviews recorded in REVISION-REVIEW.md.
+Shortened all four captions and sorted Figure 3 by median untuned-model gain,
+using the same row order in both panels. Numerical comparisons, snapshots, table
+values and the other two figures are unchanged. This is presentation work only;
+no production settings, studies, selection rules or model artifacts changed.
+
+Seven pages remain. Numerical checks compare every Figure 3 comparison with the
+previous revision and check ascending median order. Source-bundle verification
+checks the clean rebuild, text agreement, references, fonts and page count.
+Final hashes are in output/QA.json; exact-commit CI is checked after push.

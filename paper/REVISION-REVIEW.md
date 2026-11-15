@@ -156,3 +156,91 @@ whole-paper self-reviews with three independent reviewers.
 
 All three requested full-paper passes are recorded above. Final packaging checks
 are separate from those readings and do not count as an additional review pass.
+
+
+## Readability revision — 15 November, following the phrase inventory
+
+Scope: address all 13 editorial-commentary/repetition items in the chat inventory.
+Keep draft-status items 14–18 and the two substantive incomplete-review disclosures
+for a later completion pass, as explicitly requested. No evidence updates or new
+experiments. The protected notices and phrase inventory are saved in
+analysis/readability-scope.json. Both controls are described by function rather
+than post-hoc presentation rank; the prior framing history remains in the notes.
+
+Implementation: remove editorial-history sentences, defensive non-claims and
+repeated contribution announcements; retain one clear introduction statement.
+Also remove two repeated generalization disclaimers whose substance remains in
+Threats, and express the tuned-control interpretation directly. Source/code checks,
+method boundaries, adverse outcomes and AI assistance disclosure remain.
+
+Three new full-paper reviews follow. These are separate self-reviews, each starting
+with a distinct reading brief; they are not independent external reviews.
+
+
+### Readability pass 1 — first-time reader
+
+Read the complete rebuilt seven-page PDF as continuous text, including all
+captions, table cells, references and draft notices. Input manuscript SHA-256:
+`b08e1d1f89a66793622af9a29121bc6e8a2211a74a7d31bc872d5b1f074f4455`.
+
+The problem, factory, operation/use/validity questions and conclusion remain connected.
+All inventory items 1–13 are removed or expressed as direct descriptions; draft
+notices remain. Found two local defects introduced/exposed by tightening:
+- The untuned model paragraph repeats "reproducible starting point" in adjacent
+  sentences. Keep the definition once.
+- "Their integration" after named prior systems could imply reuse of those systems.
+  Place the single contribution statement after the prior-work examples and describe
+  the workflow explicitly.
+Also replace "not universal proofs" with the actual scope of probe coverage.
+The method/results distinction, both controls, selected case evidence strengths,
+20 references and unresolved review disclosures remain intact. Apply these small
+corrections, then reread the full paper from a new brief.
+
+
+### Readability pass 2 — methods and interpretation
+
+Read all seven rendered pages in order, including full text, figures, table,
+references and notices. Fresh brief: assess whether an empirical reader can follow
+what was done and what the comparisons establish without our conversation.
+Input manuscript SHA-256: `ad405616c5dd74760bc442af77894ed7d79cabe0c910c5773c908b21bfe3616f`.
+
+The integrated factory remains the subject. Cost/use/validity results answer their
+questions; no sentence now explains why we kept a control or abandoned a claim.
+Both fixed and tuned comparators are fully described and visible; all interval
+statements and raw table values match the retained aggregate audit. Draft-status
+notices and actual incomplete-review limits remain explicit. Related work connects
+to the results without repeated contribution announcements. Conclusions remain
+bounded by the short window, task assumptions and incomplete conduct review.
+
+Two terminology fixes remain: "Scout" is undefined for an outside reader, so use
+"a single coordinator"; "baseline and untuned-scaffold scores" is ambiguous, so
+name the factory baseline and independent untuned XGBoost model. The saved result
+kinds include both `released` and `ordinary`, confirming the distinction.
+No results, citations, control settings, selection rules or draft notices change.
+
+
+### Readability pass 3 — complete draft and rendered presentation
+
+Read all seven final rendered pages, including every caption, table, figure and
+reference. Fresh brief: can a reader follow this as a coherent interim draft,
+with remaining completion work stated but no narration of editorial decisions?
+Final manuscript SHA-256: `5b393ae7104e65a43736a6ef056abd3e362875bdc9a02f23ec748a6ba36de958`.
+
+The opening, three questions, methods, results and conclusion remain connected.
+No result or interpretation depends on removed editorial history. Both controls
+retain their roles and all observations. The draft notices and incomplete-review
+disclosures are preserved verbatim. The paper remains seven pages with 20 cited
+references. Final scientific reconciliation and author review remain outstanding.
+
+During this pass Eduardo requested two presentation changes: sort Figure 3 by
+median gain and shorten all captions. Both panels now share ascending median
+untuned-gain order; all run-level values and intervals are unchanged. Reviewed
+all four captions: retained reading keys, removed repeated methods and discussion,
+and kept the requested pending-result notice. No sorting explanation was added
+to the caption. The plot legend initially crossed an airline interval after the
+reorder; moved it into the empty lower-left area and inspected the rebuilt page.
+Other pages keep the reviewed layout and text.
+
+Verdict: the requested readability revision is complete as a draft. Three new
+full-paper self-review passes are recorded above; none is an external review.
+Packaging and numerical checks follow separately.

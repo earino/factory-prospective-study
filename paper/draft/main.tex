@@ -13,7 +13,7 @@
 \bstctlcite{IEEEexample:BSTcontrol}
 \maketitle
 \begin{abstract}
-Turning public records into prediction benchmarks requires finding sources, defining tasks, constructing data, checking assumptions, and publishing usable artifacts. We built Dataset Factory to connect these steps for a small research group, using bounded language-model tasks and deterministic orchestration. We report 12 public releases, with separate evidence of operation, independent use, and task validity. For the first 11, estimated recurring operating expenditure was about \$28 over 64.9 hours, including unsuccessful work, workers, and allocated hosting, but excluding development and human labor. Independent consumers produced 29 scored models across ten releases. On nine, all scored consumer point estimates exceeded untuned XGBoost; results against tuned random search were less uniform. These comparisons provide conditional evidence of modeling headroom. Source audits found a population-selection discrepancy, missing dependence information, and a history feature whose use depends on the scoring interface; a timing concern remains unresolved. The contribution is an experience report on operating and evaluating the complete factory. Public delivery required little recurring expenditure in this window, but execution and model scores did not establish task validity.
+Turning public records into prediction benchmarks requires finding sources, defining tasks, constructing data, checking assumptions, and publishing usable artifacts. We built Dataset Factory to connect these steps for a small research group, using bounded language-model tasks and deterministic orchestration. We report 12 public releases, with separate evidence of operation, independent use, and task validity. For the first 11, estimated recurring operating expenditure was about \$28 over 64.9 hours, including unsuccessful work, workers, and allocated hosting, but excluding development and human labor. Independent consumers produced 29 scored models across ten releases. On nine, all scored consumer point estimates exceeded untuned XGBoost; results against tuned random search were less uniform. These comparisons provide conditional evidence of modeling headroom. Source audits found a population-selection discrepancy, missing dependence information, and a history feature whose use depends on the scoring interface; a timing concern remains unresolved. Public delivery required little recurring expenditure in this window, but execution and model scores did not establish task validity.
 
 \end{abstract}
 \begin{IEEEkeywords}agentic engineering, dataset construction, prediction benchmarks, operating cost, empirical evaluation\end{IEEEkeywords}
@@ -23,28 +23,28 @@ Public data does not arrive as a usable prediction benchmark. Researchers must f
 
 We built Dataset Factory to make this a continuing process for a small research group. Bounded model tasks handle source interpretation and code generation; deterministic software manages execution, retries, artifacts, and publication. A standing policy permits release without per-dataset human approval. People developed the system, set policy, and directed repairs; operation was not intervention-free.
 
-The contribution is an experience report on an integrated, deployed factory with public delivery, retained failures, resource accounting, and independent consumer use. AutoData collects web records from requests~\cite{autodata-web}; DatasetResearch evaluates discovery~\cite{datasetresearch}; MLE-Smith constructs tasks from supplied datasets~\cite{qiang2026mlesmith}; AutoSDT searches sources and constructs scientific tasks~\cite{autosdt}. We claim neither new component capabilities nor the lowest task-generation price. We examine what their integration enables and what evidence is needed to assess the resulting prediction tasks.
+AutoData collects web records from requests~\cite{autodata-web}; DatasetResearch evaluates discovery~\cite{datasetresearch}; MLE-Smith constructs tasks from supplied datasets~\cite{qiang2026mlesmith}; AutoSDT searches sources and constructs scientific tasks~\cite{autosdt}. We report deployment experience that connects source discovery and task construction to public delivery, resource accounting, retained failure records, and separate consumer evaluation.
 
 We observed 12 releases across courts, utilities, safety regulation, funding, transport, and environmental reporting. Accounting covers the first 11; consumers scored models for ten. Untuned XGBoost measures a starting point, tuned random search tests added agent benefit, and source audits examine the task claims.
 
 We organize the experience around three questions. \textbf{RQ1---Operation:} What does the deployed factory publish, which failures and interventions occur, and what recurring resources does it consume? \textbf{RQ2---Use:} Can separate consumers use the releases for prediction experiments, and what modeling headroom do the comparisons show? \textbf{RQ3---Validity:} Do source meaning, construction, and scoring conditions support the stated tasks? Success on one question does not establish success on the others.
 
-\textit{Observation boundaries.} Production accounting ends on 15 November 2026 at 14:24 UTC; consumer evidence includes recoveries completed by 20:08 UTC. The twelfth release has no scored consumer result in this snapshot and is outside the cost denominator. We report one system, not a general success probability.
+\textit{Observation boundaries.} Production accounting ends on 15 November 2026 at 14:24 UTC; consumer evidence includes recoveries completed by 20:08 UTC. The twelfth release has no scored consumer result in this snapshot and is outside the cost denominator.
 
 \section{System and Work Allocation}
 \subsection{The product and its boundaries}
 Each release defines a binary prediction task from real public records. It includes a target, population, predictor contract, chronological split definition, baseline, source and license evidence, construction code, dependencies, and checksummed data. GitHub carries versioned release assets and code; Hugging Face carries the accepted files and a dataset card. The factory's code is public.\footnote{\url{https://github.com/earino/dataset-factory}}
 
-The task contract distinguishes retrospective research from historical forecasting. A current administrative snapshot can support retrospective comparisons without establishing past input availability. This limitation must be stated; it does not excuse incorrect labels, answer exposure, or contradictory population definitions.
+The task contract distinguishes retrospective research from historical forecasting. A current administrative snapshot can support retrospective comparisons without establishing past input availability.
 
 \begin{figure*}[t]
 \centering\includegraphics[width=\textwidth]{workflow.pdf}
-\caption{Production and independent evaluation. Models handle source-specific judgment and code; deterministic software owns operational state and artifact movement. Consumer outcomes are not returned to production as optimization feedback during the observation window.}
+\caption{Factory workflow and separate consumer evaluation.}
 \label{fig:workflow}
 \end{figure*}
 
 \subsection{Known procedures run in code}
-A scheduled controller advances durable SQLite state through \emph{discover}, \emph{build}, \emph{evaluate}, and \emph{publish}. Saved attempts, responses, and artifact identities support resumption. Scout alone launches temporary Hetzner workers for downloads, transformations, fitting, and transfer. Independent cleanup handles expired workers.
+A scheduled controller advances durable SQLite state through \emph{discover}, \emph{build}, \emph{evaluate}, and \emph{publish}. Saved attempts, responses, and artifact identities support resumption. A single coordinator launches temporary Hetzner workers for downloads, transformations, fitting, and transfer. Independent cleanup handles expired workers.
 
 Bounded model tasks interpret sources, propose prediction tasks, generate code, and review meaning. Repairs reuse proposals and diagnostics. Code checks transfer and worker state. The requested production model is \texttt{deepseek-v4.1-flash:1017}; records retain routing and usage.
 
@@ -75,7 +75,7 @@ The estimate excludes development, author and operator labor, paper preparation,
 \subsection{Independent prediction experiments}
 Separate Fable 5.2 consumers run under the same operator as the factory; independence means fresh sessions, not an external research team. Each dataset receives three concurrent attempts with 85 minutes and five fitting threads each. Datasets run sequentially; requested and reported model identifiers are retained. Prior work finds variation between identical agent runs and score inflation from protocol violations~\cite{identical-runs}. We retain every attempt and review conduct separately; three runs do not establish a model ranking.
 
-Consumers can change XGBoost~\cite{xgboost} preprocessing, feature transformations, and hyperparameters, using training and labeled validation data. The allowed raw predictor set comes from the pinned construction contract. Identifiers, carry columns, and label-source fields are excluded. The primary performance comparison is a fixed untuned XGBoost scaffold: 100 trees, maximum depth 6, learning rate 0.1, and native categorical handling. It measures improvement over a reproducible starting point. A secondary random-search control~\cite{randomsearch} tunes tree count, depth, learning rate, regularization, and row/column sampling on the same permitted inputs. It tests added benefit over conventional tuning. Its budget matches recorded eligible fitting CPU, with a time cap and final-fit overshoot; it excludes inference and unlogged diagnostics. Both controls were already in the protocol; this presentation emphasis was clarified after interim results.
+Consumers can change XGBoost~\cite{xgboost} preprocessing, feature transformations, and hyperparameters, using training and labeled validation data. The allowed raw predictor set comes from the pinned construction contract. Identifiers, carry columns, and label-source fields are excluded. A fixed untuned XGBoost scaffold provides a reproducible starting point: 100 trees, maximum depth 6, learning rate 0.1, and native categorical handling. A random-search control~\cite{randomsearch} tunes tree count, depth, learning rate, regularization, and row/column sampling on the same permitted inputs. It tests added benefit over conventional tuning. Its budget matches recorded eligible fitting CPU, with a time cap and final-fit overshoot; it excludes inference and unlogged diagnostics.
 
 Selection uses replayed validation area under the ROC curve (AUC), with ties resolved to the first trial. Selected code, fitted models, and validation predictions are frozen before holdout scoring. All attempts and controls for a dataset cross the freeze barrier before its holdout is fetched. Scoring uses the saved model and row-wise inference; the consumer cannot improve its model after seeing the result. Repeated validation optimization can still overfit selection~\cite{cawley}, which is why validation gains alone are not the result.
 
@@ -84,9 +84,9 @@ Holdouts are publicly available. Consumers are instructed not to access them, ot
 \subsection{Source review, uncertainty, and artifact probes}
 A separate bounded Fable review precedes scoring. It examines the task contract, construction code, available source documentation, and permitted public data for target meaning, timing, selection, and label-derived history. Reports identify unread or unavailable evidence. The reviewer declares a dependence grouping but neither approves publication nor selects the consumer cohort.
 
-Where a grouping is available, paired bootstrap intervals resample whole groups 2,000 times, using a fixed seed derived from the dataset identifier. Each draw applies the same sampled rows to the consumer and control. Intervals are pointwise percentile 95\% intervals conditional on the fitted models, observed cohort, and grouping assumption. They do not include variation across future agent runs, temporal shifts, or all residual dependence. No multiplicity adjustment is applied. We do not average these intervals into a population-wide agent success probability.
+Where a grouping is available, paired bootstrap intervals resample whole groups 2,000 times, using a fixed seed derived from the dataset identifier. Each draw applies the same sampled rows to the consumer and control. Intervals are pointwise percentile 95\% intervals conditional on the fitted models, observed cohort, and grouping assumption. They do not include variation across future agent runs, temporal shifts, or all residual dependence. No multiplicity adjustment is applied.
 
-Derived probes inspect row-order behavior, batch-versus-single-row preparation, external activity during preparation, and dependence of a training row's encoded features on its own label. These targeted checks are not universal proofs. We read per-run diagnostics separately from execution status and retain raw scores where review is unresolved.
+Derived probes inspect row-order behavior, batch-versus-single-row preparation, external activity during preparation, and dependence of a training row's encoded features on its own label. Probe coverage is limited to the tested rows and behaviors. We read per-run diagnostics separately from execution status and retain raw scores where review is unresolved.
 
 \section{Results}
 \subsection{Operation: production across sources}
@@ -98,7 +98,7 @@ The ledger records 76 discovery retries, 184 build retries, and 14 semantic repa
 
 \begin{figure*}[t]
 \centering\includegraphics[width=\textwidth]{operations.pdf}
-\caption{Interim production accounting, 12--15 November. (a) Estimated recurring cost; the inference bar uses the midpoint of the tariff-timing range. (b) Stage attempts started in the window, including repeated work. Counts are not unique sources or model calls.}
+\caption{Interim production accounting, 12--15 November: (a) estimated recurring cost, with inference shown at the midpoint of its tariff range; (b) stage attempts, including retries.}
 \label{fig:operations}
 \end{figure*}
 
@@ -110,12 +110,12 @@ Estimated expenditure is \$27.84--\$27.94 over 64.93 hours: \$13.84--\$13.95 inf
 The practical accounting lesson is that short-lived workers incur rounded charges, whereas deleted workers must no longer consume active-job reservations. The repair restored admission capacity without changing dataset acceptance. Detailed resource counts and tariff calculations remain in the evidence repository.
 
 \subsection{Use: independent experiments and modeling headroom}
-The first eleven releases have baseline and untuned-scaffold scores. Seven originally completed all three research attempts; 12 attempts failed through provider access or quota limits. Recovery adds three wildlife-strike, three railway-hazmat, and two Seattle models: 29 scored models across ten datasets. Seattle run 1 stopped under the blocker-file rule. Utility-reliability access failures remain; drinking-water evaluation is running. Original failures remain recorded.
+The first eleven releases have scores from the factory baseline and the independent untuned XGBoost model. Seven originally completed all three research attempts; 12 attempts failed through provider access or quota limits. Recovery adds three wildlife-strike, three railway-hazmat, and two Seattle models: 29 scored models across ten datasets. Seattle run 1 stopped under the blocker-file rule. Utility-reliability access failures remain; drinking-water evaluation is running. Original failures remain recorded.
 
-Table~\ref{tab:scores} reports the raw saved-model results, retaining all attempts rather than selecting the best run for the paper. Holdout size and dependence differ across tasks. Scores alone do not establish useful decision support; comparisons remain conditional on unresolved review items.
+Table~\ref{tab:scores} reports the raw saved-model results across all scored attempts. Holdout size and dependence differ across tasks. Scores alone do not establish useful decision support; comparisons remain conditional on unresolved review items.
 
 \begin{table*}[t]
-\caption{Interim raw holdout AUC. Untuned is the fixed XGBoost scaffold; consumer and tuned-random columns show ranges across three scored attempts, except Seattle (two), not confidence intervals. Groups are prescoring dependence keys. ``?'' means unresolved grouping; ``--'' means no scored result or grouping. Wildlife strikes, building permits, and railway hazmat use recoveries; drinking-water results are pending. Three training-feature probes remain unresolved.}
+\caption{Interim holdout AUC. Ranges span three scored attempts (two for building permits), not confidence intervals. Untuned denotes fixed XGBoost; Groups counts resampling groups. ``?'' means unresolved grouping; ``--'' means no scored result or grouping; drinking-water results are pending.}
 \label{tab:scores}\centering\small
 \begin{tabular}{lrrrrr}\toprule
 Task & Holdout rows & Untuned & Consumer range & Tuned random & Groups\\\midrule
@@ -125,7 +125,7 @@ Task & Holdout rows & Untuned & Consumer range & Tuned random & Groups\\\midrule
 
 \textbf{Headroom over the fixed model.} On nine of ten scored tasks, all available consumer point estimates exceed untuned XGBoost; airline routes are mixed. All three paired intervals are above zero for civil trials, device recalls, wastewater, wildlife strikes, and railway hazmat; both scored Seattle intervals are also positive under their declared groupings. Research-grant and air-enforcement intervals include zero despite positive point differences. Figure~\ref{fig:intervals}(a) shows every available comparison. This is conditional evidence of modeling headroom, not a count of validated useful benchmarks: FDA grouping is partial, civil-trial inputs can postdate filing, and three feature probes remain unresolved.
 
-\textbf{Added benefit over conventional tuning.} Against tuned random search, all three intervals are above zero for civil trials, device recalls, and railway hazmat; both scored Seattle intervals are also positive. One wastewater and one wildlife-strike interval are above zero; the remaining intervals include zero. Research-grant point differences favor random search in all three runs. Figure~\ref{fig:intervals}(b) retains this stronger control. A competitive conventional search can support dataset use even when agent-led work adds little; neither outcome resolves task validity.
+\textbf{Added benefit over conventional tuning.} Against tuned random search, all three intervals are above zero for civil trials, device recalls, and railway hazmat; both scored Seattle intervals are also positive. One wastewater and one wildlife-strike interval are above zero; the remaining intervals include zero. Research-grant point differences favor random search in all three runs. Figure~\ref{fig:intervals}(b) shows the paired differences. A competitive conventional search can support dataset use even when agent-led work adds little; neither outcome resolves task validity.
 
 Railway-hazmat consumers reach AUC 0.784--0.791 versus 0.731 untuned and 0.747--0.751 for random search. Accident-day grouping handles same-day reports but misses repeated carriers and locations across days. Scores concern reportable accidents in a current snapshot, not verified first-notification forecasting. Wildlife-strike gains likewise retain retrospective timing and partial day-grouping limits.
 
@@ -133,7 +133,7 @@ Pipeline-enforcement penalties lacks the operator identifier needed for its main
 
 \begin{figure*}[t]
 \centering\includegraphics[width=\textwidth]{consumer-intervals.pdf}
-\caption{Consumer holdout AUC differences: (a) versus fixed untuned XGBoost, assessing modeling headroom; (b) versus paired tuned random search, assessing added benefit over conventional tuning. All scored attempts with a grouping have 2,000-draw whole-group percentile 95\% intervals; Seattle run 1 is absent. FDA product-code and day-based groupings are partial; PHMSA lacks an operator key. These raw comparisons are conditional on fitted models and review limitations, not a ranking of consumer agents.}
+\caption{Holdout AUC differences from (a) untuned XGBoost and (b) tuned random search. Symbols identify consumer runs; bars show paired 95\% group-bootstrap intervals. Parentheses give group counts. All scored runs with an available grouping are shown.}
 \label{fig:intervals}
 \end{figure*}
 
@@ -150,7 +150,7 @@ The cases below distinguish a confirmed discrepancy, a conditional access limita
 
 \section{Discussion and Engineering Lessons}
 \subsection{Integration makes failures inspectable}
-The factory repeatedly moved from discovery to artifacts that separate consumers could use. The retries show why final release counts alone cannot describe operation. The accounting repair shows that resource state can stop work independently of model capability. Durable attempts and artifact identities made these events inspectable and supported resumption. This aligns with production-agent research on reliability and controllable designs~\cite{production}, but without an architecture comparison we cannot claim that our design is optimal.
+The factory repeatedly moved from discovery to artifacts that separate consumers could use. The retries show why final release counts alone cannot describe operation. The accounting repair shows that resource state can stop work independently of model capability. Durable attempts and artifact identities made these events inspectable and supported resumption. This aligns with production-agent research on reliability and controllable designs~\cite{production}.
 
 \subsection{Recurring expenditure informs operation}
 The ratio covers exploration, unsuccessful work, and public delivery. The repair also shows why usage estimates and active reservations must remain distinct. Low recurring expenditure makes exploration plausible for a group that already has the system; total cost per validated useful benchmark remains unknown.
@@ -158,20 +158,20 @@ The ratio covers exploration, unsuccessful work, and public delivery. The repair
 Analyst interviews describe discovery, wrangling, modeling, and reporting~\cite{kandel}; curation logs record transformation and quality checks~\cite{lafia}. These resemble the factory's steps but supply no matched human-cost denominator. Chaining theory offers an interpretation of adjacent task automation~\cite{chaining}, not a causal result tested here. Development, policy, correction, and responsibility remain human work whose displacement we have not measured.
 
 \subsection{Performance and validity need separate evidence}
-Consumers demonstrated artifact use and conditional headroom. Tuned search tested added agent benefit; a competitive search control does not make a dataset unusable. Neither comparison validates the intended population or available information.
+Consumers demonstrated artifact use and conditional headroom. Tuned search tested added agent benefit. A task can support experimentation even when conventional tuning matches agent-led work. Neither comparison validates the intended population or available information.
 
-The cases suggest three practices: compare population declarations with selection code, preserve non-predictor dependence keys, and specify scoring access to rows and historical outcomes. These address observed limits, not universal acceptance requirements. Audit literature motivates examining task setup and outcome measurement together~\cite{abc,agentsuite}. Our incomplete conduct review and procedural isolation remain limits on that evidence.
+The cases suggest three practices: compare population declarations with selection code, preserve non-predictor dependence keys, and specify scoring access to rows and historical outcomes. Audit literature motivates examining task setup and outcome measurement together~\cite{abc,agentsuite}. Our incomplete conduct review and procedural isolation remain limits on that evidence.
 
 \section{Related Work}
 \subsection{Discovery, construction, and operating cost}
-AutoData~\cite{autodata-web} and DatasetResearch~\cite{datasetresearch} address collection and discovery. MLE-Smith~\cite{qiang2026mlesmith} generates competition-style tasks from supplied datasets; AutoSDT~\cite{autosdt} searches code repositories for scientific programs and adapts them into tasks. Our experience concerns continuing source-to-publication operation with separate consumers.
+AutoData~\cite{autodata-web} and DatasetResearch~\cite{datasetresearch} address collection and discovery. MLE-Smith~\cite{qiang2026mlesmith} generates competition-style tasks from supplied datasets; AutoSDT~\cite{autosdt} searches code repositories for scientific programs and adapts them into tasks.
 
-Reported costs have different boundaries. MLE-Smith's first arXiv version reports \$0.78 per task for generation and verification from supplied datasets. AutoSDT reports about \$0.55 per task; its appendix accounts for API expenditure across repository search, selection, and adaptation. Our denominator is publications during an operating window, with failed attempts, worker charges, and hosting included. Different outputs, resource coverage, and pricing prevent an efficiency ranking. The additional evidence is how recurring expenditure relates to public delivery and observed failures, not that task generation can be cheap.
+Reported costs have different boundaries. MLE-Smith's first arXiv version reports \$0.78 per task for generation and verification from supplied datasets. AutoSDT reports about \$0.55 per task; its appendix accounts for API expenditure across repository search, selection, and adaptation. Our denominator is publications during an operating window, with failed attempts, worker charges, and hosting included. Different outputs, resource coverage, and pricing prevent an efficiency ranking.
 
 \subsection{Artifact quality and independent use}
-The Agentic Benchmark Checklist separates task validity, outcome validity, and reporting~\cite{abc}; AgentSuite's COBA pipeline audits user, environment, ground-truth, and evaluation components~\cite{agentsuite}. Our cases connect these concerns to source selection and scoring access in prediction datasets, without claiming full framework compliance. Our procedural isolation falls short of ABC's ground-truth isolation recommendation.
+The Agentic Benchmark Checklist separates task validity, outcome validity, and reporting~\cite{abc}; AgentSuite's COBA pipeline audits user, environment, ground-truth, and evaluation components~\cite{agentsuite}. Our population-selection and scoring-access findings illustrate these concerns in prediction datasets. Our procedural isolation falls short of ABC's ground-truth isolation recommendation.
 
-AutoDataBench evaluates generated executable tasks for validity and other quality dimensions~\cite{autodatabench}; CurationBench tests data-selection policies under a fixed downstream recipe~\cite{curation}. Datasheets motivate explicit provenance, intended use, and limits~\cite{datasheets}. Our contribution is evidence from a continuing producer and separate consumers, including discrepancies that survive its publication checks.
+AutoDataBench evaluates generated executable tasks for validity and other quality dimensions~\cite{autodatabench}; CurationBench tests data-selection policies under a fixed downstream recipe~\cite{curation}. Datasheets motivate explicit provenance, intended use, and limits~\cite{datasheets}.
 
 MLAgentBench and MLE-bench evaluate agents on machine-learning work~\cite{mlagentbench,mlebench}. Here, consumer agents evaluate products of a separate producer. Repeated-run and compliance findings~\cite{identical-runs} motivate reporting every attempt, while cost-aware agent evaluation~\cite{agents-matter} and random search~\cite{randomsearch} motivate controls. Model-selection bias~\cite{cawley} motivates freezing validation-selected models before holdout scoring. None of these controls replaces source-level checks of targets, populations, or available inputs.
 
