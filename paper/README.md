@@ -8,6 +8,11 @@ attempt. Drinking-water evaluation is running; utility-reliability access failur
 remain. Production costs still use the 64.93-hour export ending at 14:24 UTC that
 day and its 11-publication denominator.
 
+The accepted-review revision is complete, with three full-paper review passes
+recorded in [REVISION-REVIEW.md](REVISION-REVIEW.md). The paper separates operation,
+independent use, and source validity while retaining the integrated factory as its
+contribution. Cost is a bounded operating-window ratio, not total construction cost.
+
 The current interpretation centers the factory's datasets. Untuned XGBoost is the
 primary performance comparison for modeling headroom; tuned random search is a
 secondary control for added agent benefit. Both appear side by side in the main
@@ -36,6 +41,9 @@ recovery without replacing original failures. The additive `analysis/evening-inp
 recoveries. All three snapshots feed the renderer.
 The original worker qualification report was checked against the complete saved
 wildlife-strike splits; the receipt is in `analysis/update-2026-11-15/`.
+
+To check the paper aggregates against the retained snapshots, run
+`python3 paper/analysis/verify_revision.py` from the repository root.
 
 Before final submission, update the observation cutoff, finish review of the
 remaining consumer evidence, integrate completed recovery runs without choosing

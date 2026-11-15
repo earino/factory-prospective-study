@@ -1,7 +1,8 @@
 # Draft evidence and verification — 15 November 2026
 
-**Current revision:** the consumer update below supersedes the first-draft counts.
-Earlier sections retain the provenance of that draft.
+**Current revision:** the accepted external-review revision at the end of this
+file supersedes prior editorial wording. The evening consumer update remains the
+evidence boundary. Earlier sections retain the provenance of previous drafts.
 
 **Delivered scope:** a complete seven-page IEEE LaTeX draft, including references,
 using the available interim evidence. This is not a final scientific or submission
@@ -261,3 +262,33 @@ The seven-page PDF and portable LaTeX source were rebuilt. All pages were render
 and inspected; 20 references remain, with no overfull boxes or undefined references.
 Clean-source compilation and numerical consistency checks pass. `output/QA.json`
 now hashes all three evidence snapshots.
+
+
+## Accepted review integrated — 15 November, final editorial pass
+
+Completed the eight ordered changes in PAPER-DIRECTION.md. The complete paper
+received three separate self-review passes: reader/argument, skeptical evidence,
+and rendered editorial review. Findings, corrections, input manuscript hashes,
+and a point-by-point response to the feedback are in REVISION-REVIEW.md.
+
+The integrated factory remains the contribution. Operation, independent use and
+validity are separate evaluation questions; recurring expenditure is a bounded
+window ratio. Cases distinguish a confirmed selection discrepancy, conditional
+scoring access, and unresolved timing. ABC and AgentSuite strengthen the connection
+to auditing literature, replacing two peripheral citations while retaining 20
+references. No measurements, cohorts, controls, failed outcomes or source artifacts
+were changed. No new experimental or production work was introduced.
+
+Verification:
+- Seven IEEE pages; all seven final rendered pages read and visually inspected.
+- Aggregate audit checks table cells, both controls, interval-supported counts,
+  original snapshots/figures, cost denominator and attempt counts. It passes locally
+  and in a fresh Git clone without private study workspaces or configuration.
+- Portable LaTeX source compiles independently and yields identical extracted text.
+- No undefined references or overfull boxes; fonts embedded, no Type 3 fonts.
+- Delivered PDF/source and immutable evidence hashes are in output/QA.json.
+- Exact-commit CI is checked after push and reported with the revision handoff.
+
+This signs off the requested editorial revision, not the remaining scientific or
+submission work. Final collection/accounting, unresolved code/transcript review,
+and the author's submission read-through remain as stated above.

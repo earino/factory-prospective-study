@@ -242,3 +242,38 @@ Primary sources checked for the eight added citations:
 
 These additions complement the earlier verified references. They do not support
 new claims of labor displacement, causal architecture benefits, or superior cost.
+
+
+## Accepted external-review revision — 15 November, evening
+
+Primary-source checks for the targeted additions and cost comparisons:
+
+- **Agentic Benchmark Checklist (ABC)**: [paper v5](https://arxiv.org/html/2507.02825v5),
+  sections 3–4: separates task validity, outcome validity, and reporting; T.5 calls
+  for isolation from ground truth. The manuscript uses this distinction and states
+  that procedural isolation does not meet that recommendation. It does not claim
+  full checklist compliance. Cite verified v5 metadata; no unverified archival
+  metadata is supplied.
+- **AgentSuite**: [ICML/PMLR record](https://proceedings.mlr.press/v306/suh26a.html)
+  confirms title ("with", not the repository's "via"), authors, volume 306, pages
+  116300–116319, and 2026 publication. COBA audits user, environment, ground truth,
+  and evaluation components. Use this relation, not unneeded prevalence figures.
+  OpenReview required a browser challenge; the publisher record was accessible.
+- **MLE-Smith**: [v1 section 4.2](https://arxiv.org/html/2510.07307v1#S4.SS2)
+  reports $0.78 per task including generation and verification, starting from
+  supplied datasets. Do not infer a complete cloud/hosting cost boundary or claim
+  that it omits failed attempts; the inspected passage does not establish that.
+- **AutoSDT**: [EMNLP paper](https://aclanthology.org/2025.emnlp-main.1546.pdf),
+  p. 30397 gives about $0.55 per task. Appendix C and Table A.1 (p. 30412)
+  identify $2,955 as API cost, spanning repository search, selection/dependencies,
+  program adaptation and instruction generation. This is a task/API denominator,
+  not our public-release operating ratio. No numerical efficiency ranking follows.
+- **Venue**: [official call](https://conf.researchr.org/track/icse-2027/agent-2027-papers)
+  permits full research *or experience* papers up to eight pages including
+  references and short papers up to five. Seven IEEE pages remains within the
+  user's chosen scope. The review's preference for short format is a judgment,
+  not an eligibility requirement. The author's earlier submission plan is unchanged.
+
+The two auditing citations replace the peripheral DataMaster/model-specialization
+sentence in the manuscript. Existing bibliography entries remain for provenance.
+No new experimental framework or auditing implementation is introduced.

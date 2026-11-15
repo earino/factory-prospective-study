@@ -1,0 +1,61 @@
+{
+  "snapshot_sha256": {
+    "draft-inputs.json": "1799b8991cf9b73b4477e8741d71f1f08b15e4ef98e4d24829de3b6c05ee0170",
+    "update-inputs-2026-11-15.json": "578e13f2058620d46b282414078059f9467eeedbc21f36b5331d6106676151b5",
+    "evening-inputs-2026-11-15.json": "665c491cdedc20d7fc188fd2d13a36ed99dc9c52dc7f26effb15b06f1118bc96"
+  },
+  "unchanged_evidence_figures_table": true,
+  "publications": 12,
+  "cost_denominator": 11,
+  "scored_models": 29,
+  "scored_datasets": 10,
+  "selected_outcomes": {
+    "frozen": 29,
+    "failed": 3,
+    "blocked": 1
+  },
+  "tasks_with_all_point_estimates_above_untuned": [
+    "fjc-civil-trial-36m",
+    "phmsa-pipeline-penalty-reduction",
+    "fda-510k-five-year-recall",
+    "sbir-phase1-to-phase2-conversion",
+    "caa-fce-hpv-escalation",
+    "wser-effluent-exceedance",
+    "faa-wildlife-strike-substantial-damage",
+    "seattle-building-permit-completion",
+    "fra-form54-hazmat-release"
+  ],
+  "positive_intervals": {
+    "ordinary": {
+      "fjc-civil-trial-36m": 3,
+      "fda-510k-five-year-recall": 3,
+      "t100-new-route-survival": 0,
+      "sbir-phase1-to-phase2-conversion": 0,
+      "caa-fce-hpv-escalation": 0,
+      "wser-effluent-exceedance": 3,
+      "faa-wildlife-strike-substantial-damage": 3,
+      "seattle-building-permit-completion": 2,
+      "fra-form54-hazmat-release": 3
+    },
+    "random": {
+      "fjc-civil-trial-36m": 3,
+      "fda-510k-five-year-recall": 3,
+      "t100-new-route-survival": 0,
+      "sbir-phase1-to-phase2-conversion": 0,
+      "caa-fce-hpv-escalation": 0,
+      "wser-effluent-exceedance": 1,
+      "faa-wildlife-strike-substantial-damage": 1,
+      "seattle-building-permit-completion": 2,
+      "fra-form54-hazmat-release": 3
+    }
+  },
+  "artifact_probe_passes": 29,
+  "own_label_probe_errors": [
+    "fda-510k-five-year-recall--r2",
+    "t100-new-route-survival--r3",
+    "faa-wildlife-strike-substantial-damage--r1"
+  ],
+  "table_cells_checked": true,
+  "cost_and_attempt_aggregates_checked": true,
+  "cited_references": 20
+}

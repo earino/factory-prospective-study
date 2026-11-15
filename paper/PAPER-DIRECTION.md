@@ -5,6 +5,48 @@ It supersedes earlier outlines and framing where they conflict. The paper-writin
 prompt must follow it. It changes the emphasis of the paper, not the study cohort,
 experiments, recorded outcomes, or deadlines.
 
+## Accepted review and revision contract — 15 November, evening
+
+The user approved this sequence after reviewing external feedback. Keep the
+seven-page experience paper centered on the integrated factory. Cost, independent
+use, and source validity are distinct evidence, not interchangeable success tests.
+This section supersedes earlier wording that calls consumer optimization a test of
+usefulness without specifying what it can establish.
+
+Central statement: an integrated agentic factory discovers sources and publishes
+prediction tasks at low observed recurring cost. Independent experiments test
+artifact use and modeling headroom; source audits examine task assumptions that
+successful execution and model scores cannot verify.
+
+Accept the review's requests for a clearer contribution, bounded cost metric,
+separate evaluation questions, less accounting detail, and relevant validity
+literature. Do not claim a lowest-cost result, human labor savings, universal task
+validity, intervention-free operation, or 29 independent dataset replications.
+Do not turn unresolved timing concerns into proven defects, demote all consumer
+measurements to anecdotes, or infer a paper-format requirement from the review.
+No new auditing framework, experiments, production changes, or source selection.
+
+Implement in this order:
+1. Record this agreed direction.
+2. Rewrite abstract/introduction around the complete workflow and bounded findings.
+3. Separate operation, independent use, and validity in the questions/results.
+4. Shorten and bound recurring operating expenditure per publication; keep detailed
+   rates, exclusions, and reproducible accounting in the evidence repository.
+5. Distinguish demonstrated discrepancies, conditional limitations, and unresolved
+   concerns; connect each to its practical consequence.
+6. Verify and selectively integrate relevant validity literature and cost boundaries.
+7. Organize discussion around integration, recurring expenditure, and complementary
+   consumer/source checks; retain small-cohort and procedural-isolation limits.
+8. Check claims, numbers, controls, unsuccessful attempts, references, seven-page
+   layout, clean source build, and exact-commit CI.
+
+Before sign-off, conduct at least three full-manuscript review passes with a fresh
+reading brief each time. Read the complete paper on every pass; compare it against
+all supplied feedback, record findings/corrections, and do not substitute a
+section-only edit or automated check for a whole-paper review. These are separate
+self-reviews, not independent reviewers. The audit trail is in
+[REVISION-REVIEW.md](REVISION-REVIEW.md).
+
 ## Main claim and purpose
 
 Working title: **From Public Data to Prediction Benchmarks: Cost, Reliability, and
