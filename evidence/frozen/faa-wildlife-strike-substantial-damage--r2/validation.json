@@ -1,0 +1,23 @@
+{
+  "id": "1d429557351b472cbd9503ad5d818d47",
+  "utc": "2026-11-15T15:04:58.326843+00:00",
+  "started_epoch": 1794755098.326856,
+  "mode": "validation",
+  "note": "H3: stronger L2 (reg_lambda=20) on top of H2; with ~2.8k training positives and drift, leaf shrinkage should stabilise rare-leaf estimates. Offline 5-seed diag: val 0.9021 vs 0.8997 (seed sd 0.001), backtest flat.",
+  "code_sha256": "e01b490471ae5834509bd49b5f23babee107135f36a03a731430ca72f5bc6d4a",
+  "status": "ok",
+  "fit_wall_s": 0.4019101669982774,
+  "fit_cpu_s": 0.9637629999999999,
+  "phase": "evaluation",
+  "evaluation_wall_s": 6.722199707990512,
+  "auc": 0.9026829900278499,
+  "brier": 0.010210711558317709,
+  "rows_train": 84196,
+  "rows_score": 33250,
+  "backtest": {},
+  "artifact_sha256": "d9e98571d05652a679b0296dc93621aac75df55292a5f342c58eb7e056966056",
+  "finished_epoch": 1794755105.661597,
+  "elapsed_s": 7.334237666000263,
+  "cold_replay_at": "2026-11-15T16:18:40.803406+00:00",
+  "no_retraining": true
+}

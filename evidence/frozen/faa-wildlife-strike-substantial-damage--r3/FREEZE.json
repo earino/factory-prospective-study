@@ -1,0 +1,50 @@
+{
+  "dataset": "faa-wildlife-strike-substantial-damage",
+  "environment": "25da8bd4a246c5c78ad693276de09eadf5101df88801ff3a001bba60c8643400",
+  "files": {
+    "booster.json": {
+      "bytes": 1269743,
+      "sha256": "2656e4a8784eea32af3efdeae4c614426df6443a4b54c53b0ab0d0a41b7023c9"
+    },
+    "model.pkl": {
+      "bytes": 962135,
+      "sha256": "8f8916b44174b63295a09edca512a49563a73c6874b859411b69a5282f601074"
+    },
+    "train.py": {
+      "bytes": 16292,
+      "sha256": "7e84072a38ff166bd77fbc84520943227306b2c0da63b4ed5b60b4ec44d847bb"
+    },
+    "validation.csv.gz": {
+      "bytes": 385182,
+      "sha256": "637427f87dc7e6ef72369c87520ae80da5b1b56591eeee35b835f88c8f0e5a44"
+    },
+    "validation.json": {
+      "bytes": 1048,
+      "sha256": "65cd4f54974a22b681c4029c4f2adf4a15910aec95b0a4d19f74ca62d97af464"
+    }
+  },
+  "frozen_at": "2026-11-15T16:18:39.950385+00:00",
+  "run": "faa-wildlife-strike-substantial-damage--r3",
+  "selected_trial": {
+    "artifact_sha256": "8f8916b44174b63295a09edca512a49563a73c6874b859411b69a5282f601074",
+    "auc": 0.9068884072107284,
+    "backtest": {},
+    "brier": 0.010379482252322861,
+    "code_sha256": "7e84072a38ff166bd77fbc84520943227306b2c0da63b4ed5b60b4ec44d847bb",
+    "elapsed_s": 6.897003083009622,
+    "evaluation_wall_s": 5.62137012500898,
+    "finished_epoch": 1794759069.865084,
+    "fit_cpu_s": 2.6747669999999997,
+    "fit_wall_s": 1.0669233329972485,
+    "id": "0231c952930e4119ba4b800b20bb1a09",
+    "mode": "validation",
+    "note": "02662747 with min_child_weight 3 instead of 5: recency weights average ~0.43 so weighted hessian per leaf was stricter than intended. Passes the adoption rule: 5-seed validation mean +0.0007, training-only fit<=2011 +0.0004, fit<=2009 +0.0003, forward-chaining CV +0.0003",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/.study/runs/faa-wildlife-strike-substantial-damage--r3/trials/0231c952930e4119ba4b800b20bb1a09",
+    "phase": "evaluation",
+    "rows_score": 33250,
+    "rows_train": 84196,
+    "started_epoch": 1794759062.967613,
+    "status": "ok",
+    "utc": "2026-11-15T16:11:02.967602+00:00"
+  }
+}

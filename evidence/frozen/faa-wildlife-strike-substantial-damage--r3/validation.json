@@ -1,0 +1,23 @@
+{
+  "id": "0231c952930e4119ba4b800b20bb1a09",
+  "utc": "2026-11-15T16:11:02.967602+00:00",
+  "started_epoch": 1794759062.967613,
+  "mode": "validation",
+  "note": "02662747 with min_child_weight 3 instead of 5: recency weights average ~0.43 so weighted hessian per leaf was stricter than intended. Passes the adoption rule: 5-seed validation mean +0.0007, training-only fit<=2011 +0.0004, fit<=2009 +0.0003, forward-chaining CV +0.0003",
+  "code_sha256": "7e84072a38ff166bd77fbc84520943227306b2c0da63b4ed5b60b4ec44d847bb",
+  "status": "ok",
+  "fit_wall_s": 1.0669233329972485,
+  "fit_cpu_s": 2.6747669999999997,
+  "phase": "evaluation",
+  "evaluation_wall_s": 5.62137012500898,
+  "auc": 0.9068884072107284,
+  "brier": 0.010379482252322861,
+  "rows_train": 84196,
+  "rows_score": 33250,
+  "backtest": {},
+  "artifact_sha256": "8f8916b44174b63295a09edca512a49563a73c6874b859411b69a5282f601074",
+  "finished_epoch": 1794759069.865084,
+  "elapsed_s": 6.897003083009622,
+  "cold_replay_at": "2026-11-15T16:18:39.821021+00:00",
+  "no_retraining": true
+}

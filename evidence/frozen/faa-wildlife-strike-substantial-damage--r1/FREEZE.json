@@ -1,0 +1,50 @@
+{
+  "dataset": "faa-wildlife-strike-substantial-damage",
+  "environment": "25da8bd4a246c5c78ad693276de09eadf5101df88801ff3a001bba60c8643400",
+  "files": {
+    "booster.json": {
+      "bytes": 1383392,
+      "sha256": "0b9c18fa581d56ae60ca94811ed682d41018cbafe384ce96089d1b496c6acf1b"
+    },
+    "model.pkl": {
+      "bytes": 974259,
+      "sha256": "e2e9bc2c97e1aa74d8249fc29ff8942affaae263fd09540413098efde8d2a181"
+    },
+    "train.py": {
+      "bytes": 6968,
+      "sha256": "6c5c537b9b8169659edec54c04235ac4ad9dde4407b53efbb0f20c64e27b4043"
+    },
+    "validation.csv.gz": {
+      "bytes": 372167,
+      "sha256": "f9f85fdabeedd71b8730d9c1903f8ba9c08dcc54b199e7fe9ea60cffd2a68a22"
+    },
+    "validation.json": {
+      "bytes": 1126,
+      "sha256": "be65c59ddf4f85c307f2d2bad6754c5ae5afefaf5c0ee448e53d3874ddb851cf"
+    }
+  },
+  "frozen_at": "2026-11-15T16:18:39.247882+00:00",
+  "run": "faa-wildlife-strike-substantial-damage--r1",
+  "selected_trial": {
+    "artifact_sha256": "e2e9bc2c97e1aa74d8249fc29ff8942affaae263fd09540413098efde8d2a181",
+    "auc": 0.9054085112938564,
+    "backtest": {},
+    "brier": 0.010247497955428193,
+    "code_sha256": "6c5c537b9b8169659edec54c04235ac4ad9dde4407b53efbb0f20c64e27b4043",
+    "elapsed_s": 6.103057416999945,
+    "evaluation_wall_s": 4.95424891699804,
+    "finished_epoch": 1794757941.4007921,
+    "fit_cpu_s": 2.4481580000000003,
+    "fit_wall_s": 0.9499481660022866,
+    "id": "f1187de743764771a436ff39e9eebd73",
+    "mode": "validation",
+    "note": "H5: speed depends on altitude within a phase, so impute missing speed from the training median of the phase/mass/engine/height-band cell (label-free; falls back to H4 tables). Offline 6-seed mean gain is only +0.0004 (seed sd 0.0006) with backtests +0.0003 to +0.0005; seed 42 is a favourable draw, so most of this trial-level gain over H4 is noise",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/.study/runs/faa-wildlife-strike-substantial-damage--r1/trials/f1187de743764771a436ff39e9eebd73",
+    "phase": "evaluation",
+    "rows_score": 33250,
+    "rows_train": 84196,
+    "started_epoch": 1794757935.297312,
+    "status": "ok",
+    "utc": "2026-11-15T15:52:15.297305+00:00"
+  }
+}

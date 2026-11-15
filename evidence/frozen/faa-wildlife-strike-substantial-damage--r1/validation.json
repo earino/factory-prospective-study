@@ -1,0 +1,23 @@
+{
+  "id": "f1187de743764771a436ff39e9eebd73",
+  "utc": "2026-11-15T15:52:15.297305+00:00",
+  "started_epoch": 1794757935.297312,
+  "mode": "validation",
+  "note": "H5: speed depends on altitude within a phase, so impute missing speed from the training median of the phase/mass/engine/height-band cell (label-free; falls back to H4 tables). Offline 6-seed mean gain is only +0.0004 (seed sd 0.0006) with backtests +0.0003 to +0.0005; seed 42 is a favourable draw, so most of this trial-level gain over H4 is noise",
+  "code_sha256": "6c5c537b9b8169659edec54c04235ac4ad9dde4407b53efbb0f20c64e27b4043",
+  "status": "ok",
+  "fit_wall_s": 0.9499481660022866,
+  "fit_cpu_s": 2.4481580000000003,
+  "phase": "evaluation",
+  "evaluation_wall_s": 4.95424891699804,
+  "auc": 0.9054085112938564,
+  "brier": 0.010247497955428193,
+  "rows_train": 84196,
+  "rows_score": 33250,
+  "backtest": {},
+  "artifact_sha256": "e2e9bc2c97e1aa74d8249fc29ff8942affaae263fd09540413098efde8d2a181",
+  "finished_epoch": 1794757941.4007921,
+  "elapsed_s": 6.103057416999945,
+  "cold_replay_at": "2026-11-15T16:18:39.073272+00:00",
+  "no_retraining": true
+}
