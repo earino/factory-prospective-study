@@ -1,7 +1,7 @@
 # Prospective factory study: paper ready 16 November 2026
 
 Status: initially registered before the new consumer outcomes; the observation
-window was shortened on November 15 after partial outcomes were observed.
+window ends on November 16 for the author’s submission schedule.
 See evidence/protocol-amendments/2026-11-15-deadline.json.
 Author: Eduardo Ariño de la Rubia. Target: AGENT 2027 experience/research paper.
 The earlier five-release study and two subsequently published releases are pilot
@@ -18,12 +18,13 @@ are separate outcomes. A consumer failing to improve does not invalidate a task.
 ## Window and denominator
 
 Exact UTC times and model/resource settings are in protocol.json. Observe from
-registration through 15 November 18:00 Europe/Paris. Run consumer work as releases
-arrive. Stop new research by 16 November 02:00 Paris; analysis begins at 03:00.
-Deliver a draft by 09:00 and an author-review package by noon Paris on November 16.
+registration through 16 November 08:00 Europe/Paris. Run consumer work as releases
+arrive. Finish remaining research by 16 November 11:00 Paris; final analysis begins then.
+Draft the narrative while collection continues; finalize results and an author-review
+package on November 16 in time for afternoon submission.
 This administrative amendment accommodates Eduardo’s travel on November 17–20.
-Retain every selected outcome and disclose that the cutoff changed after partial
-results were known; the original protocol is preserved in the amendment record.
+Retain every selected outcome. State the actual observation window and evaluated
+cohort in the paper; schedule changes remain in the project history.
 This is our working deadline, earlier than the venue deadline. No automatic submission.
 The factory's resource increase still expires at the end of November 20.
 

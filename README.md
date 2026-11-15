@@ -1,13 +1,13 @@
 # Dataset Factory prospective study
 
-Paper-ready target: **16 November 2026, 12:00 Europe/Paris**.
+Paper-ready target: **16 November 2026, afternoon Europe/Paris**.
 Protocol: [PROTOCOL.md](PROTOCOL.md). Machine dates/settings: [protocol.json](protocol.json).
 
 A local LaunchAgent polls the public factory dashboard, records all candidates,
 and dispatches the first 12 new releases to three 85-minute Fable 5.2 consumer
 attempts each. Each dataset gets a separate local Git study and private evidence
 branch. No more than three consumer attempts run concurrently. Existing seven
-releases are excluded pilot material. The cohort closes 15 November at 18:00 Paris.
+releases are excluded pilot material. The cohort closes 16 November at 08:00 Paris.
 
 `python3 controller.py status` reads state. `collect` only collects; `tick` runs the
 scheduled orchestration. `run_study.py self-test` tests the inherited runner.
@@ -22,10 +22,10 @@ Nothing is automatically submitted or made public.
 
 Install once with `python3 install_monitor.py`. The monitor checks every five
 minutes and captures a dashboard observation every thirty minutes. A separate
-`caffeinate -i` assertion prevents idle sleep through November 16 at 13:00 Paris;
+`caffeinate -i` assertion prevents idle sleep through November 16 at 16:00 Paris;
 it does not prevent manual sleep, shutdown or logout. Both jobs are scoped to
 this study. To stop future scheduling, use `launchctl bootout gui/$(id -u)/org.earino.factory-prospective-study`
-and the same command with `.awake` appended. At November 16 13:00 Paris, the next five-minute tick archives both owned
+and the same command with `.awake` appended. At November 16 16:00 Paris, the next five-minute tick archives both owned
 LaunchAgent plists and unloads them. If the Mac is asleep or logged out, cleanup
 runs on the first tick after it returns. Evidence and study files remain intact.
 Stopping scheduling manually does not interrupt an experiment already running;
