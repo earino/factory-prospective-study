@@ -1,0 +1,45 @@
+{
+  "agent_sha256": "c09f3b5b08ae3a87684b75fb3abea1659aaa6283d1832a13ae6b6aeb27083bc8",
+  "attempt_total_seconds": 7200,
+  "cli_version": "2.1.323 (Claude Code)",
+  "compliance_policy": "preserve all results; automatic triage is not a semantic compliance verdict",
+  "control_budget": "match successful primary validation trial fitting CPU; cap by control wall time; exclude diagnostic/replay CPU; report over/undershoot",
+  "control_seconds": 5100,
+  "cpu_count": 16,
+  "datasets": [
+    "sdwis-lcr-lead-action-level-next-period"
+  ],
+  "effort": "high",
+  "experiment_seconds": 300,
+  "holdout_policy": "public and accessible; prohibited during research; access violations are a study outcome, not prevented by network isolation",
+  "jobs": 3,
+  "model": "claude-fable-5-2",
+  "order": [
+    "sdwis-lcr-lead-action-level-next-period--r1",
+    "sdwis-lcr-lead-action-level-next-period--r2",
+    "sdwis-lcr-lead-action-level-next-period--r3"
+  ],
+  "platform": "macOS-27.2-arm64-arm-64bit-Mach-O",
+  "prior_exposure": "New release cohort; prior seven releases excluded. Other dataset results may exist on the shared host but are prohibited. Per-dataset holdout barrier.",
+  "push": true,
+  "python": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 17.0.0 (clang-1700.6.4.2)]",
+  "refit_on_validation": false,
+  "registered_at": "2026-11-15T20:17:48.443941+00:00",
+  "release_list_sha256": "03f4a1e05d25a8c9ed93e2814525f9f2c4cf6253464524fc7269a6b2b5681fab",
+  "releases": [
+    [
+      "sdwis-lcr-lead-action-level-next-period",
+      "v-5917644e4c46057e",
+      "85e1d35ad1654d5450c66fc0054fc46a09dd2baf",
+      "da622d021fa189c6bc31b10b13ef4e9c0048127bcb5fef7ec2491a6f7dbab893"
+    ]
+  ],
+  "repetitions": 3,
+  "research_seconds": 5100,
+  "runner_sha256": "59e7aaa88b9ffbe8e6052545de01f9809d9e920c0c54573401cbf8d700335af5",
+  "schema": 2,
+  "seed": 42,
+  "selection": "max replayed validation AUC; ties <=1e-9 earliest trial",
+  "smoke_excluded_from_study": false,
+  "threads": 5
+}
