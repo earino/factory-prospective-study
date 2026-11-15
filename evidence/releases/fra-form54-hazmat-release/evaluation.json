@@ -1,0 +1,265 @@
+{
+  "protocol": "Existing unmodified runner baseline on public validation only; no holdout scoring",
+  "rows": 7697,
+  "metrics": {
+    "full_model": {
+      "auc": 0.6852224885803905,
+      "brier": 0.044073485641066425
+    },
+    "majority_prior": {
+      "auc": 0.5,
+      "brier": 0.046679489571589676
+    },
+    "calendar_identity": {
+      "auc": 0.5261611427162968,
+      "brier": 0.052908556665205164
+    }
+  },
+  "by_year": {
+    "2000": {
+      "rows": 636,
+      "positive_rate": 0.05345911949685535,
+      "metrics": {
+        "full_model": {
+          "auc": 0.7020226695329295,
+          "brier": 0.05145720048300895
+        },
+        "majority_prior": {
+          "auc": 0.5,
+          "brier": 0.053730754402973355
+        },
+        "calendar_identity": {
+          "auc": 0.5203488372093024,
+          "brier": 0.062190347958729394
+        }
+      }
+    },
+    "2001": {
+      "rows": 653,
+      "positive_rate": 0.04747320061255743,
+      "metrics": {
+        "full_model": {
+          "auc": 0.7087439062337931,
+          "brier": 0.04612271015655677
+        },
+        "majority_prior": {
+          "auc": 0.5,
+          "brier": 0.049054568507951674
+        },
+        "calendar_identity": {
+          "auc": 0.5117207758531273,
+          "brier": 0.053049989688785465
+        }
+      }
+    },
+    "2002": {
+      "rows": 600,
+      "positive_rate": 0.04833333333333333,
+      "metrics": {
+        "full_model": {
+          "auc": 0.6836161603961591,
+          "brier": 0.04554516607356975
+        },
+        "majority_prior": {
+          "auc": 0.5,
+          "brier": 0.04972650218672065
+        },
+        "calendar_identity": {
+          "auc": 0.464913340177547,
+          "brier": 0.05700207880071002
+        }
+      }
+    },
+    "2003": {
+      "rows": 636,
+      "positive_rate": 0.04245283018867924,
+      "metrics": {
+        "full_model": {
+          "auc": 0.7785075716110198,
+          "brier": 0.04033614619838743
+        },
+        "majority_prior": {
+          "auc": 0.5,
+          "brier": 0.045132666822062635
+        },
+        "calendar_identity": {
+          "auc": 0.5062032475825579,
+          "brier": 0.05339365748469053
+        }
+      }
+    },
+    "2004": {
+      "rows": 703,
+      "positive_rate": 0.03698435277382646,
+      "metrics": {
+        "full_model": {
+          "auc": 0.6805476650380639,
+          "brier": 0.040965779414750644
+        },
+        "majority_prior": {
+          "auc": 0.5,
+          "brier": 0.04086070499817995
+        },
+        "calendar_identity": {
+          "auc": 0.5011930462447449,
+          "brier": 0.04694111133490421
+        }
+      }
+    },
+    "2005": {
+      "rows": 716,
+      "positive_rate": 0.04888268156424581,
+      "metrics": {
+        "full_model": {
+          "auc": 0.5912313824208097,
+          "brier": 0.049591461047856125
+        },
+        "majority_prior": {
+          "auc": 0.5,
+          "brier": 0.05015565174562738
+        },
+        "calendar_identity": {
+          "auc": 0.5640864275225509,
+          "brier": 0.05878396496872148
+        }
+      }
+    },
+    "2006": {
+      "rows": 662,
+      "positive_rate": 0.03323262839879154,
+      "metrics": {
+        "full_model": {
+          "auc": 0.6714488636363636,
+          "brier": 0.03627995683918756
+        },
+        "majority_prior": {
+          "auc": 0.5,
+          "brier": 0.037929866651778776
+        },
+        "calendar_identity": {
+          "auc": 0.5395241477272728,
+          "brier": 0.044362442343395446
+        }
+      }
+    },
+    "2007": {
+      "rows": 605,
+      "positive_rate": 0.06776859504132231,
+      "metrics": {
+        "full_model": {
+          "auc": 0.6919650579484519,
+          "brier": 0.06181114903992347
+        },
+        "majority_prior": {
+          "auc": 0.5,
+          "brier": 0.06490928338065798
+        },
+        "calendar_identity": {
+          "auc": 0.5572781525687597,
+          "brier": 0.06714564087137782
+        }
+      }
+    },
+    "2008": {
+      "rows": 613,
+      "positive_rate": 0.03099510603588907,
+      "metrics": {
+        "full_model": {
+          "auc": 0.6461102250575934,
+          "brier": 0.035963833896121955
+        },
+        "majority_prior": {
+          "auc": 0.5,
+          "brier": 0.03618191939164358
+        },
+        "calendar_identity": {
+          "auc": 0.5363724968988126,
+          "brier": 0.04015667344709226
+        }
+      }
+    },
+    "2009": {
+      "rows": 467,
+      "positive_rate": 0.042826552462526764,
+      "metrics": {
+        "full_model": {
+          "auc": 0.5737136465324384,
+          "brier": 0.04400546466504085
+        },
+        "majority_prior": {
+          "auc": 0.5,
+          "brier": 0.04542461779223122
+        },
+        "calendar_identity": {
+          "auc": 0.5654362416107384,
+          "brier": 0.05417298687663128
+        }
+      }
+    },
+    "2010": {
+      "rows": 473,
+      "positive_rate": 0.035940803382663845,
+      "metrics": {
+        "full_model": {
+          "auc": 0.7140092879256965,
+          "brier": 0.03634118506520735
+        },
+        "majority_prior": {
+          "auc": 0.5,
+          "brier": 0.040045486643565484
+        },
+        "calendar_identity": {
+          "auc": 0.6362229102167183,
+          "brier": 0.042757481290884955
+        }
+      }
+    },
+    "2011": {
+      "rows": 496,
+      "positive_rate": 0.036290322580645164,
+      "metrics": {
+        "full_model": {
+          "auc": 0.7009530450953045,
+          "brier": 0.03826500072124587
+        },
+        "majority_prior": {
+          "auc": 0.5,
+          "brier": 0.04031853022722092
+        },
+        "calendar_identity": {
+          "auc": 0.37151324965132493,
+          "brier": 0.05123000473558727
+        }
+      }
+    },
+    "2012": {
+      "rows": 437,
+      "positive_rate": 0.05263157894736842,
+      "metrics": {
+        "full_model": {
+          "auc": 0.7817685360218442,
+          "brier": 0.043302316722055735
+        },
+        "majority_prior": {
+          "auc": 0.5,
+          "brier": 0.05308428165252893
+        },
+        "calendar_identity": {
+          "auc": 0.5577609745851712,
+          "brier": 0.05550040321377185
+        }
+      }
+    }
+  },
+  "majority_accuracy": 0.9555671040665195,
+  "calendar_identity_unseen_rows": 192,
+  "persistence": "Not applicable; see construction notes",
+  "limitations": [
+    "No uncertainty interval; observed differences do not establish universal headroom"
+  ],
+  "runner_files": {
+    "train.py": "a3c6bcf13735bc85c52129ded68f839090dffdc266ebc3810dc61b2e6ea5e7e8",
+    "validate.py": "b597e7f84fed614e64b4a86fbecbd6ec0145916a24d0d221a796586976418e7b",
+    "validate.sh": "3f06ca48f11c2e05d331b4d8394284925de660c1d4b086d2f8243959e83b7e6d"
+  }
+}
