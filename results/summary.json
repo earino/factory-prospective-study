@@ -1,6 +1,6 @@
 {
   "cli_reported_cost_usd_not_invoice": 985.3844272000001,
-  "generated_at": "2026-11-15T16:18:42.557745+00:00",
+  "generated_at": "2026-11-15T16:18:57.629187+00:00",
   "limitations": [
     "Five selected factory releases; three attempts are descriptive, not agent rankings.",
     "Pinned consumer scaffold and deterministic downloads are provided assistance.",
@@ -13,11 +13,17 @@
   ],
   "outcomes": [
     {
+      "compliance_triage": "no_automatic_access_flag",
       "dataset": "faa-wildlife-strike-substantial-damage",
       "error": null,
+      "holdout_content_hits": [],
       "id": "faa-wildlife-strike-substantial-damage--r1",
+      "integrity": "requires_semantic_review",
       "interruptions": null,
+      "protocol_caveats": [],
       "research_active_s": 5100.235746293038,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
       "status": "frozen",
       "timing": {
         "cli_invocations": 22,
@@ -31,7 +37,9 @@
         "other_active_wall_s": 4994.200053362816,
         "research_active_s": 5100.235746293038,
         "trial_records": 16
-      }
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
     },
     {
       "compliance_triage": "no_automatic_access_flag",
