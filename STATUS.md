@@ -2,12 +2,9 @@
 
 {
   "consumer": {
-    "branch": "consumer/wser-effluent-exceedance",
-    "commit": "5e12c495e62fbbf56b133fe340923e54885020d8",
-    "dataset": "wser-effluent-exceedance",
-    "finished": "2026-11-15T03:52:59.003698+00:00",
-    "started": "2026-11-15T02:13:52.572975+00:00",
-    "status": "complete"
+    "dataset": "faa-wildlife-strike-substantial-damage",
+    "started": "2026-11-15T10:21:16.733585+00:00",
+    "status": "running"
   },
   "factory_counts": {
     "build": 2,
@@ -15,7 +12,7 @@
     "published": 16,
     "rejected": 7
   },
-  "observed_at": "2026-11-15T10:20:54.071711+00:00",
+  "observed_at": "2026-11-15T10:51:17.940898+00:00",
   "paper": {},
   "queue": [
     {
