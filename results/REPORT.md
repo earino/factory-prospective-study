@@ -1,18 +1,18 @@
 # Consumer study results
 
-Generated 2026-11-15T11:32:04.859249+00:00
+Generated 2026-11-15T11:32:38.228779+00:00
 
 Measured records are in summary.json and scores.csv. Failures remain in the denominator.
 
 Requested model: `claude-fable-5-2`. Reported models: <synthetic>, claude-fable-5-2.
 
-Registered attempts: 3; frozen: 0; failed/blocked: 2.
+Registered attempts: 3; frozen: 0; failed/blocked: 3.
 
 Compliance triage (separate from scores):
 
 - faa-wildlife-strike-substantial-damage--r1: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
 - faa-wildlife-strike-substantial-damage--r2: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
-- faa-wildlife-strike-substantial-damage--r3: not yet audited; forbidden asset copies unknown; tool-access flags unknown. Semantic compliance requires review.
+- faa-wildlife-strike-substantial-damage--r3: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
 
 Scores (including flagged attempts; do not treat all as compliant results):
 

@@ -1,6 +1,6 @@
 {
-  "cli_reported_cost_usd_not_invoice": 35.891355,
-  "generated_at": "2026-11-15T11:32:04.859249+00:00",
+  "cli_reported_cost_usd_not_invoice": 49.383567000000006,
+  "generated_at": "2026-11-15T11:32:38.228779+00:00",
   "limitations": [
     "Five selected factory releases; three attempts are descriptive, not agent rankings.",
     "Pinned consumer scaffold and deterministic downloads are provided assistance.",
@@ -71,25 +71,33 @@
       "verified_forbidden_copies": 0
     },
     {
+      "compliance_triage": "no_automatic_access_flag",
       "dataset": "faa-wildlife-strike-substantial-damage",
-      "error": null,
+      "error": "RuntimeError: Three CLI failures; preserved as a failed attempt, not silently restarted",
+      "holdout_content_hits": [],
       "id": "faa-wildlife-strike-substantial-damage--r3",
+      "integrity": "requires_semantic_review",
       "interruptions": null,
-      "research_active_s": null,
-      "status": "not_finished",
+      "protocol_caveats": [],
+      "research_active_s": 3707.7814393750014,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
+      "status": "failed",
       "timing": {
-        "cli_invocations": 0,
+        "cli_invocations": 3,
         "evaluation_wall_sum_s": 216.93658570900152,
         "fit_cpu_sum_s": 53.360946,
         "fit_wall_sum_s": 22.474399833969073,
-        "harness_wall_union_s": 0,
+        "harness_wall_union_s": 242.49160623550415,
         "incomplete_or_failed_trials": 0,
         "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
         "ok_trials": 9,
-        "other_active_wall_s": 0,
-        "research_active_s": 0,
+        "other_active_wall_s": 3465.289833139497,
+        "research_active_s": 3707.7814393750014,
         "trial_records": 9
-      }
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
     }
   ],
   "protocol_sha256": "8789c9dc93d11d84c0c201f7d533f757995a249847789ef92f191ae6fe6c33b3",
@@ -98,10 +106,10 @@
     "claude-fable-5-2"
   ],
   "reported_usage": {
-    "cache_creation_input_tokens": 265603,
-    "cache_read_input_tokens": 8555525,
-    "input_tokens": 204,
-    "output_tokens": 150035
+    "cache_creation_input_tokens": 370999,
+    "cache_read_input_tokens": 11608945,
+    "input_tokens": 292,
+    "output_tokens": 205027
   },
   "requested_model": "claude-fable-5-2",
   "scores": []
