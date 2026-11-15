@@ -256,5 +256,44 @@
     "started": "2026-11-14T12:43:53.530450+00:00",
     "status": "complete",
     "verified_at": "2026-11-14T04:36:15.599185+00:00"
+  },
+  {
+    "dataset": "caa-fce-hpv-escalation",
+    "release": {
+      "artifact_version": "2a1b8fe5efdf2f0bae9a7777de98d0019bb70404c8aafbe0291a615e93f0573b",
+      "assets": 33,
+      "baseline_display": "See versioned evaluation.json; public validation only",
+      "dataset": "caa-fce-hpv-escalation",
+      "destinations": {
+        "github": "https://github.com/earino/factory-caa-fce-hpv-escalation/releases/tag/v-fd86cbb0bc96aaca",
+        "huggingface": "https://huggingface.co/datasets/earino/factory-caa-fce-hpv-escalation"
+      },
+      "detail_id": "source-000079",
+      "disposition": "public",
+      "published": true,
+      "release_tag": "v-fd86cbb0bc96aaca",
+      "rows": 114694,
+      "splits": {
+        "eval": {
+          "rows": 36500
+        },
+        "holdout": {
+          "rows": 20011
+        },
+        "train": {
+          "rows": 58183
+        }
+      },
+      "verified": {
+        "github": true,
+        "huggingface": true
+      },
+      "verified_all": true,
+      "verified_at": "2026-11-14T22:55:16.477819+00:00",
+      "workflow": "modern"
+    },
+    "selected": true,
+    "status": "queued",
+    "verified_at": "2026-11-14T22:55:16.477819+00:00"
   }
 ]

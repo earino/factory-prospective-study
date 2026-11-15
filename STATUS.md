@@ -10,13 +10,13 @@
     "status": "complete"
   },
   "factory_counts": {
+    "build": 1,
     "deferred": 60,
     "discover": 1,
-    "publish": 1,
-    "published": 13,
-    "rejected": 6
+    "published": 14,
+    "rejected": 7
   },
-  "observed_at": "2026-11-14T23:41:40.144490+00:00",
+  "observed_at": "2026-11-15T00:12:02.060530+00:00",
   "paper": {},
   "queue": [
     {
@@ -66,9 +66,17 @@
       "selected": true,
       "branch": "consumer/sbir-phase1-to-phase2-conversion",
       "error": null
+    },
+    {
+      "dataset": "caa-fce-hpv-escalation",
+      "verified_at": "2026-11-14T22:55:16.477819+00:00",
+      "status": "queued",
+      "selected": true,
+      "branch": null,
+      "error": null
     }
   ],
-  "snapshot_generated_at": "2026-11-14T22:51:15+00:00",
+  "snapshot_generated_at": "2026-11-14T23:51:44+00:00",
   "window": {
     "analysis_start": "2026-11-18T04:00:00Z",
     "attempt_minutes": 85,
