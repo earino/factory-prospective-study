@@ -1,0 +1,23 @@
+{
+  "id": "7d1cdc52602a4e5a8ebae530a6a8357f",
+  "utc": "2026-11-15T20:02:42.129682+00:00",
+  "started_epoch": 1794772962.129693,
+  "mode": "validation",
+  "note": "{\"n_estimators\": 100, \"max_depth\": 3, \"learning_rate\": 0.02, \"min_child_weight\": 10, \"subsample\": 1.0, \"colsample_bytree\": 0.7, \"reg_lambda\": 10}",
+  "code_sha256": "c145a60f43a1a8ebfc17ebb04a438d9a8cdeeafec5d5bdfcc8db228a70a73c29",
+  "status": "ok",
+  "fit_wall_s": 0.05790237500332296,
+  "fit_cpu_s": 0.11539299999999986,
+  "phase": "evaluation",
+  "evaluation_wall_s": 5.038684250001097,
+  "auc": 0.7102873885370575,
+  "brier": 0.043332706110176804,
+  "rows_train": 12541,
+  "rows_score": 7697,
+  "backtest": {},
+  "artifact_sha256": "15b1e37bd9f93c524e99698aa2532a0d9f2545d15bc84cc544a09d4dbf0f7b0a",
+  "finished_epoch": 1794772967.2720351,
+  "elapsed_s": 5.141874583001481,
+  "cold_replay_at": "2026-11-15T20:04:16.688505+00:00",
+  "no_retraining": true
+}

@@ -1,0 +1,49 @@
+{
+  "dataset": "fra-form54-hazmat-release",
+  "files": {
+    "booster.json": {
+      "bytes": 656013,
+      "sha256": "8b8fcedd6ac91ca530f48a310c719ca794f1c319bbca8ccd821bff043fa59107"
+    },
+    "model.pkl": {
+      "bytes": 525158,
+      "sha256": "b28977bb587b05054862a9930345fe9a6c9bdd5635e17707aec230a3efbbc765"
+    },
+    "train.py": {
+      "bytes": 1245,
+      "sha256": "cb996d6f784f6f53a3c52d0adeae5b9f56cdbebf7fb5ebe95a839525f6ac1206"
+    },
+    "validation.csv.gz": {
+      "bytes": 87309,
+      "sha256": "1c7fd1d0627fd05b2f86cfa2267ac6d516d6162f618a9235e042b0c8a379574a"
+    },
+    "validation.json": {
+      "bytes": 936,
+      "sha256": "f7f3eb84f8b0e57238f7bf1551620115be31ed903dc3adca733b13ad5d569907"
+    }
+  },
+  "frozen_at": "2026-11-15T20:05:19.817710+00:00",
+  "run": "fra-form54-hazmat-release--r2--random",
+  "selected_trial": {
+    "artifact_sha256": "b28977bb587b05054862a9930345fe9a6c9bdd5635e17707aec230a3efbbc765",
+    "auc": 0.7028468520042458,
+    "backtest": {},
+    "brier": 0.04293235853495192,
+    "code_sha256": "cb996d6f784f6f53a3c52d0adeae5b9f56cdbebf7fb5ebe95a839525f6ac1206",
+    "elapsed_s": 5.2148328330076765,
+    "evaluation_wall_s": 5.061028374999296,
+    "finished_epoch": 1794773085.765127,
+    "fit_cpu_s": 0.22760800000000003,
+    "fit_wall_s": 0.10510579199763015,
+    "id": "f28377d624fe4514ae9fb681344686f1",
+    "mode": "validation",
+    "note": "{\"n_estimators\": 100, \"max_depth\": 6, \"learning_rate\": 0.02, \"min_child_weight\": 1, \"subsample\": 0.7, \"colsample_bytree\": 0.7, \"reg_lambda\": 1}",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/fra-form54-hazmat-release-retry-1/.study/controls/fra-form54-hazmat-release--r2--random/trials/f28377d624fe4514ae9fb681344686f1",
+    "phase": "evaluation",
+    "rows_score": 7697,
+    "rows_train": 12541,
+    "started_epoch": 1794773080.549813,
+    "status": "ok",
+    "utc": "2026-11-15T20:04:40.549805+00:00"
+  }
+}
