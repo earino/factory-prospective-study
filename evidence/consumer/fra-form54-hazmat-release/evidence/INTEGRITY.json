@@ -1,0 +1,253 @@
+{
+  "files": {
+    "agent.md": {
+      "bytes": 9301,
+      "sha256": "c09f3b5b08ae3a87684b75fb3abea1659aaa6283d1832a13ae6b6aeb27083bc8"
+    },
+    "evidence/COMPLETED.json": {
+      "bytes": 176,
+      "sha256": "8163f39b8b7e890099a91377ce1224abd72f07cb82820b1da4c92c77267bbf89"
+    },
+    "evidence/HOLDOUT-BARRIER.json": {
+      "bytes": 328,
+      "sha256": "ede21a9d42bef35558db2ec84ac1a9ee208b05955e571a6583002567a034585e"
+    },
+    "evidence/attempts/fra-form54-hazmat-release--r1/archive.json": {
+      "bytes": 2184,
+      "sha256": "ee778b69d6ea543af1f430ade0e5d9d4d645ce0f4a1a4a82ad4edab005e1cadb"
+    },
+    "evidence/attempts/fra-form54-hazmat-release--r1/state.json": {
+      "bytes": 10908,
+      "sha256": "adace0532710b5f146c56a50e529f179c61bc440bc58d5d87ea91ebc24df3155"
+    },
+    "evidence/attempts/fra-form54-hazmat-release--r1/workspace.tar.gz.part0000": {
+      "bytes": 22983,
+      "sha256": "6d75d8dcc9a523334ba10ab99d626de54a708e8652423ce3bcb023a2cf50239b"
+    },
+    "evidence/attempts/fra-form54-hazmat-release--r2/archive.json": {
+      "bytes": 2184,
+      "sha256": "8ea48638a3aa2f7ba6d4211b0c20d4b6508096a4ea1ea162e892e2102d82d8aa"
+    },
+    "evidence/attempts/fra-form54-hazmat-release--r2/state.json": {
+      "bytes": 10907,
+      "sha256": "e8eaf6a1a61ae27d076a8148b69b6ca4109b26ffcb213bb37fd56472a4a2276c"
+    },
+    "evidence/attempts/fra-form54-hazmat-release--r2/workspace.tar.gz.part0000": {
+      "bytes": 22989,
+      "sha256": "be206f6e6a9eebba9edda170fda430e3c80b9a64ec008b106321ebf368c2b43a"
+    },
+    "evidence/attempts/fra-form54-hazmat-release--r3/archive.json": {
+      "bytes": 2184,
+      "sha256": "bea3d5d8cbd7400908b40c19a955ce042330dce5630fadeea4a6b8f6c86959ea"
+    },
+    "evidence/attempts/fra-form54-hazmat-release--r3/state.json": {
+      "bytes": 10908,
+      "sha256": "fdbda653667830590f31970cd71ea47793fba9889d6a0bbdd4bc7dafdb6dc9bc"
+    },
+    "evidence/attempts/fra-form54-hazmat-release--r3/workspace.tar.gz.part0000": {
+      "bytes": 22974,
+      "sha256": "e58eedaacb0d8750b473af6bccb480f305faba44a2de76203753ec978b731ab9"
+    },
+    "evidence/compliance/fra-form54-hazmat-release--r1.json": {
+      "bytes": 621,
+      "sha256": "817ee52e154d18c34f79fc9a062de03bfebb6a047fd4465443c4872a03edafa9"
+    },
+    "evidence/compliance/fra-form54-hazmat-release--r2.json": {
+      "bytes": 621,
+      "sha256": "8702f937aa75f43198a06fabc597e807dd4dadee849ca1ad77c68ec938692deb"
+    },
+    "evidence/compliance/fra-form54-hazmat-release--r3.json": {
+      "bytes": 621,
+      "sha256": "e3981fb26c25a555802bcdec6171251e09420c2da98797cb97feb74666bf1b10"
+    },
+    "evidence/controls/fra-form54-hazmat-release--published/reproduction.json": {
+      "bytes": 217,
+      "sha256": "13a80467ae51660026cbfa5807d7ea85737960680740d73071100068ee332d92"
+    },
+    "evidence/environment/claude-help.txt": {
+      "bytes": 22494,
+      "sha256": "1e734dc647e2d7c775d2e581b3aa68a8741ff4fdde7e864c4e5799d70777558c"
+    },
+    "evidence/environment/host.json": {
+      "bytes": 201,
+      "sha256": "d807a370e0a2df486a0e36bfa0dce8af197899c9da73486d90db640b566de070"
+    },
+    "evidence/environment/pip-freeze.txt": {
+      "bytes": 441,
+      "sha256": "d2dddbe882fa9156f69be9189c1154ed8268468f1829a0db86a89ac6b119448b"
+    },
+    "evidence/environment/python.json": {
+      "bytes": 120,
+      "sha256": "2eef4740b13558586e477e16eeb039a6e3213a5ed61771a54da4102c4165ad5a"
+    },
+    "evidence/events.jsonl": {
+      "bytes": 28423,
+      "sha256": "5e64ec49953f803cd2f9823b192477bae95fac345ad157ba8d02994ff968a9b4"
+    },
+    "evidence/frozen/fra-form54-hazmat-release--ordinary/FREEZE.json": {
+      "bytes": 831,
+      "sha256": "01ab16da2021fc5737400632c59c9d36cbcca36f663d713e103557ab8db75611"
+    },
+    "evidence/frozen/fra-form54-hazmat-release--ordinary/booster.json": {
+      "bytes": 574620,
+      "sha256": "b463606b676ccfeed08ecf71f5567edba48121c01da5191173aa28b653bb5509"
+    },
+    "evidence/frozen/fra-form54-hazmat-release--ordinary/model.pkl": {
+      "bytes": 471110,
+      "sha256": "a7a9fb50580a642e6a7ce732777cefb5ab0bd993d827b2aae370350ce20edeae"
+    },
+    "evidence/frozen/fra-form54-hazmat-release--ordinary/train.py": {
+      "bytes": 1161,
+      "sha256": "8ef88b64efd5805e03b546af17e7d6e92fbd39e24bc46a03bcb2b848ba9fb450"
+    },
+    "evidence/frozen/fra-form54-hazmat-release--ordinary/validation.csv.gz": {
+      "bytes": 88754,
+      "sha256": "70a18b626e2bead721f1d9ca4472144724519f926a8a5882ff0b7a1070d445b8"
+    },
+    "evidence/frozen/fra-form54-hazmat-release--ordinary/validation.json": {
+      "bytes": 794,
+      "sha256": "583ac7585d58ac4f8e4a47ceb2e450e46f5ceb1552e94fe27c1735980c8b16e4"
+    },
+    "evidence/frozen/fra-form54-hazmat-release--released/FREEZE.json": {
+      "bytes": 868,
+      "sha256": "f4c2d6dba5e550db5850e55fc0344d0c77940fa1ed13c87c7af7665231c5c916"
+    },
+    "evidence/frozen/fra-form54-hazmat-release--released/booster.json": {
+      "bytes": 213035,
+      "sha256": "c471f5c72297359bd9da6a97e78d106f8e21db846859c675c914823e61238224"
+    },
+    "evidence/frozen/fra-form54-hazmat-release--released/model.pkl": {
+      "bytes": 179579,
+      "sha256": "5522048011865018fce2782acb9d3f3ec125300e555a8748b276407cadda4661"
+    },
+    "evidence/frozen/fra-form54-hazmat-release--released/train.py": {
+      "bytes": 1160,
+      "sha256": "431a0f15145a8578df4bc149ee13483cbc7f06e15ac8214356c08da99d9e5d21"
+    },
+    "evidence/frozen/fra-form54-hazmat-release--released/validation.csv.gz": {
+      "bytes": 87701,
+      "sha256": "45c48ff6995040a68795fd61daaa23b020c521740310c7b2ec67b7d0d9e66539"
+    },
+    "evidence/frozen/fra-form54-hazmat-release--released/validation.json": {
+      "bytes": 804,
+      "sha256": "970352aaf26a51c891616cc76a0902b52d39ea1395dfe1ca924ec4bbd15de102"
+    },
+    "evidence/holdout-access/fra-form54-hazmat-release.json": {
+      "bytes": 274,
+      "sha256": "5ba2d76a005964a4d187bf2bc42fa52ff5234054bb2b6227bb84bbf36951d61c"
+    },
+    "evidence/releases/fra-form54-hazmat-release/LICENSE-EVIDENCE.json": {
+      "bytes": 706,
+      "sha256": "753946a7542c57df822a76334cc3df9e87b443f780467e6a35c05255cc7d5bf8"
+    },
+    "evidence/releases/fra-form54-hazmat-release/LICENSE.md": {
+      "bytes": 1103,
+      "sha256": "8443ff1f30427c89366446fddbbed84511f5fe7abc708e1184ae0b57ae0286af"
+    },
+    "evidence/releases/fra-form54-hazmat-release/MANIFEST.json": {
+      "bytes": 32068,
+      "sha256": "c6132a372c1f4a14051c6ea13b01e743eff7874d73212077707bc252fd562dd6"
+    },
+    "evidence/releases/fra-form54-hazmat-release/README.md": {
+      "bytes": 7144,
+      "sha256": "5df3274d3468c882bff3833c9974a75d8f486a4e0d4b8eed48b9dd56bf32e327"
+    },
+    "evidence/releases/fra-form54-hazmat-release/SOURCES.json": {
+      "bytes": 1698,
+      "sha256": "25a46f6e3b1088836c93cab8bb1742fdbe4869fa268e1da333e0960f655e9d32"
+    },
+    "evidence/releases/fra-form54-hazmat-release/evaluation.json": {
+      "bytes": 6699,
+      "sha256": "63ea65859671155576c5c79324acabba3b8f325af0b543690bbe54612fea68ae"
+    },
+    "evidence/releases/fra-form54-hazmat-release/extract/meta.json": {
+      "bytes": 1824,
+      "sha256": "bfbff6c657c98172cbffd2db58d6bc792b4cd1fa733b8696a5b20e5c031a229c"
+    },
+    "evidence/releases/fra-form54-hazmat-release/reproduction/build.py": {
+      "bytes": 29460,
+      "sha256": "669dcbe8bf0474383f3c1bdee308594678995e64f26f88c28bf0b222d21025f2"
+    },
+    "evidence/releases/fra-form54-hazmat-release/reproduction/construction.json": {
+      "bytes": 27120,
+      "sha256": "0b6a6a29a1874c463b264eca3cb17d440d4bc18e0756dbb2bdc8e6c83ee654c9"
+    },
+    "evidence/releases/fra-form54-hazmat-release/reproduction/requirements.txt": {
+      "bytes": 160,
+      "sha256": "5c72f3268174d20364624f76680e189c408a05dba2e7b8cfe12d077b3865e7f0"
+    },
+    "evidence/releases/fra-form54-hazmat-release/reproduction/train.py": {
+      "bytes": 2500,
+      "sha256": "a3c6bcf13735bc85c52129ded68f839090dffdc266ebc3810dc61b2e6ea5e7e8"
+    },
+    "evidence/run-logs/fra-form54-hazmat-release--ordinary-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/fra-form54-hazmat-release--ordinary.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/fra-form54-hazmat-release--published.log": {
+      "bytes": 53,
+      "sha256": "d3b05501392dd874a73c061514712696ff8bbec47e978d4d6aa13e83ee62499b"
+    },
+    "evidence/run-logs/fra-form54-hazmat-release--released-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/fra-form54-hazmat-release--released.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/score-attempts/fra-form54-hazmat-release--ordinary.json": {
+      "bytes": 175,
+      "sha256": "a493a7e2b44867e217c719cac98047c2ff311a02e2af58bc909f9222f5f53e30"
+    },
+    "evidence/score-attempts/fra-form54-hazmat-release--released.json": {
+      "bytes": 175,
+      "sha256": "af97c8c592964454de1c18166ad66ac2c73d29197c38bf8617c5e36574773a63"
+    },
+    "releases.json": {
+      "bytes": 190,
+      "sha256": "5ecb0a0654096b2a6b2fdd9196a3185481611474dbb47f002f7b03c34f7d9031"
+    },
+    "results/REPORT.md": {
+      "bytes": 1890,
+      "sha256": "65937c40a1a795cd53e112b196b4c951ab94cfee75f15d027e7937e45da27a29"
+    },
+    "results/scores.csv": {
+      "bytes": 398,
+      "sha256": "eb51862e11389835b7ea30eb58cbd9ce4de673f550c4206dbf22cab4a60d0749"
+    },
+    "results/scores/fra-form54-hazmat-release--ordinary/predictions.csv.gz": {
+      "bytes": 59354,
+      "sha256": "491e0a004e63222f7719c031ab387addd63f584ca297be14ba868b4e096f3196"
+    },
+    "results/scores/fra-form54-hazmat-release--ordinary/score.json": {
+      "bytes": 256,
+      "sha256": "d87fc5c727074aa0ac75595d29d93104110c3db27f261a90ec9784dedde0eab4"
+    },
+    "results/scores/fra-form54-hazmat-release--released/predictions.csv.gz": {
+      "bytes": 58524,
+      "sha256": "64b8ab2d4bc135ca31c5f57f806558cbc2c7ba6f1ec2e463b7a2d91b851399f4"
+    },
+    "results/scores/fra-form54-hazmat-release--released/score.json": {
+      "bytes": 258,
+      "sha256": "a0c2198c016b6129cfa5a3c32063fbb787107afccdec7511af6e0cfb0a2e2304"
+    },
+    "results/summary.json": {
+      "bytes": 5483,
+      "sha256": "9b56517aa6797a4acdbb41a2b3b7898592766dc5b511e9c1497ddc99d0c9ac8e"
+    },
+    "run_study.py": {
+      "bytes": 102055,
+      "sha256": "59e7aaa88b9ffbe8e6052545de01f9809d9e920c0c54573401cbf8d700335af5"
+    },
+    "study.json": {
+      "bytes": 1910,
+      "sha256": "da9c8ef2e3e5a9f65210f9994380175965db854e2f5f81e0239a0cf9beed7357"
+    }
+  },
+  "sealed_at": "2026-11-15T12:36:58.612594+00:00"
+}

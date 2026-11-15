@@ -1,0 +1,137 @@
+{
+  "cli_reported_cost_usd_not_invoice": 0.0,
+  "generated_at": "2026-11-15T12:36:58.607946+00:00",
+  "limitations": [
+    "Five selected factory releases; three attempts are descriptive, not agent rankings.",
+    "Pinned consumer scaffold and deterministic downloads are provided assistance.",
+    "CLI-reported model IDs are not independent provider attestation.",
+    "Public holdout isolation and semantic compliance are procedural, not enforced by an OS sandbox.",
+    "CFPB holdout was used in earlier pilot work outside this study.",
+    "Random search matches observed eligible primary-trial fitting CPU, not unlogged diagnostics or token work.",
+    "Fresh Claude trajectories are nondeterministic; frozen artifact replay is reproducible.",
+    "No factory-wide publication yield or spend is inferred from this consumer study."
+  ],
+  "outcomes": [
+    {
+      "compliance_triage": "no_automatic_access_flag",
+      "dataset": "fra-form54-hazmat-release",
+      "error": "RuntimeError: Three CLI failures; preserved as a failed attempt, not silently restarted",
+      "holdout_content_hits": [],
+      "id": "fra-form54-hazmat-release--r1",
+      "integrity": "requires_semantic_review",
+      "interruptions": null,
+      "protocol_caveats": [],
+      "research_active_s": 213.89597420899372,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
+      "status": "failed",
+      "timing": {
+        "cli_invocations": 3,
+        "evaluation_wall_sum_s": 0,
+        "fit_cpu_sum_s": 0,
+        "fit_wall_sum_s": 0,
+        "harness_wall_union_s": 0,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 0,
+        "other_active_wall_s": 213.89597420899372,
+        "research_active_s": 213.89597420899372,
+        "trial_records": 0
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
+    },
+    {
+      "compliance_triage": "no_automatic_access_flag",
+      "dataset": "fra-form54-hazmat-release",
+      "error": "RuntimeError: Three CLI failures; preserved as a failed attempt, not silently restarted",
+      "holdout_content_hits": [],
+      "id": "fra-form54-hazmat-release--r2",
+      "integrity": "requires_semantic_review",
+      "interruptions": null,
+      "protocol_caveats": [],
+      "research_active_s": 213.9297412899905,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
+      "status": "failed",
+      "timing": {
+        "cli_invocations": 3,
+        "evaluation_wall_sum_s": 0,
+        "fit_cpu_sum_s": 0,
+        "fit_wall_sum_s": 0,
+        "harness_wall_union_s": 0,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 0,
+        "other_active_wall_s": 213.9297412899905,
+        "research_active_s": 213.9297412899905,
+        "trial_records": 0
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
+    },
+    {
+      "compliance_triage": "no_automatic_access_flag",
+      "dataset": "fra-form54-hazmat-release",
+      "error": "RuntimeError: Three CLI failures; preserved as a failed attempt, not silently restarted",
+      "holdout_content_hits": [],
+      "id": "fra-form54-hazmat-release--r3",
+      "integrity": "requires_semantic_review",
+      "interruptions": null,
+      "protocol_caveats": [],
+      "research_active_s": 213.3989899570006,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
+      "status": "failed",
+      "timing": {
+        "cli_invocations": 3,
+        "evaluation_wall_sum_s": 0,
+        "fit_cpu_sum_s": 0,
+        "fit_wall_sum_s": 0,
+        "harness_wall_union_s": 0,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 0,
+        "other_active_wall_s": 213.3989899570006,
+        "research_active_s": 213.3989899570006,
+        "trial_records": 0
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
+    }
+  ],
+  "protocol_sha256": "da9c8ef2e3e5a9f65210f9994380175965db854e2f5f81e0239a0cf9beed7357",
+  "reported_models": [
+    "<synthetic>",
+    "claude-fable-5-2"
+  ],
+  "reported_usage": {
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  "requested_model": "claude-fable-5-2",
+  "scores": [
+    {
+      "dataset": "fra-form54-hazmat-release",
+      "holdout_auc": 0.731304347826087,
+      "holdout_brier": 0.03600821663484604,
+      "holdout_rows": 5189,
+      "id": "fra-form54-hazmat-release--ordinary",
+      "kind": "ordinary",
+      "validation_auc": 0.669321502260069,
+      "validation_brier": 0.044592235840849634
+    },
+    {
+      "dataset": "fra-form54-hazmat-release",
+      "holdout_auc": 0.7449193686249929,
+      "holdout_brier": 0.035560558456888214,
+      "holdout_rows": 5189,
+      "id": "fra-form54-hazmat-release--released",
+      "kind": "released",
+      "validation_auc": 0.6852224885803905,
+      "validation_brier": 0.04407348563575967
+    }
+  ]
+}

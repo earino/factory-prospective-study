@@ -2,11 +2,11 @@
 
 {
   "consumer": {
-    "branch": "consumer/faa-wildlife-strike-substantial-damage",
-    "commit": "49de5907b0fcb37161020cb606ddaf510ef5f5c3",
-    "dataset": "faa-wildlife-strike-substantial-damage",
-    "finished": "2026-11-15T11:35:09.935894+00:00",
-    "started": "2026-11-15T10:21:16.734063+00:00",
+    "branch": "consumer/fra-form54-hazmat-release",
+    "commit": "498e4818e18fa3ac55b9e24f7b7e88127b233288",
+    "dataset": "fra-form54-hazmat-release",
+    "finished": "2026-11-15T12:37:15.579878+00:00",
+    "started": "2026-11-15T12:30:02.379484+00:00",
     "status": "complete"
   },
   "factory_counts": {
@@ -16,7 +16,7 @@
     "published": 18,
     "rejected": 7
   },
-  "observed_at": "2026-11-15T12:22:25.876002+00:00",
+  "observed_at": "2026-11-15T12:52:48.403638+00:00",
   "paper": {},
   "queue": [
     {
@@ -94,17 +94,17 @@
     {
       "dataset": "seattle-building-permit-completion",
       "verified_at": "2026-11-15T11:13:20.100537+00:00",
-      "status": "queued",
+      "status": "complete",
       "selected": true,
-      "branch": null,
+      "branch": "consumer/seattle-building-permit-completion",
       "error": null
     },
     {
       "dataset": "fra-form54-hazmat-release",
       "verified_at": "2026-11-15T11:22:19.117088+00:00",
-      "status": "queued",
+      "status": "complete",
       "selected": true,
-      "branch": null,
+      "branch": "consumer/fra-form54-hazmat-release",
       "error": null
     }
   ],
