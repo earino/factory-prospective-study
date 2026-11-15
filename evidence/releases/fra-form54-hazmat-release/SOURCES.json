@@ -1,0 +1,30 @@
+{
+  "publisher-terms.snapshot": {
+    "url": "https://data.transportation.gov/Railroads/Rail-Equipment-Accident-Incident-Data-Form-54-Subs/byy5-w977",
+    "bytes": 841359,
+    "sha256": "a64e837d86652ee9835b0ec6d608ecd8b1a6d3b973696059f73eb69d392f8d88",
+    "retrieved_at_unix": 1794740476.0702126,
+    "transport_attempts": 1
+  },
+  "publisher-documentation.snapshot": {
+    "url": "https://datahub.transportation.gov/api/views/byy5-w977/files/ac84a1c8-56d4-4a21-85c2-3a33080ab720?download=true&filename=Form54_Data_Dictionary.xlsx",
+    "bytes": 27865,
+    "sha256": "06406dfd4dcdcc0f0bb4218792873ae11d675ba4b2edd19faf51e3b84cdd2ef7",
+    "retrieved_at_unix": 1794740479.882998,
+    "transport_attempts": 1
+  },
+  "fra_form54_subset_metadata.json": {
+    "url": "https://data.transportation.gov/api/views/byy5-w977.json",
+    "bytes": 241797,
+    "sha256": "551f5f42bd266d5cd228587e8781e8b4e46ff8a865a5b604ac3f3db9bbeb066a",
+    "retrieved_at_unix": 1794740483.4846065,
+    "transport_attempts": 1
+  },
+  "fra_form54_hazmat_filtered.csv": {
+    "url": "https://data.transportation.gov/resource/byy5-w977.csv?$select=accidentmonth%2Caccidentnumber%2Caccidenttype%2Cdate%2Cday%2Cemptyfreightcars%2Cequipmenttype%2Cgrosstonnage%2Cgxid%2Chazmatcars%2Chazmatreleasedcars%2Cloadedfreightcars%2Cmilepost%2Creporting_railroad_class%2Creportingrailroadcode%2Cstateabbr%2Cstation%2Ctemperature%2Ctrackclass%2Ctracktype%2Ctrainspeed%2Cvisibility%2Cweathercondition%2Cyear&$where=hazmatcars%20%21%3D%20%270%27&$limit=50000",
+    "bytes": 5129737,
+    "sha256": "1c0821d1a6bdf8ebff1a4bf29d8919eee34800c57291de3c4bf7858d13da6f78",
+    "retrieved_at_unix": 1794740500.2724974,
+    "transport_attempts": 1
+  }
+}
