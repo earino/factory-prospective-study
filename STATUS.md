@@ -14,8 +14,15 @@
     "published": 19,
     "rejected": 7
   },
-  "observed_at": "2026-11-15T22:28:53.810459+00:00",
-  "paper": {},
+  "observed_at": "2026-11-15T22:59:14.981831+00:00",
+  "paper": {
+    "at": "2026-11-15T22:40:26.170977+00:00",
+    "draft_commit": "3e79ff17bf89a0e7087f4b3af542a679760bcaee",
+    "finalization_status": "in_progress",
+    "origin": "Codex manual paper work authorized by Eduardo",
+    "reason": "A verified manual draft already exists. The active overnight goal owns finalization; do not launch a competing scheduled paper writer.",
+    "status": "draft_produced"
+  },
   "queue": [
     {
       "dataset": "fjc-civil-trial-36m",
@@ -160,7 +167,7 @@
       "outcome": {}
     }
   ],
-  "snapshot_generated_at": "2026-11-15T21:51:52+00:00",
+  "snapshot_generated_at": "2026-11-15T22:51:49+00:00",
   "window": {
     "analysis_start": "2026-11-16T10:00:00Z",
     "attempt_minutes": 85,
