@@ -1,0 +1,457 @@
+{
+  "files": {
+    "agent.md": {
+      "bytes": 9301,
+      "sha256": "c09f3b5b08ae3a87684b75fb3abea1659aaa6283d1832a13ae6b6aeb27083bc8"
+    },
+    "evidence/COMPLETED.json": {
+      "bytes": 176,
+      "sha256": "9a8479e06c78d4d52bfae89ae932e13ae7013600253b55426f844f1c256efaa4"
+    },
+    "evidence/HOLDOUT-BARRIER.json": {
+      "bytes": 818,
+      "sha256": "661e178adc05e83cca8d8b2d06fb02b6839fd8dc5f467a1fcca930e146365379"
+    },
+    "evidence/attempts/seattle-building-permit-completion--r1/archive.json": {
+      "bytes": 33311,
+      "sha256": "90299315cea9897f36ce8c3bca5b47e53250a07cf1029e0afb83b872980942d1"
+    },
+    "evidence/attempts/seattle-building-permit-completion--r1/state.json": {
+      "bytes": 9078,
+      "sha256": "2ef4f983d72134f3159aed7be3f2572eb611cd9a78559b57fd4655c4f727e900"
+    },
+    "evidence/attempts/seattle-building-permit-completion--r1/workspace.tar.gz.part0000": {
+      "bytes": 33554432,
+      "sha256": "d01c80d9233941b0494cd8516df1a70bfcfdd3d1a1c828a309e9cc6365f04037"
+    },
+    "evidence/attempts/seattle-building-permit-completion--r1/workspace.tar.gz.part0001": {
+      "bytes": 1972530,
+      "sha256": "10ccc298046e5bc5310707d041eced9f27847a70164868f85fd345e4948aa529"
+    },
+    "evidence/attempts/seattle-building-permit-completion--r2--random/archive.json": {
+      "bytes": 101285,
+      "sha256": "a2027085d81b882b703dff49948d5c9fd7cb5e71aa8c9aa202ce8225cb42e594"
+    },
+    "evidence/attempts/seattle-building-permit-completion--r2--random/state.json": {
+      "bytes": 3829,
+      "sha256": "9cc8650d4cdd83be3fa585f670c768a3b6c28fa75c534730708a7158394b9336"
+    },
+    "evidence/attempts/seattle-building-permit-completion--r2--random/workspace.tar.gz.part0000": {
+      "bytes": 31773514,
+      "sha256": "764b944e7dac0c2eb584141a7c03c65e99078a2c3d590be8d035770a8f52adac"
+    },
+    "evidence/attempts/seattle-building-permit-completion--r2/archive.json": {
+      "bytes": 35619,
+      "sha256": "57e683741faa443a37678340dd9fb28d91fc4d636c0215a48b5fc393f592e3cb"
+    },
+    "evidence/attempts/seattle-building-permit-completion--r2/state.json": {
+      "bytes": 63014,
+      "sha256": "ee8216fe5c8e070fc5c162488e3ab06c963bce43d8bf9bbfb0c579700e9c6da4"
+    },
+    "evidence/attempts/seattle-building-permit-completion--r2/workspace.tar.gz.part0000": {
+      "bytes": 14332367,
+      "sha256": "d19dc5c964a632787f3e2d06c62c57cf48d71d4f1d733f12f101ef727257ac51"
+    },
+    "evidence/attempts/seattle-building-permit-completion--r3--random/archive.json": {
+      "bytes": 17653,
+      "sha256": "85ff3b8e0e88dee00e0741f86749efa8a6361ea38570aaf3d657378494fc1fad"
+    },
+    "evidence/attempts/seattle-building-permit-completion--r3--random/state.json": {
+      "bytes": 3818,
+      "sha256": "01749581c437f23b7e132b670ddd92c0fa3583e7a65e173e110ba6f6e50d3c13"
+    },
+    "evidence/attempts/seattle-building-permit-completion--r3--random/workspace.tar.gz.part0000": {
+      "bytes": 10596125,
+      "sha256": "b901e714d74e56b78e8da2cd0325239ec95fd1a1add6dd5a604316b4237f4469"
+    },
+    "evidence/attempts/seattle-building-permit-completion--r3/archive.json": {
+      "bytes": 42956,
+      "sha256": "828b181efcf2f0c6bfe5ae58554c48d15dc584a4940b2e5503dc08dd59480797"
+    },
+    "evidence/attempts/seattle-building-permit-completion--r3/state.json": {
+      "bytes": 59547,
+      "sha256": "1a45296524d403ed7394a9f2a7e59936449f8b43d019099c26e93b9308732ea8"
+    },
+    "evidence/attempts/seattle-building-permit-completion--r3/workspace.tar.gz.part0000": {
+      "bytes": 7404119,
+      "sha256": "4f86199042cae8b62c52d981f4ed4a895f90d575c6cbd035af1e1bee8baef806"
+    },
+    "evidence/compliance/seattle-building-permit-completion--r1.json": {
+      "bytes": 630,
+      "sha256": "e1f06443d25bd0520b767f462f033e9d2795a76bcaf3f32e36384d021df0731c"
+    },
+    "evidence/compliance/seattle-building-permit-completion--r2.json": {
+      "bytes": 630,
+      "sha256": "e6627cd9a2d223cb42faa7a71a0b130d33f2f127012282c6778cc705d7023c3a"
+    },
+    "evidence/compliance/seattle-building-permit-completion--r3.json": {
+      "bytes": 630,
+      "sha256": "e598ebe66c61b71a7717b87c315f157361297b14e0f311b04041f72e4d0f50c4"
+    },
+    "evidence/controls/seattle-building-permit-completion--published/reproduction.json": {
+      "bytes": 214,
+      "sha256": "93acb8e16f35396ca9a70afc5f1076eb37c95c5cb44efe4525ccfb39742a2cb9"
+    },
+    "evidence/environment/claude-help.txt": {
+      "bytes": 22494,
+      "sha256": "1e734dc647e2d7c775d2e581b3aa68a8741ff4fdde7e864c4e5799d70777558c"
+    },
+    "evidence/environment/host.json": {
+      "bytes": 201,
+      "sha256": "d807a370e0a2df486a0e36bfa0dce8af197899c9da73486d90db640b566de070"
+    },
+    "evidence/environment/pip-freeze.txt": {
+      "bytes": 424,
+      "sha256": "25da8bd4a246c5c78ad693276de09eadf5101df88801ff3a001bba60c8643400"
+    },
+    "evidence/environment/python.json": {
+      "bytes": 149,
+      "sha256": "7245a6256e5c5289e5b7baba2c5ef506d0410b39e9b50fcfe2defba0e121ce89"
+    },
+    "evidence/events.jsonl": {
+      "bytes": 115519,
+      "sha256": "35590d9c26213a18b999351aca4703952519c381af30f56a3f3fc15197b63353"
+    },
+    "evidence/frozen/seattle-building-permit-completion--ordinary/FREEZE.json": {
+      "bytes": 849,
+      "sha256": "fe115062286e7020bd53549d97976a783180e9d4b25230349974c88a9f8799c9"
+    },
+    "evidence/frozen/seattle-building-permit-completion--ordinary/booster.json": {
+      "bytes": 475935,
+      "sha256": "d723ae49b119eee21ea6ff33e209611d93cb6851143af29a89db54131ac3f30b"
+    },
+    "evidence/frozen/seattle-building-permit-completion--ordinary/model.pkl": {
+      "bytes": 362968,
+      "sha256": "01a244bc7e694c78957c635b7e72209e6af15849f68453ea34a2822a840ca049"
+    },
+    "evidence/frozen/seattle-building-permit-completion--ordinary/train.py": {
+      "bytes": 1161,
+      "sha256": "8ef88b64efd5805e03b546af17e7d6e92fbd39e24bc46a03bcb2b848ba9fb450"
+    },
+    "evidence/frozen/seattle-building-permit-completion--ordinary/validation.csv.gz": {
+      "bytes": 78927,
+      "sha256": "3adb5ad7821e0bb0a2009b5ba5407e6a5f454eed7e7fa03c552a35821e6909cd"
+    },
+    "evidence/frozen/seattle-building-permit-completion--ordinary/validation.json": {
+      "bytes": 796,
+      "sha256": "cd7b95ef2b572b47fad905303ba6b25aaf918dd25ac3cdb7dca5b7648706c4ef"
+    },
+    "evidence/frozen/seattle-building-permit-completion--r2--random/FREEZE.json": {
+      "bytes": 1991,
+      "sha256": "f8ff9cf06ea4b3d9106e02cf64c0382eb7b3a88c4631ad27f313495f7801a2d6"
+    },
+    "evidence/frozen/seattle-building-permit-completion--r2--random/booster.json": {
+      "bytes": 757821,
+      "sha256": "94db55dadec294c35974ae5b1b87890ba4917dde4509338cc46f030eae2e7250"
+    },
+    "evidence/frozen/seattle-building-permit-completion--r2--random/model.pkl": {
+      "bytes": 750309,
+      "sha256": "60f3fee0914d3933dfe0b1bff2ac049642d30927ca82ecabb7eb94c107bde59e"
+    },
+    "evidence/frozen/seattle-building-permit-completion--r2--random/train.py": {
+      "bytes": 1247,
+      "sha256": "8980e15d59766d4c986ca30eb4ff0ce1d726bb3cb450559ff807e3e732c45222"
+    },
+    "evidence/frozen/seattle-building-permit-completion--r2--random/validation.csv.gz": {
+      "bytes": 78409,
+      "sha256": "f05f3ebd54bf9ae3bd9b04ffeea402797793b82bfa4d22b172e154416f5a89fe"
+    },
+    "evidence/frozen/seattle-building-permit-completion--r2--random/validation.json": {
+      "bytes": 935,
+      "sha256": "b403ecd428f8cafb719be8d70ee0d4181d0a12c65327e26f482e1df43b77eb6b"
+    },
+    "evidence/frozen/seattle-building-permit-completion--r2/FREEZE.json": {
+      "bytes": 2304,
+      "sha256": "3450ba99724eddaef30db6e76dfbbe0906d8157f63e60052da350167a800ac2a"
+    },
+    "evidence/frozen/seattle-building-permit-completion--r2/booster.json": {
+      "bytes": 3626069,
+      "sha256": "0d5200fb51d1b1dd607d0b8cab153daf3605ab74a2fe4a7e8f25abca53667e42"
+    },
+    "evidence/frozen/seattle-building-permit-completion--r2/model.pkl": {
+      "bytes": 4333979,
+      "sha256": "724050b8b6d99d372cbe7c8378bbd70df9ad82d2065546cd554f4840ba810634"
+    },
+    "evidence/frozen/seattle-building-permit-completion--r2/train.py": {
+      "bytes": 5290,
+      "sha256": "f70b5243c595bee2f68ad85bad5af20e9f588afd717e951a038f0b46847fe89c"
+    },
+    "evidence/frozen/seattle-building-permit-completion--r2/validation.csv.gz": {
+      "bytes": 78536,
+      "sha256": "c9585f6651df45ec7de2b2ad003bcf754470c15f3c94acd427224a30d91b0937"
+    },
+    "evidence/frozen/seattle-building-permit-completion--r2/validation.json": {
+      "bytes": 1180,
+      "sha256": "d1ae3438c4f1b5a31474dd2459f9773087253b60219db1b561f906411379ee27"
+    },
+    "evidence/frozen/seattle-building-permit-completion--r3--random/FREEZE.json": {
+      "bytes": 1991,
+      "sha256": "d6832eeaafc4a892c41fc9a8bf2df49ef1fca6025a4474858dd37bc0659c0dc4"
+    },
+    "evidence/frozen/seattle-building-permit-completion--r3--random/booster.json": {
+      "bytes": 467972,
+      "sha256": "612e317f8abafda2b44bc64f6f13847b6a7ff5b6d5bb85f01e4528d3fe46cb62"
+    },
+    "evidence/frozen/seattle-building-permit-completion--r3--random/model.pkl": {
+      "bytes": 574986,
+      "sha256": "b0b7d2d103f353e1e2cde2404e55c4c85685432def64b70a3485f6aca67f2a7a"
+    },
+    "evidence/frozen/seattle-building-permit-completion--r3--random/train.py": {
+      "bytes": 1247,
+      "sha256": "fca7fe3fea3b0c906000232cb4b1245408f8aba5387cab8abbf6a1be6ec13004"
+    },
+    "evidence/frozen/seattle-building-permit-completion--r3--random/validation.csv.gz": {
+      "bytes": 78761,
+      "sha256": "678cfbb67d38e4ba0e46afae613256a59392b20e15e027393e7785ecc712354f"
+    },
+    "evidence/frozen/seattle-building-permit-completion--r3--random/validation.json": {
+      "bytes": 935,
+      "sha256": "789a001d88f20f88ba0c2c91763887a06a8c520ddd1687537413b06efff8a166"
+    },
+    "evidence/frozen/seattle-building-permit-completion--r3/FREEZE.json": {
+      "bytes": 2219,
+      "sha256": "d2c78eb405c522b69c4d3aad99ae163c5fd1a6441c06affb02564af7ea1baff4"
+    },
+    "evidence/frozen/seattle-building-permit-completion--r3/booster.json": {
+      "bytes": 437605,
+      "sha256": "95c493bab1140f73746912fa4cbeae7c2c5bc34eb37aa2f2a47101e3a6c4d805"
+    },
+    "evidence/frozen/seattle-building-permit-completion--r3/model.pkl": {
+      "bytes": 465916,
+      "sha256": "26743d2d1d9e71de10b012244d361e5e25198ba9238dbd9f7b2de55b2a65cf91"
+    },
+    "evidence/frozen/seattle-building-permit-completion--r3/train.py": {
+      "bytes": 8212,
+      "sha256": "d68b730063551d362dc1affcddac5c00a638de0c1bbb50bc3679b3eaa1c555fe"
+    },
+    "evidence/frozen/seattle-building-permit-completion--r3/validation.csv.gz": {
+      "bytes": 76108,
+      "sha256": "821203f06a4c2e70b4a29303153cf927cf6fd870d47def0b4469199832a6cd86"
+    },
+    "evidence/frozen/seattle-building-permit-completion--r3/validation.json": {
+      "bytes": 1097,
+      "sha256": "895939677c626dd6766997372a6f6161e6b790baa41fdc7e20cdbb5401ecd305"
+    },
+    "evidence/frozen/seattle-building-permit-completion--released/FREEZE.json": {
+      "bytes": 887,
+      "sha256": "cab9b0a8f584288c9f3e18d6e95d2e5fba9178f2fb8d642d3092ace6af56cea3"
+    },
+    "evidence/frozen/seattle-building-permit-completion--released/booster.json": {
+      "bytes": 132829,
+      "sha256": "5eedb46817a83a1b24c3b735b76d41ec5cd6a246fa13463e5d773b8f80e66704"
+    },
+    "evidence/frozen/seattle-building-permit-completion--released/model.pkl": {
+      "bytes": 107217,
+      "sha256": "786e9c66796c6e60910d6c59a27b41d80952d0765a3e97f08966a9350d4771d0"
+    },
+    "evidence/frozen/seattle-building-permit-completion--released/train.py": {
+      "bytes": 1160,
+      "sha256": "431a0f15145a8578df4bc149ee13483cbc7f06e15ac8214356c08da99d9e5d21"
+    },
+    "evidence/frozen/seattle-building-permit-completion--released/validation.csv.gz": {
+      "bytes": 75885,
+      "sha256": "0b2b24ec80b6282dfd56087d480400ddb36ef18a4734480ad4e4751766b3c87a"
+    },
+    "evidence/frozen/seattle-building-permit-completion--released/validation.json": {
+      "bytes": 804,
+      "sha256": "0d8d7acfca5b72e88bd828a5f4886eaabf7334620c128779340a19d911997a1a"
+    },
+    "evidence/holdout-access/seattle-building-permit-completion.json": {
+      "bytes": 274,
+      "sha256": "9fb952a63e5cb32ac4f5da91a495539e681696d235ba75b1c300f07b2831d51b"
+    },
+    "evidence/releases/seattle-building-permit-completion/LICENSE-EVIDENCE.json": {
+      "bytes": 717,
+      "sha256": "ff7141e98807cf0373bd8c0a0bce28cbc0bb0409f80211778639668f1ed148b0"
+    },
+    "evidence/releases/seattle-building-permit-completion/LICENSE.md": {
+      "bytes": 1202,
+      "sha256": "f33b585718c4e0cf2c51e5e34184b41df83b074f0b932495b11f2b107a660477"
+    },
+    "evidence/releases/seattle-building-permit-completion/MANIFEST.json": {
+      "bytes": 38309,
+      "sha256": "c8d716bd8365da0a786ee1e26c5c6cfb1d2b1efe788d6f6a36369f9980e56589"
+    },
+    "evidence/releases/seattle-building-permit-completion/README.md": {
+      "bytes": 6886,
+      "sha256": "07dae93ceefcb4e1155cf52e67d3f4fa1becb0d45d67bf4e4ba8b939d75585ef"
+    },
+    "evidence/releases/seattle-building-permit-completion/SOURCES.json": {
+      "bytes": 1477,
+      "sha256": "04758e5354cc9d2eaf154a77f3d2ba0225b00bf3fd2d65c0f382a57220998c0d"
+    },
+    "evidence/releases/seattle-building-permit-completion/evaluation.json": {
+      "bytes": 1846,
+      "sha256": "c81d73707f4851236dacfd8752c741be5a79d089d40cbfe02a715a5abf90e379"
+    },
+    "evidence/releases/seattle-building-permit-completion/extract/meta.json": {
+      "bytes": 2081,
+      "sha256": "767e29ef2df31a06b97bf83f62027fe7a40e376bf3b98ce238b79e7a5c6acf68"
+    },
+    "evidence/releases/seattle-building-permit-completion/reproduction/build.py": {
+      "bytes": 17093,
+      "sha256": "38de47212ea79f8afe764f4b359bcc6a41f3343620dc6e5c7d484e78d76a3d37"
+    },
+    "evidence/releases/seattle-building-permit-completion/reproduction/construction.json": {
+      "bytes": 30615,
+      "sha256": "75cf2be1eff93324e133dca424efecf1ff0f67a0037500362d59cab4601d4420"
+    },
+    "evidence/releases/seattle-building-permit-completion/reproduction/requirements.txt": {
+      "bytes": 160,
+      "sha256": "5c72f3268174d20364624f76680e189c408a05dba2e7b8cfe12d077b3865e7f0"
+    },
+    "evidence/releases/seattle-building-permit-completion/reproduction/train.py": {
+      "bytes": 2500,
+      "sha256": "a3c6bcf13735bc85c52129ded68f839090dffdc266ebc3810dc61b2e6ea5e7e8"
+    },
+    "evidence/run-logs/seattle-building-permit-completion--ordinary-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/seattle-building-permit-completion--ordinary.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/seattle-building-permit-completion--published.log": {
+      "bytes": 53,
+      "sha256": "a05c375d2e52747375fca2bfc4f68f33fbf673d2dbc519b10c2135fa91af419d"
+    },
+    "evidence/run-logs/seattle-building-permit-completion--r2--random-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/seattle-building-permit-completion--r2--random.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/seattle-building-permit-completion--r2-freeze.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/seattle-building-permit-completion--r2-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/seattle-building-permit-completion--r3--random-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/seattle-building-permit-completion--r3--random.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/seattle-building-permit-completion--r3-freeze.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/seattle-building-permit-completion--r3-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/seattle-building-permit-completion--released-holdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/run-logs/seattle-building-permit-completion--released.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/score-attempts/seattle-building-permit-completion--ordinary.json": {
+      "bytes": 175,
+      "sha256": "d4ae0bc6ba29f8efbfc2a9030b844e718e41596af8ba24c7c2c78fdc54482e30"
+    },
+    "evidence/score-attempts/seattle-building-permit-completion--r2--random.json": {
+      "bytes": 175,
+      "sha256": "35c5f92ebe8ffc78598d075aa8c8e432e43de030b734065b44db79e392471c77"
+    },
+    "evidence/score-attempts/seattle-building-permit-completion--r2.json": {
+      "bytes": 175,
+      "sha256": "d1b79454644ef450ac8039d01624931157d544a63f568b811548bbbe3fac2c52"
+    },
+    "evidence/score-attempts/seattle-building-permit-completion--r3--random.json": {
+      "bytes": 175,
+      "sha256": "408c4528132841d26ec6ea78fbafe4cdb92350797c6e188a144a6895b098b50d"
+    },
+    "evidence/score-attempts/seattle-building-permit-completion--r3.json": {
+      "bytes": 175,
+      "sha256": "563c621be09980c8b4a0902db18e8fc99570433a8ba12c3da532b4443197e75b"
+    },
+    "evidence/score-attempts/seattle-building-permit-completion--released.json": {
+      "bytes": 175,
+      "sha256": "87c02e80b108443e73f63823c0afc27bbe94bf2a8c4f4e300e3193cbc98804b3"
+    },
+    "releases.json": {
+      "bytes": 199,
+      "sha256": "88d06bfce3bd1354321886019f585412e13f6dea96dcfed518e5c771014f2986"
+    },
+    "results/REPORT.md": {
+      "bytes": 2294,
+      "sha256": "07d665ea436d20e216ee270f59e0dfb361f2f34a95e5d6fe2a077a6df454e78c"
+    },
+    "results/scores.csv": {
+      "bytes": 1104,
+      "sha256": "a899884477a94bcf19e1be10f37c362852f303df885dddc81be8c62c96e7ed11"
+    },
+    "results/scores/seattle-building-permit-completion--ordinary/predictions.csv.gz": {
+      "bytes": 68028,
+      "sha256": "a3063b45860abea95c892bc05c769ee20095bb3cb82b814f430bfc3fe5c9d00c"
+    },
+    "results/scores/seattle-building-permit-completion--ordinary/score.json": {
+      "bytes": 257,
+      "sha256": "e20f80ea713746714ea966150cb7e6b4692818e31c95d6b12d1db7807f850439"
+    },
+    "results/scores/seattle-building-permit-completion--r2--random/predictions.csv.gz": {
+      "bytes": 67526,
+      "sha256": "55bb90be2377a424e364bd27e5663f5e2dafbe14b0770588ed49546a7c34384a"
+    },
+    "results/scores/seattle-building-permit-completion--r2--random/score.json": {
+      "bytes": 257,
+      "sha256": "f6f1d331523e893d5d03a9795af69a5e7fbfd881d41a4aca23935feb21f78611"
+    },
+    "results/scores/seattle-building-permit-completion--r2/predictions.csv.gz": {
+      "bytes": 67629,
+      "sha256": "67dc84b2a83243ba3b3b222ba201353bfb7855707b83492141c68485635d1c9c"
+    },
+    "results/scores/seattle-building-permit-completion--r2/score.json": {
+      "bytes": 257,
+      "sha256": "44fe3d0cf101bd19c52d7bdff91417339325ac252229886892ebc4d944bac003"
+    },
+    "results/scores/seattle-building-permit-completion--r3--random/predictions.csv.gz": {
+      "bytes": 67781,
+      "sha256": "882d549a0b7d3174cb9113207bdb88a5888341544c5e43777bbe68e50f27169b"
+    },
+    "results/scores/seattle-building-permit-completion--r3--random/score.json": {
+      "bytes": 256,
+      "sha256": "c7e0962abf800d0c813ceecec9cdc237e093d9f256f0f1c6475a46514da4cff4"
+    },
+    "results/scores/seattle-building-permit-completion--r3/predictions.csv.gz": {
+      "bytes": 66135,
+      "sha256": "a6f7a270b2dd6ca46034f9ab5a9b96fbd23e9280485b3d925d353756abf6e97a"
+    },
+    "results/scores/seattle-building-permit-completion--r3/score.json": {
+      "bytes": 257,
+      "sha256": "1d08450a5d6ed88367f624dcc4af9ef4983463bca290f5505b7bf92886f824ab"
+    },
+    "results/scores/seattle-building-permit-completion--released/predictions.csv.gz": {
+      "bytes": 65406,
+      "sha256": "4d9ca39b68f4f80b883ecdc274c47e8f5bf45d05f523b40478beafe92e9bcd00"
+    },
+    "results/scores/seattle-building-permit-completion--released/score.json": {
+      "bytes": 256,
+      "sha256": "065c6da70a6477b5e40c5356b7aee2f2f750cf4058a3217d0dad07b6b4669aa9"
+    },
+    "results/summary.json": {
+      "bytes": 6938,
+      "sha256": "7b01d2d4e6fb38ad782b5342c4bbcc7bd6a43ad4799a66bf04c52209c16fad17"
+    },
+    "run_study.py": {
+      "bytes": 102055,
+      "sha256": "59e7aaa88b9ffbe8e6052545de01f9809d9e920c0c54573401cbf8d700335af5"
+    },
+    "study.json": {
+      "bytes": 1955,
+      "sha256": "a8517f1e11bb1294d2e50c9b24e9a56aef49eb42f1eae53b1d21515b4eb9be43"
+    }
+  },
+  "sealed_at": "2026-11-15T18:28:56.735560+00:00"
+}

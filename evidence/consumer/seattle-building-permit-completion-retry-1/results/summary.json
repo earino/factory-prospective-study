@@ -1,0 +1,176 @@
+{
+  "cli_reported_cost_usd_not_invoice": 898.9768239999997,
+  "generated_at": "2026-11-15T18:28:56.682763+00:00",
+  "limitations": [
+    "Five selected factory releases; three attempts are descriptive, not agent rankings.",
+    "Pinned consumer scaffold and deterministic downloads are provided assistance.",
+    "CLI-reported model IDs are not independent provider attestation.",
+    "Public holdout isolation and semantic compliance are procedural, not enforced by an OS sandbox.",
+    "CFPB holdout was used in earlier pilot work outside this study.",
+    "Random search matches observed eligible primary-trial fitting CPU, not unlogged diagnostics or token work.",
+    "Fresh Claude trajectories are nondeterministic; frozen artifact replay is reproducible.",
+    "No factory-wide publication yield or spend is inferred from this consumer study."
+  ],
+  "outcomes": [
+    {
+      "compliance_triage": "no_automatic_access_flag",
+      "dataset": "seattle-building-permit-completion",
+      "error": null,
+      "holdout_content_hits": [],
+      "id": "seattle-building-permit-completion--r1",
+      "integrity": "requires_semantic_review",
+      "interruptions": null,
+      "protocol_caveats": [],
+      "research_active_s": 4248.895481999993,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
+      "status": "blocked",
+      "timing": {
+        "cli_invocations": 1,
+        "evaluation_wall_sum_s": 223.97748966499057,
+        "fit_cpu_sum_s": 152.928162,
+        "fit_wall_sum_s": 58.391938415996265,
+        "harness_wall_union_s": 283.7323694229126,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 20,
+        "other_active_wall_s": 3965.16311257708,
+        "research_active_s": 4248.895481999993,
+        "trial_records": 20
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
+    },
+    {
+      "compliance_triage": "no_automatic_access_flag",
+      "dataset": "seattle-building-permit-completion",
+      "error": null,
+      "holdout_content_hits": [],
+      "id": "seattle-building-permit-completion--r2",
+      "integrity": "requires_semantic_review",
+      "interruptions": null,
+      "protocol_caveats": [],
+      "research_active_s": 5100.234250583017,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
+      "status": "frozen",
+      "timing": {
+        "cli_invocations": 17,
+        "evaluation_wall_sum_s": 121.44742412499909,
+        "fit_cpu_sum_s": 57.428856999999994,
+        "fit_wall_sum_s": 23.251504041996668,
+        "harness_wall_union_s": 146.00609707832336,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 22,
+        "other_active_wall_s": 4954.228153504693,
+        "research_active_s": 5100.234250583017,
+        "trial_records": 22
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
+    },
+    {
+      "compliance_triage": "no_automatic_access_flag",
+      "dataset": "seattle-building-permit-completion",
+      "error": null,
+      "holdout_content_hits": [],
+      "id": "seattle-building-permit-completion--r3",
+      "integrity": "requires_semantic_review",
+      "interruptions": null,
+      "protocol_caveats": [],
+      "research_active_s": 5100.015653127979,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
+      "status": "frozen",
+      "timing": {
+        "cli_invocations": 16,
+        "evaluation_wall_sum_s": 236.0898385829787,
+        "fit_cpu_sum_s": 12.803322999999999,
+        "fit_wall_sum_s": 5.888398832001258,
+        "harness_wall_union_s": 243.2108428478241,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 26,
+        "other_active_wall_s": 4856.804810280155,
+        "research_active_s": 5100.015653127979,
+        "trial_records": 26
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
+    }
+  ],
+  "protocol_sha256": "a8517f1e11bb1294d2e50c9b24e9a56aef49eb42f1eae53b1d21515b4eb9be43",
+  "reported_models": [
+    "claude-fable-5-2"
+  ],
+  "reported_usage": {
+    "cache_creation_input_tokens": 1101850,
+    "cache_read_input_tokens": 140789648,
+    "input_tokens": 1144,
+    "output_tokens": 724453
+  },
+  "requested_model": "claude-fable-5-2",
+  "scores": [
+    {
+      "dataset": "seattle-building-permit-completion",
+      "holdout_auc": 0.6179365855905143,
+      "holdout_brier": 0.18231139992070838,
+      "holdout_rows": 6326,
+      "id": "seattle-building-permit-completion--ordinary",
+      "kind": "ordinary",
+      "validation_auc": 0.6193763018351905,
+      "validation_brier": 0.18066629106210508
+    },
+    {
+      "dataset": "seattle-building-permit-completion",
+      "holdout_auc": 0.6473918284596301,
+      "holdout_brier": 0.16644326889691763,
+      "holdout_rows": 6326,
+      "id": "seattle-building-permit-completion--r2",
+      "kind": "agent",
+      "validation_auc": 0.6566011611617636,
+      "validation_brier": 0.17031022974011256
+    },
+    {
+      "dataset": "seattle-building-permit-completion",
+      "holdout_auc": 0.6347200596465576,
+      "holdout_brier": 0.17250741124438113,
+      "holdout_rows": 6326,
+      "id": "seattle-building-permit-completion--r2--random",
+      "kind": "random",
+      "validation_auc": 0.6442855495040071,
+      "validation_brier": 0.17400685760344903
+    },
+    {
+      "dataset": "seattle-building-permit-completion",
+      "holdout_auc": 0.6551826709794852,
+      "holdout_brier": 0.16581913836209253,
+      "holdout_rows": 6326,
+      "id": "seattle-building-permit-completion--r3",
+      "kind": "agent",
+      "validation_auc": 0.6565911309708891,
+      "validation_brier": 0.17010653874750195
+    },
+    {
+      "dataset": "seattle-building-permit-completion",
+      "holdout_auc": 0.6328318542832856,
+      "holdout_brier": 0.1743433350150328,
+      "holdout_rows": 6326,
+      "id": "seattle-building-permit-completion--r3--random",
+      "kind": "random",
+      "validation_auc": 0.641561516832332,
+      "validation_brier": 0.17410696005240045
+    },
+    {
+      "dataset": "seattle-building-permit-completion",
+      "holdout_auc": 0.6199467903361817,
+      "holdout_brier": 0.1742387968456463,
+      "holdout_rows": 6326,
+      "id": "seattle-building-permit-completion--released",
+      "kind": "released",
+      "validation_auc": 0.6268251812957001,
+      "validation_brier": 0.1754951025937614
+    }
+  ]
+}

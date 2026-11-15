@@ -1,0 +1,37 @@
+[
+  {
+    "run": "seattle-building-permit-completion--r1",
+    "status": "incomplete",
+    "missing": [
+      "evidence/frozen/seattle-building-permit-completion--r1/train.py"
+    ]
+  },
+  {
+    "run": "seattle-building-permit-completion--r2",
+    "selected_code_sha256": "f70b5243c595bee2f68ad85bad5af20e9f588afd717e951a038f0b46847fe89c",
+    "selected_code_io_calls": [],
+    "transcripts_scanned": 17,
+    "unique_tool_requests": 209,
+    "tool_counts": {
+      "Bash": 202,
+      "Write": 5,
+      "Read": 2
+    },
+    "existing_flag_results": [],
+    "protected_input_changes": []
+  },
+  {
+    "run": "seattle-building-permit-completion--r3",
+    "selected_code_sha256": "d68b730063551d362dc1affcddac5c00a638de0c1bbb50bc3679b3eaa1c555fe",
+    "selected_code_io_calls": [],
+    "transcripts_scanned": 16,
+    "unique_tool_requests": 211,
+    "tool_counts": {
+      "Bash": 205,
+      "Write": 5,
+      "Read": 1
+    },
+    "existing_flag_results": [],
+    "protected_input_changes": []
+  }
+]
