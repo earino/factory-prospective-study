@@ -2,12 +2,9 @@
 
 {
   "consumer": {
-    "branch": "consumer/sbir-phase1-to-phase2-conversion",
-    "commit": "943f7482d687e6688fc0ae7ba12377a20d73b2de",
-    "dataset": "sbir-phase1-to-phase2-conversion",
-    "finished": "2026-11-14T14:27:34.928613+00:00",
-    "started": "2026-11-14T12:43:53.530450+00:00",
-    "status": "complete"
+    "dataset": "caa-fce-hpv-escalation",
+    "started": "2026-11-15T00:12:29.322441+00:00",
+    "status": "running"
   },
   "factory_counts": {
     "build": 1,
@@ -16,7 +13,7 @@
     "published": 14,
     "rejected": 7
   },
-  "observed_at": "2026-11-15T00:12:02.060530+00:00",
+  "observed_at": "2026-11-15T00:42:30.358255+00:00",
   "paper": {},
   "queue": [
     {
