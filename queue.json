@@ -342,5 +342,44 @@
     "started": "2026-11-15T02:13:52.572975+00:00",
     "status": "complete",
     "verified_at": "2026-11-15T01:17:16.726399+00:00"
+  },
+  {
+    "dataset": "faa-wildlife-strike-substantial-damage",
+    "release": {
+      "artifact_version": "ae75ab5acd1b27aeb29c4d414aa78610d797fe43068062bafd1574bb272dc2f9",
+      "assets": 33,
+      "baseline_display": "See versioned evaluation.json; public validation only",
+      "dataset": "faa-wildlife-strike-substantial-damage",
+      "destinations": {
+        "github": "https://github.com/earino/factory-faa-wildlife-strike-substantial-damage/releases/tag/v-d654c9f4ddfcf60c",
+        "huggingface": "https://huggingface.co/datasets/earino/factory-faa-wildlife-strike-substantial-damage"
+      },
+      "detail_id": "source-000096",
+      "disposition": "public",
+      "published": true,
+      "release_tag": "v-d654c9f4ddfcf60c",
+      "rows": 142871,
+      "splits": {
+        "eval": {
+          "rows": 33250
+        },
+        "holdout": {
+          "rows": 25425
+        },
+        "train": {
+          "rows": 84196
+        }
+      },
+      "verified": {
+        "github": true,
+        "huggingface": true
+      },
+      "verified_all": true,
+      "verified_at": "2026-11-15T09:22:16.250788+00:00",
+      "workflow": "modern"
+    },
+    "selected": true,
+    "status": "queued",
+    "verified_at": "2026-11-15T09:22:16.250788+00:00"
   }
 ]

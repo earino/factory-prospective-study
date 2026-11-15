@@ -11,11 +11,11 @@
   },
   "factory_counts": {
     "build": 2,
-    "deferred": 72,
-    "published": 15,
+    "deferred": 74,
+    "published": 16,
     "rejected": 7
   },
-  "observed_at": "2026-11-15T09:50:37.564769+00:00",
+  "observed_at": "2026-11-15T10:20:54.071711+00:00",
   "paper": {},
   "queue": [
     {
@@ -81,9 +81,17 @@
       "selected": true,
       "branch": "consumer/wser-effluent-exceedance",
       "error": null
+    },
+    {
+      "dataset": "faa-wildlife-strike-substantial-damage",
+      "verified_at": "2026-11-15T09:22:16.250788+00:00",
+      "status": "queued",
+      "selected": true,
+      "branch": null,
+      "error": null
     }
   ],
-  "snapshot_generated_at": "2026-11-15T08:51:25+00:00",
+  "snapshot_generated_at": "2026-11-15T09:52:09+00:00",
   "window": {
     "analysis_start": "2026-11-16T10:00:00Z",
     "attempt_minutes": 85,
