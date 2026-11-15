@@ -9,12 +9,12 @@
   },
   "factory_counts": {
     "build": 1,
-    "deferred": 84,
+    "deferred": 88,
     "discover": 1,
     "published": 19,
     "rejected": 7
   },
-  "observed_at": "2026-11-15T17:25:41.253679+00:00",
+  "observed_at": "2026-11-15T17:56:02.389451+00:00",
   "paper": {},
   "queue": [
     {
@@ -139,7 +139,7 @@
       "outcome": {}
     }
   ],
-  "snapshot_generated_at": "2026-11-15T16:52:13+00:00",
+  "snapshot_generated_at": "2026-11-15T17:52:07+00:00",
   "window": {
     "analysis_start": "2026-11-16T10:00:00Z",
     "attempt_minutes": 85,
