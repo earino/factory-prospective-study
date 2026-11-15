@@ -1,0 +1,67 @@
+{
+  "stage_attempts": 394,
+  "stage_status_counts": {
+    "discover": {
+      "done": 41,
+      "retry": 76,
+      "repair": 0,
+      "defer": 20,
+      "reject": 0,
+      "running": 0
+    },
+    "build": {
+      "done": 27,
+      "retry": 184,
+      "repair": 0,
+      "defer": 1,
+      "reject": 0,
+      "running": 2
+    },
+    "evaluate": {
+      "done": 11,
+      "retry": 4,
+      "repair": 14,
+      "defer": 0,
+      "reject": 2,
+      "running": 0
+    },
+    "publish": {
+      "done": 11,
+      "retry": 1,
+      "repair": 0,
+      "defer": 0,
+      "reject": 0,
+      "running": 0
+    }
+  },
+  "unique_done_candidates": {
+    "discover": 41,
+    "build": 14,
+    "evaluate": 11,
+    "publish": 11
+  },
+  "publication_latency_minutes": {
+    "min": 40.313263166666665,
+    "median": 106.2903345,
+    "max": 189.2361460333333
+  },
+  "original_consumer_outcomes": {
+    "frozen": 21,
+    "failed": 12
+  },
+  "artifact_probes": 21,
+  "training_probe_errors": [
+    "fda-510k-five-year-recall--r2",
+    "t100-new-route-survival--r3"
+  ],
+  "cost": {
+    "total": [
+      27.835795635098766,
+      27.944072241098766
+    ],
+    "per_release": [
+      2.5305268759180697,
+      2.5403702037362517
+    ]
+  }
+}

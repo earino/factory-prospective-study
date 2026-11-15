@@ -147,3 +147,7 @@ evidence. Continue collection under the existing schedule. Do not add new studie
 or delay writing to expand the literature search.
 
 Interim cost evidence is now available in [the cost report](../evidence/costs/2026-11-15/REPORT.md), with pinned inputs and an offline calculation script. Update the same method at the final cutoff; do not reuse frozen-only consumer cost totals.
+
+The [first full draft](README.md) is now written in LaTeX and compiled to seven
+IEEE pages. Update it from the final evidence; retain the interim snapshot and
+use [SIGNOFF.md](SIGNOFF.md) to track the concrete remaining review work.

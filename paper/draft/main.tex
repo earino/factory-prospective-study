@@ -1,0 +1,202 @@
+\documentclass[conference,10pt,letterpaper]{IEEEtran}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx,booktabs,amsmath,url}
+\usepackage[hidelinks]{hyperref}
+\urlstyle{same}
+\renewcommand{\ttdefault}{lmtt}
+\graphicspath{{figures/}}
+\hypersetup{pdftitle={From Public Data to Prediction Benchmarks: Cost, Reliability, and Lessons from an Agent-Driven Factory},pdfauthor={Eduardo Arino de la Rubia}}
+\title{From Public Data to Prediction Benchmarks:\\Cost, Reliability, and Lessons from an Agent-Driven Factory}
+\author{\IEEEauthorblockN{Eduardo Ari\~no de la Rubia}\IEEEauthorblockA{Central European University\\\texttt{rubiae@ceu.edu}}}
+\begin{document}
+\bstctlcite{IEEEexample:BSTcontrol}
+\maketitle
+\begin{abstract}
+An agent-driven Dataset Factory published 11 prediction datasets on GitHub and Hugging Face during an interim 64.9-hour observation window. Estimated recurring operating cost was \$27.84--\$27.94, or \$2.53--\$2.54 per publication, including unsuccessful production work, workers, and allocated hosting. The factory connects public-source discovery, prediction-task construction, validation, and versioned publication. A deterministic controller manages state, workers, retries, and transfer; bounded language-model tasks interpret sources, generate code, and review meaning. This is an operating-window ratio, not a human-cost comparison or a development-cost estimate. Independent consumers completed three XGBoost research attempts on each of seven releases; four other releases encountered provider-access or quota failures. Saved results show modeling headroom on some tasks, but source review also identifies population-selection discrepancies, missing dependence keys, and a history feature whose safe use depends on the scoring interface. We describe the engineering and evaluation boundaries that make these outcomes inspectable. The experience supports low recurring cost for an integrated factory, while showing why public delivery, predictive performance, and benchmark validity require separate evidence.
+\end{abstract}
+\begin{IEEEkeywords}agentic engineering, dataset construction, prediction benchmarks, operating cost, empirical evaluation\end{IEEEkeywords}
+
+\section{Introduction}
+Dataset Factory published 11 prediction datasets during a 64.9-hour observation window at an estimated recurring operating cost of approximately \$28. The sources span courts, utilities, safety regulation, research funding, transport, and environmental reporting. Independent consumer agents completed prediction experiments on seven releases. These results establish an operating source-to-publication path; they do not establish that all published tasks are valid for every advertised use.
+
+Preparing a prediction benchmark requires more than downloading a table. Someone must find a source, interpret its records, define an observable outcome, identify available inputs, construct splits, check the result, and distribute an artifact that another researcher can use. These activities connect data preparation to software engineering: the product contains executable transformation logic, data contracts, dependencies, tests, versioned files, and operational state. Failure at a boundary can invalidate otherwise successful work.
+
+Recent systems already automate important parts of this process. AutoData collects web records from a natural-language request~\cite{autodata-web}; DatasetResearch evaluates demand-driven discovery~\cite{datasetresearch}; MLE-Smith constructs machine-learning tasks from supplied datasets~\cite{qiang2026mlesmith}; and AutoSDT searches sources and constructs executable scientific tasks~\cite{autosdt}. Low marginal generation cost is therefore not, by itself, a new result. Our interest is the operation of these capabilities as a continuing factory, including failed attempts, resource accounting, public delivery, and use by separate consumers.
+
+We ask three questions. \textbf{RQ1:} What does a deployed factory produce, and which operational failures and interventions occur? \textbf{RQ2:} What recurring resources does that production consume? \textbf{RQ3:} What does independent use reveal about the published artifacts? The contribution is an experience report with inspectable records, not a new generation algorithm or a claim of first automation.
+
+The system uses DeepSeek for production and a separate Fable consumer setup for evaluation. It publishes under a standing policy without a person approving each dataset. People configured the policy, developed the system, and directed operational repairs. We report those roles rather than describe the observation window as intervention-free.
+
+\textit{Draft scope.} This first draft uses the production export ending 15 November 2026 at 14:24 UTC and the original consumer results available at that point. Collection and three quota-recovery evaluations remain active. The paper will replace this interim snapshot with the final observation record before submission; no recovery result is assumed here.
+
+\section{System and Work Allocation}
+\subsection{The product and its boundaries}
+Each release defines a binary prediction task from real public records. It includes a target, population, predictor contract, chronological split definition, baseline, source and license evidence, construction code, dependencies, and checksummed data. GitHub carries versioned release assets and code; Hugging Face carries the accepted files and a dataset card. The factory's code is public.\footnote{\url{https://github.com/earino/dataset-factory}}
+
+The task contract distinguishes retrospective research from historical forecasting. A current administrative snapshot can support retrospective comparisons while failing to establish which fields were available at a past operational decision. The release must state that limitation. A narrower claim does not excuse incorrect labels, known answer exposure, or a population definition that contradicts the code.
+
+\begin{figure*}[t]
+\centering\includegraphics[width=\textwidth]{workflow.pdf}
+\caption{Production and independent evaluation. Models handle source-specific judgment and code; deterministic software owns operational state and artifact movement. Consumer outcomes are not returned to production as optimization feedback during the observation window.}
+\label{fig:workflow}
+\end{figure*}
+
+\subsection{Known procedures run in code}
+A scheduled controller advances durable SQLite state through \emph{discover}, \emph{build}, \emph{evaluate}, and \emph{publish}. Attempt identifiers, saved responses, worker records, and artifact identities let subsequent ticks resume work. A small resident coordinator, Scout, is the sole worker-launching owner. Temporary Hetzner workers perform downloads, transformations, model fitting, and bulk transfer. Independent cleanup handles expired workers.
+
+The model is called where source-specific judgment or code is needed: identifying a useful source, interpreting its documentation, proposing a task, implementing transformations, and reviewing semantic findings. Construction repairs use saved proposals and concrete diagnostics. Model calls do not decide whether an upload completed or whether a worker still exists. The requested initial production model is \texttt{deepseek-v4.1-flash:1017}; invocation records retain the route and reported usage.
+
+Failures leave attempt records and diagnostics for reconciliation. Bounded retries and deferrals limit work on a source. An access error, a malformed response, and an unsuitable label remain distinct causes.
+
+\subsection{Acceptance and publication}
+Construction runs artifact checks on the worker. These include file and schema compatibility, labels, split consistency, task-specific leakage checks, and a working baseline. A bounded semantic review examines the evidence and the meaning of the constructed task. It can accept, request a material repair, or reject. Distribution requires readable source terms and preserved attribution.
+
+Accepted bytes are bound to a manifest. The publisher resumes matching transfers, places the same files on both platforms, tags the complete release, and verifies anonymous consumption. A successful upload alone is not publication completion. Frozen versions remain available; a correction must not silently replace the evaluated data.
+
+The standing policy removes per-dataset human approval. Factory acceptance remains an observed decision whose product is tested independently.
+
+\section{Observation and Evaluation Method}
+\subsection{Production record and cohort}
+The prospective observation began on 12 November 2026 at 21:27:59 UTC. This draft ends its production accounting at 15 November at 14:24:01 UTC, covering 64.93 hours. The planned final cutoff is 16 November at 07:00 UTC. A read-only export contains candidate and attempt records, model usage, worker lifetimes, and publication identities. Periodic public snapshots provide an additional view, but do not replace the attempt ledger.
+
+At the interim export, the ledger includes 42 candidate records created before the window and 65 admitted during it. Seven already-published dataset identities are excluded from the new consumer cohort. An admitted record is initially a search slot, not necessarily a distinct source. We count completed milestones by candidate and repeated work by attempt, rather than merge these denominators into one success rate.
+
+Consumers select the first 12 new dataset identities by publication-verification time, breaking ties by identifier. Eleven had appeared at the interim cutoff; all eleven were new admissions. Selection does not depend on domain, baseline score, or consumer improvement. The first accepted version is pinned, and failures keep their place. Earlier pilot outcomes are not pooled with this cohort.
+
+The factory continues discovery while consumers evaluate releases. Consumer outcomes do not feed candidate selection or acceptance. Necessary production repairs remain recorded interventions.
+
+\subsection{Cost accounting}
+We estimate recurring production cost as
+\begin{equation}
+ C_{\mathrm{window}}=C_{\mathrm{inference}}+C_{\mathrm{workers}}+C_{\mathrm{hosting}}.
+\end{equation}
+Inference uses recorded uncached input, cached input, and output tokens multiplied by dated published rates. Hermes reports those input categories separately; cached input is not added a second time to an inclusive total. Provider-specific peak and off-peak schedules are applied where timestamps permit. For sessions crossing a tariff boundary, the lower and higher applicable prices form a range. An all-peak alternative shows sensitivity to that allocation.
+
+Ollama-routed usage is valued at Ollama rates. Earlier Nous-routed DeepSeek usage is valued at direct DeepSeek equivalents, not described as a Nous invoice. Recorded provider rates supply the worker estimate, including IPv4 and tax. Each server lifetime is rounded up separately to whole billed hours. Hosting is allocated from the author's \$20 monthly Nous plan over November's 30 days. The exchange rate used is \$1.1052 per euro. Rates and their retrieval date, 15 November, are retained with the calculation.
+
+All recorded production work in the selected accounting window contributes, including unsuccessful attempts. Two model sessions and one worker crossing the starting boundary are included in full; other earlier work is excluded. Cost divided by publications is therefore a window-level operating ratio, not each artifact's lifetime construction cost. We separately retain candidate origin and publication timing.
+
+The estimate excludes system development, author and operator labor, paper preparation, upstream agencies' data collection, and unmetered external services. The independent consumer experiment is a research instrument, covered by a separate Claude subscription, and is excluded from factory production costs. We have no matched human-construction experiment and report no labor savings ratio.
+
+\subsection{Independent prediction experiments}
+Each dataset receives three fresh Fable 5.2 research attempts, with an 85-minute allowance per attempt, three concurrent attempts, and five fitting threads each. One dataset is evaluated at a time. The requested and CLI-reported model identifiers are recorded. This tests the released artifacts with one consumer configuration; it is not a ranking of language models.
+
+Consumers can change XGBoost preprocessing, feature transformations, and hyperparameters, using training and labeled validation data. The allowed raw predictor set comes from the pinned construction contract. Identifiers, carry columns, and label-source fields are excluded. An ordinary XGBoost scaffold and a per-attempt random-search control use the same permissible predictors. Random search follows the existing control procedure~\cite{randomsearch}; its budget matches recorded eligible fitting CPU, not total model-inference time or every exploratory diagnostic.
+
+Selection uses replayed validation AUC, with ties resolved to the first trial. Selected code, fitted models, and validation predictions are frozen before holdout scoring. All attempts and controls for a dataset cross the freeze barrier before its holdout is fetched. Scoring uses the saved model and row-wise inference; the consumer cannot improve its model after seeing the result. Repeated validation optimization can still overfit selection~\cite{cawley}, which is why validation gains alone are not the result.
+
+Holdouts are publicly available. Consumers are instructed not to access them, other runs, or coordinator files. The isolation is procedural, not an operating-system security boundary. Transcripts, tool requests, copied-file hashes, and selected code are retained for conduct review. An automatic access flag requires interpretation; its absence is not proof of compliance. Provider failures are recorded separately from dataset failure. After the author reset an exhausted quota, fresh recovery attempts were authorized for three affected datasets with the same release pins; those results are not included in this draft.
+
+\subsection{Source review, uncertainty, and artifact probes}
+A separate bounded review precedes scoring. It reads the task contract, construction code, source documentation, and permitted public data to examine target meaning, feature timing, population selection, and possible label-derived history. It also declares a dependence grouping from source meaning. The review does not approve publication or choose which datasets receive evaluation.
+
+Where a grouping is available, paired bootstrap intervals resample whole groups 2,000 times, using a fixed seed derived from the dataset identifier. Each draw applies the same sampled rows to the consumer and control. Intervals are pointwise percentile 95\% intervals conditional on the fitted models, observed cohort, and grouping assumption. They do not include variation across future agent runs, temporal shifts, or all residual dependence. No multiplicity adjustment is applied. We do not average these intervals into a population-wide agent success probability.
+
+Derived probes inspect row-order behavior, batch-versus-single-row preparation, external activity during preparation, and dependence of a training row's encoded features on its own label. These are targeted checks, not universal proofs. Their execution status and per-run diagnostics are read separately. This draft retains raw scores where semantic review or a probe is unresolved; it does not silently turn them into protocol-qualified outcomes.
+
+\section{Results}
+\subsection{Production across sources}
+The window contains 394 stage attempts that started within its boundaries. Forty-one distinct candidate records completed discovery, 14 completed at least one build, and 11 completed semantic acceptance and publication. A candidate can revisit a stage. For example, 27 successful build attempts belong to 14 candidates. These are observed milestones, not a completed-cohort conversion rate: other records remained deferred, rejected, or active.
+
+The eleven published tasks cover civil trials, utility reliability, pipeline-enforcement penalties, device recalls, airline-route persistence, research-grant progression, air-pollution enforcement, wastewater exceedances, aircraft wildlife strikes, building permits, and railway hazardous-material releases. For these successful releases only, elapsed time from candidate admission to verified publication ranged from 40 to 189 minutes, with a median of 106 minutes. This excludes unsuccessful candidates' waiting time and does not measure how long an arbitrary source will take.
+
+Repeated work is substantial despite the low token price. The ledger records 76 discovery retries and 184 build retries, alongside 14 semantic repair outcomes. Figure~\ref{fig:operations} separates recorded status categories. A retry can include waiting or reconciliation rather than a new model call, so attempt counts must not be presented as inference counts or unique defects. The operation record is useful precisely because these events remain visible.
+
+\begin{figure*}[t]
+\centering\includegraphics[width=\textwidth]{operations.pdf}
+\caption{Interim production accounting, 12--15 November. (a) Estimated recurring cost; the inference bar uses the midpoint of the tariff-timing range. (b) Stage attempts started in the window, including repeated work. Counts are not unique sources or model calls.}
+\label{fig:operations}
+\end{figure*}
+
+One documented intervention corrected worker-budget accounting on 14 November. The old admission calculation kept worst-case reservations after workers had been deleted, leaving almost no construction headroom. The shared code was changed to charge confirmed lifetimes in rounded hours while retaining reservations for active or unresolved records. The ordinary scheduler then resumed construction without manual candidate-state edits. The correction did not change the acceptance rules, but it affected the factory's ability to operate. It therefore belongs in the production account. A final reconciliation of all deployment and routing events remains part of the submission review; this draft makes no claim that this was the only intervention.
+
+\subsection{Operating cost}
+The selected production record contains 374 model sessions with usage and 2,412 API calls: 21.69 million uncached input tokens, 91.11 million cached input tokens, and 15.18 million output tokens. Five further attempts lack usage counters; Scout's readback identifies HTTP 402 failures before generation with zero tokens. We retain that explanation and its provenance rather than infer zero from missing values alone.
+
+Time-priced inference is \$13.84--\$13.95. Workers contribute EUR 11.03, or \$12.19, and allocated hosting contributes \$1.80. Total estimated recurring cost is \$27.84--\$27.94, equivalent to \$2.53--\$2.54 per publication. Pricing all recorded inference at peak rates instead gives \$39.27 total, or \$3.57 per publication. Neither calculation includes the excluded development and human costs.
+
+The 187 worker job lifetimes total 18.53 elapsed server-hours but 188 billed hours after per-lifetime rounding; one worker remained active. Fractional runtime understates this charge basis, while permanent worst-case reservations overstate settled use.
+
+\subsection{Independent use and predictive comparisons}
+All eleven released baselines and ordinary consumer scaffolds produced holdout scores. Seven datasets also completed all three consumer research attempts, yielding 21 frozen consumer models. The other 12 original attempts failed at the CLI/provider layer: utility-reliability attempts encountered access failures, and the final three datasets encountered quota exhaustion. These are not observations that the datasets lack predictive value.
+
+Table~\ref{tab:scores} reports the raw saved-model results, retaining all attempts rather than selecting the best run for the paper. The seven completed datasets span small and large holdouts and different dependence structures. Ordinary-scaffold AUC ranges from 0.557 for pipeline penalties to 0.893 for wastewater. Scores alone do not establish useful decision support, and the comparisons below remain conditional on the unresolved review items.
+
+\begin{table*}[t]
+\caption{Interim raw holdout AUC. Consumer and random columns show the range across three attempts, not confidence intervals. Groups are the prescoring dependence keys used for intervals. ``?'' means unresolved grouping; ``--'' means no completed consumer comparison. Review limitations apply, including two unresolved training-feature probes.}
+\label{tab:scores}\centering\small
+\begin{tabular}{lrrrrr}\toprule
+Task & Holdout rows & Ordinary & Consumer range & Random range & Groups\\\midrule
+\csname @@input\endcsname generated/score-rows.tex
+\bottomrule\end{tabular}
+\end{table*}
+
+Under district resampling, all three civil-trial comparisons against their random controls have positive intervals. Device-recall comparisons also have positive intervals under product-code resampling, but that key does not cover all dependence between firms or recall events. The civil-trial review also identifies defendant jury-demand information that can postdate filing. These comparisons establish headroom on the shipped retrospective tables, not valid prediction at filing or clearance time.
+
+The remaining results are less decisive. All three air-enforcement point differences against random search are positive, but their intervals include zero. All three research-grant differences are negative with intervals including zero. Airline-route differences change sign across attempts, and every interval includes zero. For wastewater, one of three intervals is narrowly above zero and two include zero. We do not turn that isolated result into a general superiority claim. Figure~\ref{fig:intervals} shows all available paired comparisons with random search.
+
+For pipeline-enforcement penalties, the release omits the operator identifier needed to represent the main dependence described by its own documentation. The prescoring reviewer therefore left the grouping unresolved. Its positive point differences are descriptive only. Substituting independent-row intervals would answer a different question without resolving the missing information.
+
+\begin{figure*}[t]
+\centering\includegraphics[width=\textwidth]{consumer-intervals.pdf}
+\caption{Consumer minus paired random-search holdout AUC, with 2,000-draw whole-group percentile 95\% intervals. Every available attempt is shown. The FDA product-code grouping is partial; PHMSA operator grouping is unavailable and is omitted. These raw comparisons are conditional on fitted models and review limitations, not a ranking of consumer agents.}
+\label{fig:intervals}
+\end{figure*}
+
+\subsection{What the score does not check}
+The source and artifact reviews provide three concrete lessons beyond score differences.
+
+\textbf{Selection logic can contradict the declared population.} In the SBIR research-grant task, eligibility depends on all records for a firm, including records after the index award. The code excludes firms with Phase I and Phase II in the same first year and uses ambiguity sets populated from later records. The contract nevertheless says that no outcome field is used to select rows. We confirmed these paths in the pinned builder and declaration. This is a documentation/selection discrepancy; the effect size is not established here. A separate suspicion that award amounts contain later options remains a hypothesis, not a proven leakage mechanism.
+
+\textbf{A history feature needs an access contract.} The wastewater release uses the previous year's exceedance as a predictor for the current year. The prescoring review found exact agreement with the earlier row's label on 11,800 available public row pairs. The pinned code confirms the lag construction. Such history can be legitimate when the earlier outcome is available. It also means that later rows can reveal earlier outcomes if an evaluator exposes the entire future feature matrix at once. Our scorer supplies one row at a time, and the three saved consumer preparations passed the sampled batch/order probes. This supports the tested interface, not unrestricted batch use or a universal absence of cross-row exposure.
+
+\textbf{Completing a check is not passing it.} All 21 saved consumer preparations passed batch-versus-single-row and reverse-order probes on 25 validation rows. Own-label feature probes produced no changed tested cells in 19 runs, but returned an assertion error for one device-recall and one airline-route run. The wrapper recorded successful execution of the script; its per-run report preserved the unresolved errors. Neither an error nor a green wrapper proves leakage or compliance. The two cases require semantic follow-up before a final protocol-qualified interpretation.
+
+\section{Discussion and Engineering Lessons}
+\subsection{Integration is the relevant unit of experience}
+The factory connects capabilities with existing precedents. The experience lies in their repeated operation: retained state, recovery, accounting, and use of the delivered artifact.
+
+Deterministic state and transfer make the process inspectable. Saved proposals and version-bound artifacts preserve work across failures. We observed this deployed path; we did not isolate each design choice through an architecture ablation.
+
+\subsection{Affordability has a clear but limited meaning}
+A few dollars per publication makes recurring experimentation plausible for a small research group that already has the system. The result is useful even without a human comparator. It lets a reader reason about operating a similar workload and see how retries, billing granularity, and caching affect the estimate. It does not answer what it costs to build and maintain the factory or to verify a new domain's scientific assumptions.
+
+This work resembles familiar analytical labor: finding, synthesizing, transforming, checking, and preparing material for others. Chaining theory treats the allocation of adjacent tasks as relevant to automation~\cite{chaining}; our system is an example of such a connected workflow, not a causal test of that theory. Human work remains in policy, engineering, source interpretation when automation fails, and responsibility for downstream claims. We have not measured displacement of that work.
+
+\subsection{Evaluate products at several levels}
+Delivery, task meaning, modeling behavior, and consumer conduct need distinct evidence. Checksums establish artifact identity; construction review examines meaning; frozen-model experiments test use. No one result substitutes for the others.
+
+The missing operator key in pipeline enforcement is a small packaging decision with a large consequence for uncertainty estimation. The wastewater history feature makes interface semantics part of validity. SBIR selection demonstrates that a model can train successfully on a cohort whose definition is inaccurately described. These examples suggest retaining non-predictor audit keys, specifying the information visible at scoring, and testing declarations against code paths. They do not justify adding a universal approval cascade to every dataset.
+
+\section{Related Work}
+\subsection{Discovery, construction, and operating cost}
+AutoData's web-collection workflow starts with a user request~\cite{autodata-web}. Its reported preparation-time comparison ends when collection begins, so it is not a measurement of a complete public benchmark release. DatasetResearch evaluates agents against requested dataset needs~\cite{datasetresearch}. MLE-Smith constructs competition-style tasks from existing datasets~\cite{qiang2026mlesmith}; AutoSDT includes source search and generates executable scientific tasks~\cite{autosdt}. DataMaster studies task-conditioned data acquisition and transformation with downstream feedback~\cite{datamaster}. These are close precedents with different inputs and products.
+
+Their costs should not be ranked without matching those boundaries. MLE-Smith's first arXiv version reports \$0.78 per task, including generation and verification; its separated-versus-merged-agent ablation reports different costs on a smaller sample. AutoSDT reports approximately \$0.55 per generated task. Our output is a versioned public prediction release, and our window estimate includes recorded failed production work, workers, and hosting. This distinction supports a scoped comparison, not a claim that the factory is uniquely cheap or more efficient.
+
+\subsection{Benchmark use and evaluation}
+MLAgentBench and MLE-bench evaluate agents on machine-learning work~\cite{mlagentbench,mlebench}. Our consumers serve a narrower purpose: testing the products of a separately operating factory. Three attempts preserve visible run variation, but are insufficient for broad model rankings. Ordinary and random-search controls help distinguish available modeling headroom from gains that require an agent~\cite{agents-matter,randomsearch}.
+
+Dataset documentation practices motivate explicit provenance, intended use, and limitations~\cite{datasheets}. Work on model-selection bias explains why repeatedly optimized validation scores need a separate test~\cite{cawley}. Our evidence adds operational cases where those principles meet generated construction code: an omitted grouping key, a population declaration contradicted by selection logic, and history whose safe use depends on how prediction inputs are delivered.
+
+\section{Threats to Validity and Evidence Availability}
+This is one factory, a short observation period, one production-model family, one consumer configuration, and a small publication cohort. The interim record is incomplete by design. It cannot estimate a general probability that a discovered source becomes a good benchmark. Continued operation and the authorized recovery evaluations may change the final counts and comparisons.
+
+All tasks draw on existing public records. New packaging and task definitions do not establish that the models have never seen the source data or related problems. Public holdouts enable reproducibility and conduct testing, but procedural isolation cannot prove non-access. Transcript screening and sampled code probes have incomplete coverage. This draft has not completed the full semantic review of every selected solution and flagged request; raw scores remain distinct from a completed compliance verdict.
+
+Dependence keys are imperfect. Product-code grouping does not necessarily capture FDA firm and recall-event dependence; state grouping need not capture all environmental dependence; no suitable PHMSA operator key is shipped. Bootstrap intervals are conditional on these choices. Narrow intervals cannot repair a wrong target, population, or input-timing claim, and wide intervals do not by themselves make a task useless.
+
+Cost estimates use measured resource counts and published rate assumptions rather than reconciled invoices. Development, labor, upstream collection, and unmetered services are outside scope. Successful-release latency excludes deferred work. Changes to routing and worker accounting mean the window is not a fixed-configuration performance benchmark; the final operation account must retain those interventions.
+
+The evidence repository retains release pins, attempt records, saved models and predictions, transcripts, review outputs, and analysis code. The public factory links to the dataset repositories; the study evidence is private during drafting and is intended for public release at submission.\footnote{Planned evidence repository: \url{https://github.com/earino/factory-prospective-study}.} Replay of frozen artifacts is distinct from reproducing a fresh nondeterministic agent trajectory.
+
+\section{Conclusion}
+An agent-driven factory connected public-source discovery to versioned publication for 11 prediction datasets at an interim estimated recurring cost of about \$28. Independent consumers completed research on seven releases and exposed both modeling headroom and concrete limits in task specification and evaluation. The low operating cost is encouraging; it does not certify the products. The main engineering lesson is to retain evidence at each boundary: source meaning, construction, recovery, cost, publication, and independent use. That makes inexpensive automation assessable rather than merely productive.
+
+\section*{AI Assistance}
+AI systems assisted implementation, literature search, review briefs, source and transcript review, analysis, and manuscript drafting. Production and consumer models are identified in the method. The author retains responsibility for the claims, source verification, and final submitted text.
+
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+\end{document}
