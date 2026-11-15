@@ -317,3 +317,14 @@ no-feedback annotation; the methods still explain the study separation. Body
 text and quantitative evidence are unchanged. All seven pages were inspected.
 Portable-source and aggregate checks are rerun; output/QA.json records the final
 artifacts. This editorial update does not close remaining scientific review.
+
+
+## Paragraph-value revision — 15 November
+
+Applied the complete paragraph audit. The paper is six IEEE pages, with unchanged
+measurements, figures and table, both controls, 20 references and the necessary
+limitations. Removed the six standalone low-value paragraphs and compressed
+repeated methods and chronology. Draft-status notices remain. All six rendered
+pages were read and inspected; reference columns are balanced. The aggregate
+audit passes and the portable source is rebuilt and checked. Seattle recovery
+remains pending; no new result is implied by this editorial revision.

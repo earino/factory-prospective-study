@@ -1,6 +1,6 @@
 # Dataset Factory paper draft
 
-The revised full draft is [the seven-page PDF](output/paper.pdf).
+The revised full draft is [the six-page PDF](output/paper.pdf).
 The draft includes all 12 cohort publications and 29 scored consumer models from
 ten datasets, including all three quota-recovery evaluations completed by 20:08 UTC
 on 15 November. Nine datasets have three models; Seattle has two and one blocked
@@ -8,7 +8,7 @@ attempt. Drinking-water evaluation is running; utility-reliability access failur
 remain. Production costs still use the 64.93-hour export ending at 14:24 UTC that
 day and its 11-publication denominator.
 
-The readability revision is complete, with three new full-paper review passes
+The paragraph-value audit has been applied; the earlier three full-paper readability passes are
 recorded in [REVISION-REVIEW.md](REVISION-REVIEW.md). The paper separates operation,
 independent use, and source validity while retaining the integrated factory as its
 contribution. Cost is a bounded operating-window ratio, not total construction cost.

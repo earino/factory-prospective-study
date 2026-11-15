@@ -273,3 +273,27 @@ Final manuscript SHA-256: `659f487c7c7f33d88e6e8a661376deae0499a25bd2976fa631320
 Figure 1 layout follow-up: after removing the annotation, its canvas retained
 unused bottom space. Trimmed the vertical extent and figure height together,
 preserving the diagram scale and standard LaTeX caption spacing.
+
+
+## Paragraph-value audit applied — 15 November
+
+Applied all 62 paragraph decisions in PARAGRAPH-VALUE-AUDIT.md. Removed the six
+standalone paragraphs identified there and consolidated the stated merges.
+Shortened cost mechanics, recovery chronology and case descriptions. Necessary
+Seattle timing, grouping, unfinished probe and conduct-review limits remain in
+Threats. The factory accounting failure remains as a concrete production case.
+The two controls, numerical results, human-work discussion and 20 references
+remain. Draft-status notices are preserved for the requested final pass.
+
+Read the complete six-page rendered paper for continuity, including all figures,
+captions and references. Motivation leads to the integrated system, three
+questions, methods, observed results and engineering lessons. The consumer
+runner repair no longer appears as a purported research contribution.
+Balanced the reference columns using the IEEE class command. No font or margin
+reduction was used. Aggregate checks still verify the same observations.
+The portable-source checker now enforces the seven-page ceiling rather than
+requiring exactly seven pages; the shorter paper is not padded.
+
+The source/result manuscript hashes and changed audit paragraph IDs are recorded
+in analysis/paragraph-audit-application.json. Seattle's authorized fresh retry is
+still pending; this revision changes presentation, not measured outcomes.

@@ -264,3 +264,9 @@ evaluation, measured findings and engineering implication. Select numbers that
 carry the argument, qualify costs beside the estimate, and retain both controls.
 Avoid a catalogue of audit details and a repeated generic conclusion. Figure 1
 shows the workflow; evaluation-separation details belong in the methods.
+
+
+Paragraph-value audit applied: give main-text space to system behavior, evidence
+and supported interpretation. Keep execution reconstruction in the evidence
+record. Do not turn consumer-runner debugging into a research contribution.
+The current draft is six pages within the seven-page limit; do not add filler.

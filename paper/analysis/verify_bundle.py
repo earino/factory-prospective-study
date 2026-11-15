@@ -5,7 +5,7 @@ P=Path(__file__).resolve().parents[1]; out=P/'output'; clean=Path(tempfile.mkdte
 with zipfile.ZipFile(out/'paper-source.zip') as z:z.extractall(clean)
 with (out/'clean-build.txt').open('w') as f:subprocess.run(['sh','build.sh'],cwd=clean,stdout=f,stderr=subprocess.STDOUT,check=True)
 info=subprocess.check_output(['pdfinfo',str(clean/'main.pdf')],text=True)
-pages=int(re.search(r'Pages:\s+(\d+)',info).group(1));assert pages==7,pages
+pages=int(re.search(r'Pages:\s+(\d+)',info).group(1));assert 1 <= pages <= 7,pages
 log=(clean/'main.log').read_text();assert 'Overfull' not in log and 'undefined' not in log
 fonts=subprocess.check_output(['pdffonts',str(clean/'main.pdf')],text=True);assert 'Type 3' not in fonts
 for line in fonts.splitlines()[2:]:assert line.split()[-5]=='yes',line
