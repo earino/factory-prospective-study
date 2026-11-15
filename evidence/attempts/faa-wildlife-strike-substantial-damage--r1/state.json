@@ -1,0 +1,341 @@
+{
+  "attempts": 0,
+  "created_at": "2026-11-15T10:30:46.468882+00:00",
+  "dataset": "faa-wildlife-strike-substantial-damage",
+  "error": "RuntimeError: Three CLI failures; preserved as a failed attempt, not silently restarted",
+  "finished_at": "2026-11-15T11:31:20.149923+00:00",
+  "guarded": {
+    "CLAUDE.md": "7b5d6f6da87cada9d7ce2e71a2e8852d5368e5c3fbebe3b106d02af24859f681",
+    "_engine.py": "7f88cf7891d732b70ee3eb7001cdcbb097e06ebf7608fbc77374dc39a65c34bd",
+    "evaluate.py": "4058a082deda77182e2f16b69b20bd17a680ec344f4656277ce6f513c10fdebc",
+    "mcp.json": "e93fc8db2b1bd77107fe6c758bca9545fa864cf7cce8ab93a7b2b93a1d566a7b",
+    "release/LICENSE-EVIDENCE.json": "361514ee844d897c04b414b2f124e4b5dd6766ac15a9fdf1d089fd49bba872ea",
+    "release/LICENSE.md": "c5747fe28b4a7e16c3181646c59ab19c0af5a967ae429175033800062fc07c29",
+    "release/MANIFEST.json": "1ddf9894795b09057f90c304ef8e48b45568c6a4f46336e8db9e1f3126acd040",
+    "release/README.md": "ccea2fd575b8f0c32e0f858b5fea782d3f84cc3e18a3ebfc50b88604efaa8b0e",
+    "release/SOURCES.json": "43c70a543a546d9246de6001ae857ab207f21d11ca248d8785f2125ce4ccb50e",
+    "release/evaluation.json": "17e6ab77d38ab1c074ed211397b50344dd046711c5f25285634c9615e4684531",
+    "release/extract/meta.json": "0d47b6bb7c9334b3cdf41648492da7bc8a83379fc14c811a57696b195237f951",
+    "release/extract/public/eval.csv": "eacff65337839c74701b802fb712dc8a60fc81e56168f0a176602446519f910e",
+    "release/extract/public/train.csv": "276015143c997004274d25b9b7329e125d53008dab32328ee373d173185bad75",
+    "release/reproduction/build.py": "48e56bb6e681be0c11a5143d7a93075eca9f29cbafdcfc1a1ad34d2bb459bc1a",
+    "release/reproduction/construction.json": "9ffa25f550fb05541e11eca81b157d7313f3e9a7fb397a37b5e8108e87cf55f7",
+    "release/reproduction/requirements.txt": "5c72f3268174d20364624f76680e189c408a05dba2e7b8cfe12d077b3865e7f0",
+    "release/reproduction/train.py": "a3c6bcf13735bc85c52129ded68f839090dffdc266ebc3810dc61b2e6ea5e7e8"
+  },
+  "id": "faa-wildlife-strike-substantial-damage--r1",
+  "invocations": [
+    {
+      "argv": [
+        "claude",
+        "-p",
+        "Read CLAUDE.md and TASK.json and execute the research assignment now. Use TASK.json's Python executable for experiments. Never access holdout or other runs. Work until the supervisor deadline; do not stop at a plan or a plateau.",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "high",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--safe-mode",
+        "--setting-sources",
+        "",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage/.study/runs/faa-wildlife-strike-substantial-damage--r1/mcp.json",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "dontAsk",
+        "--permission-prompts",
+        "none",
+        "--tools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--allowedTools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--no-chrome",
+        "--session-id",
+        "5c1cff60-3a56-41a8-a28d-1afee5bcf656"
+      ],
+      "assistant_usage": {
+        "cache_creation_input_tokens": 149900,
+        "cache_read_input_tokens": 5001469,
+        "input_tokens": 110,
+        "output_tokens": 401
+      },
+      "completed_response_messages_with_usage": 56,
+      "elapsed_s": 3480.279206583,
+      "ended_at": "2026-11-15T11:28:46.772082+00:00",
+      "index": 0,
+      "models": [
+        "<synthetic>",
+        "claude-fable-5-2"
+      ],
+      "pid": 42187,
+      "result": {
+        "duration_api_ms": 928831,
+        "duration_ms": 3479575,
+        "is_error": true,
+        "modelUsage": {
+          "claude-fable-5-2": {
+            "cacheCreationEphemeral1hInputTokens": 149900,
+            "cacheCreationEphemeral5mInputTokens": 0,
+            "cacheCreationInputTokens": 149900,
+            "cacheReadInputTokens": 5001469,
+            "canonicalModel": "claude-fable-5-2",
+            "contextWindow": 1000000,
+            "costBasis": "list",
+            "costUSD": 6.797613799999999,
+            "inputTokens": 110,
+            "maxOutputTokens": 128000,
+            "outputTokens": 84951,
+            "provider": "firstParty",
+            "thinkingTokens": 35228,
+            "webSearchRequests": 0
+          }
+        },
+        "num_turns": 59,
+        "session_id": "5c1cff60-3a56-41a8-a28d-1afee5bcf656",
+        "subtype": "success",
+        "total_cost_usd": 6.797613799999999,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 149900,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 149900,
+          "cache_read_input_tokens": 5001469,
+          "fallback_credit": null,
+          "inference_geo": "global",
+          "input_tokens": 110,
+          "iterations": [],
+          "output_tokens": 84951,
+          "output_tokens_details": {
+            "thinking_tokens": 35228
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        }
+      },
+      "returncode": 1,
+      "session_id": "5c1cff60-3a56-41a8-a28d-1afee5bcf656",
+      "started_at": "2026-11-15T10:30:46.474431+00:00",
+      "status": "exited",
+      "usage_basis": "CLI final result"
+    },
+    {
+      "argv": [
+        "claude",
+        "-p",
+        "Continue the same research attempt. The supervisor's measured active search time is 3510.5 seconds, with 1589.5 seconds remaining. Read TASK.json for the updated deadline. Continue experiments, ablations, research or reproducibility checks. Do not access holdout, change selection rules, or wait idle.",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "high",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--safe-mode",
+        "--setting-sources",
+        "",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage/.study/runs/faa-wildlife-strike-substantial-damage--r1/mcp.json",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "dontAsk",
+        "--permission-prompts",
+        "none",
+        "--tools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--allowedTools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--no-chrome",
+        "--resume",
+        "5c1cff60-3a56-41a8-a28d-1afee5bcf656"
+      ],
+      "assistant_usage": {
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "completed_response_messages_with_usage": 1,
+      "elapsed_s": 1.1850480419961968,
+      "ended_at": "2026-11-15T11:29:18.152546+00:00",
+      "index": 1,
+      "models": [
+        "<synthetic>",
+        "claude-fable-5-2"
+      ],
+      "pid": 47804,
+      "result": {
+        "duration_api_ms": 928831,
+        "duration_ms": 623,
+        "is_error": true,
+        "modelUsage": {
+          "claude-fable-5-2": {
+            "cacheCreationEphemeral1hInputTokens": 149900,
+            "cacheCreationEphemeral5mInputTokens": 0,
+            "cacheCreationInputTokens": 149900,
+            "cacheReadInputTokens": 5001469,
+            "contextWindow": 1000000,
+            "costUSD": 6.797613799999999,
+            "inputTokens": 110,
+            "maxOutputTokens": 128000,
+            "outputTokens": 84951,
+            "thinkingTokens": 35228,
+            "webSearchRequests": 0
+          }
+        },
+        "num_turns": 1,
+        "session_id": "5c1cff60-3a56-41a8-a28d-1afee5bcf656",
+        "subtype": "success",
+        "total_cost_usd": 6.797613799999999,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "fallback_credit": null,
+          "inference_geo": "",
+          "input_tokens": 0,
+          "iterations": [],
+          "output_tokens": 0,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        }
+      },
+      "returncode": 1,
+      "session_id": "5c1cff60-3a56-41a8-a28d-1afee5bcf656",
+      "started_at": "2026-11-15T11:29:16.965920+00:00",
+      "status": "exited",
+      "usage_basis": "CLI final result"
+    },
+    {
+      "argv": [
+        "claude",
+        "-p",
+        "Continue the same research attempt. The supervisor's measured active search time is 3632.3 seconds, with 1467.7 seconds remaining. Read TASK.json for the updated deadline. Continue experiments, ablations, research or reproducibility checks. Do not access holdout, change selection rules, or wait idle.",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "high",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--safe-mode",
+        "--setting-sources",
+        "",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage/.study/runs/faa-wildlife-strike-substantial-damage--r1/mcp.json",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "dontAsk",
+        "--permission-prompts",
+        "none",
+        "--tools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--allowedTools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--no-chrome",
+        "--resume",
+        "5c1cff60-3a56-41a8-a28d-1afee5bcf656"
+      ],
+      "assistant_usage": {
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "completed_response_messages_with_usage": 1,
+      "elapsed_s": 1.3024679579975782,
+      "ended_at": "2026-11-15T11:31:20.148502+00:00",
+      "index": 2,
+      "models": [
+        "<synthetic>",
+        "claude-fable-5-2"
+      ],
+      "pid": 48018,
+      "result": {
+        "duration_api_ms": 928831,
+        "duration_ms": 468,
+        "is_error": true,
+        "modelUsage": {
+          "claude-fable-5-2": {
+            "cacheCreationEphemeral1hInputTokens": 149900,
+            "cacheCreationEphemeral5mInputTokens": 0,
+            "cacheCreationInputTokens": 149900,
+            "cacheReadInputTokens": 5001469,
+            "contextWindow": 1000000,
+            "costUSD": 6.797613799999999,
+            "inputTokens": 110,
+            "maxOutputTokens": 128000,
+            "outputTokens": 84951,
+            "thinkingTokens": 35228,
+            "webSearchRequests": 0
+          }
+        },
+        "num_turns": 1,
+        "session_id": "5c1cff60-3a56-41a8-a28d-1afee5bcf656",
+        "subtype": "success",
+        "total_cost_usd": 6.797613799999999,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "fallback_credit": null,
+          "inference_geo": "",
+          "input_tokens": 0,
+          "iterations": [],
+          "output_tokens": 0,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        }
+      },
+      "returncode": 1,
+      "session_id": "5c1cff60-3a56-41a8-a28d-1afee5bcf656",
+      "started_at": "2026-11-15T11:31:18.843987+00:00",
+      "status": "exited",
+      "usage_basis": "CLI final result"
+    }
+  ],
+  "research_active_s": 3633.6062892909977,
+  "retry_wait_s": 90.57394908300193,
+  "session_id": "5c1cff60-3a56-41a8-a28d-1afee5bcf656",
+  "short_resume_wait_s": 60.265695874986704,
+  "status": "failed",
+  "task_contract": {
+    "dataset": "faa-wildlife-strike-substantial-damage",
+    "experiment_seconds": 300,
+    "python": "/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage/.study/venv/bin/python",
+    "refit_validation": false,
+    "run_id": "faa-wildlife-strike-substantial-damage--r1",
+    "seed": 42,
+    "selection": "highest validation AUC; ties <=1e-9 earliest trial",
+    "threads": 5
+  }
+}
