@@ -1,6 +1,6 @@
 # Consumer study results
 
-Generated 2026-11-15T03:46:10.523598+00:00
+Generated 2026-11-15T03:52:34.053843+00:00
 
 Measured records are in summary.json and scores.csv. Failures remain in the denominator.
 
@@ -16,9 +16,14 @@ Compliance triage (separate from scores):
 
 Scores (including flagged attempts; do not treat all as compliant results):
 
-- wser-effluent-exceedance--r1: validation AUC 0.909352; holdout AUC not scored.
-- wser-effluent-exceedance--r2: validation AUC 0.907783; holdout AUC not scored.
-- wser-effluent-exceedance--r3: validation AUC 0.908506; holdout AUC not scored.
+- wser-effluent-exceedance--ordinary: validation AUC 0.896045; holdout AUC 0.892794.
+- wser-effluent-exceedance--r1: validation AUC 0.909352; holdout AUC 0.901261.
+- wser-effluent-exceedance--r1--random: validation AUC 0.907182; holdout AUC 0.900215.
+- wser-effluent-exceedance--r2: validation AUC 0.907783; holdout AUC 0.901260.
+- wser-effluent-exceedance--r2--random: validation AUC 0.907059; holdout AUC 0.899236.
+- wser-effluent-exceedance--r3: validation AUC 0.908506; holdout AUC 0.901548.
+- wser-effluent-exceedance--r3--random: validation AUC 0.907495; holdout AUC 0.901166.
+- wser-effluent-exceedance--released: validation AUC 0.898259; holdout AUC 0.895930.
 
 ## Limits
 

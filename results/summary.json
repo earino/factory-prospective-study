@@ -1,6 +1,6 @@
 {
   "cli_reported_cost_usd_not_invoice": 2009.830582199999,
-  "generated_at": "2026-11-15T03:46:10.523598+00:00",
+  "generated_at": "2026-11-15T03:52:34.053843+00:00",
   "limitations": [
     "Five selected factory releases; three attempts are descriptive, not agent rankings.",
     "Pinned consumer scaffold and deterministic downloads are provided assistance.",
@@ -114,9 +114,19 @@
   "scores": [
     {
       "dataset": "wser-effluent-exceedance",
-      "holdout_auc": null,
-      "holdout_brier": null,
-      "holdout_rows": null,
+      "holdout_auc": 0.8927942514658074,
+      "holdout_brier": 0.08919322747285204,
+      "holdout_rows": 3988,
+      "id": "wser-effluent-exceedance--ordinary",
+      "kind": "ordinary",
+      "validation_auc": 0.8960445383717629,
+      "validation_brier": 0.0883667451630157
+    },
+    {
+      "dataset": "wser-effluent-exceedance",
+      "holdout_auc": 0.9012614718317122,
+      "holdout_brier": 0.08492472072393074,
+      "holdout_rows": 3988,
       "id": "wser-effluent-exceedance--r1",
       "kind": "agent",
       "validation_auc": 0.909352184578504,
@@ -124,9 +134,19 @@
     },
     {
       "dataset": "wser-effluent-exceedance",
-      "holdout_auc": null,
-      "holdout_brier": null,
-      "holdout_rows": null,
+      "holdout_auc": 0.9002154614873898,
+      "holdout_brier": 0.08510495754934765,
+      "holdout_rows": 3988,
+      "id": "wser-effluent-exceedance--r1--random",
+      "kind": "random",
+      "validation_auc": 0.9071815576783561,
+      "validation_brier": 0.08510599184433607
+    },
+    {
+      "dataset": "wser-effluent-exceedance",
+      "holdout_auc": 0.9012600245673132,
+      "holdout_brier": 0.08411873416378239,
+      "holdout_rows": 3988,
       "id": "wser-effluent-exceedance--r2",
       "kind": "agent",
       "validation_auc": 0.9077826493812363,
@@ -134,13 +154,43 @@
     },
     {
       "dataset": "wser-effluent-exceedance",
-      "holdout_auc": null,
-      "holdout_brier": null,
-      "holdout_rows": null,
+      "holdout_auc": 0.8992362062134678,
+      "holdout_brier": 0.08646210584728617,
+      "holdout_rows": 3988,
+      "id": "wser-effluent-exceedance--r2--random",
+      "kind": "random",
+      "validation_auc": 0.9070587835657387,
+      "validation_brier": 0.0857258612769021
+    },
+    {
+      "dataset": "wser-effluent-exceedance",
+      "holdout_auc": 0.901548030182699,
+      "holdout_brier": 0.08390034592364139,
+      "holdout_rows": 3988,
       "id": "wser-effluent-exceedance--r3",
       "kind": "agent",
       "validation_auc": 0.9085061108024235,
       "validation_brier": 0.08477797287472084
+    },
+    {
+      "dataset": "wser-effluent-exceedance",
+      "holdout_auc": 0.9011655905652833,
+      "holdout_brier": 0.08474208366071992,
+      "holdout_rows": 3988,
+      "id": "wser-effluent-exceedance--r3--random",
+      "kind": "random",
+      "validation_auc": 0.9074951250265889,
+      "validation_brier": 0.08511144282471154
+    },
+    {
+      "dataset": "wser-effluent-exceedance",
+      "holdout_auc": 0.8959301116021761,
+      "holdout_brier": 0.08805471355056939,
+      "holdout_rows": 3988,
+      "id": "wser-effluent-exceedance--released",
+      "kind": "released",
+      "validation_auc": 0.898259325130599,
+      "validation_brier": 0.08700067543493877
     }
   ]
 }

@@ -1,4 +1,9 @@
 dataset,id,kind,validation_auc,validation_brier,holdout_auc,holdout_brier,holdout_rows
-wser-effluent-exceedance,wser-effluent-exceedance--r1,agent,0.909352184578504,0.08433731614617046,,,
-wser-effluent-exceedance,wser-effluent-exceedance--r2,agent,0.9077826493812363,0.08485908983036727,,,
-wser-effluent-exceedance,wser-effluent-exceedance--r3,agent,0.9085061108024235,0.08477797287472084,,,
+wser-effluent-exceedance,wser-effluent-exceedance--ordinary,ordinary,0.8960445383717629,0.0883667451630157,0.8927942514658074,0.08919322747285204,3988
+wser-effluent-exceedance,wser-effluent-exceedance--r1,agent,0.909352184578504,0.08433731614617046,0.9012614718317122,0.08492472072393074,3988
+wser-effluent-exceedance,wser-effluent-exceedance--r1--random,random,0.9071815576783561,0.08510599184433607,0.9002154614873898,0.08510495754934765,3988
+wser-effluent-exceedance,wser-effluent-exceedance--r2,agent,0.9077826493812363,0.08485908983036727,0.9012600245673132,0.08411873416378239,3988
+wser-effluent-exceedance,wser-effluent-exceedance--r2--random,random,0.9070587835657387,0.0857258612769021,0.8992362062134678,0.08646210584728617,3988
+wser-effluent-exceedance,wser-effluent-exceedance--r3,agent,0.9085061108024235,0.08477797287472084,0.901548030182699,0.08390034592364139,3988
+wser-effluent-exceedance,wser-effluent-exceedance--r3--random,random,0.9074951250265889,0.08511144282471154,0.9011655905652833,0.08474208366071992,3988
+wser-effluent-exceedance,wser-effluent-exceedance--released,released,0.898259325130599,0.08700067543493877,0.8959301116021761,0.08805471355056939,3988
