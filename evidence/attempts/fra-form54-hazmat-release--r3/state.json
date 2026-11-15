@@ -1,0 +1,296 @@
+{
+  "attempts": 0,
+  "created_at": "2026-11-15T12:31:05.277094+00:00",
+  "dataset": "fra-form54-hazmat-release",
+  "error": "RuntimeError: Three CLI failures; preserved as a failed attempt, not silently restarted",
+  "finished_at": "2026-11-15T12:34:38.708152+00:00",
+  "guarded": {
+    "CLAUDE.md": "7b5d6f6da87cada9d7ce2e71a2e8852d5368e5c3fbebe3b106d02af24859f681",
+    "_engine.py": "7f88cf7891d732b70ee3eb7001cdcbb097e06ebf7608fbc77374dc39a65c34bd",
+    "evaluate.py": "4058a082deda77182e2f16b69b20bd17a680ec344f4656277ce6f513c10fdebc",
+    "mcp.json": "e93fc8db2b1bd77107fe6c758bca9545fa864cf7cce8ab93a7b2b93a1d566a7b",
+    "release/LICENSE-EVIDENCE.json": "753946a7542c57df822a76334cc3df9e87b443f780467e6a35c05255cc7d5bf8",
+    "release/LICENSE.md": "8443ff1f30427c89366446fddbbed84511f5fe7abc708e1184ae0b57ae0286af",
+    "release/MANIFEST.json": "c6132a372c1f4a14051c6ea13b01e743eff7874d73212077707bc252fd562dd6",
+    "release/README.md": "5df3274d3468c882bff3833c9974a75d8f486a4e0d4b8eed48b9dd56bf32e327",
+    "release/SOURCES.json": "25a46f6e3b1088836c93cab8bb1742fdbe4869fa268e1da333e0960f655e9d32",
+    "release/evaluation.json": "63ea65859671155576c5c79324acabba3b8f325af0b543690bbe54612fea68ae",
+    "release/extract/meta.json": "bfbff6c657c98172cbffd2db58d6bc792b4cd1fa733b8696a5b20e5c031a229c",
+    "release/extract/public/eval.csv": "4ed8d5fa7c0c3f9dfc3359723e4201ca85b9ee4a664ea93a2a55bd3312fc8c24",
+    "release/extract/public/train.csv": "0e4929ad8326d992e3942bb50244e857c4ad11bbd2c8e3647bbce7714b6f65eb",
+    "release/reproduction/build.py": "669dcbe8bf0474383f3c1bdee308594678995e64f26f88c28bf0b222d21025f2",
+    "release/reproduction/construction.json": "0b6a6a29a1874c463b264eca3cb17d440d4bc18e0756dbb2bdc8e6c83ee654c9",
+    "release/reproduction/requirements.txt": "5c72f3268174d20364624f76680e189c408a05dba2e7b8cfe12d077b3865e7f0",
+    "release/reproduction/train.py": "a3c6bcf13735bc85c52129ded68f839090dffdc266ebc3810dc61b2e6ea5e7e8"
+  },
+  "id": "fra-form54-hazmat-release--r3",
+  "invocations": [
+    {
+      "argv": [
+        "claude",
+        "-p",
+        "Read CLAUDE.md and TASK.json and execute the research assignment now. Use TASK.json's Python executable for experiments. Never access holdout or other runs. Work until the supervisor deadline; do not stop at a plan or a plateau.",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "high",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--safe-mode",
+        "--setting-sources",
+        "",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "/Users/earino/research/factory-prospective-study/.local/studies/fra-form54-hazmat-release/.study/runs/fra-form54-hazmat-release--r3/mcp.json",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "dontAsk",
+        "--permission-prompts",
+        "none",
+        "--tools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--allowedTools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--no-chrome",
+        "--session-id",
+        "35d4acd0-107b-4d71-a8b3-7f78db809c4d"
+      ],
+      "assistant_usage": {
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "completed_response_messages_with_usage": 1,
+      "elapsed_s": 1.1287652500031982,
+      "ended_at": "2026-11-15T12:31:06.411319+00:00",
+      "index": 0,
+      "models": [
+        "<synthetic>",
+        "claude-fable-5-2"
+      ],
+      "pid": 53498,
+      "result": {
+        "duration_api_ms": 0,
+        "duration_ms": 351,
+        "is_error": true,
+        "modelUsage": {},
+        "num_turns": 1,
+        "session_id": "35d4acd0-107b-4d71-a8b3-7f78db809c4d",
+        "subtype": "success",
+        "total_cost_usd": 0,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "fallback_credit": null,
+          "inference_geo": "",
+          "input_tokens": 0,
+          "iterations": [],
+          "output_tokens": 0,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        }
+      },
+      "returncode": 1,
+      "session_id": "35d4acd0-107b-4d71-a8b3-7f78db809c4d",
+      "started_at": "2026-11-15T12:31:05.280606+00:00",
+      "status": "exited",
+      "usage_basis": "CLI final result"
+    },
+    {
+      "argv": [
+        "claude",
+        "-p",
+        "Continue the same research attempt. The supervisor's measured active search time is 91.6 seconds, with 5008.4 seconds remaining. Read TASK.json for the updated deadline. Continue experiments, ablations, research or reproducibility checks. Do not access holdout, change selection rules, or wait idle.",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "high",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--safe-mode",
+        "--setting-sources",
+        "",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "/Users/earino/research/factory-prospective-study/.local/studies/fra-form54-hazmat-release/.study/runs/fra-form54-hazmat-release--r3/mcp.json",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "dontAsk",
+        "--permission-prompts",
+        "none",
+        "--tools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--allowedTools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--no-chrome",
+        "--resume",
+        "35d4acd0-107b-4d71-a8b3-7f78db809c4d"
+      ],
+      "assistant_usage": {
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "completed_response_messages_with_usage": 1,
+      "elapsed_s": 0.5829756659950363,
+      "ended_at": "2026-11-15T12:32:37.493006+00:00",
+      "index": 1,
+      "models": [
+        "<synthetic>",
+        "claude-fable-5-2"
+      ],
+      "pid": 53696,
+      "result": {
+        "duration_api_ms": 0,
+        "duration_ms": 363,
+        "is_error": true,
+        "modelUsage": {},
+        "num_turns": 1,
+        "session_id": "35d4acd0-107b-4d71-a8b3-7f78db809c4d",
+        "subtype": "success",
+        "total_cost_usd": 0,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "fallback_credit": null,
+          "inference_geo": "",
+          "input_tokens": 0,
+          "iterations": [],
+          "output_tokens": 0,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        }
+      },
+      "returncode": 1,
+      "session_id": "35d4acd0-107b-4d71-a8b3-7f78db809c4d",
+      "started_at": "2026-11-15T12:32:36.908633+00:00",
+      "status": "exited",
+      "usage_basis": "CLI final result"
+    },
+    {
+      "argv": [
+        "claude",
+        "-p",
+        "Continue the same research attempt. The supervisor's measured active search time is 212.9 seconds, with 4887.1 seconds remaining. Read TASK.json for the updated deadline. Continue experiments, ablations, research or reproducibility checks. Do not access holdout, change selection rules, or wait idle.",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "high",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--safe-mode",
+        "--setting-sources",
+        "",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "/Users/earino/research/factory-prospective-study/.local/studies/fra-form54-hazmat-release/.study/runs/fra-form54-hazmat-release--r3/mcp.json",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "dontAsk",
+        "--permission-prompts",
+        "none",
+        "--tools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--allowedTools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--no-chrome",
+        "--resume",
+        "35d4acd0-107b-4d71-a8b3-7f78db809c4d"
+      ],
+      "assistant_usage": {
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "completed_response_messages_with_usage": 1,
+      "elapsed_s": 0.5475614580063848,
+      "ended_at": "2026-11-15T12:34:38.707535+00:00",
+      "index": 2,
+      "models": [
+        "<synthetic>",
+        "claude-fable-5-2"
+      ],
+      "pid": 53902,
+      "result": {
+        "duration_api_ms": 0,
+        "duration_ms": 315,
+        "is_error": true,
+        "modelUsage": {},
+        "num_turns": 1,
+        "session_id": "35d4acd0-107b-4d71-a8b3-7f78db809c4d",
+        "subtype": "success",
+        "total_cost_usd": 0,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "fallback_credit": null,
+          "inference_geo": "",
+          "input_tokens": 0,
+          "iterations": [],
+          "output_tokens": 0,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        }
+      },
+      "returncode": 1,
+      "session_id": "35d4acd0-107b-4d71-a8b3-7f78db809c4d",
+      "started_at": "2026-11-15T12:34:38.159310+00:00",
+      "status": "exited",
+      "usage_basis": "CLI final result"
+    }
+  ],
+  "research_active_s": 213.3989899570006,
+  "retry_wait_s": 90.82889237500785,
+  "session_id": "35d4acd0-107b-4d71-a8b3-7f78db809c4d",
+  "short_resume_wait_s": 120.31080841697985,
+  "status": "failed",
+  "task_contract": {
+    "dataset": "fra-form54-hazmat-release",
+    "experiment_seconds": 300,
+    "python": "/Users/earino/research/factory-prospective-study/.local/studies/fra-form54-hazmat-release/.study/venv/bin/python",
+    "refit_validation": false,
+    "run_id": "fra-form54-hazmat-release--r3",
+    "seed": 42,
+    "selection": "highest validation AUC; ties <=1e-9 earliest trial",
+    "threads": 5
+  }
+}
