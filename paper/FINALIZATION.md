@@ -80,3 +80,11 @@ Selected code and both attention requests were inspected; no selected-code data
 access or prohibited holdout read was found. The reviewed solution count is 33.
 Deterministic controls and post-scoring probes are still running. Three utility
 recovery solutions remain. This is not a scoring or final-paper sign-off.
+
+23:42 UTC: Seattle retry-2 completed with one frozen model and all four posttools
+passing. The same frozen commit was re-pushed after HTTP 408; original failure
+and recovery hashes are retained in evidence/retries/seattle-transport-recovery.json.
+The composite now contains all three Seattle models, preserving original r2/r3
+and the earlier blocked r1. Fixed baseline predictions match exactly after
+decompression. Utility retry-1 started at 23:41 UTC through controller.py work
+(exec session 73081); three new research runs follow its prescoring review.

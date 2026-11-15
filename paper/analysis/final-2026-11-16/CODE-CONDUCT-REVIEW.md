@@ -109,3 +109,11 @@ remain pending; this addition does not claim those checks have passed.
 
 The reviewed selected-code count is now 33. Only the three utility recovery
 solutions remain to be added. The earlier 32-solution observations remain intact.
+
+Seattle postchecks completed at 23:40 UTC: 25 sampled validation rows passed
+batch/order checks with no external preparation events; both own-label tests
+changed zero feature cells. The three-run analysis combines the fresh r1 with
+unchanged r2/r3 and retains the old blocked r1 separately. Fixed baseline
+predictions agree byte-for-byte after decompression across the two executions.
+A transient Git HTTP 408 was resolved by pushing the same frozen commit and
+resuming scoring; freeze manifests remained unchanged.

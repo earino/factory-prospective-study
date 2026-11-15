@@ -52,6 +52,7 @@ path = 'paper/analysis/final-2026-11-16/seattle-composite/summary.json'
 consumers[seattle] = path
 read(path)
 read('paper/analysis/final-2026-11-16/seattle-composite/provenance.json')
+read('paper/analysis/final-2026-11-16/seattle-composite/prediction-agreement.json')
 read(f'evidence/consumer/{seattle}-retry-2/results/summary.json')
 
 # Use the resolved row mappings without erasing the original checker errors.

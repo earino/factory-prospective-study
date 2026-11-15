@@ -1,0 +1,9 @@
+{
+  "check": "Fixed baseline predictions agree byte-for-byte after gzip decompression",
+  "pass": true,
+  "decompressed_sha256": "3e3fa3b4a23203264f21524fe2ba79af1cc9df392bacf80463207464e36e6125",
+  "inputs": {
+    ".local/studies/seattle-building-permit-completion-retry-1/results/scores/seattle-building-permit-completion--ordinary/predictions.csv.gz": "a3063b45860abea95c892bc05c769ee20095bb3cb82b814f430bfc3fe5c9d00c",
+    ".local/studies/seattle-building-permit-completion-retry-2/results/scores/seattle-building-permit-completion--ordinary/predictions.csv.gz": "2fdfe93d8e151afe00ae3e71275134d7314786cf78d958daf9834a426515786d"
+  }
+}

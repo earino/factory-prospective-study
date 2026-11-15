@@ -1,0 +1,24 @@
+{
+  "derived_analysis_record": true,
+  "source_sha256": {
+    "evidence/outcomes/seattle-building-permit-completion-retry-2.json": "9c65920b70be52f203f3b2941557dcecac76daac70e54bf46fed2b7bf8629d13",
+    "evidence/consumer/seattle-building-permit-completion-retry-1/results/summary.json": "7b01d2d4e6fb38ad782b5342c4bbcc7bd6a43ad4799a66bf04c52209c16fad17",
+    "evidence/consumer/seattle-building-permit-completion-retry-2/results/summary.json": "aeff9833279917220415c5e18cdb0da489913c4f053afbe9be1f71b8d7c1088a",
+    "evidence/reviews/seattle-building-permit-completion-retry-1/pinned-release.json": "005341ec4aac94ef0706b9843f41609e3c6270415a906a52bc2d95a48f03ca71",
+    "evidence/reviews/seattle-building-permit-completion-retry-2/pinned-release.json": "005341ec4aac94ef0706b9843f41609e3c6270415a906a52bc2d95a48f03ca71",
+    "evidence/reviews/seattle-building-permit-completion-retry-1/post/bootstrap.json": "00b5306826d69aa6d0c62bce5a9861053236c85bd6435e02cabdefab657703f4",
+    "evidence/reviews/seattle-building-permit-completion-retry-2/post/bootstrap.json": "92bb4c0a18bf9ae318822bcca95feadb2bd5d488899f7962d89047fdb888c0e4",
+    "paper/analysis/evening-2026-11-15/seattle-probes/artifact-probes.json": "6da3a44a9a646f878b74bb9ee5c434f9b826294d44cfd79528e5a497f914bf04",
+    "evidence/reviews/seattle-building-permit-completion-retry-2/post/artifact-probes.json": "d636219c647f9dad55a065e031bfdbe085098667b54d94ce693b5146649b30c3",
+    "paper/analysis/evening-2026-11-15/seattle-probes/training-feature-probes.json": "a78c43f93c46f6bf13c8cd76ac53bb551e52578b2ccce8c6fddbb9f8340d1aed",
+    "evidence/reviews/seattle-building-permit-completion-retry-2/post/training-feature-probes.json": "e1a6e70d7cf17dcba893bf1c9f0337fe3c76218b816569b4c0eae26630837ed8",
+    "paper/analysis/evening-2026-11-15/seattle-probes/control-features.json": "0955ec115f9a2fb970db2b8a406efca5ea04583c1fdf8795d2c39b791fcfd3a7",
+    "evidence/reviews/seattle-building-permit-completion-retry-2/post/control-features.json": "0955ec115f9a2fb970db2b8a406efca5ea04583c1fdf8795d2c39b791fcfd3a7"
+  },
+  "rule": "Fresh authorized retry-2 r1 plus original retry-1 r2/r3; no score-based choice. Raw blocked r1 remains in retry-1 evidence.",
+  "execution_by_run": {
+    "seattle-building-permit-completion--r1": "seattle-building-permit-completion-retry-2",
+    "seattle-building-permit-completion--r2": "seattle-building-permit-completion-retry-1",
+    "seattle-building-permit-completion--r3": "seattle-building-permit-completion-retry-1"
+  }
+}
