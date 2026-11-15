@@ -1,0 +1,51 @@
+{
+  "error": "ch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[],\"speed\":\"standard\",\"fallback_credit\":null},\"modelUsage\":{},\"permission_denials\":[],\"terminal_reason\":\"api_error\",\"fast_mode_state\":\"off\",\"fast_mode_disabled_reason\":\"sdk_opt_in_required\",\"subagent_stats\":{\"spawned\":0,\"requested\":{\"background\":0,\"foreground\":0,\"unset\":0},\"started_in_background\":0,\"max_depth\":0,\"spawned_by_subagents\":0,\"completed\":0,\"failed\":0,\"killed\":{\"parent\":0,\"user\":0,\"system\":0},\"refused\":{\"depth_limit\":0,\"concurrency_limit\":0,\"budget\":0},\"by_type\":{}},\"safety_stops\":0,\"is_error\":true,\"num_turns\":1,\"subtype\":\"success\",\"api_error_status\":429,\"api_error_origin\":\"first_party\",\"api_error\":\"usage_limit_reached\",\"result\":\"You've hit your Fable limit \u00b7 resets Nov 20 at 7pm (Europe/Paris). Switch to another model, or manage usage credits at https://claude.ai/settings/usage?from=cc_cli_limit_message, to continue.\",\"type\":\"result\",\"duration_ms\":549,\"uuid\":\"f7bbd32e-18c9-46e0-b388-8cb5eab43fd1\",\"queued_turn_count\":0,\"result_index\":0,\"model_usage_since_last_result\":{},\"credential_expires_at\":\"2026-11-19T11:56:15.472Z\"}\n",
+  "ok": false,
+  "summary": {
+    "assistant_usage": {
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "input_tokens": 0,
+      "output_tokens": 0
+    },
+    "completed_response_messages_with_usage": 1,
+    "models": [
+      "<synthetic>",
+      "claude-fable-5-2"
+    ],
+    "result": {
+      "duration_api_ms": 0,
+      "duration_ms": 549,
+      "is_error": true,
+      "modelUsage": {},
+      "num_turns": 1,
+      "session_id": "b76d1ec5-44db-4684-8221-c19017c9de91",
+      "subtype": "success",
+      "total_cost_usd": 0,
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "fallback_credit": null,
+        "inference_geo": "",
+        "input_tokens": 0,
+        "iterations": [],
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        },
+        "service_tier": "standard",
+        "speed": "standard"
+      }
+    },
+    "session_id": "b76d1ec5-44db-4684-8221-c19017c9de91",
+    "usage_basis": "CLI final result"
+  }
+}
