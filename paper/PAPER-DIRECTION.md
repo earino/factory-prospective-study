@@ -257,3 +257,10 @@ Caption and figure follow-up: keep captions to the information needed to read
 the display; do not repeat methods, discussion or editorial history. Figure 3
 uses one shared order, ascending median gain over untuned XGBoost. The order
 needs no explanatory caption sentence. No observations or intervals change.
+
+
+Abstract direction: use a standalone account of problem, integrated factory,
+evaluation, measured findings and engineering implication. Select numbers that
+carry the argument, qualify costs beside the estimate, and retain both controls.
+Avoid a catalogue of audit details and a repeated generic conclusion. Figure 1
+shows the workflow; evaluation-separation details belong in the methods.

@@ -244,3 +244,28 @@ Other pages keep the reviewed layout and text.
 Verdict: the requested readability revision is complete as a draft. Three new
 full-paper self-review passes are recorded above; none is an external review.
 Packaging and numerical checks follow separately.
+
+
+## Abstract rewrite — 15 November
+
+Replaced the abstract as a whole; 170 words. The problem and continuing factory
+come first, followed by the evaluation approach, bounded production expenditure,
+consumer results, one concrete source finding and its engineering implication.
+The cost uses the 11-publication accounting window; ten evaluated releases and
+nine with consistently higher point scores are verified by the retained audit.
+Scores are not described as significant gains or proof of benchmark validity.
+The named population discrepancy is supported in Section IV-D.
+
+Review against the twelve writing principles: concrete problem; early integrated
+contribution; connected narrative; brief method; actual findings; selective
+numbers; adjacent cost exclusions and named comparators; bounded conclusions;
+direct language; no unsupported novelty; specific closing lesson; one standalone
+paragraph without citations, unexplained initialisms or editorial history.
+On Eduardo's feedback, cut the detailed history-feature explanation and repeated
+abstract conclusion. Also removed the no-feedback line from Figure 1; its
+methodological explanation remains in Section III-A.
+
+Read the abstract in isolation and against the results. All body text, draft
+notices, measured figures, table and evidence remain unchanged. Rendered and
+inspected all seven final pages after the rewrite and figure annotation removal.
+Final manuscript SHA-256: `659f487c7c7f33d88e6e8a661376deae0499a25bd2976fa631320e22d09d2403`.

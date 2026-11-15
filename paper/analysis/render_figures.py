@@ -27,7 +27,6 @@ for i,(title,body) in enumerate([('Discover','Source + task\nEvidence + rights')
 ax.text(5,2.85,'Production: bounded model judgment; deterministic state, retries, workers and transfer',ha='center',fontsize=8)
 ax.plot([.15,9.8],[1.09,1.09],color=grey,lw=.7)
 ax.text(.1,.62,'Independent consumers',weight='bold',color=teal);ax.text(3.1,.62,'Pin release  →  3 research runs + controls  →  Freeze  →  Holdout + review',fontsize=8)
-ax.text(.1,.08,'No consumer-result feedback to production during the observation window',fontsize=7.5,color='#53616b')
 fig.savefig(figdir/'workflow.pdf');plt.close(fig)
 # Cost and repeat workload; retries are stage attempts, never source rejection counts.
 A=sum([D[f'evidence/costs/2026-11-15/inputs/attempts_{s}.json'] for s in ('carry_in','new_admissions')],[])

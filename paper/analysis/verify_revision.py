@@ -49,8 +49,8 @@ counts=collections.Counter((a['stage'],a['status']) for a in A)
 assert [counts['discover','retry'],counts['build','retry'],counts['evaluate','repair']]==[76,184,14]
 assert [len({a['candidate'] for a in A if a['stage']==s and a['status']=='done'}) for s in ['discover','build','evaluate','publish']]==[41,14,11,11]
 assert len(re.findall(r'\\bibitem\{',(P/'output/main.bbl').read_text()))==20
-# Evidence, other graphics and table remain identical; Figure 3 only changes row order.
-unchanged=[P/'analysis'/n for n in names]+[P/'draft/figures'/n for n in ['workflow.pdf','operations.pdf']]+[P/'draft/generated/score-rows.tex']
+# Evidence, accounting figure and table remain identical; workflow wording and Figure 3 row order changed.
+unchanged=[P/'analysis'/n for n in names]+[P/'draft/figures'/n for n in ['operations.pdf']]+[P/'draft/generated/score-rows.tex']
 for f in unchanged:
  old=subprocess.check_output(['git','show',f'15889e5:paper/{f.relative_to(P)}'],cwd=P.parent)
  assert old==f.read_bytes(),f
@@ -59,6 +59,6 @@ comparisons=json.loads((P/'analysis/comparator-summary.json').read_text())
 assert comparisons==old_comparisons
 medians=[statistics.median(c['delta'] for c in ds['ordinary']['comparisons']) for ds in comparisons.values()]
 assert medians==sorted(medians)
-report={'snapshot_sha256':{n:hashlib.sha256((P/'analysis'/n).read_bytes()).hexdigest() for n in names},'unchanged_evidence_other_figures_table':True,'figure3_comparisons_unchanged':True,'figure3_order':'median untuned AUC gain, ascending top to bottom, shared by both panels','publications':12,'cost_denominator':11,'scored_models':29,'scored_datasets':10,'selected_outcomes':dict(outcomes),'tasks_with_all_point_estimates_above_untuned':point_above,'positive_intervals':positive,'artifact_probe_passes':len(probes),'own_label_probe_errors':errors,'table_cells_checked':True,'cost_and_attempt_aggregates_checked':True,'cited_references':20}
+report={'snapshot_sha256':{n:hashlib.sha256((P/'analysis'/n).read_bytes()).hexdigest() for n in names},'unchanged_evidence_accounting_figure_table':True,'figure3_comparisons_unchanged':True,'figure3_order':'median untuned AUC gain, ascending top to bottom, shared by both panels','publications':12,'cost_denominator':11,'scored_models':29,'scored_datasets':10,'selected_outcomes':dict(outcomes),'tasks_with_all_point_estimates_above_untuned':point_above,'positive_intervals':positive,'artifact_probe_passes':len(probes),'own_label_probe_errors':errors,'table_cells_checked':True,'cost_and_attempt_aggregates_checked':True,'cited_references':20}
 (P/'analysis/revision-checks.json').write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps(report,indent=2))

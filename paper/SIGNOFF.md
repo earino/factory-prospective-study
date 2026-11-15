@@ -307,3 +307,13 @@ Seven pages remain. Numerical checks compare every Figure 3 comparison with the
 previous revision and check ascending median order. Source-bundle verification
 checks the clean rebuild, text agreement, references, fonts and page count.
 Final hashes are in output/QA.json; exact-commit CI is checked after push.
+
+
+## Abstract rewrite and Figure 1 annotation — 15 November
+
+Replaced the abstract with a 170-word standalone account, checked against the
+twelve agreed writing principles and the retained evidence. Removed Figure 1's
+no-feedback annotation; the methods still explain the study separation. Body
+text and quantitative evidence are unchanged. All seven pages were inspected.
+Portable-source and aggregate checks are rerun; output/QA.json records the final
+artifacts. This editorial update does not close remaining scientific review.
