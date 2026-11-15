@@ -143,6 +143,60 @@
       ],
       "original_branch": "consumer/fra-form54-hazmat-release",
       "original_commit": "498e4818e18fa3ac55b9e24f7b7e88127b233288"
+    },
+    {
+      "dataset": "eia861-reliability-deterioration",
+      "execution_id": "eia861-reliability-deterioration-retry-1",
+      "release": {
+        "artifact_version": "6aa939acba34270679973c9e8b5ea12984814b146a32ca50ec71d3b23ac2790a",
+        "assets": 33,
+        "baseline_display": "See versioned evaluation.json; public validation only",
+        "dataset": "eia861-reliability-deterioration",
+        "destinations": {
+          "github": "https://github.com/earino/factory-eia861-reliability-deterioration/releases/tag/v-498e55482c3ed94b",
+          "huggingface": "https://huggingface.co/datasets/earino/factory-eia861-reliability-deterioration"
+        },
+        "detail_id": "source-000053",
+        "disposition": "public",
+        "published": true,
+        "release_tag": "v-498e55482c3ed94b",
+        "rows": 5809,
+        "splits": {
+          "eval": {
+            "rows": 1294
+          },
+          "holdout": {
+            "rows": 2062
+          },
+          "train": {
+            "rows": 2453
+          }
+        },
+        "verified": {
+          "github": true,
+          "huggingface": true
+        },
+        "verified_all": true,
+        "verified_at": "2026-11-13T05:28:19.001460+00:00",
+        "workflow": "modern"
+      },
+      "pinned_release": [
+        "eia861-reliability-deterioration",
+        "v-498e55482c3ed94b",
+        "345b43cc6cdbe14691bca74cfc067d62e2d980ee",
+        "050ce58bacf7c0073e7ccc3c1045438821cc6b76c095409ddb08d132f39e1559"
+      ],
+      "original_branch": "consumer/eia861-reliability-deterioration",
+      "original_commit": "19735c640ca0e7330e5113f4cd5a19fbc1f7069f",
+      "repetitions": 3,
+      "reason": "All three original attempts failed authentication with HTTP 403 before research; one fresh recovery evaluation under final-completion authorization."
+    }
+  ],
+  "amendments": [
+    {
+      "at": "2026-11-15T22:26:22.756804+00:00",
+      "authorization": "Eduardo requested autonomous completion of all remaining paper work overnight.",
+      "change": "One fresh three-attempt utility-reliability recovery; same release, model, budget and controls. Preserve original authentication failures. Use the recovery regardless of outcome, never choose the better score."
     }
   ]
 }

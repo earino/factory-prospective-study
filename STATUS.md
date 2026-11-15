@@ -14,7 +14,7 @@
     "published": 19,
     "rejected": 7
   },
-  "observed_at": "2026-11-15T21:58:31.732721+00:00",
+  "observed_at": "2026-11-15T22:28:53.810459+00:00",
   "paper": {},
   "queue": [
     {
@@ -153,6 +153,11 @@
         "started": "2026-11-15T18:29:30.985035+00:00",
         "status": "complete"
       }
+    },
+    {
+      "dataset": "eia861-reliability-deterioration",
+      "execution_id": "eia861-reliability-deterioration-retry-1",
+      "outcome": {}
     }
   ],
   "snapshot_generated_at": "2026-11-15T21:51:52+00:00",
