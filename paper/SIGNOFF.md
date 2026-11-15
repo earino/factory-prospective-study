@@ -1,4 +1,7 @@
-# First-draft evidence and verification — 15 November 2026
+# Draft evidence and verification — 15 November 2026
+
+**Current revision:** the consumer update below supersedes the first-draft counts.
+Earlier sections retain the provenance of that draft.
 
 **Delivered scope:** a complete seven-page IEEE LaTeX draft, including references,
 using the available interim evidence. This is not a final scientific or submission
@@ -109,3 +112,48 @@ It includes original outcomes only, not outcomes of quota-recovery runs.
 - Rebuilt, rendered, and inspected all seven pages. The portable source bundle
   also builds in a clean directory with matching text and no unresolved citations
   or overfull boxes; its hashes are recorded in `output/QA.json`.
+
+
+## Consumer update — 15 November 2026, captured 17:01 UTC
+
+The seven-page LaTeX draft now contains all 12 cohort publications, 24 frozen
+consumer models across eight datasets, and the completed wildlife-strike recovery.
+The original `draft-inputs.json` is unchanged. The additive snapshot is
+`analysis/update-inputs-2026-11-15.json`; it records input hashes and the explicit
+selection of `faa-wildlife-strike-substantial-damage-retry-1` for that dataset.
+Original failed outcomes remain preserved and reported, with no favorable-run
+selection across original and recovery attempts.
+
+- **Twelfth publication:** the pinned queue and public snapshot identify
+  `sdwis-lcr-lead-action-level-next-period`, verified at 14:56:16 UTC. It fills the
+  existing 12-release cap, not a revised outcome-dependent cohort. No consumer
+  metrics are available for it in this snapshot.
+- **Cost and production attempts:** unchanged 14:24:01 UTC export. All cost ratios,
+  worker counts, stage counts, and successful-release latencies retain their
+  original 11-publication denominator. No estimate is divided by 12.
+- **Wildlife-strike qualification:** retrieved the published, manifest-bound
+  passing gate 1.6.1 report (SHA256 beginning `4747ab0ebaef1c10`). The release's
+  own hash-verified qualifier and dependencies accepted the complete saved train,
+  validation, holdout, metadata, and published quality descriptor in a separate
+  temporary copy. Artifact digest: `ae75ab5acd1b27ae...`. This rechecks the worker's
+  original evidence; no model fit or new qualification was run. Compact report,
+  receipt, and provenance are in `analysis/update-2026-11-15/`.
+- **Wildlife-strike scores:** saved recovery summary, finished at 16:44:24 UTC.
+  All three consumer models are frozen. Table I and Figure 3 derive from these
+  saved results and the paired bootstrap output, not handwritten plot values.
+- **Interval interpretation:** all three differences against the ordinary control
+  have lower bounds above zero. Against paired random search, only run 2 does.
+  Incident-day clustering does not account for aircraft, airport, or operator
+  dependence across days. The source review also limits claims to retrospective
+  current-snapshot use. No general agent-superiority claim is added.
+- **Probes:** 24 batch/order passes on the sampled rows; 21 own-label probes show
+  no changed tested cells, and three have unresolved assertion errors (FDA run 2,
+  T100 run 3, FAA recovery run 1). These are not completed compliance verdicts.
+- **Still outstanding at this snapshot:** Seattle and railway-hazmat recovery,
+  first evaluation of drinking-water lead, full semantic code/transcript review,
+  resolution or explicit retention of all three probe errors, final production
+  accounting, and author review. Utility-reliability access failures remain.
+- **Presentation checks:** all seven pages rendered and inspected; 20 references
+  retained; source bundle rebuilt in a clean directory with matching PDF text,
+  embedded fonts, no Type 3 fonts, no overfull boxes or unresolved citations.
+  `output/QA.json` hashes both evidence snapshots and delivered artifacts.

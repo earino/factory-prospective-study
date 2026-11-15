@@ -6,6 +6,12 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyBboxPatch
 P=Path(__file__).resolve().parents[1]; D=json.loads((P/'analysis/draft-inputs.json').read_text())['data']
+U=json.loads((P/'analysis/update-inputs-2026-11-15.json').read_text())
+D.update(U['data'])
+execution_ids=U['analysis_selection']
+def consumer_path(ds):return f"evidence/consumer/{execution_ids.get(ds,ds)}/results/summary.json"
+def review_path(ds,name):return f"evidence/reviews/{execution_ids.get(ds,ds)}/post/{name}"
+
 C=D['evidence/costs/2026-11-15/summary.json']; cohort=D['evidence/costs/2026-11-15/inputs/cohort.json']
 figdir=P/'draft/figures'; gen=P/'draft/generated'
 plt.rcParams.update({'font.family':'DejaVu Sans','font.size':8,'pdf.fonttype':42,'ps.fonttype':42,'axes.spines.top':False,'axes.spines.right':False,'axes.labelcolor':'#243342','text.color':'#243342','axes.edgecolor':'#9ba6ad','xtick.color':'#53616b','ytick.color':'#53616b','savefig.bbox':'tight'})
@@ -38,26 +44,31 @@ bx.invert_yaxis();bx.set_xlabel('Recorded stage attempts started in window');bx.
 for y,v in enumerate(left):bx.text(v+2,y,str(v),va='center',fontsize=8)
 fig.tight_layout(w_pad=2);fig.savefig(figdir/'operations.pdf');plt.close(fig)
 # All available paired intervals, no best-run selection.
-fig,axes=plt.subplots(2,3,figsize=(7,3.2),sharex=True)
-with_ci=[r for r in cohort if (f"evidence/reviews/{r['dataset']}/post/bootstrap.json" in D and len(D[f"evidence/reviews/{r['dataset']}/post/bootstrap.json"]['comparisons']))]
-for ax,r in zip(axes.flat,with_ci):
- ds=r['dataset']; b=D[f'evidence/reviews/{ds}/post/bootstrap.json']; rows=[c for c in b['comparisons'] if c['control'].endswith('--random')]
- ax.axvline(0,color=grey,lw=.9);ax.set_yticks([0,1,2],['Run 1','Run 2','Run 3']);ax.invert_yaxis()
- for i,c in enumerate(rows):ax.errorbar(c['delta'],i,xerr=[[c['delta']-c['low']],[c['high']-c['delta']]],fmt='o',color=blue,capsize=2,ms=3,lw=1)
- ax.set_title(f"{names[ds]} · {b['clusters']:,} groups",loc='left',fontsize=8);ax.set_xlim(-.085,.105);ax.set_xticks([-.05,0,.05,.10]);ax.grid(axis='x',alpha=.15)
-for ax in axes[-1]:ax.set_xlabel('Holdout AUC difference')
-fig.tight_layout(w_pad=1.4,h_pad=1.8);fig.savefig(figdir/'consumer-intervals.pdf');plt.close(fig)
+fig,ax=plt.subplots(figsize=(7,3.2))
+with_ci=[r for r in cohort if (review_path(r['dataset'],'bootstrap.json') in D and len(D[review_path(r['dataset'],'bootstrap.json')]['comparisons']))]
+ax.axvline(0,color=grey,lw=.9)
+titles=[]
+for j,r in enumerate(with_ci):
+ ds=r['dataset'];b=D[review_path(ds,'bootstrap.json')]; rows=[c for c in b['comparisons'] if c['control'].endswith('--random')]
+ titles.append(f"{names[ds]} ({b['clusters']:,} groups)")
+ if j%2==0:ax.axhspan(j-.45,j+.45,color='#eef4f7',zorder=0)
+ for i,c in enumerate(rows):
+  ax.errorbar(c['delta'],j+(i-1)*.21,xerr=[[c['delta']-c['low']],[c['high']-c['delta']]],fmt=['o','s','^'][i],color=[blue,teal,gold][i],capsize=2,ms=3,lw=1,label=f'Run {i+1}' if j==0 else None)
+ax.set_yticks(range(len(titles)),titles);ax.invert_yaxis();ax.set_xlim(-.085,.105);ax.set_xticks([-.05,0,.05,.10]);ax.grid(axis='x',alpha=.15);ax.set_xlabel('Consumer minus random-search holdout AUC');ax.legend(frameon=False,loc='upper right',fontsize=7)
+fig.tight_layout();fig.savefig(figdir/'consumer-intervals.pdf');plt.close(fig)
 # Tables are computed; paper interpretation is kept in the manuscript.
 rows=[]; outcome_counts=collections.Counter(); probe_errors=[]; artifacts=0
 for r in cohort:
- ds=r['dataset'];s=D[f'evidence/consumer/{ds}/results/summary.json'];outcome_counts.update(x['status'] for x in s['outcomes']); scores=s['scores']; ordinary=next(x['holdout_auc'] for x in scores if x['kind']=='ordinary'); agents=[x['holdout_auc'] for x in scores if x['kind']=='agent']; randoms=[x['holdout_auc'] for x in scores if x['kind']=='random']; n=next(x['holdout_rows'] for x in scores if x['kind']=='ordinary')
- b=D.get(f'evidence/reviews/{ds}/post/bootstrap.json');g=f"{b['clusters']:,}" if b and agents else ('?' if agents else '--')
+ ds=r['dataset'];s=D[consumer_path(ds)];outcome_counts.update(x['status'] for x in s['outcomes']); scores=s['scores']; ordinary=next(x['holdout_auc'] for x in scores if x['kind']=='ordinary'); agents=[x['holdout_auc'] for x in scores if x['kind']=='agent']; randoms=[x['holdout_auc'] for x in scores if x['kind']=='random']; n=next(x['holdout_rows'] for x in scores if x['kind']=='ordinary')
+ b=D.get(review_path(ds,'bootstrap.json'));g=f"{b['clusters']:,}" if b and agents else ('?' if agents else '--')
  span=lambda v:f'{min(v):.3f}--{max(v):.3f}' if v else '--'
  rows.append(f"{names[ds]} & {n:,} & {ordinary:.3f} & {span(agents)} & {span(randoms)} & {g} \\")
- for p in D.get(f'evidence/reviews/{ds}/post/training-feature-probes.json',[]):
+ for p in D.get(review_path(ds,'training-feature-probes.json'),[]):
   if 'error' in p:probe_errors.append(p['run'])
- artifacts+=len(D.get(f'evidence/reviews/{ds}/post/artifact-probes.json',[]))
+ artifacts+=len(D.get(review_path(ds,'artifact-probes.json'),[]))
+assert len(D['queue.json'])==12 and D['queue.json'][-1]['dataset']=='sdwis-lcr-lead-action-level-next-period'
+rows.append('Drinking-water lead & -- & -- & -- & -- & -- '+chr(92)*2)
 (gen/'score-rows.tex').write_text('\n'.join(line.rstrip(chr(92))+chr(92)*2 for line in rows)+'\n')
 lat=[(parse(r['published_at'])-parse(r['created'])).total_seconds()/60 for r in cohort]
-metrics={'stage_attempts':len(A),'stage_status_counts':{s:{k:counts[s,k] for k in ['done','retry','repair','defer','reject','running']} for s in stages},'unique_done_candidates':{s:len({a['candidate'] for a in A if a['stage']==s and a['status']=='done'}) for s in stages},'publication_latency_minutes':{'min':min(lat),'median':statistics.median(lat),'max':max(lat)},'original_consumer_outcomes':dict(outcome_counts),'artifact_probes':artifacts,'training_probe_errors':probe_errors,'cost':{'total':C['factory_total_time_priced_usd_range'],'per_release':C['factory_time_priced_usd_per_release_range']}}
+metrics={'stage_attempts':len(A),'stage_status_counts':{s:{k:counts[s,k] for k in ['done','retry','repair','defer','reject','running']} for s in stages},'unique_done_candidates':{s:len({a['candidate'] for a in A if a['stage']==s and a['status']=='done'}) for s in stages},'publication_latency_minutes':{'min':min(lat),'median':statistics.median(lat),'max':max(lat)},'selected_consumer_outcomes':dict(outcome_counts),'original_consumer_outcomes':dict(collections.Counter(x['status'] for r in cohort for x in D[f"evidence/consumer/{r['dataset']}/results/summary.json"]['outcomes'])),'selected_execution_ids':execution_ids,'published_cohort_size':len(D['queue.json']),'artifact_probes':artifacts,'training_probe_errors':probe_errors,'cost':{'total':C['factory_total_time_priced_usd_range'],'per_release':C['factory_time_priced_usd_per_release_range']}}
 (P/'analysis/derived.json').write_text(json.dumps(metrics,indent=2)+'\n');print(json.dumps(metrics,indent=2))

@@ -45,14 +45,23 @@
     "median": 106.2903345,
     "max": 189.2361460333333
   },
+  "selected_consumer_outcomes": {
+    "frozen": 24,
+    "failed": 9
+  },
   "original_consumer_outcomes": {
     "frozen": 21,
     "failed": 12
   },
-  "artifact_probes": 21,
+  "selected_execution_ids": {
+    "faa-wildlife-strike-substantial-damage": "faa-wildlife-strike-substantial-damage-retry-1"
+  },
+  "published_cohort_size": 12,
+  "artifact_probes": 24,
   "training_probe_errors": [
     "fda-510k-five-year-recall--r2",
-    "t100-new-route-survival--r3"
+    "t100-new-route-survival--r3",
+    "faa-wildlife-strike-substantial-damage--r1"
   ],
   "cost": {
     "total": [

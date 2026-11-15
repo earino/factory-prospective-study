@@ -13,5 +13,5 @@ subprocess.run(['pdftotext',str(clean/'main.pdf'),str(clean/'clean.txt')],check=
 subprocess.run(['pdftotext',str(out/'paper.pdf'),str(out/'check.txt')],check=True)
 assert (clean/'clean.txt').read_text()==(out/'check.txt').read_text()
 sha=lambda f:hashlib.sha256(f.read_bytes()).hexdigest()
-checks={'pages':pages,'template':'IEEEtran conference, 10pt, letter','clean_source_bundle_build':True,'clean_and_workspace_text_identical':True,'unresolved_references':False,'overfull_boxes':False,'all_fonts_embedded':True,'type3_fonts':False,'source_bundle_sha256':sha(out/'paper-source.zip'),'pdf_sha256':sha(out/'paper.pdf'),'evidence_snapshot_sha256':sha(P/'analysis/draft-inputs.json')}
+checks={'pages':pages,'template':'IEEEtran conference, 10pt, letter','clean_source_bundle_build':True,'clean_and_workspace_text_identical':True,'unresolved_references':False,'overfull_boxes':False,'all_fonts_embedded':True,'type3_fonts':False,'source_bundle_sha256':sha(out/'paper-source.zip'),'pdf_sha256':sha(out/'paper.pdf'),'evidence_snapshot_sha256':sha(P/'analysis/draft-inputs.json'),'consumer_update_sha256':sha(P/'analysis/update-inputs-2026-11-15.json')}
 (out/'QA.json').write_text(json.dumps(checks,indent=2)+'\n');print(json.dumps(checks,indent=2))

@@ -1,0 +1,1796 @@
+{
+  "captured_at": "2026-11-15T17:01:24.130553+00:00",
+  "repository_commit": "7d0af410aa64f8dee5816e4f98e817442c507670",
+  "analysis_selection": {
+    "faa-wildlife-strike-substantial-damage": "faa-wildlife-strike-substantial-damage-retry-1"
+  },
+  "sources": {
+    "queue.json": "fede49a82756ddc56ea4009a795a6112e11c345642627577a923ea2becd4fc4e",
+    ".local/worker.json": "588c58e06fb906a320d459ab06758eb420dc07c4ec2d5cdac93a2e13f411289a",
+    "evidence/outcomes/faa-wildlife-strike-substantial-damage-retry-1.json": "fd920e72f03867ae7c380339628a5afc7e6f6c0ac13b3a384ea7c25933fa2c05",
+    "evidence/consumer/faa-wildlife-strike-substantial-damage-retry-1/results/summary.json": "c59d728f709077c723391f88002c46770792295feaaf75eaf3709918b4f9112e",
+    "evidence/reviews/faa-wildlife-strike-substantial-damage-retry-1/cluster.json": "e39244f8526bbaf188692bceb3bdbd4705824c79f095b344c2911393d82f1c9f",
+    "evidence/reviews/faa-wildlife-strike-substantial-damage-retry-1/pinned-release.json": "c0ff855713658fa59c057716c5ec94b358a4110381a1206d8388bb6af013c308",
+    "evidence/reviews/faa-wildlife-strike-substantial-damage-retry-1/post/bootstrap.json": "92625d32d1ca6b46767e697540f5ac1cc3428e9d516e6a93745032ddbfec329a",
+    "evidence/reviews/faa-wildlife-strike-substantial-damage-retry-1/post/training-feature-probes.json": "d429443f35edfaeae85eb566d3e41e29082ab5bad8296f27fc780480e801f5de",
+    "evidence/reviews/faa-wildlife-strike-substantial-damage-retry-1/post/artifact-probes.json": "0c284298e3356213f3b00a804776af60e0888494e5d33f57d1ce062343bc899b",
+    "evidence/reviews/faa-wildlife-strike-substantial-damage-retry-1/post/control-features.json": "bd78c72b5214d220c567110dcc619c3b8c2b1ae8bbe26a2216c584a178c65dbb",
+    "paper/analysis/update-2026-11-15/faa-artifact-verification.json": "975647a8f916570bda365cbccd8767350ecdbd431b2298bda44d333c797664b7",
+    "paper/analysis/update-2026-11-15/faa-qualification.json": "4747ab0ebaef1c10efb2af148ef9d07e72f1a6f6e11bcf076c75ab0c864e7ef3",
+    "evidence/snapshots/20261115T165519Z.json.gz": "9b7f372b0ec77faaa9874f30a8fdb93eb2f49300075c55cf3624261b1e363b90",
+    "evidence/reviews/faa-wildlife-strike-substantial-damage-retry-1/PRE-REVIEW.md": "5322daad361fb66e6d2aa61f3a0986a1b3c850beaecd655c6de02dc11d9264e1",
+    "paper/analysis/update-2026-11-15/faa-acceptance.txt": "ab844cda67616bffe9e3e70659cd5cb4a905b62e9529cf11152a2f004400f870",
+    "paper/analysis/draft-inputs.json": "1799b8991cf9b73b4477e8741d71f1f08b15e4ef98e4d24829de3b6c05ee0170"
+  },
+  "data": {
+    "queue.json": [
+      {
+        "branch": "consumer/fjc-civil-trial-36m",
+        "commit": "1dcb191cb5eb2c75fef6b5e107c427de897641b2",
+        "dataset": "fjc-civil-trial-36m",
+        "finished": "2026-11-13T09:44:31.067613+00:00",
+        "release": {
+          "artifact_version": "12c60dcef222d140c644711233662e099b37df1325fe5ad1c96ff2d94d0aeff5",
+          "assets": 33,
+          "baseline_display": "See versioned evaluation.json; public validation only",
+          "dataset": "fjc-civil-trial-36m",
+          "destinations": {
+            "github": "https://github.com/earino/factory-fjc-civil-trial-36m/releases/tag/v-86c6129e8102da78",
+            "huggingface": "https://huggingface.co/datasets/earino/factory-fjc-civil-trial-36m"
+          },
+          "detail_id": "source-000048",
+          "disposition": "public",
+          "published": true,
+          "release_tag": "v-86c6129e8102da78",
+          "rows": 838531,
+          "splits": {
+            "eval": {
+              "rows": 124885
+            },
+            "holdout": {
+              "rows": 113510
+            },
+            "train": {
+              "rows": 600136
+            }
+          },
+          "verified": {
+            "github": true,
+            "huggingface": true
+          },
+          "verified_all": true,
+          "verified_at": "2026-11-13T02:30:19.452430+00:00",
+          "workflow": "modern"
+        },
+        "selected": true,
+        "started": "2026-11-13T06:54:40.366267+00:00",
+        "status": "complete",
+        "verified_at": "2026-11-13T02:30:19.452430+00:00"
+      },
+      {
+        "branch": "consumer/eia861-reliability-deterioration",
+        "commit": "19735c640ca0e7330e5113f4cd5a19fbc1f7069f",
+        "dataset": "eia861-reliability-deterioration",
+        "finished": "2026-11-13T09:54:18.876957+00:00",
+        "release": {
+          "artifact_version": "6aa939acba34270679973c9e8b5ea12984814b146a32ca50ec71d3b23ac2790a",
+          "assets": 33,
+          "baseline_display": "See versioned evaluation.json; public validation only",
+          "dataset": "eia861-reliability-deterioration",
+          "destinations": {
+            "github": "https://github.com/earino/factory-eia861-reliability-deterioration/releases/tag/v-498e55482c3ed94b",
+            "huggingface": "https://huggingface.co/datasets/earino/factory-eia861-reliability-deterioration"
+          },
+          "detail_id": "source-000053",
+          "disposition": "public",
+          "published": true,
+          "release_tag": "v-498e55482c3ed94b",
+          "rows": 5809,
+          "splits": {
+            "eval": {
+              "rows": 1294
+            },
+            "holdout": {
+              "rows": 2062
+            },
+            "train": {
+              "rows": 2453
+            }
+          },
+          "verified": {
+            "github": true,
+            "huggingface": true
+          },
+          "verified_all": true,
+          "verified_at": "2026-11-13T05:28:19.001460+00:00",
+          "workflow": "modern"
+        },
+        "selected": true,
+        "started": "2026-11-13T09:44:31.070469+00:00",
+        "status": "complete",
+        "verified_at": "2026-11-13T05:28:19.001460+00:00"
+      },
+      {
+        "branch": "consumer/phmsa-pipeline-penalty-reduction",
+        "commit": "6cc1f4f10fc650333eb54a737994129ee69359ba",
+        "dataset": "phmsa-pipeline-penalty-reduction",
+        "finished": "2026-11-13T20:13:45.636134+00:00",
+        "release": {
+          "artifact_version": "04b70fa61c8b4b68fb11974080984ef075ff8470c5ee52379579266b5ccfac1a",
+          "assets": 33,
+          "baseline_display": "See versioned evaluation.json; public validation only",
+          "dataset": "phmsa-pipeline-penalty-reduction",
+          "destinations": {
+            "github": "https://github.com/earino/factory-phmsa-pipeline-penalty-reduction/releases/tag/v-bbc08f68dbbd24b5",
+            "huggingface": "https://huggingface.co/datasets/earino/factory-phmsa-pipeline-penalty-reduction"
+          },
+          "detail_id": "source-000055",
+          "disposition": "public",
+          "published": true,
+          "release_tag": "v-bbc08f68dbbd24b5",
+          "rows": 958,
+          "splits": {
+            "eval": {
+              "rows": 139
+            },
+            "holdout": {
+              "rows": 149
+            },
+            "train": {
+              "rows": 670
+            }
+          },
+          "verified": {
+            "github": true,
+            "huggingface": true
+          },
+          "verified_all": true,
+          "verified_at": "2026-11-13T07:53:15.783341+00:00",
+          "workflow": "modern"
+        },
+        "selected": true,
+        "started": "2026-11-13T18:32:30.304079+00:00",
+        "status": "complete",
+        "verified_at": "2026-11-13T07:53:15.783341+00:00"
+      },
+      {
+        "branch": "consumer/fda-510k-five-year-recall",
+        "commit": "f5bf774a9a6f49d51786a84738eda794a1c27494",
+        "dataset": "fda-510k-five-year-recall",
+        "finished": "2026-11-14T01:48:42.565305+00:00",
+        "release": {
+          "artifact_version": "4402989d50d250e5d9eab6a8f93c00997c3be07ffecedd577a04ceddd1c15d15",
+          "assets": 33,
+          "baseline_display": "See versioned evaluation.json; public validation only",
+          "dataset": "fda-510k-five-year-recall",
+          "destinations": {
+            "github": "https://github.com/earino/factory-fda-510k-five-year-recall/releases/tag/v-68e59a5ac91ad404",
+            "huggingface": "https://huggingface.co/datasets/earino/factory-fda-510k-five-year-recall"
+          },
+          "detail_id": "source-000064",
+          "disposition": "public",
+          "published": true,
+          "release_tag": "v-68e59a5ac91ad404",
+          "rows": 48623,
+          "splits": {
+            "eval": {
+              "rows": 9046
+            },
+            "holdout": {
+              "rows": 9014
+            },
+            "train": {
+              "rows": 30563
+            }
+          },
+          "verified": {
+            "github": true,
+            "huggingface": true
+          },
+          "verified_all": true,
+          "verified_at": "2026-11-13T23:42:15.349488+00:00",
+          "workflow": "modern"
+        },
+        "selected": true,
+        "started": "2026-11-14T00:06:19.100859+00:00",
+        "status": "complete",
+        "verified_at": "2026-11-13T23:42:15.349488+00:00"
+      },
+      {
+        "branch": "consumer/t100-new-route-survival",
+        "commit": "82a6bc9d5f72775191e29231e7cb6c66c19b34b5",
+        "dataset": "t100-new-route-survival",
+        "finished": "2026-11-14T12:43:53.529227+00:00",
+        "release": {
+          "artifact_version": "fa26f4e978cfd24a70d86394dac2e3dc9ddf148346ed1e186b04b346bd064001",
+          "assets": 33,
+          "baseline_display": "See versioned evaluation.json; public validation only",
+          "dataset": "t100-new-route-survival",
+          "destinations": {
+            "github": "https://github.com/earino/factory-t100-new-route-survival/releases/tag/v-d32decf32c315be4",
+            "huggingface": "https://huggingface.co/datasets/earino/factory-t100-new-route-survival"
+          },
+          "detail_id": "source-000068",
+          "disposition": "public",
+          "published": true,
+          "release_tag": "v-d32decf32c315be4",
+          "rows": 5777,
+          "splits": {
+            "eval": {
+              "rows": 834
+            },
+            "holdout": {
+              "rows": 1209
+            },
+            "train": {
+              "rows": 3734
+            }
+          },
+          "verified": {
+            "github": true,
+            "huggingface": true
+          },
+          "verified_all": true,
+          "verified_at": "2026-11-14T02:04:19.792527+00:00",
+          "workflow": "modern"
+        },
+        "selected": true,
+        "started": "2026-11-14T11:04:03.811454+00:00",
+        "status": "complete",
+        "verified_at": "2026-11-14T02:04:19.792527+00:00"
+      },
+      {
+        "branch": "consumer/sbir-phase1-to-phase2-conversion",
+        "commit": "943f7482d687e6688fc0ae7ba12377a20d73b2de",
+        "dataset": "sbir-phase1-to-phase2-conversion",
+        "finished": "2026-11-14T14:27:34.928613+00:00",
+        "release": {
+          "artifact_version": "a1f22706a52ba521dcb070d0a85877c552f5c62e8752af292e4a31ec27fdbe72",
+          "assets": 33,
+          "baseline_display": "See versioned evaluation.json; public validation only",
+          "dataset": "sbir-phase1-to-phase2-conversion",
+          "destinations": {
+            "github": "https://github.com/earino/factory-sbir-phase1-to-phase2-conversion/releases/tag/v-0d2e623e604ecf78",
+            "huggingface": "https://huggingface.co/datasets/earino/factory-sbir-phase1-to-phase2-conversion"
+          },
+          "detail_id": "source-000072",
+          "disposition": "public",
+          "published": true,
+          "release_tag": "v-0d2e623e604ecf78",
+          "rows": 9686,
+          "splits": {
+            "eval": {
+              "rows": 1408
+            },
+            "holdout": {
+              "rows": 1704
+            },
+            "train": {
+              "rows": 6574
+            }
+          },
+          "verified": {
+            "github": true,
+            "huggingface": true
+          },
+          "verified_all": true,
+          "verified_at": "2026-11-14T04:36:15.599185+00:00",
+          "workflow": "modern"
+        },
+        "selected": true,
+        "started": "2026-11-14T12:43:53.530450+00:00",
+        "status": "complete",
+        "verified_at": "2026-11-14T04:36:15.599185+00:00"
+      },
+      {
+        "branch": "consumer/caa-fce-hpv-escalation",
+        "commit": "1f4600d942d308db066c465442b125dc6584de55",
+        "dataset": "caa-fce-hpv-escalation",
+        "finished": "2026-11-15T01:56:47.894817+00:00",
+        "release": {
+          "artifact_version": "2a1b8fe5efdf2f0bae9a7777de98d0019bb70404c8aafbe0291a615e93f0573b",
+          "assets": 33,
+          "baseline_display": "See versioned evaluation.json; public validation only",
+          "dataset": "caa-fce-hpv-escalation",
+          "destinations": {
+            "github": "https://github.com/earino/factory-caa-fce-hpv-escalation/releases/tag/v-fd86cbb0bc96aaca",
+            "huggingface": "https://huggingface.co/datasets/earino/factory-caa-fce-hpv-escalation"
+          },
+          "detail_id": "source-000079",
+          "disposition": "public",
+          "published": true,
+          "release_tag": "v-fd86cbb0bc96aaca",
+          "rows": 114694,
+          "splits": {
+            "eval": {
+              "rows": 36500
+            },
+            "holdout": {
+              "rows": 20011
+            },
+            "train": {
+              "rows": 58183
+            }
+          },
+          "verified": {
+            "github": true,
+            "huggingface": true
+          },
+          "verified_all": true,
+          "verified_at": "2026-11-14T22:55:16.477819+00:00",
+          "workflow": "modern"
+        },
+        "selected": true,
+        "started": "2026-11-15T00:12:29.322881+00:00",
+        "status": "complete",
+        "verified_at": "2026-11-14T22:55:16.477819+00:00"
+      },
+      {
+        "branch": "consumer/wser-effluent-exceedance",
+        "commit": "5e12c495e62fbbf56b133fe340923e54885020d8",
+        "dataset": "wser-effluent-exceedance",
+        "finished": "2026-11-15T03:52:59.003698+00:00",
+        "release": {
+          "artifact_version": "15ee03d514ebc5eaedefc7fba7611d2525fd4b9c828bdfb120ae55b8b8f4c1b4",
+          "assets": 33,
+          "baseline_display": "See versioned evaluation.json; public validation only",
+          "dataset": "wser-effluent-exceedance",
+          "destinations": {
+            "github": "https://github.com/earino/factory-wser-effluent-exceedance/releases/tag/v-3ceae5479cda761c",
+            "huggingface": "https://huggingface.co/datasets/earino/factory-wser-effluent-exceedance"
+          },
+          "detail_id": "source-000083",
+          "disposition": "public",
+          "published": true,
+          "release_tag": "v-3ceae5479cda761c",
+          "rows": 18126,
+          "splits": {
+            "eval": {
+              "rows": 5894
+            },
+            "holdout": {
+              "rows": 3988
+            },
+            "train": {
+              "rows": 8244
+            }
+          },
+          "verified": {
+            "github": true,
+            "huggingface": true
+          },
+          "verified_all": true,
+          "verified_at": "2026-11-15T01:17:16.726399+00:00",
+          "workflow": "modern"
+        },
+        "selected": true,
+        "started": "2026-11-15T02:13:52.572975+00:00",
+        "status": "complete",
+        "verified_at": "2026-11-15T01:17:16.726399+00:00"
+      },
+      {
+        "branch": "consumer/faa-wildlife-strike-substantial-damage",
+        "commit": "49de5907b0fcb37161020cb606ddaf510ef5f5c3",
+        "dataset": "faa-wildlife-strike-substantial-damage",
+        "finished": "2026-11-15T11:35:09.935894+00:00",
+        "release": {
+          "artifact_version": "ae75ab5acd1b27aeb29c4d414aa78610d797fe43068062bafd1574bb272dc2f9",
+          "assets": 33,
+          "baseline_display": "See versioned evaluation.json; public validation only",
+          "dataset": "faa-wildlife-strike-substantial-damage",
+          "destinations": {
+            "github": "https://github.com/earino/factory-faa-wildlife-strike-substantial-damage/releases/tag/v-d654c9f4ddfcf60c",
+            "huggingface": "https://huggingface.co/datasets/earino/factory-faa-wildlife-strike-substantial-damage"
+          },
+          "detail_id": "source-000096",
+          "disposition": "public",
+          "published": true,
+          "release_tag": "v-d654c9f4ddfcf60c",
+          "rows": 142871,
+          "splits": {
+            "eval": {
+              "rows": 33250
+            },
+            "holdout": {
+              "rows": 25425
+            },
+            "train": {
+              "rows": 84196
+            }
+          },
+          "verified": {
+            "github": true,
+            "huggingface": true
+          },
+          "verified_all": true,
+          "verified_at": "2026-11-15T09:22:16.250788+00:00",
+          "workflow": "modern"
+        },
+        "selected": true,
+        "started": "2026-11-15T10:21:16.734063+00:00",
+        "status": "complete",
+        "verified_at": "2026-11-15T09:22:16.250788+00:00"
+      },
+      {
+        "branch": "consumer/seattle-building-permit-completion",
+        "commit": "2ff2d43b1c3da5c3111cb6b11105e0def1454165",
+        "dataset": "seattle-building-permit-completion",
+        "finished": "2026-11-15T12:30:02.378452+00:00",
+        "release": {
+          "artifact_version": "a220e68c960ee6b6aa473f015112be0993353ab3d12f9820c31551164f0ee677",
+          "assets": 33,
+          "baseline_display": "See versioned evaluation.json; public validation only",
+          "dataset": "seattle-building-permit-completion",
+          "destinations": {
+            "github": "https://github.com/earino/factory-seattle-building-permit-completion/releases/tag/v-67a46c698fa813cc",
+            "huggingface": "https://huggingface.co/datasets/earino/factory-seattle-building-permit-completion"
+          },
+          "detail_id": "source-000100",
+          "disposition": "public",
+          "published": true,
+          "release_tag": "v-67a46c698fa813cc",
+          "rows": 24747,
+          "splits": {
+            "eval": {
+              "rows": 7135
+            },
+            "holdout": {
+              "rows": 6326
+            },
+            "train": {
+              "rows": 11286
+            }
+          },
+          "verified": {
+            "github": true,
+            "huggingface": true
+          },
+          "verified_all": true,
+          "verified_at": "2026-11-15T11:13:20.100537+00:00",
+          "workflow": "modern"
+        },
+        "selected": true,
+        "started": "2026-11-15T12:22:47.464535+00:00",
+        "status": "complete",
+        "verified_at": "2026-11-15T11:13:20.100537+00:00"
+      },
+      {
+        "branch": "consumer/fra-form54-hazmat-release",
+        "commit": "498e4818e18fa3ac55b9e24f7b7e88127b233288",
+        "dataset": "fra-form54-hazmat-release",
+        "finished": "2026-11-15T12:37:15.579878+00:00",
+        "release": {
+          "artifact_version": "aedd811fdb6a80fdeb6828c1ba8bc2eeb80c8446d597ba57a536adb8e384da7e",
+          "assets": 33,
+          "baseline_display": "See versioned evaluation.json; public validation only",
+          "dataset": "fra-form54-hazmat-release",
+          "destinations": {
+            "github": "https://github.com/earino/factory-fra-form54-hazmat-release/releases/tag/v-c59d614ee9c4ce97",
+            "huggingface": "https://huggingface.co/datasets/earino/factory-fra-form54-hazmat-release"
+          },
+          "detail_id": "source-000099",
+          "disposition": "public",
+          "published": true,
+          "release_tag": "v-c59d614ee9c4ce97",
+          "rows": 25427,
+          "splits": {
+            "eval": {
+              "rows": 7697
+            },
+            "holdout": {
+              "rows": 5189
+            },
+            "train": {
+              "rows": 12541
+            }
+          },
+          "verified": {
+            "github": true,
+            "huggingface": true
+          },
+          "verified_all": true,
+          "verified_at": "2026-11-15T11:22:19.117088+00:00",
+          "workflow": "modern"
+        },
+        "selected": true,
+        "started": "2026-11-15T12:30:02.379484+00:00",
+        "status": "complete",
+        "verified_at": "2026-11-15T11:22:19.117088+00:00"
+      },
+      {
+        "dataset": "sdwis-lcr-lead-action-level-next-period",
+        "release": {
+          "artifact_version": "b08c6a7bbfdcbbffb33de64be0cde0485e147bc0f82d96185db1b34ecdaab857",
+          "assets": 33,
+          "baseline_display": "See versioned evaluation.json; public validation only",
+          "dataset": "sdwis-lcr-lead-action-level-next-period",
+          "destinations": {
+            "github": "https://github.com/earino/factory-sdwis-lcr-lead-action-level-next-period/releases/tag/v-5917644e4c46057e",
+            "huggingface": "https://huggingface.co/datasets/earino/factory-sdwis-lcr-lead-action-level-next-period"
+          },
+          "detail_id": "source-000107",
+          "disposition": "public",
+          "published": true,
+          "release_tag": "v-5917644e4c46057e",
+          "rows": 292315,
+          "splits": {
+            "eval": {
+              "rows": 17368
+            },
+            "holdout": {
+              "rows": 17568
+            },
+            "train": {
+              "rows": 257379
+            }
+          },
+          "verified": {
+            "github": true,
+            "huggingface": true
+          },
+          "verified_all": true,
+          "verified_at": "2026-11-15T14:56:16.234161+00:00",
+          "workflow": "modern"
+        },
+        "selected": true,
+        "status": "queued",
+        "verified_at": "2026-11-15T14:56:16.234161+00:00"
+      }
+    ],
+    ".local/worker.json": {
+      "dataset": "seattle-building-permit-completion",
+      "execution_id": "seattle-building-permit-completion-retry-1",
+      "started": "2026-11-15T16:44:24.718065+00:00",
+      "status": "running"
+    },
+    "evidence/outcomes/faa-wildlife-strike-substantial-damage-retry-1.json": {
+      "branch": "consumer/faa-wildlife-strike-substantial-damage-retry-1",
+      "commit": "ba071829395194aed1eeb6567534ccda25cc3976",
+      "dataset": "faa-wildlife-strike-substantial-damage",
+      "execution_id": "faa-wildlife-strike-substantial-damage-retry-1",
+      "finished": "2026-11-15T16:44:24.717076+00:00",
+      "started": "2026-11-15T14:41:22.642538+00:00",
+      "status": "complete"
+    },
+    "evidence/consumer/faa-wildlife-strike-substantial-damage-retry-1/results/summary.json": {
+      "cli_reported_cost_usd_not_invoice": 985.3844272000001,
+      "generated_at": "2026-11-15T16:43:44.716211+00:00",
+      "limitations": [
+        "Five selected factory releases; three attempts are descriptive, not agent rankings.",
+        "Pinned consumer scaffold and deterministic downloads are provided assistance.",
+        "CLI-reported model IDs are not independent provider attestation.",
+        "Public holdout isolation and semantic compliance are procedural, not enforced by an OS sandbox.",
+        "CFPB holdout was used in earlier pilot work outside this study.",
+        "Random search matches observed eligible primary-trial fitting CPU, not unlogged diagnostics or token work.",
+        "Fresh Claude trajectories are nondeterministic; frozen artifact replay is reproducible.",
+        "No factory-wide publication yield or spend is inferred from this consumer study."
+      ],
+      "outcomes": [
+        {
+          "compliance_triage": "no_automatic_access_flag",
+          "dataset": "faa-wildlife-strike-substantial-damage",
+          "error": null,
+          "holdout_content_hits": [],
+          "id": "faa-wildlife-strike-substantial-damage--r1",
+          "integrity": "requires_semantic_review",
+          "interruptions": null,
+          "protocol_caveats": [],
+          "research_active_s": 5100.235746293038,
+          "semantic_compliance": "not_established_by_automated_checks",
+          "source_read_flags": 0,
+          "status": "frozen",
+          "timing": {
+            "cli_invocations": 22,
+            "evaluation_wall_sum_s": 87.51806353901338,
+            "fit_cpu_sum_s": 35.002726,
+            "fit_wall_sum_s": 15.045598122029332,
+            "harness_wall_union_s": 106.03569293022156,
+            "incomplete_or_failed_trials": 0,
+            "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+            "ok_trials": 16,
+            "other_active_wall_s": 4994.200053362816,
+            "research_active_s": 5100.235746293038,
+            "trial_records": 16
+          },
+          "tool_access_flags": 0,
+          "verified_forbidden_copies": 0
+        },
+        {
+          "compliance_triage": "no_automatic_access_flag",
+          "dataset": "faa-wildlife-strike-substantial-damage",
+          "error": null,
+          "holdout_content_hits": [],
+          "id": "faa-wildlife-strike-substantial-damage--r2",
+          "integrity": "requires_semantic_review",
+          "interruptions": null,
+          "protocol_caveats": [],
+          "research_active_s": 5100.484926416015,
+          "semantic_compliance": "not_established_by_automated_checks",
+          "source_read_flags": 0,
+          "status": "frozen",
+          "timing": {
+            "cli_invocations": 18,
+            "evaluation_wall_sum_s": 89.29188445900218,
+            "fit_cpu_sum_s": 10.615406,
+            "fit_wall_sum_s": 4.400398127007065,
+            "harness_wall_union_s": 96.21517848968506,
+            "incomplete_or_failed_trials": 0,
+            "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+            "ok_trials": 12,
+            "other_active_wall_s": 5004.26974792633,
+            "research_active_s": 5100.484926416015,
+            "trial_records": 12
+          },
+          "tool_access_flags": 0,
+          "verified_forbidden_copies": 0
+        },
+        {
+          "compliance_triage": "no_automatic_access_flag",
+          "dataset": "faa-wildlife-strike-substantial-damage",
+          "error": null,
+          "holdout_content_hits": [],
+          "id": "faa-wildlife-strike-substantial-damage--r3",
+          "integrity": "requires_semantic_review",
+          "interruptions": null,
+          "protocol_caveats": [],
+          "research_active_s": 5100.242735166976,
+          "semantic_compliance": "not_established_by_automated_checks",
+          "source_read_flags": 0,
+          "status": "frozen",
+          "timing": {
+            "cli_invocations": 18,
+            "evaluation_wall_sum_s": 375.4752959169564,
+            "fit_cpu_sum_s": 138.04694,
+            "fit_wall_sum_s": 51.00565746004577,
+            "harness_wall_union_s": 439.5618839263916,
+            "incomplete_or_failed_trials": 4,
+            "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+            "ok_trials": 59,
+            "other_active_wall_s": 4660.680851240584,
+            "research_active_s": 5100.242735166976,
+            "trial_records": 63
+          },
+          "tool_access_flags": 0,
+          "verified_forbidden_copies": 0
+        }
+      ],
+      "protocol_sha256": "b78ca936943a10365f508fb2e80332062647b863fbf81baa5a49fdbf3a434d26",
+      "reported_models": [
+        "claude-fable-5-2"
+      ],
+      "reported_usage": {
+        "cache_creation_input_tokens": 889965,
+        "cache_read_input_tokens": 97328111,
+        "input_tokens": 1058,
+        "output_tokens": 596196
+      },
+      "requested_model": "claude-fable-5-2",
+      "scores": [
+        {
+          "dataset": "faa-wildlife-strike-substantial-damage",
+          "holdout_auc": 0.893778797250377,
+          "holdout_brier": 0.00661702185122716,
+          "holdout_rows": 25425,
+          "id": "faa-wildlife-strike-substantial-damage--ordinary",
+          "kind": "ordinary",
+          "validation_auc": 0.8850593504096096,
+          "validation_brier": 0.010890016101097005
+        },
+        {
+          "dataset": "faa-wildlife-strike-substantial-damage",
+          "holdout_auc": 0.9128234649648987,
+          "holdout_brier": 0.005930137289441799,
+          "holdout_rows": 25425,
+          "id": "faa-wildlife-strike-substantial-damage--r1",
+          "kind": "agent",
+          "validation_auc": 0.9054085112938564,
+          "validation_brier": 0.010247497955428193
+        },
+        {
+          "dataset": "faa-wildlife-strike-substantial-damage",
+          "holdout_auc": 0.9091333933302965,
+          "holdout_brier": 0.0062290068898524205,
+          "holdout_rows": 25425,
+          "id": "faa-wildlife-strike-substantial-damage--r1--random",
+          "kind": "random",
+          "validation_auc": 0.8960392386193632,
+          "validation_brier": 0.010673797983234359
+        },
+        {
+          "dataset": "faa-wildlife-strike-substantial-damage",
+          "holdout_auc": 0.9195533745338731,
+          "holdout_brier": 0.005791554900154072,
+          "holdout_rows": 25425,
+          "id": "faa-wildlife-strike-substantial-damage--r2",
+          "kind": "agent",
+          "validation_auc": 0.9026829900278499,
+          "validation_brier": 0.010210711558317709
+        },
+        {
+          "dataset": "faa-wildlife-strike-substantial-damage",
+          "holdout_auc": 0.9048748516994669,
+          "holdout_brier": 0.006419046977267978,
+          "holdout_rows": 25425,
+          "id": "faa-wildlife-strike-substantial-damage--r2--random",
+          "kind": "random",
+          "validation_auc": 0.8961849849659522,
+          "validation_brier": 0.010794214890154946
+        },
+        {
+          "dataset": "faa-wildlife-strike-substantial-damage",
+          "holdout_auc": 0.9081156843825051,
+          "holdout_brier": 0.006018066525599985,
+          "holdout_rows": 25425,
+          "id": "faa-wildlife-strike-substantial-damage--r3",
+          "kind": "agent",
+          "validation_auc": 0.9068884072107284,
+          "validation_brier": 0.010379482252322861
+        },
+        {
+          "dataset": "faa-wildlife-strike-substantial-damage",
+          "holdout_auc": 0.9042419674082124,
+          "holdout_brier": 0.0063388615534280485,
+          "holdout_rows": 25425,
+          "id": "faa-wildlife-strike-substantial-damage--r3--random",
+          "kind": "random",
+          "validation_auc": 0.8978420584947042,
+          "validation_brier": 0.010634668193708908
+        },
+        {
+          "dataset": "faa-wildlife-strike-substantial-damage",
+          "holdout_auc": 0.8936182229332609,
+          "holdout_brier": 0.005903907578749198,
+          "holdout_rows": 25425,
+          "id": "faa-wildlife-strike-substantial-damage--released",
+          "kind": "released",
+          "validation_auc": 0.8898529197621798,
+          "validation_brier": 0.01047778924850881
+        }
+      ]
+    },
+    "evidence/reviews/faa-wildlife-strike-substantial-damage-retry-1/cluster.json": {
+      "cluster_columns": [
+        "incident_date"
+      ],
+      "reason": "A row is one consolidated FAA strike record (field list: INDEX NR is an 'Individual record number'; SOURCE can be 'Multiple' report types). The entities that recur across rows - airframe (REG), airport (AIRPORT_ID) and operator (OPID) - are not usable: REG is dropped, AIRPORT_ID is never resolved by build.py, and OPID is collapsed to a five-value class, so no entity key exists in the release. The dependence the release can express is shared exposure on a calendar day: possible repeat records of one encounter, several aircraft meeting the same flock, and common weather or migration conditions. incident_date is the contract's declared event key and time column (construction.json:137, 586), is a real source field rather than a constructed key, is not a declared predictor (build.py:17-21), is never missing (build.py:441-443 drops unparseable dates) and is written to the holdout by the same code as the public splits (build.py:22, 674). It contains every state-by-day grouping and gives roughly 1,461 clusters of about 17 rows in the 2019-2022 holdout. Public training metadata supports it modestly: pairs of positives on the same day exceed a within-year-month label shuffle in train (589 observed vs 523.4 +/- 23.1, z 2.84) and in the same direction in eval (65 vs 55.8 +/- 7.2, z 1.27); narrowing to state plus day shows no additional excess (train 42 vs 31.8 +/- 5.0; eval 3 vs 3.1 +/- 1.9), and state alone shows none once month is controlled (train z -0.26, eval z -0.78). Row-level independence was rejected because unique record numbers do not show independence when recurring airframes, airports and operators are unobserved. Chosen from source meaning and public train/eval metadata before any holdout scoring; no holdout rows or holdout metrics were read.",
+      "status": "declared",
+      "limitations": [
+        "Airframe, airport and operator identity are not carried, so dependence from the same aircraft, airport or operator recurring on different days cannot be clustered. state is the only persistent geographic column; it showed no detectable label clustering in public data, which is weak evidence about airport-level dependence.",
+        "The measured day-level dependence is modest: the excess is about 12 percent more same-day positive pairs in train, is within noise in eval (z 1.27), and disappears against a within-year shuffle (train z 0.07, eval z 0.42). The key is a conservative guard, not strongly measured dependence.",
+        "Day clusters assume independence across days. They do not absorb seasonal or multi-year drift; the positive rate falls from about 5.8 percent in 1990 to 0.4 percent in 2018 and is 0.42 percent in the holdout per meta.json. Intervals from day-cluster resampling describe sampling variability within 2019-2022, not transport to other periods.",
+        "incident_date is the strike date, not the report date or the database-entry date. Dependence created by entry or adjudication batches is not captured; index_nr ranges are associated with the label within every public year, which suggests such batches exist.",
+        "Positives are rare: meta.json implies 107 in the holdout, about one per 14 days, so most day clusters contain no positive and cluster-resampled AUC and calibration estimates will be unstable.",
+        "A day cluster pools strikes from all states. This is coarser than state-by-day and therefore conservative for same-location dependence, but it treats unrelated same-day strikes as one unit.",
+        "The holdout was not inspected, so the cluster count, sizes and the persistence of the same-day pattern there are inferred from the contract and public splits, not observed."
+      ]
+    },
+    "evidence/reviews/faa-wildlife-strike-substantial-damage-retry-1/pinned-release.json": [
+      "faa-wildlife-strike-substantial-damage",
+      "v-d654c9f4ddfcf60c",
+      "1463654328b312c085db26dd7934a4b876860f89",
+      "1ddf9894795b09057f90c304ef8e48b45568c6a4f46336e8db9e1f3126acd040"
+    ],
+    "evidence/reviews/faa-wildlife-strike-substantial-damage-retry-1/post/bootstrap.json": {
+      "dataset": "faa-wildlife-strike-substantial-damage",
+      "cluster_columns": [
+        "incident_date"
+      ],
+      "clusters": 1461,
+      "rows": 25425,
+      "positives": 107,
+      "missing_cluster_rows": 0,
+      "largest_cluster": 75,
+      "seed": 215814400,
+      "valid_replicates": 2000,
+      "invalid_replicates": 0,
+      "comparisons": [
+        {
+          "run": "faa-wildlife-strike-substantial-damage--r1",
+          "control": "faa-wildlife-strike-substantial-damage--ordinary",
+          "delta": 0.019044667714521735,
+          "low": 0.005648595244392559,
+          "high": 0.03290552357816964
+        },
+        {
+          "run": "faa-wildlife-strike-substantial-damage--r1",
+          "control": "faa-wildlife-strike-substantial-damage--r1--random",
+          "delta": 0.003690071634602332,
+          "low": -0.008819222225307186,
+          "high": 0.015937607161948853
+        },
+        {
+          "run": "faa-wildlife-strike-substantial-damage--r2",
+          "control": "faa-wildlife-strike-substantial-damage--ordinary",
+          "delta": 0.02577457728349597,
+          "low": 0.013019061819625536,
+          "high": 0.040291637378233984
+        },
+        {
+          "run": "faa-wildlife-strike-substantial-damage--r2",
+          "control": "faa-wildlife-strike-substantial-damage--r2--random",
+          "delta": 0.014678522834406182,
+          "low": 0.00498211573057,
+          "high": 0.025676387253268058
+        },
+        {
+          "run": "faa-wildlife-strike-substantial-damage--r3",
+          "control": "faa-wildlife-strike-substantial-damage--ordinary",
+          "delta": 0.014336887132127885,
+          "low": 0.003832243117380463,
+          "high": 0.025703741774524735
+        },
+        {
+          "run": "faa-wildlife-strike-substantial-damage--r3",
+          "control": "faa-wildlife-strike-substantial-damage--r3--random",
+          "delta": 0.003873716974292618,
+          "low": -0.004932582344413771,
+          "high": 0.012796639698977283
+        }
+      ],
+      "inputs": {
+        "/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/.study/holdout/faa-wildlife-strike-substantial-damage/holdout.csv": "93f873d655ca600d170755ceb73a9769992938d8f56fa39a9ab9c7d54c7f3aa4",
+        "/Users/earino/research/factory-prospective-study/evidence/reviews/faa-wildlife-strike-substantial-damage-retry-1/cluster.json": "e39244f8526bbaf188692bceb3bdbd4705824c79f095b344c2911393d82f1c9f",
+        "/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/results/scores/faa-wildlife-strike-substantial-damage--ordinary/predictions.csv.gz": "d2f0bf024e738dfcc1b804ab2fbaa6fddf790d79271430ee69cf99add7a9589a",
+        "/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/results/scores/faa-wildlife-strike-substantial-damage--r1/predictions.csv.gz": "9680bda49984a68da5ae54179621aed8cc82b3fdfedde697c33a453e9640bef9",
+        "/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/results/scores/faa-wildlife-strike-substantial-damage--r2/predictions.csv.gz": "d656c7bb703777786698f95f9b52a34b8158c2d70802564aa39c3a2c0f084dc8",
+        "/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/results/scores/faa-wildlife-strike-substantial-damage--r3/predictions.csv.gz": "c210825349fcd7e30f69a0464c6bef8ed5630427db1c24ca8cd28f3586db2882",
+        "/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/results/scores/faa-wildlife-strike-substantial-damage--r1--random/predictions.csv.gz": "afae47a6997d3a6c5e3abb28bd49150a4c831e3edb7dd9abe377479f22e1638a",
+        "/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/results/scores/faa-wildlife-strike-substantial-damage--r2--random/predictions.csv.gz": "dad5a2d587f63f7056c59fb6b539c5e8ecad734ee1b371a6a618513619633d90",
+        "/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/results/scores/faa-wildlife-strike-substantial-damage--r3--random/predictions.csv.gz": "bb82b976911cd9087dd7f80fa5817ca05983a4e4597fa72e76629c09a17eb6fc"
+      },
+      "method": "2000 paired whole-entity draws, pointwise percentile95%; conditional on fitted models, cohort and declared dependence"
+    },
+    "evidence/reviews/faa-wildlife-strike-substantial-damage-retry-1/post/training-feature-probes.json": [
+      {
+        "run": "faa-wildlife-strike-substantial-damage--r1",
+        "error": "AssertionError()"
+      },
+      {
+        "run": "faa-wildlife-strike-substantial-damage--r2",
+        "full_training_rows": 84196,
+        "training_feature_rows": 84196,
+        "checks": [
+          {
+            "row": 0,
+            "changed_own_feature_cells": 0,
+            "max_absolute_change": 0.0,
+            "augmented_copies": 1
+          },
+          {
+            "row": 42098,
+            "changed_own_feature_cells": 0,
+            "max_absolute_change": 0.0,
+            "augmented_copies": 1
+          }
+        ]
+      },
+      {
+        "run": "faa-wildlife-strike-substantial-damage--r3",
+        "full_training_rows": 84196,
+        "training_feature_rows": 84196,
+        "checks": [
+          {
+            "row": 0,
+            "changed_own_feature_cells": 0,
+            "max_absolute_change": 0.0,
+            "augmented_copies": 1
+          },
+          {
+            "row": 42098,
+            "changed_own_feature_cells": 0,
+            "max_absolute_change": 0.0,
+            "augmented_copies": 1
+          }
+        ]
+      }
+    ],
+    "evidence/reviews/faa-wildlife-strike-substantial-damage-retry-1/post/artifact-probes.json": [
+      {
+        "run": "faa-wildlife-strike-substantial-damage--r1",
+        "real_validation_rows_checked": 25,
+        "batch_equals_single_rows": true,
+        "reverse_order_invariant": true,
+        "prepare_external_events": [],
+        "n_jobs": 5,
+        "feature_count": 44,
+        "selected_feature_names": [
+          "ac_mass",
+          "num_engs",
+          "height_agl",
+          "speed_kts",
+          "distance_nm",
+          "month",
+          "birds_struck",
+          "birds_seen",
+          "size",
+          "warned",
+          "sky",
+          "p_fog",
+          "p_rain",
+          "p_snow",
+          "p_any",
+          "eng_per_mass",
+          "speed_imp",
+          "ke_imp",
+          "speed_resid",
+          "height_imp",
+          "ac_class=A",
+          "ac_class=B",
+          "type_eng=A",
+          "type_eng=B",
+          "type_eng=C",
+          "type_eng=D",
+          "type_eng=F",
+          "phase_of_flt=APPROACH",
+          "phase_of_flt=ARRIVAL",
+          "phase_of_flt=CLIMB",
+          "phase_of_flt=DEPARTURE",
+          "phase_of_flt=DESCENT",
+          "phase_of_flt=LANDING ROLL",
+          "phase_of_flt=LOCAL",
+          "phase_of_flt=TAKE-OFF RUN",
+          "phase_of_flt=TAXI",
+          "time_of_day=DAWN",
+          "time_of_day=DAY",
+          "time_of_day=DUSK",
+          "time_of_day=NIGHT",
+          "operator_class=BUS",
+          "operator_class=GOV",
+          "operator_class=PVT",
+          "operator_class=airline"
+        ]
+      },
+      {
+        "run": "faa-wildlife-strike-substantial-damage--r2",
+        "real_validation_rows_checked": 25,
+        "batch_equals_single_rows": true,
+        "reverse_order_invariant": true,
+        "prepare_external_events": [],
+        "n_jobs": 5,
+        "feature_count": 49,
+        "selected_feature_names": [
+          "ac_mass",
+          "num_engs",
+          "height_agl",
+          "speed_kts",
+          "distance_nm",
+          "month",
+          "size",
+          "birds_struck",
+          "birds_seen",
+          "ac_class=A",
+          "ac_class=B",
+          "ac_class=NA",
+          "type_eng=D",
+          "type_eng=C",
+          "type_eng=A",
+          "type_eng=F",
+          "type_eng=B",
+          "type_eng=NA",
+          "phase_of_flt=APPROACH",
+          "phase_of_flt=LANDING ROLL",
+          "phase_of_flt=CLIMB",
+          "phase_of_flt=TAKE-OFF RUN",
+          "phase_of_flt=DESCENT",
+          "phase_of_flt=TAXI",
+          "phase_of_flt=LOCAL",
+          "phase_of_flt=ARRIVAL",
+          "phase_of_flt=DEPARTURE",
+          "phase_of_flt=PARKED",
+          "phase_of_flt=NA",
+          "warned=NO",
+          "warned=YES",
+          "warned=NA",
+          "time_of_day=DAY",
+          "time_of_day=NIGHT",
+          "time_of_day=DUSK",
+          "time_of_day=DAWN",
+          "time_of_day=NA",
+          "sky=NO CLOUD",
+          "sky=SOME CLOUD",
+          "sky=OVERCAST",
+          "sky=NA",
+          "operator_class=airline",
+          "operator_class=BUS",
+          "operator_class=PVT",
+          "operator_class=GOV",
+          "operator_class=NA",
+          "precip_FOG",
+          "precip_RAIN",
+          "precip_SNOW"
+        ]
+      },
+      {
+        "run": "faa-wildlife-strike-substantial-damage--r3",
+        "real_validation_rows_checked": 25,
+        "batch_equals_single_rows": true,
+        "reverse_order_invariant": true,
+        "prepare_external_events": [],
+        "n_jobs": 5,
+        "feature_count": 35,
+        "selected_feature_names": [
+          "ac_mass",
+          "num_engs",
+          "height_agl",
+          "speed_kts",
+          "distance_nm",
+          "month",
+          "size",
+          "birds_struck",
+          "birds_seen",
+          "warned",
+          "sky",
+          "time_of_day",
+          "phase_ord",
+          "ac_class_A",
+          "precip_none",
+          "precip_fog",
+          "precip_rain",
+          "precip_snow",
+          "eng_A",
+          "eng_B",
+          "eng_C",
+          "eng_D",
+          "eng_F",
+          "op_airline",
+          "op_BUS",
+          "op_PVT",
+          "op_GOV",
+          "nat_phase",
+          "nat_mass",
+          "nat_aircraft",
+          "speed_kts_imp",
+          "height_agl_imp",
+          "energy_imp",
+          "lat",
+          "lon"
+        ]
+      }
+    ],
+    "evidence/reviews/faa-wildlife-strike-substantial-damage-retry-1/post/control-features.json": [
+      {
+        "dataset": "faa-wildlife-strike-substantial-damage",
+        "ordinary_features": [
+          "ac_mass",
+          "ac_class",
+          "num_engs",
+          "type_eng",
+          "phase_of_flt",
+          "height_agl",
+          "speed_kts",
+          "distance_nm",
+          "birds_struck",
+          "birds_seen",
+          "size",
+          "warned",
+          "time_of_day",
+          "sky",
+          "precip",
+          "month",
+          "state",
+          "operator_class"
+        ]
+      }
+    ],
+    "paper/analysis/update-2026-11-15/faa-artifact-verification.json": {
+      "release_tag": "v-d654c9f4ddfcf60c",
+      "artifact_version": "ae75ab5acd1b27aeb29c4d414aa78610d797fe43068062bafd1574bb272dc2f9",
+      "manifest_sha256": "1ddf9894795b09057f90c304ef8e48b45568c6a4f46336e8db9e1f3126acd040",
+      "qualification_sha256": "4747ab0ebaef1c10efb2af148ef9d07e72f1a6f6e11bcf076c75ab0c864e7ef3",
+      "accept_exit_code": 0,
+      "scope": "Rechecked original worker qualification against complete saved study splits and the published quality descriptor; no construction, model fitting, or new qualification."
+    },
+    "paper/analysis/update-2026-11-15/faa-qualification.json": {
+      "ok": true,
+      "dataset": "/output/extract",
+      "gate_version": "1.6.1",
+      "artifact": {
+        "train": {
+          "file": "public/train.csv",
+          "sha256": "276015143c997004274d25b9b7329e125d53008dab32328ee373d173185bad75",
+          "bytes": 7394525
+        },
+        "eval": {
+          "file": "public/eval.csv",
+          "sha256": "eacff65337839c74701b802fb712dc8a60fc81e56168f0a176602446519f910e",
+          "bytes": 2849864
+        },
+        "holdout": {
+          "file": "private/holdout.csv",
+          "sha256": "93f873d655ca600d170755ceb73a9769992938d8f56fa39a9ab9c7d54c7f3aa4",
+          "bytes": 2184396
+        },
+        "meta.json": {
+          "file": "meta.json",
+          "sha256": "0d47b6bb7c9334b3cdf41648492da7bc8a83379fc14c811a57696b195237f951",
+          "bytes": 1742
+        },
+        "quality.json": {
+          "file": "quality.json",
+          "sha256": "9e6e2b3c956847cdd0f8185fc01129fff344844ced8b7277d07ecaf7291b93b6",
+          "bytes": 46339
+        },
+        "scanned_files": {
+          "meta.json": "0d47b6bb7c9334b3cdf41648492da7bc8a83379fc14c811a57696b195237f951",
+          "private/holdout.csv": "93f873d655ca600d170755ceb73a9769992938d8f56fa39a9ab9c7d54c7f3aa4",
+          "public/eval.csv": "eacff65337839c74701b802fb712dc8a60fc81e56168f0a176602446519f910e",
+          "public/train.csv": "276015143c997004274d25b9b7329e125d53008dab32328ee373d173185bad75",
+          "quality.json": "9e6e2b3c956847cdd0f8185fc01129fff344844ced8b7277d07ecaf7291b93b6"
+        },
+        "artifact_version": {
+          "digest": "ae75ab5acd1b27aeb29c4d414aa78610d797fe43068062bafd1574bb272dc2f9",
+          "components": [
+            "eval",
+            "holdout",
+            "meta.json",
+            "quality.json",
+            "train"
+          ]
+        }
+      },
+      "results": [
+        {
+          "check": "descriptor",
+          "ok": true,
+          "detail": "quality.json loaded for 'faa-wildlife-strike-substantial-damage'",
+          "evidence": {}
+        },
+        {
+          "check": "battery.exact_recovery",
+          "ok": true,
+          "detail": "Any zero-error exact reconstruction of a scored row blocks qualification",
+          "evidence": {
+            "version": "1.0.0",
+            "ok": true,
+            "input_digest": "37547d6ea39e27a020cdb241cf615d9f4700f7aabecb9db99d9f1825827c3629",
+            "code": {
+              "artifact_scrub.py": "8c663253e691a7b8751f9c853b40a3752a833360caafb1ea8e8f534e64af4b68",
+              "leakage_battery.py": "adbf7ee0aca0012b78cc1f1e4aeb968a23717cae30f66a02e080215e75f830e3",
+              "recovery_recipes.py": "f64c542fcda232169c95ace17421b45275194b934938c0ea4c9b68e6f844ad0e"
+            },
+            "freeze_sha256": "d00eeb75b3b570cea996d392d7d378093b33fe4cff4f6985f013a53be2fd407b",
+            "all_results_sha256": "9a16218cc10703b7cf7397d21b2ca650de5b2518d3838fd7c71f191876da393b",
+            "detail_files": {
+              "results-0000.jsonl": {
+                "sha256": "bf3e27eef69934c27d46884b0f45bbf38751c93441fb6656de455c5003f3ea6b",
+                "bytes": 188177
+              }
+            },
+            "exact": [],
+            "failures": [],
+            "flags": [],
+            "flag_count": 0,
+            "attempted": {
+              "statistical": 158,
+              "supervised": 840
+            },
+            "constant_or_uncovered": {
+              "statistical": 20,
+              "supervised": 226
+            },
+            "scope": {
+              "donors": [
+                "self",
+                "all"
+              ],
+              "exploratory_keys": 8,
+              "exploratory_operands": 8,
+              "max_columns": 128,
+              "scored_labels_read": false,
+              "tokens_per_column": 80,
+              "train_labels": "supervised controls only"
+            }
+          }
+        },
+        {
+          "check": "battery.recorded_in_quality",
+          "ok": true,
+          "detail": "Construction must record the computed battery receipt in quality.json; use --record-battery",
+          "evidence": {}
+        },
+        {
+          "check": "artifacts.no_shipped_answers",
+          "ok": true,
+          "detail": "Every generated artifact file is scanned for shipped answer scaffolds",
+          "evidence": {
+            "version": "1.0.1",
+            "ok": true,
+            "files": {
+              "meta.json": "0d47b6bb7c9334b3cdf41648492da7bc8a83379fc14c811a57696b195237f951",
+              "private/holdout.csv": "93f873d655ca600d170755ceb73a9769992938d8f56fa39a9ab9c7d54c7f3aa4",
+              "public/eval.csv": "eacff65337839c74701b802fb712dc8a60fc81e56168f0a176602446519f910e",
+              "public/train.csv": "276015143c997004274d25b9b7329e125d53008dab32328ee373d173185bad75",
+              "quality.json": "9e6e2b3c956847cdd0f8185fc01129fff344844ced8b7277d07ecaf7291b93b6"
+            },
+            "tree_digest": "8c3a8d220169c93ef5edeb724619248fcd8d962f9564f6197d460d57b5a9bb4a",
+            "findings": [],
+            "finding_count": 0,
+            "truncated": false,
+            "scope": {
+              "identifier_count": 58675,
+              "scored_windows": [
+                [
+                  "2014-01-01",
+                  "2019-01-01"
+                ],
+                [
+                  "2019-01-01",
+                  "2023-01-01"
+                ]
+              ],
+              "split_files_excluded": 3,
+              "executes_code": false
+            }
+          }
+        },
+        {
+          "check": "contract.declared",
+          "ok": true,
+          "detail": "evaluation_contract required: intended use, access, vintage and evidence",
+          "evidence": {}
+        },
+        {
+          "check": "contract.scope",
+          "ok": true,
+          "detail": "use='retrospective_research'; access='isolated_rows'; eval is development, holdout is final",
+          "evidence": {}
+        },
+        {
+          "check": "contract.vintage_and_selection",
+          "ok": true,
+          "detail": "Vintage, selection and limitations must be explicit; declarations are not measurements",
+          "evidence": {}
+        },
+        {
+          "check": "contract.label_availability",
+          "ok": true,
+          "detail": "No full-row availability ledger: training-label timing UNVERIFIED; retrospective use only",
+          "evidence": {}
+        },
+        {
+          "check": "contract.every_input_has_availability_evidence",
+          "ok": true,
+          "detail": "Every solver-visible non-target column needs availability evidence; missing: []",
+          "evidence": {}
+        },
+        {
+          "check": "contract.cross_row_review",
+          "ok": true,
+          "detail": "Document applicable cross-row probes and every solver-visible auxiliary file",
+          "evidence": {}
+        },
+        {
+          "check": "leakage.declared_columns",
+          "ok": true,
+          "detail": "every shipped column is declared",
+          "evidence": {
+            "undeclared": []
+          }
+        },
+        {
+          "check": "leakage.answer_source_absent",
+          "ok": true,
+          "detail": "no answer source or post-hoc column is shipped",
+          "evidence": {
+            "shipped_forbidden": []
+          }
+        },
+        {
+          "check": "leakage.every_column_could_be_scored",
+          "ok": true,
+          "detail": "every column was scored for leakage",
+          "evidence": {
+            "unscorable": []
+          }
+        },
+        {
+          "check": "leakage.no_single_column_determines_the_target",
+          "ok": true,
+          "detail": "no shipped column separates the classes on its own",
+          "evidence": {
+            "offenders": [],
+            "high_cardinality": [],
+            "missing_splits": []
+          }
+        },
+        {
+          "check": "leakage.high_cardinality_declared",
+          "ok": true,
+          "detail": "high-cardinality columns are declared as identifiers or free fields",
+          "evidence": {
+            "undeclared": [],
+            "declared": [
+              "incident_date",
+              "index_nr"
+            ]
+          }
+        },
+        {
+          "check": "timing.prediction_time_declared",
+          "ok": true,
+          "detail": "prediction instant is declared",
+          "evidence": {}
+        },
+        {
+          "check": "timing.no_post_hoc_feature",
+          "ok": true,
+          "detail": "no feature is documented as post-hoc",
+          "evidence": {
+            "overlap": []
+          }
+        },
+        {
+          "check": "timing.label_source_is_not_a_feature",
+          "ok": true,
+          "detail": "the label source is not a feature",
+          "evidence": {
+            "source_features": []
+          }
+        },
+        {
+          "check": "timing.every_feature_documented",
+          "ok": true,
+          "detail": "features documented as available 'prediction_time'",
+          "evidence": {
+            "features_documented_at": "prediction_time"
+          }
+        },
+        {
+          "check": "timing.instant_declared",
+          "ok": true,
+          "detail": "prediction instant kind='event_time' citation=True",
+          "evidence": {
+            "prediction_instant": {
+              "citation": "Strike-time fields are recorded on the report at the incident; DAMAGE is adjudicated after the event and used only as the target.",
+              "days_after_period_end": null,
+              "kind": "event_time",
+              "period": null
+            }
+          }
+        },
+        {
+          "check": "timing.publication_lag_measured",
+          "ok": true,
+          "detail": "0 of 0 observed period_end -> published dates are usable",
+          "evidence": {
+            "observations": [],
+            "measured_lag_days": null,
+            "source_kind": "administrative_record"
+          }
+        },
+        {
+          "check": "timing.event_feature_availability_unverified",
+          "ok": true,
+          "detail": "Administrative current-vintage retrospective research: event-time availability UNVERIFIED; no period lag invented",
+          "evidence": {
+            "features_lag_days": null,
+            "instant_lag_days": null,
+            "measured_lag_days": null
+          }
+        },
+        {
+          "check": "timing.instant_accounts_for_publication_lag",
+          "ok": true,
+          "detail": "instant kind is 'event_time' while features publish Noned after the period",
+          "evidence": {
+            "kind": "event_time",
+            "features_lag_days": null
+          }
+        },
+        {
+          "check": "timing.event_selection_declared",
+          "ok": true,
+          "detail": "Event selection rule declared for retrospective review; prediction-time eligibility is not established",
+          "evidence": {
+            "latest_period_used": "",
+            "fields": [
+              "incident_date",
+              "state",
+              "ac_class",
+              "ac_mass",
+              "damage"
+            ],
+            "rule": "Retain rows with incident_date from 1990-01-01 through 2022-12-31, state in the 50 U.S. states or DC, at least one of ac_class or ac_mass present after normalising missing tokens, and damage in N, M, M?, S or D. Blank damage is dropped and never labelled 0. Nonblank unexpected damage codes in that base population fail construction."
+          }
+        },
+        {
+          "check": "units.measured_columns_declare_unit_and_frame",
+          "ok": true,
+          "detail": "10 measured column(s) declare unit and frame",
+          "evidence": {
+            "measurements": [
+              {
+                "column": "damage",
+                "frame": "adjudicated by the NWSD manager after the strike; used only as the target",
+                "unit": "ICAO damage code N, M, M?, S or D"
+              },
+              {
+                "column": "height_agl",
+                "frame": "reported at the strike",
+                "unit": "feet above ground level"
+              },
+              {
+                "column": "speed_kts",
+                "frame": "reported at the strike",
+                "unit": "knots indicated airspeed"
+              },
+              {
+                "column": "distance_nm",
+                "frame": "reported at the strike",
+                "unit": "nautical miles from airport"
+              },
+              {
+                "column": "birds_struck",
+                "frame": "reported at the strike by the flight crew as a band, not a count",
+                "unit": "ordinal animal-number band: 0, 1, 2-10, 11-100, more than 100"
+              },
+              {
+                "column": "birds_seen",
+                "frame": "reported at the strike by the flight crew as a band, not a count",
+                "unit": "ordinal animal-number band: 0, 1, 2-10, 11-100, more than 100"
+              },
+              {
+                "column": "num_engs",
+                "frame": "aircraft descriptor at the strike",
+                "unit": "engines"
+              },
+              {
+                "column": "ac_mass",
+                "frame": "aircraft descriptor at the strike",
+                "unit": "FAA aircraft mass category 1 to 5"
+              },
+              {
+                "column": "precip",
+                "frame": "reported at the strike, NONE is the no-precipitation category",
+                "unit": "coded precipitation category"
+              },
+              {
+                "column": "month",
+                "frame": "derived from incident_date",
+                "unit": "calendar month 1-12"
+              }
+            ]
+          }
+        },
+        {
+          "check": "units.validation_receipt",
+          "ok": true,
+          "detail": "No external threshold, so no unit-validation receipt is required",
+          "evidence": {}
+        },
+        {
+          "check": "splits.time_column_declared",
+          "ok": true,
+          "detail": "split overlap is checked against 'incident_date'",
+          "evidence": {}
+        },
+        {
+          "check": "splits.machine_readable_windows",
+          "ok": true,
+          "detail": "train/eval/holdout windows are declared with start/end",
+          "evidence": {
+            "split_windows": {
+              "eval": {
+                "end": "2019-01-01T00:00:00.000",
+                "start": "2014-01-01T00:00:00.000"
+              },
+              "holdout": {
+                "end": "2023-01-01T00:00:00.000",
+                "start": "2019-01-01T00:00:00.000"
+              },
+              "train": {
+                "end": "2014-01-01T00:00:00.000",
+                "start": "1990-01-01T00:00:00.000"
+              }
+            }
+          }
+        },
+        {
+          "check": "splits.files_present",
+          "ok": true,
+          "detail": "all three split files exist",
+          "evidence": {
+            "missing": []
+          }
+        },
+        {
+          "check": "splits.non_empty",
+          "ok": true,
+          "detail": "every split has rows",
+          "evidence": {
+            "train": {
+              "rows": 84196,
+              "positives": 2851,
+              "negatives": 81345,
+              "positive_rate": 0.033861
+            },
+            "eval": {
+              "rows": 33250,
+              "positives": 353,
+              "negatives": 32897,
+              "positive_rate": 0.010617
+            },
+            "holdout": {
+              "rows": 25425,
+              "positives": 107,
+              "negatives": 25318,
+              "positive_rate": 0.004208
+            }
+          }
+        },
+        {
+          "check": "splits.eval_and_holdout_have_both_classes",
+          "ok": true,
+          "detail": "eval and holdout each contain positives and negatives",
+          "evidence": {
+            "train": {
+              "rows": 84196,
+              "positives": 2851,
+              "negatives": 81345,
+              "positive_rate": 0.033861
+            },
+            "eval": {
+              "rows": 33250,
+              "positives": 353,
+              "negatives": 32897,
+              "positive_rate": 0.010617
+            },
+            "holdout": {
+              "rows": 25425,
+              "positives": 107,
+              "negatives": 25318,
+              "positive_rate": 0.004208
+            }
+          }
+        },
+        {
+          "check": "splits.positive_events_declared",
+          "ok": true,
+          "detail": "eval and holdout declare positives and distinct events",
+          "evidence": {
+            "declared": {
+              "train": {
+                "positives": 2851,
+                "distinct_events": 2352
+              },
+              "eval": {
+                "positives": 353,
+                "distinct_events": 294
+              },
+              "holdout": {
+                "positives": 107,
+                "distinct_events": 101
+              }
+            }
+          }
+        },
+        {
+          "check": "splits.positive_events_match_rows",
+          "ok": true,
+          "detail": "declared positive counts match the rows",
+          "evidence": {
+            "mismatched": []
+          }
+        },
+        {
+          "check": "splits.event_key_column_declared",
+          "ok": true,
+          "detail": "clustered events are counted by 'incident_date' (date part)",
+          "evidence": {}
+        },
+        {
+          "check": "splits.distinct_events_match_rows",
+          "ok": true,
+          "detail": "declared clustered event counts match the rows",
+          "evidence": {
+            "recomputed": {
+              "train": 2352,
+              "eval": 294,
+              "holdout": 101
+            },
+            "declared": {
+              "train": {
+                "positives": 2851,
+                "distinct_events": 2352
+              },
+              "eval": {
+                "positives": 353,
+                "distinct_events": 294
+              },
+              "holdout": {
+                "positives": 107,
+                "distinct_events": 101
+              }
+            }
+          }
+        },
+        {
+          "check": "splits.enough_clustered_positives",
+          "ok": true,
+          "detail": "eval and holdout carry enough independent positive events to score",
+          "evidence": {
+            "thin": [],
+            "recomputed_events": {
+              "train": 2352,
+              "eval": 294,
+              "holdout": 101
+            },
+            "minimums": {
+              "positives": 30,
+              "distinct_events": 20
+            }
+          }
+        },
+        {
+          "check": "splits.rates_not_uniform",
+          "ok": true,
+          "detail": "positive rates are between 0 and 1",
+          "evidence": {
+            "rates": [
+              0.033861,
+              0.010617,
+              0.004208
+            ]
+          }
+        },
+        {
+          "check": "splits.actual_ranges_computed",
+          "ok": true,
+          "detail": "row timestamps found for every split",
+          "evidence": {
+            "ranges": {
+              "train": {
+                "min": "1990-01-02",
+                "max": "2013-12-31"
+              },
+              "eval": {
+                "min": "2014-01-01",
+                "max": "2018-12-31"
+              },
+              "holdout": {
+                "min": "2019-01-01",
+                "max": "2022-12-31"
+              }
+            }
+          }
+        },
+        {
+          "check": "splits.actual_ranges_disjoint",
+          "ok": true,
+          "detail": "the rows of the three splits occupy disjoint periods",
+          "evidence": {
+            "ranges": {
+              "train": {
+                "min": "1990-01-02",
+                "max": "2013-12-31"
+              },
+              "eval": {
+                "min": "2014-01-01",
+                "max": "2018-12-31"
+              },
+              "holdout": {
+                "min": "2019-01-01",
+                "max": "2022-12-31"
+              }
+            },
+            "overlaps": []
+          }
+        },
+        {
+          "check": "splits.rows_within_declared_windows",
+          "ok": true,
+          "detail": "every row falls inside its split's declared window",
+          "evidence": {
+            "windows": {
+              "eval": {
+                "end": "2019-01-01T00:00:00.000",
+                "start": "2014-01-01T00:00:00.000"
+              },
+              "holdout": {
+                "end": "2023-01-01T00:00:00.000",
+                "start": "2019-01-01T00:00:00.000"
+              },
+              "train": {
+                "end": "2014-01-01T00:00:00.000",
+                "start": "1990-01-01T00:00:00.000"
+              }
+            },
+            "ranges": {
+              "train": {
+                "min": "1990-01-02",
+                "max": "2013-12-31"
+              },
+              "eval": {
+                "min": "2014-01-01",
+                "max": "2018-12-31"
+              },
+              "holdout": {
+                "min": "2019-01-01",
+                "max": "2022-12-31"
+              }
+            }
+          }
+        },
+        {
+          "check": "splits.no_cross_split_entities",
+          "ok": true,
+          "detail": "no index_nr appears in more than one split",
+          "evidence": {
+            "shared_sample": [],
+            "shared_count": 0
+          }
+        },
+        {
+          "check": "splits.duplicate_entities_within_splits",
+          "ok": true,
+          "detail": "0 repeated-identifier rows within splits, at most the declared 0",
+          "evidence": {
+            "duplicate_rows": {},
+            "declared": 0
+          }
+        },
+        {
+          "check": "runner.layout",
+          "ok": true,
+          "detail": "holdout is private and train/eval are public",
+          "evidence": {}
+        },
+        {
+          "check": "runner.meta_json_keys",
+          "ok": true,
+          "detail": "meta.json carries the keys the runner reads",
+          "evidence": {
+            "keys": [
+              "columns",
+              "description",
+              "id_columns",
+              "name",
+              "positive_label",
+              "positive_rate",
+              "rows",
+              "split",
+              "split_description",
+              "target"
+            ]
+          }
+        },
+        {
+          "check": "runner.meta_matches_files",
+          "ok": true,
+          "detail": "meta.json agrees with the split files",
+          "evidence": {
+            "problems": []
+          }
+        },
+        {
+          "check": "runner.meta_counts_match_files",
+          "ok": true,
+          "detail": "meta rows and rates match the files",
+          "evidence": {}
+        },
+        {
+          "check": "runner.id_columns_are_not_features",
+          "ok": true,
+          "detail": "declared identifiers are not also listed as features",
+          "evidence": {}
+        }
+      ],
+      "failed_checks": []
+    },
+    "public_snapshot": {
+      "generated_at": "2026-11-15T16:52:13+00:00",
+      "modern": {
+        "counts": {
+          "build": 1,
+          "deferred": 84,
+          "discover": 1,
+          "published": 19,
+          "rejected": 7
+        },
+        "observed_at": "2026-11-15T16:52:13.087330+00:00",
+        "source": ".factory/pipeline.sqlite3",
+        "status": "ok"
+      }
+    }
+  }
+}
