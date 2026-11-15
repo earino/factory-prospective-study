@@ -1,0 +1,70 @@
+[
+  {
+    "run": "wser-effluent-exceedance--r1",
+    "selected_code_sha256": "9b992317cf1a4056e996e07217b049c1bf1347b4de6b9a7658ca266b9730519f",
+    "selected_code_io_calls": [],
+    "transcripts_scanned": 28,
+    "unique_tool_requests": 184,
+    "tool_counts": {
+      "Bash": 175,
+      "Write": 5,
+      "Grep": 1,
+      "Read": 3
+    },
+    "existing_flag_results": [],
+    "protected_input_changes": []
+  },
+  {
+    "run": "wser-effluent-exceedance--r2",
+    "selected_code_sha256": "6c62373dca29824366fe81d7ed441fa87c7066f78f0b7441791922af2306000f",
+    "selected_code_io_calls": [],
+    "transcripts_scanned": 36,
+    "unique_tool_requests": 199,
+    "tool_counts": {
+      "Bash": 195,
+      "Write": 1,
+      "Read": 1,
+      "Grep": 2
+    },
+    "existing_flag_results": [
+      {
+        "trace": "0024.jsonl",
+        "line": 6,
+        "tool_use_id": "toolu_019Qy3ewrPy1hnLzYa2tncBc",
+        "result": "No matches found\n\nFound 0 total occurrences across 0 files.",
+        "is_error": null
+      }
+    ],
+    "protected_input_changes": []
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "selected_code_sha256": "12e41b1c2f4da20e44f37ac8a7fb55ef6e48c3fdd4380f7b9d8ceb1beb9ccf23",
+    "selected_code_io_calls": [
+      {
+        "line": 39,
+        "call": "X['system_type'].where"
+      },
+      {
+        "line": 71,
+        "call": "X[['system_type', 'avg_daily_effluent_volume_m3', 'owner_type_operator_type', 'hydraulic_retention_ge_5_days', 'receiving_water_type']].isna().sum(axis=1).astype"
+      },
+      {
+        "line": 71,
+        "call": "X[['system_type', 'avg_daily_effluent_volume_m3', 'owner_type_operator_type', 'hydraulic_retention_ge_5_days', 'receiving_water_type']].isna().sum"
+      },
+      {
+        "line": 71,
+        "call": "X[['system_type', 'avg_daily_effluent_volume_m3', 'owner_type_operator_type', 'hydraulic_retention_ge_5_days', 'receiving_water_type']].isna"
+      }
+    ],
+    "transcripts_scanned": 16,
+    "unique_tool_requests": 165,
+    "tool_counts": {
+      "Bash": 164,
+      "Read": 1
+    },
+    "existing_flag_results": [],
+    "protected_input_changes": []
+  }
+]

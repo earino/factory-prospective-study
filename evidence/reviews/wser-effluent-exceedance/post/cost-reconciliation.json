@@ -1,0 +1,37 @@
+{
+  "basis": "Last available cumulative cost per independent CLI session, not per-invocation sum; estimates, not invoice. Deadline-truncated final invocations may leave unreported usage.",
+  "runs": [
+    {
+      "run": "wser-effluent-exceedance--r1",
+      "session_id": "d8c0285d-10b7-44c5-97f7-df9d430a03e7",
+      "invocations": 28,
+      "naive_sum_cumulative_cost": 751.6754869999999,
+      "last_reported_session_cost": 30.315756000000007,
+      "monotone_cumulative_cost": true,
+      "final_invocation_has_result": true,
+      "short_invocations_under_10s": 2
+    },
+    {
+      "run": "wser-effluent-exceedance--r2",
+      "session_id": "6a91f474-50b0-4a14-9ad4-baa33b83f54b",
+      "invocations": 36,
+      "naive_sum_cumulative_cost": 936.7302345999992,
+      "last_reported_session_cost": 30.889179799999983,
+      "monotone_cumulative_cost": true,
+      "final_invocation_has_result": true,
+      "short_invocations_under_10s": 2
+    },
+    {
+      "run": "wser-effluent-exceedance--r3",
+      "session_id": "446383d6-783a-44db-9de5-7f4e27a405b2",
+      "invocations": 16,
+      "naive_sum_cumulative_cost": 321.4248606,
+      "last_reported_session_cost": 22.523197999999994,
+      "monotone_cumulative_cost": true,
+      "final_invocation_has_result": true,
+      "short_invocations_under_10s": 1
+    }
+  ],
+  "sum_last_reported_session_cost": 83.72813379999998,
+  "original_naive_sum": 2009.8305821999993
+}

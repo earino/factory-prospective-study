@@ -1,0 +1,1057 @@
+[
+  {
+    "run": "wser-effluent-exceedance--r1",
+    "trace": "0000.jsonl",
+    "line": 1166,
+    "tool_use_id": "toolu_013t3FbCJ3CmGaXakH4skMxi",
+    "tool": "Bash",
+    "input": {
+      "command": "PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python; $PY - <<'EOF'\ns=open('REPORT.md').read()\ndef rep(old,new):\n    global s\n    assert s.count(old)==1, old[:70]\n    s=s.replace(old,new)\ni=s.index('## Result'); j=s.index('| # | trial | change |')\ns=s[:i]+'''## Result\n\nBest eligible trial: `919b5d025cb741ad84ba6f1531c512c4`, validation ROC AUC **0.90872**,\nBrier 0.08453. The scaffold baseline in the same harness scores 0.89604 / 0.08837; the\nrelease's `full_model` reference is 0.89930.\n\nFourteen of the sixteen trials span 0.9071\u20130.9087 and form one plateau. The selected\ntrial leads the next best by 0.0001, which is inside seed and selection noise (see \"How\nfar to trust the last steps\"). The well-supported result is the move from 0.896 to about\n0.908, with a simpler model than the baseline.\n\nNo holdout result is claimed. The holdout, source snapshots, other runs and coordinator\nstate were not accessed.\n\n'''+s[j:]\nrep('''| 13 | **5b309318** | #12 + out-of-fold target encoding of province \u00d7 last-year margin class | **0.90865** | 0.08467 | 0.88661 |''','''| 13 | 5b309318 | #12 + out-of-fold target encoding of province \u00d7 last-year margin class | 0.90865 | 0.08467 | 0.88661 |''')\ni=s.index('| 14 | a033926c'); j=s.index('\\n',i)\ns=s[:j]+'''\\n| 15 | 27bc61df | #14 with 7 raw predictors dropped (8 left + both encodings) | 0.90841 | 0.08459 | 0.89124 |\n| 16 | **919b5d02** | #13 with 6 raw predictors dropped (9 left + both encodings) | **0.90872** | 0.08453 | 0.88843 |'''+s[j:]\ni=s.index('## The selected model'); j=s.index('Target-encoding details:')\ns=s[:i]+'''## The selected model\n\nOne `XGBClassifier` (hist, native categoricals): 800 depth-1 stumps, learning rate 0.05,\nsubsample 0.6, colsample_bytree 0.8, colsample_bynode 0.5, min_child_weight 20,\nreg_lambda 3, reg_alpha 0.1. It is additive in its inputs, which are:\n\n- nine released predictors, unchanged: `prior_year_worst_margin`,\n  `ever_exceeded_before`, `history_years_reported`, `avg_daily_effluent_volume_m3`,\n  `chlorine_use`, `prior_year_acute_lethality_failures`, `owner_type_operator_type`,\n  `province`, `treatment_family`;\n- smoothed target rate of the (province, reporting_frequency) cell;\n- smoothed target rate of the (province, margin class) cell, where the class bins\n  `prior_year_worst_margin` into missing / 0 / 0\u20135 / 5\u201320 / 20\u2013100 / 100+ mg/L.\n\nSix released predictors are not passed to the trees: `prior_year_exceedance` (identical\nto margin > 0), `periods_reported_prior_year`, `hydraulic_retention_ge_5_days`,\n`system_type`, `receiving_water_type`, and `reporting_frequency` as a raw column (it\nstill enters through the first encoding).\n\n'''+s[j:]\ni=s.index('## How far to trust the last step'); j=s.index('Deterministic checks are more favourable')\ns=s[:i]+'''## How far to trust the last steps\n\n**The second encoding (trial 13).** It was motivated by a specific gap: stumps cannot\nform the province \u00d7 severity interaction that depth-2 trees could. With subsampling the\nevidence is mixed:\n\n- For: 10-seed validation mean 0.9086 (sd 0.0004) against 0.9080 (sd 0.0002) for trial\n  12's configuration; official backtest 0.8866 against 0.8848; better Brier.\n- Against: it is the best of about 50 pairwise encodings tried on the additive base.\n  Rolling-origin CV falls by 0.0013 and the 10-seed backtest mean is 0.8859 against\n  0.8862. The same encoding on depth-2 trees adds 0.0003 on validation and loses 0.0003\n  on the backtest.\n\n| configuration (10 seeds) | validation mean (sd) | backtest mean (sd) |\n|---|---|---|\n| stumps, no encoding | 0.9059 (0.0002) | 0.8821 (0.0006) |\n| stumps + province \u00d7 frequency (trial 12) | 0.9080 (0.0002) | 0.8862 (0.0007) |\n| stumps + both encodings (trial 13) | 0.9086 (0.0004) | 0.8859 (0.0007) |\n| stumps + both encodings, 9 predictors (trial 16, selected) | 0.9090 (0.0003) | 0.8882 (0.0012) |\n| depth 2 + province \u00d7 frequency (trial 5) | 0.9080 (0.0004) | 0.8857 (0.0011) |\n| depth 2 + both encodings | 0.9083 (0.0002) | 0.8854 (0.0014) |\n\n'''+s[j:]\ni=s.index('Trial 14 is the deterministic model from that grid:'); j=s.index('## What was learned')\ns=s[:i]+'''Trial 14 is the deterministic model from that grid: 0.90818 on validation and 0.89034 on\nthe backtest.\n\n**Dropping predictors (trials 15 and 16).** Backward elimination on the deterministic\nmodel showed five predictors change neither split when removed, and removing\n`receiving_water_type` helps both slightly (+0.0003 validation, +0.0008 backtest).\nTrial 15 applies this to the deterministic model (0.90841, backtest 0.89124, the highest\nbacktest of any trial). Trial 16 applies it to trial 13 and is the selected trial; its\n10-seed means are 0.0004 higher on validation and 0.0023 higher on the backtest than\ntrial 13's configuration, and its official seed-42 score is below its own seed mean.\n\nSo the second encoding and the pruning each probably carry a small real effect (under\n0.001), supported on both splits in the deterministic comparisons. The selected trial's\nlead over trials 5, 12, 13, 14 and 15 is nevertheless within noise, and I read them as\nequivalent on validation. If one model had to be defended on evidence from both splits,\nit would be trial 15: deterministic, eight raw predictors, best backtest.\n\n'''+s[j:]\nrep('''7. **The remaining error is concentrated where the predictors are silent.** For the\n   selected trial, 0.064 of the 0.091 total pairwise ranking loss''','''7. **The remaining error is concentrated where the predictors are silent.** For the\n   selected trial, 0.064 of the 0.091 total pairwise ranking loss''')\nrep('''- The selected model **under-predicts repeat exceedance in Quebec**: mean prediction\n  0.55 against an observed 0.67 for 281 validation rows. Training-era Quebec persistence\n  was 0.46\u20130.54 in 2018\u20132019. Quebec AUC is 0.864 against 0.923 for the other provinces.''','''- The selected model **under-predicts repeat exceedance in Quebec**: mean prediction\n  0.55 against an observed 0.67 for 281 validation rows. Training-era Quebec persistence\n  was 0.46\u20130.54 in 2018\u20132019. Quebec AUC is 0.867 against 0.922 for the other provinces.''')\nrep('''- System-cluster bootstrap on validation (1,000 draws): selected-trial AUC 95% interval\n  [0.898, 0.920]; gain over the scaffold baseline 0.0127, interval [0.0076, 0.0178].\n- Per-year AUC, baseline \u2192 selected: 2020 0.9028 \u2192 0.9195; 2021 0.8950 \u2192 0.9067;\n  2022 0.8907 \u2192 0.9001. Both decay with distance from training. A three-level\n  history-state score alone (never / earlier only / last year) gives 0.878 / 0.872 /\n  0.860 on the same years, losing 0.018 where the model loses 0.019.''','''- System-cluster bootstrap on validation (1,000 draws): selected-trial AUC 95% interval\n  [0.897, 0.921]; gain over the scaffold baseline 0.0128, interval [0.0076, 0.0179].\n- Per-year AUC, baseline \u2192 selected: 2020 0.9028 \u2192 0.9198; 2021 0.8950 \u2192 0.9084;\n  2022 0.8907 \u2192 0.8984. Both decay with distance from training. A three-level\n  history-state score alone (never / earlier only / last year) gives 0.878 / 0.872 /\n  0.860 on the same years, losing 0.018 where the model loses 0.021.''')\nrep('''- One row per system (random year, 200 draws): baseline 0.8915, selected 0.9052.''','''- One row per system (random year, 200 draws): baseline 0.8915, selected 0.9054.''')\nrep('''local diagnostics, plus 14 official validation trials.''','''local diagnostics, plus 16 official validation trials.''')\nrep('''- About 1,000 distinct configurations (about 2,100 fits)''','''- About 1,050 distinct configurations (about 2,200 fits)''')\nrep('''- Identification attributes remain in the selected model as quasi-static covariates;\n  trial 6 is the sensitivity run without them (on trial 5's configuration).''','''- Two identification-snapshot attributes (`treatment_family`, `chlorine_use`) remain in\n  the selected model as quasi-static covariates; retention and receiving water are\n  dropped. Trial 6 is the sensitivity run without any of the four (on trial 5's\n  configuration).''')\nrep('''5. **Identification-snapshot attributes barely matter.**''','''5. **Identification-snapshot attributes matter little.**''')\nopen('REPORT.md','w').write(s); print('ok')\nEOF\ngrep -n \"0.15 vs 0.24\\|Deterministic checks\\|^## \\|^### \" REPORT.md | head -30; date +%s",
+      "description": "Rewrite report sections for final selected trial"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r1",
+    "trace": "0001.jsonl",
+    "line": 206,
+    "tool_use_id": "toolu_01EyF4DLmuizXaDTtAE1VwqL",
+    "tool": "Bash",
+    "input": {
+      "command": "PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python; $PY - <<'EOF' 2>&1 | grep -v Warn\nimport glob, numpy as np, pandas as pd\nfrom sklearn.metrics import roc_auc_score\nev=pd.read_csv('release/extract/public/eval.csv'); y=ev.next_year_exceedance.to_numpy()\ndef P(pref): return pd.read_csv(glob.glob(f\"trials/{pref}*/validation.csv.gz\")[0]).p.to_numpy()\np18=P(\"3d52ab92\"); p16=P(\"919b5d02\"); rng=np.random.RandomState(0); sid=ev.system_id.to_numpy(); u=np.unique(sid); idx={s:np.where(sid==s)[0] for s in u}\nd=[]\nfor _ in range(600):\n    ii=np.concatenate([idx[s] for s in rng.choice(u,len(u))]); d.append(roc_auc_score(y[ii],p18[ii])-roc_auc_score(y[ii],p16[ii]))\nlo,hi=np.percentile(d,2.5),np.percentile(d,97.5); print(\"18-16 paired CI\",lo,hi,np.mean(np.array(d)>0))\ns=open('REPORT.md').read()\ndef rep(old,new,cnt=1):\n    global s\n    assert s.count(old)==cnt, (s.count(old), old[:70])\n    s=s.replace(old,new)\ni=s.index('## Result'); j=s.index('| # | trial | change |')\ns=s[:i]+f'''## Result\n\nBest eligible trial: `3d52ab923b4b4ef48281a65f470b2929`, validation ROC AUC **0.90935**,\nBrier 0.08434 (also the lowest Brier of the 18 validation trials). The scaffold baseline\nin the same harness scores 0.89604 / 0.08837; the release's `full_model` reference is\n0.89930.\n\nSixteen of the eighteen trials span 0.9071\u20130.9094 and form one plateau. The selected\ntrial leads the next best (trial 16) by 0.0006; a paired system-cluster bootstrap of that\ndifference gives [{lo:+.4f}, {hi:+.4f}], so it is not separable from trial 16 on\nvalidation (see \"How far to trust the last steps\"). The well-supported result is the\nmove from 0.896 to about 0.908\u20130.909, with a simpler model than the baseline.\n\nNo holdout result is claimed. The holdout, source snapshots, other runs and coordinator\nstate were not accessed.\n\n'''+s[j:]\nrep('''| 16 | **919b5d02** | #13 with 6 raw predictors dropped (9 left + both encodings) | **0.90872** | 0.08453 | 0.88843 |''','''| 16 | 919b5d02 | #13 with 6 raw predictors dropped (9 left + both encodings) | 0.90872 | 0.08453 | 0.88843 |''')\ni=s.index('| 17 | e2a5ac25'); j=s.index('\\n',i)\ns=s[:j]+'''\\n| 18 | **3d52ab92** | #16 + out-of-fold target encoding of treatment family \u00d7 reporting frequency | **0.90935** | 0.08434 | 0.88909 |'''+s[j:]\nrep('''- smoothed target rate of the (province, margin class) cell, where the class bins\n  `prior_year_worst_margin` into missing / 0 / 0\u20135 / 5\u201320 / 20\u2013100 / 100+ mg/L.\n''','''- smoothed target rate of the (province, margin class) cell, where the class bins\n  `prior_year_worst_margin` into missing / 0 / 0\u20135 / 5\u201320 / 20\u2013100 / 100+ mg/L;\n- smoothed target rate of the (treatment_family, reporting_frequency) cell.\n''')\nrep('''`system_type`, `receiving_water_type`, and `reporting_frequency` as a raw column (it\nstill enters through the first encoding).''','''`system_type`, `receiving_water_type`, and `reporting_frequency` as a raw column (it\nstill enters through the first and third encodings).''')\nrep('''| stumps + both encodings, 9 predictors (trial 16, selected) | 0.9090 (0.0003) | 0.8882 (0.0012) |''','''| stumps + both encodings, 9 predictors (trial 16) | 0.9090 (0.0003) | 0.8882 (0.0012) |\n| trial 16 + treatment \u00d7 frequency encoding (trial 18, selected) | 0.9098 (0.0003) | 0.8890 (0.0010) |''')\nrep('''Trial 16 applies it to trial 13 and is the selected trial; its\n10-seed means''','''Trial 16 applies it to trial 13; its\n10-seed means''')\nrep('''| 16 selected: stumps + both encodings, 9 predictors | 0.8886 |''','''| 16 stumps + both encodings, 9 predictors | 0.8886 |\n| 18 selected: trial 16 + treatment \u00d7 frequency encoding (4 seeds) | 0.8883 |''')\nrep('''Putting the three views together. Component ablation of the selected configuration\n(4-seed means; change when the component is removed):''','''Putting the three views together. Component ablation of trial 16's configuration\n(4-seed means; change when the component is removed):''')\nrep('''- No configuration beats the selected one on all three views. It sits at the validation\n  end of a small trade-off (validation 0.9090, backtest 0.8887, rolling origin 0.8887 as\n  seed means); trial 17 sits at the training-only end (0.9082 / 0.8913 / 0.8894). A\n  paired bootstrap cannot separate any of the plateau trials on validation (see\n  \"Uncertainty\"), so I read trials 5 and 12\u201317 as equivalent there, with trials 16 and\n  17 the best-supported pair overall.''','''- Among the two-encoding models, none beats trial 16 on all three views. It sits at the\n  validation end of a small trade-off (validation 0.9090, backtest 0.8887, rolling\n  origin 0.8887 as seed means); trial 17 sits at the training-only end (0.9082 / 0.8913\n  / 0.8894).\n\n**The third encoding (trial 18, selected).** Treatment family \u00d7 reporting frequency was\nthe runner-up in the deterministic ranking of 53 second encodings (2nd on validation,\n10th on the backtest, +0.0007 on each). With both other encodings already in, the\ndeterministic test gave +0.0009 validation and \u22120.0004 backtest, which is why the\nforward search had stopped. Re-tested on trial 16's configuration under a rule fixed\nbefore the run (record only if 10-seed means improve by at least 0.0005 on both\nvalidation and the single-split backtest), it passed: validation 0.9090 \u2192 0.9098,\nbacktest 0.8882 \u2192 0.8890. Rolling origin moves by \u22120.0004 (4 seeds). So its evidence\nresembles the second encoding's: consistent on validation, positive on the single-split\nbacktest in the stochastic setting, not supported by rolling origin. It was also chosen\nafter looking at about 60 candidate encodings.\n\nA paired bootstrap cannot separate any of the plateau trials on validation (see\n\"Uncertainty\"), so I read trials 5 and 12\u201318 as equivalent there. Trials 16, 17 and 18\nare the best-supported group; trial 18 carries the most validation-selected components.''')\nrep('''## What the selected model does on validation\n\n- Ranking use: the top 10% of scores has precision 0.96 and recall 0.42; the top 20% has\n  precision 0.81 and recall 0.70.''','''## What the selected model does on validation\n\n- Ranking use: the top 10% of scores has precision 0.96 and recall 0.42; the top 20% has\n  precision 0.80 and recall 0.69.''')\nrep('''exceedances are less persistent. Quebec is 0.87 and Ontario 0.82.''','''exceedances are less persistent (0.67 for the selected trial). Quebec is 0.87 and\n  Ontario 0.82.''')\nrep('''- Mean prediction is 0.217 against an observed rate of 0.232''','''- Mean prediction is 0.221 against an observed rate of 0.232''')\nrep('''- Permutation importance (AUC drop): last-year margin''','''- Permutation importance (trial 16 artifact, AUC drop): last-year margin''')\nrep('''- Predictions are stable across seeds: pairwise Spearman 0.994, mean absolute\n  probability difference 0.009 (6 seeds).''','''- Predictions are stable across seeds: pairwise Spearman 0.994, mean absolute\n  probability difference 0.009 (6 seeds, trial 16's configuration).''')\nrep('''  | 16 selected | 0.909 | 0.895 |''','''  | 16 stumps + both encodings, 9 predictors | 0.909 | 0.895 |\n  | 18 selected | 0.910 | 0.886 |''')\nrep('''  Selected minus baseline on the unseen rows is +0.053 (bootstrap interval''','''  Trial 16 minus baseline on the unseen rows is +0.053 (bootstrap interval''')\nrep('''- The selected model **under-predicts repeat exceedance in Quebec**: mean prediction\n  0.55 against an observed 0.67 for 281 validation rows.''','''- The selected model **under-predicts repeat exceedance in Quebec**: mean prediction\n  0.56 against an observed 0.67 for 281 validation rows.''')\nrep('''was 0.46\u20130.54 in 2018\u20132019. Quebec AUC is 0.867 against 0.922 for the other provinces.''','''was 0.46\u20130.54 in 2018\u20132019. Quebec AUC is 0.867 against 0.923 for the other provinces.''')\nrep('''are under-predicted, 0.15 vs 0.24.''','''are under-predicted, 0.14 vs 0.24.''')\nrep('''  [0.897, 0.921]; gain over the scaffold baseline 0.0128, interval [0.0076, 0.0179].\n- Per-year AUC, baseline \u2192 selected: 2020 0.9028 \u2192 0.9198; 2021 0.8950 \u2192 0.9084;\n  2022 0.8907 \u2192 0.8984.''','''  [0.898, 0.921]; gain over the scaffold baseline 0.0134, interval [0.0082, 0.0187].\n- Per-year AUC, baseline \u2192 selected: 2020 0.9028 \u2192 0.9214; 2021 0.8950 \u2192 0.9079;\n  2022 0.8907 \u2192 0.8992.''')\nrep('''losing 0.018 where the model loses 0.021.''','''losing 0.018 where the model loses 0.022.''')\nrep('''- One row per system (random year, 200 draws): baseline 0.8915, selected 0.9054.\n- Paired system-cluster bootstrap of the selected trial against the others: the''',f'''- One row per system (random year, 200 draws): baseline 0.8915, selected 0.9058.\n- Paired system-cluster bootstrap, selected trial 18 minus trial 16: +0.0006, interval\n  [{lo:+.4f}, {hi:+.4f}].\n- Paired system-cluster bootstrap of trial 16 against the earlier trials: the''')\nrep('''local diagnostics, plus 17 official validation trials.''','''local diagnostics, plus 18 official validation trials.''')\nrep('''- About 1,050 distinct configurations (about 2,200 fits)''','''- About 1,100 distinct configurations (about 2,600 fits)''')\nrep('''all 5,894 saved predictions to 1e-16 and the AUC exactly (`coldreplay.py`). Refitting\n  the selected configuration with seed 42 at 1, 2 and 5 threads also reproduces the\n  saved predictions to 1e-16.''','''all 5,894 saved predictions to 1e-16 and the AUC exactly (`coldreplay.py`). Refitting\n  trial 16's configuration with seed 42 at 1, 2 and 5 threads also reproduces its saved\n  predictions to 1e-16.''')\nrep('''- The two target-encoded features are training-derived statistics: they assume\n  training-period outcomes for a province/frequency or province/margin-class cell are''','''- The three target-encoded features are training-derived statistics: they assume\n  training-period outcomes for a province/frequency, province/margin-class or\n  treatment/frequency cell are''')\nrep('''   selected trial, 0.064 of the 0.091 total pairwise ranking loss''','''   selected trial, 0.063 of the 0.091 total pairwise ranking loss''')\nopen('REPORT.md','w').write(s); print('report ok')\nEOF\ndate +%s",
+      "description": "Rewrite report for new selected trial 18",
+      "timeout": 120000
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r2",
+    "trace": "0000.jsonl",
+    "line": 15,
+    "tool_use_id": "toolu_01V27W62h8yY94CCzrBkmYwA",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r2; cat release/reproduction/construction.json; echo; cat release/reproduction/train.py; wc -l release/reproduction/build.py; head -5 release/extract/public/train.csv",
+      "description": "Read construction contract and reference baseline"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r2",
+    "trace": "0000.jsonl",
+    "line": 17,
+    "tool_use_id": "toolu_01SkzthnZxVyjzxMqy4d7kcm",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r2; cat release/reproduction/build.py",
+      "description": "Read dataset construction code"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r2",
+    "trace": "0000.jsonl",
+    "line": 53,
+    "tool_use_id": "toolu_01CjheqpfdoYKVDP6pgjnMk8",
+    "tool": "Bash",
+    "input": {
+      "command": "F=/Users/earino/.claude/projects/-Users-earino-research-factory-prospective-study--local-studies-wser-effluent-exceedance--study-runs-wser-effluent-exceedance--r2/6a91f474-50b0-4a14-9ad4-baa33b83f54b/tool-results/bqetoa3x7.txt; grep -n \"system_type\\|reporting_frequency\\|avg_daily\\|treatment_family\\|worst_margin\\|history_years\\|periods_reported\\|receiving_water\\|sort_values\\|acute\" $F | cut -c1-260 | head -120",
+      "description": "Locate feature derivation logic in construction code"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r2",
+    "trace": "0000.jsonl",
+    "line": 248,
+    "tool_use_id": "toolu_013YE9fNFkfnUuc2cXmWVQR1",
+    "tool": "Bash",
+    "input": {
+      "command": "F=/Users/earino/.claude/projects/-Users-earino-research-factory-prospective-study--local-studies-wser-effluent-exceedance--study-runs-wser-effluent-exceedance--r2/6a91f474-50b0-4a14-9ad4-baa33b83f54b/tool-results/bqetoa3x7.txt; sed -n '330,346p;456,500p;596,690p' $F | cut -c1-700",
+      "description": "Read feature aggregation section of construction code"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r2",
+    "trace": "0000.jsonl",
+    "line": 446,
+    "tool_use_id": "toolu_013usdUkh4nJo1ej7dazBKgd",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r2; shasum -a 256 train.py | cut -c1-16; grep -o '\"code_sha256\": \"[0-9a-f]\\{16\\}' trials/f0acc6f1*/result.json; git add -A . >/dev/null 2>&1; git commit -qm \"Depth-2 monotone model, sensitivity trials, bootstrap diagnostics, report draft\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && echo committed; date +%s",
+      "description": "Verify train.py matches best trial snapshot and commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r2",
+    "trace": "0024.jsonl",
+    "line": 5,
+    "tool_use_id": "toolu_019Qy3ewrPy1hnLzYa2tncBc",
+    "tool": "Grep",
+    "input": {
+      "pattern": "private/|holdout\\.csv|source-snapshot|hf_hub|datasets\\.load|requests\\.|urllib",
+      "path": "/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r2/scratch",
+      "output_mode": "count"
+    },
+    "reasons": [
+      "existing_flag"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 40,
+    "tool_use_id": "toolu_016DaLRDX42cfK8UnMM5YPEJ",
+    "tool": "Bash",
+    "input": {
+      "command": "mkdir -p lab && cat > lab/lab.py <<'EOF'\n\"\"\"Local diagnostics harness (not the selection evaluator). Rolling-origin folds inside train + validation.\"\"\"\nimport sys, json, importlib.util, itertools, time\nimport numpy as np, pandas as pd\nfrom sklearn.metrics import roc_auc_score, brier_score_loss\nROOT='/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3'\nFEATS=json.load(open(ROOT+'/release/reproduction/construction.json'))['quality']['features']\nTR=pd.read_csv(ROOT+'/release/extract/public/train.csv'); EV=pd.read_csv(ROOT+'/release/extract/public/eval.csv')\nT='next_year_exceedance'\ndef load(path):\n    spec=importlib.util.spec_from_file_location('cand',path); m=importlib.util.module_from_spec(spec); spec.loader.exec_module(m); return m\ndef run(mod, seed=42, folds=(2017,2018,2019), val=True, verbose=False):\n    out={}\n    for y in folds:\n        a=TR[TR.target_year<y]; b=TR[TR.target_year==y]\n        st=mod.fit(a[FEATS].reset_index(drop=True).copy(), a[T].to_numpy().copy(), seed=seed, threads=5)\n        p=st['model'].predict_proba(mod.prepare(st,b[FEATS].reset_index(drop=True)))[:,1]\n        out[y]=roc_auc_score(b[T],p)\n    if val:\n        st=mod.fit(TR[FEATS].copy(), TR[T].to_numpy().copy(), seed=seed, threads=5)\n        p=st['model'].predict_proba(mod.prepare(st,EV[FEATS]))[:,1]\n        out['val']=roc_auc_score(EV[T],p); out['brier']=brier_score_loss(EV[T],p)\n        for y in (2020,2021,2022):\n            k=(EV.target_year==y).to_numpy(); out[y]=roc_auc_score(EV[T][k],p[k])\n        out['_p']=p; out['_st']=st\n    return out\ndef fmt(o):\n    bt=np.mean([o[y] for y in (2017,2018,2019) if y in o])\n    return 'bt %.4f [%s] | val %.5f brier %.4f [%s]'%(bt,' '.join('%.4f'%o[y] for y in (2017,2018,2019) if y in o),o.get('val',np.nan),o.get('brier',np.nan),' '.join('%.4f'%o[y] for y in (2020,2021,2022) if y in o))\nif __name__=='__main__':\n    m=load(sys.argv[1] if len(sys.argv)>1 else ROOT+'/train.py')\n    print(fmt(run(m)))\nEOF\nPY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python; $PY lab/lab.py",
+      "description": "Create local diagnostics harness and run baseline"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 59,
+    "tool_use_id": "toolu_01QoFk8oSGqtfMq4zVqJUY7n",
+    "tool": "Bash",
+    "input": {
+      "command": "cat > lab/sweep1.py <<'EOF'\nimport sys; sys.path.insert(0,'/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3/lab')\nimport lab, types, numpy as np, pandas as pd, xgboost as xgb\ndef mk(P):\n    m=types.SimpleNamespace()\n    def prepare(state,X):\n        out=X[state['cols']].copy()\n        for c,lv in state['levels'].items(): out[c]=pd.Categorical(out[c],categories=lv)\n        return out\n    def fit(X,y,*,seed,threads):\n        cats=[c for c in X if X[c].dtype==object]\n        st={'cols':list(X.columns),'levels':{c:pd.Index(sorted(X[c].dropna().unique())) for c in cats}}\n        mdl=xgb.XGBClassifier(tree_method='hist',enable_categorical=True,random_state=seed,n_jobs=threads,**P)\n        mdl.fit(prepare(st,X),y); st['model']=mdl; return st\n    m.fit=fit; m.prepare=prepare; return m\ngrid=[\n dict(n_estimators=100,max_depth=6,learning_rate=0.1),\n dict(n_estimators=300,max_depth=3,learning_rate=0.03),\n dict(n_estimators=600,max_depth=3,learning_rate=0.03),\n dict(n_estimators=300,max_depth=2,learning_rate=0.05),\n dict(n_estimators=600,max_depth=2,learning_rate=0.05),\n dict(n_estimators=400,max_depth=4,learning_rate=0.02),\n dict(n_estimators=400,max_depth=4,learning_rate=0.02,min_child_weight=10,subsample=0.8,colsample_bytree=0.7),\n dict(n_estimators=400,max_depth=3,learning_rate=0.03,min_child_weight=10,subsample=0.8,colsample_bytree=0.7),\n dict(n_estimators=400,max_depth=3,learning_rate=0.03,min_child_weight=20,subsample=0.7,colsample_bytree=0.5),\n dict(n_estimators=800,max_depth=3,learning_rate=0.015,min_child_weight=20,subsample=0.7,colsample_bytree=0.5,reg_lambda=5),\n dict(n_estimators=400,max_depth=5,learning_rate=0.02,min_child_weight=20,subsample=0.7,colsample_bytree=0.5,reg_lambda=5),\n dict(n_estimators=400,max_depth=3,learning_rate=0.03,min_child_weight=20,subsample=0.7,colsample_bytree=0.5,max_cat_to_onehot=20),\n dict(n_estimators=1000,max_depth=1,learning_rate=0.05),\n]\nfor P in grid:\n    print(lab.fmt(lab.run(mk(P))), P, flush=True)\nEOF\nPY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python; $PY lab/sweep1.py",
+      "description": "Sweep regularization on baseline features"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 73,
+    "tool_use_id": "toolu_01B8XSRZ6MPf7WYuC6iACYss",
+    "tool": "Bash",
+    "input": {
+      "command": "cat > lab/eda.py <<'EOF'\nimport sys; sys.path.insert(0,'/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3/lab')\nimport lab, numpy as np, pandas as pd\npd.set_option('display.width',250); pd.set_option('display.max_columns',40)\nA=pd.concat([lab.TR,lab.EV]); T=lab.T\nprint(A.assign(st=A.system_type.fillna('NA')).pivot_table(index='province',columns=['target_year'],values='st',aggfunc=lambda s:(s=='NA').mean()).round(2))\nprint(A.assign(st=A.system_type.fillna('NA')).groupby(['target_year','st'])[T].agg(['mean','size']).unstack().round(3))\nprint(A.groupby(['target_year','history_years_reported'])[T].agg(['mean','size']).unstack().round(2))\nprint(A.groupby(['target_year','periods_reported_prior_year'])[T].agg(['size']).unstack())\nprint(A.groupby(['target_year','reporting_frequency'],dropna=False)[T].agg(['mean','size']).unstack().round(3))\nprint(A.groupby(['target_year','province'])[T].agg(['mean']).unstack().round(2))\nprint(A.groupby(['target_year','province'])[T].agg(['size']).unstack())\nprint(A.groupby(['target_year','treatment_family'],dropna=False)[T].agg(['mean','size']).unstack().round(2))\nprint(A.assign(pe=A.prior_year_exceedance.fillna(-1),ee=A.ever_exceeded_before.fillna(-1)).groupby(['target_year','pe','ee'])[T].agg(['mean','size']).unstack(0).round(2))\nprint(A.groupby(['target_year'])[['hydraulic_retention_ge_5_days','chlorine_use','receiving_water_type','avg_daily_effluent_volume_m3','owner_type_operator_type','prior_year_acute_lethality_failures']].agg(lambda s:s.isna().mean()).round(3))\ntr=lab.TR\nprint(tr[tr.periods_reported_prior_year.isin([2,3,6])].groupby(['province','reporting_frequency','treatment_family'])[T].agg(['mean','size']))\nprint(tr.groupby(['reporting_frequency','periods_reported_prior_year'],dropna=False)[T].agg(['mean','size']))\nprint(tr.groupby(['province','treatment_family'])[T].agg(['mean','size']).unstack().round(2))\n# margin when prior exceed==1\nprint(tr[tr.prior_year_exceedance==1].prior_year_worst_margin.describe())\nq=pd.qcut(tr.prior_year_worst_margin[tr.prior_year_worst_margin>0],8); print(tr[tr.prior_year_worst_margin>0].groupby(q)[T].agg(['mean','size']))\nprint(((tr.prior_year_worst_margin>0)!=(tr.prior_year_exceedance==1)).sum())\nq=pd.qcut(tr.avg_daily_effluent_volume_m3,10); print(tr.groupby(q)[T].agg(['mean','size']))\nprint((tr.avg_daily_effluent_volume_m3==0).mean(), tr.avg_daily_effluent_volume_m3.describe())\nEOF\nPY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python; $PY lab/eda.py 2>&1 | grep -v Warning",
+      "description": "Explore drift and feature structure across years"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 112,
+    "tool_use_id": "toolu_015LmhmZpcvUbQiLbGtXJmcc",
+    "tool": "Bash",
+    "input": {
+      "command": "cat > train.py <<'EOF'\n\"\"\"Self-contained XGBoost solution. Change this file; use evaluate.py to test.\"\"\"\nimport numpy as np\nimport pandas as pd\nimport xgboost as xgb\n\nCFG = {\n    \"drop\": [],                 # raw declared features to remove\n    \"extra\": [],                # engineered feature groups to add\n    \"cat_mode\": \"native\",       # native | ordinal | onehot\n    \"te\": [],                   # list of tuples of columns for out-of-fold target encoding\n    \"te_smooth\": 20.0,\n    \"w_nohist\": 1.0,            # training weight of rows without limit-based history\n    \"mono\": {},                 # feature -> +1/-1\n    \"params\": {\"n_estimators\": 800, \"max_depth\": 3, \"learning_rate\": 0.015, \"min_child_weight\": 20,\n               \"subsample\": 0.7, \"colsample_bytree\": 0.5, \"reg_lambda\": 5},\n}\nCATS = [\"reporting_frequency\", \"system_type\", \"owner_type_operator_type\", \"province\", \"treatment_family\",\n        \"receiving_water_type\"]\n\n\ndef _key(X, cols):\n    k = X[cols[0]].astype(object).where(X[cols[0]].notna(), \"NA\").astype(str)\n    for c in cols[1:]:\n        k = k + \"|\" + X[c].astype(object).where(X[c].notna(), \"NA\").astype(str)\n    return k\n\n\ndef _base(state, X):\n    cfg = state[\"cfg\"]\n    out = {}\n    for c in state[\"raw\"]:\n        if c in CATS:\n            if cfg[\"cat_mode\"] == \"native\":\n                out[c] = pd.Categorical(X[c], categories=state[\"levels\"][c])\n            elif cfg[\"cat_mode\"] == \"ordinal\":\n                out[c] = X[c].map(state[\"ordmap\"][c]).astype(float)\n            else:\n                for lv in state[\"levels\"][c]:\n                    out[c + \"=\" + str(lv)] = (X[c] == lv).astype(float)\n        else:\n            out[c] = X[c].astype(float)\n    ex = cfg[\"extra\"]\n    pe = X[\"prior_year_exceedance\"]; ee = X[\"ever_exceeded_before\"]; mg = X[\"prior_year_worst_margin\"]\n    per = X[\"periods_reported_prior_year\"].astype(float)\n    if \"hist_state\" in ex:\n        # 0 never exceeded, 1 exceeded earlier but not last year, 2 exceeded last year, nan none\n        s = pd.Series(np.nan, index=X.index)\n        s = s.mask(ee == 0, 0.0).mask((ee == 1) & (pe != 1), 1.0).mask(pe == 1, 2.0)\n        out[\"hist_state\"] = s\n    if \"new_system\" in ex:\n        out[\"new_system\"] = (X[\"history_years_reported\"] <= 1).astype(float)\n    if \"hist_cap\" in ex:\n        out[\"hist_cap\"] = X[\"history_years_reported\"].clip(upper=cfg.get(\"hist_cap\", 3)).astype(float)\n    if \"period_gap\" in ex:\n        exp = X[\"reporting_frequency\"].map({\"annual\": 1.0, \"quarterly\": 4.0, \"monthly\": 12.0})\n        out[\"period_short\"] = (per < exp).astype(float).where(exp.notna(), np.nan)\n        out[\"monthly_like\"] = (per >= 11).astype(float)\n    if \"acute_any\" in ex:\n        a = X[\"prior_year_acute_lethality_failures\"]\n        out[\"acute_tested\"] = a.notna().astype(float)\n    if \"n_missing\" in ex:\n        out[\"n_missing\"] = X[[\"system_type\", \"avg_daily_effluent_volume_m3\", \"owner_type_operator_type\",\n                              \"hydraulic_retention_ge_5_days\", \"receiving_water_type\"]].isna().sum(axis=1).astype(float)\n    if \"log_margin\" in ex:\n        out[\"margin_score\"] = np.log1p(mg.fillna(0.0)) + ee.fillna(0.0) * 0.5\n    return pd.DataFrame(out, index=X.index)\n\n\ndef _te_apply(table, prior, smooth, keys):\n    s = keys.map(table[\"s\"]).fillna(0.0).to_numpy(dtype=float)\n    n = keys.map(table[\"n\"]).fillna(0.0).to_numpy(dtype=float)\n    return (s + prior * smooth) / (n + smooth)\n\n\ndef fit(X_train, y_train, *, seed, threads):\n    cfg = {k: (dict(v) if isinstance(v, dict) else (list(v) if isinstance(v, list) else v)) for k, v in CFG.items()}\n    X = X_train.reset_index(drop=True)\n    y = np.asarray(y_train).astype(int)\n    raw = [c for c in X.columns if c not in cfg[\"drop\"]]\n    levels = {c: [str(v) for v in sorted(X[c].dropna().unique())] for c in CATS}\n    state = {\"cfg\": cfg, \"raw\": raw, \"levels\": levels, \"te_tables\": {}, \"prior\": float(y.mean())}\n    state[\"ordmap\"] = {c: {lv: float(i) for i, lv in enumerate(levels[c])} for c in CATS}\n    F = _base(state, X)\n    # Out-of-fold target encoding: each training row's encoding (incl. the prior) excludes its own fold's labels.\n    if cfg[\"te\"]:\n        rng = np.random.RandomState(seed)\n        fold = rng.randint(0, 5, size=len(X))\n        for cols in cfg[\"te\"]:\n            name = \"te_\" + \"_x_\".join(cols)\n            keys = _key(X, list(cols))\n            enc = np.zeros(len(X))\n            for f in range(5):\n                tr = fold != f\n                g = pd.DataFrame({\"k\": keys[tr], \"y\": y[tr]}).groupby(\"k\")[\"y\"].agg([\"sum\", \"count\"])\n                tab = {\"s\": g[\"sum\"].to_dict(), \"n\": g[\"count\"].to_dict()}\n                enc[~tr] = _te_apply(tab, float(y[tr].mean()), cfg[\"te_smooth\"], keys[~tr])\n            F[name] = enc\n            g = pd.DataFrame({\"k\": keys, \"y\": y}).groupby(\"k\")[\"y\"].agg([\"sum\", \"count\"])\n            state[\"te_tables\"][tuple(cols)] = {\"s\": g[\"sum\"].to_dict(), \"n\": g[\"count\"].to_dict()}\n    state[\"columns\"] = list(F.columns)\n    w = np.where(X[\"prior_year_exceedance\"].isna().to_numpy(), cfg[\"w_nohist\"], 1.0)\n    params = dict(cfg[\"params\"])\n    if cfg[\"mono\"]:\n        params[\"monotone_constraints\"] = {c: int(cfg[\"mono\"].get(c, 0)) for c in state[\"columns\"] if c in cfg[\"mono\"]}\n    model = xgb.XGBClassifier(tree_method=\"hist\", enable_categorical=True, random_state=seed, n_jobs=threads, **params)\n    keep = w > 0\n    model.fit(F[keep], y[keep], sample_weight=w[keep])\n    state[\"model\"] = model\n    return state\n\n\ndef prepare(state, X):\n    F = _base(state, X)\n    for cols, tab in state[\"te_tables\"].items():\n        F[\"te_\" + \"_x_\".join(cols)] = _te_apply(tab, state[\"prior\"], state[\"cfg\"][\"te_smooth\"], _key(X, list(cols)))\n    return F[state[\"columns\"]]\nEOF\ncat > lab/exp.py <<'EOF'\nimport sys, copy; sys.path.insert(0,'/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3/lab')\nimport lab\ndef go(name, seeds=(42,), **over):\n    m=lab.load(lab.ROOT+'/train.py')\n    for k,v in over.items():\n        if k=='params': m.CFG['params'].update(v)\n        else: m.CFG[k]=v\n    for s in seeds:\n        print(lab.fmt(lab.run(m,seed=s)), name, ('seed%d'%s if len(seeds)>1 else ''), flush=True)\nEOF\ncat > lab/s2.py <<'EOF'\nfrom exp import go\ngo('ref')\ngo('drop hist', drop=['history_years_reported'])\ngo('drop hist + new_system', drop=['history_years_reported'], extra=['new_system'])\ngo('drop hist + cap3', drop=['history_years_reported'], extra=['hist_cap'])\ngo('w_nohist 0.3', w_nohist=0.3)\ngo('w_nohist 0', w_nohist=0.0)\ngo('drop hist, w_nohist 0.3', drop=['history_years_reported'], w_nohist=0.3)\ngo('hist_state', extra=['hist_state'])\ngo('period_gap', extra=['period_gap'])\ngo('acute_any', extra=['acute_any'])\ngo('n_missing', extra=['n_missing'])\ngo('ordinal', cat_mode='ordinal')\ngo('onehot', cat_mode='onehot')\ngo('te prov x treat', te=[('province','treatment_family')])\ngo('te prov x treat, prov x water', te=[('province','treatment_family'),('province','receiving_water_type')])\ngo('mono', mono={'prior_year_exceedance':1,'prior_year_worst_margin':1,'ever_exceeded_before':1,'prior_year_acute_lethality_failures':1})\ngo('drop system_type', drop=['system_type'])\ngo('drop volume', drop=['avg_daily_effluent_volume_m3'])\nEOF\nPY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python; cd lab && $PY s2.py 2>&1 | grep -v Warn",
+      "description": "Write configurable train.py and run feature experiments"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 120,
+    "tool_use_id": "toolu_01MAtLZPp5GuapfLFsC9ST1A",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python; $PY evaluate.py --note 'H1: baseline overfits 8k rows; shallow (depth 3), slow (lr 0.015 x 800), min_child_weight 20, subsample 0.7, colsample 0.5, lambda 5 on unchanged raw features should generalize better across years' 2>&1 | tail -1 | cut -c1-120,330-560; sed -i '' 's/out\\[c + \"=\" + str(lv)\\]/out[c + \"=\" + str(lv).replace(\"<\", \"lt\").replace(\">\", \"gt\").replace(\"[\", \"(\").replace(\"]\", \")\")]/' train.py; cat > lab/s3.py <<'EOF'\nfrom exp import go\ngo('onehot', cat_mode='onehot')\ngo('te prov x treat', te=[('province','treatment_family')])\ngo('te prov x treat, prov x water', te=[('province','treatment_family'),('province','receiving_water_type')])\ngo('te prov x treat x freq', te=[('province','treatment_family','reporting_frequency')])\ngo('mono', mono={'prior_year_exceedance':1,'prior_year_worst_margin':1,'ever_exceeded_before':1,'prior_year_acute_lethality_failures':1})\ngo('drop system_type', drop=['system_type'])\ngo('drop volume', drop=['avg_daily_effluent_volume_m3'])\ngo('drop owner', drop=['owner_type_operator_type'])\ngo('drop water', drop=['receiving_water_type'])\ngo('drop acute', drop=['prior_year_acute_lethality_failures'])\ngo('drop chlorine', drop=['chlorine_use'])\ngo('drop hrt', drop=['hydraulic_retention_ge_5_days'])\ngo('drop periods', drop=['periods_reported_prior_year'])\ngo('drop freq', drop=['reporting_frequency'])\ngo('drop ever', drop=['ever_exceeded_before'])\ngo('drop prior flag', drop=['prior_year_exceedance'])\nEOF\ncd lab && $PY s3.py 2>&1 | grep -v Warn; date +%s",
+      "description": "Record regularized trial and run ablations"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 235,
+    "tool_use_id": "toolu_01148gf69qgC1EXTsk6dZmLR",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && $PY -c 1 2>/dev/null; PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nimport re\ns=open('train.py').read()\ns=s.replace('''def _base(state, X):\n    cfg = state[\"cfg\"]\n    out = {}\n''','''def _base(state, X):\n    cfg = state[\"cfg\"]\n    out = {}\n    if cfg.get(\"qc_mask\"):\n        # Quebec stopped reporting system type from 2019 (equivalency agreement); harmonize all Quebec rows.\n        X = X.copy()\n        X[\"system_type\"] = X[\"system_type\"].where(X[\"province\"] != \"Quebec\", np.nan)\n''')\nopen('train.py','w').write(s)\nEOF\ncat > lab/s6.py <<'EOF'\nfrom exp import go\nimport lab\nMONO={'prior_year_exceedance':1,'prior_year_worst_margin':1,'ever_exceeded_before':1,'prior_year_acute_lethality_failures':1}\nS=['province','treatment_family','receiving_water_type','owner_type_operator_type','hydraulic_retention_ge_5_days','chlorine_use','reporting_frequency','system_type']\ntr=lab.TR\nfor k in (3,5,6,8):\n    g=tr.groupby(S[:k],dropna=False); print(k,'combos',g.ngroups,'systems',tr.system_id.nunique(),'median systems/combo',g.system_id.nunique().median())\ngo('mono ref', mono=MONO)\ngo('mono + qc_mask', mono=MONO, qc_mask=True)\ngo('mono + te static5', mono=MONO, te=[tuple(S[:5])])\ngo('mono + te static6', mono=MONO, te=[tuple(S[:6])])\ngo('mono + te static8', mono=MONO, te=[tuple(S)])\ngo('mono + te static6 smooth5', mono=MONO, te=[tuple(S[:6])], te_smooth=5.0)\ngo('mono + te static6 smooth50', mono=MONO, te=[tuple(S[:6])], te_smooth=50.0)\ngo('mono + spw2', mono=MONO, params={'scale_pos_weight':2.0})\ngo('mono + spw4', mono=MONO, params={'scale_pos_weight':4.0})\ngo('mono + max_delta_step1', mono=MONO, params={'max_delta_step':1.0})\nEOF\ncd lab && $PY s6.py 2>&1 | grep -v Warn",
+      "description": "Test Quebec harmonization and static-cross target encoding"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 315,
+    "tool_use_id": "toolu_011rfCEfLxz5GNxzQbbsnSji",
+    "tool": "Bash",
+    "input": {
+      "command": "pkill -f \"s8.py\"; sleep 1; pgrep -fl \"python s8.py\" | cut -c1-80; echo killed; cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3/lab && $PWD/../lab/../evaluate.py 2>/dev/null; PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\ns=open('s8.py').read()\nhead=s.split(\"go('mono ref')\")[0]\nopen('s8lib.py','w').write(head)\nEOF\ncat > s8a.py <<'EOF'\nfrom s8lib import go\nimport time; t=time.time()\ngo('mono ref'); print('t',round(time.time()-t,1),flush=True)\ngo('qc_mask', qc_mask=True)\ngo('period_gap', extra=['period_gap'])\ngo('qc_mask+period_gap', qc_mask=True, extra=['period_gap'])\ngo('w_nohist 1.5', w_nohist=1.5)\ngo('w_nohist 0.6', w_nohist=0.6)\nprint('t',round(time.time()-t,1),flush=True)\nEOF\n$PY -W ignore s8a.py 2>&1; date +%s",
+      "description": "Stop the stuck job and rerun first batch in foreground",
+      "timeout": 300000
+    },
+    "reasons": [
+      "access_reference",
+      "process_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 327,
+    "tool_use_id": "toolu_01XnKvaVMa5fyQ6UZarkTCZf",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\ns=open('train.py').read()\ns=s.replace('''    \"mono\": {},                 # feature -> +1/-1''','''    \"mono\": {\"prior_year_exceedance\": 1, \"prior_year_worst_margin\": 1, \"ever_exceeded_before\": 1,\n             \"prior_year_acute_lethality_failures\": 1},   # feature -> +1/-1\n    \"qc_mask\": False,''')\nopen('train.py','w').write(s)\nEOF\nshow(){ $PY -c \"import json,sys;d=json.loads(sys.stdin.read().strip().splitlines()[-1]);print(d['id'][:8],d['mode'],d['status'],'auc',d.get('auc'),'brier',d.get('brier'),'fit',round(d.get('fit_wall_s',0),2),'eval',round(d.get('evaluation_wall_s',0),1))\"; }\n$PY evaluate.py --note 'H2: monotone-increasing constraints on prior exceedance flag, worst margin, ever-exceeded and acute failures encode domain direction and cut variance (local multi-seed +0.0005)' 2>&1 | show\nsed -i '' 's/\"qc_mask\": False,/\"qc_mask\": True,/; s/\"extra\": \\[\\],  /\"extra\": [\"period_gap\"],  /' train.py; grep -n '\"extra\"\\|\"qc_mask\"' train.py\n$PY evaluate.py --note 'H3: harmonize drift (Quebec system_type blank from 2019 -> mask all Quebec rows) and add exposure-gap features (periods below expected for frequency; monthly-like); local 3-seed mean val 0.90816 vs 0.90741' 2>&1 | show\n$PY evaluate.py --backtest --note 'H3 backtest: training-only chronological check of mono + qc_mask + period_gap' 2>&1 | show",
+      "description": "Record monotone and drift-harmonized trials with backtest"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 414,
+    "tool_use_id": "toolu_01B934ofrVygcH2QRdqEiUew",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\ns=open('train.py').read()\ns=s.replace('''    model = xgb.XGBClassifier(tree_method=\"hist\"''','''    if cfg.get(\"ic\"):\n        # Interaction constraints: listed groups may interact internally; all remaining features form one more group.\n        groups = [[c for c in g if c in state[\"columns\"]] for g in cfg[\"ic\"]]\n        used = {c for g in groups for c in g}\n        rest = [c for c in state[\"columns\"] if c not in used]\n        shared = [c for c in cfg.get(\"ic_shared\", []) if c in state[\"columns\"]]\n        groups = [g + [c for c in shared if c not in g] for g in groups + [rest] if g]\n        params[\"interaction_constraints\"] = groups\n    model = xgb.XGBClassifier(tree_method=\"hist\"''')\nopen('train.py','w').write(s)\nEOF\ncd lab && cat > s10.py <<'EOF'\nfrom s8lib import go\nB=dict(qc_mask=True, extra=['period_gap'])\nH=['prior_year_exceedance','prior_year_worst_margin','ever_exceeded_before']\ngo('ic: [pe,margin,ever] | rest', ic=[H], **B)\ngo('ic: [pe,margin,ever,hist] | rest', ic=[H+['history_years_reported']], **B)\ngo('ic: [pe,margin,ever,acute] | rest', ic=[H+['prior_year_acute_lethality_failures']], **B)\ngo('ic: H | rest, depth 4 600', ic=[H], params={'max_depth':4,'n_estimators':600}, **B)\ngo('ic: H | rest, shared province+treatment', ic=[H], ic_shared=['province','treatment_family'], **B)\ngo('ic: H | rest, shared treatment', ic=[H], ic_shared=['treatment_family'], **B)\nEOF\n$PY -W ignore s10.py 2>&1; date +%s",
+      "description": "Test interaction constraints separating history from static features",
+      "timeout": 400000
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 462,
+    "tool_use_id": "toolu_011XxChycT37bCHzVvVtAYKb",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\ns=open('train.py').read()\ns=s.replace('''    \"qc_mask\": True,''','''    \"qc_mask\": True,\n    # history features may interact only with each other (+ shared province/treatment); static features likewise\n    \"ic\": [[\"prior_year_exceedance\", \"prior_year_worst_margin\", \"ever_exceeded_before\", \"history_years_reported\"]],\n    \"ic_shared\": [\"province\", \"treatment_family\"],''')\nopen('train.py','w').write(s)\nEOF\nshow(){ $PY -c \"import json,sys;d=json.loads(sys.stdin.read().strip().splitlines()[-1]);print(d['id'][:8],d['mode'],d['status'],'auc',d.get('auc'),'brier',d.get('brier'),'fit',round(d.get('fit_wall_s',0),2),'eval',round(d.get('evaluation_wall_s',0),1),d.get('error',''))\"; }\n$PY evaluate.py --note 'H4: history x static interactions add nothing; interaction constraints (history group | static group, province+treatment shared) pool static-risk learning across history states. Local 3-seed val mean 0.90858 vs 0.90816, rolling bt 0.8873 vs 0.8864' 2>&1 | show\n$PY evaluate.py --backtest --note 'H4 backtest: training-only chronological check of interaction-constrained config' 2>&1 | show",
+      "description": "Record interaction-constrained trial and backtest"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 505,
+    "tool_use_id": "toolu_01EqFUbJkHz23hn59hgFFLwR",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\ns=open('train.py').read()\ns=s.replace('''    if \"log_margin\" in ex:''','''    if \"prov_treat\" in ex:\n        k = _key(X, [\"province\", \"treatment_family\"])\n        out[\"prov_treat\"] = pd.Categorical(k, categories=state[\"pt_levels\"])\n    if \"zero_vol\" in ex:\n        v = X[\"avg_daily_effluent_volume_m3\"]\n        out[\"zero_vol\"] = (v <= 0).astype(float).where(v.notna(), np.nan)\n    if \"log_margin\" in ex:''')\ns=s.replace('''    F = _base(state, X)\n    # Out-of-fold''','''    state[\"pt_levels\"] = sorted(_key(X, [\"province\", \"treatment_family\"]).unique())\n    F = _base(state, X)\n    # Out-of-fold''')\ns=s.replace('''    w = np.where(X[\"prior_year_exceedance\"].isna().to_numpy(), cfg[\"w_nohist\"], 1.0)''','''    w = np.where(X[\"prior_year_exceedance\"].isna().to_numpy(), cfg[\"w_nohist\"], 1.0)\n    w = w * np.where((X[\"prior_year_exceedance\"] == 0).to_numpy(), cfg.get(\"w_clean\", 1.0), 1.0)''')\nopen('train.py','w').write(s)\nEOF\ncd lab && cat > s14.py <<'EOF'\nfrom s8lib import go\ngo('final ref')\ngo('w_clean 2 (upweight rows compliant last year)', w_clean=2.0)\ngo('w_clean 0.5', w_clean=0.5)\ngo('+prov_treat cross categorical', extra=['period_gap','prov_treat'])\ngo('+zero_vol', extra=['period_gap','zero_vol'])\ngo('+acute_any', extra=['period_gap','acute_any'])\ngo('+new_system', extra=['period_gap','new_system'])\ngo('sensitivity: drop identification-snapshot attrs', drop=['treatment_family','hydraulic_retention_ge_5_days','chlorine_use','receiving_water_type'])\ngo('sensitivity: history features only', drop=['treatment_family','hydraulic_retention_ge_5_days','chlorine_use','receiving_water_type','province','owner_type_operator_type','system_type','avg_daily_effluent_volume_m3','reporting_frequency','periods_reported_prior_year','prior_year_acute_lethality_failures'], extra=[], qc_mask=False, params={'colsample_bytree':1.0})\nEOF\n$PY -W ignore s14.py 2>&1; date +%s",
+      "description": "Test weighting, extra features and sensitivity ablations",
+      "timeout": 400000
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 535,
+    "tool_use_id": "toolu_014XuWFEPMTuXzUyXMNGKbEd",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\nshow(){ $PY -c \"import json,sys;d=json.loads(sys.stdin.read().strip().splitlines()[-1]);print(d['id'][:8],d['mode'],d['status'],'auc',d.get('auc'),'brier',d.get('brier'),'fit',round(d.get('fit_wall_s',0),2),'eval',round(d.get('evaluation_wall_s',0),1),d.get('error',''))\"; }\ncp train.py /tmp/train_final_r3.py\nsed -i '' 's/    \"drop\": \\[\\],  /    \"drop\": [\"treatment_family\", \"hydraulic_retention_ge_5_days\", \"chlorine_use\", \"receiving_water_type\"],  /' train.py; grep -n '\"drop\"' train.py\n$PY evaluate.py --note 'SENSITIVITY (release README asks for it): H4 config with all current-vintage identification-snapshot attributes dropped (treatment_family, hydraulic retention, chlorine use, receiving water); expect small loss if look-ahead in snapshot attributes is not driving performance' 2>&1 | show\ncp /tmp/train_final_r3.py train.py; grep -n '\"drop\"' train.py\ncd lab && cat > s15.py <<'EOF'\nfrom s8lib import go\nfor c in ['history_years_reported','periods_reported_prior_year','reporting_frequency','system_type','avg_daily_effluent_volume_m3','owner_type_operator_type','province','treatment_family','hydraulic_retention_ge_5_days','chlorine_use','receiving_water_type','prior_year_acute_lethality_failures','prior_year_exceedance']:\n    go('final minus '+c, drop=[c])\nEOF\n$PY -W ignore s15.py 2>&1; date +%s",
+      "description": "Record no-snapshot sensitivity trial and run drop-one ablations",
+      "timeout": 400000
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 571,
+    "tool_use_id": "toolu_01GKptz6xP5DsPHUMjnjtWR7",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && cat > REPORT.md <<'EOF'\n# REPORT \u2014 wser-effluent-exceedance--r3\n\nRetrospective prediction under the release's stated assumptions. No holdout result is claimed; the holdout, source\nsnapshots, raw outcome records and other runs were not accessed.\n\n## Result\n\n| trial | what | validation AUC | Brier | evaluator backtest AUC |\n|---|---|---|---|---|\n| a92c4341 | scaffold baseline (unchanged `train.py`) | 0.89604 | 0.0884 | 0.8736 |\n| 2702e136 | H1 regularization only | 0.90733 | 0.0853 | \u2013 |\n| 2ed485b7 | H2 + monotone constraints | 0.90779 | 0.0849 | \u2013 |\n| 301ffaa5 | H3 + Quebec `system_type` mask + exposure-gap features | 0.90819 | 0.0849 | 0.8873 |\n| **14237f18** | **H4 + interaction constraints (best eligible)** | **0.90851** | **0.0848** | 0.8865 |\n| c50d7a35 | sensitivity: H4 without the four identification-snapshot attributes | 0.90752 | 0.0849 | \u2013 |\n\nRelease-documented references on the same validation rows: released full model 0.8993, calendar identity 0.8534,\npersistence 0.8335.\n\nBest eligible trial: `14237f1897274d4ab37885f3daa5c587`, validation AUC 0.908506, Brier 0.08478, fit 0.4 s.\n\n## What the final model is\n\nOne `XGBClassifier` (hist, native categoricals), 800 trees, depth 3, lr 0.015, min_child_weight 20, subsample 0.7,\ncolsample_bytree 0.5, lambda 5, on the 15 declared predictors plus two row-wise derived features:\n\n- `period_short` (periods reported in Y-1 below the count expected for the reporting frequency) and `monthly_like`\n  (>= 11 periods) \u2014 exposure/consistency features built only from `periods_reported_prior_year` and\n  `reporting_frequency`.\n- Quebec `system_type` set to missing for every Quebec row (train and predict). In the training data Quebec stops\n  reporting this field in 2019 (96% blank), so the mask makes earlier Quebec rows look like later ones.\n- Monotone-increasing constraints on `prior_year_exceedance`, `prior_year_worst_margin`, `ever_exceeded_before`,\n  `prior_year_acute_lethality_failures`.\n- Interaction constraints: the four history features (prior flag, margin, ever-exceeded, history years) interact only\n  with each other; the remaining features only with each other; `province` and `treatment_family` are in both groups.\n\nNo target encoding, no learned statistics other than category level lists, no date/ID inputs, no early stopping,\nno use of validation in `fit`. `prepare` is purely row-wise (verified: evaluator row-by-row predictions equal local\nbatch predictions to 1e-16; row-order permutation gives identical predictions).\n\n## Where the gain comes from (local 3-seed means; lab diagnostics, not eligible trials)\n\n| config | rolling backtest AUC (2017/18/19 mean) | validation AUC |\n|---|---|---|\n| full H4 | 0.8873 | 0.90858 |\n| minus Quebec mask | 0.8871 | 0.90843 |\n| minus exposure-gap features | 0.8871 | 0.90784 |\n| minus monotone | 0.8867 | 0.90854 |\n| minus interaction constraints | 0.8864 | 0.90816 |\n| minus all four (regularization only) | 0.8857 | 0.90717 |\n| scaffold baseline | 0.8747 | 0.89604 |\n\nAbout 0.011 of the 0.0125 improvement is plain regularization. The four structural changes together add ~0.0014,\neach individually <= 0.0007. Those are below the uncertainty of the validation set (below), so they are supported only\nby being directionally consistent in both the training-only backtests and validation, not by significance.\n\n## Uncertainty\n\n- Seed repeats (diagnostic, 10 seeds): validation AUC mean 0.90822, sd 0.00025, range 0.9078\u20130.9086. The recorded\n  seed-42 trial (0.90851) is on the upper side of that range.\n- System-cluster bootstrap on validation: AUC 95% interval [0.897, 0.920]; paired difference vs the scaffold baseline\n  +0.0127, 95% interval [+0.007, +0.018].\n- One-row-per-system sensitivity (200 random draws, 2,090 systems): AUC 0.9038 (sd 0.006).\n- By target year: 0.919 (2020), 0.907 (2021), 0.900 (2022) \u2014 performance falls with distance from training, so a\n  later period should be expected to score lower than the validation figure.\n- 182 validation rows belong to systems absent from training: AUC 0.875 vs 0.909 for seen systems.\n- Roughly 200 local configurations were compared against validation; the selected number carries selection optimism\n  of the order of the seed noise.\n\n## Findings\n\n1. **The feature set, not the model, is the limit.** A 120-config random search is flat (0.905\u20130.908). A model trained\n   on validation years 2020\u201321 and scored on 2022 gets 0.896, vs 0.9005 for the training-era model and 0.9015 for both\n   pooled (diagnostic only; never used for the submitted model). There is no drift-specific headroom to recover.\n2. **History and static risk are additive.** Forbidding history x static interactions loses nothing. State-specialised\n   models rank worse within their own state than the pooled model (never-exceeded 0.63 vs 0.68; exceeded-last-year\n   0.82 vs 0.84).\n3. **Remaining error is first-time exceedance.** Of the 0.092 AUC shortfall, 0.033 is ranking within never-exceeded\n   systems (pair AUC 0.68) and 0.021 is never-exceeded positives ranked below previously-exceeding negatives.\n4. **Feature value.** History-only model: 0.887. `ever_exceeded_before` is the single most important input\n   (-0.016 when dropped from the regularized model); `province` is the most important static (-0.005). Every other\n   single feature is worth <= 0.0013.\n5. **Identification-snapshot attributes barely matter.** Dropping treatment family, retention time, chlorine use and\n   receiving water together costs 0.0010 (trial c50d7a35: 0.90752). The look-ahead risk the release flags for these\n   current-vintage fields is therefore not what drives performance; a deployment that distrusts them loses little.\n\n## Negative and rejected results\n\n- No effect or worse: dropping/capping `history_years_reported`, dropping or re-weighting no-history (2015) rows,\n  up/down-weighting rows compliant last year, one-hot or ordinal categoricals, province x treatment as a crossed\n  categorical, OOF target encoding of province x treatment (x frequency, x receiving water), `scale_pos_weight`\n  (AUC flat, Brier much worse), depth 2/4/5, lossguide, by-node column sampling. Removing subsampling costs ~0.003.\n- **Rejected: target encoding of the cross of 5\u20138 static attributes.** That cross has a median of one system per\n  level, i.e. it is effectively a system-identifier lookup, which the assignment excludes. It also *lowered*\n  validation AUC (0.9046\u20130.9058) because random out-of-fold encodings inside training see a system's other years.\n  Never submitted to the evaluator.\n- Not attempted on principle: using training row order as a stand-in for the withheld year; `num_parallel_tree`\n  (too close to the excluded seed ensemble); DART (the one attempt was in the script that ran over time, no result).\n\n## Source / label / drift concerns (concrete)\n\n- Quebec: `system_type` blank for 96% of Quebec rows from target year 2019; ~320 new Quebec systems enter in 2019\n  with blank Y-1 volume that year only. Quebec is 23% of training rows and 33% of validation rows.\n- Quebec persistence drifted: P(exceed | exceeded last year) is 0.46\u20130.54 in 2018\u201319 and 0.65\u20130.69 in 2020\u201322; the\n  model under-predicts this group (0.52 predicted vs 0.67 observed, n=268). Not fixable without a year input.\n- Rows with no Y-1 report (`periods_reported_prior_year` = 0): 99 of 130 training cases are one Quebec 2018 intake\n  cohort (low risk); the 125 validation cases are spread over provinces with higher risk (0.24 observed vs 0.14\n  predicted).\n- `history_years_reported` acts as an entry-cohort marker whose value for a given cohort increases every year, and\n  validation contains values (7\u20139) never seen in training.\n- Positive rate rises from 0.157 (2015) to ~0.23 (2020\u201322); the model is slightly under-calibrated on validation\n  (mean prediction 0.21\u20130.22 vs 0.23 observed), monotone across deciles.\n- 2015 target rows (18% of training) carry no limit-based history by construction.\n\n## Assumptions and disclosures\n\n- No additional date features were used. No identifiers (record_id, system_id, decision_date, target_year) reach\n  `fit`/`prepare`; they are removed by the evaluator.\n- Training-derived state: category level lists only. The Quebec mask and exposure-gap rules are fixed rules\n  motivated by EDA; the Quebec pattern is visible in training data alone (2019 rows).\n- Validation labels were inspected for error analysis and for the headroom diagnostic; they never enter `fit`.\n- Availability assumptions are the release's: Y-1 monitoring on file by 1 March of Y (statutory proxy, unverified),\n  identification attributes are a current-vintage snapshot.\n\n## Process deviations\n\n- One local diagnostic script (`lab/s8.py`, including a slow DART variant) exceeded the tool's 10-minute foreground\n  limit and was moved to the background by the tool. It was killed and rerun in smaller foreground pieces. No\n  evaluator trial was involved.\n- One batch of local ablations (`lab/s11.py`, \"no qc_mask\"/\"no period_gap\" lines) silently inherited the new\n  defaults and was therefore not an ablation; it was detected from identical outputs and rerun correctly\n  (`lab/s12.py`). The table above uses the corrected run.\nEOF\ngit add -A . 2>/dev/null; git reset -q release mcp.json .study-owned TASK.json 2>/dev/null; git status --short | head -20",
+      "description": "Write REPORT.md and stage notes"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 618,
+    "tool_use_id": "toolu_018Trno83V5nvxuF8n7cW57y",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\ns=open('train.py').read()\ns=s.replace('''    w = w * np.where((X[\"prior_year_exceedance\"] == 0).to_numpy(), cfg.get(\"w_clean\", 1.0), 1.0)''','''    w = w * np.where((X[\"prior_year_exceedance\"] == 0).to_numpy(), cfg.get(\"w_clean\", 1.0), 1.0)\n    # rows that exceeded earlier but not last year: their share grows as the history window lengthens\n    lapsed = ((X[\"ever_exceeded_before\"] == 1) & (X[\"prior_year_exceedance\"] != 1)).to_numpy()\n    w = w * np.where(lapsed, cfg.get(\"w_lapsed\", 1.0), 1.0)''')\nopen('train.py','w').write(s)\nEOF\ncd lab && cat > s18.py <<'EOF'\nfrom s8lib import go\nS=(42,1,2,3,4)\ngo('w_lapsed 2', seeds=S, w_lapsed=2.0)\ngo('w_lapsed 3', seeds=S, w_lapsed=3.0)\ngo('w_lapsed 5', seeds=S, w_lapsed=5.0)\ngo('w_lapsed 3 + w_nohist 0.5', seeds=S, w_lapsed=3.0, w_nohist=0.5)\nEOF\n$PY -W ignore s18.py 2>&1; date +%s",
+      "description": "Test upweighting lapsed-exceeder rows",
+      "timeout": 400000
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 654,
+    "tool_use_id": "toolu_01SnsdRormd5JM7xndxXVB8H",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\ncat > lab/replay.py <<'EOF'\n\"\"\"Cold replay of the best eligible artifact in a fresh process (mirrors the coordinator's freeze check).\"\"\"\nimport pickle, json, glob, numpy as np, pandas as pd\nROOT='/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3'\nbest=max((json.load(open(f)) for f in glob.glob(ROOT+'/trials/*/result.json')), key=lambda r: r.get('auc',0) if r['status']=='ok' and r['mode']=='validation' else -1)\nart=pickle.loads(open(ROOT+'/trials/'+best['id']+'/model.pkl','rb').read())\nfeats=json.load(open(ROOT+'/release/reproduction/construction.json'))['quality']['features']\nev=pd.read_csv(ROOT+'/release/extract/public/eval.csv'); X=ev[[c for c in ev.columns if c in feats]]\nZ=pd.concat([art['prepare'](art['state'],X.iloc[[i]].reset_index(drop=True)) for i in range(len(X))],ignore_index=True)\np=art['state']['model'].predict_proba(Z)[:,1]; sv=pd.read_csv(ROOT+'/trials/'+best['id']+'/validation.csv.gz')\nprint(best['id'],'auc',best['auc'],'replay max abs diff %.2e'%np.abs(p-sv.p.to_numpy()).max(),'n_jobs',art['state']['model'].get_params()['n_jobs'],'n_features',Z.shape[1])\n# robustness: a row with every value missing and a row with unseen category levels must still prepare\nr=X.iloc[[0]].copy().reset_index(drop=True)\nr2=r.copy(); r2.loc[0,:]=np.nan\nr3=r.copy(); r3['province']='Nunavut'; r3['reporting_frequency']='monthly'; r3['treatment_family']='new_family'; r3['history_years_reported']=11\nfor name,rr in [('all-missing',r2),('unseen levels',r3)]:\n    print(name,'p=%.4f'%art['state']['model'].predict_proba(art['prepare'](art['state'],rr))[:,1][0])\nEOF\n$PY -W ignore lab/replay.py\nshow(){ $PY -c \"import json,sys;d=json.loads(sys.stdin.read().strip().splitlines()[-1]);print(d['id'][:8],d['mode'],d['status'],'auc',d.get('auc'),'brier',d.get('brier'),'fit',round(d.get('fit_wall_s',0),2),'eval',round(d.get('evaluation_wall_s',0),1),d.get('error',''))\"; }\ncp train.py /tmp/train_final_r3.py\nsed -i '' 's/    \"drop\": \\[\\],  /    \"drop\": [\"hydraulic_retention_ge_5_days\", \"chlorine_use\", \"receiving_water_type\", \"prior_year_acute_lethality_failures\"],  /' train.py\n$PY evaluate.py --note 'SIMPLIFICATION: H4 config on 11 raw predictors (drop retention time, chlorine use, receiving water, acute failures); local rolling backtest is the best seen (0.8887) with validation within noise of the full model' 2>&1 | show\n$PY evaluate.py --backtest --note 'SIMPLIFICATION backtest: 11-predictor H4 config, training-only chronological check' 2>&1 | show\ncp /tmp/train_final_r3.py train.py; grep -n '\"drop\"' train.py | head -1; date +%s",
+      "description": "Cold-replay best artifact and record the compact-model trial",
+      "timeout": 300000
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 705,
+    "tool_use_id": "toolu_0157gM8K4ZEz3yg1BvvFEmBF",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\ns=open('LOG.md').read()\ns=s.replace('''\n## Findings so far''','''| 5 | 14237f18 / 87d44ac0 (bt) | H4 interaction constraints: history group / static group, province+treatment shared | 0.90851 | 0.0848 | 0.8865 | **best eligible**; 5-seed mean 0.90848 vs 0.90816 without |\n| 6 | c50d7a35 | sensitivity: H4 minus 4 identification-snapshot attributes | 0.90752 | 0.0849 | \u2013 | reported, not preferred by the rule |\n| 7 | 04bec43f / cb30cbb8 (bt) | simplification: H4 on 11 raw predictors (drop HRT, chlorine, receiving water, acute) | 0.90772 | 0.0847 | 0.8869 | within noise of #5 |\n\n## Findings so far''')\ns+='''\n## Later findings (after trial 4)\n- Interaction constraints: forbidding history x static interactions loses nothing (bt 0.8872-0.8877, val 0.9079-0.9081);\n  sharing province+treatment across both groups gives the best 3/5-seed mean (0.90858/0.90848). Kept as H4.\n- Corrected ablation of H4 (lab/s12.py; lab/s11.py lines \"no qc_mask\"/\"no period_gap\" were invalid because they\n  inherited new defaults): minus qc_mask 0.90843, minus period_gap 0.90784, minus mono 0.90854, minus ic 0.90816,\n  minus all four 0.90717. Rolling bt 0.8873 (full) vs 0.8857 (none).\n- Drop-one inside H4: province -0.0050, treatment_family -0.0014, volume -0.0013, reporting_frequency -0.0011,\n  history years -0.0008, everything else within +/-0.0005. Nothing improves when dropped.\n- Sensitivities: history-only 0.8867; no identification-snapshot attributes 0.9077; depth-1 additive 0.9070.\n- Learning curve at lr 0.015: 200 trees 0.9045, 400 0.9072, 600 0.9082, 800 0.9086, 1000 0.9086, 1200 0.9084,\n  1600 0.9080, 3200 0.9053 (rolling bt flat 0.887 from 400 to 1600). 800 kept.\n- Flat/worse in H4: monotone(-) on history years (+0.0001), max_bin 16/32, owner/operator split, zero-volume flag,\n  acute-tested flag, new-system flag, province x treatment crossed categorical (-0.0015), weights on rows compliant\n  last year (x2: -0.0007, x0.5: -0.0005), weights on lapsed exceeders (x2 flat, x3 -0.0002, x5 -0.0015).\n- Headroom diagnostic: fit on 2020-21 -> 2022 AUC 0.896; fit on 2015-19 -> 0.9005; fit on 2015-21 -> 0.9015.\n- Reproducibility: cold replay of model.pkl in a fresh process matches saved predictions to 1e-16; prepare is\n  row-order invariant; all-missing and unseen-level rows prepare without error.\n- Source concern: 56 rows have prior-year margin exactly 974.0 (= 999 - 25), 90 rows >= 900. A block of ~12 untreated\n  Nova Scotia systems repeats identical 905-974 margins for 2018-2021 and then all flip to label 0 in 2022; they are\n  12 of the 21 validation false positives with p > 0.8.\n'''\nopen('LOG.md','w').write(s)\nr=open('REPORT.md').read()\nr=r.replace('''| c50d7a35 | sensitivity: H4 without the four identification-snapshot attributes | 0.90752 | 0.0849 | \u2013 |''','''| c50d7a35 | sensitivity: H4 without the four identification-snapshot attributes | 0.90752 | 0.0849 | \u2013 |\n| 04bec43f | simplification: H4 on 11 raw predictors (no retention time, chlorine, receiving water, acute failures) | 0.90772 | 0.0847 | 0.8869 |''')\nr=r.replace('''## Negative and rejected results''','''6. **A much smaller model is equivalent within noise.** Eleven raw predictors give 0.9077 (trial 04bec43f) and the\n   best local rolling backtest seen (0.8887 vs 0.8873). A depth-1 purely additive model reaches 0.9070.\n7. **Tree count is on a plateau.** At lr 0.015 validation AUC is 0.9082\u20130.9086 from 600 to 1,200 trees and falls on\n   either side (0.9045 at 200, 0.9053 at 3,200); the training-only backtest is flat from 400 to 1,600.\n\n## Negative and rejected results''')\nr=r.replace('''- Quebec: `system_type` blank''','''- **Placeholder-like values in the label source.** 56 rows have `prior_year_worst_margin` exactly 974.0, which is\n  999 \u2212 25, and 90 rows are >= 900 mg/L. A block of about 12 untreated Nova Scotia systems carries the same 905\u2013974\n  margins every year from 2018 to 2021 (labels 1) and then all switch to label 0 together in 2022. They account for\n  12 of the 21 validation false positives with p > 0.8. This looks like a reporting convention (a 999 placeholder\n  average) starting and stopping, not effluent quality changing; I have not verified it against the source records\n  (not permitted), so it is a hypothesis. It affects labels and the margin feature alike.\n- Quebec: `system_type` blank''')\nopen('REPORT.md','w').write(r)\nEOF\ngit add LOG.md REPORT.md train.py lab/*.py && git commit -qm \"Log later trials, source concern, diagnostics\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; date +%s",
+      "description": "Update log and report with later findings and commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 743,
+    "tool_use_id": "toolu_01RgExLXdHZxRy1RadSSzxhx",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\ns=open('train.py').read()\ns=s.replace('''    if \"owner_split\" in ex:''','''    if \"no_hist\" in ex:\n        # lets static-group trees give rows without any limit-based history their own (marginal) static effects\n        out[\"no_hist\"] = ee.isna().astype(float)\n    if \"owner_split\" in ex:''')\nopen('train.py','w').write(s)\nEOF\ncd lab && cat > s25.py <<'EOF'\nfrom s8lib import go\nS=(42,1,2,3,4)\ngo('final ref', seeds=S)\ngo('+no_hist flag in static group', seeds=S, extra=['period_gap','no_hist'])\ngo('+no_hist, depth 4 x 600', seeds=S, extra=['period_gap','no_hist'], params={'max_depth':4,'n_estimators':600})\ngo('+no_hist, w_nohist 0.5', seeds=S, extra=['period_gap','no_hist'], w_nohist=0.5)\nEOF\n$PY -W ignore s25.py 2>&1; date +%s",
+      "description": "Test a no-history flag inside the static group",
+      "timeout": 400000
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 774,
+    "tool_use_id": "toolu_01ANjgYCX23VXQjokSp8UF3U",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\ns=open('train.py').read()\ns=s.replace('''        else:\n            out[c] = X[c].astype(float)\n    ex = cfg[\"extra\"]''','''        elif c == \"avg_daily_effluent_volume_m3\" and cfg.get(\"vol_round\"):\n            # coarse log10 bins: volume is the most-split feature but adds little; limit threshold search\n            r = float(cfg[\"vol_round\"])\n            out[c] = np.round(np.log10(X[c].astype(float).clip(lower=0) + 1.0) / r) * r\n        else:\n            out[c] = X[c].astype(float)\n    ex = cfg[\"extra\"]''')\nopen('train.py','w').write(s)\nEOF\ncd lab && cat > s27.py <<'EOF'\nfrom s8lib import go\nS=(42,1,2,3,4)\ngo('vol log10 rounded 0.25', seeds=S, vol_round=0.25)\ngo('vol log10 rounded 0.5', seeds=S, vol_round=0.5)\ngo('vol log10 rounded 1.0', seeds=S, vol_round=1.0)\nEOF\n$PY -W ignore s27.py 2>&1; date +%s",
+      "description": "Test coarse log-binning of effluent volume",
+      "timeout": 400000
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 787,
+    "tool_use_id": "toolu_012GuRV8f8Tsuha4kDEPMm6W",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nr=open('REPORT.md').read()\nr=r.replace('''## Negative and rejected results''','''8. **Forward folds across all labeled years agree the structural changes are small but not harmful.** Expanding\n   window, fit on years < Y, score Y, Y = 2017..2022, 3-seed means (diagnostic; later folds fit on validation labels\n   and were never used for a submitted model): regularization only 0.8974, H3 0.8979, H4 0.8984, 11-predictor H4\n   0.8989, H4 without snapshot attributes 0.8981. H4 >= regularization-only in 5 of 6 folds.\n9. **Volume is not a hidden system identifier.** Multiplying `avg_daily_effluent_volume_m3` by random noise at\n   prediction time changes validation AUC by -0.00002 (1% noise), -0.0002 (5%), -0.0006 (20%). It is the most-split\n   feature (785 splits) but only seventh by permutation importance; coarse log-binning it changes nothing.\n10. **Permutation importance on validation (AUC drop):** ever-exceeded 0.033, worst margin 0.023, province 0.020,\n    treatment family 0.009, reporting frequency 0.006, prior-year flag 0.005, volume 0.002, owner/operator 0.001,\n    all others < 0.001.\n\n## Negative and rejected results''')\nr=r.replace('''## Assumptions and disclosures''','''- Internal consistency checks passed: no duplicate record ids or system-years; `prior_year_exceedance` equals the\n  previous year's label in all 11,800 rows where both exist; `ever_exceeded_before` never contradicts earlier labels;\n  the flag and margin > 0 always agree. 22 validation rows sit in groups with identical predictors and conflicting\n  labels (irreducible for this feature set, not evidence of wrong labels).\n\n## Assumptions and disclosures''')\nr=r.replace('''  (AUC flat, Brier much worse), depth 2/4/5, lossguide, by-node column sampling. Removing subsampling costs ~0.003.''','''  (AUC flat, Brier much worse), depth 2/4/5, lossguide, by-node column sampling. Removing subsampling costs ~0.003.\n  Inside the final config: monotone-decreasing history years, max_bin 16/32, owner/operator split, zero-volume,\n  acute-tested, new-system and no-history flags, log-binned volume, sharing reporting frequency across constraint\n  groups, up-weighting lapsed exceeders \u2014 all within +/-0.0005 or worse.''')\nopen('REPORT.md','w').write(r)\nl=open('LOG.md').read()\nl+='''- Forward folds 2017..2022 (expanding window, diagnostic): H1 0.8974, H3 0.8979, H4 0.8984, compact 0.8989,\n  no-snapshot 0.8981.\n- Volume jitter at predict time: 1% -0.00002, 5% -0.0002, 20% -0.0006 -> volume is not a system fingerprint.\n- Flat in H4: no_hist flag in the static group (-0.0003), log-binned volume (0.25/0.5/1.0 decades: -0.0003/-0.0007/-0.0003).\n- Label/feature consistency: prior flag == previous label in 11,800/11,800 rows; no duplicates.\n'''\nopen('LOG.md','w').write(l)\nb=open('BACKLOG.md').read()\nb=b.replace('''## Open\n- colsample by node/level vs by tree; depth 2/4; lossguide (multi-seed means)\n- interaction constraints (history group vs static group)\n- more exposure/consistency features: zero-volume flag, margin>0 w/o acute test, volume x frequency\n- seed-repeat and per-year stability of the selected config; calibration check\n- ablate each kept change (mono, qc_mask, period_gap) from the final config\n''','''## Open (not reachable with the released inputs or rules)\n- time since last exceedance / count of prior exceedance years (would need a system memory; not in the predictors)\n- recency weighting or a year feature (year is a withheld carry column)\n- distance-to-limit for compliant systems (margin is floored at 0)\n- a placeholder-average flag built from raw averages (999 mg/L entries); only the floored margin is released\n''')\nb=b.replace('''- monotone constraints (kept), Quebec system_type mask (kept), exposure-gap features (kept)''','''- monotone constraints (kept), Quebec system_type mask (kept), exposure-gap features (kept)\n- interaction constraints history | static with province+treatment shared (kept)\n- colsample by node/level, depth 1/2/4, lossguide, max_bin, tree-count curve, lr (all flat; 800 x 0.015 kept)\n- drop-one and component ablations inside the final config; history-only, no-snapshot and 11-predictor sensitivities\n- weights: no-history rows, rows compliant last year, lapsed exceeders (flat or worse)\n- extra flags: zero volume, acute tested, new system, no history, owner/operator split, binned volume (flat)\n- seed repeats, cluster bootstrap, one-row-per-system, per-year, calibration deciles, cold replay, row-order check\n- error analysis: state-pair AUC decomposition, confident errors, placeholder margins, Quebec drift, forward folds''')\nopen('BACKLOG.md','w').write(b)\nEOF\ngit add LOG.md REPORT.md BACKLOG.md train.py lab/*.py && git commit -qm \"Add forward-fold, fingerprint and consistency diagnostics\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; date +%s",
+      "description": "Update report, log and backlog and commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 865,
+    "tool_use_id": "toolu_01E7CtsDMFz43P7TzYYdzm9d",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nr=open('REPORT.md').read()\nr=r.replace('''- Roughly 200 local configurations were compared against validation; the selected number carries selection optimism\n  of the order of the seed noise.''','''- **Selection optimism is visible.** 36 random hyper-parameter neighbours of the selected structure (depth 2\u20134,\n  600\u20131,000 trees, min_child_weight 5\u201340, subsample 0.5\u20130.9, colsample 0.35\u20130.8, lambda 1\u201320) score 0.9058\u20130.9080\n  on validation, median 0.9071; none reaches the selected 0.9085. The selected hyper-parameters were the best of the\n  first validation sweep and every later structural decision was evaluated at them, so about 0.001 of the recorded\n  AUC is tuning-to-validation and should not be expected to carry over. Roughly 250 local configurations were\n  compared against validation in total.''')\nr=r.replace('''| c50d7a35 | sensitivity: H4 without the four identification-snapshot attributes | 0.90752 | 0.0849 | \u2013 |''','''| 0cca88c1 | cleaned `train.py`, same configuration (bit-identical predictions to 14237f18) | 0.90851 | 0.0848 | \u2013 |\n| c50d7a35 | sensitivity: H4 without the four identification-snapshot attributes | 0.90752 | 0.0849 | \u2013 |''')\nr=r.replace('''Best eligible trial: `14237f1897274d4ab37885f3daa5c587`, validation AUC 0.908506, Brier 0.08478, fit 0.4 s.''','''Best eligible trial: `14237f1897274d4ab37885f3daa5c587`, validation AUC 0.908506, Brier 0.08478, fit 0.4 s.\nTrial `0cca88c1` is the same model from the cleaned `train.py` now in the repository (identical predictions; the\nearlier trial wins the tie). The experiment-switch version used for local diagnostics is `lab/train_cfg.py`.''')\nopen('REPORT.md','w').write(r)\nl=open('LOG.md').read()\nl=l.replace('''\n## Findings so far''','''| 8 | 0cca88c1 | cleaned train.py, same config as #5 | 0.90851 | 0.0848 | \u2013 | bit-identical predictions to #5 (reproducibility) |\n\n## Findings so far''')\nl+='''- Exposure-gap decomposition (5 seeds): period_short only 0.90827, monthly_like only 0.90792, both 0.90848,\n  ratio instead 0.90833, plus report-gap flags 0.90840. Both kept as is.\n- Hyper-parameter sensitivity inside H4 (36 random neighbours, lab/s29.py): val 0.9058-0.9080, median 0.9071, rolling\n  bt 0.8834-0.8879; corr(bt, val) 0.19. The selected config (0.9085) is above every neighbour -> ~0.001 selection\n  optimism in the recorded number.\n'''\nopen('LOG.md','w').write(l)\nEOF\ngit add LOG.md REPORT.md lab/*.py lab/*.csv && git commit -qm \"Report selection optimism and sensitivity\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; date +%s",
+      "description": "Record selection-optimism finding and commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 896,
+    "tool_use_id": "toolu_01U1fU87VXMfcwPXjPuph5C9",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nr=open('REPORT.md').read()\nr=r.replace('''## Negative and rejected results''','''11. **Decision view (validation, descriptive).** Among the 4,483 system-years that did not exceed in the prior year\n    (7.9% exceed next year) the model's AUC is 0.745 vs 0.667 for the ever-exceeded flag alone; the top 10% by\n    predicted risk contains 33% of the next-year exceeders (precision 0.26, lift 3.3), the top 20% contains 49%.\n    Over all rows the top 20% contains 69% of exceeders at precision 0.80. Predictions are stable across seeds\n    (Spearman 0.9985\u20130.9989, mean absolute probability difference 0.004).\n\n## Negative and rejected results''')\nr=r.replace('''- Not attempted on principle: using training row order as a stand-in for the withheld year; `num_parallel_tree`\n  (too close to the excluded seed ensemble); DART (the one attempt was in the script that ran over time, no result).''','''- DART booster (rate_drop 0.05\u20130.1): 0.9071\u20130.9074 with 7\u201330x the fit time; `one_drop` 0.9024. Not submitted.\n- Not attempted on principle: using training row order as a stand-in for the withheld year; `num_parallel_tree`\n  (too close to the excluded seed ensemble).''')\nopen('REPORT.md','w').write(r)\nl=open('LOG.md').read()\nl+='''- DART (lab/s30.py, single seed): rate_drop 0.05 x150 trees 0.90711; 0.1 x300 0.90741; one_drop 0.90242; gbtree ref\n  0.90851. 7-31 s per fit vs 1 s. Rejected.\n- Decision view: compliant-last-year pool AUC 0.745 (ever flag alone 0.667); top-10% lift 3.3. Seed Spearman 0.9985+.\n'''\nopen('LOG.md','w').write(l)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"DART result, decision-view diagnostics\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; date +%s",
+      "description": "Add DART and decision-view results to notes and commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 923,
+    "tool_use_id": "toolu_012zFwdC86WdyifoEu7FjBCg",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\ns=open('lab/train_cfg.py').read()\ns=s.replace('''        else:\n            out[c] = X[c].astype(float)\n    ex = cfg[\"extra\"]''','''        elif c == \"prior_year_worst_margin\" and cfg.get(\"margin_clip\"):\n            out[c] = X[c].astype(float).clip(upper=float(cfg[\"margin_clip\"]))\n        else:\n            out[c] = X[c].astype(float)\n    ex = cfg[\"extra\"]''')\ns=s.replace('''    if \"acute_any\" in ex:''','''    if \"placeholder\" in ex:\n        out[\"placeholder_margin\"] = (mg >= 900).astype(float).where(mg.notna(), np.nan)\n    if \"acute_any\" in ex:''',1)\nopen('lab/train_cfg.py','w').write(s)\nEOF\ncd lab && cat > s34.py <<'EOF'\nfrom s8lib import go\nS=(42,1,2,3,4)\ngo('margin clipped at 400', seeds=S, margin_clip=400)\ngo('margin clipped at 150', seeds=S, margin_clip=150)\ngo('margin clipped at 50', seeds=S, margin_clip=50)\ngo('placeholder flag (margin>=900) in static group', seeds=S, extra=['period_gap','placeholder'])\nEOF\n$PY -W ignore s34.py 2>&1; date +%s",
+      "description": "Test margin clipping and a placeholder-margin flag",
+      "timeout": 400000
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 933,
+    "tool_use_id": "toolu_011SeREz56YpE5i1c2pgotiD",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nr=open('REPORT.md').read()\nr=r.replace('''## Negative and rejected results''','''12. **Almost no higher-order structure is needed.** A GA2M-like constraint (history features together; every other\n    feature allowed to interact only with province and treatment family) scores 0.9079 with the same backtest\n    (0.8869). Three-group and other groupings land between 0.9079 and 0.9083.\n13. **The margin saturates.** Clipping `prior_year_worst_margin` at 50 mg/L gives the same validation AUC (0.9085) and\n    backtest as the unclipped feature; magnitudes beyond 50 mg/L over the limit carry no extra ranking information.\n14. **Why validation AUC falls from 2020 to 2022.** Not the history-state mix (2022 reweighted to the 2020 mix:\n    0.897 vs 0.900 unweighted). Ranking among systems that exceeded last year degrades (0.869, 0.842, 0.802), and\n    the 20 placeholder-margin rows in 2022 alone cost 0.004 (2022 AUC 0.9003 with them, 0.9042 without).\n\n## Negative and rejected results''')\nr=r.replace('''  groups, up-weighting lapsed exceeders \u2014 all within +/-0.0005 or worse.''','''  groups, up-weighting lapsed exceeders, margin clipping at 50/150/400, a placeholder-margin flag, alternative\n  exposure-gap encodings \u2014 all within +/-0.0005 or worse.''')\nopen('REPORT.md','w').write(r)\nl=open('LOG.md').read()\nl+='''- Constraint structures (5 seeds): 3 groups 0.90822; GA2M-like (each non-history feature interacts only with\n  province/treatment) 0.90791 bt 0.8869; province-only shared 0.90830 bt 0.8879; history+exposure group 0.90808.\n- Margin clip (5 seeds): 400 -> 0.90848, 150 -> 0.90844, 50 -> 0.90853 (all equal to unclipped 0.90848). Placeholder\n  flag 0.90815.\n- Year decline: prior-state AUC 0.869/0.842/0.802 for 2020/21/22; excluding 20 placeholder rows lifts 2022 from\n  0.9003 to 0.9042; state-mix reweighting does not explain the decline.\n'''\nopen('LOG.md','w').write(l)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"Structure, margin saturation and year-decline diagnostics\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; date +%s",
+      "description": "Log structure and margin findings and commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 976,
+    "tool_use_id": "toolu_01AaCEhsSLsxsXg99ocnaJoL",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\ns=open('lab/train_cfg.py').read()\nold='''    keep = w > 0\n    model.fit(F[keep], y[keep], sample_weight=w[keep])'''\nnew='''    keep = w > 0\n    Ff, yf, wf = F[keep], y[keep], w[keep]\n    if cfg.get(\"mask_aug\"):\n        # History dropout: add copies of rows that have limit-based history with that history blanked, so the\n        # static pathway also learns from them the way it learns from the no-history (first-year) rows.\n        has = X[\"ever_exceeded_before\"].notna().to_numpy() & keep\n        G = F[has].copy()\n        for c in cfg.get(\"mask_cols\", [\"prior_year_exceedance\", \"prior_year_worst_margin\", \"ever_exceeded_before\"]):\n            if c in G:\n                G[c] = np.nan\n        Ff = pd.concat([Ff, G], ignore_index=True)\n        yf = np.concatenate([yf, y[has]])\n        wf = np.concatenate([wf, np.full(int(has.sum()), float(cfg[\"mask_aug\"]))])\n    model.fit(Ff, yf, sample_weight=wf)'''\nassert old in s\ns=s.replace(old,new)\nopen('lab/train_cfg.py','w').write(s)\nEOF\ncd lab && cat > s36.py <<'EOF'\nfrom s8lib import go\nS=(42,1,2,3,4)\ngo('mask_aug 0.25', seeds=S, mask_aug=0.25)\ngo('mask_aug 0.5', seeds=S, mask_aug=0.5)\ngo('mask_aug 1.0', seeds=S, mask_aug=1.0)\ngo('mask_aug 0.5, 1200 trees', seeds=S, mask_aug=0.5, params={'n_estimators':1200})\nEOF\n$PY -W ignore s36.py 2>&1; date +%s",
+      "description": "Test history-dropout augmentation",
+      "timeout": 400000
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 1012,
+    "tool_use_id": "toolu_01PPGQEThgzd2CvwANAzk97K",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nr=open('REPORT.md').read()\nold='''- Not attempted on principle: using training row order as a stand-in for the withheld year; `num_parallel_tree`\n  (too close to the excluded seed ensemble).'''\nnew='''- History-dropout augmentation (copies of rows with the history features blanked, weight 0.25/0.5/1.0): rolling\n  backtest up slightly (0.8877\u20130.8883 vs 0.8872) but validation down (0.9082/0.9078/0.9073). Contradictory, so\n  treated as no effect. Not submitted.\n- `num_parallel_tree` 4 and 8 (bagged boosting rounds), measured locally as a diagnostic only because it is close\n  to the excluded seed ensemble: 0.9083 and 0.9079, no gain; model variance is not what limits performance.\n  Not submitted.\n- Not attempted on principle: using training row order as a stand-in for the withheld year.'''\nassert old in r; r=r.replace(old,new)\nr=r.replace('''## Negative and rejected results''','''15. **The model is data-limited, and the no-history year is valuable.** Fitting on only the most recent k training\n    years gives 0.9017 (2019 only), 0.9007, 0.9039, 0.9053, 0.9086 (all five). Leaving one year out costs most for\n    2015 (0.9053), whose rows have no exceedance history at all and so inform only the static-risk part; leaving\n    out 2018 or 2019 costs least (0.9082, 0.9079).\n\n## Negative and rejected results''')\nopen('REPORT.md','w').write(r)\nl=open('LOG.md').read()\nl+='''- Training window (3 seeds): 2019 only 0.9017; 2018-19 0.9007; 2017-19 0.9039; 2016-19 0.9053; 2015-19 0.9086.\n  Leave-one-year-out: 2015 0.9053, 2016 0.9072, 2017 0.9065, 2018 0.9082, 2019 0.9079.\n- History-dropout augmentation (lab/s36.py): weight 0.25 -> val 0.90820 bt 0.8877; 0.5 -> 0.90779 / 0.8880;\n  1.0 -> 0.90733 / 0.8883. bt and val disagree -> no effect. Not submitted.\n- num_parallel_tree 4 / 8 (diagnostic only): 0.90834 / 0.90789. No gain; not submitted.\n'''\nopen('LOG.md','w').write(l)\nb=open('BACKLOG.md').read()\nb=b.replace('''- num_parallel_tree / seed ensembles (too close to the excluded seed-ensemble; not tested through evaluator)''','''- num_parallel_tree (close to the excluded seed ensemble; local diagnostic only, no gain) and seed ensembles\n- DART (no gain, 7-30x slower), history-dropout augmentation (bt up, val down), margin clipping (identical)''')\nopen('BACKLOG.md','w').write(b)\nEOF\ngit add LOG.md REPORT.md BACKLOG.md lab/*.py && git commit -qm \"Training-window, augmentation and bagging diagnostics\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; date +%s",
+      "description": "Log augmentation and bagging diagnostics and commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 1059,
+    "tool_use_id": "toolu_011wd2aU4qyvp9Yb9Rbu4dyB",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nr=open('REPORT.md').read()\nold='''## Negative and rejected results'''\nnew='''16. **`history_years_reported` works partly as a recency proxy.** Capping it at 5, 4 or 2 costs the same ~0.0008 as\n    dropping it, so its value lies in the top level: 6 occurs only for full-history systems in the last training\n    year (2019), and validation's unseen values 7\u20139 fall into that same leaf. The raw declared predictor is used\n    unchanged; this is disclosed because it lets the trees apply a \"most recent training year\" effect to later rows.\n\n## Negative and rejected results'''\nassert old in r; r=r.replace(old,new,1)\nr=r.replace('''  exposure-gap encodings \u2014 all within +/-0.0005 or worse.''','''  exposure-gap encodings, weights of 0.5/1.5/2.5 on no-history rows \u2014 all within +/-0.0005 or worse.''')\nopen('REPORT.md','w').write(r)\nl=open('LOG.md').read()\nl+='''- H4 w_nohist (5 seeds): 0.5 -> 0.90761, 1.5 -> 0.90845, 2.5 -> 0.90755 (ref 0.90848). Weight 1 kept.\n- History years capped at 5/4/2 (5 seeds): 0.90764/0.90754/0.90761 = same loss as dropping it (0.90776). Its value is\n  the top level (6 = full-history systems in 2019), i.e. a recency proxy that validation values 7-9 inherit.\n  Moving it to the static group: 0.90844 (no change).\n'''\nopen('LOG.md','w').write(l)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"History-years recency finding, no-history weights\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; date +%s",
+      "description": "Log history-years finding and commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 1078,
+    "tool_use_id": "toolu_01P7vks7z9gbGFopasd5QWUZ",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\ns=open('lab/train_cfg.py').read()\ns=s.replace('''    if \"placeholder\" in ex:''','''    hy = X[\"history_years_reported\"].astype(float)\n    if \"lapsed_window\" in ex:\n        # history length only where it has a stable meaning: how long the \"ever exceeded\" window is for\n        # systems that did not exceed last year (longer window -> older exceedance -> lower risk)\n        out[\"lapsed_window\"] = hy.where((ee == 1) & (pe != 1), np.nan)\n    if \"clean_window\" in ex:\n        out[\"clean_window\"] = hy.where(ee == 0, np.nan)\n    if \"placeholder\" in ex:''',1)\nopen('lab/train_cfg.py','w').write(s)\nEOF\ncd lab && cat > s41.py <<'EOF'\nfrom s8lib import go\nS=(42,1,2,3,4)\nH3=['prior_year_exceedance','prior_year_worst_margin','ever_exceeded_before']\ngo('lapsed_window replaces history years', seeds=S, drop=['history_years_reported'], extra=['period_gap','lapsed_window'], ic=[H3+['lapsed_window']])\ngo('lapsed_window + clean_window replace history years', seeds=S, drop=['history_years_reported'], extra=['period_gap','lapsed_window','clean_window'], ic=[H3+['lapsed_window','clean_window']])\ngo('lapsed_window added, history years kept', seeds=S, extra=['period_gap','lapsed_window'], ic=[H3+['history_years_reported','lapsed_window']])\nEOF\n$PY -W ignore s41.py 2>&1; date +%s",
+      "description": "Test state-specific history-window features",
+      "timeout": 300000
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 1085,
+    "tool_use_id": "toolu_015SShycMZryr1thxcgEmUt8",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nr=open('REPORT.md').read()\ni=r.index('16. **`history_years_reported` works partly as a recency proxy.**'); j=r.index('## Negative and rejected results')\nnew='''16. **`history_years_reported` matters only through its top level.** Capping it at 5, 4 or 2 costs the same ~0.0008\n    as dropping it. Level 6 occurs only in the last training year (full-history systems in 2019) and validation's\n    unseen values 7\u20139 fall into that leaf. What it encodes there is window length: among systems that exceeded\n    earlier but not last year, the training exceedance rate falls with history length (0.30, 0.28, 0.24, 0.17 for 3\n    to 6 years) and validation rows with 6+ years sit at 0.19. For systems that exceeded last year the same feature\n    is a drifting entry-cohort marker (5 years: 0.58 in training, 0.97 in validation). Replacing it with\n    state-specific window features gives 0.9079\u20130.9083, i.e. no improvement, so the raw predictor is kept.\n\n'''\nr=r[:i]+new+r[j:]\nopen('REPORT.md','w').write(r)\nl=open('LOG.md').read()\nl+='''- State-specific history windows (lab/s41.py, 5 seeds): lapsed_window replacing history years 0.90785; plus\n  clean_window 0.90811; added alongside 0.90834 (ref 0.90848). No gain; raw feature kept.\n  Training rate for lapsed exceeders by history years 3..6: 0.30/0.28/0.24/0.17; validation 6+: 0.19.\n'''\nopen('LOG.md','w').write(l)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"History-window analysis\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; date +%s",
+      "description": "Revise history-years finding and commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 1095,
+    "tool_use_id": "toolu_01Qmc2rimxwvgAqDxfhgjcYY",
+    "tool": "Bash",
+    "input": {
+      "command": "head -22 LOG.md; echo; cat BACKLOG.md; git status --short | head; ls trials | wc -l; $PWD/../../venv/bin/python - <<'EOF'\nimport json,glob\nfor f in sorted(glob.glob('trials/*/result.json'),key=lambda f: json.load(open(f))['started_epoch']):\n    r=json.load(open(f)); print(r['id'][:8],r['mode'],r['status'],round(r.get('auc',0),6))\nEOF",
+      "description": "Review log, backlog and trial inventory"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 1134,
+    "tool_use_id": "toolu_01UiTLBXCjSb3YjYf7RoR5Sz",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nr=open('REPORT.md').read()\nold='''About 0.011 of the 0.0125 improvement is plain regularization. The four structural changes together add ~0.0014,\neach individually <= 0.0007. Those are below the uncertainty of the validation set (below), so they are supported only\nby being directionally consistent in both the training-only backtests and validation, not by significance.'''\nnew='''About 0.011 of the 0.0125 improvement is plain regularization. The four structural changes together add ~0.0014,\neach individually <= 0.0007. That is below the sampling uncertainty of the validation set (below). The support for\nthem is consistency rather than significance: same direction in the training-only backtests and on validation, and\nwhen the training systems are resampled (30 cluster-bootstrap refits, same validation rows) the final structure\nbeats regularization-only in 28 of 30 refits (mean +0.0016, sd of the difference 0.0009) with a smaller spread\n(sd 0.0015 vs 0.0019). The 11-predictor variant is indistinguishable from the full one (wins 15 of 30, mean\ndifference 0.0000).'''\nassert old in r; r=r.replace(old,new)\nr=r.replace('''- One-row-per-system sensitivity''','''- Training-sample variation: refitting on bootstrap resamples of the training systems moves validation AUC with\n  sd ~0.0015 (mean 0.9049; a resample has fewer distinct systems, so the level is below the full fit).\n- One-row-per-system sensitivity''')\nopen('REPORT.md','w').write(r)\nl=open('LOG.md').read()\nl+='''- Training-system cluster bootstrap (lab/s42.py, 30 refits, seed 42): val AUC H1 0.90334 (sd 0.0019), H4 0.90489\n  (sd 0.0015), compact 0.90487 (sd 0.0018). H4 - H1 = +0.00155 (sd 0.0009), wins 28/30. compact - H4 = 0.0000, 15/30.\n'''\nopen('LOG.md','w').write(l)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"Training-bootstrap robustness of structural changes\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; date +%s",
+      "description": "Add bootstrap robustness evidence and commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 1167,
+    "tool_use_id": "toolu_01P63VNff2TCqcC6YEek44g9",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\nshow(){ $PY -c \"import json,sys;d=json.loads(sys.stdin.read().strip().splitlines()[-1]);print(d['id'][:8],d['mode'],d['status'],'auc',d.get('auc'),'brier',d.get('brier'),'fit',round(d.get('fit_wall_s',0),2),'eval',round(d.get('evaluation_wall_s',0),1),d.get('error',''))\"; }\ncp train.py /tmp/train_clean_r3.py\n$PY - <<'EOF'\ns=open('train.py').read()\ns=s.replace('\"subsample\": 0.7, \"colsample_bytree\": 0.5, \"reg_lambda\": 5}','\"subsample\": 0.7, \"colsample_bytree\": 0.35, \"reg_lambda\": 5}')\ns=s.replace('''    raw = list(X.columns)''','''    raw = [c for c in X.columns if c != \"receiving_water_type\"]''')\nopen('train.py','w').write(s)\nEOF\n$PY evaluate.py --note 'ROBUSTNESS VARIANT: H4 with colsample_bytree 0.35 and receiving_water_type dropped. Paired training-system bootstrap prefers each change (+0.0002, 18-19 of 24 refits) and rolling backtest is the best seen (0.8893); expect validation within noise of H4, not above it' 2>&1 | show\n$PY evaluate.py --backtest --note 'ROBUSTNESS VARIANT backtest: colsample 0.35, no receiving_water_type' 2>&1 | show\ncp /tmp/train_clean_r3.py train.py; git diff --stat train.py; date +%s",
+      "description": "Record the bootstrap-preferred variant and restore final train.py",
+      "timeout": 300000
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 1216,
+    "tool_use_id": "toolu_01McGYxNmzsyJ5qHweVM7S1F",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nl=open('LOG.md').read()\nl+='''- Paired bootstrap vs robustness variant R (lab/s45.py, 20 resamples): drop acute -0.00085 (1/20); drop system_type\n  -0.00057 (1/20); drop chlorine -0.00039 (3/20); drop owner -0.00019 (10/20); drop HRT -0.00008 (7/20);\n  lambda 1 -0.00018; subsample .5 -0.00024; margin clip 50 -0.00002; w_nohist 1.5 +0.00011 (10/20);\n  600 trees +0.00033 (17/20); 1100 trees -0.00065 (1/20). Caveat: a bootstrap resample holds ~63% of the distinct\n  systems, so this instrument is biased toward fewer trees / more regularization; the full-data learning curve\n  (flat 600-1200) is the relevant evidence for tree count. No further trial submitted.\n'''\nopen('LOG.md','w').write(l)\nr=open('REPORT.md').read()\nold='''So the interaction constraints and exposure-gap features are the changes with resolvable benefit;'''\nnew='''A second paired run against the robustness variant (20 resamples) shows the low-importance predictors still earn\ntheir place: dropping acute failures costs 0.0009 (wins 1/20), `system_type` 0.0006 (1/20), chlorine use 0.0004\n(3/20); owner/operator and retention time are neutral. The same run prefers 600 over 800 trees and rejects 1,100,\nbut a bootstrap resample contains only ~63% of the distinct systems, so it is biased toward smaller models; the\nfull-data learning curve is the relevant evidence for tree count.\n\nSo the interaction constraints and exposure-gap features are the changes with resolvable benefit;'''\nassert old in r; r=r.replace(old,new)\nopen('REPORT.md','w').write(r)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"Second paired bootstrap\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; date +%s",
+      "description": "Log second paired bootstrap and commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 1246,
+    "tool_use_id": "toolu_016b9JqeDmUPEYxe1rD936Dz",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nl=open('LOG.md').read()\nl+='''- Paired bootstrap of feature ideas vs H4 (lab/s46.py, 20 resamples): acute-tested flag +0.00025 (14/20);\n  lapsed_window +0.00024 (14/20); period_ratio +0.00017 (14/20); zero_vol +0.00014; no_hist +0.00011; max_bin 32\n  +0.00009; mono hist -1 +0.00004; report_gaps +0.00003; owner_split -0.00005; ordinal cats -0.00033 (8/20);\n  OOF TE province x treatment -0.00137 (0/20).\n- H5 = H4 + acute-tested + lapsed_window + period_ratio on full training (5 seeds): val 0.90836, bt 0.8872; with\n  colsample .35: 0.90837 (seed 42 alone 0.90868), bt 0.8880; with colsample .4 and no receiving water: 0.90852, bt\n  0.8888. None beats H4's 5-seed mean (0.90848). DECISION: not submitted. The only way one of these would outrank\n  H4 under the rule is the seed-42 draw of the colsample .35 variant, whose own 5-seed mean is lower than H4's;\n  recording it would be selecting on seed noise.\n'''\nopen('LOG.md','w').write(l)\nr=open('REPORT.md').read()\nold='''So the interaction constraints and exposure-gap features are the changes with resolvable benefit;'''\nnew='''A third paired run (20 resamples) on feature ideas found three with small positive differences (an acute-tested\nflag +0.00025, a history-window feature for lapsed exceeders +0.00024, a periods/expected ratio +0.00017; each won\n14 of 20) and one clear negative (out-of-fold target encoding of province x treatment, -0.0014, 0 of 20). Combined\non the full training set the three positives give a 5-seed validation mean of 0.90836\u20130.90852 against 0.90848 for\nthe final structure, so they were not submitted. One of those combinations scores 0.90868 at seed 42 with a 5-seed\nmean of 0.90837; I did not record it as a trial because outranking the selected model that way would be selecting\non seed noise.\n\nSo the interaction constraints and exposure-gap features are the changes with resolvable benefit;'''\nassert old in r; r=r.replace(old,new)\nopen('REPORT.md','w').write(r)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"Feature-idea bootstrap and decision not to submit seed-lucky variant\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; pgrep -fl \"evaluate.py|_engine.py|lab/s|s[0-9]+\\.py\" | cut -c1-80; echo \"procs checked\"; date +%s",
+      "description": "Log final feature results and decision, check no stray processes"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 1264,
+    "tool_use_id": "toolu_01XNJuhtVAQptwFjnsXjKdbV",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nr=open('REPORT.md').read()\nold='''- Positive rate rises from 0.157 (2015) to ~0.23 (2020\u201322); the model is slightly under-calibrated on validation\n  (mean prediction 0.21\u20130.22 vs 0.23 observed), monotone across deciles.'''\nnew='''- Positive rate rises from 0.157 (2015) to ~0.23 (2020\u201322); the model under-predicts slightly on validation\n  (mean prediction 0.217 vs 0.232 observed; logistic recalibration slope 1.07, intercept +0.27; by year the\n  intercept is +0.44, +0.34, +0.07 and the slope 1.15, 1.10, 0.97), monotone across deciles. Brier skill against\n  the base rate is 0.52. No recalibration was applied: it cannot change AUC and would need validation labels.'''\nassert old in r; r=r.replace(old,new)\nopen('REPORT.md','w').write(r)\nl=open('LOG.md').read()\nl+='''- Calibration of the selected artifact on validation: slope 1.067, intercept +0.265, log loss 0.2875, Brier 0.0848,\n  Brier skill 0.52. By year: slope 1.15/1.10/0.97, intercept +0.44/+0.34/+0.07.\n'''\nopen('LOG.md','w').write(l)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"Calibration diagnostics\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; date +%s",
+      "description": "Add calibration diagnostics and commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 1281,
+    "tool_use_id": "toolu_012GHBdvzx4MSMQ8XWjqDmWG",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nr=open('REPORT.md').read()\nold='''## Negative and rejected results'''\nnew='''17. **The gain over the scaffold baseline is broad, with one exception.** By segment (recorded baseline trial vs\n    selected trial, validation): all three years improve (+0.016, +0.012, +0.009); 8 of 10 provinces improve\n    (largest: Prince Edward Island +0.07 on 67 rows, Manitoba +0.05, Ontario +0.03, Quebec +0.02; British Columbia\n    -0.002 and Saskatchewan -0.011 do not); systems absent from training +0.033 (0.842 to 0.875); annual reporters\n    +0.023; never-exceeded systems +0.070 (0.611 to 0.681). The exception is systems that exceeded earlier but\n    not last year: 0.635 for the baseline vs 0.619 (n=971, 197 positives; within sampling noise, but it is the one\n    state where the regularized model does not rank better). 18 of 21 segments improve.\n\n## Negative and rejected results'''\nassert old in r; r=r.replace(old,new,1)\nopen('REPORT.md','w').write(r)\nl=open('LOG.md').read()\nl+='''- Segment comparison baseline vs selected (lab/s49.py): 18 of 21 segments improve; never-exceeded 0.611 -> 0.681;\n  lapsed exceeders 0.635 -> 0.619 (only state that does not improve); unseen systems 0.842 -> 0.875.\n'''\nopen('LOG.md','w').write(l)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"Segment comparison\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; date +%s",
+      "description": "Add segment comparison to report and commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 1302,
+    "tool_use_id": "toolu_01H5uQ21jzMaQrZnhwnp3YEP",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nl=open('LOG.md').read()\nl+='''- Within-lapsed-state AUC over forward folds 2018..2022 (lab/s50.py; later folds fit on validation labels, diagnostic\n  only): baseline 0.652/0.653/0.625/0.580/0.706 (mean 0.643); final 0.629/0.664/0.601/0.597/0.671 (mean 0.632);\n  regularized depth-5 without interaction constraints 0.632/0.673/0.595/0.601/0.710 (mean 0.642). Folds have 39-68\n  positives, so per-fold SE is ~0.035: not resolvable. No action.\n'''\nopen('LOG.md','w').write(l)\nr=open('REPORT.md').read()\nold='''state where the regularized model does not rank better). 18 of 21 segments improve.'''\nnew='''state where the regularized model does not rank better). 18 of 21 segments improve. Checked over five forward\n    folds, within-state AUC for that group averages 0.643 (baseline), 0.632 (final) and 0.642 (a regularized\n    depth-5 model without interaction constraints), with fold-level differences of either sign and 39\u201368\n    positives per fold, so this is not resolvable with the available data.'''\nassert old in r; r=r.replace(old,new)\nopen('REPORT.md','w').write(r)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"Lapsed-state fold check\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; cat train.py | head -30; date +%s",
+      "description": "Log lapsed-state check, commit, and review final train.py"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 1332,
+    "tool_use_id": "toolu_01NWd3xmhEE6DxaGBv2jJxg3",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nl=open('LOG.md').read()\nl=l.replace('''\n## Findings so far''','''| 10 | 6a58596d (bt) | final cleaned train.py, backtest only | \u2013 | \u2013 | 0.8865 | identical to #5's backtest |\n\n## Findings so far''')\nl+='''- Determinism (lab/s51.py): threads 1 vs 5 give identical predictions; shuffling training row order changes the\n  subsample draw and gives 0.90816 (seed-noise scale); one-row prepare returns (1, 17) with booster column order;\n  artifact ~0.9 MB.\n'''\nopen('LOG.md','w').write(l)\nr=open('REPORT.md').read()\nold='''No target encoding, no learned statistics other than category level lists, no date/ID inputs, no early stopping,\nno use of validation in `fit`. `prepare` is purely row-wise (verified: evaluator row-by-row predictions equal local\nbatch predictions to 1e-16; row-order permutation gives identical predictions).'''\nnew='''No target encoding, no learned statistics other than category level lists, no date/ID inputs, no early stopping,\nno use of validation in `fit`. `prepare` is purely row-wise (verified: evaluator row-by-row predictions equal local\nbatch predictions to 1e-16; row-order permutation of the scoring rows gives identical predictions; a cold reload of\n`model.pkl` in a fresh process reproduces the saved predictions to 1e-16). Refits are deterministic across thread\ncounts (1 vs 5 threads: identical). Fit takes 0.3\u20130.4 s and row-wise scoring of validation 4\u20136 s; the artifact is\nabout 0.9 MB.'''\nassert old in r; r=r.replace(old,new)\nopen('REPORT.md','w').write(r)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"Determinism checks, final backtest\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; date +%s",
+      "description": "Record determinism checks and commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 1349,
+    "tool_use_id": "toolu_01NbQ6PeMfAkKKDdGMv8t2TL",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nl=open('LOG.md').read()\nl+='''- Lapsed-exceeder flag in the static group (lab/s52.py): full-train 5-seed val 0.90833, bt 0.8866 (ref 0.90848 /\n  0.8872); with depth 4 x 600: 0.90839 / 0.8869; paired bootstrap +0.00033 (10/14). Same pattern as the other\n  feature ideas (small bootstrap gain, none on the full training set). Not submitted.\n\n## Final state\n- Selected by the fixed rule: trial 14237f1897274d4ab37885f3daa5c587 (validation AUC 0.908506, Brier 0.08478).\n- `train.py` in the repository is the cleaned, bit-identical implementation (trial 0cca88c1; backtest 6a58596d).\n- 9 validation trials and 6 backtests recorded, all status ok, none failed or timed out.\n'''\nopen('LOG.md','w').write(l)\nr=open('REPORT.md').read()\nold='''  exposure-gap encodings, weights of 0.5/1.5/2.5 on no-history rows \u2014 all within +/-0.0005 or worse.'''\nnew='''  exposure-gap encodings, weights of 0.5/1.5/2.5 on no-history rows, a lapsed-exceeder flag in the static group \u2014\n  all within +/-0.0005 or worse.'''\nassert old in r; r=r.replace(old,new)\nopen('REPORT.md','w').write(r)\nEOF\n$PY - <<'EOF'\nimport json,glob\nR=[json.load(open(f)) for f in glob.glob('trials/*/result.json')]\nprint(len(R),'trials;', sum(r['mode']=='validation' for r in R),'validation;', sum(r['mode']=='backtest' for r in R),'backtest; statuses',{r['status'] for r in R})\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"Final log state\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; date +%s",
+      "description": "Write final log state and commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0000.jsonl",
+    "line": 1362,
+    "tool_use_id": "toolu_01Pdt3gWSEx48paUEKX61sUS",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nl=open('LOG.md').read()\ni=l.index('\\n## Final state')\nadd='''- H6 = H4 + every bootstrap-positive idea (acute-tested, lapsed_window, period_ratio, lapsed_flag, zero_vol)\n  (lab/s53.py, 5 seeds): colsample .4 without receiving water 0.90853 / bt 0.8892 (seed 42: 0.90845); colsample .5\n  0.90848 / 0.8866; colsample .4 0.90854 / 0.8876. Equal to H4 (0.90848 / 0.8872) on validation; five extra\n  features for no measurable gain. Not submitted.\n'''\nl=l[:i]+add+l[i:]\nopen('LOG.md','w').write(l)\nr=open('REPORT.md').read()\nold='''mean of 0.90837; I did not record it as a trial because outranking the selected model that way would be selecting\non seed noise.'''\nnew='''mean of 0.90837; I did not record it as a trial because outranking the selected model that way would be selecting\non seed noise. Adding every bootstrap-positive idea at once gives 0.90848\u20130.90854, again equal to the final\nstructure.'''\nassert old in r; r=r.replace(old,new)\nopen('REPORT.md','w').write(r)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"H6 combination result\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; date +%s",
+      "description": "Log combined-ideas result and commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0001.jsonl",
+    "line": 81,
+    "tool_use_id": "toolu_01W9SbuLgre3SZ2aAd3urJP7",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nl=open('LOG.md').read().rstrip('\\n')\nl+='''\n\n## Continuation after the supervisor resumed the session (no evaluator trials; local diagnostics only)\nDecision kept from the protocol note above: no new selection-eligible trial after the accidental exposure.\n- One row per training system (lab/s54.py, 8 draws, 2,080 rows): val AUC 0.9004 (sd 0.0019); 2,080 random rows:\n  0.9018 (sd 0.0025). Serial correlation among training rows costs little relative to row count.\n- Top-10% list overlap across seeds (Jaccard vs seed 42): 0.983-0.990 over all rows; 0.886-0.910 inside the\n  compliant-last-year pool.\n- Partial dependence (validation rows): margin among last-year exceeders 0.59 (0.5 mg/L) -> 0.69 (5) -> 0.75 (20)\n  -> 0.756 (50) -> 0.795 (100+, flat to 974). Volume flat 0.20-0.23. History years 0.23 (1-5) -> 0.213 (6+).\n  Province: Ontario 0.16, Alberta 0.18, Quebec 0.21 ... Newfoundland and Labrador 0.36. Treatment: mechanical 0.19,\n  lagoon 0.215, other 0.25, no treatment 0.345. Frequency: annual 0.21, quarterly 0.23.\n- Shuffled-label placebo (lab/s55.py, s56.py): final model 0.553 (5 perms) / 0.573 (20 perms, 300 trees), sd 0.10,\n  range 0.34-0.76. Not centred on 0.5 -> investigated. Without monotone constraints: 0.515 (sd 0.117), without\n  monotone or interaction constraints: 0.511 (sd 0.120); both consistent with 0.5 (SE 0.026). Explanation: placebo\n  predictions are nearly constant (sd of p 0.02), so a tiny random tilt along a dominant feature swings AUC widely,\n  and the monotone-increasing constraints only allow that tilt in the label-correlated direction. No leakage path.\n- Reverse-time diagnostic (fit 2020-22, score 2016-19; never submitted): 0.8849 overall; 0.862 / 0.897 / 0.868 /\n  0.907 for 2016..2019, close to the forward folds for the same years (0.885 / 0.868 / 0.909 for 2017..2019).\n- Input-format robustness of prepare: reversed column order, ints as floats, all-object dtype, single-row CSV\n  round trip -> prediction differences exactly 0.\n'''\nopen('LOG.md','w').write(l+'\\n')\nr=open('REPORT.md').read()\nold='''## Negative and rejected results'''\nnew='''18. **Serial correlation in training costs little.** Fitting on one random row per training system (2,080 rows)\n    gives 0.9004 (sd 0.002 over 8 draws) against 0.9018 for 2,080 rows drawn at random and 0.9085 for all rows.\n19. **Shape of the learned effects (partial dependence on validation rows).** Among systems that exceeded last\n    year, predicted risk rises from 0.59 at a 0.5 mg/L margin to 0.75 at 20 mg/L, is flat to 50, steps to 0.795 at\n    100 and is flat to 974. Volume is flat (0.20\u20130.23). Province ranges from 0.16 (Ontario) to 0.36 (Newfoundland\n    and Labrador); treatment from 0.19 (mechanical) to 0.345 (no treatment).\n20. **Placebo check, with an explanation it needed.** Refitting on shuffled training labels gives validation AUC\n    0.57 on average (sd 0.10, 20 permutations), not 0.5. Removing the monotone constraints brings it to 0.515\n    (sd 0.12, standard error 0.026). Placebo predictions are nearly constant, so any small tilt along a dominant\n    feature moves AUC a long way, and the monotone-increasing constraints only permit a tilt in the direction that\n    agrees with the labels. This is the constraints acting as prior knowledge, not a leak; there is no path from\n    scoring rows or labels into `prepare`.\n21. **The relationship is roughly symmetric in time.** A model fit on 2020\u201322 and scored backwards on 2016\u201319 gets\n    0.885 (0.862, 0.897, 0.868, 0.907 by year), in line with the forward folds for those years (diagnostic only).\n\n## Negative and rejected results'''\nassert old in r; r=r.replace(old,new,1)\nold='''Refits are deterministic across thread\ncounts (1 vs 5 threads: identical).'''\nnew='''Refits are deterministic across thread\ncounts (1 vs 5 threads: identical). `prepare` gives identical predictions under reversed column order, integer\ncolumns passed as floats, all-object dtypes and a single-row CSV round trip.'''\nassert old in r; r=r.replace(old,new)\nold='''    Over all rows the top 20% contains 69% of exceeders at precision 0.80. Predictions are stable across seeds\n    (Spearman 0.9985\u20130.9989, mean absolute probability difference 0.004).'''\nnew='''    Over all rows the top 20% contains 69% of exceeders at precision 0.80. Predictions are stable across seeds\n    (Spearman 0.9985\u20130.9989, mean absolute probability difference 0.004; the top-10% list overlaps 98\u201399% across\n    seeds over all rows and 89\u201391% inside the compliant-last-year pool).'''\nassert old in r; r=r.replace(old,new)\nopen('REPORT.md','w').write(r)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"Continuation diagnostics: placebo, one-row-per-system, partial dependence\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; date +%s",
+      "description": "Document continuation diagnostics and commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0001.jsonl",
+    "line": 123,
+    "tool_use_id": "toolu_01JeSLovGxNDPgUDvZ8oMfxB",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\ns=open('lab/train_cfg.py').read()\nold='''    if cfg.get(\"qc_mask\"):'''\nnew='''    if cfg.get(\"qc_owner\"):\n        # Quebec reports only the owner type (no operator) from 2019; reduce every Quebec row to the owner part.\n        X = X.copy()\n        o = X[\"owner_type_operator_type\"]\n        own = o.map(lambda v: v.split(\"|\")[0].strip() if isinstance(v, str) else v)\n        X[\"owner_type_operator_type\"] = o.where(X[\"province\"] != \"Quebec\", own)\n    if cfg.get(\"qc_mask\"):'''\nassert old in s; s=s.replace(old,new,1); open('lab/train_cfg.py','w').write(s)\nEOF\ncd lab && cat > s59.py <<'EOF'\nfrom s8lib import go\nimport lab, numpy as np\nfrom sklearn.metrics import roc_auc_score\nS=(42,1,2,3,4)\ngo('H4 ref', seeds=S)\ngo('H4 + Quebec owner harmonization', seeds=S, qc_owner=True)\nTR,EV,T,F=lab.TR,lab.EV,lab.T,lab.FEATS; y=EV[T].to_numpy(); sid=TR.system_id.to_numpy(); u=np.unique(sid); grp={k:np.where(sid==k)[0] for k in u}\nrng=np.random.RandomState(51); A=[];B=[]\nfor b in range(16):\n    idx=np.sort(np.concatenate([grp[k] for k in rng.choice(u,len(u))])); a=TR.iloc[idx]\n    for over,R in (({},A),(dict(qc_owner=True),B)):\n        m=lab.load(lab.ROOT+'/lab/train_cfg.py'); m.CFG.update(over); st=m.fit(a[F].reset_index(drop=True),a[T].to_numpy(),seed=42,threads=5)\n        R.append(roc_auc_score(y,st['model'].predict_proba(m.prepare(st,EV[F]))[:,1]))\nx=np.array(B)-np.array(A); print('paired bootstrap, owner harmonization vs H4: %+.5f (se %.5f) wins %d/%d'%(x.mean(),x.std()/np.sqrt(len(x)),(x>0).sum(),len(x)))\nq=(EV.province=='Quebec').to_numpy()\nfor name,over in (('H4',{}),('H4+owner',dict(qc_owner=True))):\n    m=lab.load(lab.ROOT+'/lab/train_cfg.py'); m.CFG.update(over); st=m.fit(TR[F].copy(),TR[T].to_numpy(),seed=42,threads=5); p=st['model'].predict_proba(m.prepare(st,EV[F]))[:,1]\n    print(name,'Quebec-only val AUC %.4f | mean p %.3f vs observed %.3f'%(roc_auc_score(y[q],p[q]),p[q].mean(),y[q].mean()))\nEOF\n$PY -W ignore s59.py 2>&1; date +%s",
+      "description": "Test Quebec owner/operator harmonization",
+      "timeout": 300000
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0001.jsonl",
+    "line": 130,
+    "tool_use_id": "toolu_01FxoBA2pbRSGKukLbp1iZgR",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nl=open('LOG.md').read().rstrip('\\n')\nl+='''\n- Adversarial validation (lab/s57.py; validation predictors only, no labels, diagnostic): training-era vs\n  validation-era rows are separable with AUC 0.987 from all model inputs, 0.820 without history years, 0.733 from\n  static + exposure inputs alone. Single features: owner/operator 0.614, volume 0.564, province 0.554, system type\n  0.554, all others <= 0.55.\n- That led to a second Quebec format change (lab/s58.py): from target year 2019, ~620 Quebec rows per year carry only\n  the owner type (\"Municipal or another local authority\") with no operator part; 8 such Quebec rows per year before.\n  Visible in the 2019 training rows.\n- Quebec owner harmonization (keep only the owner part for all Quebec rows; lab/s59.py): 5-seed val 0.90848 (same as\n  H4), bt 0.8874 vs 0.8872, Brier 0.0846 vs 0.0848, paired bootstrap -0.00004 (7/16). Quebec-only AUC 0.8637 vs\n  0.8644; Quebec mean prediction 0.148 vs 0.139 (observed 0.164). No ranking effect, slightly better calibration.\n  Not submitted.\n'''\nopen('LOG.md','w').write(l+'\\n')\nr=open('REPORT.md').read()\nold='''- Quebec persistence drifted:'''\nnew='''- Quebec also drops the operator part of `owner_type_operator_type` from 2019: about 620 Quebec rows per year carry\n  only \"Municipal or another local authority\", against 8 per year before. Harmonizing it (owner part only for all\n  Quebec rows) leaves AUC unchanged (0.90848 both, paired bootstrap -0.00004) and moves Quebec's mean prediction\n  from 0.139 to 0.148 (observed 0.164). Found late through an adversarial-validation diagnostic; not submitted.\n- Covariate shift, quantified: a diagnostic classifier separates training-era from validation-era rows with AUC\n  0.987 from all model inputs (history years alone identify the era), 0.82 without history years, and 0.73 from\n  static and exposure inputs only.\n- Quebec persistence drifted:'''\nassert old in r; r=r.replace(old,new,1)\nopen('REPORT.md','w').write(r)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"Adversarial validation, Quebec owner-format drift\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; date +%s",
+      "description": "Document adversarial validation and owner drift, commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0001.jsonl",
+    "line": 162,
+    "tool_use_id": "toolu_01NxwhDTUzxmAz6V73mZvzbb",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\ns=open('lab/train_cfg.py').read()\nold='''    if cfg.get(\"qc_mask\"):'''\nnew='''    if cfg.get(\"qc_acute\"):\n        # Quebec acute-lethality results disappear from 2019 (equivalency agreement); blank them for all Quebec rows.\n        X = X.copy()\n        X[\"prior_year_acute_lethality_failures\"] = X[\"prior_year_acute_lethality_failures\"].where(X[\"province\"] != \"Quebec\", np.nan)\n    if cfg.get(\"qc_mask\"):'''\nassert old in s; s=s.replace(old,new,1); open('lab/train_cfg.py','w').write(s)\nEOF\ncd lab && cat > s61.py <<'EOF'\nfrom s8lib import go\nimport lab, numpy as np, pandas as pd\nfrom sklearn.metrics import roc_auc_score\nTR,EV,T,F=lab.TR,lab.EV,lab.T,lab.FEATS; y=EV[T].to_numpy()\nA=pd.concat([TR,EV]); q=A[A.province=='Quebec']\nprint('Quebec acute missing share by year:',q.groupby('target_year').prior_year_acute_lethality_failures.apply(lambda s:round(s.isna().mean(),2)).to_dict())\nprint('Quebec volume missing share by year:',q.groupby('target_year').avg_daily_effluent_volume_m3.apply(lambda s:round(s.isna().mean(),2)).to_dict())\nprint('Quebec train label rate: acute present %.3f (n=%d) vs missing %.3f (n=%d)'%(lambda t:(t[t.prior_year_acute_lethality_failures.notna()][T].mean(),t.prior_year_acute_lethality_failures.notna().sum(),t[t.prior_year_acute_lethality_failures.isna()][T].mean(),t.prior_year_acute_lethality_failures.isna().sum()))(TR[TR.province=='Quebec']))\nS=(42,1,2,3,4)\ngo('H4 + Quebec acute mask', seeds=S, qc_acute=True)\ngo('H4 + Quebec acute mask + owner harmonization', seeds=S, qc_acute=True, qc_owner=True)\nqq=(EV.province=='Quebec').to_numpy()\nfor name,over in (('H4',{}),('H4+acute mask',dict(qc_acute=True)),('H4+acute+owner',dict(qc_acute=True,qc_owner=True))):\n    m=lab.load(lab.ROOT+'/lab/train_cfg.py'); m.CFG.update(over); st=m.fit(TR[F].copy(),TR[T].to_numpy(),seed=42,threads=5); p=st['model'].predict_proba(m.prepare(st,EV[F]))[:,1]\n    print('%-16s Quebec val AUC %.4f mean p %.3f (obs %.3f) | non-Quebec AUC %.4f'%(name,roc_auc_score(y[qq],p[qq]),p[qq].mean(),y[qq].mean(),roc_auc_score(y[~qq],p[~qq])))\nsid=TR.system_id.to_numpy(); u=np.unique(sid); grp={k:np.where(sid==k)[0] for k in u}; rng=np.random.RandomState(61); R={'a':[],'b':[],'c':[]}\nfor b in range(14):\n    idx=np.sort(np.concatenate([grp[k] for k in rng.choice(u,len(u))])); a=TR.iloc[idx]\n    for key,over in (('a',{}),('b',dict(qc_acute=True)),('c',dict(qc_acute=True,qc_owner=True))):\n        m=lab.load(lab.ROOT+'/lab/train_cfg.py'); m.CFG.update(over); st=m.fit(a[F].reset_index(drop=True),a[T].to_numpy(),seed=42,threads=5)\n        R[key].append(roc_auc_score(y,st['model'].predict_proba(m.prepare(st,EV[F]))[:,1]))\nfor key,nm in (('b','acute mask'),('c','acute mask + owner')):\n    x=np.array(R[key])-np.array(R['a']); print('paired bootstrap %s vs H4: %+.5f (se %.5f) wins %d/%d'%(nm,x.mean(),x.std()/np.sqrt(len(x)),(x>0).sum(),len(x)))\nEOF\n$PY -W ignore s61.py 2>&1; date +%s",
+      "description": "Test masking Quebec acute-lethality results",
+      "timeout": 300000
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0001.jsonl",
+    "line": 172,
+    "tool_use_id": "toolu_01Fi6xzaAVfVyvmdGerGegC4",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\ns=open('lab/train_cfg.py').read()\nold='''    if cfg.get(\"qc_mask\"):'''\nnew='''    if cfg.get(\"qc_vol\"):\n        # Quebec Y-1 volume is blank for 96% of Quebec rows in target year 2019 only; test blanking it for all Quebec rows.\n        X = X.copy()\n        X[\"avg_daily_effluent_volume_m3\"] = X[\"avg_daily_effluent_volume_m3\"].where(X[\"province\"] != \"Quebec\", np.nan)\n    if cfg.get(\"qc_mask\"):'''\nassert old in s; s=s.replace(old,new,1); open('lab/train_cfg.py','w').write(s)\nEOF\ncd lab && cat > s62.py <<'EOF'\nfrom s8lib import go\nimport lab, numpy as np\nfrom sklearn.metrics import roc_auc_score\nS=(42,1,2,3,4)\ngo('H4 + Quebec volume mask', seeds=S, qc_vol=True)\nTR,EV,T,F=lab.TR,lab.EV,lab.T,lab.FEATS; y=EV[T].to_numpy(); qq=(EV.province=='Quebec').to_numpy()\nfor name,over in (('H4',{}),('H4+volume mask',dict(qc_vol=True))):\n    m=lab.load(lab.ROOT+'/lab/train_cfg.py'); m.CFG.update(over); st=m.fit(TR[F].copy(),TR[T].to_numpy(),seed=42,threads=5); p=st['model'].predict_proba(m.prepare(st,EV[F]))[:,1]\n    print('%-16s Quebec val AUC %.4f mean p %.3f (obs %.3f)'%(name,roc_auc_score(y[qq],p[qq]),p[qq].mean(),y[qq].mean()))\n# Quebec 2019 training rows vs other Quebec training rows: how the only new-format year scores when held out\nfor name,over in (('H4',{}),('H4+volume mask',dict(qc_vol=True))):\n    m=lab.load(lab.ROOT+'/lab/train_cfg.py'); m.CFG.update(over); a=TR[TR.target_year<2019]; b=TR[(TR.target_year==2019)&(TR.province=='Quebec')]\n    st=m.fit(a[F].reset_index(drop=True),a[T].to_numpy(),seed=42,threads=5); p=st['model'].predict_proba(m.prepare(st,b[F].reset_index(drop=True)))[:,1]\n    print('%-16s fit <2019 -> Quebec 2019 rows (n=%d): AUC %.4f mean p %.3f (obs %.3f)'%(name,len(b),roc_auc_score(b[T],p),p.mean(),b[T].mean()))\nEOF\n$PY -W ignore s62.py 2>&1; date +%s",
+      "description": "Test masking Quebec volume",
+      "timeout": 200000
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0001.jsonl",
+    "line": 180,
+    "tool_use_id": "toolu_01QRgKDokDnkCfKdKTLaw1bu",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nl=open('LOG.md').read().rstrip('\\n')\nl+='''\n- Era separability broken down (lab/s60.py): static + exposure inputs after owner harmonization 0.652; Quebec rows\n  only 0.859; non-Quebec rows only 0.496. All measurable covariate shift in those inputs is Quebec. Quebec missing\n  shares 2016-19 vs 2020-22: system type 0.46 -> 0.96, volume 0.46 -> 0.03 (0.96 in 2019 alone), acute failures\n  0.71 -> 1.00, retention/chlorine 0.16 -> 0.40, receiving water 0.37 -> 0.55. No field differs by > 0.03 elsewhere.\n- Quebec acute mask (lab/s61.py): hypothesis that validation Quebec rows are under-predicted because they all look\n  \"untested\". Rejected: 5-seed val 0.90822 (ref 0.90848), Quebec mean prediction unchanged (0.138 vs 0.139, observed\n  0.164), paired bootstrap -0.00020 (3/14). With owner harmonization as well: 0.90826, bootstrap -0.00023.\n- Quebec volume mask (lab/s62.py): worse, 0.90759; Quebec-only AUC 0.8596 vs 0.8644. Volume is informative for\n  Quebec in validation even though the one new-format training year (2019) lacks it. Rejected.\n- Held-out Quebec 2019 rows (fit on < 2019): AUC 0.786, mean prediction 0.158 vs observed 0.119, i.e. over-predicted\n  in 2019 but under-predicted in 2020-22 (0.139 vs 0.164): Quebec's level moves year to year in both directions.\n'''\nopen('LOG.md','w').write(l+'\\n')\nr=open('REPORT.md').read()\nold='''- Covariate shift, quantified: a diagnostic classifier separates training-era from validation-era rows with AUC\n  0.987 from all model inputs (history years alone identify the era), 0.82 without history years, and 0.73 from\n  static and exposure inputs only.'''\nnew='''- Covariate shift, quantified: a diagnostic classifier separates training-era from validation-era rows with AUC\n  0.987 from all model inputs (history years alone identify the era), 0.82 without history years, and 0.73 from\n  static and exposure inputs only. That last figure is entirely Quebec: 0.86 within Quebec rows, 0.50 within all\n  other provinces. Quebec's missing shares between 2016\u201319 and 2020\u201322 go from 0.46 to 0.96 (system type), 0.46 to\n  0.03 (volume; 0.96 in 2019 alone), 0.71 to 1.00 (acute failures), 0.16 to 0.40 (retention time, chlorine); no\n  field moves by more than 0.03 in the other provinces.\n- Two further Quebec harmonizations were tested late and rejected: blanking Quebec acute results (validation\n  0.90822, paired bootstrap -0.0002, Quebec calibration unchanged) and blanking Quebec volume (0.90759; Quebec-only\n  AUC 0.860 vs 0.864). Quebec's level also moves in both directions: held-out Quebec 2019 rows are over-predicted\n  (0.158 vs 0.119 observed) while 2020\u201322 are under-predicted (0.139 vs 0.164).'''\nassert old in r; r=r.replace(old,new,1)\nopen('REPORT.md','w').write(r)\nb=open('BACKLOG.md').read()\nb=b.replace('''## Rejected / not pursued''','''- continuation diagnostics: one-row-per-system training, placebo (explained by monotone constraints), reverse-time\n  fit, partial dependence, input-format robustness, adversarial validation, Quebec owner/acute/volume harmonization\n\n## Rejected / not pursued''')\nopen('BACKLOG.md','w').write(b)\nEOF\ngit add LOG.md REPORT.md BACKLOG.md lab/*.py && git commit -qm \"Quebec drift breakdown and late harmonization tests\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; date +%s",
+      "description": "Document Quebec drift breakdown and late tests, commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0001.jsonl",
+    "line": 193,
+    "tool_use_id": "toolu_01Q3YVyJsepbsLeKexN9cCjc",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nl=open('LOG.md').read().rstrip('\\n')\nl+='''\n- Year decline split (lab/s63.py, selected artifact): Quebec AUC 0.866 / 0.855 / 0.877 for 2020/21/22 (stable);\n  other provinces 0.9375 / 0.9227 / 0.9105, and 0.9348 / 0.9194 / 0.9156 without placeholder-margin rows. Among\n  last-year exceeders outside Quebec: 0.907 / 0.878 / 0.833 (0.870 in 2022 without placeholder rows). Pooled:\n  Quebec 0.8644, rest 0.9236; Quebec is 33% of validation rows.\n'''\nopen('LOG.md','w').write(l+'\\n')\nr=open('REPORT.md').read()\nold='''    the 20 placeholder-margin rows in 2022 alone cost 0.004 (2022 AUC 0.9003 with them, 0.9042 without).'''\nnew='''    the 20 placeholder-margin rows in 2022 alone cost 0.004 (2022 AUC 0.9003 with them, 0.9042 without). The\n    decline is outside Quebec: Quebec is stable at 0.866, 0.855, 0.877, while the other provinces go 0.938, 0.923,\n    0.911 (0.935, 0.919, 0.916 without placeholder rows). Quebec is the weaker third of the data throughout\n    (pooled 0.864 vs 0.924 elsewhere).'''\nassert old in r; r=r.replace(old,new,1)\nopen('REPORT.md','w').write(r)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"Year decline split by Quebec\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; date +%s",
+      "description": "Document the Quebec split of the yearly decline, commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0001.jsonl",
+    "line": 208,
+    "tool_use_id": "toolu_01CueLH8zVC9SuPWVsZ8KFUm",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nl=open('LOG.md').read().rstrip('\\n')\nl+='''\n- Why Quebec ranks worse (lab/s64.py, selected artifact): by state Quebec vs rest: never 0.683 vs 0.696; lapsed 0.583\n  vs 0.634; exceeded last year 0.737 vs 0.867. Pooling helps Quebec (pooled 0.8644 vs Quebec-only training 0.8558)\n  and Quebec rows neither help nor hurt the rest (0.9236 vs 0.9232 trained without Quebec). Established Quebec\n  systems 0.865 vs the 2019+ intake 0.862: the intake cohort is not the weak spot.\n'''\nopen('LOG.md','w').write(l+'\\n')\nr=open('REPORT.md').read()\nold='''    (pooled 0.864 vs 0.924 elsewhere).'''\nnew='''    (pooled 0.864 vs 0.924 elsewhere). The gap sits among last-year exceeders (0.737 in Quebec vs 0.867\n    elsewhere, where chronically untreated systems make that group easy to rank); never-exceeded systems are\n    similar (0.683 vs 0.696). Pooling helps Quebec (0.864 vs 0.856 for a Quebec-only fit), Quebec rows do not\n    affect the other provinces (0.9236 vs 0.9232 without them), and the 2019 intake cohort ranks as well as\n    established Quebec systems (0.862 vs 0.865).'''\nassert old in r; r=r.replace(old,new,1)\nopen('REPORT.md','w').write(r)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"Quebec ranking diagnosis\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; date +%s",
+      "description": "Document Quebec ranking diagnosis, commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0001.jsonl",
+    "line": 234,
+    "tool_use_id": "toolu_01Qc9RZyhHdCNwf78a2n4LVd",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nl=open('LOG.md').read().rstrip('\\n')\nl+='''\n- Missingness stress test (lab/s65.py): blanking one predictor for all validation rows changes AUC by -0.0166\n  (ever-exceeded), -0.0052 (province), -0.0031 (margin), -0.0025 (frequency), -0.0018 (treatment), <= -0.0012 for the\n  rest, 0 for system type and retention time. Mean prediction is stable (0.19-0.23) except when province (0.386) or\n  treatment family (0.273) is blank: missing province is routed with the highest-risk provinces, which explains the\n  0.54 score of an all-missing row.\n'''\nopen('LOG.md','w').write(l+'\\n')\nr=open('REPORT.md').read()\nold='''  such rows occur in training or validation (province is never missing), but a later period with a new missingness\n  pattern would not degrade gracefully.'''\nnew='''  such rows occur in training or validation (province is never missing). A stress test that blanks one predictor\n  for every validation row shows ranking degrades gracefully (largest AUC losses: ever-exceeded -0.017, province\n  -0.005, margin -0.003; every other predictor <= -0.0025), but calibration does not when province or treatment\n  family is blank: the mean prediction rises from 0.217 to 0.386 and 0.273, because a missing province is routed\n  with the highest-risk provinces.'''\nassert old in r; r=r.replace(old,new,1)\nopen('REPORT.md','w').write(r)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"Missingness stress test\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; git status --short | grep -v '^??'; date +%s",
+      "description": "Document missingness stress test, commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0001.jsonl",
+    "line": 280,
+    "tool_use_id": "toolu_01Le58FUKxMmZjzzJUQzzbQ7",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nr=open('REPORT.md').read()\nold='''- By target year: 0.919 (2020), 0.907 (2021), 0.900 (2022) \u2014 performance falls with distance from training, so a\n  later period should be expected to score lower than the validation figure.'''\nnew='''- By target year: 0.919 (2020), 0.907 (2021), 0.900 (2022). This is mostly a property of the scored year rather\n  than of the model ageing: 2022 scores 0.898, 0.900, 0.902, 0.902 with models fit through 2018, 2019, 2020, 2021,\n  and 2021 scores 0.907\u20130.909 from any of those origins (diagnostic; later origins fit on validation labels).\n  Holding the scored year fixed, an extra year of gap costs 0.003 on average, almost all of it from the earliest,\n  smallest training sets. A later period may still score lower than the validation figure if later years keep\n  getting harder, but retraining on newer data would recover little.'''\nassert old in r; r=r.replace(old,new,1)\nopen('REPORT.md','w').write(r)\nl=open('LOG.md').read().rstrip('\\n')\nl+='''\n- Horizon decay (lab/s66.py; fit through Y0, score each later year, seed 42; later origins use validation labels,\n  diagnostic only). Scored 2022 from origins 2016..2021: 0.8906 / 0.8991 / 0.8984 / 0.9003 / 0.9020 / 0.9017.\n  Scored 2021: 0.9001 / 0.9087 / 0.9074 / 0.9069 / 0.9082. Scored 2020: 0.9033 / 0.9168 / 0.9180 / 0.9191.\n  Mean change per extra year of gap with the scored year fixed: -0.0033 (15 pairs), mostly from the 2016 origin.\n  CORRECTION: the earlier statement that performance \"falls with distance from training\" was wrong as a cause;\n  the 2020 -> 2022 decline is a scored-year effect. REPORT.md updated.\n'''\nopen('LOG.md','w').write(l+'\\n')\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"Horizon-decay diagnostic; correct staleness claim\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; grep -n \"distance from training\" REPORT.md LOG.md | cut -c1-120; date +%s",
+      "description": "Correct the staleness claim and commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0002.jsonl",
+    "line": 18,
+    "tool_use_id": "toolu_015cdBQkiWznU4kVToVsVtuf",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nl=open('LOG.md').read().rstrip('\\n')\nl+='''\n\n## Second continuation (local diagnostics only; no evaluator trials)\n- Last-year exceeders outside Quebec, placeholder rows excluded (lab/s67.py, selected artifact): about 170 untreated\n  or Newfoundland-and-Labrador system-years per year persist at 0.99 / 1.00 / 0.97 (2020/21/22) and are ranked\n  trivially; the other 133 / 145 / 157 persist at 0.61 / 0.58 / 0.54 with within-group AUC 0.742 / 0.628 / 0.675 and\n  mean prediction 0.57 / 0.56 / 0.54. So the group-level AUC (0.910 / 0.873 / 0.870) is mostly the easy separation\n  of chronic systems; whether an ordinary treated system repeats an exceedance is close to a coin flip that the\n  released predictors rank only weakly, and the year-to-year movement there is within noise for n ~ 150.\n  Annual reporters in that subgroup persist less in 2022 (0.43 vs 0.59 in 2020).\n'''\nopen('LOG.md','w').write(l+'\\n')\nr=open('REPORT.md').read()\nold='''    affect the other provinces (0.9236 vs 0.9232 without them), and the 2019 intake cohort ranks as well as\n    established Quebec systems (0.862 vs 0.865).'''\nnew='''    affect the other provinces (0.9236 vs 0.9232 without them), and the 2019 intake cohort ranks as well as\n    established Quebec systems (0.862 vs 0.865). Outside Quebec, last-year exceeders are two populations: about\n    170 untreated or Newfoundland-and-Labrador system-years a year that repeat almost always (0.97\u20131.00), and\n    about 135\u2013157 ordinary treated systems that repeat 54\u201361% of the time, where the model's within-group AUC is\n    only 0.74, 0.63, 0.68. Whether an ordinary system repeats an exceedance is the second hard problem after\n    first-time exceedance, and the released predictors rank it weakly.'''\nassert old in r; r=r.replace(old,new,1)\nopen('REPORT.md','w').write(r)\nb=open('BACKLOG.md').read()\nb=b.replace('''- a placeholder-average flag built from raw averages (999 mg/L entries); only the floored margin is released''','''- a placeholder-average flag built from raw averages (999 mg/L entries); only the floored margin is released\n- repeat-exceedance among ordinary treated systems (persist ~55-60%, within-group AUC ~0.65): would need number of\n  exceeding periods, which parameter exceeded, or multi-year exceedance counts, none of which are released''')\nopen('BACKLOG.md','w').write(b)\nEOF\ngit add LOG.md REPORT.md BACKLOG.md lab/*.py && git commit -qm \"Repeat-exceedance breakdown outside Quebec\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; date +%s",
+      "description": "Document repeat-exceedance breakdown, commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0002.jsonl",
+    "line": 28,
+    "tool_use_id": "toolu_01HU3byKQMfZvityeUjQxoBC",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nl=open('LOG.md').read().rstrip('\\n')\nl+='''\n- Signal for repeat exceedance among ordinary treated systems outside Quebec (lab/s68.py): train n=617 persist 0.549;\n  validation n=435 persist 0.575; model AUC on the validation subgroup 0.680. Univariate AUCs (train | validation):\n  margin 0.551 | 0.581, periods reported 0.545 | 0.555, volume 0.536 | 0.500, acute failures 0.526 | 0.518, history\n  years 0.476 | 0.488. Persistence by margin quartile: train 0.48/0.55/0.58/0.60, validation 0.45/0.57/0.69/0.59.\n  Training persistence by year 0.58/0.57/0.52/0.53 (2016-19). The weak signal is intrinsic and stable across eras;\n  the model already beats every single predictor.\n'''\nopen('LOG.md','w').write(l+'\\n')\nr=open('REPORT.md').read()\nold='''    first-time exceedance, and the released predictors rank it weakly.'''\nnew='''    first-time exceedance, and the released predictors rank it weakly: in that subgroup no single predictor has\n    a univariate AUC above 0.58 in either training or validation (margin 0.55 and 0.58), the model reaches 0.68,\n    and the repeat rate is stable across eras (0.55 in training, 0.575 in validation).'''\nassert old in r; r=r.replace(old,new,1)\nopen('REPORT.md','w').write(r)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"Repeat-exceedance signal check\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; date +%s",
+      "description": "Document repeat-exceedance signal check, commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0002.jsonl",
+    "line": 39,
+    "tool_use_id": "toolu_01SF6DZKciH2qCKHX95c1k1S",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nl=open('LOG.md').read().rstrip('\\n')\nl+='''\n- Signal for first-time exceedance among never-exceeded systems (lab/s69.py): train n=4,873 rate 0.060; validation\n  n=3,631 rate 0.051; model AUC on the validation subgroup 0.681. Best single predictors on validation: province\n  (training-rate encoding) 0.620, treatment family 0.571, acute failures 0.561, system type 0.543, retention 0.540,\n  receiving water 0.535, history years 0.533, owner/operator 0.524, periods 0.514, chlorine 0.508, volume 0.500\n  (0.559 in training). Reporting frequency flips sign: 0.518 in training (annual riskier, 0.064 vs 0.056) and 0.458\n  on validation (quarterly riskier, 0.057 vs 0.041). The model combines weak inputs to 0.68; none is strong alone.\n'''\nopen('LOG.md','w').write(l+'\\n')\nr=open('REPORT.md').read()\nold='''3. **Remaining error is first-time exceedance.** Of the 0.092 AUC shortfall, 0.033 is ranking within never-exceeded\n   systems (pair AUC 0.68) and 0.021 is never-exceeded positives ranked below previously-exceeding negatives.'''\nnew='''3. **Remaining error is first-time exceedance.** Of the 0.092 AUC shortfall, 0.033 is ranking within never-exceeded\n   systems (pair AUC 0.68) and 0.021 is never-exceeded positives ranked below previously-exceeding negatives.\n   Within that group no single predictor is strong on validation: province 0.62, treatment family 0.57, acute\n   failures 0.56, everything else <= 0.54, and volume 0.50 (0.56 in training). Reporting frequency reverses\n   direction between eras for this group (annual reporters riskier in training, 0.064 vs 0.056; quarterly riskier\n   in validation, 0.057 vs 0.041). The model's 0.68 comes from combining weak inputs.'''\nassert old in r; r=r.replace(old,new,1)\nopen('REPORT.md','w').write(r)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"First-time exceedance signal check\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; date +%s",
+      "description": "Document first-time exceedance signal check, commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0002.jsonl",
+    "line": 52,
+    "tool_use_id": "toolu_013nJHDubncJGHXbF84rEnAi",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nl=open('LOG.md').read().rstrip('\\n')\nl+='''\n- Following the frequency sign flip: moving reporting frequency from the static group to the history group (so it\n  can shape persistence but not first-time risk) is worse, 5-seed val 0.90779 / bt 0.8860; moving the exposure-gap\n  features too, 0.90739 / 0.8854 (ref 0.90848 / 0.8872). Frequency stays in the static group. (lab/s70.py)\n'''\nopen('LOG.md','w').write(l+'\\n')\nr=open('REPORT.md').read()\nold='''  exposure-gap encodings, weights of 0.5/1.5/2.5 on no-history rows, a lapsed-exceeder flag in the static group \u2014\n  all within +/-0.0005 or worse.'''\nnew='''  exposure-gap encodings, weights of 0.5/1.5/2.5 on no-history rows, a lapsed-exceeder flag in the static group,\n  moving reporting frequency (0.9078) or all exposure features (0.9074) into the history group \u2014 all within\n  +/-0.0005 or worse.'''\nassert old in r; r=r.replace(old,new,1)\nopen('REPORT.md','w').write(r)\nimport json,glob,hashlib,os\nok=all(hashlib.sha256(open(os.path.dirname(f)+'/train.py','rb').read()).hexdigest()==json.load(open(f))['code_sha256'] and hashlib.sha256(open(os.path.dirname(f)+'/model.pkl','rb').read()).hexdigest()==json.load(open(f))['artifact_sha256'] for f in glob.glob('trials/*/result.json'))\nprint('trials',len(glob.glob('trials/*/result.json')),'hashes intact',ok)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"Frequency-group test; final integrity\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; git status --short | grep -v '^??'; date +%s",
+      "description": "Document frequency-group test, verify trial hashes, commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0002.jsonl",
+    "line": 63,
+    "tool_use_id": "toolu_01UiY4feizbZqbYJY53MDECE",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nl=open('LOG.md').read().rstrip('\\n')\nl+='''\n- Signal for lapsed exceeders (lab/s71.py): train n=450 rate 0.231; validation n=971 rate 0.203; model AUC 0.619.\n  Validation single-predictor AUCs: province encoding 0.600, treatment 0.545, receiving water 0.544 (0.647 in-sample\n  in training), acute failures 0.532, frequency 0.519, all numeric inputs <= 0.49. The model barely beats province\n  alone in this state, which has only 450 training rows; it is the state the model handles worst and the one that\n  grows every year.\n'''\nopen('LOG.md','w').write(l+'\\n')\nr=open('REPORT.md').read()\nold='''    positives per fold, so this is not resolvable with the available data.'''\nnew='''    positives per fold, so this is not resolvable with the available data. In this state the model (0.619)\n    barely beats province alone (0.600); every numeric predictor is at or below 0.49 on validation, there are only\n    450 training rows, and its share of rows grows each year (15% in 2020, 18% in 2022).'''\nassert old in r; r=r.replace(old,new,1)\nopen('REPORT.md','w').write(r)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"Lapsed-state signal check\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; git status --short | grep -v '^??'; date +%s",
+      "description": "Document lapsed-state signal check, commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0002.jsonl",
+    "line": 76,
+    "tool_use_id": "toolu_019SdKiYSNs8cYVBfdu887C3",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nl=open('LOG.md').read().rstrip('\\n')\nl+='''\n- Lapsed-share sensitivity (lab/s72.py; reweights validation rows only): lapsed share by target year 0.000, 0.000,\n  0.054, 0.091, 0.107 (2015-19), 0.153, 0.161, 0.181 (2020-22). Moving weight from never-exceeded rows to lapsed\n  rows, last-year exceeders held fixed: share 0.165 (actual) AUC 0.9085; 0.20 -> 0.9044; 0.22 -> 0.9019; 0.25 ->\n  0.8979; 0.30 -> 0.8906. Note this is a different reweighting from the earlier full state-mix one (2022 to the 2020\n  mix gave 0.897 vs 0.900), where the share of last-year exceeders also moved and offset it.\n'''\nopen('LOG.md','w').write(l+'\\n')\nr=open('REPORT.md').read()\nold='''## Findings'''\nnew='''- Expected direction for later periods (no holdout result is claimed or known): the share of lapsed exceeders,\n  the state the model ranks worst, has risen every year (0.05 in 2017 to 0.18 in 2022). Reweighting validation so\n  that lapsed rows replace never-exceeded rows, with last-year exceeders held fixed, gives 0.904 at a 20% share,\n  0.902 at 22% and 0.898 at 25%, against 0.9085 at the actual 16.5%. If the share of last-year exceeders also\n  rises, as it did within validation, part of that is offset.\n\n## Findings'''\nassert old in r; r=r.replace(old,new,1)\nopen('REPORT.md','w').write(r)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"Lapsed-share sensitivity\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; git status --short | grep -v '^??'; date +%s",
+      "description": "Document lapsed-share sensitivity, commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0003.jsonl",
+    "line": 21,
+    "tool_use_id": "toolu_01X1vxs6oYFBs8FgQ58M7SwM",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nl=open('LOG.md').read().rstrip('\\n')\nl+='''\n\n## Third continuation (local diagnostics only; no evaluator trials)\n- Cluster-bootstrap 95% intervals by system for segment AUCs of the selected artifact (lab/s73.py, 300 resamples):\n  never exceeded 0.681 [0.637, 0.722]; lapsed 0.619 [0.582, 0.661]; exceeded last year 0.834 [0.805, 0.855];\n  compliant last year 0.745 [0.716, 0.773]; Quebec 0.864 [0.835, 0.891]; other provinces 0.924 [0.910, 0.935].\n  The Quebec vs rest gap and the ordering of the three states are outside each other's intervals except\n  never-exceeded vs lapsed, which overlap.\n'''\nopen('LOG.md','w').write(l+'\\n')\nr=open('REPORT.md').read()\nold='''- One-row-per-system sensitivity'''\nnew='''- Segment AUCs quoted in the findings, with system-cluster bootstrap 95% intervals: never exceeded 0.681\n  [0.637, 0.722]; lapsed 0.619 [0.582, 0.661]; exceeded last year 0.834 [0.805, 0.855]; compliant last year 0.745\n  [0.716, 0.773]; Quebec 0.864 [0.835, 0.891]; other provinces 0.924 [0.910, 0.935]. Never-exceeded and lapsed\n  overlap; the other contrasts do not.\n- One-row-per-system sensitivity'''\nassert old in r; r=r.replace(old,new,1)\nopen('REPORT.md','w').write(r)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"Segment AUC bootstrap intervals\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; date +%s",
+      "description": "Document segment intervals, commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0003.jsonl",
+    "line": 28,
+    "tool_use_id": "toolu_01G5CN8dHRcE3u1AZhoc7ipN",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nl=open('LOG.md').read().rstrip('\\n')\nl+='''\n- Decision-view intervals (lab/s74.py, 300 system-cluster resamples, compliant-last-year pool): top 10% recall 0.326\n  [0.277, 0.361], precision 0.257 [0.215, 0.298], lift 3.26 [2.77, 3.61]; top 20% recall 0.493 [0.443, 0.546],\n  precision 0.194 [0.173, 0.228], lift 2.47 [2.22, 2.73].\n'''\nopen('LOG.md','w').write(l+'\\n')\nr=open('REPORT.md').read()\nold='''    predicted risk contains 33% of the next-year exceeders (precision 0.26, lift 3.3), the top 20% contains 49%.'''\nnew='''    predicted risk contains 33% of the next-year exceeders (precision 0.26, lift 3.3; system-cluster bootstrap\n    95% intervals: recall 0.28\u20130.36, lift 2.8\u20133.6), the top 20% contains 49% (0.44\u20130.55, lift 2.2\u20132.7).'''\nassert old in r; r=r.replace(old,new,1)\nopen('REPORT.md','w').write(r)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"Decision-view bootstrap intervals\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; git status --short | grep -v '^??'; date +%s",
+      "description": "Document decision-view intervals, commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0003.jsonl",
+    "line": 38,
+    "tool_use_id": "toolu_01TfWQkMmBWPPDU8wY4bNkQN",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nl=open('LOG.md').read().rstrip('\\n')\nl+='''\n- Paired system-cluster bootstrap on validation rows between recorded trials (lab/s75.py, 400 resamples, saved\n  predictions): selected minus scaffold +0.0125 [+0.0080, +0.0175]; minus H1 +0.0012 [-0.0004, +0.0027] (P 0.94);\n  minus H3 +0.0003 [-0.0006, +0.0014] (0.75); minus no-snapshot +0.0010 [-0.0008, +0.0032] (0.83); minus\n  11-predictor +0.0008 [-0.0005, +0.0021] (0.88); minus robustness variant +0.0001 [-0.0009, +0.0012] (0.57).\n  Only the gain over the scaffold is outside its interval; every later step's interval includes zero.\n'''\nopen('LOG.md','w').write(l+'\\n')\nr=open('REPORT.md').read()\nold='''- Segment AUCs quoted in the findings,'''\nnew='''- Paired system-cluster bootstrap on validation rows between recorded trials (400 resamples): selected minus\n  regularization-only +0.0012 [-0.0004, +0.0027]; minus H3 +0.0003 [-0.0006, +0.0014]; minus the no-snapshot\n  variant +0.0010 [-0.0008, +0.0032]; minus the 11-predictor variant +0.0008 [-0.0005, +0.0021]; minus the\n  robustness variant +0.0001 [-0.0009, +0.0012]. Only the gain over the scaffold baseline excludes zero; on\n  validation-row sampling alone none of the steps after regularization is distinguishable.\n- Segment AUCs quoted in the findings,'''\nassert old in r; r=r.replace(old,new,1)\nopen('REPORT.md','w').write(r)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"Paired bootstrap between recorded trials\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; git status --short | grep -v '^??'; date +%s",
+      "description": "Document paired trial comparison, commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0003.jsonl",
+    "line": 45,
+    "tool_use_id": "toolu_01QfTJFZpbdE9DycSxR1Gpdg",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nl=open('LOG.md').read().rstrip('\\n')\nl+='''\n- Brier (secondary metric), paired system-cluster bootstrap (lab/s76.py, 400 resamples): selected 0.0848\n  [0.0792, 0.0908]; scaffold minus selected +0.0036 [+0.0015, +0.0054]; H1 minus selected +0.0005 [+0.0000, +0.0011];\n  11-predictor -0.0001 [-0.0004, +0.0002]; robustness variant 0.0000 [-0.0003, +0.0003].\n\n## Final state (after third continuation)\n- Selected by the fixed rule: 14237f1897274d4ab37885f3daa5c587 (validation AUC 0.908506, Brier 0.08478).\n- No evaluator trial recorded after epoch 1794713083; 9 validation trials and 6 backtests, all ok, hashes intact.\n'''\nopen('LOG.md','w').write(l+'\\n')\nr=open('REPORT.md').read()\nold='''- Segment AUCs quoted in the findings,'''\nnew='''- Brier, same paired bootstrap: selected 0.0848 [0.0792, 0.0908]; scaffold baseline worse by 0.0036\n  [0.0015, 0.0054]; regularization-only worse by 0.0005 [0.0000, 0.0011]; the 11-predictor and robustness variants\n  within +/-0.0004.\n- Segment AUCs quoted in the findings,'''\nassert old in r; r=r.replace(old,new,1)\nopen('REPORT.md','w').write(r)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"Brier paired bootstrap; final state\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; git status --short | grep -v '^??'; date +%s",
+      "description": "Document Brier comparison and final state, commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0004.jsonl",
+    "line": 22,
+    "tool_use_id": "toolu_01FHEQJiiYrHkqr2dBWXPSXk",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nl=open('LOG.md').read().rstrip('\\n')\nl+='''\n\n## Fourth continuation (local diagnostics only; no evaluator trials)\n- System-cluster bootstrap (lab/s77.py, 200 resamples): selected minus scaffold by year: 2020 +0.0163\n  [+0.0085, +0.0245]; 2021 +0.0119 [+0.0050, +0.0198]; 2022 +0.0096 [+0.0016, +0.0175] -- positive in every year.\n  Calibration slope 1.067 [1.005, 1.127], intercept +0.265 [+0.139, +0.399]: the under-prediction is outside\n  sampling noise; the slope is only marginally above 1.\n- Selection unchanged: 14237f1897274d4ab37885f3daa5c587 (validation AUC 0.908506). No evaluator trial recorded\n  after epoch 1794713083.\n'''\nopen('LOG.md','w').write(l+'\\n')\nr=open('REPORT.md').read()\nold='''- Segment AUCs quoted in the findings,'''\nnew='''- The gain over the scaffold baseline excludes zero in each validation year: +0.0163 [0.0085, 0.0245] in 2020,\n  +0.0119 [0.0050, 0.0198] in 2021, +0.0096 [0.0016, 0.0175] in 2022. Calibration intervals: slope 1.067\n  [1.005, 1.127], intercept +0.265 [0.139, 0.399], so the under-prediction is real and the slope only marginally\n  above 1.\n- Segment AUCs quoted in the findings,'''\nassert old in r; r=r.replace(old,new,1)\nopen('REPORT.md','w').write(r)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"Per-year gain and calibration intervals\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; git status --short | grep -v '^??'; date +%s",
+      "description": "Document per-year gain and calibration intervals, commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0005.jsonl",
+    "line": 11,
+    "tool_use_id": "toolu_01BPoT2L3Xextn9L75oT2rLf",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nl=open('LOG.md').read().rstrip('\\n')\nl+='''\n\n## Fifth continuation (local diagnostics only; no evaluator trials)\n- Systems absent from training (lab/s78.py, 300 system resamples): 182 rows, 101 systems, 57 positives, AUC 0.875\n  [0.803, 0.929], mean prediction 0.291 vs observed 0.313. Systems in training: 5,712 rows, AUC 0.909\n  [0.898, 0.919], 0.214 vs 0.229. The intervals overlap; the lower figure for new systems is not established.\n- Selection unchanged: 14237f1897274d4ab37885f3daa5c587 (0.908506). No evaluator trial after epoch 1794713083.\n'''\nopen('LOG.md','w').write(l+'\\n')\nr=open('REPORT.md').read()\nold='''- 182 validation rows belong to systems absent from training: AUC 0.875 vs 0.909 for seen systems.'''\nnew='''- 182 validation rows (101 systems, 57 positives) belong to systems absent from training: AUC 0.875\n  [0.803, 0.929] vs 0.909 [0.898, 0.919] for seen systems. The intervals overlap, so a real penalty for new\n  systems is not established; calibration is similar (0.291 predicted vs 0.313 observed).'''\nassert old in r; r=r.replace(old,new,1)\nopen('REPORT.md','w').write(r)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"Interval for systems absent from training\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; git status --short | grep -v '^??'; date +%s",
+      "description": "Document unseen-systems interval, commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0006.jsonl",
+    "line": 5,
+    "tool_use_id": "toolu_01CbWmvZhBEnFddTnSQfvcVh",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nl=open('LOG.md').read().rstrip('\\n')\nl+='''\n\n## Sixth continuation (local diagnostics only; no evaluator trials)\n- Placeholder-row effect on 2022 (lab/s79.py, 300 system resamples): 2022 AUC 0.9003 with the 20 placeholder-margin\n  rows (14 labelled 0), 0.9042 without; difference +0.0039 [+0.0014, +0.0067]. The effect excludes zero.\n- Selection unchanged: 14237f1897274d4ab37885f3daa5c587 (0.908506). No evaluator trial after epoch 1794713083.\n'''\nopen('LOG.md','w').write(l+'\\n')\nr=open('REPORT.md').read()\nold='''    the 20 placeholder-margin rows in 2022 alone cost 0.004 (2022 AUC 0.9003 with them, 0.9042 without). The'''\nnew='''    the 20 placeholder-margin rows in 2022 alone (14 of them labelled 0) cost 0.004 (2022 AUC 0.9003 with them,\n    0.9042 without; system-cluster bootstrap interval for the difference 0.0014 to 0.0067). The'''\nassert old in r; r=r.replace(old,new,1)\nopen('REPORT.md','w').write(r)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"Interval for placeholder-row effect\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; git status --short | grep -v '^??'; date +%s",
+      "description": "Document placeholder-row interval, commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0007.jsonl",
+    "line": 5,
+    "tool_use_id": "toolu_01KvkSx2ofPgkzPsNwTBcFH2",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nl=open('LOG.md').read().rstrip('\\n')\nl+='''\n\n## Seventh continuation (local diagnostics only; no evaluator trials)\n- Calibration gaps, observed minus predicted, 300 system resamples (lab/s80.py): Quebec last-year exceeders +0.137\n  [+0.074, +0.195] (n=281; 0.669 vs 0.532); Quebec all rows +0.025 [+0.009, +0.040]; other provinces last-year\n  exceeders +0.011 [-0.009, +0.033]; other provinces all rows +0.010 [+0.002, +0.018]. The under-prediction is\n  concentrated in Quebec repeat exceedance and is outside sampling noise there.\n- Selection unchanged: 14237f1897274d4ab37885f3daa5c587 (0.908506). No evaluator trial after epoch 1794713083.\n'''\nopen('LOG.md','w').write(l+'\\n')\nr=open('REPORT.md').read()\nold='''model under-predicts this group (0.52 predicted vs 0.67 observed, n=268). Not fixable without a year input.'''\nnew='''model under-predicts this group (0.52 predicted vs 0.67 observed, n=268). Not fixable without a year input.\n  For the selected artifact over all Quebec last-year exceeders (n=281) the gap is +0.137 with a system-cluster\n  bootstrap interval of 0.074 to 0.195, against +0.011 (-0.009 to +0.033) for the same state in other provinces;\n  overall under-prediction is +0.025 in Quebec and +0.010 elsewhere.'''\nassert old in r; r=r.replace(old,new,1)\nopen('REPORT.md','w').write(r)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"Interval for Quebec calibration gap\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; git status --short | grep -v '^??'; date +%s",
+      "description": "Document Quebec calibration interval, commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0008.jsonl",
+    "line": 5,
+    "tool_use_id": "toolu_013SLprx4wAdmiEoGVkjWg43",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nl=open('LOG.md').read().rstrip('\\n')\nl+='''\n\n## Eighth continuation (local diagnostics only; no evaluator trials)\n- Quebec vs other provinces (lab/s81.py, 300 system resamples): other-province AUC minus Quebec AUC +0.0591\n  [+0.0303, +0.0909]. The gap excludes zero.\n- Selection unchanged: 14237f1897274d4ab37885f3daa5c587 (0.908506). No evaluator trial after epoch 1794713083.\n'''\nopen('LOG.md','w').write(l+'\\n')\nr=open('REPORT.md').read()\nold='''    0.911 (0.935, 0.919, 0.916 without placeholder rows). Quebec is the weaker third of the data throughout\n    (pooled 0.864 vs 0.924 elsewhere).'''\nnew='''    0.911 (0.935, 0.919, 0.916 without placeholder rows). Quebec is the weaker third of the data throughout\n    (pooled 0.864 vs 0.924 elsewhere; gap 0.059, system-cluster bootstrap interval 0.030 to 0.091).'''\nassert old in r; r=r.replace(old,new,1)\nopen('REPORT.md','w').write(r)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"Interval for Quebec AUC gap\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; git status --short | grep -v '^??'; date +%s",
+      "description": "Document Quebec AUC gap interval, commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0009.jsonl",
+    "line": 5,
+    "tool_use_id": "toolu_01HeyFaR8MuzGDDvpvzQHgRL",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nl=open('LOG.md').read().rstrip('\\n')\nl+='''\n\n## Ninth continuation (local diagnostics only; no evaluator trials)\n- Within-state gain over the scaffold, 300 system resamples (lab/s82.py): never exceeded +0.0704 [+0.0372, +0.1034];\n  lapsed -0.0156 [-0.0460, +0.0123]; exceeded last year +0.0171 [+0.0007, +0.0334]. The never-exceeded gain is\n  clear; the lapsed-state deficit includes zero.\n- Selection unchanged: 14237f1897274d4ab37885f3daa5c587 (0.908506). No evaluator trial after epoch 1794713083.\n'''\nopen('LOG.md','w').write(l+'\\n')\nr=open('REPORT.md').read()\nold='''    state where the regularized model does not rank better). 18 of 21 segments improve.'''\nnew='''    state where the regularized model does not rank better). 18 of 21 segments improve. System-cluster\n    bootstrap intervals for the within-state differences: never exceeded +0.070 [0.037, 0.103]; exceeded last\n    year +0.017 [0.001, 0.033]; lapsed -0.016 [-0.046, +0.012].'''\nassert old in r; r=r.replace(old,new,1)\nopen('REPORT.md','w').write(r)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"Intervals for within-state gains\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; git status --short | grep -v '^??'; date +%s",
+      "description": "Document within-state gain intervals, commit"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "wser-effluent-exceedance--r3",
+    "trace": "0011.jsonl",
+    "line": 5,
+    "tool_use_id": "toolu_01S7umRTdBTWbzrtAnUD8mgB",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r3 && PY=/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/venv/bin/python\n$PY - <<'EOF'\nl=open('LOG.md').read().rstrip('\\n')\nl+='''\n\n## Eleventh continuation (local diagnostic only; no evaluator trials)\n- Fixed history-state score (prior-year flag and ever-exceeded flag only, no fitting; lab/s83.py): validation AUC\n  0.8732. Selected model 0.9085; difference +0.0353, system-cluster bootstrap interval [+0.0301, +0.0405].\n- Selection unchanged: 14237f1897274d4ab37885f3daa5c587 (0.908506). No evaluator trial after epoch 1794713083.\n'''\nopen('LOG.md','w').write(l+'\\n')\nr=open('REPORT.md').read()\nold='''4. **Feature value.** History-only model: 0.887.'''\nnew='''4. **Feature value.** A fixed, unfitted score from the two history flags alone gives 0.873 on validation; the\n   selected model is +0.035 above it (system-cluster bootstrap interval 0.030 to 0.041). History-only model: 0.887.'''\nassert old in r; r=r.replace(old,new,1)\nopen('REPORT.md','w').write(r)\nEOF\ngit add LOG.md REPORT.md lab/*.py && git commit -qm \"Lift over history-state score\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\" && git log --oneline | head -1; git status --short | grep -v '^??'; date +%s",
+      "description": "Document lift over history-state score, commit",
+      "timeout": 30000
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  }
+]

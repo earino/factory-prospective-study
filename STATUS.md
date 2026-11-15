@@ -2,9 +2,12 @@
 
 {
   "consumer": {
+    "branch": "consumer/wser-effluent-exceedance",
+    "commit": "5e12c495e62fbbf56b133fe340923e54885020d8",
     "dataset": "wser-effluent-exceedance",
-    "started": "2026-11-15T02:13:52.572698+00:00",
-    "status": "running"
+    "finished": "2026-11-15T03:52:59.003698+00:00",
+    "started": "2026-11-15T02:13:52.572975+00:00",
+    "status": "complete"
   },
   "factory_counts": {
     "build": 2,
@@ -12,7 +15,7 @@
     "published": 15,
     "rejected": 7
   },
-  "observed_at": "2026-11-15T03:44:25.336607+00:00",
+  "observed_at": "2026-11-15T04:14:53.454744+00:00",
   "paper": {},
   "queue": [
     {
@@ -74,13 +77,13 @@
     {
       "dataset": "wser-effluent-exceedance",
       "verified_at": "2026-11-15T01:17:16.726399+00:00",
-      "status": "queued",
+      "status": "complete",
       "selected": true,
-      "branch": null,
+      "branch": "consumer/wser-effluent-exceedance",
       "error": null
     }
   ],
-  "snapshot_generated_at": "2026-11-15T02:51:40+00:00",
+  "snapshot_generated_at": "2026-11-15T03:51:45+00:00",
   "window": {
     "analysis_start": "2026-11-18T04:00:00Z",
     "attempt_minutes": 85,

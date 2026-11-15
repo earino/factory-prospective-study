@@ -1,0 +1,70 @@
+{
+  "dataset": "wser-effluent-exceedance",
+  "cluster_columns": [
+    "system_id"
+  ],
+  "clusters": 2062,
+  "rows": 3988,
+  "positives": 893,
+  "missing_cluster_rows": 0,
+  "largest_cluster": 2,
+  "seed": 1105713583,
+  "valid_replicates": 2000,
+  "invalid_replicates": 0,
+  "comparisons": [
+    {
+      "run": "wser-effluent-exceedance--r1",
+      "control": "wser-effluent-exceedance--ordinary",
+      "delta": 0.008467220365904637,
+      "low": 0.0028137148640574984,
+      "high": 0.01388156077731998
+    },
+    {
+      "run": "wser-effluent-exceedance--r1",
+      "control": "wser-effluent-exceedance--r1--random",
+      "delta": 0.001046010344322279,
+      "low": -0.0012506167589148604,
+      "high": 0.0033701476634686737
+    },
+    {
+      "run": "wser-effluent-exceedance--r2",
+      "control": "wser-effluent-exceedance--ordinary",
+      "delta": 0.008465773101505647,
+      "low": 0.003396569553371162,
+      "high": 0.013790907884766376
+    },
+    {
+      "run": "wser-effluent-exceedance--r2",
+      "control": "wser-effluent-exceedance--r2--random",
+      "delta": 0.0020238183538452414,
+      "low": 5.705444834933352e-05,
+      "high": 0.003998531497494906
+    },
+    {
+      "run": "wser-effluent-exceedance--r3",
+      "control": "wser-effluent-exceedance--ordinary",
+      "delta": 0.008753778716891536,
+      "low": 0.003628990274154656,
+      "high": 0.01399552947990228
+    },
+    {
+      "run": "wser-effluent-exceedance--r3",
+      "control": "wser-effluent-exceedance--r3--random",
+      "delta": 0.00038243961741568633,
+      "low": -0.001775942981359682,
+      "high": 0.0025068829981792218
+    }
+  ],
+  "inputs": {
+    "/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/holdout/wser-effluent-exceedance/holdout.csv": "696a55f28a532d8f0e24ca5912f55d5e13e87095e8fee12ff907c3d3c286060e",
+    "/Users/earino/research/factory-prospective-study/evidence/reviews/wser-effluent-exceedance/cluster.json": "9d84ea36c521fce9cb66c33e2572d4ca4a0644c803b275cae9a9f5424773aa69",
+    "/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/results/scores/wser-effluent-exceedance--ordinary/predictions.csv.gz": "6f99f68cdc80eebaad19035f4ce5b638e863db446b288cd3ada5f01b2efcb74d",
+    "/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/results/scores/wser-effluent-exceedance--r1/predictions.csv.gz": "c6d2e8a8593394b18ce99b6a16f5eba77264f92fc4ff11e2887c427986b152f0",
+    "/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/results/scores/wser-effluent-exceedance--r2/predictions.csv.gz": "86e02ec6988b0b389b16ac86a2a565aff644b996bd68e3d7cb5da6debe0f8a04",
+    "/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/results/scores/wser-effluent-exceedance--r3/predictions.csv.gz": "eb91b999158d8d0305a0c10b5d0bbf44cf59dd00feb118306f350e40e7941a1b",
+    "/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/results/scores/wser-effluent-exceedance--r1--random/predictions.csv.gz": "282601cd59f670a25fd53c5bdb34d7f9285f7f2dba6d040e28f0a24e62bfa70e",
+    "/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/results/scores/wser-effluent-exceedance--r2--random/predictions.csv.gz": "b0ae2a94e66c8f1927df87cae1ccc51d24bfa6774861c8074b45f7a165556d55",
+    "/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/results/scores/wser-effluent-exceedance--r3--random/predictions.csv.gz": "9943169cea7993a4dd28045ad16574a7b23292c9fa41be56b2a9c234be6c7e82"
+  },
+  "method": "2000 paired whole-entity draws, pointwise percentile95%; conditional on fitted models, cohort and declared dependence"
+}
