@@ -8,9 +8,10 @@ from matplotlib.patches import FancyBboxPatch
 P=Path(__file__).resolve().parents[1]; D=json.loads((P/'analysis/draft-inputs.json').read_text())['data']
 U=json.loads((P/'analysis/update-inputs-2026-11-15.json').read_text())
 D.update(U['data'])
-execution_ids=U['analysis_selection']
+E=json.loads((P/'analysis/evening-inputs-2026-11-15.json').read_text());D.update(E['data'])
+execution_ids={**U['analysis_selection'],**E['analysis_selection']}
 def consumer_path(ds):return f"evidence/consumer/{execution_ids.get(ds,ds)}/results/summary.json"
-def review_path(ds,name):return f"evidence/reviews/{execution_ids.get(ds,ds)}/post/{name}"
+def review_path(ds,name):return E.get('review_overrides',{}).get(ds,{}).get(name,f"evidence/reviews/{execution_ids.get(ds,ds)}/post/{name}")
 
 C=D['evidence/costs/2026-11-15/summary.json']; cohort=D['evidence/costs/2026-11-15/inputs/cohort.json']
 figdir=P/'draft/figures'; gen=P/'draft/generated'
@@ -44,18 +45,20 @@ bx.invert_yaxis();bx.set_xlabel('Recorded stage attempts started in window');bx.
 for y,v in enumerate(left):bx.text(v+2,y,str(v),va='center',fontsize=8)
 fig.tight_layout(w_pad=2);fig.savefig(figdir/'operations.pdf');plt.close(fig)
 # All available paired intervals, no best-run selection.
-fig,axes=plt.subplots(1,2,figsize=(7,3.05),sharey=True)
+fig,axes=plt.subplots(1,2,figsize=(7,3.35),sharey=True)
 with_ci=[r for r in cohort if (review_path(r['dataset'],'bootstrap.json') in D and len(D[review_path(r['dataset'],'bootstrap.json')]['comparisons']))]
 comparison_summary={}
 for panel,(control,title) in enumerate([('ordinary','(a) Versus untuned XGBoost'),('random','(b) Versus tuned random search')]):
  ax=axes[panel];ax.axvline(0,color=grey,lw=.9);titles=[]
  for j,r in enumerate(with_ci):
   ds=r['dataset'];b=D[review_path(ds,'bootstrap.json')];rows=[c for c in b['comparisons'] if c['control'].endswith('--'+control)]
-  assert len(rows)==3,(ds,control)
+  expected={x['id'] for x in D[consumer_path(ds)]['outcomes'] if x['status']=='frozen'}
+  assert {x['run'] for x in rows}==expected,(ds,control)
   comparison_summary.setdefault(ds,{})[control]={'positive_intervals':sum(c['low']>0 for c in rows),'comparisons':rows}
   titles.append(f"{names[ds]} ({b['clusters']:,})")
   if j%2==0:ax.axhspan(j-.45,j+.45,color='#eef4f7',zorder=0)
-  for i,c in enumerate(rows):
+  for c in rows:
+   i=int(c['run'].rsplit('--r',1)[1])-1
    assert -.095<c['low']<=c['delta']<=c['high']<.11,(ds,c)
    ax.errorbar(c['delta'],j+(i-1)*.21,xerr=[[c['delta']-c['low']],[c['high']-c['delta']]],fmt=['o','s','^'][i],color=[blue,teal,gold][i],capsize=2,ms=2.5,lw=.9,label=f'Run {i+1}' if j==0 else None)
  ax.set_yticks(range(len(titles)),titles,fontsize=7.5);ax.set_xlim(-.095,.11);ax.set_xticks([-.05,0,.05,.10]);ax.tick_params(axis='x',labelsize=7);ax.grid(axis='x',alpha=.15);ax.set_xlabel('Holdout AUC difference',fontsize=8);ax.set_title(title,fontsize=8.5,loc='left')

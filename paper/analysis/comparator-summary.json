@@ -376,5 +376,99 @@
         }
       ]
     }
+  },
+  "seattle-building-permit-completion": {
+    "ordinary": {
+      "positive_intervals": 2,
+      "comparisons": [
+        {
+          "run": "seattle-building-permit-completion--r2",
+          "control": "seattle-building-permit-completion--ordinary",
+          "delta": 0.029455242869115716,
+          "low": 0.014129224528178757,
+          "high": 0.044670579617330716
+        },
+        {
+          "run": "seattle-building-permit-completion--r3",
+          "control": "seattle-building-permit-completion--ordinary",
+          "delta": 0.037246085388970895,
+          "low": 0.02130084364666696,
+          "high": 0.052086321067675405
+        }
+      ]
+    },
+    "random": {
+      "positive_intervals": 2,
+      "comparisons": [
+        {
+          "run": "seattle-building-permit-completion--r2",
+          "control": "seattle-building-permit-completion--r2--random",
+          "delta": 0.012671768813072304,
+          "low": 0.0012740981486253189,
+          "high": 0.024600442200551482
+        },
+        {
+          "run": "seattle-building-permit-completion--r3",
+          "control": "seattle-building-permit-completion--r3--random",
+          "delta": 0.02235081669619965,
+          "low": 0.010784914681445013,
+          "high": 0.03326654866496743
+        }
+      ]
+    }
+  },
+  "fra-form54-hazmat-release": {
+    "ordinary": {
+      "positive_intervals": 3,
+      "comparisons": [
+        {
+          "run": "fra-form54-hazmat-release--r1",
+          "control": "fra-form54-hazmat-release--ordinary",
+          "delta": 0.052782494729044394,
+          "low": 0.018650232249570763,
+          "high": 0.08663324080815384
+        },
+        {
+          "run": "fra-form54-hazmat-release--r2",
+          "control": "fra-form54-hazmat-release--ordinary",
+          "delta": 0.05887059091686131,
+          "low": 0.025689573972933352,
+          "high": 0.09208920132648342
+        },
+        {
+          "run": "fra-form54-hazmat-release--r3",
+          "control": "fra-form54-hazmat-release--ordinary",
+          "delta": 0.059758960624537005,
+          "low": 0.023155804327079775,
+          "high": 0.09522926155467883
+        }
+      ]
+    },
+    "random": {
+      "positive_intervals": 3,
+      "comparisons": [
+        {
+          "run": "fra-form54-hazmat-release--r1",
+          "control": "fra-form54-hazmat-release--r1--random",
+          "delta": 0.03282124337569092,
+          "low": 0.011179495798681653,
+          "high": 0.057130260995054964
+        },
+        {
+          "run": "fra-form54-hazmat-release--r2",
+          "control": "fra-form54-hazmat-release--r2--random",
+          "delta": 0.03972989913955205,
+          "low": 0.01770951057258091,
+          "high": 0.061558301632905925
+        },
+        {
+          "run": "fra-form54-hazmat-release--r3",
+          "control": "fra-form54-hazmat-release--r3--random",
+          "delta": 0.043778562881075844,
+          "low": 0.02188661830276039,
+          "high": 0.0676826380231263
+        }
+      ]
+    }
   }
 }

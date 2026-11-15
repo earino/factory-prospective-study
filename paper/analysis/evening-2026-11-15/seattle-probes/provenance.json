@@ -1,0 +1,26 @@
+{
+  "study": ".local/studies/seattle-building-permit-completion-retry-1",
+  "included_runs": [
+    "seattle-building-permit-completion--r2",
+    "seattle-building-permit-completion--r3"
+  ],
+  "excluded_runs": [
+    {
+      "run": "seattle-building-permit-completion--r1",
+      "status": "blocked"
+    }
+  ],
+  "method": "Temporary view with copied study.json order restricted to already frozen runs; original .study and evidence read through symlinks. No original files changed, no tree fitting or scoring.",
+  "tools": [
+    {
+      "tool": "probe_artifacts.py",
+      "sha256": "52c33ea61d00f7b1aa584e5cf98ee69db259821be6aa2ee91c9bac30f3cd5f8f",
+      "exit_code": 0
+    },
+    {
+      "tool": "probe_all_training_features.py",
+      "sha256": "a6bb1180da6056ab7a4c428486eafc33b40edee078be999c3628438564708b15",
+      "exit_code": 0
+    }
+  ]
+}

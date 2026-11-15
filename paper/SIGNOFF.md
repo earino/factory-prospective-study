@@ -200,3 +200,64 @@ shows both comparisons side by side, and checks that no interval is clipped.
 All seven pages rendered and inspected. The PDF keeps 20 references and original
 IEEE type/margins. Portable source rebuild and numerical cross-checks pass; artifact
 and immutable-input hashes are recorded in `output/QA.json`.
+
+
+## Evening recovery integration — 15 November 2026
+
+**Current manuscript:** 12 publications, 29 scored consumer models across ten
+releases. Nine releases have three models; Seattle has two. Utility-reliability
+provider access failures remain, and drinking-water evaluation is still running.
+The production/cost export remains pinned to 14:24:01 UTC and 11 publications.
+No cost denominator, experiment, selection rule, or original outcome was changed.
+
+Evidence is captured in `analysis/evening-inputs-2026-11-15.json`, additive to the
+two earlier snapshots. It pins both recovery summaries, reviews, original probe
+execution failures, the Seattle blocker, and corrected probe outputs. The renderer
+selects all three authorized recovery executions, without choosing favorable runs.
+
+- **Seattle:** recovery finished at 18:29:30 UTC; run 1 is blocked, runs 2 and 3 are
+  frozen/scored. Both have positive pointwise paired intervals against each control
+  under issuance-day grouping. Missing-field associations prompted an unverified
+  post-issuance timing concern. The runner's file-presence rule stopped run 1 even
+  though its blocker declared `blocks_scoring: false`. No retrospective freezing,
+  scoring, or resumption of that attempt was performed. The figure preserves run
+  identities: only run-2 squares and run-3 triangles are drawn for Seattle.
+- **Seattle review repair:** original artifact/training probes failed when trying
+  to load the nonexistent run-1 frozen artifact. The original scripts were run
+  against a temporary view containing only the two already-frozen runs in its
+  copied order. Original study directories, model bytes, and records were untouched.
+  Both models pass sampled batch/order and own-label checks. This resolves the
+  missing-artifact execution error, not the task's timing concern. Scripts, tool
+  hashes, inclusion/exclusion lists and logs are in `evening-2026-11-15/seattle-probes/`.
+- **Railway hazmat:** recovery finished at 20:08:03 UTC; three frozen/scored models.
+  Saved AUC range 0.78409–0.79106; untuned 0.73130; paired random 0.74728–0.75127.
+  All three paired intervals are positive against each comparator under accident-day
+  resampling. Repeated-carrier/location dependence and current-snapshot timing limit
+  interpretation. Source review did not verify the publisher dictionary, so the
+  task is not promoted to verified first-notification forecasting.
+- **Exact-byte qualification:** the original passing worker reports for Seattle
+  and railway were downloaded from their pinned public release, hash-checked against
+  each manifest, and accepted with the release's own qualifier/dependencies over
+  all saved split files plus the published quality descriptor. Digests begin
+  `a220e68c960ee6b6` and `aedd811fdb6a80fd`. Compact evidence and reproduction script
+  are in `analysis/evening-2026-11-15/`. No new model scoring or qualification occurred.
+- **Comparisons:** every scored consumer point estimate exceeds untuned XGBoost on
+  nine of ten tasks; airline routes are mixed. All three untuned comparisons have
+  positive intervals for five tasks; Seattle adds two positive comparisons. For
+  tuned search, three tasks have all three positive intervals; Seattle adds two,
+  with one additional positive comparison each for wastewater and wildlife strikes.
+  These are conditional comparisons, not counts of scientifically validated tasks.
+- **Probes:** 29 batch/order passes; 26 own-label probes with no changed tested cells;
+  the same three assertion errors (FDA r2, T100 r3, FAA recovery r1) remain. All
+  original failed attempts and probe failures are retained.
+
+Still required for submission: integrate the final dataset outcome; complete
+selected-code and transcript review and assess the three probe assertions; retain
+or resolve semantic findings without changing evaluated artifacts; reconcile the
+final production accounting/interventions; author review and submission preparation.
+These are finite completion tasks, not a new experimental program.
+
+The seven-page PDF and portable LaTeX source were rebuilt. All pages were rendered
+and inspected; 20 references remain, with no overfull boxes or undefined references.
+Clean-source compilation and numerical consistency checks pass. `output/QA.json`
+now hashes all three evidence snapshots.

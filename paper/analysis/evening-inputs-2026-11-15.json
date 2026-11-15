@@ -1,0 +1,2892 @@
+{
+  "captured_at": "2026-11-15T20:12:43.551781+00:00",
+  "repository_commit": "94566ba4079a51909fc84299d3d0691e339a2c89",
+  "analysis_selection": {
+    "seattle-building-permit-completion": "seattle-building-permit-completion-retry-1",
+    "fra-form54-hazmat-release": "fra-form54-hazmat-release-retry-1"
+  },
+  "review_overrides": {
+    "seattle-building-permit-completion": {
+      "training-feature-probes.json": "paper/analysis/evening-2026-11-15/seattle-probes/training-feature-probes.json",
+      "artifact-probes.json": "paper/analysis/evening-2026-11-15/seattle-probes/artifact-probes.json",
+      "control-features.json": "paper/analysis/evening-2026-11-15/seattle-probes/control-features.json",
+      "provenance.json": "paper/analysis/evening-2026-11-15/seattle-probes/provenance.json"
+    }
+  },
+  "sources": {
+    "queue.json": "fede49a82756ddc56ea4009a795a6112e11c345642627577a923ea2becd4fc4e",
+    ".local/worker.json": "511b44b6ecfd52c22d2e5d6b27ac1cdaf4aa457198eb0fc8a729706f1a974fb4",
+    "evidence/outcomes/seattle-building-permit-completion-retry-1.json": "fb3b3d935c229c9a6d5d16756896d65ed963294830613bb41b3e1f1507b81748",
+    "evidence/consumer/seattle-building-permit-completion-retry-1/results/summary.json": "7b01d2d4e6fb38ad782b5342c4bbcc7bd6a43ad4799a66bf04c52209c16fad17",
+    "evidence/reviews/seattle-building-permit-completion-retry-1/cluster.json": "976d8ec6c08df11cbc0c2d6dff99cb4d1736fa5bf716b3a7ea9d7ed8523c28be",
+    "evidence/reviews/seattle-building-permit-completion-retry-1/pinned-release.json": "005341ec4aac94ef0706b9843f41609e3c6270415a906a52bc2d95a48f03ca71",
+    "evidence/reviews/seattle-building-permit-completion-retry-1/post/bootstrap.json": "00b5306826d69aa6d0c62bce5a9861053236c85bd6435e02cabdefab657703f4",
+    "evidence/reviews/seattle-building-permit-completion-retry-1/post/execution.json": "71c4431fc5b657e19f8246655667ddb2aad8e055c13f64936dd5a6330a2ab548",
+    "paper/analysis/evening-2026-11-15/seattle-building-permit-completion-qualification.json": "35bee5d4c3288600aa2e88c98fb2575a460299a74ae4e56c2f8a0630c8639f78",
+    "paper/analysis/evening-2026-11-15/seattle-building-permit-completion-artifact-verification.json": "8d6a2a7a56d5130d47aceb12c5e78baea65f31758e5f9cc5508ba2cdf14f9a62",
+    "evidence/outcomes/fra-form54-hazmat-release-retry-1.json": "6f120d374c2dcfb650fcd3843d6f6782cfa44141cfb9f4319155091f3c1af490",
+    "evidence/consumer/fra-form54-hazmat-release-retry-1/results/summary.json": "34d0e7812cbc704d114b9266279309a50503d8a45adff45ce78be0d0e80c8195",
+    "evidence/reviews/fra-form54-hazmat-release-retry-1/cluster.json": "68ce73859fa1f4a5db8b38faeeb4a5b90530a62195b1a82f3b8a1b6aa60f85d9",
+    "evidence/reviews/fra-form54-hazmat-release-retry-1/pinned-release.json": "f4bdf55e946323efd6b842d1f958d0ea95986063d72b31d736797dc6e610d536",
+    "evidence/reviews/fra-form54-hazmat-release-retry-1/post/bootstrap.json": "c434216f86b41f6f9e231ca35a1a200e13fefb31c23619e6025d5804972fef49",
+    "evidence/reviews/fra-form54-hazmat-release-retry-1/post/training-feature-probes.json": "4502b1d58fb67b2c4a567575868f72b730487e77d02974bf3f6485c6d7582867",
+    "evidence/reviews/fra-form54-hazmat-release-retry-1/post/artifact-probes.json": "de9c725761c984ab717eb6f452b49be858e6f9b5eb7bf55722e857d1f493d491",
+    "evidence/reviews/fra-form54-hazmat-release-retry-1/post/control-features.json": "874e55d0764ea3cb9adb3e9cbd783785d574211956b7ad85b6915a7174222f6b",
+    "evidence/reviews/fra-form54-hazmat-release-retry-1/post/execution.json": "a0b70b71aef04ec6ae3c4180e80749c8e23485d2e5bc089e13fb96553b21c4db",
+    "paper/analysis/evening-2026-11-15/fra-form54-hazmat-release-qualification.json": "8d45be55dd6fac13fb4fb3d69393e507e3a03c4e89763e885679d0ce08d49847",
+    "paper/analysis/evening-2026-11-15/fra-form54-hazmat-release-artifact-verification.json": "6782e351e79af2515dcd3c5c681fae6325d3764de6b3c9a51c2c5c9ab4f6ac96",
+    "paper/analysis/evening-2026-11-15/seattle-probes/training-feature-probes.json": "a78c43f93c46f6bf13c8cd76ac53bb551e52578b2ccce8c6fddbb9f8340d1aed",
+    "paper/analysis/evening-2026-11-15/seattle-probes/artifact-probes.json": "6da3a44a9a646f878b74bb9ee5c434f9b826294d44cfd79528e5a497f914bf04",
+    "paper/analysis/evening-2026-11-15/seattle-probes/control-features.json": "0955ec115f9a2fb970db2b8a406efca5ea04583c1fdf8795d2c39b791fcfd3a7",
+    "paper/analysis/evening-2026-11-15/seattle-probes/provenance.json": "1dc808e27a928bdbb0c04cac1a72864ae1470af21c922bfc53f41c897b39a765",
+    ".local/studies/seattle-building-permit-completion-retry-1/.study/runs/seattle-building-permit-completion--r1/BLOCKER.json": "ddeade796217b9645b615438520f351115bf1768537d40b3078e69ec74633059",
+    "evidence/reviews/seattle-building-permit-completion-retry-1/PRE-REVIEW.md": "79187ef6b27d91aeb58b915b93bb9b528f3294b43e9f716d8aac371c3fbc45b5",
+    "paper/analysis/evening-2026-11-15/seattle-building-permit-completion-acceptance.txt": "85b495879bba644fbc77c4d506fd3cc83d36f43199024ea0112d75f9c1374f39",
+    "evidence/reviews/fra-form54-hazmat-release-retry-1/PRE-REVIEW.md": "ee35beeb3d00aa639d76857cdd6cb459d965b4494c897eec4156452881ec573b",
+    "paper/analysis/evening-2026-11-15/fra-form54-hazmat-release-acceptance.txt": "bb3cb1aeb2a98bcc4da21bb46d6fd91db1e4ea236472d7939de10f62bcbb9536"
+  },
+  "data": {
+    "queue.json": [
+      {
+        "branch": "consumer/fjc-civil-trial-36m",
+        "commit": "1dcb191cb5eb2c75fef6b5e107c427de897641b2",
+        "dataset": "fjc-civil-trial-36m",
+        "finished": "2026-11-13T09:44:31.067613+00:00",
+        "release": {
+          "artifact_version": "12c60dcef222d140c644711233662e099b37df1325fe5ad1c96ff2d94d0aeff5",
+          "assets": 33,
+          "baseline_display": "See versioned evaluation.json; public validation only",
+          "dataset": "fjc-civil-trial-36m",
+          "destinations": {
+            "github": "https://github.com/earino/factory-fjc-civil-trial-36m/releases/tag/v-86c6129e8102da78",
+            "huggingface": "https://huggingface.co/datasets/earino/factory-fjc-civil-trial-36m"
+          },
+          "detail_id": "source-000048",
+          "disposition": "public",
+          "published": true,
+          "release_tag": "v-86c6129e8102da78",
+          "rows": 838531,
+          "splits": {
+            "eval": {
+              "rows": 124885
+            },
+            "holdout": {
+              "rows": 113510
+            },
+            "train": {
+              "rows": 600136
+            }
+          },
+          "verified": {
+            "github": true,
+            "huggingface": true
+          },
+          "verified_all": true,
+          "verified_at": "2026-11-13T02:30:19.452430+00:00",
+          "workflow": "modern"
+        },
+        "selected": true,
+        "started": "2026-11-13T06:54:40.366267+00:00",
+        "status": "complete",
+        "verified_at": "2026-11-13T02:30:19.452430+00:00"
+      },
+      {
+        "branch": "consumer/eia861-reliability-deterioration",
+        "commit": "19735c640ca0e7330e5113f4cd5a19fbc1f7069f",
+        "dataset": "eia861-reliability-deterioration",
+        "finished": "2026-11-13T09:54:18.876957+00:00",
+        "release": {
+          "artifact_version": "6aa939acba34270679973c9e8b5ea12984814b146a32ca50ec71d3b23ac2790a",
+          "assets": 33,
+          "baseline_display": "See versioned evaluation.json; public validation only",
+          "dataset": "eia861-reliability-deterioration",
+          "destinations": {
+            "github": "https://github.com/earino/factory-eia861-reliability-deterioration/releases/tag/v-498e55482c3ed94b",
+            "huggingface": "https://huggingface.co/datasets/earino/factory-eia861-reliability-deterioration"
+          },
+          "detail_id": "source-000053",
+          "disposition": "public",
+          "published": true,
+          "release_tag": "v-498e55482c3ed94b",
+          "rows": 5809,
+          "splits": {
+            "eval": {
+              "rows": 1294
+            },
+            "holdout": {
+              "rows": 2062
+            },
+            "train": {
+              "rows": 2453
+            }
+          },
+          "verified": {
+            "github": true,
+            "huggingface": true
+          },
+          "verified_all": true,
+          "verified_at": "2026-11-13T05:28:19.001460+00:00",
+          "workflow": "modern"
+        },
+        "selected": true,
+        "started": "2026-11-13T09:44:31.070469+00:00",
+        "status": "complete",
+        "verified_at": "2026-11-13T05:28:19.001460+00:00"
+      },
+      {
+        "branch": "consumer/phmsa-pipeline-penalty-reduction",
+        "commit": "6cc1f4f10fc650333eb54a737994129ee69359ba",
+        "dataset": "phmsa-pipeline-penalty-reduction",
+        "finished": "2026-11-13T20:13:45.636134+00:00",
+        "release": {
+          "artifact_version": "04b70fa61c8b4b68fb11974080984ef075ff8470c5ee52379579266b5ccfac1a",
+          "assets": 33,
+          "baseline_display": "See versioned evaluation.json; public validation only",
+          "dataset": "phmsa-pipeline-penalty-reduction",
+          "destinations": {
+            "github": "https://github.com/earino/factory-phmsa-pipeline-penalty-reduction/releases/tag/v-bbc08f68dbbd24b5",
+            "huggingface": "https://huggingface.co/datasets/earino/factory-phmsa-pipeline-penalty-reduction"
+          },
+          "detail_id": "source-000055",
+          "disposition": "public",
+          "published": true,
+          "release_tag": "v-bbc08f68dbbd24b5",
+          "rows": 958,
+          "splits": {
+            "eval": {
+              "rows": 139
+            },
+            "holdout": {
+              "rows": 149
+            },
+            "train": {
+              "rows": 670
+            }
+          },
+          "verified": {
+            "github": true,
+            "huggingface": true
+          },
+          "verified_all": true,
+          "verified_at": "2026-11-13T07:53:15.783341+00:00",
+          "workflow": "modern"
+        },
+        "selected": true,
+        "started": "2026-11-13T18:32:30.304079+00:00",
+        "status": "complete",
+        "verified_at": "2026-11-13T07:53:15.783341+00:00"
+      },
+      {
+        "branch": "consumer/fda-510k-five-year-recall",
+        "commit": "f5bf774a9a6f49d51786a84738eda794a1c27494",
+        "dataset": "fda-510k-five-year-recall",
+        "finished": "2026-11-14T01:48:42.565305+00:00",
+        "release": {
+          "artifact_version": "4402989d50d250e5d9eab6a8f93c00997c3be07ffecedd577a04ceddd1c15d15",
+          "assets": 33,
+          "baseline_display": "See versioned evaluation.json; public validation only",
+          "dataset": "fda-510k-five-year-recall",
+          "destinations": {
+            "github": "https://github.com/earino/factory-fda-510k-five-year-recall/releases/tag/v-68e59a5ac91ad404",
+            "huggingface": "https://huggingface.co/datasets/earino/factory-fda-510k-five-year-recall"
+          },
+          "detail_id": "source-000064",
+          "disposition": "public",
+          "published": true,
+          "release_tag": "v-68e59a5ac91ad404",
+          "rows": 48623,
+          "splits": {
+            "eval": {
+              "rows": 9046
+            },
+            "holdout": {
+              "rows": 9014
+            },
+            "train": {
+              "rows": 30563
+            }
+          },
+          "verified": {
+            "github": true,
+            "huggingface": true
+          },
+          "verified_all": true,
+          "verified_at": "2026-11-13T23:42:15.349488+00:00",
+          "workflow": "modern"
+        },
+        "selected": true,
+        "started": "2026-11-14T00:06:19.100859+00:00",
+        "status": "complete",
+        "verified_at": "2026-11-13T23:42:15.349488+00:00"
+      },
+      {
+        "branch": "consumer/t100-new-route-survival",
+        "commit": "82a6bc9d5f72775191e29231e7cb6c66c19b34b5",
+        "dataset": "t100-new-route-survival",
+        "finished": "2026-11-14T12:43:53.529227+00:00",
+        "release": {
+          "artifact_version": "fa26f4e978cfd24a70d86394dac2e3dc9ddf148346ed1e186b04b346bd064001",
+          "assets": 33,
+          "baseline_display": "See versioned evaluation.json; public validation only",
+          "dataset": "t100-new-route-survival",
+          "destinations": {
+            "github": "https://github.com/earino/factory-t100-new-route-survival/releases/tag/v-d32decf32c315be4",
+            "huggingface": "https://huggingface.co/datasets/earino/factory-t100-new-route-survival"
+          },
+          "detail_id": "source-000068",
+          "disposition": "public",
+          "published": true,
+          "release_tag": "v-d32decf32c315be4",
+          "rows": 5777,
+          "splits": {
+            "eval": {
+              "rows": 834
+            },
+            "holdout": {
+              "rows": 1209
+            },
+            "train": {
+              "rows": 3734
+            }
+          },
+          "verified": {
+            "github": true,
+            "huggingface": true
+          },
+          "verified_all": true,
+          "verified_at": "2026-11-14T02:04:19.792527+00:00",
+          "workflow": "modern"
+        },
+        "selected": true,
+        "started": "2026-11-14T11:04:03.811454+00:00",
+        "status": "complete",
+        "verified_at": "2026-11-14T02:04:19.792527+00:00"
+      },
+      {
+        "branch": "consumer/sbir-phase1-to-phase2-conversion",
+        "commit": "943f7482d687e6688fc0ae7ba12377a20d73b2de",
+        "dataset": "sbir-phase1-to-phase2-conversion",
+        "finished": "2026-11-14T14:27:34.928613+00:00",
+        "release": {
+          "artifact_version": "a1f22706a52ba521dcb070d0a85877c552f5c62e8752af292e4a31ec27fdbe72",
+          "assets": 33,
+          "baseline_display": "See versioned evaluation.json; public validation only",
+          "dataset": "sbir-phase1-to-phase2-conversion",
+          "destinations": {
+            "github": "https://github.com/earino/factory-sbir-phase1-to-phase2-conversion/releases/tag/v-0d2e623e604ecf78",
+            "huggingface": "https://huggingface.co/datasets/earino/factory-sbir-phase1-to-phase2-conversion"
+          },
+          "detail_id": "source-000072",
+          "disposition": "public",
+          "published": true,
+          "release_tag": "v-0d2e623e604ecf78",
+          "rows": 9686,
+          "splits": {
+            "eval": {
+              "rows": 1408
+            },
+            "holdout": {
+              "rows": 1704
+            },
+            "train": {
+              "rows": 6574
+            }
+          },
+          "verified": {
+            "github": true,
+            "huggingface": true
+          },
+          "verified_all": true,
+          "verified_at": "2026-11-14T04:36:15.599185+00:00",
+          "workflow": "modern"
+        },
+        "selected": true,
+        "started": "2026-11-14T12:43:53.530450+00:00",
+        "status": "complete",
+        "verified_at": "2026-11-14T04:36:15.599185+00:00"
+      },
+      {
+        "branch": "consumer/caa-fce-hpv-escalation",
+        "commit": "1f4600d942d308db066c465442b125dc6584de55",
+        "dataset": "caa-fce-hpv-escalation",
+        "finished": "2026-11-15T01:56:47.894817+00:00",
+        "release": {
+          "artifact_version": "2a1b8fe5efdf2f0bae9a7777de98d0019bb70404c8aafbe0291a615e93f0573b",
+          "assets": 33,
+          "baseline_display": "See versioned evaluation.json; public validation only",
+          "dataset": "caa-fce-hpv-escalation",
+          "destinations": {
+            "github": "https://github.com/earino/factory-caa-fce-hpv-escalation/releases/tag/v-fd86cbb0bc96aaca",
+            "huggingface": "https://huggingface.co/datasets/earino/factory-caa-fce-hpv-escalation"
+          },
+          "detail_id": "source-000079",
+          "disposition": "public",
+          "published": true,
+          "release_tag": "v-fd86cbb0bc96aaca",
+          "rows": 114694,
+          "splits": {
+            "eval": {
+              "rows": 36500
+            },
+            "holdout": {
+              "rows": 20011
+            },
+            "train": {
+              "rows": 58183
+            }
+          },
+          "verified": {
+            "github": true,
+            "huggingface": true
+          },
+          "verified_all": true,
+          "verified_at": "2026-11-14T22:55:16.477819+00:00",
+          "workflow": "modern"
+        },
+        "selected": true,
+        "started": "2026-11-15T00:12:29.322881+00:00",
+        "status": "complete",
+        "verified_at": "2026-11-14T22:55:16.477819+00:00"
+      },
+      {
+        "branch": "consumer/wser-effluent-exceedance",
+        "commit": "5e12c495e62fbbf56b133fe340923e54885020d8",
+        "dataset": "wser-effluent-exceedance",
+        "finished": "2026-11-15T03:52:59.003698+00:00",
+        "release": {
+          "artifact_version": "15ee03d514ebc5eaedefc7fba7611d2525fd4b9c828bdfb120ae55b8b8f4c1b4",
+          "assets": 33,
+          "baseline_display": "See versioned evaluation.json; public validation only",
+          "dataset": "wser-effluent-exceedance",
+          "destinations": {
+            "github": "https://github.com/earino/factory-wser-effluent-exceedance/releases/tag/v-3ceae5479cda761c",
+            "huggingface": "https://huggingface.co/datasets/earino/factory-wser-effluent-exceedance"
+          },
+          "detail_id": "source-000083",
+          "disposition": "public",
+          "published": true,
+          "release_tag": "v-3ceae5479cda761c",
+          "rows": 18126,
+          "splits": {
+            "eval": {
+              "rows": 5894
+            },
+            "holdout": {
+              "rows": 3988
+            },
+            "train": {
+              "rows": 8244
+            }
+          },
+          "verified": {
+            "github": true,
+            "huggingface": true
+          },
+          "verified_all": true,
+          "verified_at": "2026-11-15T01:17:16.726399+00:00",
+          "workflow": "modern"
+        },
+        "selected": true,
+        "started": "2026-11-15T02:13:52.572975+00:00",
+        "status": "complete",
+        "verified_at": "2026-11-15T01:17:16.726399+00:00"
+      },
+      {
+        "branch": "consumer/faa-wildlife-strike-substantial-damage",
+        "commit": "49de5907b0fcb37161020cb606ddaf510ef5f5c3",
+        "dataset": "faa-wildlife-strike-substantial-damage",
+        "finished": "2026-11-15T11:35:09.935894+00:00",
+        "release": {
+          "artifact_version": "ae75ab5acd1b27aeb29c4d414aa78610d797fe43068062bafd1574bb272dc2f9",
+          "assets": 33,
+          "baseline_display": "See versioned evaluation.json; public validation only",
+          "dataset": "faa-wildlife-strike-substantial-damage",
+          "destinations": {
+            "github": "https://github.com/earino/factory-faa-wildlife-strike-substantial-damage/releases/tag/v-d654c9f4ddfcf60c",
+            "huggingface": "https://huggingface.co/datasets/earino/factory-faa-wildlife-strike-substantial-damage"
+          },
+          "detail_id": "source-000096",
+          "disposition": "public",
+          "published": true,
+          "release_tag": "v-d654c9f4ddfcf60c",
+          "rows": 142871,
+          "splits": {
+            "eval": {
+              "rows": 33250
+            },
+            "holdout": {
+              "rows": 25425
+            },
+            "train": {
+              "rows": 84196
+            }
+          },
+          "verified": {
+            "github": true,
+            "huggingface": true
+          },
+          "verified_all": true,
+          "verified_at": "2026-11-15T09:22:16.250788+00:00",
+          "workflow": "modern"
+        },
+        "selected": true,
+        "started": "2026-11-15T10:21:16.734063+00:00",
+        "status": "complete",
+        "verified_at": "2026-11-15T09:22:16.250788+00:00"
+      },
+      {
+        "branch": "consumer/seattle-building-permit-completion",
+        "commit": "2ff2d43b1c3da5c3111cb6b11105e0def1454165",
+        "dataset": "seattle-building-permit-completion",
+        "finished": "2026-11-15T12:30:02.378452+00:00",
+        "release": {
+          "artifact_version": "a220e68c960ee6b6aa473f015112be0993353ab3d12f9820c31551164f0ee677",
+          "assets": 33,
+          "baseline_display": "See versioned evaluation.json; public validation only",
+          "dataset": "seattle-building-permit-completion",
+          "destinations": {
+            "github": "https://github.com/earino/factory-seattle-building-permit-completion/releases/tag/v-67a46c698fa813cc",
+            "huggingface": "https://huggingface.co/datasets/earino/factory-seattle-building-permit-completion"
+          },
+          "detail_id": "source-000100",
+          "disposition": "public",
+          "published": true,
+          "release_tag": "v-67a46c698fa813cc",
+          "rows": 24747,
+          "splits": {
+            "eval": {
+              "rows": 7135
+            },
+            "holdout": {
+              "rows": 6326
+            },
+            "train": {
+              "rows": 11286
+            }
+          },
+          "verified": {
+            "github": true,
+            "huggingface": true
+          },
+          "verified_all": true,
+          "verified_at": "2026-11-15T11:13:20.100537+00:00",
+          "workflow": "modern"
+        },
+        "selected": true,
+        "started": "2026-11-15T12:22:47.464535+00:00",
+        "status": "complete",
+        "verified_at": "2026-11-15T11:13:20.100537+00:00"
+      },
+      {
+        "branch": "consumer/fra-form54-hazmat-release",
+        "commit": "498e4818e18fa3ac55b9e24f7b7e88127b233288",
+        "dataset": "fra-form54-hazmat-release",
+        "finished": "2026-11-15T12:37:15.579878+00:00",
+        "release": {
+          "artifact_version": "aedd811fdb6a80fdeb6828c1ba8bc2eeb80c8446d597ba57a536adb8e384da7e",
+          "assets": 33,
+          "baseline_display": "See versioned evaluation.json; public validation only",
+          "dataset": "fra-form54-hazmat-release",
+          "destinations": {
+            "github": "https://github.com/earino/factory-fra-form54-hazmat-release/releases/tag/v-c59d614ee9c4ce97",
+            "huggingface": "https://huggingface.co/datasets/earino/factory-fra-form54-hazmat-release"
+          },
+          "detail_id": "source-000099",
+          "disposition": "public",
+          "published": true,
+          "release_tag": "v-c59d614ee9c4ce97",
+          "rows": 25427,
+          "splits": {
+            "eval": {
+              "rows": 7697
+            },
+            "holdout": {
+              "rows": 5189
+            },
+            "train": {
+              "rows": 12541
+            }
+          },
+          "verified": {
+            "github": true,
+            "huggingface": true
+          },
+          "verified_all": true,
+          "verified_at": "2026-11-15T11:22:19.117088+00:00",
+          "workflow": "modern"
+        },
+        "selected": true,
+        "started": "2026-11-15T12:30:02.379484+00:00",
+        "status": "complete",
+        "verified_at": "2026-11-15T11:22:19.117088+00:00"
+      },
+      {
+        "dataset": "sdwis-lcr-lead-action-level-next-period",
+        "release": {
+          "artifact_version": "b08c6a7bbfdcbbffb33de64be0cde0485e147bc0f82d96185db1b34ecdaab857",
+          "assets": 33,
+          "baseline_display": "See versioned evaluation.json; public validation only",
+          "dataset": "sdwis-lcr-lead-action-level-next-period",
+          "destinations": {
+            "github": "https://github.com/earino/factory-sdwis-lcr-lead-action-level-next-period/releases/tag/v-5917644e4c46057e",
+            "huggingface": "https://huggingface.co/datasets/earino/factory-sdwis-lcr-lead-action-level-next-period"
+          },
+          "detail_id": "source-000107",
+          "disposition": "public",
+          "published": true,
+          "release_tag": "v-5917644e4c46057e",
+          "rows": 292315,
+          "splits": {
+            "eval": {
+              "rows": 17368
+            },
+            "holdout": {
+              "rows": 17568
+            },
+            "train": {
+              "rows": 257379
+            }
+          },
+          "verified": {
+            "github": true,
+            "huggingface": true
+          },
+          "verified_all": true,
+          "verified_at": "2026-11-15T14:56:16.234161+00:00",
+          "workflow": "modern"
+        },
+        "selected": true,
+        "status": "queued",
+        "verified_at": "2026-11-15T14:56:16.234161+00:00"
+      }
+    ],
+    ".local/worker.json": {
+      "dataset": "sdwis-lcr-lead-action-level-next-period",
+      "execution_id": "sdwis-lcr-lead-action-level-next-period",
+      "started": "2026-11-15T20:08:03.671494+00:00",
+      "status": "running"
+    },
+    "evidence/outcomes/seattle-building-permit-completion-retry-1.json": {
+      "branch": "consumer/seattle-building-permit-completion-retry-1",
+      "commit": "b6e207596570efb9bb80d3aca208fa54b09021ed",
+      "dataset": "seattle-building-permit-completion",
+      "execution_id": "seattle-building-permit-completion-retry-1",
+      "finished": "2026-11-15T18:29:30.983627+00:00",
+      "started": "2026-11-15T16:44:24.718217+00:00",
+      "status": "complete"
+    },
+    "evidence/consumer/seattle-building-permit-completion-retry-1/results/summary.json": {
+      "cli_reported_cost_usd_not_invoice": 898.9768239999997,
+      "generated_at": "2026-11-15T18:28:56.682763+00:00",
+      "limitations": [
+        "Five selected factory releases; three attempts are descriptive, not agent rankings.",
+        "Pinned consumer scaffold and deterministic downloads are provided assistance.",
+        "CLI-reported model IDs are not independent provider attestation.",
+        "Public holdout isolation and semantic compliance are procedural, not enforced by an OS sandbox.",
+        "CFPB holdout was used in earlier pilot work outside this study.",
+        "Random search matches observed eligible primary-trial fitting CPU, not unlogged diagnostics or token work.",
+        "Fresh Claude trajectories are nondeterministic; frozen artifact replay is reproducible.",
+        "No factory-wide publication yield or spend is inferred from this consumer study."
+      ],
+      "outcomes": [
+        {
+          "compliance_triage": "no_automatic_access_flag",
+          "dataset": "seattle-building-permit-completion",
+          "error": null,
+          "holdout_content_hits": [],
+          "id": "seattle-building-permit-completion--r1",
+          "integrity": "requires_semantic_review",
+          "interruptions": null,
+          "protocol_caveats": [],
+          "research_active_s": 4248.895481999993,
+          "semantic_compliance": "not_established_by_automated_checks",
+          "source_read_flags": 0,
+          "status": "blocked",
+          "timing": {
+            "cli_invocations": 1,
+            "evaluation_wall_sum_s": 223.97748966499057,
+            "fit_cpu_sum_s": 152.928162,
+            "fit_wall_sum_s": 58.391938415996265,
+            "harness_wall_union_s": 283.7323694229126,
+            "incomplete_or_failed_trials": 0,
+            "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+            "ok_trials": 20,
+            "other_active_wall_s": 3965.16311257708,
+            "research_active_s": 4248.895481999993,
+            "trial_records": 20
+          },
+          "tool_access_flags": 0,
+          "verified_forbidden_copies": 0
+        },
+        {
+          "compliance_triage": "no_automatic_access_flag",
+          "dataset": "seattle-building-permit-completion",
+          "error": null,
+          "holdout_content_hits": [],
+          "id": "seattle-building-permit-completion--r2",
+          "integrity": "requires_semantic_review",
+          "interruptions": null,
+          "protocol_caveats": [],
+          "research_active_s": 5100.234250583017,
+          "semantic_compliance": "not_established_by_automated_checks",
+          "source_read_flags": 0,
+          "status": "frozen",
+          "timing": {
+            "cli_invocations": 17,
+            "evaluation_wall_sum_s": 121.44742412499909,
+            "fit_cpu_sum_s": 57.428856999999994,
+            "fit_wall_sum_s": 23.251504041996668,
+            "harness_wall_union_s": 146.00609707832336,
+            "incomplete_or_failed_trials": 0,
+            "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+            "ok_trials": 22,
+            "other_active_wall_s": 4954.228153504693,
+            "research_active_s": 5100.234250583017,
+            "trial_records": 22
+          },
+          "tool_access_flags": 0,
+          "verified_forbidden_copies": 0
+        },
+        {
+          "compliance_triage": "no_automatic_access_flag",
+          "dataset": "seattle-building-permit-completion",
+          "error": null,
+          "holdout_content_hits": [],
+          "id": "seattle-building-permit-completion--r3",
+          "integrity": "requires_semantic_review",
+          "interruptions": null,
+          "protocol_caveats": [],
+          "research_active_s": 5100.015653127979,
+          "semantic_compliance": "not_established_by_automated_checks",
+          "source_read_flags": 0,
+          "status": "frozen",
+          "timing": {
+            "cli_invocations": 16,
+            "evaluation_wall_sum_s": 236.0898385829787,
+            "fit_cpu_sum_s": 12.803322999999999,
+            "fit_wall_sum_s": 5.888398832001258,
+            "harness_wall_union_s": 243.2108428478241,
+            "incomplete_or_failed_trials": 0,
+            "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+            "ok_trials": 26,
+            "other_active_wall_s": 4856.804810280155,
+            "research_active_s": 5100.015653127979,
+            "trial_records": 26
+          },
+          "tool_access_flags": 0,
+          "verified_forbidden_copies": 0
+        }
+      ],
+      "protocol_sha256": "a8517f1e11bb1294d2e50c9b24e9a56aef49eb42f1eae53b1d21515b4eb9be43",
+      "reported_models": [
+        "claude-fable-5-2"
+      ],
+      "reported_usage": {
+        "cache_creation_input_tokens": 1101850,
+        "cache_read_input_tokens": 140789648,
+        "input_tokens": 1144,
+        "output_tokens": 724453
+      },
+      "requested_model": "claude-fable-5-2",
+      "scores": [
+        {
+          "dataset": "seattle-building-permit-completion",
+          "holdout_auc": 0.6179365855905143,
+          "holdout_brier": 0.18231139992070838,
+          "holdout_rows": 6326,
+          "id": "seattle-building-permit-completion--ordinary",
+          "kind": "ordinary",
+          "validation_auc": 0.6193763018351905,
+          "validation_brier": 0.18066629106210508
+        },
+        {
+          "dataset": "seattle-building-permit-completion",
+          "holdout_auc": 0.6473918284596301,
+          "holdout_brier": 0.16644326889691763,
+          "holdout_rows": 6326,
+          "id": "seattle-building-permit-completion--r2",
+          "kind": "agent",
+          "validation_auc": 0.6566011611617636,
+          "validation_brier": 0.17031022974011256
+        },
+        {
+          "dataset": "seattle-building-permit-completion",
+          "holdout_auc": 0.6347200596465576,
+          "holdout_brier": 0.17250741124438113,
+          "holdout_rows": 6326,
+          "id": "seattle-building-permit-completion--r2--random",
+          "kind": "random",
+          "validation_auc": 0.6442855495040071,
+          "validation_brier": 0.17400685760344903
+        },
+        {
+          "dataset": "seattle-building-permit-completion",
+          "holdout_auc": 0.6551826709794852,
+          "holdout_brier": 0.16581913836209253,
+          "holdout_rows": 6326,
+          "id": "seattle-building-permit-completion--r3",
+          "kind": "agent",
+          "validation_auc": 0.6565911309708891,
+          "validation_brier": 0.17010653874750195
+        },
+        {
+          "dataset": "seattle-building-permit-completion",
+          "holdout_auc": 0.6328318542832856,
+          "holdout_brier": 0.1743433350150328,
+          "holdout_rows": 6326,
+          "id": "seattle-building-permit-completion--r3--random",
+          "kind": "random",
+          "validation_auc": 0.641561516832332,
+          "validation_brier": 0.17410696005240045
+        },
+        {
+          "dataset": "seattle-building-permit-completion",
+          "holdout_auc": 0.6199467903361817,
+          "holdout_brier": 0.1742387968456463,
+          "holdout_rows": 6326,
+          "id": "seattle-building-permit-completion--released",
+          "kind": "released",
+          "validation_auc": 0.6268251812957001,
+          "validation_brier": 0.1754951025937614
+        }
+      ]
+    },
+    "evidence/reviews/seattle-building-permit-completion-retry-1/cluster.json": {
+      "cluster_columns": [
+        "issueddate"
+      ],
+      "reason": "The source unit is the permit, but the dependence unit is the construction project or development site: the release itself states that permits sharing ParentPermitNum, RelatedMUP or a development site are correlated and that no row independence is claimed (README.md:58,67; construction.json:278,424). The project keys are not shipped: carry_columns is empty (construction.json:37) and the linking fields are reduced to presence flags (build.py:205-206), so permitnum, although unique (build.py:243-244), would treat sibling permits as independent. issueddate is a shipped non-predictor carry (build.py:31, absent from FEATURES at build.py:21-30), is the declared event key and split key (construction.json:36,70), and is the issuance event at which sibling permits of one project are commonly released together. In public train, a label-free same-day signature (issue day, ZIP level, class, type, description length, application-to-issue days) places 6.0% of rows in multi-permit groups, 48% of which carry parent_permit_flag=1 versus 3.4% elsewhere; 88% of those groups have a unanimous label versus 57% expected under independence (within-group ICC 0.68). Every such group nests inside one issue day, so issue-day clusters contain the observed sibling dependence plus any same-day administrative batch effect. Train label ICC by issue day is 0.022 at about 13 rows per day (design effect about 1.27); public validation gives 0.014 (about 1.15). Train has 856 issue-day clusters over 36 months and validation 625 over 24 months, so the 21-month holdout window should supply several hundred clusters. Chosen from source meaning plus public train and validation data only, before holdout scoring; no holdout rows or holdout metrics were inspected.",
+      "status": "declared",
+      "limitations": [
+        "issueddate is an issuance-day block, not the project entity. The true entity keys (ParentPermitNum, RelatedMUP, address, contractor) are not in the released extract, so project-level clustering cannot be applied or verified.",
+        "Sibling permits issued on different days fall in different clusters. Among train rows with parent_permit_flag=1, a looser date-free signature finds 41 groups (123 rows) spanning different issue days (median span 258 days, maximum 975) with 76% unanimous labels, so some project dependence escapes this clustering and can cross split boundaries. That signature is a weak proxy and may include coincidental matches.",
+        "Issue-day clusters also pool unrelated permits issued the same day (median 12 rows per day, maximum 60 in train). This widens clusters beyond the project but does not restore independence across days.",
+        "Common shocks at month or year scale are not absorbed: train label rates drift by issue year (0.818, 0.752, 0.765) and outcome windows of train, validation and holdout overlap in calendar time. Intervals from issue-day clustering describe sampling within this regime, not transfer to another period.",
+        "Dependence through repeat applicants, contractors or sites over time is not captured; those identifiers were dropped from the release for terms-of-use reasons (README.md:55).",
+        "The holdout cluster count and cluster-size distribution are extrapolated from train and validation density and were not checked against holdout rows.",
+        "The same-day signature used as evidence is a heuristic built from shipped feature columns. It was used only to assess dependence, is not proposed as a cluster key, and true project membership was not verified against the raw source."
+      ]
+    },
+    "evidence/reviews/seattle-building-permit-completion-retry-1/pinned-release.json": [
+      "seattle-building-permit-completion",
+      "v-67a46c698fa813cc",
+      "26a6cab683e1845d7fa2f6b05caee76bf79536fe",
+      "c8d716bd8365da0a786ee1e26c5c6cfb1d2b1efe788d6f6a36369f9980e56589"
+    ],
+    "evidence/reviews/seattle-building-permit-completion-retry-1/post/bootstrap.json": {
+      "dataset": "seattle-building-permit-completion",
+      "cluster_columns": [
+        "issueddate"
+      ],
+      "clusters": 566,
+      "rows": 6326,
+      "positives": 4789,
+      "missing_cluster_rows": 0,
+      "largest_cluster": 31,
+      "seed": 1606238178,
+      "valid_replicates": 2000,
+      "invalid_replicates": 0,
+      "comparisons": [
+        {
+          "run": "seattle-building-permit-completion--r2",
+          "control": "seattle-building-permit-completion--ordinary",
+          "delta": 0.029455242869115716,
+          "low": 0.014129224528178757,
+          "high": 0.044670579617330716
+        },
+        {
+          "run": "seattle-building-permit-completion--r2",
+          "control": "seattle-building-permit-completion--r2--random",
+          "delta": 0.012671768813072304,
+          "low": 0.0012740981486253189,
+          "high": 0.024600442200551482
+        },
+        {
+          "run": "seattle-building-permit-completion--r3",
+          "control": "seattle-building-permit-completion--ordinary",
+          "delta": 0.037246085388970895,
+          "low": 0.02130084364666696,
+          "high": 0.052086321067675405
+        },
+        {
+          "run": "seattle-building-permit-completion--r3",
+          "control": "seattle-building-permit-completion--r3--random",
+          "delta": 0.02235081669619965,
+          "low": 0.010784914681445013,
+          "high": 0.03326654866496743
+        }
+      ],
+      "inputs": {
+        "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-1/.study/holdout/seattle-building-permit-completion/holdout.csv": "aea92d0461c05b38c321e7012138c494921c01525676fb781e0fbb2885e44bd4",
+        "/Users/earino/research/factory-prospective-study/evidence/reviews/seattle-building-permit-completion-retry-1/cluster.json": "976d8ec6c08df11cbc0c2d6dff99cb4d1736fa5bf716b3a7ea9d7ed8523c28be",
+        "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-1/results/scores/seattle-building-permit-completion--ordinary/predictions.csv.gz": "a3063b45860abea95c892bc05c769ee20095bb3cb82b814f430bfc3fe5c9d00c",
+        "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-1/results/scores/seattle-building-permit-completion--r2/predictions.csv.gz": "67dc84b2a83243ba3b3b222ba201353bfb7855707b83492141c68485635d1c9c",
+        "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-1/results/scores/seattle-building-permit-completion--r3/predictions.csv.gz": "a6f7a270b2dd6ca46034f9ab5a9b96fbd23e9280485b3d925d353756abf6e97a",
+        "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-1/results/scores/seattle-building-permit-completion--r2--random/predictions.csv.gz": "55bb90be2377a424e364bd27e5663f5e2dafbe14b0770588ed49546a7c34384a",
+        "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-1/results/scores/seattle-building-permit-completion--r3--random/predictions.csv.gz": "882d549a0b7d3174cb9113207bdb88a5888341544c5e43777bbe68e50f27169b"
+      },
+      "method": "2000 paired whole-entity draws, pointwise percentile95%; conditional on fitted models, cohort and declared dependence"
+    },
+    "evidence/reviews/seattle-building-permit-completion-retry-1/post/execution.json": [
+      {
+        "ok": true,
+        "tool": "review_checks.py"
+      },
+      {
+        "error": "Command exited 1: Traceback (most recent call last):\n  File \"/Users/earino/research/factory-prospective-study/review_tools/probe_all_training_features.py\", line 29, in <module>\n    spec=importlib.util.spec_from_file_location('review_solution',ROOT/'evidence/frozen'/rid/'train.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)\n                                                                                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap_external>\", line 1132, in get_code\n  File \"<frozen importlib._bootstrap_external>\", line 1190, in get_data\nFileNotFoundError: [Errno 2] No such file or directory: '/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-1/evidence/frozen/seattle-building-permit-completion--r1/train.py'\n",
+        "ok": false,
+        "tool": "probe_all_training_features.py"
+      },
+      {
+        "error": "Command exited 1: Traceback (most recent call last):\n  File \"/Users/earino/research/factory-prospective-study/review_tools/probe_artifacts.py\", line 32, in <module>\n    d=ROOT/'evidence/frozen'/rid; a=pickle.loads((d/'model.pkl').read_bytes());rel=ROOT/'.study/runs'/rid/'release/extract';meta=json.loads((rel/'meta.json').read_text());df=pd.read_csv(rel/'public/eval.csv');X=df[allowed(rid)];idx=np.linspace(0,len(X)-1,min(25,len(X)),dtype=int);X=X.iloc[idx].reset_index(drop=True)\n                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Caskroom/miniconda/base/lib/python3.12/pathlib.py\", line 1019, in read_bytes\n    with self.open(mode='rb') as f:\n         ^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Caskroom/miniconda/base/lib/python3.12/pathlib.py\", line 1013, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-1/evidence/frozen/seattle-building-permit-completion--r1/model.pkl'\n",
+        "ok": false,
+        "tool": "probe_artifacts.py"
+      },
+      {
+        "ok": true,
+        "tool": "bootstrap.py"
+      }
+    ],
+    "paper/analysis/evening-2026-11-15/seattle-building-permit-completion-qualification.json": {
+      "ok": true,
+      "dataset": "/output/extract",
+      "gate_version": "1.6.1",
+      "artifact": {
+        "train": {
+          "file": "public/train.csv",
+          "sha256": "525fdf9a69b3449654fecebcc0087e1155c1fe00a4de72175cbf7366566da283",
+          "bytes": 1848274
+        },
+        "eval": {
+          "file": "public/eval.csv",
+          "sha256": "db5726b6c72f69815bade3f012146a198b8772589f255bccb3af094c5d076017",
+          "bytes": 1180318
+        },
+        "holdout": {
+          "file": "private/holdout.csv",
+          "sha256": "aea92d0461c05b38c321e7012138c494921c01525676fb781e0fbb2885e44bd4",
+          "bytes": 1056984
+        },
+        "meta.json": {
+          "file": "meta.json",
+          "sha256": "767e29ef2df31a06b97bf83f62027fe7a40e376bf3b98ce238b79e7a5c6acf68",
+          "bytes": 2081
+        },
+        "quality.json": {
+          "file": "quality.json",
+          "sha256": "80980921fbb4851537bf2c2c6dabd2bc237bb17033eb224e643117f1bd7fafe6",
+          "bytes": 30671
+        },
+        "scanned_files": {
+          "meta.json": "767e29ef2df31a06b97bf83f62027fe7a40e376bf3b98ce238b79e7a5c6acf68",
+          "private/holdout.csv": "aea92d0461c05b38c321e7012138c494921c01525676fb781e0fbb2885e44bd4",
+          "public/eval.csv": "db5726b6c72f69815bade3f012146a198b8772589f255bccb3af094c5d076017",
+          "public/train.csv": "525fdf9a69b3449654fecebcc0087e1155c1fe00a4de72175cbf7366566da283",
+          "quality.json": "80980921fbb4851537bf2c2c6dabd2bc237bb17033eb224e643117f1bd7fafe6"
+        },
+        "artifact_version": {
+          "digest": "a220e68c960ee6b6aa473f015112be0993353ab3d12f9820c31551164f0ee677",
+          "components": [
+            "eval",
+            "holdout",
+            "meta.json",
+            "quality.json",
+            "train"
+          ]
+        }
+      },
+      "results": [
+        {
+          "check": "descriptor",
+          "ok": true,
+          "detail": "quality.json loaded for 'seattle-building-permit-completion'",
+          "evidence": {}
+        },
+        {
+          "check": "battery.exact_recovery",
+          "ok": true,
+          "detail": "Any zero-error exact reconstruction of a scored row blocks qualification",
+          "evidence": {
+            "version": "1.0.0",
+            "ok": true,
+            "input_digest": "9afc019b2ac1c2569dff0f8f95b0bf97fbde0b9d26a4fe2504efbcb4ed62b7b9",
+            "code": {
+              "artifact_scrub.py": "8c663253e691a7b8751f9c853b40a3752a833360caafb1ea8e8f534e64af4b68",
+              "leakage_battery.py": "adbf7ee0aca0012b78cc1f1e4aeb968a23717cae30f66a02e080215e75f830e3",
+              "recovery_recipes.py": "f64c542fcda232169c95ace17421b45275194b934938c0ea4c9b68e6f844ad0e"
+            },
+            "freeze_sha256": "8fce67d49f6d20c06751a10888a356c529d32b1077e780e7366aa838b30f078f",
+            "all_results_sha256": "b4bfeadf881af2f2ab199926a0810b53c23889716f5c0962227206c481f28958",
+            "detail_files": {
+              "results-0000.jsonl": {
+                "sha256": "9e64c596b1762e3e524659c90dac29054d2431358ce6756ae7ee12ce7c089e28",
+                "bytes": 245674
+              },
+              "results-0001.jsonl": {
+                "sha256": "1217470759de6568635600b8f3476d381a94c84e09d0d2c949efe208c48e204f",
+                "bytes": 140677
+              }
+            },
+            "exact": [],
+            "failures": [],
+            "flags": [
+              {
+                "name": "lookup_unanimous:description_apartment+numberreviewcycles",
+                "kind": "supervised",
+                "split": "holdout",
+                "sha256": "da97e7abd4f7d0693a72d605c7c51413e1ac49d04f3ed1f0b2e30245e068e029",
+                "rows": 6326,
+                "covered": 4,
+                "errors": 0,
+                "auc_covered": 1.0,
+                "auc_full": 0.50085915823415
+              },
+              {
+                "name": "lookup_unanimous:numberreviewcycles+permittypedesc",
+                "kind": "supervised",
+                "split": "holdout",
+                "sha256": "7ad8c846140f566058e9ddfcccc33e7cb3c6aeef282a91831c7dfb825621cd6a",
+                "rows": 6326,
+                "covered": 21,
+                "errors": 0,
+                "auc_covered": 1.0,
+                "auc_full": 0.5063871024100584
+              },
+              {
+                "name": "lookup_unanimous:housingunitsremoved+numberreviewcycles",
+                "kind": "supervised",
+                "split": "holdout",
+                "sha256": "36e30868e0b06aa78be15787ea749dbe32ee81fadbad4ee000f619e8dcefd384",
+                "rows": 6326,
+                "covered": 20,
+                "errors": 1,
+                "auc_covered": 0.9705882352941176,
+                "auc_full": 0.5051895928820832
+              }
+            ],
+            "flag_count": 3,
+            "attempted": {
+              "heuristic": 56,
+              "statistical": 402,
+              "supervised": 1512
+            },
+            "constant_or_uncovered": {
+              "statistical": 62,
+              "supervised": 461
+            },
+            "scope": {
+              "donors": [
+                "self",
+                "all"
+              ],
+              "exploratory_keys": 8,
+              "exploratory_operands": 8,
+              "max_columns": 128,
+              "scored_labels_read": false,
+              "tokens_per_column": 80,
+              "train_labels": "supervised controls only"
+            }
+          }
+        },
+        {
+          "check": "battery.recorded_in_quality",
+          "ok": true,
+          "detail": "Construction must record the computed battery receipt in quality.json; use --record-battery",
+          "evidence": {}
+        },
+        {
+          "check": "artifacts.no_shipped_answers",
+          "ok": true,
+          "detail": "Every generated artifact file is scanned for shipped answer scaffolds",
+          "evidence": {
+            "version": "1.0.1",
+            "ok": true,
+            "files": {
+              "meta.json": "767e29ef2df31a06b97bf83f62027fe7a40e376bf3b98ce238b79e7a5c6acf68",
+              "private/holdout.csv": "aea92d0461c05b38c321e7012138c494921c01525676fb781e0fbb2885e44bd4",
+              "public/eval.csv": "db5726b6c72f69815bade3f012146a198b8772589f255bccb3af094c5d076017",
+              "public/train.csv": "525fdf9a69b3449654fecebcc0087e1155c1fe00a4de72175cbf7366566da283",
+              "quality.json": "80980921fbb4851537bf2c2c6dabd2bc237bb17033eb224e643117f1bd7fafe6"
+            },
+            "tree_digest": "30b6d2e617872a45d2357b718ebe3921b16865ef11d34dc5f4f45b96bc333cd2",
+            "findings": [],
+            "finding_count": 0,
+            "truncated": false,
+            "scope": {
+              "identifier_count": 13461,
+              "scored_windows": [
+                [
+                  "2019-01-01",
+                  "2021-01-01"
+                ],
+                [
+                  "2021-01-01",
+                  "2022-10-01"
+                ]
+              ],
+              "split_files_excluded": 3,
+              "executes_code": false
+            }
+          }
+        },
+        {
+          "check": "contract.declared",
+          "ok": true,
+          "detail": "evaluation_contract required: intended use, access, vintage and evidence",
+          "evidence": {}
+        },
+        {
+          "check": "contract.scope",
+          "ok": true,
+          "detail": "use='retrospective_research'; access='isolated_rows'; eval is development, holdout is final",
+          "evidence": {}
+        },
+        {
+          "check": "contract.vintage_and_selection",
+          "ok": true,
+          "detail": "Vintage, selection and limitations must be explicit; declarations are not measurements",
+          "evidence": {}
+        },
+        {
+          "check": "contract.label_availability",
+          "ok": true,
+          "detail": "No full-row availability ledger: training-label timing UNVERIFIED; retrospective use only",
+          "evidence": {}
+        },
+        {
+          "check": "contract.every_input_has_availability_evidence",
+          "ok": true,
+          "detail": "Every solver-visible non-target column needs availability evidence; missing: []",
+          "evidence": {}
+        },
+        {
+          "check": "contract.cross_row_review",
+          "ok": true,
+          "detail": "Document applicable cross-row probes and every solver-visible auxiliary file",
+          "evidence": {}
+        },
+        {
+          "check": "leakage.declared_columns",
+          "ok": true,
+          "detail": "every shipped column is declared",
+          "evidence": {
+            "undeclared": []
+          }
+        },
+        {
+          "check": "leakage.answer_source_absent",
+          "ok": true,
+          "detail": "no answer source or post-hoc column is shipped",
+          "evidence": {
+            "shipped_forbidden": []
+          }
+        },
+        {
+          "check": "leakage.every_column_could_be_scored",
+          "ok": true,
+          "detail": "every column was scored for leakage",
+          "evidence": {
+            "unscorable": []
+          }
+        },
+        {
+          "check": "leakage.no_single_column_determines_the_target",
+          "ok": true,
+          "detail": "no shipped column separates the classes on its own",
+          "evidence": {
+            "offenders": [],
+            "high_cardinality": [
+              "permitnum@eval",
+              "permitnum@holdout",
+              "permitnum@train"
+            ],
+            "missing_splits": []
+          }
+        },
+        {
+          "check": "leakage.high_cardinality_declared",
+          "ok": true,
+          "detail": "high-cardinality columns are declared as identifiers or free fields",
+          "evidence": {
+            "undeclared": [],
+            "declared": [
+              "issueddate",
+              "permitnum"
+            ]
+          }
+        },
+        {
+          "check": "timing.prediction_time_declared",
+          "ok": true,
+          "detail": "prediction instant is declared",
+          "evidence": {}
+        },
+        {
+          "check": "timing.no_post_hoc_feature",
+          "ok": true,
+          "detail": "no feature is documented as post-hoc",
+          "evidence": {
+            "overlap": []
+          }
+        },
+        {
+          "check": "timing.label_source_is_not_a_feature",
+          "ok": true,
+          "detail": "the label source is not a feature",
+          "evidence": {
+            "source_features": []
+          }
+        },
+        {
+          "check": "timing.every_feature_documented",
+          "ok": true,
+          "detail": "features documented as available 'prediction_time'",
+          "evidence": {
+            "features_documented_at": "prediction_time"
+          }
+        },
+        {
+          "check": "timing.instant_declared",
+          "ok": true,
+          "detail": "prediction instant kind='administrative_record' citation=True",
+          "evidence": {
+            "prediction_instant": {
+              "kind": "administrative_record",
+              "citation": "Permit IssuedDate is the event time; the Socrata resource is a daily-refreshed current snapshot with no reporting-period publication schedule.",
+              "period": null,
+              "days_after_period_end": null
+            }
+          }
+        },
+        {
+          "check": "timing.publication_lag_measured",
+          "ok": true,
+          "detail": "0 of 0 observed period_end -> published dates are usable",
+          "evidence": {
+            "observations": [],
+            "measured_lag_days": null,
+            "source_kind": "administrative_record"
+          }
+        },
+        {
+          "check": "timing.event_feature_availability_unverified",
+          "ok": true,
+          "detail": "Administrative current-vintage retrospective research: event-time availability UNVERIFIED; no period lag invented",
+          "evidence": {
+            "features_lag_days": null,
+            "instant_lag_days": null,
+            "measured_lag_days": null
+          }
+        },
+        {
+          "check": "timing.instant_accounts_for_publication_lag",
+          "ok": true,
+          "detail": "instant kind is 'administrative_record' while features publish Noned after the period",
+          "evidence": {
+            "kind": "administrative_record",
+            "features_lag_days": null
+          }
+        },
+        {
+          "check": "timing.event_selection_declared",
+          "ok": true,
+          "detail": "Event selection rule declared for retrospective review; prediction-time eligibility is not established",
+          "evidence": {
+            "latest_period_used": "",
+            "fields": [
+              "permittypemapped",
+              "issueddate",
+              "estprojectcost",
+              "applieddate",
+              "completeddate"
+            ],
+            "rule": "Select Building permits with IssuedDate in [2016-01-01, 2022-10-01) and EstProjectCost at least 50000 nominal USD; exclude rows with impossible chronology (CompletedDate before IssuedDate, or IssuedDate before AppliedDate when both dates are present). This is an event-time eligibility rule with a disclosed data-quality exclusion, not a historical forecasting claim."
+          }
+        },
+        {
+          "check": "units.measured_columns_declare_unit_and_frame",
+          "ok": true,
+          "detail": "2 measured column(s) declare unit and frame",
+          "evidence": {
+            "measurements": [
+              {
+                "column": "estprojectcost",
+                "frame": "Applicant-declared fair-market construction cost in nominal USD; population floor and feature.",
+                "unit": "USD"
+              },
+              {
+                "column": "completed_within_48_months",
+                "frame": "Binary forward outcome from CompletedDate relative to IssuedDate plus 48 calendar months.",
+                "unit": "binary"
+              }
+            ]
+          }
+        },
+        {
+          "check": "units.validation_receipt",
+          "ok": true,
+          "detail": "External-threshold checks need a source-bound counts-only receipt; never ship fixture answers",
+          "evidence": {
+            "receipt": {
+              "checks": 2,
+              "mismatches": 0,
+              "source": "source-checks.json: unit checks",
+              "evidence_sha256": "558d27301de4388608218b8445900620c0b13dedce36603a1f998252ceea4f29"
+            }
+          }
+        },
+        {
+          "check": "splits.time_column_declared",
+          "ok": true,
+          "detail": "split overlap is checked against 'issueddate'",
+          "evidence": {}
+        },
+        {
+          "check": "splits.machine_readable_windows",
+          "ok": true,
+          "detail": "train/eval/holdout windows are declared with start/end",
+          "evidence": {
+            "split_windows": {
+              "train": {
+                "start": "2016-01-01T00:00:00.000",
+                "end": "2019-01-01T00:00:00.000"
+              },
+              "eval": {
+                "start": "2019-01-01T00:00:00.000",
+                "end": "2021-01-01T00:00:00.000"
+              },
+              "holdout": {
+                "start": "2021-01-01T00:00:00.000",
+                "end": "2022-10-01T00:00:00.000"
+              }
+            }
+          }
+        },
+        {
+          "check": "splits.files_present",
+          "ok": true,
+          "detail": "all three split files exist",
+          "evidence": {
+            "missing": []
+          }
+        },
+        {
+          "check": "splits.non_empty",
+          "ok": true,
+          "detail": "every split has rows",
+          "evidence": {
+            "train": {
+              "rows": 11286,
+              "positives": 8790,
+              "negatives": 2496,
+              "positive_rate": 0.778841
+            },
+            "eval": {
+              "rows": 7135,
+              "positives": 5344,
+              "negatives": 1791,
+              "positive_rate": 0.748984
+            },
+            "holdout": {
+              "rows": 6326,
+              "positives": 4789,
+              "negatives": 1537,
+              "positive_rate": 0.757034
+            }
+          }
+        },
+        {
+          "check": "splits.eval_and_holdout_have_both_classes",
+          "ok": true,
+          "detail": "eval and holdout each contain positives and negatives",
+          "evidence": {
+            "train": {
+              "rows": 11286,
+              "positives": 8790,
+              "negatives": 2496,
+              "positive_rate": 0.778841
+            },
+            "eval": {
+              "rows": 7135,
+              "positives": 5344,
+              "negatives": 1791,
+              "positive_rate": 0.748984
+            },
+            "holdout": {
+              "rows": 6326,
+              "positives": 4789,
+              "negatives": 1537,
+              "positive_rate": 0.757034
+            }
+          }
+        },
+        {
+          "check": "splits.positive_events_declared",
+          "ok": true,
+          "detail": "eval and holdout declare positives and distinct events",
+          "evidence": {
+            "declared": {
+              "train": {
+                "positives": 8790,
+                "distinct_events": 842
+              },
+              "eval": {
+                "positives": 5344,
+                "distinct_events": 601
+              },
+              "holdout": {
+                "positives": 4789,
+                "distinct_events": 544
+              }
+            }
+          }
+        },
+        {
+          "check": "splits.positive_events_match_rows",
+          "ok": true,
+          "detail": "declared positive counts match the rows",
+          "evidence": {
+            "mismatched": []
+          }
+        },
+        {
+          "check": "splits.event_key_column_declared",
+          "ok": true,
+          "detail": "clustered events are counted by 'issueddate' (date part)",
+          "evidence": {}
+        },
+        {
+          "check": "splits.distinct_events_match_rows",
+          "ok": true,
+          "detail": "declared clustered event counts match the rows",
+          "evidence": {
+            "recomputed": {
+              "train": 842,
+              "eval": 601,
+              "holdout": 544
+            },
+            "declared": {
+              "train": {
+                "positives": 8790,
+                "distinct_events": 842
+              },
+              "eval": {
+                "positives": 5344,
+                "distinct_events": 601
+              },
+              "holdout": {
+                "positives": 4789,
+                "distinct_events": 544
+              }
+            }
+          }
+        },
+        {
+          "check": "splits.enough_clustered_positives",
+          "ok": true,
+          "detail": "eval and holdout carry enough independent positive events to score",
+          "evidence": {
+            "thin": [],
+            "recomputed_events": {
+              "train": 842,
+              "eval": 601,
+              "holdout": 544
+            },
+            "minimums": {
+              "positives": 30,
+              "distinct_events": 20
+            }
+          }
+        },
+        {
+          "check": "splits.rates_not_uniform",
+          "ok": true,
+          "detail": "positive rates are between 0 and 1",
+          "evidence": {
+            "rates": [
+              0.778841,
+              0.748984,
+              0.757034
+            ]
+          }
+        },
+        {
+          "check": "splits.actual_ranges_computed",
+          "ok": true,
+          "detail": "row timestamps found for every split",
+          "evidence": {
+            "ranges": {
+              "train": {
+                "min": "2016-01-04",
+                "max": "2018-12-31"
+              },
+              "eval": {
+                "min": "2019-01-02",
+                "max": "2020-12-31"
+              },
+              "holdout": {
+                "min": "2021-01-02",
+                "max": "2022-09-30"
+              }
+            }
+          }
+        },
+        {
+          "check": "splits.actual_ranges_disjoint",
+          "ok": true,
+          "detail": "the rows of the three splits occupy disjoint periods",
+          "evidence": {
+            "ranges": {
+              "train": {
+                "min": "2016-01-04",
+                "max": "2018-12-31"
+              },
+              "eval": {
+                "min": "2019-01-02",
+                "max": "2020-12-31"
+              },
+              "holdout": {
+                "min": "2021-01-02",
+                "max": "2022-09-30"
+              }
+            },
+            "overlaps": []
+          }
+        },
+        {
+          "check": "splits.rows_within_declared_windows",
+          "ok": true,
+          "detail": "every row falls inside its split's declared window",
+          "evidence": {
+            "windows": {
+              "train": {
+                "start": "2016-01-01T00:00:00.000",
+                "end": "2019-01-01T00:00:00.000"
+              },
+              "eval": {
+                "start": "2019-01-01T00:00:00.000",
+                "end": "2021-01-01T00:00:00.000"
+              },
+              "holdout": {
+                "start": "2021-01-01T00:00:00.000",
+                "end": "2022-10-01T00:00:00.000"
+              }
+            },
+            "ranges": {
+              "train": {
+                "min": "2016-01-04",
+                "max": "2018-12-31"
+              },
+              "eval": {
+                "min": "2019-01-02",
+                "max": "2020-12-31"
+              },
+              "holdout": {
+                "min": "2021-01-02",
+                "max": "2022-09-30"
+              }
+            }
+          }
+        },
+        {
+          "check": "splits.no_cross_split_entities",
+          "ok": true,
+          "detail": "no permitnum appears in more than one split",
+          "evidence": {
+            "shared_sample": [],
+            "shared_count": 0
+          }
+        },
+        {
+          "check": "splits.duplicate_entities_within_splits",
+          "ok": true,
+          "detail": "0 repeated-identifier rows within splits, at most the declared 0",
+          "evidence": {
+            "duplicate_rows": {},
+            "declared": 0
+          }
+        },
+        {
+          "check": "runner.layout",
+          "ok": true,
+          "detail": "holdout is private and train/eval are public",
+          "evidence": {}
+        },
+        {
+          "check": "runner.meta_json_keys",
+          "ok": true,
+          "detail": "meta.json carries the keys the runner reads",
+          "evidence": {
+            "keys": [
+              "columns",
+              "description",
+              "id_columns",
+              "name",
+              "positive_label",
+              "positive_rate",
+              "rows",
+              "split",
+              "split_description",
+              "target"
+            ]
+          }
+        },
+        {
+          "check": "runner.meta_matches_files",
+          "ok": true,
+          "detail": "meta.json agrees with the split files",
+          "evidence": {
+            "problems": []
+          }
+        },
+        {
+          "check": "runner.meta_counts_match_files",
+          "ok": true,
+          "detail": "meta rows and rates match the files",
+          "evidence": {}
+        },
+        {
+          "check": "runner.id_columns_are_not_features",
+          "ok": true,
+          "detail": "declared identifiers are not also listed as features",
+          "evidence": {}
+        }
+      ],
+      "failed_checks": []
+    },
+    "paper/analysis/evening-2026-11-15/seattle-building-permit-completion-artifact-verification.json": {
+      "release_tag": "v-67a46c698fa813cc",
+      "artifact_version": "a220e68c960ee6b6aa473f015112be0993353ab3d12f9820c31551164f0ee677",
+      "manifest_sha256": "c8d716bd8365da0a786ee1e26c5c6cfb1d2b1efe788d6f6a36369f9980e56589",
+      "qualification_sha256": "35bee5d4c3288600aa2e88c98fb2575a460299a74ae4e56c2f8a0630c8639f78",
+      "accept_exit_code": 0,
+      "scope": "Rechecked original worker qualification against complete saved study splits and published quality descriptor; no construction, model fitting, or new qualification."
+    },
+    "evidence/outcomes/fra-form54-hazmat-release-retry-1.json": {
+      "branch": "consumer/fra-form54-hazmat-release-retry-1",
+      "commit": "16e5ba920f95ccda9516f5b3e5d30d1810e7baf4",
+      "dataset": "fra-form54-hazmat-release",
+      "execution_id": "fra-form54-hazmat-release-retry-1",
+      "finished": "2026-11-15T20:08:03.670058+00:00",
+      "started": "2026-11-15T18:29:30.985035+00:00",
+      "status": "complete"
+    },
+    "evidence/consumer/fra-form54-hazmat-release-retry-1/results/summary.json": {
+      "cli_reported_cost_usd_not_invoice": 1708.1795592000008,
+      "generated_at": "2026-11-15T20:07:39.767597+00:00",
+      "limitations": [
+        "Five selected factory releases; three attempts are descriptive, not agent rankings.",
+        "Pinned consumer scaffold and deterministic downloads are provided assistance.",
+        "CLI-reported model IDs are not independent provider attestation.",
+        "Public holdout isolation and semantic compliance are procedural, not enforced by an OS sandbox.",
+        "CFPB holdout was used in earlier pilot work outside this study.",
+        "Random search matches observed eligible primary-trial fitting CPU, not unlogged diagnostics or token work.",
+        "Fresh Claude trajectories are nondeterministic; frozen artifact replay is reproducible.",
+        "No factory-wide publication yield or spend is inferred from this consumer study."
+      ],
+      "outcomes": [
+        {
+          "compliance_triage": "no_automatic_access_flag",
+          "dataset": "fra-form54-hazmat-release",
+          "error": null,
+          "holdout_content_hits": [],
+          "id": "fra-form54-hazmat-release--r1",
+          "integrity": "requires_semantic_review",
+          "interruptions": null,
+          "protocol_caveats": [],
+          "research_active_s": 5100.23386412402,
+          "semantic_compliance": "not_established_by_automated_checks",
+          "source_read_flags": 0,
+          "status": "frozen",
+          "timing": {
+            "cli_invocations": 18,
+            "evaluation_wall_sum_s": 167.2704504160065,
+            "fit_cpu_sum_s": 10.999146999999999,
+            "fit_wall_sum_s": 5.115330543994787,
+            "harness_wall_union_s": 173.36966109275818,
+            "incomplete_or_failed_trials": 0,
+            "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+            "ok_trials": 21,
+            "other_active_wall_s": 4926.864203031262,
+            "research_active_s": 5100.23386412402,
+            "trial_records": 21
+          },
+          "tool_access_flags": 0,
+          "verified_forbidden_copies": 0
+        },
+        {
+          "compliance_triage": "no_automatic_access_flag",
+          "dataset": "fra-form54-hazmat-release",
+          "error": null,
+          "holdout_content_hits": [],
+          "id": "fra-form54-hazmat-release--r2",
+          "integrity": "requires_semantic_review",
+          "interruptions": null,
+          "protocol_caveats": [],
+          "research_active_s": 5100.0611140389665,
+          "semantic_compliance": "not_established_by_automated_checks",
+          "source_read_flags": 0,
+          "status": "frozen",
+          "timing": {
+            "cli_invocations": 19,
+            "evaluation_wall_sum_s": 84.85654058502405,
+            "fit_cpu_sum_s": 5.678661,
+            "fit_wall_sum_s": 2.791964085001382,
+            "harness_wall_union_s": 88.4202573299408,
+            "incomplete_or_failed_trials": 0,
+            "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+            "ok_trials": 16,
+            "other_active_wall_s": 5011.640856709026,
+            "research_active_s": 5100.0611140389665,
+            "trial_records": 16
+          },
+          "tool_access_flags": 0,
+          "verified_forbidden_copies": 0
+        },
+        {
+          "compliance_triage": "no_automatic_access_flag",
+          "dataset": "fra-form54-hazmat-release",
+          "error": null,
+          "holdout_content_hits": [],
+          "id": "fra-form54-hazmat-release--r3",
+          "integrity": "requires_semantic_review",
+          "interruptions": null,
+          "protocol_caveats": [],
+          "research_active_s": 5100.28996720702,
+          "semantic_compliance": "not_established_by_automated_checks",
+          "source_read_flags": 0,
+          "status": "frozen",
+          "timing": {
+            "cli_invocations": 21,
+            "evaluation_wall_sum_s": 143.19408300002397,
+            "fit_cpu_sum_s": 8.301368,
+            "fit_wall_sum_s": 3.948694626960787,
+            "harness_wall_union_s": 148.72977542877197,
+            "incomplete_or_failed_trials": 0,
+            "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+            "ok_trials": 33,
+            "other_active_wall_s": 4951.560191778248,
+            "research_active_s": 5100.28996720702,
+            "trial_records": 33
+          },
+          "tool_access_flags": 0,
+          "verified_forbidden_copies": 0
+        }
+      ],
+      "protocol_sha256": "42a96cae12e07cb762812b869b2b8bcce0e2cb9e4cd55007246bd71dad2924cd",
+      "reported_models": [
+        "claude-fable-5-2"
+      ],
+      "reported_usage": {
+        "cache_creation_input_tokens": 1294105,
+        "cache_read_input_tokens": 205437620,
+        "input_tokens": 1520,
+        "output_tokens": 900106
+      },
+      "requested_model": "claude-fable-5-2",
+      "scores": [
+        {
+          "dataset": "fra-form54-hazmat-release",
+          "holdout_auc": 0.731304347826087,
+          "holdout_brier": 0.03600821663484604,
+          "holdout_rows": 5189,
+          "id": "fra-form54-hazmat-release--ordinary",
+          "kind": "ordinary",
+          "validation_auc": 0.669321502260069,
+          "validation_brier": 0.044592235840849634
+        },
+        {
+          "dataset": "fra-form54-hazmat-release",
+          "holdout_auc": 0.7840868425551314,
+          "holdout_brier": 0.034678997399060316,
+          "holdout_rows": 5189,
+          "id": "fra-form54-hazmat-release--r1",
+          "kind": "agent",
+          "validation_auc": 0.7429836487888655,
+          "validation_brier": 0.042863385018239636
+        },
+        {
+          "dataset": "fra-form54-hazmat-release",
+          "holdout_auc": 0.7512655991794405,
+          "holdout_brier": 0.03460639843457761,
+          "holdout_rows": 5189,
+          "id": "fra-form54-hazmat-release--r1--random",
+          "kind": "random",
+          "validation_auc": 0.7102873885370575,
+          "validation_brier": 0.043332706110176804
+        },
+        {
+          "dataset": "fra-form54-hazmat-release",
+          "holdout_auc": 0.7901749387429483,
+          "holdout_brier": 0.031162771358556846,
+          "holdout_rows": 5189,
+          "id": "fra-form54-hazmat-release--r2",
+          "kind": "agent",
+          "validation_auc": 0.7404935974652244,
+          "validation_brier": 0.04009627173988997
+        },
+        {
+          "dataset": "fra-form54-hazmat-release",
+          "holdout_auc": 0.7504450396033963,
+          "holdout_brier": 0.03449574647007853,
+          "holdout_rows": 5189,
+          "id": "fra-form54-hazmat-release--r2--random",
+          "kind": "random",
+          "validation_auc": 0.7028468520042458,
+          "validation_brier": 0.04293235853495192
+        },
+        {
+          "dataset": "fra-form54-hazmat-release",
+          "holdout_auc": 0.7910633084506239,
+          "holdout_brier": 0.030825517648965,
+          "holdout_rows": 5189,
+          "id": "fra-form54-hazmat-release--r3",
+          "kind": "agent",
+          "validation_auc": 0.7519517692940714,
+          "validation_brier": 0.03999604462934522
+        },
+        {
+          "dataset": "fra-form54-hazmat-release",
+          "holdout_auc": 0.7472847455695482,
+          "holdout_brier": 0.035154215888855644,
+          "holdout_rows": 5189,
+          "id": "fra-form54-hazmat-release--r3--random",
+          "kind": "random",
+          "validation_auc": 0.7004919675122545,
+          "validation_brier": 0.043911700308042825
+        },
+        {
+          "dataset": "fra-form54-hazmat-release",
+          "holdout_auc": 0.7449193686249929,
+          "holdout_brier": 0.035560558456888214,
+          "holdout_rows": 5189,
+          "id": "fra-form54-hazmat-release--released",
+          "kind": "released",
+          "validation_auc": 0.6852224885803905,
+          "validation_brier": 0.04407348563575967
+        }
+      ]
+    },
+    "evidence/reviews/fra-form54-hazmat-release-retry-1/cluster.json": {
+      "cluster_columns": [
+        "accident_date"
+      ],
+      "reason": "The dependence unit is the physical accident event. Form FRA 6180.54 is a per-railroad, per-consist report, and the shipped rows are not strictly one per event: build.py:469-472 makes colliding composite keys (same railroad code, date, state, station, milepost, accident type) unique by appending a sequence suffix, so the uniqueness check at build.py:621-634 passes by construction. Public rows show 7 such suffixed pairs in train and 4 in eval, plus same-date/same-state/same-scene pairs that differ only in consist fields or railroad class. No shipped column identifies the event exactly, because railroad code, station and milepost are hashed into accident_id and then discarded (build.py:106-115,495). accident_date is the finest shipped column that is constant across every report of one event; the contract names it event_key_column and a non-predictor carry (construction.json:4-6,120), and because the split is on this date (build.py:491-493) a cluster can never straddle train, eval and holdout. It is a deliberate coarsening: accident_date plus stateabbr is nested inside it and was not chosen so the key stays valid if two reports of one event disagree on state. Chosen from source meaning, contract metadata and public train/eval structure before holdout scoring; no holdout row or holdout metric was consulted.",
+      "status": "declared",
+      "limitations": [
+        "accident_date is a superset of the event, not an event identifier: unrelated accidents on the same day are merged (in train, 6,576 date clusters for 12,541 rows, 3,008 singletons, largest cluster 10 rows). This costs some efficiency, not validity.",
+        "Repeated-carrier and repeated-location dependence is not captured. The reporting railroad code, station and milepost are not shipped, and reporting_railroad_class has too few levels (one class holds roughly 80-88% of public rows) to serve as a cluster.",
+        "Calendar-level dependence across days (reporting-threshold regimes, the base-rate decline, multi-day weather) is not captured by day clusters; per-year results should be read alongside any clustered interval.",
+        "An event whose reports carry different accident dates (midnight straddle or entry error) would be split across clusters. Not checked.",
+        "That the paired rows are multiple reports of one accident is an inference from Form 54 meaning and public-row structure; the publisher data dictionary was not consulted and the pairs were not traced to source records.",
+        "Holdout cluster-size distribution is unknown because holdout rows were not read. Rows dated by the January 1 fallback (build.py:431-442) would pool into one cluster per year; no such spike appears in train or eval (16 and 11 January 1 rows).",
+        "The observed multi-report structure is small (about 0.1-0.2% of public rows), so clustered and row-level intervals are expected to be close; the key is declared for correctness of the independence assumption, not because a large effect is anticipated."
+      ]
+    },
+    "evidence/reviews/fra-form54-hazmat-release-retry-1/pinned-release.json": [
+      "fra-form54-hazmat-release",
+      "v-c59d614ee9c4ce97",
+      "e612b9530e919863929f1f3bc00c80dcee949b9d",
+      "c6132a372c1f4a14051c6ea13b01e743eff7874d73212077707bc252fd562dd6"
+    ],
+    "evidence/reviews/fra-form54-hazmat-release-retry-1/post/bootstrap.json": {
+      "dataset": "fra-form54-hazmat-release",
+      "cluster_columns": [
+        "accident_date"
+      ],
+      "clusters": 3205,
+      "rows": 5189,
+      "positives": 175,
+      "missing_cluster_rows": 0,
+      "largest_cluster": 6,
+      "seed": 1194741106,
+      "valid_replicates": 2000,
+      "invalid_replicates": 0,
+      "comparisons": [
+        {
+          "run": "fra-form54-hazmat-release--r1",
+          "control": "fra-form54-hazmat-release--ordinary",
+          "delta": 0.052782494729044394,
+          "low": 0.018650232249570763,
+          "high": 0.08663324080815384
+        },
+        {
+          "run": "fra-form54-hazmat-release--r1",
+          "control": "fra-form54-hazmat-release--r1--random",
+          "delta": 0.03282124337569092,
+          "low": 0.011179495798681653,
+          "high": 0.057130260995054964
+        },
+        {
+          "run": "fra-form54-hazmat-release--r2",
+          "control": "fra-form54-hazmat-release--ordinary",
+          "delta": 0.05887059091686131,
+          "low": 0.025689573972933352,
+          "high": 0.09208920132648342
+        },
+        {
+          "run": "fra-form54-hazmat-release--r2",
+          "control": "fra-form54-hazmat-release--r2--random",
+          "delta": 0.03972989913955205,
+          "low": 0.01770951057258091,
+          "high": 0.061558301632905925
+        },
+        {
+          "run": "fra-form54-hazmat-release--r3",
+          "control": "fra-form54-hazmat-release--ordinary",
+          "delta": 0.059758960624537005,
+          "low": 0.023155804327079775,
+          "high": 0.09522926155467883
+        },
+        {
+          "run": "fra-form54-hazmat-release--r3",
+          "control": "fra-form54-hazmat-release--r3--random",
+          "delta": 0.043778562881075844,
+          "low": 0.02188661830276039,
+          "high": 0.0676826380231263
+        }
+      ],
+      "inputs": {
+        "/Users/earino/research/factory-prospective-study/.local/studies/fra-form54-hazmat-release-retry-1/.study/holdout/fra-form54-hazmat-release/holdout.csv": "731d81bbea46929a907c31e86bee910344b2aaa49b0004a52727706c8c383673",
+        "/Users/earino/research/factory-prospective-study/evidence/reviews/fra-form54-hazmat-release-retry-1/cluster.json": "68ce73859fa1f4a5db8b38faeeb4a5b90530a62195b1a82f3b8a1b6aa60f85d9",
+        "/Users/earino/research/factory-prospective-study/.local/studies/fra-form54-hazmat-release-retry-1/results/scores/fra-form54-hazmat-release--ordinary/predictions.csv.gz": "4e4edab7446232867959f916b4218a1127c2e8415ee289f4a1400aa2a623e951",
+        "/Users/earino/research/factory-prospective-study/.local/studies/fra-form54-hazmat-release-retry-1/results/scores/fra-form54-hazmat-release--r1/predictions.csv.gz": "8a0f057fff554e42da53d0760347d5c57eb0eaae00d6d055d776bcbb616cd296",
+        "/Users/earino/research/factory-prospective-study/.local/studies/fra-form54-hazmat-release-retry-1/results/scores/fra-form54-hazmat-release--r2/predictions.csv.gz": "274bb81abeb2333c30a1587bb4410321183b24e1e9146eb02da7082295b46a61",
+        "/Users/earino/research/factory-prospective-study/.local/studies/fra-form54-hazmat-release-retry-1/results/scores/fra-form54-hazmat-release--r3/predictions.csv.gz": "156fb4b4645be7b12612ac330572526f673cfc476d9a1c46b1b4ce1f69c08a18",
+        "/Users/earino/research/factory-prospective-study/.local/studies/fra-form54-hazmat-release-retry-1/results/scores/fra-form54-hazmat-release--r1--random/predictions.csv.gz": "71eaeabc729b5e2cdff1ab7847bbae861a13450a194f8546b3646e5aa36d525f",
+        "/Users/earino/research/factory-prospective-study/.local/studies/fra-form54-hazmat-release-retry-1/results/scores/fra-form54-hazmat-release--r2--random/predictions.csv.gz": "7515fe176795130ba1267dea6f4991a446c539b5a118890bc8de892a2620646a",
+        "/Users/earino/research/factory-prospective-study/.local/studies/fra-form54-hazmat-release-retry-1/results/scores/fra-form54-hazmat-release--r3--random/predictions.csv.gz": "9fc741f1604d18f35d1f0e33e7f6899a2ae172090f989266ec37085bbb057efb"
+      },
+      "method": "2000 paired whole-entity draws, pointwise percentile95%; conditional on fitted models, cohort and declared dependence"
+    },
+    "evidence/reviews/fra-form54-hazmat-release-retry-1/post/training-feature-probes.json": [
+      {
+        "run": "fra-form54-hazmat-release--r1",
+        "full_training_rows": 12541,
+        "training_feature_rows": 12541,
+        "checks": [
+          {
+            "row": 0,
+            "changed_own_feature_cells": 0,
+            "max_absolute_change": 0.0,
+            "augmented_copies": 1
+          },
+          {
+            "row": 6270,
+            "changed_own_feature_cells": 0,
+            "max_absolute_change": 0.0,
+            "augmented_copies": 1
+          }
+        ]
+      },
+      {
+        "run": "fra-form54-hazmat-release--r2",
+        "full_training_rows": 12541,
+        "training_feature_rows": 12541,
+        "checks": [
+          {
+            "row": 0,
+            "changed_own_feature_cells": 0,
+            "max_absolute_change": 0.0,
+            "augmented_copies": 1
+          },
+          {
+            "row": 6270,
+            "changed_own_feature_cells": 0,
+            "max_absolute_change": 0.0,
+            "augmented_copies": 1
+          }
+        ]
+      },
+      {
+        "run": "fra-form54-hazmat-release--r3",
+        "full_training_rows": 12541,
+        "training_feature_rows": 12541,
+        "checks": [
+          {
+            "row": 0,
+            "changed_own_feature_cells": 0,
+            "max_absolute_change": 0.0,
+            "augmented_copies": 1
+          },
+          {
+            "row": 6270,
+            "changed_own_feature_cells": 0,
+            "max_absolute_change": 0.0,
+            "augmented_copies": 1
+          }
+        ]
+      }
+    ],
+    "evidence/reviews/fra-form54-hazmat-release-retry-1/post/artifact-probes.json": [
+      {
+        "run": "fra-form54-hazmat-release--r1",
+        "real_validation_rows_checked": 25,
+        "batch_equals_single_rows": true,
+        "reverse_order_invariant": true,
+        "prepare_external_events": [],
+        "n_jobs": 5,
+        "feature_count": 92,
+        "selected_feature_names": null
+      },
+      {
+        "run": "fra-form54-hazmat-release--r2",
+        "real_validation_rows_checked": 25,
+        "batch_equals_single_rows": true,
+        "reverse_order_invariant": true,
+        "prepare_external_events": [],
+        "n_jobs": 5,
+        "feature_count": 17,
+        "selected_feature_names": null
+      },
+      {
+        "run": "fra-form54-hazmat-release--r3",
+        "real_validation_rows_checked": 25,
+        "batch_equals_single_rows": true,
+        "reverse_order_invariant": true,
+        "prepare_external_events": [],
+        "n_jobs": 5,
+        "feature_count": 19,
+        "selected_feature_names": null
+      }
+    ],
+    "evidence/reviews/fra-form54-hazmat-release-retry-1/post/control-features.json": [
+      {
+        "dataset": "fra-form54-hazmat-release",
+        "ordinary_features": [
+          "trainspeed",
+          "equipmenttype",
+          "hazmatcars",
+          "loadedfreightcars",
+          "emptyfreightcars",
+          "grosstonnage",
+          "tracktype",
+          "trackclass",
+          "weathercondition",
+          "visibility",
+          "temperature",
+          "accidenttype",
+          "reporting_railroad_class",
+          "stateabbr"
+        ]
+      }
+    ],
+    "evidence/reviews/fra-form54-hazmat-release-retry-1/post/execution.json": [
+      {
+        "ok": true,
+        "tool": "review_checks.py"
+      },
+      {
+        "ok": true,
+        "tool": "probe_all_training_features.py"
+      },
+      {
+        "ok": true,
+        "tool": "probe_artifacts.py"
+      },
+      {
+        "ok": true,
+        "tool": "bootstrap.py"
+      }
+    ],
+    "paper/analysis/evening-2026-11-15/fra-form54-hazmat-release-qualification.json": {
+      "ok": true,
+      "dataset": "/output/extract",
+      "gate_version": "1.6.1",
+      "artifact": {
+        "train": {
+          "file": "public/train.csv",
+          "sha256": "0e4929ad8326d992e3942bb50244e857c4ad11bbd2c8e3647bbce7714b6f65eb",
+          "bytes": 1542789
+        },
+        "eval": {
+          "file": "public/eval.csv",
+          "sha256": "4ed8d5fa7c0c3f9dfc3359723e4201ca85b9ee4a664ea93a2a55bd3312fc8c24",
+          "bytes": 946868
+        },
+        "holdout": {
+          "file": "private/holdout.csv",
+          "sha256": "731d81bbea46929a907c31e86bee910344b2aaa49b0004a52727706c8c383673",
+          "bytes": 643644
+        },
+        "meta.json": {
+          "file": "meta.json",
+          "sha256": "bfbff6c657c98172cbffd2db58d6bc792b4cd1fa733b8696a5b20e5c031a229c",
+          "bytes": 1824
+        },
+        "quality.json": {
+          "file": "quality.json",
+          "sha256": "cfeec6b9b8d47668908085133529b0a7dd05bb181cbdc0f3f225990e04988f0d",
+          "bytes": 23953
+        },
+        "scanned_files": {
+          "meta.json": "bfbff6c657c98172cbffd2db58d6bc792b4cd1fa733b8696a5b20e5c031a229c",
+          "private/holdout.csv": "731d81bbea46929a907c31e86bee910344b2aaa49b0004a52727706c8c383673",
+          "public/eval.csv": "4ed8d5fa7c0c3f9dfc3359723e4201ca85b9ee4a664ea93a2a55bd3312fc8c24",
+          "public/train.csv": "0e4929ad8326d992e3942bb50244e857c4ad11bbd2c8e3647bbce7714b6f65eb",
+          "quality.json": "cfeec6b9b8d47668908085133529b0a7dd05bb181cbdc0f3f225990e04988f0d"
+        },
+        "artifact_version": {
+          "digest": "aedd811fdb6a80fdeb6828c1ba8bc2eeb80c8446d597ba57a536adb8e384da7e",
+          "components": [
+            "eval",
+            "holdout",
+            "meta.json",
+            "quality.json",
+            "train"
+          ]
+        }
+      },
+      "results": [
+        {
+          "check": "descriptor",
+          "ok": true,
+          "detail": "quality.json loaded for 'fra-form54-hazmat-release'",
+          "evidence": {}
+        },
+        {
+          "check": "battery.exact_recovery",
+          "ok": true,
+          "detail": "Any zero-error exact reconstruction of a scored row blocks qualification",
+          "evidence": {
+            "version": "1.0.0",
+            "ok": true,
+            "input_digest": "5b852789c3672941958ec58469397392697c16069c5a9d68deb7f7c8aaf8ad28",
+            "code": {
+              "artifact_scrub.py": "8c663253e691a7b8751f9c853b40a3752a833360caafb1ea8e8f534e64af4b68",
+              "leakage_battery.py": "adbf7ee0aca0012b78cc1f1e4aeb968a23717cae30f66a02e080215e75f830e3",
+              "recovery_recipes.py": "f64c542fcda232169c95ace17421b45275194b934938c0ea4c9b68e6f844ad0e"
+            },
+            "freeze_sha256": "05f4fa640b66ec0ead594f5b93f4fc1355a1cad3059feef48d0f94dfa0cf50ce",
+            "all_results_sha256": "78bff5dc8a704ebaab6103b766f2b2bf05ae861078da8f13ac0725648e1ac683",
+            "detail_files": {
+              "results-0000.jsonl": {
+                "sha256": "1f23cad2fd98587ed7b1b90f740a4ce535bc29ecdb2b6b96345ef271e7f3a6ee",
+                "bytes": 194698
+              }
+            },
+            "exact": [],
+            "failures": [],
+            "flags": [],
+            "flag_count": 0,
+            "attempted": {
+              "heuristic": 8,
+              "statistical": 402,
+              "supervised": 544
+            },
+            "constant_or_uncovered": {
+              "statistical": 50,
+              "supervised": 145
+            },
+            "scope": {
+              "donors": [
+                "self",
+                "all"
+              ],
+              "exploratory_keys": 8,
+              "exploratory_operands": 8,
+              "max_columns": 128,
+              "scored_labels_read": false,
+              "tokens_per_column": 80,
+              "train_labels": "supervised controls only"
+            }
+          }
+        },
+        {
+          "check": "battery.recorded_in_quality",
+          "ok": true,
+          "detail": "Construction must record the computed battery receipt in quality.json; use --record-battery",
+          "evidence": {}
+        },
+        {
+          "check": "artifacts.no_shipped_answers",
+          "ok": true,
+          "detail": "Every generated artifact file is scanned for shipped answer scaffolds",
+          "evidence": {
+            "version": "1.0.1",
+            "ok": true,
+            "files": {
+              "meta.json": "bfbff6c657c98172cbffd2db58d6bc792b4cd1fa733b8696a5b20e5c031a229c",
+              "private/holdout.csv": "731d81bbea46929a907c31e86bee910344b2aaa49b0004a52727706c8c383673",
+              "public/eval.csv": "4ed8d5fa7c0c3f9dfc3359723e4201ca85b9ee4a664ea93a2a55bd3312fc8c24",
+              "public/train.csv": "0e4929ad8326d992e3942bb50244e857c4ad11bbd2c8e3647bbce7714b6f65eb",
+              "quality.json": "cfeec6b9b8d47668908085133529b0a7dd05bb181cbdc0f3f225990e04988f0d"
+            },
+            "tree_digest": "a704e8136850fffecb075126f572eb0dbede75f8dda62c70f6212b776e1cadbe",
+            "findings": [],
+            "finding_count": 0,
+            "truncated": false,
+            "scope": {
+              "identifier_count": 12886,
+              "scored_windows": [
+                [
+                  "2000-01-01",
+                  "2013-01-01"
+                ]
+              ],
+              "split_files_excluded": 3,
+              "executes_code": false
+            }
+          }
+        },
+        {
+          "check": "contract.declared",
+          "ok": true,
+          "detail": "evaluation_contract required: intended use, access, vintage and evidence",
+          "evidence": {}
+        },
+        {
+          "check": "contract.scope",
+          "ok": true,
+          "detail": "use='retrospective_research'; access='isolated_rows'; eval is development, holdout is final",
+          "evidence": {}
+        },
+        {
+          "check": "contract.vintage_and_selection",
+          "ok": true,
+          "detail": "Vintage, selection and limitations must be explicit; declarations are not measurements",
+          "evidence": {}
+        },
+        {
+          "check": "contract.label_availability",
+          "ok": true,
+          "detail": "No full-row availability ledger: training-label timing UNVERIFIED; retrospective use only",
+          "evidence": {}
+        },
+        {
+          "check": "contract.every_input_has_availability_evidence",
+          "ok": true,
+          "detail": "Every solver-visible non-target column needs availability evidence; missing: []",
+          "evidence": {}
+        },
+        {
+          "check": "contract.cross_row_review",
+          "ok": true,
+          "detail": "Document applicable cross-row probes and every solver-visible auxiliary file",
+          "evidence": {}
+        },
+        {
+          "check": "leakage.declared_columns",
+          "ok": true,
+          "detail": "every shipped column is declared",
+          "evidence": {
+            "undeclared": []
+          }
+        },
+        {
+          "check": "leakage.answer_source_absent",
+          "ok": true,
+          "detail": "no answer source or post-hoc column is shipped",
+          "evidence": {
+            "shipped_forbidden": []
+          }
+        },
+        {
+          "check": "leakage.every_column_could_be_scored",
+          "ok": true,
+          "detail": "every column was scored for leakage",
+          "evidence": {
+            "unscorable": []
+          }
+        },
+        {
+          "check": "leakage.no_single_column_determines_the_target",
+          "ok": true,
+          "detail": "no shipped column separates the classes on its own",
+          "evidence": {
+            "offenders": [],
+            "high_cardinality": [
+              "accident_date@eval",
+              "accident_date@holdout",
+              "accident_date@train",
+              "accident_id@eval",
+              "accident_id@holdout",
+              "accident_id@train"
+            ],
+            "missing_splits": []
+          }
+        },
+        {
+          "check": "leakage.high_cardinality_declared",
+          "ok": true,
+          "detail": "high-cardinality columns are declared as identifiers or free fields",
+          "evidence": {
+            "undeclared": [],
+            "declared": [
+              "accident_date",
+              "accident_id"
+            ]
+          }
+        },
+        {
+          "check": "timing.prediction_time_declared",
+          "ok": true,
+          "detail": "prediction instant is declared",
+          "evidence": {}
+        },
+        {
+          "check": "timing.no_post_hoc_feature",
+          "ok": true,
+          "detail": "no feature is documented as post-hoc",
+          "evidence": {
+            "overlap": []
+          }
+        },
+        {
+          "check": "timing.label_source_is_not_a_feature",
+          "ok": true,
+          "detail": "the label source is not a feature",
+          "evidence": {
+            "source_features": []
+          }
+        },
+        {
+          "check": "timing.every_feature_documented",
+          "ok": true,
+          "detail": "features documented as available 'prediction_time'",
+          "evidence": {
+            "features_documented_at": "prediction_time"
+          }
+        },
+        {
+          "check": "timing.instant_declared",
+          "ok": true,
+          "detail": "prediction instant kind='event_time' citation=True",
+          "evidence": {
+            "prediction_instant": {
+              "citation": "Prediction is made at first notification of the accident; the extract carries only the accident year, month and day and no field-level timestamps for when each circumstance was recorded, so feature availability is inferred from scene observability rather than from a publication schedule.",
+              "days_after_period_end": null,
+              "kind": "event_time",
+              "period": null
+            }
+          }
+        },
+        {
+          "check": "timing.publication_lag_measured",
+          "ok": true,
+          "detail": "0 of 0 observed period_end -> published dates are usable",
+          "evidence": {
+            "observations": [],
+            "measured_lag_days": null,
+            "source_kind": "administrative_record"
+          }
+        },
+        {
+          "check": "timing.event_feature_availability_unverified",
+          "ok": true,
+          "detail": "Administrative current-vintage retrospective research: event-time availability UNVERIFIED; no period lag invented",
+          "evidence": {
+            "features_lag_days": null,
+            "instant_lag_days": null,
+            "measured_lag_days": null
+          }
+        },
+        {
+          "check": "timing.instant_accounts_for_publication_lag",
+          "ok": true,
+          "detail": "instant kind is 'event_time' while features publish Noned after the period",
+          "evidence": {
+            "kind": "event_time",
+            "features_lag_days": null
+          }
+        },
+        {
+          "check": "timing.event_selection_declared",
+          "ok": true,
+          "detail": "Event selection rule declared for retrospective review; prediction-time eligibility is not established",
+          "evidence": {
+            "latest_period_used": "",
+            "fields": [
+              "year",
+              "hazmatcars",
+              "hazmatreleasedcars",
+              "gxid",
+              "accidenttype"
+            ],
+            "rule": "Keep one row per unique train accident whose accident year runs from 1975 through 2026, whose consist included at least one car carrying regulated hazardous materials, and whose gxid is empty and accidenttype is not Hwy-rail crossing or RR grade crossing; drop rows without a parseable release count so that an unknown outcome is never labeled negative."
+          }
+        },
+        {
+          "check": "units.measured_columns_declare_unit_and_frame",
+          "ok": true,
+          "detail": "5 measured column(s) declare unit and frame",
+          "evidence": {
+            "measurements": [
+              {
+                "column": "hazmatcars",
+                "frame": "count of cars in the consist carrying regulated hazardous materials, from the train consist and waybills",
+                "unit": "cars"
+              },
+              {
+                "column": "hazmatreleasedcars",
+                "frame": "count of hazmat cars that released material, recorded on Form 6180.54 after the accident",
+                "unit": "cars"
+              },
+              {
+                "column": "trainspeed",
+                "frame": "recorded or estimated train speed at the time of the accident",
+                "unit": "miles per hour"
+              },
+              {
+                "column": "grosstonnage",
+                "frame": "gross tonnage of the train from the train documents",
+                "unit": "tons"
+              },
+              {
+                "column": "temperature",
+                "frame": "ambient temperature at the accident scene",
+                "unit": "degrees Fahrenheit"
+              }
+            ]
+          }
+        },
+        {
+          "check": "units.validation_receipt",
+          "ok": true,
+          "detail": "External-threshold checks need a source-bound counts-only receipt; never ship fixture answers",
+          "evidence": {
+            "receipt": {
+              "checks": 2,
+              "mismatches": 0,
+              "source": "source-checks.json: unit checks",
+              "evidence_sha256": "f46babd6245ad28b7fcfab7c3c900a991332a3fc9734af3f9e1274c33fe916e2"
+            }
+          }
+        },
+        {
+          "check": "splits.time_column_declared",
+          "ok": true,
+          "detail": "split overlap is checked against 'accident_date'",
+          "evidence": {}
+        },
+        {
+          "check": "splits.machine_readable_windows",
+          "ok": true,
+          "detail": "train/eval/holdout windows are declared with start/end",
+          "evidence": {
+            "split_windows": {
+              "eval": {
+                "end": "2013-01-01T00:00:00.000",
+                "start": "2000-01-01T00:00:00.000"
+              },
+              "holdout": {
+                "end": null,
+                "start": "2013-01-01T00:00:00.000"
+              },
+              "train": {
+                "end": "2000-01-01T00:00:00.000",
+                "start": null
+              }
+            }
+          }
+        },
+        {
+          "check": "splits.files_present",
+          "ok": true,
+          "detail": "all three split files exist",
+          "evidence": {
+            "missing": []
+          }
+        },
+        {
+          "check": "splits.non_empty",
+          "ok": true,
+          "detail": "every split has rows",
+          "evidence": {
+            "train": {
+              "rows": 12541,
+              "positives": 1372,
+              "negatives": 11169,
+              "positive_rate": 0.109401
+            },
+            "eval": {
+              "rows": 7697,
+              "positives": 342,
+              "negatives": 7355,
+              "positive_rate": 0.044433
+            },
+            "holdout": {
+              "rows": 5189,
+              "positives": 175,
+              "negatives": 5014,
+              "positive_rate": 0.033725
+            }
+          }
+        },
+        {
+          "check": "splits.eval_and_holdout_have_both_classes",
+          "ok": true,
+          "detail": "eval and holdout each contain positives and negatives",
+          "evidence": {
+            "train": {
+              "rows": 12541,
+              "positives": 1372,
+              "negatives": 11169,
+              "positive_rate": 0.109401
+            },
+            "eval": {
+              "rows": 7697,
+              "positives": 342,
+              "negatives": 7355,
+              "positive_rate": 0.044433
+            },
+            "holdout": {
+              "rows": 5189,
+              "positives": 175,
+              "negatives": 5014,
+              "positive_rate": 0.033725
+            }
+          }
+        },
+        {
+          "check": "splits.positive_events_declared",
+          "ok": true,
+          "detail": "eval and holdout declare positives and distinct events",
+          "evidence": {
+            "declared": {
+              "train": {
+                "positives": 1372,
+                "distinct_events": 1250
+              },
+              "eval": {
+                "positives": 342,
+                "distinct_events": 333
+              },
+              "holdout": {
+                "positives": 175,
+                "distinct_events": 172
+              }
+            }
+          }
+        },
+        {
+          "check": "splits.positive_events_match_rows",
+          "ok": true,
+          "detail": "declared positive counts match the rows",
+          "evidence": {
+            "mismatched": []
+          }
+        },
+        {
+          "check": "splits.event_key_column_declared",
+          "ok": true,
+          "detail": "clustered events are counted by 'accident_date' (date part)",
+          "evidence": {}
+        },
+        {
+          "check": "splits.distinct_events_match_rows",
+          "ok": true,
+          "detail": "declared clustered event counts match the rows",
+          "evidence": {
+            "recomputed": {
+              "train": 1250,
+              "eval": 333,
+              "holdout": 172
+            },
+            "declared": {
+              "train": {
+                "positives": 1372,
+                "distinct_events": 1250
+              },
+              "eval": {
+                "positives": 342,
+                "distinct_events": 333
+              },
+              "holdout": {
+                "positives": 175,
+                "distinct_events": 172
+              }
+            }
+          }
+        },
+        {
+          "check": "splits.enough_clustered_positives",
+          "ok": true,
+          "detail": "eval and holdout carry enough independent positive events to score",
+          "evidence": {
+            "thin": [],
+            "recomputed_events": {
+              "train": 1250,
+              "eval": 333,
+              "holdout": 172
+            },
+            "minimums": {
+              "positives": 30,
+              "distinct_events": 20
+            }
+          }
+        },
+        {
+          "check": "splits.rates_not_uniform",
+          "ok": true,
+          "detail": "positive rates are between 0 and 1",
+          "evidence": {
+            "rates": [
+              0.109401,
+              0.044433,
+              0.033725
+            ]
+          }
+        },
+        {
+          "check": "splits.actual_ranges_computed",
+          "ok": true,
+          "detail": "row timestamps found for every split",
+          "evidence": {
+            "ranges": {
+              "train": {
+                "min": "1975-01-01T00:00:00.000",
+                "max": "1999-12-31T00:00:00.000"
+              },
+              "eval": {
+                "min": "2000-01-02T00:00:00.000",
+                "max": "2012-12-31T00:00:00.000"
+              },
+              "holdout": {
+                "min": "2013-01-02T00:00:00.000",
+                "max": "2026-08-31T00:00:00.000"
+              }
+            }
+          }
+        },
+        {
+          "check": "splits.actual_ranges_disjoint",
+          "ok": true,
+          "detail": "the rows of the three splits occupy disjoint periods",
+          "evidence": {
+            "ranges": {
+              "train": {
+                "min": "1975-01-01T00:00:00.000",
+                "max": "1999-12-31T00:00:00.000"
+              },
+              "eval": {
+                "min": "2000-01-02T00:00:00.000",
+                "max": "2012-12-31T00:00:00.000"
+              },
+              "holdout": {
+                "min": "2013-01-02T00:00:00.000",
+                "max": "2026-08-31T00:00:00.000"
+              }
+            },
+            "overlaps": []
+          }
+        },
+        {
+          "check": "splits.rows_within_declared_windows",
+          "ok": true,
+          "detail": "every row falls inside its split's declared window",
+          "evidence": {
+            "windows": {
+              "eval": {
+                "end": "2013-01-01T00:00:00.000",
+                "start": "2000-01-01T00:00:00.000"
+              },
+              "holdout": {
+                "end": null,
+                "start": "2013-01-01T00:00:00.000"
+              },
+              "train": {
+                "end": "2000-01-01T00:00:00.000",
+                "start": null
+              }
+            },
+            "ranges": {
+              "train": {
+                "min": "1975-01-01T00:00:00.000",
+                "max": "1999-12-31T00:00:00.000"
+              },
+              "eval": {
+                "min": "2000-01-02T00:00:00.000",
+                "max": "2012-12-31T00:00:00.000"
+              },
+              "holdout": {
+                "min": "2013-01-02T00:00:00.000",
+                "max": "2026-08-31T00:00:00.000"
+              }
+            }
+          }
+        },
+        {
+          "check": "splits.no_cross_split_entities",
+          "ok": true,
+          "detail": "no accident_id appears in more than one split",
+          "evidence": {
+            "shared_sample": [],
+            "shared_count": 0
+          }
+        },
+        {
+          "check": "splits.duplicate_entities_within_splits",
+          "ok": true,
+          "detail": "0 repeated-identifier rows within splits, at most the declared 0",
+          "evidence": {
+            "duplicate_rows": {},
+            "declared": 0
+          }
+        },
+        {
+          "check": "runner.layout",
+          "ok": true,
+          "detail": "holdout is private and train/eval are public",
+          "evidence": {}
+        },
+        {
+          "check": "runner.meta_json_keys",
+          "ok": true,
+          "detail": "meta.json carries the keys the runner reads",
+          "evidence": {
+            "keys": [
+              "columns",
+              "description",
+              "id_columns",
+              "name",
+              "positive_label",
+              "positive_rate",
+              "rows",
+              "split",
+              "split_description",
+              "target"
+            ]
+          }
+        },
+        {
+          "check": "runner.meta_matches_files",
+          "ok": true,
+          "detail": "meta.json agrees with the split files",
+          "evidence": {
+            "problems": []
+          }
+        },
+        {
+          "check": "runner.meta_counts_match_files",
+          "ok": true,
+          "detail": "meta rows and rates match the files",
+          "evidence": {}
+        },
+        {
+          "check": "runner.id_columns_are_not_features",
+          "ok": true,
+          "detail": "declared identifiers are not also listed as features",
+          "evidence": {}
+        }
+      ],
+      "failed_checks": []
+    },
+    "paper/analysis/evening-2026-11-15/fra-form54-hazmat-release-artifact-verification.json": {
+      "release_tag": "v-c59d614ee9c4ce97",
+      "artifact_version": "aedd811fdb6a80fdeb6828c1ba8bc2eeb80c8446d597ba57a536adb8e384da7e",
+      "manifest_sha256": "c6132a372c1f4a14051c6ea13b01e743eff7874d73212077707bc252fd562dd6",
+      "qualification_sha256": "8d45be55dd6fac13fb4fb3d69393e507e3a03c4e89763e885679d0ce08d49847",
+      "accept_exit_code": 0,
+      "scope": "Rechecked original worker qualification against complete saved study splits and published quality descriptor; no construction, model fitting, or new qualification."
+    },
+    "paper/analysis/evening-2026-11-15/seattle-probes/training-feature-probes.json": [
+      {
+        "run": "seattle-building-permit-completion--r2",
+        "full_training_rows": 11286,
+        "training_feature_rows": 11286,
+        "checks": [
+          {
+            "row": 0,
+            "changed_own_feature_cells": 0,
+            "max_absolute_change": 0.0,
+            "augmented_copies": 1
+          },
+          {
+            "row": 5643,
+            "changed_own_feature_cells": 0,
+            "max_absolute_change": 0.0,
+            "augmented_copies": 1
+          }
+        ]
+      },
+      {
+        "run": "seattle-building-permit-completion--r3",
+        "full_training_rows": 11286,
+        "training_feature_rows": 11286,
+        "checks": [
+          {
+            "row": 0,
+            "changed_own_feature_cells": 0,
+            "max_absolute_change": 0.0,
+            "augmented_copies": 1
+          },
+          {
+            "row": 5643,
+            "changed_own_feature_cells": 0,
+            "max_absolute_change": 0.0,
+            "augmented_copies": 1
+          }
+        ]
+      }
+    ],
+    "paper/analysis/evening-2026-11-15/seattle-probes/artifact-probes.json": [
+      {
+        "run": "seattle-building-permit-completion--r2",
+        "real_validation_rows_checked": 25,
+        "batch_equals_single_rows": true,
+        "reverse_order_invariant": true,
+        "prepare_external_events": [],
+        "n_jobs": 5,
+        "feature_count": 32,
+        "selected_feature_names": [
+          "nrc_blank",
+          "estprojectcost",
+          "housingunitsadded",
+          "housingunitsremoved",
+          "housingunits",
+          "applied_to_issued_days",
+          "issue_month_sin",
+          "issue_month_cos",
+          "description_length",
+          "description_stfi",
+          "description_per_plan",
+          "description_apartment",
+          "description_unit",
+          "description_tenant",
+          "description_demolition",
+          "dependentbuilding",
+          "standardplan",
+          "parent_permit_flag",
+          "related_mup_flag",
+          "huna",
+          "spna",
+          "tdna",
+          "miss_pattern",
+          "hu_no_sp",
+          "a2i_rel",
+          "a2i_ratio",
+          "cost_ratio",
+          "cell",
+          "permitclass",
+          "permitclassmapped",
+          "permittypedesc",
+          "originalzip"
+        ]
+      },
+      {
+        "run": "seattle-building-permit-completion--r3",
+        "real_validation_rows_checked": 25,
+        "batch_equals_single_rows": true,
+        "reverse_order_invariant": true,
+        "prepare_external_events": [],
+        "n_jobs": 5,
+        "feature_count": 32,
+        "selected_feature_names": null
+      }
+    ],
+    "paper/analysis/evening-2026-11-15/seattle-probes/control-features.json": [
+      {
+        "dataset": "seattle-building-permit-completion",
+        "ordinary_features": [
+          "permitclass",
+          "permitclassmapped",
+          "permittypedesc",
+          "estprojectcost",
+          "housingunitsadded",
+          "housingunitsremoved",
+          "housingunits",
+          "applied_to_issued_days",
+          "totaldaysplanreview",
+          "numberreviewcycles",
+          "daysoutcorrections",
+          "issue_month_sin",
+          "issue_month_cos",
+          "originalzip",
+          "description_length",
+          "description_stfi",
+          "description_per_plan",
+          "description_apartment",
+          "description_unit",
+          "description_tenant",
+          "description_demolition",
+          "dependentbuilding",
+          "standardplan",
+          "parent_permit_flag",
+          "related_mup_flag"
+        ]
+      }
+    ],
+    "paper/analysis/evening-2026-11-15/seattle-probes/provenance.json": {
+      "study": ".local/studies/seattle-building-permit-completion-retry-1",
+      "included_runs": [
+        "seattle-building-permit-completion--r2",
+        "seattle-building-permit-completion--r3"
+      ],
+      "excluded_runs": [
+        {
+          "run": "seattle-building-permit-completion--r1",
+          "status": "blocked"
+        }
+      ],
+      "method": "Temporary view with copied study.json order restricted to already frozen runs; original .study and evidence read through symlinks. No original files changed, no tree fitting or scoring.",
+      "tools": [
+        {
+          "tool": "probe_artifacts.py",
+          "sha256": "52c33ea61d00f7b1aa584e5cf98ee69db259821be6aa2ee91c9bac30f3cd5f8f",
+          "exit_code": 0
+        },
+        {
+          "tool": "probe_all_training_features.py",
+          "sha256": "a6bb1180da6056ab7a4c428486eafc33b40edee078be999c3628438564708b15",
+          "exit_code": 0
+        }
+      ]
+    },
+    ".local/studies/seattle-building-permit-completion-retry-1/.study/runs/seattle-building-permit-completion--r1/BLOCKER.json": {
+      "run_id": "seattle-building-permit-completion--r1",
+      "kind": "suspected_post_issuance_leakage_via_field_missingness",
+      "scope": "partial: does not prevent scoring or selection; affects interpretation of the release's prediction-time claim",
+      "blocks_scoring": false,
+      "affected_claim": "README / construction.json: 'Only fields written at submittal, during plan review, or at issuance are used' and feature availability of `standardplan` (and of the plan-review sub-record fields `numberreviewcycles`, `daysoutcorrections`, `totaldaysplanreview`) assumed at issuance.",
+      "evidence": {
+        "data_used": "public train.csv and eval.csv only (no holdout, no raw source)",
+        "standardplan_null_among_unit_adding_permits": {
+          "definition": "standardplan is null AND housingunitsadded >= 1",
+          "train": {
+            "rows": 140,
+            "completed_rate": 0.014
+          },
+          "validation": {
+            "rows": 146,
+            "completed_rate": 0.0
+          },
+          "share_of_completed_unit_adding_permits_with_null_standardplan": 0.0004,
+          "share_of_non_completed_unit_adding_permits_with_null_standardplan": 0.192,
+          "share_of_unit_adding_permits_by_half_year": {
+            "2016H1": 0.023,
+            "2016H2": 0.031,
+            "2017H1": 0.028,
+            "2017H2": 0.045,
+            "2018H1": 0.034,
+            "2018H2": 0.059,
+            "2019H1": 0.053,
+            "2019H2": 0.048,
+            "2020H1": 0.059,
+            "2020H2": 0.078
+          },
+          "comparison": "unit-adding permits with populated standardplan complete at ~0.75-0.86 in every half-year"
+        },
+        "numberreviewcycles_null": {
+          "train": {
+            "rows": 61,
+            "completed_rate": 0.016
+          },
+          "validation": {
+            "rows": 25,
+            "completed_rate": 0.04
+          },
+          "note": "same rows also have null daysoutcorrections and totaldaysplanreview"
+        },
+        "effect_on_metric_local_diagnostics": {
+          "best_model_validation_auc_all_rows": 0.661,
+          "best_model_validation_auc_excluding_pocket_rows": 0.63,
+          "model_without_standardplan_and_missingness_flags": 0.631
+        }
+      },
+      "interpretation": "A field that is blank for 19% of never-completed unit-adding permits but for 0.04% of completed ones, with the blank share rising toward recent cohorts, is most simply explained by the field being written or finalised after issuance (or wiped on cancellation) in the current snapshot. That is outcome-dependent information not available at the stated prediction time. It is not proven: no historical ledger exists, and the release itself says availability is assumed, not proven.",
+      "action_taken": "Task, target, features and evaluator left unchanged; features used as permitted by the release contract. Concern disclosed here and in REPORT.md with an ablation. Roughly 0.03 of validation AUC is attributable to these rows; the share may be larger on later cohorts if the blank share keeps rising.",
+      "not_done": "No repair of the dataset, no change of target, no access to holdout or raw source to confirm."
+    }
+  }
+}
