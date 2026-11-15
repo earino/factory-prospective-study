@@ -1,2 +1,5 @@
 dataset,id,kind,validation_auc,validation_brier,holdout_auc,holdout_brier,holdout_rows
-seattle-building-permit-completion,seattle-building-permit-completion--r1,agent,0.6587075534859927,0.17050737329378451,,,
+seattle-building-permit-completion,seattle-building-permit-completion--ordinary,ordinary,0.6193763018351905,0.18066629106210508,0.6179365855905143,0.18231139992070838,6326
+seattle-building-permit-completion,seattle-building-permit-completion--r1,agent,0.6587075534859927,0.17050737329378451,0.6482217774875273,0.16888359460041713,6326
+seattle-building-permit-completion,seattle-building-permit-completion--r1--random,random,0.6440769006375857,0.17413694794973508,0.6335192216276375,0.17266375278730947,6326
+seattle-building-permit-completion,seattle-building-permit-completion--released,released,0.6268251812957001,0.1754951025937614,0.6199467903361817,0.1742387968456463,6326

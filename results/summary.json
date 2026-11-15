@@ -1,6 +1,6 @@
 {
   "cli_reported_cost_usd_not_invoice": 429.33752220000014,
-  "generated_at": "2026-11-15T23:19:04.841985+00:00",
+  "generated_at": "2026-11-15T23:40:07.074399+00:00",
   "limitations": [
     "Five selected factory releases; three attempts are descriptive, not agent rankings.",
     "Pinned consumer scaffold and deterministic downloads are provided assistance.",
@@ -56,13 +56,43 @@
   "scores": [
     {
       "dataset": "seattle-building-permit-completion",
-      "holdout_auc": null,
-      "holdout_brier": null,
-      "holdout_rows": null,
+      "holdout_auc": 0.6179365855905143,
+      "holdout_brier": 0.18231139992070838,
+      "holdout_rows": 6326,
+      "id": "seattle-building-permit-completion--ordinary",
+      "kind": "ordinary",
+      "validation_auc": 0.6193763018351905,
+      "validation_brier": 0.18066629106210508
+    },
+    {
+      "dataset": "seattle-building-permit-completion",
+      "holdout_auc": 0.6482217774875273,
+      "holdout_brier": 0.16888359460041713,
+      "holdout_rows": 6326,
       "id": "seattle-building-permit-completion--r1",
       "kind": "agent",
       "validation_auc": 0.6587075534859927,
       "validation_brier": 0.17050737329378451
+    },
+    {
+      "dataset": "seattle-building-permit-completion",
+      "holdout_auc": 0.6335192216276375,
+      "holdout_brier": 0.17266375278730947,
+      "holdout_rows": 6326,
+      "id": "seattle-building-permit-completion--r1--random",
+      "kind": "random",
+      "validation_auc": 0.6440769006375857,
+      "validation_brier": 0.17413694794973508
+    },
+    {
+      "dataset": "seattle-building-permit-completion",
+      "holdout_auc": 0.6199467903361817,
+      "holdout_brier": 0.1742387968456463,
+      "holdout_rows": 6326,
+      "id": "seattle-building-permit-completion--released",
+      "kind": "released",
+      "validation_auc": 0.6268251812957001,
+      "validation_brier": 0.1754951025937614
     }
   ]
 }
