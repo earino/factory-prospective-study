@@ -167,3 +167,36 @@ Detailed tariff ranges and pending-run chronology remain in the body. No evidenc
 result, cost denominator, experiment, or production setting changed. Recorded the
 opening's purpose in `PAPER-DIRECTION.md` for subsequent revisions. All seven pages
 were rendered and inspected; the source bundle passes the clean-build checks.
+
+
+## Factory usefulness and comparator interpretation — 15 November 2026
+
+Eduardo requested that the paper distinguish dataset usefulness from consumer-agent
+superiority. Recorded the direction in `PAPER-DIRECTION.md` and revised the abstract,
+RQ3, methods, results, main comparison figure, discussion, and conclusion.
+
+The untuned scaffold is the primary performance reference for modeling headroom;
+paired tuned random search remains a visible secondary comparison of added agent
+benefit. Both controls and all underlying scores were already present. No protocol,
+experiment, selection, release, or model was changed. The manuscript explicitly
+notes that this presentation emphasis was clarified after interim results.
+
+`analysis/comparator-summary.json` is generated from the same frozen bootstrap
+records as Figure 3. It retains all three intervals against each comparator for
+all seven datasets with a declared grouping. The figure uses identical scales,
+shows both comparisons side by side, and checks that no interval is clipped.
+
+- All three consumer point estimates exceed the untuned scaffold on seven of the
+  eight completed tasks; airline routes are mixed. Pipeline penalties has no CI.
+- All three intervals against untuned XGBoost are above zero for civil trials,
+  device recalls, wastewater, and wildlife strikes, conditional on their groupings
+  and unresolved semantic/probe limitations. This is not four validated benchmarks.
+- Against tuned random search, all three intervals are above zero for civil trials
+  and device recalls. One wastewater and one wildlife-strike interval are above
+  zero; all other available intervals include zero. No unfavorable result is hidden.
+- Cost remains per publication, not per validated useful benchmark; correction and
+  expert-review effort are unmeasured. Known source/selection/timing defects remain.
+
+All seven pages rendered and inspected. The PDF keeps 20 references and original
+IEEE type/margins. Portable source rebuild and numerical cross-checks pass; artifact
+and immutable-input hashes are recorded in `output/QA.json`.

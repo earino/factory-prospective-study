@@ -1,0 +1,380 @@
+{
+  "fjc-civil-trial-36m": {
+    "ordinary": {
+      "positive_intervals": 3,
+      "comparisons": [
+        {
+          "run": "fjc-civil-trial-36m--r1",
+          "control": "fjc-civil-trial-36m--ordinary",
+          "delta": 0.0370592243605673,
+          "low": 0.015158393003318846,
+          "high": 0.056827233333858196
+        },
+        {
+          "run": "fjc-civil-trial-36m--r2",
+          "control": "fjc-civil-trial-36m--ordinary",
+          "delta": 0.03543783485954677,
+          "low": 0.015954167888704227,
+          "high": 0.05281680074780129
+        },
+        {
+          "run": "fjc-civil-trial-36m--r3",
+          "control": "fjc-civil-trial-36m--ordinary",
+          "delta": 0.038827906005318824,
+          "low": 0.014909242437397654,
+          "high": 0.06127866762662453
+        }
+      ]
+    },
+    "random": {
+      "positive_intervals": 3,
+      "comparisons": [
+        {
+          "run": "fjc-civil-trial-36m--r1",
+          "control": "fjc-civil-trial-36m--r1--random",
+          "delta": 0.024750494278365287,
+          "low": 0.006900338385652657,
+          "high": 0.041008308448648084
+        },
+        {
+          "run": "fjc-civil-trial-36m--r2",
+          "control": "fjc-civil-trial-36m--r2--random",
+          "delta": 0.017282046824610986,
+          "low": 0.001191864650830643,
+          "high": 0.03253367838189437
+        },
+        {
+          "run": "fjc-civil-trial-36m--r3",
+          "control": "fjc-civil-trial-36m--r3--random",
+          "delta": 0.025598283587998427,
+          "low": 0.011713813631842079,
+          "high": 0.03833253925615217
+        }
+      ]
+    }
+  },
+  "fda-510k-five-year-recall": {
+    "ordinary": {
+      "positive_intervals": 3,
+      "comparisons": [
+        {
+          "run": "fda-510k-five-year-recall--r1",
+          "control": "fda-510k-five-year-recall--ordinary",
+          "delta": 0.07214342279179264,
+          "low": 0.047225455309555624,
+          "high": 0.09803740942108029
+        },
+        {
+          "run": "fda-510k-five-year-recall--r2",
+          "control": "fda-510k-five-year-recall--ordinary",
+          "delta": 0.07227664657243182,
+          "low": 0.0451732378167116,
+          "high": 0.09934622884106697
+        },
+        {
+          "run": "fda-510k-five-year-recall--r3",
+          "control": "fda-510k-five-year-recall--ordinary",
+          "delta": 0.07610947024243686,
+          "low": 0.05056336304737085,
+          "high": 0.1018639556982627
+        }
+      ]
+    },
+    "random": {
+      "positive_intervals": 3,
+      "comparisons": [
+        {
+          "run": "fda-510k-five-year-recall--r1",
+          "control": "fda-510k-five-year-recall--r1--random",
+          "delta": 0.062377198847094806,
+          "low": 0.03828275505777453,
+          "high": 0.08627355625899633
+        },
+        {
+          "run": "fda-510k-five-year-recall--r2",
+          "control": "fda-510k-five-year-recall--r2--random",
+          "delta": 0.07075128919562745,
+          "low": 0.04563435045222132,
+          "high": 0.09622012452816575
+        },
+        {
+          "run": "fda-510k-five-year-recall--r3",
+          "control": "fda-510k-five-year-recall--r3--random",
+          "delta": 0.0692362382875853,
+          "low": 0.045324368556372674,
+          "high": 0.09370945003496428
+        }
+      ]
+    }
+  },
+  "t100-new-route-survival": {
+    "ordinary": {
+      "positive_intervals": 0,
+      "comparisons": [
+        {
+          "run": "t100-new-route-survival--r1",
+          "control": "t100-new-route-survival--ordinary",
+          "delta": -0.00068577430972383,
+          "low": -0.05939107703281099,
+          "high": 0.03706298379725451
+        },
+        {
+          "run": "t100-new-route-survival--r2",
+          "control": "t100-new-route-survival--ordinary",
+          "delta": -0.005394657863145191,
+          "low": -0.05965371228260905,
+          "high": 0.04077049836631164
+        },
+        {
+          "run": "t100-new-route-survival--r3",
+          "control": "t100-new-route-survival--ordinary",
+          "delta": 0.008819027611044472,
+          "low": -0.08611821063714714,
+          "high": 0.06772936401631534
+        }
+      ]
+    },
+    "random": {
+      "positive_intervals": 0,
+      "comparisons": [
+        {
+          "run": "t100-new-route-survival--r1",
+          "control": "t100-new-route-survival--r1--random",
+          "delta": -0.01699429771908767,
+          "low": -0.06607516350023378,
+          "high": 0.01874038024764668
+        },
+        {
+          "run": "t100-new-route-survival--r2",
+          "control": "t100-new-route-survival--r2--random",
+          "delta": 0.003088235294117725,
+          "low": -0.054199574397416336,
+          "high": 0.043972920684134296
+        },
+        {
+          "run": "t100-new-route-survival--r3",
+          "control": "t100-new-route-survival--r3--random",
+          "delta": 0.022331932773109298,
+          "low": -0.07420044493133486,
+          "high": 0.0882778844210992
+        }
+      ]
+    }
+  },
+  "sbir-phase1-to-phase2-conversion": {
+    "ordinary": {
+      "positive_intervals": 0,
+      "comparisons": [
+        {
+          "run": "sbir-phase1-to-phase2-conversion--r1",
+          "control": "sbir-phase1-to-phase2-conversion--ordinary",
+          "delta": 0.02879938573223506,
+          "low": -0.0007892375928554543,
+          "high": 0.0668849779524644
+        },
+        {
+          "run": "sbir-phase1-to-phase2-conversion--r2",
+          "control": "sbir-phase1-to-phase2-conversion--ordinary",
+          "delta": 0.027833310065614958,
+          "low": -0.0012671470576112258,
+          "high": 0.056894770861343376
+        },
+        {
+          "run": "sbir-phase1-to-phase2-conversion--r3",
+          "control": "sbir-phase1-to-phase2-conversion--ordinary",
+          "delta": 0.023250732933128626,
+          "low": -0.004778622115484365,
+          "high": 0.05945692807663825
+        }
+      ]
+    },
+    "random": {
+      "positive_intervals": 0,
+      "comparisons": [
+        {
+          "run": "sbir-phase1-to-phase2-conversion--r1",
+          "control": "sbir-phase1-to-phase2-conversion--r1--random",
+          "delta": -0.008575317604355814,
+          "low": -0.01921864526731133,
+          "high": 0.005333096424951192
+        },
+        {
+          "run": "sbir-phase1-to-phase2-conversion--r2",
+          "control": "sbir-phase1-to-phase2-conversion--r2--random",
+          "delta": -0.007470333659081452,
+          "low": -0.028435702545652412,
+          "high": 0.005886871461550721
+        },
+        {
+          "run": "sbir-phase1-to-phase2-conversion--r3",
+          "control": "sbir-phase1-to-phase2-conversion--r3--random",
+          "delta": -0.014165852296523784,
+          "low": -0.02582325952742129,
+          "high": 0.003002669851208035
+        }
+      ]
+    }
+  },
+  "caa-fce-hpv-escalation": {
+    "ordinary": {
+      "positive_intervals": 0,
+      "comparisons": [
+        {
+          "run": "caa-fce-hpv-escalation--r1",
+          "control": "caa-fce-hpv-escalation--ordinary",
+          "delta": 0.01650735714010565,
+          "low": -0.00750777609788045,
+          "high": 0.03667845720320102
+        },
+        {
+          "run": "caa-fce-hpv-escalation--r2",
+          "control": "caa-fce-hpv-escalation--ordinary",
+          "delta": 0.01954982669006744,
+          "low": -0.0013221646962745775,
+          "high": 0.03898399106570507
+        },
+        {
+          "run": "caa-fce-hpv-escalation--r3",
+          "control": "caa-fce-hpv-escalation--ordinary",
+          "delta": 0.00830005561866809,
+          "low": -0.016981217170139864,
+          "high": 0.02840671279487583
+        }
+      ]
+    },
+    "random": {
+      "positive_intervals": 0,
+      "comparisons": [
+        {
+          "run": "caa-fce-hpv-escalation--r1",
+          "control": "caa-fce-hpv-escalation--r1--random",
+          "delta": 0.012378532680867083,
+          "low": -0.0051894249047052645,
+          "high": 0.03305015093071325
+        },
+        {
+          "run": "caa-fce-hpv-escalation--r2",
+          "control": "caa-fce-hpv-escalation--r2--random",
+          "delta": 0.008705031157942744,
+          "low": -0.008853796457640183,
+          "high": 0.03274018170834416
+        },
+        {
+          "run": "caa-fce-hpv-escalation--r3",
+          "control": "caa-fce-hpv-escalation--r3--random",
+          "delta": 0.007956916144213788,
+          "low": -0.0036420869197111654,
+          "high": 0.01942791717499138
+        }
+      ]
+    }
+  },
+  "wser-effluent-exceedance": {
+    "ordinary": {
+      "positive_intervals": 3,
+      "comparisons": [
+        {
+          "run": "wser-effluent-exceedance--r1",
+          "control": "wser-effluent-exceedance--ordinary",
+          "delta": 0.008467220365904637,
+          "low": 0.0028137148640574984,
+          "high": 0.01388156077731998
+        },
+        {
+          "run": "wser-effluent-exceedance--r2",
+          "control": "wser-effluent-exceedance--ordinary",
+          "delta": 0.008465773101505647,
+          "low": 0.003396569553371162,
+          "high": 0.013790907884766376
+        },
+        {
+          "run": "wser-effluent-exceedance--r3",
+          "control": "wser-effluent-exceedance--ordinary",
+          "delta": 0.008753778716891536,
+          "low": 0.003628990274154656,
+          "high": 0.01399552947990228
+        }
+      ]
+    },
+    "random": {
+      "positive_intervals": 1,
+      "comparisons": [
+        {
+          "run": "wser-effluent-exceedance--r1",
+          "control": "wser-effluent-exceedance--r1--random",
+          "delta": 0.001046010344322279,
+          "low": -0.0012506167589148604,
+          "high": 0.0033701476634686737
+        },
+        {
+          "run": "wser-effluent-exceedance--r2",
+          "control": "wser-effluent-exceedance--r2--random",
+          "delta": 0.0020238183538452414,
+          "low": 5.705444834933352e-05,
+          "high": 0.003998531497494906
+        },
+        {
+          "run": "wser-effluent-exceedance--r3",
+          "control": "wser-effluent-exceedance--r3--random",
+          "delta": 0.00038243961741568633,
+          "low": -0.001775942981359682,
+          "high": 0.0025068829981792218
+        }
+      ]
+    }
+  },
+  "faa-wildlife-strike-substantial-damage": {
+    "ordinary": {
+      "positive_intervals": 3,
+      "comparisons": [
+        {
+          "run": "faa-wildlife-strike-substantial-damage--r1",
+          "control": "faa-wildlife-strike-substantial-damage--ordinary",
+          "delta": 0.019044667714521735,
+          "low": 0.005648595244392559,
+          "high": 0.03290552357816964
+        },
+        {
+          "run": "faa-wildlife-strike-substantial-damage--r2",
+          "control": "faa-wildlife-strike-substantial-damage--ordinary",
+          "delta": 0.02577457728349597,
+          "low": 0.013019061819625536,
+          "high": 0.040291637378233984
+        },
+        {
+          "run": "faa-wildlife-strike-substantial-damage--r3",
+          "control": "faa-wildlife-strike-substantial-damage--ordinary",
+          "delta": 0.014336887132127885,
+          "low": 0.003832243117380463,
+          "high": 0.025703741774524735
+        }
+      ]
+    },
+    "random": {
+      "positive_intervals": 1,
+      "comparisons": [
+        {
+          "run": "faa-wildlife-strike-substantial-damage--r1",
+          "control": "faa-wildlife-strike-substantial-damage--r1--random",
+          "delta": 0.003690071634602332,
+          "low": -0.008819222225307186,
+          "high": 0.015937607161948853
+        },
+        {
+          "run": "faa-wildlife-strike-substantial-damage--r2",
+          "control": "faa-wildlife-strike-substantial-damage--r2--random",
+          "delta": 0.014678522834406182,
+          "low": 0.00498211573057,
+          "high": 0.025676387253268058
+        },
+        {
+          "run": "faa-wildlife-strike-substantial-damage--r3",
+          "control": "faa-wildlife-strike-substantial-damage--r3--random",
+          "delta": 0.003873716974292618,
+          "low": -0.004932582344413771,
+          "high": 0.012796639698977283
+        }
+      ]
+    }
+  }
+}

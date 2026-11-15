@@ -7,6 +7,12 @@ eight datasets, including the wildlife-strike quota recovery completed at
 at 14:24 UTC that day and its 11-publication denominator. The twelfth dataset
 is listed as awaiting evaluation; two other recoveries remain outstanding.
 
+The current interpretation centers the factory's datasets. Untuned XGBoost is the
+primary performance comparison for modeling headroom; tuned random search is a
+secondary control for added agent benefit. Both appear side by side in the main
+figure. Source-quality findings remain separate. The agreed reasoning is saved in
+[PAPER-DIRECTION.md](PAPER-DIRECTION.md#use-independent-consumption-to-assess-output-value).
+
 This remains an interim author-review draft. Its 20 references support the
 methods, production reliability, artifact evaluation, and human-work discussion.
 

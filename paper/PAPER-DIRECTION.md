@@ -88,18 +88,41 @@ https://arxiv.org/html/2510.07307v1
 
 ## Use independent consumption to assess output value
 
-Ask whether another agent can obtain the public files and carry out meaningful
-prediction experiments. Report artifact usability, prediction-task defects,
-consumer compliance, and score uncertainty separately. Retain all selected
-outcomes, including access failures and unresolved uncertainty.
+**Agreed clarification, 15 November:** the factory produces datasets; the consumer
+agent is an evaluation instrument. The paper asks whether the released artifacts
+support reproducible prediction research, not whether Claude beats tuned XGBoost.
+This editorial emphasis was clarified after inspecting interim results. It does
+not change the registered protocol, controls, metrics, selection, or experiments.
 
-**Dataset usefulness and consumer-agent superiority are different questions.**
-A competitive conventional search method can still demonstrate that a dataset
-supports meaningful experimentation. Do not equate a failure to beat random search
-with an unusable dataset, or an improved score with proof of a valid benchmark.
+Assess four things: source-to-publication operation; independent artifact use;
+modeling headroom over a fixed untuned model; and production cost and quality
+problems that survive factory checks. There is no single score threshold for
+usefulness, and improved AUC does not establish scientific or operational value.
 
-Preserve existing controls, frozen results, and code/transcript review. No extra
-experiment is required merely to broaden the literature comparison.
+- **Primary performance comparison:** the existing untuned XGBoost scaffold
+  (100 trees, maximum depth 6, learning rate 0.1, native categorical handling).
+  It describes a reproducible starting point and improvement from experimentation.
+  It is not a null model or an artificially weakened control.
+- **Secondary comparison:** the existing XGBoost random search, matched to recorded
+  eligible fitting CPU, with its cap and per-fit overshoot disclosed. It tests
+  added benefit of agent-led experimentation over conventional parameter tuning.
+  Retain all its scores and intervals with comparable visibility. Do not remove,
+  weaken, rerun, or relabel the control to manufacture favorable results.
+- **Independent quality evidence:** source meaning, population, feature timing,
+  dependence structure, saved-model replay, and code/transcript review. These
+  assess validity separately from either model comparison. Known defects remain.
+
+Present both performance comparisons side by side in the main figure. Label the
+fixed model "untuned XGBoost" and the search control "tuned random search" rather
+than use an ambiguous "baseline." State exact settings and what each answers.
+Report all runs and unresolved reviews. Do not count correlated runs as independent
+replications or turn point estimates into interval-supported claims.
+
+A conventional search doing well can show that a task supports experimentation.
+A consumer agent not beating it does not establish poor dataset quality. Conversely,
+beating the untuned model does not repair a defective target or prove usefulness.
+Cost per publication remains distinct from unmeasured cost per validated, useful
+benchmark, including correction and expert review.
 
 ## Discuss human analytical work briefly and precisely
 
@@ -135,7 +158,8 @@ Keep this discussion focused; do not turn the paper into a labor-economics surve
 
 Eduardo’s requested length: at most seven IEEE pages including references (confirmed 15 November).
 
-1. Introduction: lead with final observed output, cost, and independent-use findings.
+1. Introduction: lead with the problem and why the factory was built, then the
+   observed output, cost, and independent-use findings.
 2. System and work allocation: explain the complete workflow and the responsibilities
    of models, deterministic software, and humans.
 3. Study method: observation window, production record, cost accounting, and consumer

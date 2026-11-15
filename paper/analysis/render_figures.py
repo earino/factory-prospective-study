@@ -44,18 +44,24 @@ bx.invert_yaxis();bx.set_xlabel('Recorded stage attempts started in window');bx.
 for y,v in enumerate(left):bx.text(v+2,y,str(v),va='center',fontsize=8)
 fig.tight_layout(w_pad=2);fig.savefig(figdir/'operations.pdf');plt.close(fig)
 # All available paired intervals, no best-run selection.
-fig,ax=plt.subplots(figsize=(7,3.2))
+fig,axes=plt.subplots(1,2,figsize=(7,3.05),sharey=True)
 with_ci=[r for r in cohort if (review_path(r['dataset'],'bootstrap.json') in D and len(D[review_path(r['dataset'],'bootstrap.json')]['comparisons']))]
-ax.axvline(0,color=grey,lw=.9)
-titles=[]
-for j,r in enumerate(with_ci):
- ds=r['dataset'];b=D[review_path(ds,'bootstrap.json')]; rows=[c for c in b['comparisons'] if c['control'].endswith('--random')]
- titles.append(f"{names[ds]} ({b['clusters']:,} groups)")
- if j%2==0:ax.axhspan(j-.45,j+.45,color='#eef4f7',zorder=0)
- for i,c in enumerate(rows):
-  ax.errorbar(c['delta'],j+(i-1)*.21,xerr=[[c['delta']-c['low']],[c['high']-c['delta']]],fmt=['o','s','^'][i],color=[blue,teal,gold][i],capsize=2,ms=3,lw=1,label=f'Run {i+1}' if j==0 else None)
-ax.set_yticks(range(len(titles)),titles);ax.invert_yaxis();ax.set_xlim(-.085,.105);ax.set_xticks([-.05,0,.05,.10]);ax.grid(axis='x',alpha=.15);ax.set_xlabel('Consumer minus random-search holdout AUC');ax.legend(frameon=False,loc='upper right',fontsize=7)
-fig.tight_layout();fig.savefig(figdir/'consumer-intervals.pdf');plt.close(fig)
+comparison_summary={}
+for panel,(control,title) in enumerate([('ordinary','(a) Versus untuned XGBoost'),('random','(b) Versus tuned random search')]):
+ ax=axes[panel];ax.axvline(0,color=grey,lw=.9);titles=[]
+ for j,r in enumerate(with_ci):
+  ds=r['dataset'];b=D[review_path(ds,'bootstrap.json')];rows=[c for c in b['comparisons'] if c['control'].endswith('--'+control)]
+  assert len(rows)==3,(ds,control)
+  comparison_summary.setdefault(ds,{})[control]={'positive_intervals':sum(c['low']>0 for c in rows),'comparisons':rows}
+  titles.append(f"{names[ds]} ({b['clusters']:,})")
+  if j%2==0:ax.axhspan(j-.45,j+.45,color='#eef4f7',zorder=0)
+  for i,c in enumerate(rows):
+   assert -.095<c['low']<=c['delta']<=c['high']<.11,(ds,c)
+   ax.errorbar(c['delta'],j+(i-1)*.21,xerr=[[c['delta']-c['low']],[c['high']-c['delta']]],fmt=['o','s','^'][i],color=[blue,teal,gold][i],capsize=2,ms=2.5,lw=.9,label=f'Run {i+1}' if j==0 else None)
+ ax.set_yticks(range(len(titles)),titles,fontsize=7.5);ax.set_xlim(-.095,.11);ax.set_xticks([-.05,0,.05,.10]);ax.tick_params(axis='x',labelsize=7);ax.grid(axis='x',alpha=.15);ax.set_xlabel('Holdout AUC difference',fontsize=8);ax.set_title(title,fontsize=8.5,loc='left')
+axes[0].invert_yaxis();axes[1].legend(frameon=False,loc='upper right',fontsize=6)
+fig.tight_layout(w_pad=1);fig.savefig(figdir/'consumer-intervals.pdf');plt.close(fig)
+(P/'analysis/comparator-summary.json').write_text(json.dumps(comparison_summary,indent=2)+'\n')
 # Tables are computed; paper interpretation is kept in the manuscript.
 rows=[]; outcome_counts=collections.Counter(); probe_errors=[]; artifacts=0
 for r in cohort:
