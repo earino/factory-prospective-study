@@ -1,6 +1,6 @@
 # Consumer study results
 
-Generated 2026-11-15T20:01:49.088043+00:00
+Generated 2026-11-15T20:07:39.767597+00:00
 
 Measured records are in summary.json and scores.csv. Failures remain in the denominator.
 
@@ -16,9 +16,14 @@ Compliance triage (separate from scores):
 
 Scores (including flagged attempts; do not treat all as compliant results):
 
-- fra-form54-hazmat-release--r1: validation AUC 0.742984; holdout AUC not scored.
-- fra-form54-hazmat-release--r2: validation AUC 0.740494; holdout AUC not scored.
-- fra-form54-hazmat-release--r3: validation AUC 0.751952; holdout AUC not scored.
+- fra-form54-hazmat-release--ordinary: validation AUC 0.669322; holdout AUC 0.731304.
+- fra-form54-hazmat-release--r1: validation AUC 0.742984; holdout AUC 0.784087.
+- fra-form54-hazmat-release--r1--random: validation AUC 0.710287; holdout AUC 0.751266.
+- fra-form54-hazmat-release--r2: validation AUC 0.740494; holdout AUC 0.790175.
+- fra-form54-hazmat-release--r2--random: validation AUC 0.702847; holdout AUC 0.750445.
+- fra-form54-hazmat-release--r3: validation AUC 0.751952; holdout AUC 0.791063.
+- fra-form54-hazmat-release--r3--random: validation AUC 0.700492; holdout AUC 0.747285.
+- fra-form54-hazmat-release--released: validation AUC 0.685222; holdout AUC 0.744919.
 
 ## Limits
 
