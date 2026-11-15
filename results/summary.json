@@ -1,6 +1,6 @@
 {
   "cli_reported_cost_usd_not_invoice": 534.9300857999998,
-  "generated_at": "2026-11-15T01:45:32.885267+00:00",
+  "generated_at": "2026-11-15T01:45:55.241639+00:00",
   "limitations": [
     "Five selected factory releases; three attempts are descriptive, not agent rankings.",
     "Pinned consumer scaffold and deterministic downloads are provided assistance.",
@@ -42,11 +42,17 @@
       "verified_forbidden_copies": 0
     },
     {
+      "compliance_triage": "no_automatic_access_flag",
       "dataset": "caa-fce-hpv-escalation",
       "error": null,
+      "holdout_content_hits": [],
       "id": "caa-fce-hpv-escalation--r2",
+      "integrity": "requires_semantic_review",
       "interruptions": null,
+      "protocol_caveats": [],
       "research_active_s": 5100.319554375004,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
       "status": "frozen",
       "timing": {
         "cli_invocations": 11,
@@ -60,7 +66,9 @@
         "other_active_wall_s": 4979.7567155822035,
         "research_active_s": 5100.319554375004,
         "trial_records": 14
-      }
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
     },
     {
       "compliance_triage": "no_automatic_access_flag",
