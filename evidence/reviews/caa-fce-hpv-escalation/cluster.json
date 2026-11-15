@@ -1,0 +1,14 @@
+{
+  "cluster_columns": ["state"],
+  "reason": "The label is partly an agency-practice outcome: the contract states HPV designation is discretionary and applied differently across state, local and EPA-led programs (README.md:57), and records originate with state and local agencies. The contract's own reference block names state as an entity column (construction.json:363-366). In public train the state label rate ranges from 0 of 1,938 (NJ) to 7.7% (CA), five states hold 54% of positives, and the Pearson chi-square for equal rates is 1,194 on 52 degrees of freedom, so rows within a state are not independent. The facility (PGM_SYS_ID) is the finer dependence unit: 55% of train rows share a facility with another train row, 81% of eval rows have a facility in train, and each positive label becomes prior_hpv_count history for the same facility's later rows (build.py:620-626). The facility is not shipped as a column; it exists only as the prefix of evaluation_id (build.py:611). State is a per-facility snapshot attribute (build.py:294-296, 746), is constant within facility in train, and is non-missing in train and eval, so clustering on state nests and absorbs within-facility dependence. Chosen from source meaning and public train metadata before any holdout scoring; no holdout rows or holdout metrics were inspected.",
+  "status": "declared",
+  "limitations": [
+    "Only 53 clusters, very unequal in size (PA is about 10% of train rows) and with positives concentrated in a few (CA and IN hold 36% of train positives; 7 states have none), so cluster-level intervals will be wide and dominated by a handful of states.",
+    "State is coarser than the facility. A facility key can be derived as the text before the colon in evaluation_id, but it is not a standalone column and was not manufactured here; state clustering is the conservative superset.",
+    "State is also a declared predictor and is a 2026-snapshot facility attribute, not an as-of-evaluation value.",
+    "Holdout state completeness was not checked. The build only requires at least 95% of rows to join to a facilities row (build.py:828-837); any holdout rows with blank state need an explicit rule, and treating them as one shared cluster is the conservative choice.",
+    "Dependence that crosses states is not captured: EPA-led evaluations (about 1.3% of train rows), EPA-region practice, national policy or calendar shocks such as the 2020-2022 disruption, and common corporate ownership.",
+    "Local air agencies inside a state (about 11% of train rows are locally led) are pooled with their state; this is nested and conservative, not a separate unit.",
+    "About 0.5% of train rows have an evaluation_id prefix that does not match state (EPA-region or tribal identifiers such as 08 and SU); these rows are clustered by the facility's recorded state."
+  ]
+}
