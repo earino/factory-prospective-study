@@ -2,19 +2,18 @@
 
 {
   "consumer": {
-    "dataset": "seattle-building-permit-completion",
-    "execution_id": "seattle-building-permit-completion-retry-1",
-    "started": "2026-11-15T16:44:24.718065+00:00",
+    "dataset": "fra-form54-hazmat-release",
+    "execution_id": "fra-form54-hazmat-release-retry-1",
+    "started": "2026-11-15T18:29:30.984879+00:00",
     "status": "running"
   },
   "factory_counts": {
-    "build": 1,
-    "deferred": 88,
-    "discover": 1,
+    "build": 2,
+    "deferred": 89,
     "published": 19,
     "rejected": 7
   },
-  "observed_at": "2026-11-15T18:26:18.567600+00:00",
+  "observed_at": "2026-11-15T18:56:40.434863+00:00",
   "paper": {},
   "queue": [
     {
@@ -131,7 +130,15 @@
     {
       "dataset": "seattle-building-permit-completion",
       "execution_id": "seattle-building-permit-completion-retry-1",
-      "outcome": {}
+      "outcome": {
+        "branch": "consumer/seattle-building-permit-completion-retry-1",
+        "commit": "b6e207596570efb9bb80d3aca208fa54b09021ed",
+        "dataset": "seattle-building-permit-completion",
+        "execution_id": "seattle-building-permit-completion-retry-1",
+        "finished": "2026-11-15T18:29:30.983627+00:00",
+        "started": "2026-11-15T16:44:24.718217+00:00",
+        "status": "complete"
+      }
     },
     {
       "dataset": "fra-form54-hazmat-release",
@@ -139,7 +146,7 @@
       "outcome": {}
     }
   ],
-  "snapshot_generated_at": "2026-11-15T17:52:07+00:00",
+  "snapshot_generated_at": "2026-11-15T18:52:17+00:00",
   "window": {
     "analysis_start": "2026-11-16T10:00:00Z",
     "attempt_minutes": 85,
