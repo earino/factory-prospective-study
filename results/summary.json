@@ -1,6 +1,6 @@
 {
-  "cli_reported_cost_usd_not_invoice": 625.3096043999999,
-  "generated_at": "2026-11-15T20:01:17.015006+00:00",
+  "cli_reported_cost_usd_not_invoice": 1708.1795592000008,
+  "generated_at": "2026-11-15T20:01:33.969071+00:00",
   "limitations": [
     "Five selected factory releases; three attempts are descriptive, not agent rankings.",
     "Pinned consumer scaffold and deterministic downloads are provided assistance.",
@@ -17,42 +17,50 @@
       "error": null,
       "id": "fra-form54-hazmat-release--r1",
       "interruptions": null,
-      "research_active_s": null,
-      "status": "not_finished",
+      "research_active_s": 5100.23386412402,
+      "status": "frozen",
       "timing": {
-        "cli_invocations": 0,
+        "cli_invocations": 18,
         "evaluation_wall_sum_s": 167.2704504160065,
         "fit_cpu_sum_s": 10.999146999999999,
         "fit_wall_sum_s": 5.115330543994787,
-        "harness_wall_union_s": 0,
+        "harness_wall_union_s": 173.36966109275818,
         "incomplete_or_failed_trials": 0,
         "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
         "ok_trials": 21,
-        "other_active_wall_s": 0,
-        "research_active_s": 0,
+        "other_active_wall_s": 4926.864203031262,
+        "research_active_s": 5100.23386412402,
         "trial_records": 21
       }
     },
     {
+      "compliance_triage": "no_automatic_access_flag",
       "dataset": "fra-form54-hazmat-release",
       "error": null,
+      "holdout_content_hits": [],
       "id": "fra-form54-hazmat-release--r2",
+      "integrity": "requires_semantic_review",
       "interruptions": null,
-      "research_active_s": null,
-      "status": "not_finished",
+      "protocol_caveats": [],
+      "research_active_s": 5100.0611140389665,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
+      "status": "frozen",
       "timing": {
-        "cli_invocations": 0,
+        "cli_invocations": 19,
         "evaluation_wall_sum_s": 84.85654058502405,
         "fit_cpu_sum_s": 5.678661,
         "fit_wall_sum_s": 2.791964085001382,
-        "harness_wall_union_s": 0,
+        "harness_wall_union_s": 88.4202573299408,
         "incomplete_or_failed_trials": 0,
         "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
         "ok_trials": 16,
-        "other_active_wall_s": 0,
-        "research_active_s": 0,
+        "other_active_wall_s": 5011.640856709026,
+        "research_active_s": 5100.0611140389665,
         "trial_records": 16
-      }
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
     },
     {
       "compliance_triage": "no_automatic_access_flag",
@@ -89,13 +97,33 @@
     "claude-fable-5-2"
   ],
   "reported_usage": {
-    "cache_creation_input_tokens": 425146,
-    "cache_read_input_tokens": 69955601,
-    "input_tokens": 534,
-    "output_tokens": 301257
+    "cache_creation_input_tokens": 1294105,
+    "cache_read_input_tokens": 205437620,
+    "input_tokens": 1520,
+    "output_tokens": 900106
   },
   "requested_model": "claude-fable-5-2",
   "scores": [
+    {
+      "dataset": "fra-form54-hazmat-release",
+      "holdout_auc": null,
+      "holdout_brier": null,
+      "holdout_rows": null,
+      "id": "fra-form54-hazmat-release--r1",
+      "kind": "agent",
+      "validation_auc": 0.7429836487888655,
+      "validation_brier": 0.042863385018239636
+    },
+    {
+      "dataset": "fra-form54-hazmat-release",
+      "holdout_auc": null,
+      "holdout_brier": null,
+      "holdout_rows": null,
+      "id": "fra-form54-hazmat-release--r2",
+      "kind": "agent",
+      "validation_auc": 0.7404935974652244,
+      "validation_brier": 0.04009627173988997
+    },
     {
       "dataset": "fra-form54-hazmat-release",
       "holdout_auc": null,

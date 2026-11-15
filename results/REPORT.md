@@ -1,21 +1,23 @@
 # Consumer study results
 
-Generated 2026-11-15T20:01:17.015006+00:00
+Generated 2026-11-15T20:01:33.969071+00:00
 
 Measured records are in summary.json and scores.csv. Failures remain in the denominator.
 
 Requested model: `claude-fable-5-2`. Reported models: claude-fable-5-2.
 
-Registered attempts: 3; frozen: 1; failed/blocked: 0.
+Registered attempts: 3; frozen: 3; failed/blocked: 0.
 
 Compliance triage (separate from scores):
 
 - fra-form54-hazmat-release--r1: not yet audited; forbidden asset copies unknown; tool-access flags unknown. Semantic compliance requires review.
-- fra-form54-hazmat-release--r2: not yet audited; forbidden asset copies unknown; tool-access flags unknown. Semantic compliance requires review.
+- fra-form54-hazmat-release--r2: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
 - fra-form54-hazmat-release--r3: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
 
 Scores (including flagged attempts; do not treat all as compliant results):
 
+- fra-form54-hazmat-release--r1: validation AUC 0.742984; holdout AUC not scored.
+- fra-form54-hazmat-release--r2: validation AUC 0.740494; holdout AUC not scored.
 - fra-form54-hazmat-release--r3: validation AUC 0.751952; holdout AUC not scored.
 
 ## Limits

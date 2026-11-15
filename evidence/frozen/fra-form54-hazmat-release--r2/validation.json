@@ -1,0 +1,23 @@
+{
+  "id": "92d21aace2a34490a3166907ee6fd6b3",
+  "utc": "2026-11-15T18:58:43.669969+00:00",
+  "started_epoch": 1794769123.6699781,
+  "mode": "validation",
+  "note": "H5a defect fix: grosstonnage==0 means not reported (16% train, 26% validation rows, mostly yard movements); treat as missing so tonnage, tons/car and energy use XGBoost missing-value routing instead of a false zero. Local 5-seed mean 0.7382 vs 0.7370 (within noise).",
+  "code_sha256": "cdbaddc81f23235f1d41e3b2c79b3efff5e404ae7c38c3edcbb1bee73eac4ad8",
+  "status": "ok",
+  "fit_wall_s": 0.17164304199104663,
+  "fit_cpu_s": 0.36047600000000024,
+  "phase": "evaluation",
+  "evaluation_wall_s": 5.6357499589939835,
+  "auc": 0.7404935974652244,
+  "brier": 0.04009627173988997,
+  "rows_train": 12541,
+  "rows_score": 7697,
+  "backtest": {},
+  "artifact_sha256": "97acfad6c55863f6746fa0674abfe83bfada286499ed71b968c917f485b57b6b",
+  "finished_epoch": 1794769129.527166,
+  "elapsed_s": 5.856948333006585,
+  "cold_replay_at": "2026-11-15T20:01:17.157956+00:00",
+  "no_retraining": true
+}

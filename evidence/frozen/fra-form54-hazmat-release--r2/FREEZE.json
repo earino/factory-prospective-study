@@ -1,0 +1,50 @@
+{
+  "dataset": "fra-form54-hazmat-release",
+  "environment": "25da8bd4a246c5c78ad693276de09eadf5101df88801ff3a001bba60c8643400",
+  "files": {
+    "booster.json": {
+      "bytes": 380977,
+      "sha256": "2e3754b439fb0574580f586694e7b7dbd79251d363d7ba815dc90dfb2fafcf0c"
+    },
+    "model.pkl": {
+      "bytes": 461665,
+      "sha256": "97acfad6c55863f6746fa0674abfe83bfada286499ed71b968c917f485b57b6b"
+    },
+    "train.py": {
+      "bytes": 11517,
+      "sha256": "cdbaddc81f23235f1d41e3b2c79b3efff5e404ae7c38c3edcbb1bee73eac4ad8"
+    },
+    "validation.csv.gz": {
+      "bytes": 88207,
+      "sha256": "6ce4deea89dcf37ca42c42b6462c1024ccd64c706b74ad1102c804e64c09cae7"
+    },
+    "validation.json": {
+      "bytes": 1046,
+      "sha256": "e4dc5808a5d71c95a3aa57ad8b6bf23bed67576559f5953ddbe7e5880d55ffd8"
+    }
+  },
+  "frozen_at": "2026-11-15T20:01:17.234839+00:00",
+  "run": "fra-form54-hazmat-release--r2",
+  "selected_trial": {
+    "artifact_sha256": "97acfad6c55863f6746fa0674abfe83bfada286499ed71b968c917f485b57b6b",
+    "auc": 0.7404935974652244,
+    "backtest": {},
+    "brier": 0.04009627173988997,
+    "code_sha256": "cdbaddc81f23235f1d41e3b2c79b3efff5e404ae7c38c3edcbb1bee73eac4ad8",
+    "elapsed_s": 5.856948333006585,
+    "evaluation_wall_s": 5.6357499589939835,
+    "finished_epoch": 1794769129.527166,
+    "fit_cpu_s": 0.36047600000000024,
+    "fit_wall_s": 0.17164304199104663,
+    "id": "92d21aace2a34490a3166907ee6fd6b3",
+    "mode": "validation",
+    "note": "H5a defect fix: grosstonnage==0 means not reported (16% train, 26% validation rows, mostly yard movements); treat as missing so tonnage, tons/car and energy use XGBoost missing-value routing instead of a false zero. Local 5-seed mean 0.7382 vs 0.7370 (within noise).",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/fra-form54-hazmat-release-retry-1/.study/runs/fra-form54-hazmat-release--r2/trials/92d21aace2a34490a3166907ee6fd6b3",
+    "phase": "evaluation",
+    "rows_score": 7697,
+    "rows_train": 12541,
+    "started_epoch": 1794769123.6699781,
+    "status": "ok",
+    "utc": "2026-11-15T18:58:43.669969+00:00"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "e844cda98abb4542ae9133a717631abe",
+  "utc": "2026-11-15T19:31:02.232143+00:00",
+  "started_epoch": 1794771062.232152,
+  "mode": "validation",
+  "note": "H8: on the H7 structure add speed relative to the FRA track-class speed limit (49 CFR 213.9) and stop passing the raw empty-car count (it stays in total cars and the shares). Found with a paired training-set bootstrap (each 8/8 resamples, +0.0013), then confirmed on fresh resamples (+0.0018, 10/12), full-data 6-seed validation mean 0.7416 vs 0.7394 and backtest 0.700 vs 0.696",
+  "code_sha256": "682054be8f2a75f632bd4214a76ca65ee5e21b86836ea989b1d8cd87852a9af9",
+  "status": "ok",
+  "fit_wall_s": 0.29592983300972264,
+  "fit_cpu_s": 0.6222310000000002,
+  "phase": "evaluation",
+  "evaluation_wall_s": 9.25431479200779,
+  "auc": 0.7429836487888655,
+  "brier": 0.042863385018239636,
+  "rows_train": 12541,
+  "rows_score": 7697,
+  "backtest": {},
+  "artifact_sha256": "df9879854679a8ed7b5c1a56b2a162bef0382eb7d78c0e305e8df4a0bca567e5",
+  "finished_epoch": 1794771071.831327,
+  "elapsed_s": 9.598919500000193,
+  "cold_replay_at": "2026-11-15T20:01:20.749304+00:00",
+  "no_retraining": true
+}
