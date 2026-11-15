@@ -328,3 +328,8 @@ repeated methods and chronology. Draft-status notices remain. All six rendered
 pages were read and inspected; reference columns are balanced. The aggregate
 audit passes and the portable source is rebuilt and checked. Seattle recovery
 remains pending; no new result is implied by this editorial revision.
+
+Final paragraph-value check: compressed the worker-budget intervention into one
+sentence in the production results. The pending reconciliation notice is in
+Methods; candidate-state mechanics and defensive wording are removed. Rebuilt
+and visually inspected all six pages; aggregate and clean-source checks pass.

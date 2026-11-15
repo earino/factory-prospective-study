@@ -51,7 +51,7 @@ A manifest records the accepted files and their checksums. Publication transfers
 
 \section{Observation and Evaluation Method}
 \subsection{Production record and cohort}
-Production accounting covers 12 November 2026 at 21:28 UTC through 15 November at 14:24 UTC (64.93 hours); consumer evidence includes recoveries completed by 20:08 UTC. The planned final cutoff is 16 November at 07:00 UTC. A read-only export retains candidates, attempts, resource usage, and publication identities. Public snapshots supplement the ledger. Routing and accounting changes during the window remain recorded interventions.
+Production accounting covers 12 November 2026 at 21:28 UTC through 15 November at 14:24 UTC (64.93 hours); consumer evidence includes recoveries completed by 20:08 UTC. The planned final cutoff is 16 November at 07:00 UTC. A read-only export retains candidates, attempts, resource usage, and publication identities. Public snapshots supplement the ledger. Reconciliation of deployment and routing interventions remains outstanding.
 
 An admitted record starts as a search slot, not necessarily a distinct source. We therefore count completed milestones by candidate and repeated work by attempt. These counts describe continuing operation rather than a completed-cohort success rate.
 
@@ -84,7 +84,7 @@ Artifact probes check row-order and batch-size invariance, external activity dur
 \subsection{Operation: production across sources}
 The window contains 394 started stage attempts. Forty-one candidates completed discovery, 14 a build, and 11 acceptance and publication. Repeated work included 76 discovery retries, 184 build retries, and 14 semantic repair outcomes (Fig.~\ref{fig:operations}). Retries can include waiting or reconciliation; these are attempt counts, not counts of unique defects. Other candidates remained deferred, rejected, or active.
 
-For the eleven releases in the accounting window, admission-to-publication time ranged from 40 to 189 minutes, with a median of 106. This excludes unsuccessful candidates and their waiting time.
+For the eleven releases in the accounting window, admission-to-publication time ranged from 40 to 189 minutes, with a median of 106. This excludes unsuccessful candidates and their waiting time. A worker-budget accounting error stopped construction after workers were deleted; a repair restored it.
 
 \begin{figure*}[t]
 \centering\includegraphics[width=\textwidth]{operations.pdf}
@@ -92,7 +92,6 @@ For the eleven releases in the accounting window, admission-to-publication time 
 \label{fig:operations}
 \end{figure*}
 
-On 14 November, a repair corrected worker-budget accounting that continued reserving funds after workers were deleted. Construction resumed without manual candidate-state edits or changes to acceptance rules. Final reconciliation of deployment and routing events remains outstanding; this is not claimed to be the only intervention.
 
 \subsection{Operation: recurring expenditure}
 Estimated recurring expenditure was \$27.84--\$27.94 over 64.93 hours, or \$2.53--\$2.54 per publication. Figure~\ref{fig:operations} gives the inference, worker, and hosting components. All-peak inference pricing raises the ratio to \$3.57. The estimate includes unsuccessful work and public delivery, with the exclusions in Section III.
