@@ -1,0 +1,23 @@
+{
+  "id": "d5cc071b765d4c35872094bb074a2c91",
+  "utc": "2026-11-15T01:40:52.714674+00:00",
+  "started_epoch": 1794706852.714685,
+  "mode": "validation",
+  "note": "H6: H2 with heavier target-encoding shrinkage (m=300 instead of 20). Hypothesis: encoded 2015-18 state rates go stale, so stronger shrinkage to the prior is more drift-robust. Local 6-seed by-year gain over no-TE: +0.0054/+0.0021/-0.0006 (2020/21/22) vs +0.0037/+0.0013/-0.0019 for m=20",
+  "code_sha256": "700dcafd0e876b95a131aaf3b64f95a8c55fa3a100ff01fc7cfd96e23b83fe35",
+  "status": "ok",
+  "fit_wall_s": 0.5416243340005167,
+  "fit_cpu_s": 1.5605160000000005,
+  "phase": "evaluation",
+  "evaluation_wall_s": 7.981025875000341,
+  "auc": 0.8646688613136873,
+  "brier": 0.010574370830359198,
+  "rows_train": 58183,
+  "rows_score": 36500,
+  "backtest": {},
+  "artifact_sha256": "7be29ca3f0f344b874fbae7b8e1c5103a276f42913c065c966c559ce5c365841",
+  "finished_epoch": 1794706861.444854,
+  "elapsed_s": 8.729862792002677,
+  "cold_replay_at": "2026-11-15T01:45:10.995673+00:00",
+  "no_retraining": true
+}

@@ -1,22 +1,24 @@
 # Consumer study results
 
-Generated 2026-11-15T01:45:09.021952+00:00
+Generated 2026-11-15T01:45:32.885267+00:00
 
 Measured records are in summary.json and scores.csv. Failures remain in the denominator.
 
 Requested model: `claude-fable-5-2`. Reported models: claude-fable-5-2.
 
-Registered attempts: 3; frozen: 1; failed/blocked: 0.
+Registered attempts: 3; frozen: 3; failed/blocked: 0.
 
 Compliance triage (separate from scores):
 
 - caa-fce-hpv-escalation--r1: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
 - caa-fce-hpv-escalation--r2: not yet audited; forbidden asset copies unknown; tool-access flags unknown. Semantic compliance requires review.
-- caa-fce-hpv-escalation--r3: not yet audited; forbidden asset copies unknown; tool-access flags unknown. Semantic compliance requires review.
+- caa-fce-hpv-escalation--r3: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
 
 Scores (including flagged attempts; do not treat all as compliant results):
 
 - caa-fce-hpv-escalation--r1: validation AUC 0.867686; holdout AUC not scored.
+- caa-fce-hpv-escalation--r2: validation AUC 0.864669; holdout AUC not scored.
+- caa-fce-hpv-escalation--r3: validation AUC 0.868768; holdout AUC not scored.
 
 ## Limits
 

@@ -1,0 +1,50 @@
+{
+  "dataset": "caa-fce-hpv-escalation",
+  "environment": "d2dddbe882fa9156f69be9189c1154ed8268468f1829a0db86a89ac6b119448b",
+  "files": {
+    "booster.json": {
+      "bytes": 755006,
+      "sha256": "c4f08b8288187a08dde1c351806fb8ea5a02fa39dd90481ffbaba265249c0de9"
+    },
+    "model.pkl": {
+      "bytes": 714632,
+      "sha256": "7be29ca3f0f344b874fbae7b8e1c5103a276f42913c065c966c559ce5c365841"
+    },
+    "train.py": {
+      "bytes": 8663,
+      "sha256": "700dcafd0e876b95a131aaf3b64f95a8c55fa3a100ff01fc7cfd96e23b83fe35"
+    },
+    "validation.csv.gz": {
+      "bytes": 408150,
+      "sha256": "a1884dfff6dedfe8dc60f275f3eaf17131bf7c4ed4b3e57dd3682a6e79834c66"
+    },
+    "validation.json": {
+      "bytes": 1064,
+      "sha256": "b71fc80681027ec61e153bfcc21516b7b0918cec068cf257d3919159540d5e64"
+    }
+  },
+  "frozen_at": "2026-11-15T01:45:11.144624+00:00",
+  "run": "caa-fce-hpv-escalation--r2",
+  "selected_trial": {
+    "artifact_sha256": "7be29ca3f0f344b874fbae7b8e1c5103a276f42913c065c966c559ce5c365841",
+    "auc": 0.8646688613136873,
+    "backtest": {},
+    "brier": 0.010574370830359198,
+    "code_sha256": "700dcafd0e876b95a131aaf3b64f95a8c55fa3a100ff01fc7cfd96e23b83fe35",
+    "elapsed_s": 8.729862792002677,
+    "evaluation_wall_s": 7.981025875000341,
+    "finished_epoch": 1794706861.444854,
+    "fit_cpu_s": 1.5605160000000005,
+    "fit_wall_s": 0.5416243340005167,
+    "id": "d5cc071b765d4c35872094bb074a2c91",
+    "mode": "validation",
+    "note": "H6: H2 with heavier target-encoding shrinkage (m=300 instead of 20). Hypothesis: encoded 2015-18 state rates go stale, so stronger shrinkage to the prior is more drift-robust. Local 6-seed by-year gain over no-TE: +0.0054/+0.0021/-0.0006 (2020/21/22) vs +0.0037/+0.0013/-0.0019 for m=20",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/caa-fce-hpv-escalation/.study/runs/caa-fce-hpv-escalation--r2/trials/d5cc071b765d4c35872094bb074a2c91",
+    "phase": "evaluation",
+    "rows_score": 36500,
+    "rows_train": 58183,
+    "started_epoch": 1794706852.714685,
+    "status": "ok",
+    "utc": "2026-11-15T01:40:52.714674+00:00"
+  }
+}

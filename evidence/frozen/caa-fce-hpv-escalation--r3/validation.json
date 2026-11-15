@@ -1,0 +1,23 @@
+{
+  "id": "ead69f05af544759baf054c24fc40ce3",
+  "utc": "2026-11-15T01:30:20.258207+00:00",
+  "started_epoch": 1794706220.258213,
+  "mode": "validation",
+  "note": "H8: H7 without comp_monitor_type_code. Simplification motivated by drift: off-site evaluations go from 3.0% of training to 10.5% of validation rows and are the one segment where H7 ranks worse than the scaffold. Training-only checks neutral to slightly positive (forward CV 0.8796 vs 0.8782, gap 0.8706/0.8709 vs 0.8710/0.8710); local 3-seed val 0.8675 vs 0.8676, so expect no real change",
+  "code_sha256": "21d11477f83acc89ee3b828760bd4aec1dc98430ae6469a8b19f068631df2588",
+  "status": "ok",
+  "fit_wall_s": 0.7700049580016639,
+  "fit_cpu_s": 1.131088,
+  "phase": "evaluation",
+  "evaluation_wall_s": 6.652424958003394,
+  "auc": 0.8687679571167222,
+  "brier": 0.010496699472653293,
+  "rows_train": 58183,
+  "rows_score": 36500,
+  "backtest": {},
+  "artifact_sha256": "e58acaf3c0a127aa5ee9df798552fc85f4335055c4c380d1f86e48f250002033",
+  "finished_epoch": 1794706227.8726752,
+  "elapsed_s": 7.614202375007153,
+  "cold_replay_at": "2026-11-15T01:45:09.303277+00:00",
+  "no_retraining": true
+}
