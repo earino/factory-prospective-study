@@ -1,0 +1,37 @@
+{
+  "basis": "Last available cumulative cost per independent CLI session, not per-invocation sum; estimates, not invoice. Deadline-truncated final invocations may leave unreported usage.",
+  "runs": [
+    {
+      "run": "faa-wildlife-strike-substantial-damage--r1",
+      "session_id": "b07589d3-f907-4e55-858d-1f39881d9387",
+      "invocations": 22,
+      "naive_sum_cumulative_cost": 321.8872846,
+      "last_reported_session_cost": 17.034044399999996,
+      "monotone_cumulative_cost": true,
+      "final_invocation_has_result": true,
+      "short_invocations_under_10s": 2
+    },
+    {
+      "run": "faa-wildlife-strike-substantial-damage--r2",
+      "session_id": "0e86398d-a64c-4046-91df-b5323512ca2e",
+      "invocations": 18,
+      "naive_sum_cumulative_cost": 404.80127180000017,
+      "last_reported_session_cost": 24.611034600000007,
+      "monotone_cumulative_cost": true,
+      "final_invocation_has_result": true,
+      "short_invocations_under_10s": 2
+    },
+    {
+      "run": "faa-wildlife-strike-substantial-damage--r3",
+      "session_id": "5c51c048-4b7b-4a49-86ce-c90f0442e424",
+      "invocations": 18,
+      "naive_sum_cumulative_cost": 258.6958708000001,
+      "last_reported_session_cost": 15.924094200000004,
+      "monotone_cumulative_cost": true,
+      "final_invocation_has_result": true,
+      "short_invocations_under_10s": 1
+    }
+  ],
+  "sum_last_reported_session_cost": 57.56917320000001,
+  "original_naive_sum": 985.3844272000002
+}

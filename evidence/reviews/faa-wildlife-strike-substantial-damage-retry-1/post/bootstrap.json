@@ -1,0 +1,70 @@
+{
+  "dataset": "faa-wildlife-strike-substantial-damage",
+  "cluster_columns": [
+    "incident_date"
+  ],
+  "clusters": 1461,
+  "rows": 25425,
+  "positives": 107,
+  "missing_cluster_rows": 0,
+  "largest_cluster": 75,
+  "seed": 215814400,
+  "valid_replicates": 2000,
+  "invalid_replicates": 0,
+  "comparisons": [
+    {
+      "run": "faa-wildlife-strike-substantial-damage--r1",
+      "control": "faa-wildlife-strike-substantial-damage--ordinary",
+      "delta": 0.019044667714521735,
+      "low": 0.005648595244392559,
+      "high": 0.03290552357816964
+    },
+    {
+      "run": "faa-wildlife-strike-substantial-damage--r1",
+      "control": "faa-wildlife-strike-substantial-damage--r1--random",
+      "delta": 0.003690071634602332,
+      "low": -0.008819222225307186,
+      "high": 0.015937607161948853
+    },
+    {
+      "run": "faa-wildlife-strike-substantial-damage--r2",
+      "control": "faa-wildlife-strike-substantial-damage--ordinary",
+      "delta": 0.02577457728349597,
+      "low": 0.013019061819625536,
+      "high": 0.040291637378233984
+    },
+    {
+      "run": "faa-wildlife-strike-substantial-damage--r2",
+      "control": "faa-wildlife-strike-substantial-damage--r2--random",
+      "delta": 0.014678522834406182,
+      "low": 0.00498211573057,
+      "high": 0.025676387253268058
+    },
+    {
+      "run": "faa-wildlife-strike-substantial-damage--r3",
+      "control": "faa-wildlife-strike-substantial-damage--ordinary",
+      "delta": 0.014336887132127885,
+      "low": 0.003832243117380463,
+      "high": 0.025703741774524735
+    },
+    {
+      "run": "faa-wildlife-strike-substantial-damage--r3",
+      "control": "faa-wildlife-strike-substantial-damage--r3--random",
+      "delta": 0.003873716974292618,
+      "low": -0.004932582344413771,
+      "high": 0.012796639698977283
+    }
+  ],
+  "inputs": {
+    "/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/.study/holdout/faa-wildlife-strike-substantial-damage/holdout.csv": "93f873d655ca600d170755ceb73a9769992938d8f56fa39a9ab9c7d54c7f3aa4",
+    "/Users/earino/research/factory-prospective-study/evidence/reviews/faa-wildlife-strike-substantial-damage-retry-1/cluster.json": "e39244f8526bbaf188692bceb3bdbd4705824c79f095b344c2911393d82f1c9f",
+    "/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/results/scores/faa-wildlife-strike-substantial-damage--ordinary/predictions.csv.gz": "d2f0bf024e738dfcc1b804ab2fbaa6fddf790d79271430ee69cf99add7a9589a",
+    "/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/results/scores/faa-wildlife-strike-substantial-damage--r1/predictions.csv.gz": "9680bda49984a68da5ae54179621aed8cc82b3fdfedde697c33a453e9640bef9",
+    "/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/results/scores/faa-wildlife-strike-substantial-damage--r2/predictions.csv.gz": "d656c7bb703777786698f95f9b52a34b8158c2d70802564aa39c3a2c0f084dc8",
+    "/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/results/scores/faa-wildlife-strike-substantial-damage--r3/predictions.csv.gz": "c210825349fcd7e30f69a0464c6bef8ed5630427db1c24ca8cd28f3586db2882",
+    "/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/results/scores/faa-wildlife-strike-substantial-damage--r1--random/predictions.csv.gz": "afae47a6997d3a6c5e3abb28bd49150a4c831e3edb7dd9abe377479f22e1638a",
+    "/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/results/scores/faa-wildlife-strike-substantial-damage--r2--random/predictions.csv.gz": "dad5a2d587f63f7056c59fb6b539c5e8ecad734ee1b371a6a618513619633d90",
+    "/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/results/scores/faa-wildlife-strike-substantial-damage--r3--random/predictions.csv.gz": "bb82b976911cd9087dd7f80fa5817ca05983a4e4597fa72e76629c09a17eb6fc"
+  },
+  "method": "2000 paired whole-entity draws, pointwise percentile95%; conditional on fitted models, cohort and declared dependence"
+}

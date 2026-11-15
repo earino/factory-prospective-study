@@ -1,0 +1,186 @@
+[
+  {
+    "run": "faa-wildlife-strike-substantial-damage--r1",
+    "trace": "0000.jsonl",
+    "line": 139,
+    "tool_use_id": "toolu_01CfJ9DCqQWJdj3xKYqYhAu3",
+    "tool": "Bash",
+    "input": {
+      "command": "pkill -f dev/s4.py; sleep 1; pgrep -fl dev/s4.py || echo \"no s4 process running\"",
+      "description": "Stop the stalled sweep so nothing runs in the background"
+    },
+    "reasons": [
+      "process_reference"
+    ]
+  },
+  {
+    "run": "faa-wildlife-strike-substantial-damage--r1",
+    "trace": "0011.jsonl",
+    "line": 5,
+    "tool_use_id": "toolu_012JCGkbm9KypWz7uLnKQdmC",
+    "tool": "Bash",
+    "input": {
+      "command": "python3 -c \"import json,time;t=json.load(open('TASK.json'));print('remaining',round(t['search_deadline_epoch']-time.time()))\"; PY=$(python3 -c \"import json;print(json.load(open('TASK.json'))['python'])\"); $PY - <<'EOF'\nimport ast,json,pandas as pd\nsrc=open('train.py').read();tree=ast.parse(src)\nimports=sorted({n.names[0].name for n in ast.walk(tree) if isinstance(n,ast.Import)}|{n.module for n in ast.walk(tree) if isinstance(n,ast.ImportFrom)})\ncalls=sorted({(n.func.attr if isinstance(n.func,ast.Attribute) else getattr(n.func,'id','?')) for n in ast.walk(tree) if isinstance(n,ast.Call)})\nbad=[c for c in calls if c in ('open','read_csv','read_parquet','urlopen','get','post','system','popen','exec','eval','__import__','load')]\nfuncs=[n.name for n in tree.body if isinstance(n,ast.FunctionDef)]\nstrs={n.value for n in ast.walk(tree) if isinstance(n,ast.Constant) and isinstance(n.value,str)}\nFE=json.load(open('release/reproduction/construction.json'))['quality']['features']\ncols_used=[c for c in FE if c in strs];forbidden=[c for c in ('index_nr','incident_date','substantial_damage') if c in strs]\nprint('imports:',imports);print('top-level functions:',funcs)\nprint('file/network/exec-style calls:',bad or 'none')\nprint('forbidden column names referenced:',forbidden or 'none')\nprint('declared features referenced: %d of %d; not referenced by name: %s'%(len(cols_used),len(FE),[c for c in FE if c not in strs]))\nprint('n_jobs=threads present:','n_jobs=threads' in src,'| lines',len(src.splitlines()))\nEOF\npython3 -c \"import json,time;t=json.load(open('TASK.json'));print('remaining',round(t['search_deadline_epoch']-time.time()))\"",
+      "description": "Static contract scan of the delivered train.py"
+    },
+    "reasons": [
+      "network_or_source_reference"
+    ]
+  },
+  {
+    "run": "faa-wildlife-strike-substantial-damage--r2",
+    "trace": "0000.jsonl",
+    "line": 60,
+    "tool_use_id": "toolu_01EFkKC7cRsUhmnTkUG9qkxH",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/.study/runs/faa-wildlife-strike-substantial-damage--r2 && PY=$(python3 -c \"import json;print(json.load(open('TASK.json'))['python'])\") && $PY evaluate.py --note 'H1: numpy/one-hot encoding with ordinal size/bird bands, precip flags, engineered interactions, state dropped; same d6/100/0.1 params. Tests whether dropping 51-level native-categorical state and rare levels reduces drift overfit.' 2>&1 | tail -1 | cut -c1-900; cat > scratch/e2.py <<'EOF'\nfrom lab import *\nP={\"max_depth\":6,\"n_estimators\":100,\"learning_rate\":0.1}\nfor s in [1,2,3]:\n    run({\"engineered\": False}, f\"noeng seed{s}\", seed=s)\nfor r in [1,2,3,5]:\n    run({\"engineered\": False,\"recency\":r}, f\"noeng recency {r}\")\nfor d_,n_,lr in [(6,200,0.05),(8,100,0.05),(8,200,0.03),(10,150,0.03),(6,50,0.1),(6,30,0.1)]:\n    run({\"engineered\": False,\"params\":{\"max_depth\":d_,\"n_estimators\":n_,\"learning_rate\":lr}}, f\"noeng d{d_} n{n_} lr{lr}\")\nfor extra in [{\"subsample\":0.8},{\"colsample_bytree\":0.6},{\"min_child_weight\":5},{\"min_child_weight\":20},{\"reg_lambda\":10},{\"gamma\":1},{\"max_delta_step\":1},{\"scale_pos_weight\":5}]:\n    run({\"engineered\": False,\"params\":extra}, f\"noeng {extra}\")\nEOF\ncd scratch && $PY e2.py",
+      "description": "Record trial H1 and run second diagnostic batch"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "faa-wildlife-strike-substantial-damage--r2",
+    "trace": "0000.jsonl",
+    "line": 94,
+    "tool_use_id": "toolu_011tNrNJnq1bstGbbSNB1SsX",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/.study/runs/faa-wildlife-strike-substantial-damage--r2 && PY=/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/.study/venv/bin/python && $PY - <<'EOF'\nimport re\ns=open('train.py').read()\ns=s.replace('\"params\": {\"n_estimators\": 100, \"max_depth\": 6, \"learning_rate\": 0.1},','\"params\": {\"n_estimators\": 100, \"max_depth\": 6, \"learning_rate\": 0.1, \"subsample\": 0.8, \"colsample_bytree\": 0.8, \"max_delta_step\": 1},')\ns=s.replace('\"engineered\": True,','\"engineered\": False,').replace('\"recency\": 0.0, ','\"recency\": 3.0, ')\nopen('train.py','w').write(s)\nEOF\n$PY evaluate.py --note 'H2: drop engineered interactions (hurt offline), add subsample/colsample 0.8 + max_delta_step=1 for rare positives, and recency weights exp(3*(rank-1)) by chronological training row order, since the damage relation drifts 1990-2013. Offline 3-seed diag: val 0.900 vs 0.896, backtest flat.' 2>&1 | tail -1 | cut -c400-900\ncat > scratch/e4.py <<'EOF'\nfrom lab import *\nimport numpy as np\nP={\"max_depth\":6,\"n_estimators\":100,\"learning_rate\":0.1,\"subsample\":0.8,\"colsample_bytree\":0.8,\"max_delta_step\":1}\ndef avg(cfg,label,seeds=(1,2,3)):\n    r=[run({**cfg,\"params\":{**P,**cfg.get(\"params\",{})}},seed=s,verbose=False) for s in seeds]\n    print(f\"{label:50s} val={np.mean([x['val'] for x in r]):.4f}\u00b1{np.std([x['val'] for x in r]):.4f} bt={np.mean([x['bt'] for x in r]):.4f} brier={np.mean([x['brier'] for x in r]):.5f}\",flush=True)\n    return r\nB={\"engineered\":False,\"recency\":3}\navg(B,\"ref recency3\")\nfor r_ in [4,6,8]: avg({**B,\"recency\":r_},f\"recency {r_}\")\nfor mc in [100,200,1000]: avg({**B,\"min_count\":mc},f\"min_count {mc}\")\navg({**B,\"drop\":[\"precip_FOG\",\"precip_RAIN\",\"precip_SNOW\"]},\"drop precip\")\navg({**B,\"drop\":[\"precip_FOG\",\"precip_RAIN\",\"precip_SNOW\",\"warned=NO\",\"warned=YES\",\"warned=NA\"]},\"drop precip+warned\")\nfor d_,n_,lr in [(4,200,0.1),(5,150,0.1),(6,200,0.05),(6,400,0.025),(7,100,0.1),(8,100,0.1),(3,400,0.1)]:\n    avg({**B,\"params\":{\"max_depth\":d_,\"n_estimators\":n_,\"learning_rate\":lr}},f\"d{d_} n{n_} lr{lr}\")\navg({**B,\"params\":{\"num_parallel_tree\":5,\"subsample\":0.7,\"colsample_bynode\":0.7,\"colsample_bytree\":1.0}},\"npt5\")\nfor e in [{\"min_child_weight\":3},{\"reg_lambda\":5},{\"colsample_bytree\":0.5},{\"subsample\":0.6},{\"max_delta_step\":0.5},{\"max_delta_step\":2},{\"gamma\":0.5},{\"grow_policy\":\"lossguide\",\"max_leaves\":24,\"max_depth\":0}]:\n    avg({**B,\"params\":e},str(e))\nEOF\ncd scratch && $PY e4.py",
+      "description": "Record trial H2 and run recency/regularization diagnostics"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "faa-wildlife-strike-substantial-damage--r2",
+    "trace": "0000.jsonl",
+    "line": 123,
+    "tool_use_id": "toolu_01RnDx4xMguUZFdd4QXsAS7Z",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/.study/runs/faa-wildlife-strike-substantial-damage--r2 && PY=/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/.study/venv/bin/python && $PY - <<'EOF'\ns=open('train.py').read()\ns=s.replace('''    \"drop\": [],\n}''','''    \"drop\": [],\n    \"time_feat\": False,       # train-only chronological rank feature, frozen to 1.0 (\"now\") at prediction\n    \"mono\": {},               # feature name -> monotone constraint sign\n    \"eng_list\": None,         # optional subset of engineered feature names\n}''')\ns=s.replace('''    names = [n for n in state[\"names\"]] if \"names\" in state''','''    if cfg.get(\"eng_list\") is not None and cfg[\"engineered\"]:\n        for k in [\"airborne\", \"climbing\", \"energy\", \"size_x_struck\", \"size_minus_mass\", \"speed_per_mass\", \"n_missing\", \"winter\"]:\n            if k not in cfg[\"eng_list\"]:\n                cols.pop(k, None)\n    if cfg.get(\"time_feat\"):\n        cols[\"t\"] = np.full(len(X), 1.0) if t_override is None else t_override\n    names = [n for n in state[\"names\"]] if \"names\" in state''')\ns=s.replace(\"def _features(state, X, te_override=None):\",\"def _features(state, X, te_override=None, t_override=None):\")\ns=s.replace('''    Z, names = _features(state, X_train, te_override=te_oof)''','''    # Training rows arrive in chronological file order; rank in that order is the only time proxy used.\n    rank = np.arange(n) / max(1, n - 1)\n    Z, names = _features(state, X_train, te_override=te_oof, t_override=rank)''')\ns=s.replace('''        # Training rows arrive in chronological file order; later rows get larger weight.\n        w = np.exp(cfg[\"recency\"] * (np.arange(n) / max(1, n - 1) - 1.0))\n    m = xgb.XGBClassifier(tree_method=\"hist\", random_state=seed, n_jobs=threads, **cfg[\"params\"])''','''        w = np.exp(cfg[\"recency\"] * (rank - 1.0))\n    extra = {}\n    if cfg.get(\"mono\"):\n        extra[\"monotone_constraints\"] = \"(\" + \",\".join(str(int(cfg[\"mono\"].get(nm, 0))) for nm in names) + \")\"\n    m = xgb.XGBClassifier(tree_method=\"hist\", random_state=seed, n_jobs=threads, **cfg[\"params\"], **extra)''')\nopen('train.py','w').write(s)\nEOF\ncat > scratch/e6.py <<'EOF'\nfrom lab import *\nimport numpy as np\nP={}\ndef avg(cfg,label,seeds=(1,2,3)):\n    r=[run({**cfg,\"params\":{**P,**cfg.get(\"params\",{})}},seed=s,verbose=False) for s in seeds]\n    print(f\"{label:50s} val={np.mean([x['val'] for x in r]):.4f}\u00b1{np.std([x['val'] for x in r]):.4f} bt={np.mean([x['bt'] for x in r]):.4f} brier={np.mean([x['brier'] for x in r]):.5f}\",flush=True)\n    return r\nB={}\navg(B,\"ref (current train.py)\")\navg({\"time_feat\":True},\"time feat + recency3\")\navg({\"time_feat\":True,\"recency\":0},\"time feat, no recency\")\navg({\"time_feat\":True,\"recency\":1.5},\"time feat, recency 1.5\")\navg({\"time_feat\":True,\"recency\":0,\"mono\":{\"t\":-1}},\"time feat mono-, no recency\")\navg({\"time_feat\":True,\"recency\":3,\"mono\":{\"t\":-1}},\"time feat mono-, recency 3\")\navg({\"mono\":{\"size\":1}},\"mono size+\")\navg({\"mono\":{\"size\":1,\"birds_struck\":1}},\"mono size+, struck+\")\navg({\"mono\":{\"size\":1,\"birds_struck\":1,\"speed_kts\":1}},\"mono size+, struck+, speed+\")\nfor k in [\"airborne\", \"climbing\", \"energy\", \"size_x_struck\", \"size_minus_mass\", \"speed_per_mass\", \"n_missing\", \"winter\"]:\n    avg({\"engineered\":True,\"eng_list\":[k]},f\"eng only {k}\")\nEOF\ncd scratch && $PY e6.py",
+      "description": "Add time-rank feature and monotone options, run diagnostics"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "faa-wildlife-strike-substantial-damage--r2",
+    "trace": "0000.jsonl",
+    "line": 131,
+    "tool_use_id": "toolu_011LwziVpNYV6QtueU5UxjgZ",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/.study/runs/faa-wildlife-strike-substantial-damage--r2 && python3 -c \"import time;print((1794759512-time.time())/60,'min left')\" && cat > LOG.md <<'EOF'\n# LOG\n\nValidation has only 353 positives (AUC SE ~0.008); offline seed noise with subsampling is ~\u00b10.001-0.002.\n\"Offline\" = scratch/lab.py diagnostics (same train.py code, batch prepare, 3 seeds); \"bt\" = train-only chronological\nbacktest (last 25% of training dates). Only evaluate.py trials are eligible.\n\n| # | trial (evaluator) | change | val AUC | note |\n|---|---|---|---|---|\n| 0 | 2018afd2 | untouched starting train.py (native categoricals incl. state, d6/100/0.1) | 0.88506 | baseline |\n| 1 | 55f431af | one-hot + ordinal bands, precip flags, engineered interactions, state dropped | 0.89176 | encoding helps; engineered feats later shown harmful |\n| 2 | (see below) | no engineered, subsample/colsample .8, max_delta_step 1, recency weights r=3 | 0.89889 | recency + delta step real-ish (+0.004 offline) |\n\n## Offline findings (diagnostics)\n- Hyperparameters are flat: depth 3-8, 100-600 trees, lr .025-.1, lambda, gamma, mcw all within 0.896-0.901 val.\n- Feature ablation: size (-0.06), phase_of_flt (-0.017), birds_struck (-0.009) carry the signal; everything else <0.002.\n- state: target encoding / frequency / native categorical do not help (bt -0.003).\n- Engineered interactions (energy, size x struck, speed/mass, n_missing, winter): none helps beyond noise; several hurt.\n- Recency weights by chronological training row order: r=2-3 best (+0.002..0.004 val, bt flat); r>=4 worse.\n- Monotone constraints on size/struck/speed: no gain.\n- Train-only time-rank feature frozen to 1.0 at prediction: AUC neutral (0.8979-0.9023, bt worse), Brier better with\n  monotone-decreasing constraint (0.0098 vs 0.0104).\nEOF\ncat > BACKLOG.md <<'EOF'\n# BACKLOG\n- [ ] Pairwise/third-order categorical target encodings (phase x size, mass x type_eng x operator) - OOF\n- [ ] Missing-size handling: size NaN is 17% in validation vs 2.5% train (only appears 2010+)\n- [ ] Rare phase levels (DEPARTURE/ARRIVAL/LOCAL grow 10x in validation): semantic regrouping\n- [ ] num_parallel_tree / lower lr for variance reduction\n- [ ] Time-rank feature (train-only) for calibration (Brier) under drift\n- [x] state encodings (no gain)  [x] monotone constraints (no gain)  [x] engineered interactions (no gain)\nEOF",
+      "description": "Check time and write initial LOG and BACKLOG"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "faa-wildlife-strike-substantial-damage--r2",
+    "trace": "0000.jsonl",
+    "line": 182,
+    "tool_use_id": "toolu_01SneVfSbiASS2MiTAjNPHtB",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/.study/runs/faa-wildlife-strike-substantial-damage--r2 && PY=/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/.study/venv/bin/python && sed -i '' 's/\"max_delta_step\": 1},/\"max_delta_step\": 1, \"reg_lambda\": 20},/' train.py && grep -n '\"params\"' train.py && $PY evaluate.py --note 'H3: stronger L2 (reg_lambda=20) on top of H2; with ~2.8k training positives and drift, leaf shrinkage should stabilise rare-leaf estimates. Offline 5-seed diag: val 0.9021 vs 0.8997 (seed sd 0.001), backtest flat.' 2>&1 | tail -1 | cut -c380-900 && $PY evaluate.py --backtest --note 'H3 config, training-only chronological check' 2>&1 | tail -1 | cut -c380-900",
+      "description": "Record trial H3 with stronger L2 plus its backtest"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "faa-wildlife-strike-substantial-damage--r2",
+    "trace": "0000.jsonl",
+    "line": 228,
+    "tool_use_id": "toolu_01DEJBZATtAXvi5UeGMfz81y",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/.study/runs/faa-wildlife-strike-substantial-damage--r2 && PY=/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/.study/venv/bin/python && $PY - <<'EOF'\ns=open('train.py').read()\nold='''        m = cols[\"month\"]\n        cols[\"winter\"] = np.abs(((m - 1.5) % 12) - 6.0)  # distance from mid-summer, peaks in Dec/Jan\n'''\nnew=old+'''        cols[\"n_missing_obs\"] = np.sum(np.array([[1.0 if (x is None or x != x) else 0.0 for x in _col(X, c)]\n                                                 for c in OBS_FIELDS]), axis=0)\n'''\nassert old in s\ns=s.replace(old,new)\nold2='''        for k in [\"airborne\", \"climbing\", \"energy\", \"size_x_struck\", \"size_minus_mass\", \"speed_per_mass\", \"n_missing\", \"winter\"]:'''\nassert old2 in s\ns=s.replace(old2,'''        for k in [\"airborne\", \"climbing\", \"energy\", \"size_x_struck\", \"size_minus_mass\", \"speed_per_mass\", \"n_missing\", \"winter\", \"n_missing_obs\"]:''')\nold3='''NUM = [\"ac_mass\",'''\nassert old3 in s\ns=s.replace(old3,'''OBS_FIELDS = [\"size\", \"speed_kts\", \"height_agl\", \"time_of_day\", \"sky\", \"warned\", \"birds_seen\"]\n'''+old3)\nopen('train.py','w').write(s)\nEOF\ngrep -n '\"engineered\"\\|\"recency\"\\|\"params\"' train.py | head -5\ncat > scratch/e12.py <<'EOF'\nfrom lab import *\nimport numpy as np\ndef avg(cfg,label,seeds=(1,2,3,4,5)):\n    r=[run(cfg,seed=s,verbose=False) for s in seeds]\n    v=[x['val'] for x in r]; b=[x['bt'] for x in r]\n    print(f\"{label:45s} val={np.mean(v):.4f}\u00b1{np.std(v):.4f} bt={np.mean(b):.4f}\u00b1{np.std(b):.4f} brier={np.mean([x['brier'] for x in r]):.5f}\",flush=True)\n    return r\n# Pre-stated rule: adopt only if BOTH val and bt mean rise by more than seed sd (~0.001) vs ref.\nr=avg({},\"ref H3 (engineered off)\")\nassert \"n_missing_obs\" not in r[0][\"state\"][\"names\"], \"ref must not contain the new feature\"\navg({\"engineered\":True,\"eng_list\":[\"n_missing_obs\"]},\"H3 + n_missing_obs (7 pilot-obs fields)\")\navg({\"engineered\":True,\"eng_list\":[\"n_missing\"]},\"H3 + n_missing (all 18, earlier variant)\")\nEOF\ncd scratch && $PY e12.py",
+      "description": "Test a pilot-observation missing-count feature against H3 over five seeds",
+      "timeout": 300000
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "faa-wildlife-strike-substantial-damage--r2",
+    "trace": "0000.jsonl",
+    "line": 277,
+    "tool_use_id": "toolu_01HxSwdvfdKo1p6x8zjpNHRM",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/.study/runs/faa-wildlife-strike-substantial-damage--r2 && cat > scratch/e14.py <<'EOF'\nimport json, glob, numpy as np, pandas as pd\nfrom sklearn.metrics import roc_auc_score\nrecs=[]\nfor f in sorted(glob.glob('trials/*/result.json')):\n    r=json.load(open(f)); recs.append(r)\nrecs.sort(key=lambda r:r['started_epoch'])\nfor r in recs: print(r['id'][:8], r['mode'], r['status'], round(r.get('auc',float('nan')),5), round(r.get('brier',float('nan')),5), r['note'][:60])\nval=[r for r in recs if r['mode']=='validation' and r['status']=='ok']\nbase=val[0]; best=max(val,key=lambda r:r['auc'])\npb=pd.read_csv(f\"trials/{base['id']}/validation.csv.gz\"); ph=pd.read_csv(f\"trials/{best['id']}/validation.csv.gz\")\ny=ph.y.to_numpy(); assert (pb.y.to_numpy()==y).all()\nprint(\"best\",best['id'][:8],\"positives\",int(y.sum()),\"of\",len(y))\nrng=np.random.RandomState(0); d=[]; a=[]\npos=np.where(y==1)[0]; neg=np.where(y==0)[0]\nfor _ in range(1000):\n    i=np.concatenate([rng.choice(pos,len(pos)),rng.choice(neg,len(neg))])\n    ab=roc_auc_score(y[i],pb.p.to_numpy()[i]); ah=roc_auc_score(y[i],ph.p.to_numpy()[i]); d.append(ah-ab); a.append(ah)\nd=np.array(d); a=np.array(a)\nprint(\"best AUC bootstrap 95%%: %.4f..%.4f (sd %.4f)\"%(np.percentile(a,2.5),np.percentile(a,97.5),a.std()))\nprint(\"paired diff best-baseline: mean %.4f, 95%% %.4f..%.4f, frac<=0 %.3f\"%(d.mean(),np.percentile(d,2.5),np.percentile(d,97.5),(d<=0).mean()))\n# exact reproduction of the saved evaluator predictions by an independent in-process batch refit of the snapshot code\nimport importlib.util\nspec=importlib.util.spec_from_file_location(\"snap\",f\"trials/{best['id']}/train.py\"); T=importlib.util.module_from_spec(spec); spec.loader.exec_module(T)\ntr=pd.read_csv('release/extract/public/train.csv'); ev=pd.read_csv('release/extract/public/eval.csv')\nq=json.load(open('release/reproduction/construction.json'))['quality']['features']\nst=T.fit(tr[q].copy(),tr.substantial_damage.to_numpy(),seed=42,threads=5)\np=st['model'].predict_proba(T.prepare(st,ev[q]))[:,1]\nprint(\"batch refit vs saved row-wise preds: max abs diff %.2e, auc %.6f\"%(np.abs(p-ph.p.to_numpy()).max(), roc_auc_score(y,p)))\n# order-invariance of prepare: shuffled scoring rows give the same per-row predictions\nperm=np.random.RandomState(1).permutation(len(ev)); p2=st['model'].predict_proba(T.prepare(st,ev[q].iloc[perm].reset_index(drop=True)))[:,1]\nprint(\"shuffled-order max abs diff %.2e\"%np.abs(p2-p[perm]).max())\nEOF\n/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/.study/venv/bin/python scratch/e14.py",
+      "description": "Bootstrap the gain over baseline and verify saved predictions reproduce",
+      "timeout": 300000
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "faa-wildlife-strike-substantial-damage--r2",
+    "trace": "0000.jsonl",
+    "line": 718,
+    "tool_use_id": "toolu_01VbKz4Fua9NBa8Ep3ki5WVe",
+    "tool": "WebFetch",
+    "input": {
+      "url": "https://wildlife.faa.gov/assets/fieldlist.pdf",
+      "prompt": "List the documented definitions and allowed code values for these fields only: AC_MASS, AC_CLASS, TYPE_ENG, PHASE_OF_FLIGHT (including when Departure / Arrival / Local / En Route are used), HEIGHT, SPEED, DISTANCE, NUM_SEEN, NUM_STRUCK, SIZE, WARNED, TIME_OF_DAY, SKY, PRECIPITATION, OPID/OPERATOR, DAMAGE codes (N, M, M?, S, D). Quote the definitions as written."
+    },
+    "reasons": [
+      "web_tool"
+    ]
+  },
+  {
+    "run": "faa-wildlife-strike-substantial-damage--r2",
+    "trace": "0000.jsonl",
+    "line": 723,
+    "tool_use_id": "toolu_01S3T5L3NGMNasqWMwX1SFv8",
+    "tool": "Read",
+    "input": {
+      "file_path": "/Users/earino/.claude/projects/-Users-earino-research-factory-prospective-study--local-studies-faa-wildlife-strike-substantial-damage-retry-1--study-runs-faa-wildlife-strike-substantial-damage--r2/0e86398d-a64c-4046-91df-b5323512ca2e/tool-results/webfetch-1794756888136-x6ot11.pdf",
+      "pages": "1-6"
+    },
+    "reasons": [
+      "outside_path"
+    ]
+  },
+  {
+    "run": "faa-wildlife-strike-substantial-damage--r2",
+    "trace": "0000.jsonl",
+    "line": 733,
+    "tool_use_id": "toolu_01BmMfdEDTE6Xru33nShm6kP",
+    "tool": "Bash",
+    "input": {
+      "command": "/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/.study/venv/bin/python - <<'EOF'\nr=open('REPORT.md').read()\nold=\"- No external data, no web access, no holdout or sibling-run access, no new dependencies.\"\nassert old in r\nr=r.replace(old,\"\"\"- One web request: the publisher's field list (`https://wildlife.faa.gov/assets/fieldlist.pdf`, the documentation\n  URL named in the release's `SOURCES.json`), read for field definitions only. No other web access, no external\n  data, no holdout or sibling-run access, no new dependencies.\"\"\")\nold=\"- The release notes that the `M?` damage code (undetermined severity) is coded 0. I could not examine this from the\\n  released columns.\"\nassert old in r\nr=r.replace(old,old+\"\"\"\n- The publisher's field list defines the aircraft mass classes (1 = \u2264 2,250 kg \u2026 5 = > 272,000 kg), engine types,\n  `SIZE` (\"a relative scale \u2026 perceived size as opposed to scientifically determined value; if more than one\n  species was struck, larger bird is entered\") and the damage codes, but gives no vocabulary for phase of flight, so\n  the meaning of the newer DEPARTURE / ARRIVAL / LOCAL codes is not documented there. It also lists report-source\n  fields (`SOURCE`, `PERSON`) that the release does not include; who filed a report is the kind of information the\n  missingness pattern seems to be standing in for.\n- Mass class 5 (the heaviest aircraft) has a 13.7% positive rate in training (761 rows) and 1.9% in validation\n  (261 rows): a large shift in one small cell, consistent with reporting practice changing rather than with physics.\"\"\")\nopen('REPORT.md','w').write(r)\nl=open('LOG.md').read()\nl+='''38. Read the publisher field list PDF (documentation URL from SOURCES.json) and skimmed release/reproduction/build.py.\n    Field list: mass classes, engine types, SIZE is pilot-perceived relative scale (larger bird entered if several\n    species), damage code definitions; no phase-of-flight vocabulary; SOURCE/PERSON report-origin fields exist upstream\n    but are not released. No modelling change followed.\n'''\nopen('LOG.md','w').write(l)\nEOF\npython3 -c \"import time;print((1794759512-time.time())/60,'min left')\"",
+      "description": "Record documentation review in REPORT and LOG"
+    },
+    "reasons": [
+      "network_or_source_reference"
+    ]
+  },
+  {
+    "run": "faa-wildlife-strike-substantial-damage--r3",
+    "trace": "0000.jsonl",
+    "line": 15,
+    "tool_use_id": "toolu_01PaxEj1MaLHo2yhjR7d5bNV",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/.study/runs/faa-wildlife-strike-substantial-damage--r3 && cat release/reproduction/train.py && PY=$(python3 -c \"import json;print(json.load(open('TASK.json'))['python'])\") && $PY - <<'EOF'\nimport pandas as pd, numpy as np, xgboost, sklearn\nprint(xgboost.__version__, sklearn.__version__, pd.__version__)\ntr=pd.read_csv('release/extract/public/train.csv'); ev=pd.read_csv('release/extract/public/eval.csv')\nprint(tr.shape, ev.shape)\nprint(tr.dtypes)\nprint(tr.head(5).T)\nfor c in tr.columns:\n    if c in('index_nr','incident_date'): continue\n    print('==',c, 'nuniq',tr[c].nunique(),'na tr %.3f ev %.3f'%(tr[c].isna().mean(),ev[c].isna().mean()))\n    if tr[c].nunique()<=60:\n        g=tr.groupby(c,dropna=False)['substantial_damage'].agg(['size','mean'])\n        g2=ev.groupby(c,dropna=False)['substantial_damage'].agg(['size','mean'])\n        print(g.join(g2,rsuffix='_ev',how='outer').to_string())\n    else:\n        print(tr[c].describe().to_string())\ntr['year']=tr.incident_date.str[:4]\nprint(tr.groupby('year')['substantial_damage'].agg(['size','mean']).to_string())\nEOF",
+      "description": "Profile training and validation data"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  }
+]
