@@ -1,0 +1,28 @@
+{
+  "dataset": "caa-fce-hpv-escalation",
+  "files": {
+    "booster.json": {
+      "bytes": 159771,
+      "sha256": "75ca6570ad92e6fde417c895af7e1f3eec94226eee5301f65e9779aadbe6a7b8"
+    },
+    "model.pkl": {
+      "bytes": 132004,
+      "sha256": "8298c2f7a2799d54bd43aa50e40cf0ef26699c55b902e6f9dea49370ffe7df89"
+    },
+    "train.py": {
+      "bytes": 1160,
+      "sha256": "431a0f15145a8578df4bc149ee13483cbc7f06e15ac8214356c08da99d9e5d21"
+    },
+    "validation.csv.gz": {
+      "bytes": 349705,
+      "sha256": "f98ab75e707ba19efeb38c385198b429a36db1e647e5fa1f4e65b2a2ae19a55b"
+    },
+    "validation.json": {
+      "bytes": 804,
+      "sha256": "c1bf5ee93278907cc872fa878ca499a36d091f247490262c4621fa7fd6abed94"
+    }
+  },
+  "frozen_at": "2026-11-15T01:46:37.106207+00:00",
+  "matches_released_baseline": true,
+  "run": "caa-fce-hpv-escalation--released"
+}
