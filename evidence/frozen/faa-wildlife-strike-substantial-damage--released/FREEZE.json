@@ -1,0 +1,28 @@
+{
+  "dataset": "faa-wildlife-strike-substantial-damage",
+  "files": {
+    "booster.json": {
+      "bytes": 246536,
+      "sha256": "fe7c2e82438eeb251cb78bfcec19a4e829f74c74b99934887a907668299617a9"
+    },
+    "model.pkl": {
+      "bytes": 212145,
+      "sha256": "aefaa2dd22b88fcbee5fecb9684ff85598056180e5480fc85e45797fd60978f1"
+    },
+    "train.py": {
+      "bytes": 1160,
+      "sha256": "431a0f15145a8578df4bc149ee13483cbc7f06e15ac8214356c08da99d9e5d21"
+    },
+    "validation.csv.gz": {
+      "bytes": 347036,
+      "sha256": "e3ead565a7fba8caa494b7e087281bcca0c9eeecc0101b0e55b5f54897536b23"
+    },
+    "validation.json": {
+      "bytes": 806,
+      "sha256": "516a6d0c1a3b3df1eb236561599e71773931eed22bc14168d4b8af4c01390040"
+    }
+  },
+  "frozen_at": "2026-11-15T11:33:26.124347+00:00",
+  "matches_released_baseline": true,
+  "run": "faa-wildlife-strike-substantial-damage--released"
+}
