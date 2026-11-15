@@ -1,0 +1,58 @@
+{
+  "authorized_at": "2026-11-15T21:36:51.098656+00:00",
+  "authorization": "Eduardo: go ahead and just redo the run and integrate the answers.",
+  "reason": "An explicit nonblocking concern ended Seattle r1 through unconditional file-presence checks. Fix the runner, then repeat only that attempt in a fresh workspace.",
+  "analysis": "Replace the unscored attempt with this retry regardless of score. Keep prior r2/r3, all original records and the timing concern. Same release pin, Fable 5.2, 85-minute research budget, five fitting threads, validation selection and controls. No previous scores or findings supplied to the research agent. Reuse only the existing prescoring source review and grouping.",
+  "run": {
+    "dataset": "seattle-building-permit-completion",
+    "execution_id": "seattle-building-permit-completion-retry-2",
+    "release": {
+      "artifact_version": "a220e68c960ee6b6aa473f015112be0993353ab3d12f9820c31551164f0ee677",
+      "assets": 33,
+      "baseline_display": "See versioned evaluation.json; public validation only",
+      "dataset": "seattle-building-permit-completion",
+      "destinations": {
+        "github": "https://github.com/earino/factory-seattle-building-permit-completion/releases/tag/v-67a46c698fa813cc",
+        "huggingface": "https://huggingface.co/datasets/earino/factory-seattle-building-permit-completion"
+      },
+      "detail_id": "source-000100",
+      "disposition": "public",
+      "published": true,
+      "release_tag": "v-67a46c698fa813cc",
+      "rows": 24747,
+      "splits": {
+        "eval": {
+          "rows": 7135
+        },
+        "holdout": {
+          "rows": 6326
+        },
+        "train": {
+          "rows": 11286
+        }
+      },
+      "verified": {
+        "github": true,
+        "huggingface": true
+      },
+      "verified_all": true,
+      "verified_at": "2026-11-15T11:13:20.100537+00:00",
+      "workflow": "modern"
+    },
+    "pinned_release": [
+      "seattle-building-permit-completion",
+      "v-67a46c698fa813cc",
+      "26a6cab683e1845d7fa2f6b05caee76bf79536fe",
+      "c8d716bd8365da0a786ee1e26c5c6cfb1d2b1efe788d6f6a36369f9980e56589"
+    ],
+    "original_branch": "consumer/seattle-building-permit-completion",
+    "original_commit": "2ff2d43b1c3da5c3111cb6b11105e0def1454165",
+    "repetitions": 1,
+    "replaces_attempt": "seattle-building-permit-completion--r1",
+    "preserve_attempts": [
+      "seattle-building-permit-completion--r2",
+      "seattle-building-permit-completion--r3"
+    ],
+    "prior_execution": "seattle-building-permit-completion-retry-1"
+  }
+}

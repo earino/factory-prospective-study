@@ -746,6 +746,12 @@ def all_files(base):
             for p in sorted(base.rglob("*")) if p.is_file() and not p.is_symlink()}
 
 
+def blocks_scoring(work):
+    """Only an explicit Boolean false makes a declared concern nonblocking."""
+    path = work / "BLOCKER.json"
+    return path.exists() and read(path).get("blocks_scoring") is not False
+
+
 def freeze_attempt(root, work, state, py, protocol):
     guard_workspace(work, state)
     reported = {m for inv in state.get("invocations", []) for m in inv.get("models", [])}
@@ -754,7 +760,7 @@ def freeze_attempt(root, work, state, py, protocol):
     task = read(work / "TASK.json")
     if task["threads"] != protocol["threads"] or task["seed"] != protocol["seed"]:
         raise ValueError("Resource/seed contract changed")
-    if (work / "BLOCKER.json").exists():
+    if blocks_scoring(work):
         state.update(status="blocked", blocker=read(work / "BLOCKER.json"), finished_at=utc())
         return
     eligible=[r for r in results(work) if r.get("finished_epoch",float("inf")) <= read(work/"TASK.json")["search_deadline_epoch"]]
@@ -864,7 +870,7 @@ def run_attempt(root, run_id, dataset, py, protocol):
             task["search_deadline_epoch"] = time.time() + protocol["research_seconds"] - state["research_active_s"]
             write(work / "TASK.json", task)
             # Checkpoint early BLOCKER declarations, but do not let "no ideas" silently stop search.
-            if (work / "BLOCKER.json").exists():
+            if blocks_scoring(work):
                 break
             inv = claude_call(root, work, state, protocol, protocol["research_seconds"] - state["research_active_s"])
             if (inv["returncode"] != 0 or (inv.get("result") or {}).get("is_error")) and inv["status"] != "deadline":
@@ -1356,7 +1362,7 @@ def register(root, args, smoke=False):
     existing = root / "study.json"
     if existing.exists():
         protocol = read(existing)
-        for name in ["model", "jobs", "threads"]:
+        for name in ["model", "jobs", "threads", "repetitions"]:
             value = getattr(args, name, None)
             if value is not None and value != protocol[name]:
                 raise ValueError(f"Registered {name} is {protocol[name]!r}; use a new study for changed settings")
@@ -1369,9 +1375,12 @@ def register(root, args, smoke=False):
     model = args.model or "claude-fable-5-2"
     jobs,threads=resource_profile(args,smoke)
     entries = [DATASETS[min(2,len(DATASETS)-1)]] if smoke else DATASETS
+    repetitions = 1 if smoke else (getattr(args, "repetitions", None) or 3)
+    if not 1 <= repetitions <= 3:
+        raise ValueError("repetitions must be between 1 and 3")
     order = []
     rng = random.Random(20261111)
-    for repeat in range(1, 2 if smoke else 4):
+    for repeat in range(1, repetitions + 1):
         names = [x[0] for x in entries]; rng.shuffle(names)
         order.extend(f"{name}--r{repeat}" for name in names)
     version = command(["claude", "--version"]).strip()
@@ -1381,7 +1390,7 @@ def register(root, args, smoke=False):
             raise RuntimeError(f"Installed Claude CLI lacks {flag}; update before registering")
     protocol = {"schema": SCHEMA, "registered_at": utc(), "smoke_excluded_from_study": smoke,
                 "model": model, "effort": "high", "jobs": jobs, "threads": threads, "seed": 42,
-                "repetitions": 1 if smoke else 3, "datasets": [x[0] for x in entries], "releases": entries,
+                "repetitions": repetitions, "datasets": [x[0] for x in entries], "releases": entries,
                 "order": order, "research_seconds": 150 if smoke else 85 * 60,
                 "experiment_seconds": 300, "control_seconds": 30 if smoke else 85 * 60,
                 "attempt_total_seconds": 2 * 3600, "push": bool(args.push),
@@ -1553,6 +1562,35 @@ def replay(root):
 
 
 class SelfTests(unittest.TestCase):
+    def test_warning_is_not_a_scoring_blocker(self):
+        with tempfile.TemporaryDirectory() as d:
+            work=Path(d)
+            self.assertFalse(blocks_scoring(work))
+            for report,expected in [({},True),({"blocks_scoring":True},True),
+                                    ({"blocks_scoring":False},False),
+                                    ({"blocks_scoring":"false"},True),
+                                    ({"blocks_scoring":0},True)]:
+                write(work/"BLOCKER.json",report)
+                self.assertEqual(blocks_scoring(work),expected)
+                self.assertEqual(read(work/"BLOCKER.json"),report)
+
+    def test_single_retry_registers_one_full_length_attempt(self):
+        from unittest.mock import patch
+        from types import SimpleNamespace
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d)
+            for name in ["run_study.py","agent.md"]:(root/name).write_text("fixture")
+            args=SimpleNamespace(model="claude-fable-5-2",jobs=1,threads=1,repetitions=1,push=False)
+            with patch(__name__+".DATASETS",[["task","tag","revision","digest"]]), patch(__name__+".commit"), patch(__name__+".command",return_value="--permission-prompts --setting-sources --session-id --resume"):
+                protocol=register(root,args)
+                self.assertEqual(protocol["order"],["task--r1"])
+                self.assertEqual(protocol["research_seconds"],85*60)
+                self.assertEqual(protocol["control_seconds"],85*60)
+                self.assertEqual(register(root,args),protocol)
+                args.repetitions=3
+                with self.assertRaisesRegex(ValueError,"Registered repetitions"):
+                    register(root,args)
+
     def test_embedded_code_compiles(self):
         for name, text in [("engine", ENGINE), ("evaluator", EVALUATOR), ("starter", STARTER)]:
             compile(text, name, "exec")
@@ -1697,6 +1735,7 @@ def main():
     p.add_argument('--model',default=None,help='Default: claude-fable-5-2; immutable after registration')
     p.add_argument('--jobs',type=int,default=None,help='Concurrent attempts; default min(3, logical CPUs), smoke default 1')
     p.add_argument('--threads',type=int,default=None,help='Threads per fit; default min(5, logical CPUs // jobs)')
+    p.add_argument('--repetitions',type=int,choices=[1,2,3],default=None,help='Default 3; use 1 in a fresh study for a single failed-attempt retry')
     p.add_argument('--push',action='store_true',help='Push evidence checkpoints to an already configured origin')
     a=p.parse_args()
     if a.action=='self-test':

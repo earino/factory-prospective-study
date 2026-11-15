@@ -56,6 +56,9 @@ same session if it stops early and will terminate its process group at the
 search deadline. Do not sleep or busy-wait to consume time. If a concrete defect
 invalidates evaluation, write BLOCKER.json with evidence and the affected claim;
 do not quietly change the target or repair the released task into a different one.
+Set `blocks_scoring` to `true` for a defect that prevents evaluation. Put nonblocking
+concerns in REPORT.md; if also recorded in BLOCKER.json, set `blocks_scoring` to
+`false`. A warning does not end the research window.
 
 ## Data and evaluation boundaries
 

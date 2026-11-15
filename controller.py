@@ -110,6 +110,7 @@ def execute(r):
     deadline=min(parse(P['research_stop']).timestamp(),time.time()+P['per_dataset_wall_hours']*3600)
     log=LOCAL/'logs'/f'{identity}.log';log.parent.mkdir(exist_ok=True)
     argv=[sys.executable,work/'run_study.py','run','--model',P['model'],'--jobs',str(P['jobs']),'--threads',str(P['threads']),'--push']
+    if r.get('repetitions') is not None:argv += ['--repetitions',str(r['repetitions'])]
     with log.open('ab') as out:
         proc=subprocess.Popen(argv,cwd=work,env=runner.clean_env(5),stdout=out,stderr=subprocess.STDOUT,start_new_session=True)
         try:
