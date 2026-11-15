@@ -26,6 +26,15 @@ inspectable evidence. Do not claim to be the first dataset-discovery agent, the
 first automated benchmark generator, or the first end-to-end system. Explain the
 actual starting points, outputs, and evaluation boundaries of related systems.
 
+The two additional cost-literature reviews read on 15 November reinforce this
+direction: low marginal generation cost already has precedents. Our focus is the
+complete operating factory, its production outcomes and recurring costs, and
+independent evidence of output usefulness. Distinguish the factory's checks before
+publication from the separate consumer evaluation; the latter is not its only
+verification step. Use the corrections in
+[the literature notes](materials/VERIFIED-LITERATURE-NOTES.md#additional-cost-literature-reviews--15-november-2026)
+before using either review's proposed prose or cost comparisons.
+
 AGENT’27 explicitly welcomes experience papers and emphasizes empirical evidence,
 reusable methods, operations, and validation across the agent lifecycle:
 https://conf.researchr.org/track/icse-2027/agent-2027-papers

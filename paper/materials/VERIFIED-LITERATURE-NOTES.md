@@ -112,3 +112,86 @@ or author list in either incoming review. The manuscript should use the selected
 sources only for the claims these checked passages support; inspect the full
 method before making a finer comparison. Existing REFERENCES.md records earlier
 checks, and these notes supersede conflicts in that older record.
+
+## Additional cost-literature reviews — 15 November 2026
+
+Eduardo supplied two PDFs from Downloads, read on 15 November:
+
+- `Dataset Factory literature review cost, time, and accessibility of agent-driven.pdf`
+  (14 pages).
+- `Literature Review on Agent-Driven Dataset Factories.pdf` (3 pages; Gemini export).
+
+These are secondary research notes, not sources to cite as evidence. The longer
+review is the stronger foundation because it separates starting points, outputs,
+cost boundaries, and missing information. Neither review is certified in full.
+
+### Agreed interpretation
+
+Low marginal artifact-generation cost already has precedents. The contribution
+of this experience paper is the complete operating factory: discovery through
+public release, measured production outcomes and recurring costs, and independent
+evaluation of the outputs. Explain failures, recovery, and documented intervention
+alongside successful releases. There is no need for an invented human savings ratio.
+
+Suggested framing, subject to the final evidence:
+
+> Prior work shows that agents can construct data and benchmark tasks at low
+> marginal cost. We examine what happens when these capabilities are connected
+> into an operating factory, from source discovery through public release. We
+> report production outcomes and recurring costs, then independently test whether
+> the released artifacts support useful prediction work.
+
+### Corrections that must reach the manuscript
+
+1. **Our interim denominator:** approximately $28 is the estimated recurring cost
+   of the observation window that produced 11 releases, about $2.54 per release.
+   It is not $28 per release, as the shorter review says twice, and is not each
+   release's complete lifetime construction cost. Use
+   [the pinned calculation](../../evidence/costs/2026-11-15/REPORT.md), then update
+   at the final cutoff. Keep independent consumer-study spending outside factory
+   production costs; the consumer study is covered by Eduardo's subscription.
+2. **MLE-Smith cost:** the shorter review calls $11.73/$13.51 a correction to the
+   reported $0.78 main result. A targeted primary-source search of the ICLR paper
+   identifies those larger figures in Table 6, an ablation comparing separated
+   versus merged Designer–Refactor agents on ten sampled datasets. This does not
+   establish a replacement for the main average or a common denominator. The
+   final PDF's direct endpoint returned a browser challenge; the table passage
+   was accessible through indexed primary-PDF text. Retain this verification
+   limit and reconcile the main and ablation accounting before any detailed
+   numerical comparison: https://openreview.net/pdf?id=mXQslpfSU5 .
+3. **Human effort:** the reviews' hours concern particular activities, including
+   adapting scientific programs and curating deposited survey data. They do not
+   establish a universal minimum of 2.5–3 hours per dataset, a matched human
+   baseline, or labor eliminated by this factory. Gábor Békés's observation is
+   personal motivation, not a measured baseline.
+4. **Workflow theory:** use Demirer et al. as an interpretive connection, not proof
+   that our human effort is one fixed final check or that intermediate costs
+   disappear. The longer review also incorrectly maps the consumer study to the
+   factory's sole verification step. Factory checks occur before publication;
+   independent consumers separately test the published artifacts.
+5. **Do not copy the short review's proposed paragraph:** it combines the wrong
+   factory denominator, unsupported cost reconciliation, and broad labor claims.
+   Its uncited “Cost Does Not Buy Impact” lead is unverified and must not support
+   a claim without finding and reading the primary source.
+
+### Useful evidence and limits
+
+- **AutoData, Table 1:** primary-PDF table text reports 5.58 minutes for AutoData
+  versus 186.98 minutes for human preparation. The caption defines time as the
+  interval from instruction to **starting collection**, not completing and
+  publishing a dataset. This supports a specific preparation-step comparison:
+  https://openreview.net/pdf?id=x2Rk0lSQra .
+- **Lafia et al., Table III:** primary paper reports mean curation hours of
+  51, 79, and 165 per study at three curation levels, across 566 studies. This is
+  archival curation of deposited data, not equivalent construction of our
+  prediction benchmarks. Use only as context for substantive human data work:
+  https://bibliography.icpsr.umich.edu/bibliography/citations/data/170058/fileDownload .
+- **Perry and Netscher (2022)** and **ScienceAgentBench** are useful additional
+  human-effort leads in the longer review. Their specific hours still need a
+  primary-method check before use here. Do not transfer a result from one activity
+  into a general dataset-construction time or dollar estimate.
+
+For the seven-page paper, use a few close comparisons and a short human-work
+discussion. Low recurring cost may make projects practical for small groups once
+the system exists; this remains an implication, not a measured accessibility or
+labor-market effect. Do not add experiments or delay writing for a larger survey.
