@@ -1,0 +1,110 @@
+{
+  "cli_reported_cost_usd_not_invoice": 625.3096043999999,
+  "generated_at": "2026-11-15T20:01:17.015006+00:00",
+  "limitations": [
+    "Five selected factory releases; three attempts are descriptive, not agent rankings.",
+    "Pinned consumer scaffold and deterministic downloads are provided assistance.",
+    "CLI-reported model IDs are not independent provider attestation.",
+    "Public holdout isolation and semantic compliance are procedural, not enforced by an OS sandbox.",
+    "CFPB holdout was used in earlier pilot work outside this study.",
+    "Random search matches observed eligible primary-trial fitting CPU, not unlogged diagnostics or token work.",
+    "Fresh Claude trajectories are nondeterministic; frozen artifact replay is reproducible.",
+    "No factory-wide publication yield or spend is inferred from this consumer study."
+  ],
+  "outcomes": [
+    {
+      "dataset": "fra-form54-hazmat-release",
+      "error": null,
+      "id": "fra-form54-hazmat-release--r1",
+      "interruptions": null,
+      "research_active_s": null,
+      "status": "not_finished",
+      "timing": {
+        "cli_invocations": 0,
+        "evaluation_wall_sum_s": 167.2704504160065,
+        "fit_cpu_sum_s": 10.999146999999999,
+        "fit_wall_sum_s": 5.115330543994787,
+        "harness_wall_union_s": 0,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 21,
+        "other_active_wall_s": 0,
+        "research_active_s": 0,
+        "trial_records": 21
+      }
+    },
+    {
+      "dataset": "fra-form54-hazmat-release",
+      "error": null,
+      "id": "fra-form54-hazmat-release--r2",
+      "interruptions": null,
+      "research_active_s": null,
+      "status": "not_finished",
+      "timing": {
+        "cli_invocations": 0,
+        "evaluation_wall_sum_s": 84.85654058502405,
+        "fit_cpu_sum_s": 5.678661,
+        "fit_wall_sum_s": 2.791964085001382,
+        "harness_wall_union_s": 0,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 16,
+        "other_active_wall_s": 0,
+        "research_active_s": 0,
+        "trial_records": 16
+      }
+    },
+    {
+      "compliance_triage": "no_automatic_access_flag",
+      "dataset": "fra-form54-hazmat-release",
+      "error": null,
+      "holdout_content_hits": [],
+      "id": "fra-form54-hazmat-release--r3",
+      "integrity": "requires_semantic_review",
+      "interruptions": null,
+      "protocol_caveats": [],
+      "research_active_s": 5100.28996720702,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
+      "status": "frozen",
+      "timing": {
+        "cli_invocations": 21,
+        "evaluation_wall_sum_s": 143.19408300002397,
+        "fit_cpu_sum_s": 8.301368,
+        "fit_wall_sum_s": 3.948694626960787,
+        "harness_wall_union_s": 148.72977542877197,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 33,
+        "other_active_wall_s": 4951.560191778248,
+        "research_active_s": 5100.28996720702,
+        "trial_records": 33
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
+    }
+  ],
+  "protocol_sha256": "42a96cae12e07cb762812b869b2b8bcce0e2cb9e4cd55007246bd71dad2924cd",
+  "reported_models": [
+    "claude-fable-5-2"
+  ],
+  "reported_usage": {
+    "cache_creation_input_tokens": 425146,
+    "cache_read_input_tokens": 69955601,
+    "input_tokens": 534,
+    "output_tokens": 301257
+  },
+  "requested_model": "claude-fable-5-2",
+  "scores": [
+    {
+      "dataset": "fra-form54-hazmat-release",
+      "holdout_auc": null,
+      "holdout_brier": null,
+      "holdout_rows": null,
+      "id": "fra-form54-hazmat-release--r3",
+      "kind": "agent",
+      "validation_auc": 0.7519517692940714,
+      "validation_brier": 0.03999604462934522
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "dataset": "fra-form54-hazmat-release",
+  "environment": "25da8bd4a246c5c78ad693276de09eadf5101df88801ff3a001bba60c8643400",
+  "files": {
+    "booster.json": {
+      "bytes": 154745,
+      "sha256": "e0dd9e0298f8050f0d52a82ae94b6cd9b352e50387d31cffefe98cf0985e4d18"
+    },
+    "model.pkl": {
+      "bytes": 189397,
+      "sha256": "644cb006e66bab1bcf9e469bd45ef3495e3289dd1c079a4ea1426a84fbbe2eab"
+    },
+    "train.py": {
+      "bytes": 8591,
+      "sha256": "19a5aff2fb6a8f2ae213e87760eb3f9fcb9606124ed7efb26e9c7d100516d6fe"
+    },
+    "validation.csv.gz": {
+      "bytes": 80610,
+      "sha256": "bb70279ce45e65d940d30a7e7ff59f6c94f02ba723c6f22fd1ea3d6bd36e4932"
+    },
+    "validation.json": {
+      "bytes": 1168,
+      "sha256": "13a2be7bb10c871bd77483cec8cc60f4770140917bba40a3d4d1914a777518b5"
+    }
+  },
+  "frozen_at": "2026-11-15T20:01:15.958363+00:00",
+  "run": "fra-form54-hazmat-release--r3",
+  "selected_trial": {
+    "artifact_sha256": "644cb006e66bab1bcf9e469bd45ef3495e3289dd1c079a4ea1426a84fbbe2eab",
+    "auc": 0.7519517692940714,
+    "backtest": {},
+    "brier": 0.03999604462934522,
+    "code_sha256": "19a5aff2fb6a8f2ae213e87760eb3f9fcb9606124ed7efb26e9c7d100516d6fe",
+    "elapsed_s": 4.852337832999183,
+    "evaluation_wall_s": 4.700045707999379,
+    "finished_epoch": 1794771368.6253598,
+    "fit_cpu_s": 0.20212800000000009,
+    "fit_wall_s": 0.09888583299471065,
+    "id": "eb79bb919a744a588517b1eb88467acf",
+    "mode": "validation",
+    "note": "H15: kernel-smoothed state encoding in the clean strict code (Gaussian 750 km over state centroids, state pseudo-count 2000, neighbourhood pseudo-count 50; leave-one-out offset prior). Chosen from an 11-setting scan on validation + forward-chaining jointly: forward-chaining .6854 vs .6820 and backtest ~.689 vs .685 for H12; validation 8-seed mean .7507 vs .7516 (equal within seed noise)",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/fra-form54-hazmat-release-retry-1/.study/runs/fra-form54-hazmat-release--r3/trials/eb79bb919a744a588517b1eb88467acf",
+    "phase": "evaluation",
+    "rows_score": 7697,
+    "rows_train": 12541,
+    "started_epoch": 1794771363.772667,
+    "status": "ok",
+    "utc": "2026-11-15T19:36:03.772657+00:00"
+  }
+}

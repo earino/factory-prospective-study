@@ -1,0 +1,23 @@
+{
+  "id": "eb79bb919a744a588517b1eb88467acf",
+  "utc": "2026-11-15T19:36:03.772657+00:00",
+  "started_epoch": 1794771363.772667,
+  "mode": "validation",
+  "note": "H15: kernel-smoothed state encoding in the clean strict code (Gaussian 750 km over state centroids, state pseudo-count 2000, neighbourhood pseudo-count 50; leave-one-out offset prior). Chosen from an 11-setting scan on validation + forward-chaining jointly: forward-chaining .6854 vs .6820 and backtest ~.689 vs .685 for H12; validation 8-seed mean .7507 vs .7516 (equal within seed noise)",
+  "code_sha256": "19a5aff2fb6a8f2ae213e87760eb3f9fcb9606124ed7efb26e9c7d100516d6fe",
+  "status": "ok",
+  "fit_wall_s": 0.09888583299471065,
+  "fit_cpu_s": 0.20212800000000009,
+  "phase": "evaluation",
+  "evaluation_wall_s": 4.700045707999379,
+  "auc": 0.7519517692940714,
+  "brier": 0.03999604462934522,
+  "rows_train": 12541,
+  "rows_score": 7697,
+  "backtest": {},
+  "artifact_sha256": "644cb006e66bab1bcf9e469bd45ef3495e3289dd1c079a4ea1426a84fbbe2eab",
+  "finished_epoch": 1794771368.6253598,
+  "elapsed_s": 4.852337832999183,
+  "cold_replay_at": "2026-11-15T20:01:15.765793+00:00",
+  "no_retraining": true
+}
