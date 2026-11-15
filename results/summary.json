@@ -1,6 +1,6 @@
 {
-  "cli_reported_cost_usd_not_invoice": 20.392841399999995,
-  "generated_at": "2026-11-15T11:31:22.906871+00:00",
+  "cli_reported_cost_usd_not_invoice": 35.891355,
+  "generated_at": "2026-11-15T11:32:04.859249+00:00",
   "limitations": [
     "Five selected factory releases; three attempts are descriptive, not agent rankings.",
     "Pinned consumer scaffold and deterministic downloads are provided assistance.",
@@ -42,25 +42,33 @@
       "verified_forbidden_copies": 0
     },
     {
+      "compliance_triage": "no_automatic_access_flag",
       "dataset": "faa-wildlife-strike-substantial-damage",
-      "error": null,
+      "error": "RuntimeError: Three CLI failures; preserved as a failed attempt, not silently restarted",
+      "holdout_content_hits": [],
       "id": "faa-wildlife-strike-substantial-damage--r2",
+      "integrity": "requires_semantic_review",
       "interruptions": null,
-      "research_active_s": null,
-      "status": "not_finished",
+      "protocol_caveats": [],
+      "research_active_s": 3673.570937625016,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
+      "status": "failed",
       "timing": {
-        "cli_invocations": 0,
+        "cli_invocations": 3,
         "evaluation_wall_sum_s": 113.33107333698717,
         "fit_cpu_sum_s": 66.949571,
         "fit_wall_sum_s": 31.817494501010515,
-        "harness_wall_union_s": 0,
+        "harness_wall_union_s": 149.3169069290161,
         "incomplete_or_failed_trials": 0,
         "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
         "ok_trials": 13,
-        "other_active_wall_s": 0,
-        "research_active_s": 0,
+        "other_active_wall_s": 3524.254030696,
+        "research_active_s": 3673.570937625016,
         "trial_records": 13
-      }
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
     },
     {
       "dataset": "faa-wildlife-strike-substantial-damage",
@@ -90,10 +98,10 @@
     "claude-fable-5-2"
   ],
   "reported_usage": {
-    "cache_creation_input_tokens": 149900,
-    "cache_read_input_tokens": 5001469,
-    "input_tokens": 110,
-    "output_tokens": 84951
+    "cache_creation_input_tokens": 265603,
+    "cache_read_input_tokens": 8555525,
+    "input_tokens": 204,
+    "output_tokens": 150035
   },
   "requested_model": "claude-fable-5-2",
   "scores": []
