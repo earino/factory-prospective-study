@@ -2,9 +2,9 @@
 
 {
   "consumer": {
-    "dataset": "fra-form54-hazmat-release",
-    "execution_id": "fra-form54-hazmat-release-retry-1",
-    "started": "2026-11-15T18:29:30.984879+00:00",
+    "dataset": "sdwis-lcr-lead-action-level-next-period",
+    "execution_id": "sdwis-lcr-lead-action-level-next-period",
+    "started": "2026-11-15T20:08:03.671494+00:00",
     "status": "running"
   },
   "factory_counts": {
@@ -14,7 +14,7 @@
     "published": 19,
     "rejected": 7
   },
-  "observed_at": "2026-11-15T19:57:19.651488+00:00",
+  "observed_at": "2026-11-15T20:27:42.465612+00:00",
   "paper": {},
   "queue": [
     {
@@ -144,7 +144,15 @@
     {
       "dataset": "fra-form54-hazmat-release",
       "execution_id": "fra-form54-hazmat-release-retry-1",
-      "outcome": {}
+      "outcome": {
+        "branch": "consumer/fra-form54-hazmat-release-retry-1",
+        "commit": "16e5ba920f95ccda9516f5b3e5d30d1810e7baf4",
+        "dataset": "fra-form54-hazmat-release",
+        "execution_id": "fra-form54-hazmat-release-retry-1",
+        "finished": "2026-11-15T20:08:03.670058+00:00",
+        "started": "2026-11-15T18:29:30.985035+00:00",
+        "status": "complete"
+      }
     }
   ],
   "snapshot_generated_at": "2026-11-15T19:51:56+00:00",
