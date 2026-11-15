@@ -1,0 +1,110 @@
+{
+  "cli_reported_cost_usd_not_invoice": 288.04265259999994,
+  "generated_at": "2026-11-15T01:45:09.021952+00:00",
+  "limitations": [
+    "Five selected factory releases; three attempts are descriptive, not agent rankings.",
+    "Pinned consumer scaffold and deterministic downloads are provided assistance.",
+    "CLI-reported model IDs are not independent provider attestation.",
+    "Public holdout isolation and semantic compliance are procedural, not enforced by an OS sandbox.",
+    "CFPB holdout was used in earlier pilot work outside this study.",
+    "Random search matches observed eligible primary-trial fitting CPU, not unlogged diagnostics or token work.",
+    "Fresh Claude trajectories are nondeterministic; frozen artifact replay is reproducible.",
+    "No factory-wide publication yield or spend is inferred from this consumer study."
+  ],
+  "outcomes": [
+    {
+      "compliance_triage": "no_automatic_access_flag",
+      "dataset": "caa-fce-hpv-escalation",
+      "error": null,
+      "holdout_content_hits": [],
+      "id": "caa-fce-hpv-escalation--r1",
+      "integrity": "requires_semantic_review",
+      "interruptions": null,
+      "protocol_caveats": [],
+      "research_active_s": 5100.026397542999,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
+      "status": "frozen",
+      "timing": {
+        "cli_invocations": 22,
+        "evaluation_wall_sum_s": 76.34348570899601,
+        "fit_cpu_sum_s": 24.785459,
+        "fit_wall_sum_s": 19.86986949799757,
+        "harness_wall_union_s": 99.36804819107056,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 12,
+        "other_active_wall_s": 5000.658349351928,
+        "research_active_s": 5100.026397542999,
+        "trial_records": 12
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
+    },
+    {
+      "dataset": "caa-fce-hpv-escalation",
+      "error": null,
+      "id": "caa-fce-hpv-escalation--r2",
+      "interruptions": null,
+      "research_active_s": null,
+      "status": "not_finished",
+      "timing": {
+        "cli_invocations": 0,
+        "evaluation_wall_sum_s": 109.46270096001535,
+        "fit_cpu_sum_s": 21.235593,
+        "fit_wall_sum_s": 8.37885416798963,
+        "harness_wall_union_s": 0,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 14,
+        "other_active_wall_s": 0,
+        "research_active_s": 0,
+        "trial_records": 14
+      }
+    },
+    {
+      "dataset": "caa-fce-hpv-escalation",
+      "error": null,
+      "id": "caa-fce-hpv-escalation--r3",
+      "interruptions": null,
+      "research_active_s": null,
+      "status": "not_finished",
+      "timing": {
+        "cli_invocations": 0,
+        "evaluation_wall_sum_s": 145.7632249599992,
+        "fit_cpu_sum_s": 26.932582,
+        "fit_wall_sum_s": 17.112911038013408,
+        "harness_wall_union_s": 0,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 21,
+        "other_active_wall_s": 0,
+        "research_active_s": 0,
+        "trial_records": 21
+      }
+    }
+  ],
+  "protocol_sha256": "d933d17cee87575e656c849a758c075204de8bc1e4aba7234826f2225c5762bc",
+  "reported_models": [
+    "claude-fable-5-2"
+  ],
+  "reported_usage": {
+    "cache_creation_input_tokens": 244252,
+    "cache_read_input_tokens": 26665046,
+    "input_tokens": 346,
+    "output_tokens": 158228
+  },
+  "requested_model": "claude-fable-5-2",
+  "scores": [
+    {
+      "dataset": "caa-fce-hpv-escalation",
+      "holdout_auc": null,
+      "holdout_brier": null,
+      "holdout_rows": null,
+      "id": "caa-fce-hpv-escalation--r1",
+      "kind": "agent",
+      "validation_auc": 0.8676862185112647,
+      "validation_brier": 0.010524367240586752
+    }
+  ]
+}

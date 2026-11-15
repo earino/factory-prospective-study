@@ -1,0 +1,23 @@
+{
+  "id": "fbe3a401608e47bd820bf292f4a96d8f",
+  "utc": "2026-11-15T01:12:12.005366+00:00",
+  "started_epoch": 1794705132.005376,
+  "mode": "validation",
+  "note": "H5: evaluation-count history is a reporting-practice feature whose relation to the label shifted after 2020 (three diagnostics: state x eval-count encodings, state-relative timing features and drop-one all raise the pre-2019 backtest but lower 2020-22 validation). H4 minus prior_evaluations_3y. Pre-set criterion met: 8-seed paired cluster bootstrap gain +0.0014, P(<=0)=0.07, gain in each validation year. Caveat: training-only backtest prefers keeping the feature (-0.002)",
+  "code_sha256": "bb96ffa628a478a34ae7b9429567ca26ec794cc10e3998d3b9f8e1b434e6140f",
+  "status": "ok",
+  "fit_wall_s": 2.671506500002579,
+  "fit_cpu_s": 3.265456,
+  "phase": "evaluation",
+  "evaluation_wall_s": 8.34716820900212,
+  "auc": 0.8676862185112647,
+  "brier": 0.010524367240586752,
+  "rows_train": 58183,
+  "rows_score": 36500,
+  "backtest": {},
+  "artifact_sha256": "3c9b146304a7a0edeed8c7e1d2bbe872039709e70df978625662aa9aa3cf06a0",
+  "finished_epoch": 1794705143.4394188,
+  "elapsed_s": 11.433561375000863,
+  "cold_replay_at": "2026-11-15T01:45:06.790222+00:00",
+  "no_retraining": true
+}

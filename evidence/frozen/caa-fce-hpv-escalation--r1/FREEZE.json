@@ -1,0 +1,50 @@
+{
+  "dataset": "caa-fce-hpv-escalation",
+  "environment": "d2dddbe882fa9156f69be9189c1154ed8268468f1829a0db86a89ac6b119448b",
+  "files": {
+    "booster.json": {
+      "bytes": 521111,
+      "sha256": "7079b7b2927c11adad162c7508a2aaf70dc4060c567978ab339ca53bd00208c8"
+    },
+    "model.pkl": {
+      "bytes": 374487,
+      "sha256": "3c9b146304a7a0edeed8c7e1d2bbe872039709e70df978625662aa9aa3cf06a0"
+    },
+    "train.py": {
+      "bytes": 6934,
+      "sha256": "bb96ffa628a478a34ae7b9429567ca26ec794cc10e3998d3b9f8e1b434e6140f"
+    },
+    "validation.csv.gz": {
+      "bytes": 396348,
+      "sha256": "9d1c0b738f198798e24bfaf642c94a4a98f5302f197d39a2fb56c8e4c0514772"
+    },
+    "validation.json": {
+      "bytes": 1243,
+      "sha256": "eb55cb6fd1cd32881a498b8e54c4ae24317af4e49881966787be654539ba0f31"
+    }
+  },
+  "frozen_at": "2026-11-15T01:45:06.986885+00:00",
+  "run": "caa-fce-hpv-escalation--r1",
+  "selected_trial": {
+    "artifact_sha256": "3c9b146304a7a0edeed8c7e1d2bbe872039709e70df978625662aa9aa3cf06a0",
+    "auc": 0.8676862185112647,
+    "backtest": {},
+    "brier": 0.010524367240586752,
+    "code_sha256": "bb96ffa628a478a34ae7b9429567ca26ec794cc10e3998d3b9f8e1b434e6140f",
+    "elapsed_s": 11.433561375000863,
+    "evaluation_wall_s": 8.34716820900212,
+    "finished_epoch": 1794705143.4394188,
+    "fit_cpu_s": 3.265456,
+    "fit_wall_s": 2.671506500002579,
+    "id": "fbe3a401608e47bd820bf292f4a96d8f",
+    "mode": "validation",
+    "note": "H5: evaluation-count history is a reporting-practice feature whose relation to the label shifted after 2020 (three diagnostics: state x eval-count encodings, state-relative timing features and drop-one all raise the pre-2019 backtest but lower 2020-22 validation). H4 minus prior_evaluations_3y. Pre-set criterion met: 8-seed paired cluster bootstrap gain +0.0014, P(<=0)=0.07, gain in each validation year. Caveat: training-only backtest prefers keeping the feature (-0.002)",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/caa-fce-hpv-escalation/.study/runs/caa-fce-hpv-escalation--r1/trials/fbe3a401608e47bd820bf292f4a96d8f",
+    "phase": "evaluation",
+    "rows_score": 36500,
+    "rows_train": 58183,
+    "started_epoch": 1794705132.005376,
+    "status": "ok",
+    "utc": "2026-11-15T01:12:12.005366+00:00"
+  }
+}
