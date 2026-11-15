@@ -1,6 +1,6 @@
 # Consumer study results
 
-Generated 2026-11-15T01:45:55.241639+00:00
+Generated 2026-11-15T01:56:15.097152+00:00
 
 Measured records are in summary.json and scores.csv. Failures remain in the denominator.
 
@@ -16,9 +16,14 @@ Compliance triage (separate from scores):
 
 Scores (including flagged attempts; do not treat all as compliant results):
 
-- caa-fce-hpv-escalation--r1: validation AUC 0.867686; holdout AUC not scored.
-- caa-fce-hpv-escalation--r2: validation AUC 0.864669; holdout AUC not scored.
-- caa-fce-hpv-escalation--r3: validation AUC 0.868768; holdout AUC not scored.
+- caa-fce-hpv-escalation--ordinary: validation AUC 0.852449; holdout AUC 0.851909.
+- caa-fce-hpv-escalation--r1: validation AUC 0.867686; holdout AUC 0.868417.
+- caa-fce-hpv-escalation--r1--random: validation AUC 0.853196; holdout AUC 0.856038.
+- caa-fce-hpv-escalation--r2: validation AUC 0.864669; holdout AUC 0.871459.
+- caa-fce-hpv-escalation--r2--random: validation AUC 0.858361; holdout AUC 0.862754.
+- caa-fce-hpv-escalation--r3: validation AUC 0.868768; holdout AUC 0.860209.
+- caa-fce-hpv-escalation--r3--random: validation AUC 0.855139; holdout AUC 0.852253.
+- caa-fce-hpv-escalation--released: validation AUC 0.856434; holdout AUC 0.855761.
 
 ## Limits
 

@@ -1,6 +1,6 @@
 {
   "cli_reported_cost_usd_not_invoice": 534.9300857999998,
-  "generated_at": "2026-11-15T01:45:55.241639+00:00",
+  "generated_at": "2026-11-15T01:56:15.097152+00:00",
   "limitations": [
     "Five selected factory releases; three attempts are descriptive, not agent rankings.",
     "Pinned consumer scaffold and deterministic downloads are provided assistance.",
@@ -114,9 +114,19 @@
   "scores": [
     {
       "dataset": "caa-fce-hpv-escalation",
-      "holdout_auc": null,
-      "holdout_brier": null,
-      "holdout_rows": null,
+      "holdout_auc": 0.8519093827949766,
+      "holdout_brier": 0.007958956958528352,
+      "holdout_rows": 20011,
+      "id": "caa-fce-hpv-escalation--ordinary",
+      "kind": "ordinary",
+      "validation_auc": 0.8524494984285831,
+      "validation_brier": 0.010919216884920868
+    },
+    {
+      "dataset": "caa-fce-hpv-escalation",
+      "holdout_auc": 0.8684167399350823,
+      "holdout_brier": 0.007330156797125613,
+      "holdout_rows": 20011,
       "id": "caa-fce-hpv-escalation--r1",
       "kind": "agent",
       "validation_auc": 0.8676862185112647,
@@ -124,9 +134,19 @@
     },
     {
       "dataset": "caa-fce-hpv-escalation",
-      "holdout_auc": null,
-      "holdout_brier": null,
-      "holdout_rows": null,
+      "holdout_auc": 0.8560382072542151,
+      "holdout_brier": 0.007598785620253457,
+      "holdout_rows": 20011,
+      "id": "caa-fce-hpv-escalation--r1--random",
+      "kind": "random",
+      "validation_auc": 0.853195646514687,
+      "validation_brier": 0.010568132037852255
+    },
+    {
+      "dataset": "caa-fce-hpv-escalation",
+      "holdout_auc": 0.8714592094850441,
+      "holdout_brier": 0.007721553913916965,
+      "holdout_rows": 20011,
       "id": "caa-fce-hpv-escalation--r2",
       "kind": "agent",
       "validation_auc": 0.8646688613136873,
@@ -134,13 +154,43 @@
     },
     {
       "dataset": "caa-fce-hpv-escalation",
-      "holdout_auc": null,
-      "holdout_brier": null,
-      "holdout_rows": null,
+      "holdout_auc": 0.8627541783271012,
+      "holdout_brier": 0.007376779627651932,
+      "holdout_rows": 20011,
+      "id": "caa-fce-hpv-escalation--r2--random",
+      "kind": "random",
+      "validation_auc": 0.8583608960183791,
+      "validation_brier": 0.010576403890568666
+    },
+    {
+      "dataset": "caa-fce-hpv-escalation",
+      "holdout_auc": 0.8602094384136447,
+      "holdout_brier": 0.00742105053655768,
+      "holdout_rows": 20011,
       "id": "caa-fce-hpv-escalation--r3",
       "kind": "agent",
       "validation_auc": 0.8687679571167222,
       "validation_brier": 0.010496699472653293
+    },
+    {
+      "dataset": "caa-fce-hpv-escalation",
+      "holdout_auc": 0.8522525222694308,
+      "holdout_brier": 0.00752286436862609,
+      "holdout_rows": 20011,
+      "id": "caa-fce-hpv-escalation--r3--random",
+      "kind": "random",
+      "validation_auc": 0.8551389412539474,
+      "validation_brier": 0.01050160185310131
+    },
+    {
+      "dataset": "caa-fce-hpv-escalation",
+      "holdout_auc": 0.8557611276195007,
+      "holdout_brier": 0.007712090186815851,
+      "holdout_rows": 20011,
+      "id": "caa-fce-hpv-escalation--released",
+      "kind": "released",
+      "validation_auc": 0.8564337510951802,
+      "validation_brier": 0.010757983413802711
     }
   ]
 }
