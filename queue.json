@@ -471,5 +471,44 @@
     "started": "2026-11-15T12:30:02.379484+00:00",
     "status": "complete",
     "verified_at": "2026-11-15T11:22:19.117088+00:00"
+  },
+  {
+    "dataset": "sdwis-lcr-lead-action-level-next-period",
+    "release": {
+      "artifact_version": "b08c6a7bbfdcbbffb33de64be0cde0485e147bc0f82d96185db1b34ecdaab857",
+      "assets": 33,
+      "baseline_display": "See versioned evaluation.json; public validation only",
+      "dataset": "sdwis-lcr-lead-action-level-next-period",
+      "destinations": {
+        "github": "https://github.com/earino/factory-sdwis-lcr-lead-action-level-next-period/releases/tag/v-5917644e4c46057e",
+        "huggingface": "https://huggingface.co/datasets/earino/factory-sdwis-lcr-lead-action-level-next-period"
+      },
+      "detail_id": "source-000107",
+      "disposition": "public",
+      "published": true,
+      "release_tag": "v-5917644e4c46057e",
+      "rows": 292315,
+      "splits": {
+        "eval": {
+          "rows": 17368
+        },
+        "holdout": {
+          "rows": 17568
+        },
+        "train": {
+          "rows": 257379
+        }
+      },
+      "verified": {
+        "github": true,
+        "huggingface": true
+      },
+      "verified_all": true,
+      "verified_at": "2026-11-15T14:56:16.234161+00:00",
+      "workflow": "modern"
+    },
+    "selected": true,
+    "status": "queued",
+    "verified_at": "2026-11-15T14:56:16.234161+00:00"
   }
 ]

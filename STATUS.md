@@ -8,13 +8,12 @@
     "status": "running"
   },
   "factory_counts": {
-    "build": 1,
-    "deferred": 80,
-    "publish": 1,
-    "published": 18,
+    "build": 2,
+    "deferred": 82,
+    "published": 19,
     "rejected": 7
   },
-  "observed_at": "2026-11-15T15:24:20.825618+00:00",
+  "observed_at": "2026-11-15T15:54:42.063265+00:00",
   "paper": {},
   "queue": [
     {
@@ -104,6 +103,14 @@
       "selected": true,
       "branch": "consumer/fra-form54-hazmat-release",
       "error": null
+    },
+    {
+      "dataset": "sdwis-lcr-lead-action-level-next-period",
+      "verified_at": "2026-11-15T14:56:16.234161+00:00",
+      "status": "queued",
+      "selected": true,
+      "branch": null,
+      "error": null
     }
   ],
   "retries": [
@@ -123,7 +130,7 @@
       "outcome": {}
     }
   ],
-  "snapshot_generated_at": "2026-11-15T14:51:48+00:00",
+  "snapshot_generated_at": "2026-11-15T15:52:12+00:00",
   "window": {
     "analysis_start": "2026-11-16T10:00:00Z",
     "attempt_minutes": 85,
