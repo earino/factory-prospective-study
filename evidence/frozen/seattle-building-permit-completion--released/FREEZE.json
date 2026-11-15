@@ -1,0 +1,28 @@
+{
+  "dataset": "seattle-building-permit-completion",
+  "files": {
+    "booster.json": {
+      "bytes": 132829,
+      "sha256": "5eedb46817a83a1b24c3b735b76d41ec5cd6a246fa13463e5d773b8f80e66704"
+    },
+    "model.pkl": {
+      "bytes": 107217,
+      "sha256": "786e9c66796c6e60910d6c59a27b41d80952d0765a3e97f08966a9350d4771d0"
+    },
+    "train.py": {
+      "bytes": 1160,
+      "sha256": "431a0f15145a8578df4bc149ee13483cbc7f06e15ac8214356c08da99d9e5d21"
+    },
+    "validation.csv.gz": {
+      "bytes": 75885,
+      "sha256": "0b2b24ec80b6282dfd56087d480400ddb36ef18a4734480ad4e4751766b3c87a"
+    },
+    "validation.json": {
+      "bytes": 804,
+      "sha256": "0d8d7acfca5b72e88bd828a5f4886eaabf7334620c128779340a19d911997a1a"
+    }
+  },
+  "frozen_at": "2026-11-15T18:17:56.199953+00:00",
+  "matches_released_baseline": false,
+  "run": "seattle-building-permit-completion--released"
+}

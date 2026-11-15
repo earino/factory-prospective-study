@@ -1,0 +1,49 @@
+{
+  "dataset": "seattle-building-permit-completion",
+  "files": {
+    "booster.json": {
+      "bytes": 757821,
+      "sha256": "94db55dadec294c35974ae5b1b87890ba4917dde4509338cc46f030eae2e7250"
+    },
+    "model.pkl": {
+      "bytes": 750309,
+      "sha256": "60f3fee0914d3933dfe0b1bff2ac049642d30927ca82ecabb7eb94c107bde59e"
+    },
+    "train.py": {
+      "bytes": 1247,
+      "sha256": "8980e15d59766d4c986ca30eb4ff0ce1d726bb3cb450559ff807e3e732c45222"
+    },
+    "validation.csv.gz": {
+      "bytes": 78409,
+      "sha256": "f05f3ebd54bf9ae3bd9b04ffeea402797793b82bfa4d22b172e154416f5a89fe"
+    },
+    "validation.json": {
+      "bytes": 935,
+      "sha256": "b403ecd428f8cafb719be8d70ee0d4181d0a12c65327e26f482e1df43b77eb6b"
+    }
+  },
+  "frozen_at": "2026-11-15T18:25:59.613426+00:00",
+  "run": "seattle-building-permit-completion--r2--random",
+  "selected_trial": {
+    "artifact_sha256": "60f3fee0914d3933dfe0b1bff2ac049642d30927ca82ecabb7eb94c107bde59e",
+    "auc": 0.6442855495040071,
+    "backtest": {},
+    "brier": 0.17400685760344903,
+    "code_sha256": "8980e15d59766d4c986ca30eb4ff0ce1d726bb3cb450559ff807e3e732c45222",
+    "elapsed_s": 4.844534207994002,
+    "evaluation_wall_s": 4.490556083008414,
+    "finished_epoch": 1794766959.208448,
+    "fit_cpu_s": 0.6430179999999999,
+    "fit_wall_s": 0.3076164579979377,
+    "id": "a559aa74bf924954bfd538854a7eb729",
+    "mode": "validation",
+    "note": "{\"n_estimators\": 600, \"max_depth\": 4, \"learning_rate\": 0.02, \"min_child_weight\": 100, \"subsample\": 1.0, \"colsample_bytree\": 0.7, \"reg_lambda\": 1}",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-1/.study/controls/seattle-building-permit-completion--r2--random/trials/a559aa74bf924954bfd538854a7eb729",
+    "phase": "evaluation",
+    "rows_score": 7135,
+    "rows_train": 11286,
+    "started_epoch": 1794766954.363664,
+    "status": "ok",
+    "utc": "2026-11-15T18:22:34.363654+00:00"
+  }
+}
