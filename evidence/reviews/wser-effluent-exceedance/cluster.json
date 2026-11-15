@@ -1,0 +1,13 @@
+{
+  "cluster_columns": ["system_id"],
+  "reason": "The source unit is a physical wastewater system observed once per target year, so rows of one system are repeated measurements of the same plant, not independent events. build.py constructs each row's history from that system's own earlier years (build.py:612, 622-625), and prior_year_exceedance, prior_year_worst_margin and ever_exceeded_before are the label rule applied to the same system's earlier years (build.py:643-649, 664-668), so adjacent rows of a system are linked by construction. In the public training file system_id is non-null on all 8,244 rows, there is exactly one row per (system_id, target_year), 1,734 of 2,080 systems have two or more rows, 1,279 of those have a constant label, and 713 systems hold all 1,616 positives. record_id is unique per row but is only system_id plus target_year, so it does not establish independence. system_id is a non-predictor carry written to every split by the same code path (build.py:17-18, 680, 689, 697-699). Chosen before holdout scoring from source meaning, build code and training metadata; no holdout rows or holdout metrics were read.",
+  "status": "declared",
+  "limitations": [
+    "Presence, completeness and uniqueness of system_id were verified on public train and validation only; for the holdout they rest on build.py, not on inspection.",
+    "Dependence across systems within a target year or province (shared weather, regulatory regime, the Quebec cohort that enters in 2019) is not absorbed by this key. The holdout has two target years and at most 11 provinces, which is too few clusters to use either as the unit.",
+    "Systems sharing an owner or operator may be dependent, but only owner and operator type categories are shipped, so no owner-level key can be formed.",
+    "Stability of system_id across re-registration or ownership change was not checked; one physical plant under two identifiers would be split into two clusters.",
+    "Holdout clusters have at most two rows (2023 and 2024), and the 2024 row's lag features carry the 2023 label of the same system, so within-cluster dependence is strong and the effective sample size is closer to the number of systems than the number of rows.",
+    "system_id is also an input to the unmodified baseline runner (train.py:27 excludes only record_id and the target), so the cluster key is not purely a carry in the measured baseline."
+  ]
+}
