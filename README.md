@@ -3,6 +3,12 @@
 Paper-ready target: **16 November 2026, afternoon Europe/Paris**.
 Protocol: [PROTOCOL.md](PROTOCOL.md). Machine dates/settings: [protocol.json](protocol.json).
 
+**Current paper direction (agreed 15 November):**
+[From Public Data to Prediction Benchmarks](paper/PAPER-DIRECTION.md).
+Center the complete factory, production cost and reliability, and independent
+usefulness of its outputs. This supersedes earlier editorial outlines; the study
+protocol and experiments remain unchanged. The scheduled writer reads this direction.
+
 A local LaunchAgent polls the public factory dashboard, records all candidates,
 and dispatches the first 12 new releases to three 85-minute Fable 5.2 consumer
 attempts each. Each dataset gets a separate local Git study and private evidence
