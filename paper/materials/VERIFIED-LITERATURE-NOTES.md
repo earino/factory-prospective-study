@@ -195,3 +195,50 @@ For the seven-page paper, use a few close comparisons and a short human-work
 discussion. Low recurring cost may make projects practical for small groups once
 the system exists; this remains an implication, not a measured accessibility or
 labor-market effect. Do not add experiments or delay writing for a larger survey.
+
+## Literature integration revision — 15 November 2026
+
+The revised seven-page draft cites 20 works (previously 12). References now support
+specific statements in the introduction, method, discussion, and related work.
+The evidence snapshot, figures, scores, cost calculation, and unresolved findings
+are unchanged. Repeated explanations were cut; type size and margins were not.
+
+Primary sources checked for the eight added citations:
+
+- **Ariño de la Rubia and Pafka, Identical Runs, Different Results**:
+  https://arxiv.org/abs/2609.33812 . Correct author order and title. This is distinct
+  from the `pafka` working-library entry for *One Run Is Not Enough*. Supports
+  repeated attempts and separate compliance review; does not establish that three
+  attempts suffice for rankings or prescribe our 85-minute allowance.
+- **Chen and Guestrin, XGBoost**: https://arxiv.org/abs/1603.02754 . The primary
+  record identifies KDD 2016 and DOI 10.1145/2939672.2939785. Updated the bibliography
+  from the preprint-only entry and cited the method at first technical use.
+- **Pan et al., Measuring Agents in Production**, v4:
+  https://arxiv.org/abs/2512.04123v4 . Primary abstract records acceptance to ICML
+  2026, identifies reliability as a central challenge, and reports controllable
+  designs. Used as deployment context, not evidence that our architecture is best.
+- **Kandel et al., Enterprise Data Analysis and Visualization**:
+  https://vis.csail.mit.edu/classes/6.859/readings/pdfs/Kandel-EnterpriseDataAnalysisAndVisualization.pdf .
+  Primary paper identifies discovery, wrangling, profiling, modeling, and reporting
+  in interviews with 35 analysts at 25 organizations. Bibliography omits page and
+  DOI fields because secondary records disagreed; title, authors, journal, and
+  year were checked. No human-time ratio is imported.
+- **Lafia et al., Leveraging Machine Learning to Detect Data Curation Activities**:
+  https://arxiv.org/abs/2105.00030 and the linked ICPSR primary PDF already recorded
+  above. DOI 10.1109/eScience51609.2021.00025 is supplied by the arXiv record.
+  Supports transformation and quality-check work. Archival curation is explicitly
+  not a matched human benchmark for our releases; no hours are used in the paper.
+- **AutoDataBench**: https://arxiv.org/abs/2609.35025 . Supports artifact-level
+  checks of generated executable tasks. It is not presented as public-source
+  prediction-dataset discovery or as having no prior validation.
+- **CurationBench / Can Generalist Agents Automate Data Curation?**:
+  https://aclanthology.org/2026.emnlp-main.815/ . Uses the published EMNLP 2026
+  version. Its data-selection setting has a fixed training/evaluation recipe;
+  it is not equivalent to our source-to-public-release workflow.
+- **Exploring Autonomous Agentic Data Engineering for Model Specialization**:
+  https://aclanthology.org/2026.emnlp-main.2330/ . Uses the published EMNLP 2026
+  version; downstream model feedback guides data engineering. This is a close
+  precedent, so the revised text avoids an invented claim of first integration.
+
+These additions complement the earlier verified references. They do not support
+new claims of labor displacement, causal architecture benefits, or superior cost.

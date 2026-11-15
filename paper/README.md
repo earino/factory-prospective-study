@@ -1,9 +1,11 @@
 # Dataset Factory paper draft
 
-The first full draft is [the seven-page PDF](output/paper.pdf).
+The revised full draft is [the seven-page PDF](output/paper.pdf).
 Its scope is the 64.93-hour production snapshot ending 15 November at 14:24 UTC,
 with the original consumer outcomes available at that cutoff. It is an interim
-author-review draft, not the final submission. Recovery runs remain separate.
+author-review draft, not the final submission. Recovery runs remain separate. The literature revision integrates 20 references
+across the argument, including repeated-run evidence, production reliability,
+artifact evaluation, and human data preparation.
 
 - [LaTeX manuscript](draft/main.tex)
 - [Portable LaTeX source bundle](output/paper-source.zip)

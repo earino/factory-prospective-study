@@ -96,3 +96,16 @@ It includes original outcomes only, not outcomes of quota-recovery runs.
   worker qualification or independently rebuild all datasets.
 - Final author review of prose, affiliation, claims and venue submission details.
   Evidence remains private during drafting; nothing has been submitted or made public.
+
+## Literature revision — 15 November 2026
+
+- Increased cited works from 12 to 20 and integrated them into the argument.
+- Added the author's actual arXiv paper with Szilárd Pafka, XGBoost, production
+  reliability, artifact evaluation, data curation, and human analytical work.
+- Used published EMNLP versions for CurationBench and agentic data engineering;
+  recorded primary-source checks and limits in the literature notes.
+- Kept the captured evidence, numerical results, figures, and unresolved cases.
+- Cut repeated explanations to retain seven pages at the original IEEE settings.
+- Rebuilt, rendered, and inspected all seven pages. The portable source bundle
+  also builds in a clean directory with matching text and no unresolved citations
+  or overfull boxes; its hashes are recorded in `output/QA.json`.
