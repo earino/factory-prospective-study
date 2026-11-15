@@ -2,18 +2,19 @@
 
 {
   "consumer": {
-    "dataset": "sdwis-lcr-lead-action-level-next-period",
-    "execution_id": "sdwis-lcr-lead-action-level-next-period",
-    "started": "2026-11-15T20:08:03.671494+00:00",
+    "branch": "consumer/seattle-building-permit-completion-retry-2",
+    "dataset": "seattle-building-permit-completion",
+    "execution_id": "seattle-building-permit-completion-retry-2",
+    "started": "2026-11-15T21:52:53.525159+00:00",
     "status": "running"
   },
   "factory_counts": {
+    "build": 2,
     "deferred": 92,
-    "discover": 2,
     "published": 19,
     "rejected": 7
   },
-  "observed_at": "2026-11-15T21:28:15.621294+00:00",
+  "observed_at": "2026-11-15T21:58:31.732721+00:00",
   "paper": {},
   "queue": [
     {
@@ -107,9 +108,9 @@
     {
       "dataset": "sdwis-lcr-lead-action-level-next-period",
       "verified_at": "2026-11-15T14:56:16.234161+00:00",
-      "status": "queued",
+      "status": "complete",
       "selected": true,
-      "branch": null,
+      "branch": "consumer/sdwis-lcr-lead-action-level-next-period",
       "error": null
     }
   ],
@@ -154,7 +155,7 @@
       }
     }
   ],
-  "snapshot_generated_at": "2026-11-15T20:51:53+00:00",
+  "snapshot_generated_at": "2026-11-15T21:51:52+00:00",
   "window": {
     "analysis_start": "2026-11-16T10:00:00Z",
     "attempt_minutes": 85,

@@ -1,0 +1,115 @@
+[
+  {
+    "run": "sdwis-lcr-lead-action-level-next-period--r1",
+    "trace": "0000.jsonl",
+    "line": 21,
+    "tool_use_id": "toolu_019VfJvkTx5XNfrH4VbHL27C",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/sdwis-lcr-lead-action-level-next-period/.study/runs/sdwis-lcr-lead-action-level-next-period--r1 && PY=$(python3 -c \"import json;print(json.load(open('TASK.json'))['python'])\") && $PY -c \"\nimport pandas as pd, numpy as np\npd.set_option('display.width',250); pd.set_option('display.max_columns',30)\ntr=pd.read_csv('release/extract/public/train.csv'); ev=pd.read_csv('release/extract/public/eval.csv')\nprint(tr.head(8).T)\nprint(tr.dtypes)\nprint(tr.describe(include='all').T)\nprint(ev.describe(include='all').T)\nt='next_pb90_exceeds_action_level'\nfor c in ['primary_source_code','owner_type_code','primacy_agency_code','ever_exceeded_before','prior_lslr_milestone']:\n    print(tr.groupby(c)[t].agg(['mean','size']).sort_values('size',ascending=False).head(70).T)\ntr['yr']=tr.target_period_start.str[:4]; ev['yr']=ev.target_period_start.str[:4]\nprint(tr.groupby('yr')[t].agg(['mean','size']).T); print(ev.groupby('yr')[t].agg(['mean','size']).T)\nprint(tr.PWSID.nunique(), ev.PWSID.nunique(), ev.PWSID.isin(tr.PWSID).mean())\n\"; date +%s",
+      "description": "Explore train and validation data"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "sdwis-lcr-lead-action-level-next-period--r1",
+    "trace": "0000.jsonl",
+    "line": 1077,
+    "tool_use_id": "toolu_01EfBkTtbbex4gHHerrPmn3Q",
+    "tool": "Bash",
+    "input": {
+      "command": "PY=$(python3 -c \"import json;print(json.load(open('TASK.json'))['python'])\"); $PY - <<'EOF'\nimport json,glob,hashlib,time\ns=open('REPORT.md').read()\na='''No holdout result is claimed. The holdout, source snapshots and other runs were not accessed.\n'''\nassert a in s\ns=s.replace(a,a+'''\nWhat to take from it: regularization accounts for most of the gain and holds up in every check. The last\nstep, from `55d83813` (0.80955) to `a9be1aa0`, is within validation noise, and a training-only backtest at a\nfive-year distance slightly favours the earlier trial. Agency drift, partly from selective reporting, is the\nmain limit on this task and is likely to be larger in the later window.\n''')\nopen('REPORT.md','w').write(s)\nrs=[json.load(open(f)) for f in glob.glob('trials/*/result.json')]\nok=[r for r in rs if r['status']=='ok' and r['mode']=='validation']\nbest=sorted(ok,key=lambda r:(-r['auc'],r['started_epoch']))[0]\nh=lambda p:hashlib.sha256(open(p,'rb').read()).hexdigest()\nprint('trials',len(rs),'ok validation',len(ok),'selected',best['id'][:8],best['auc'],'train.py matches:',h('train.py')==best['code_sha256'])\nprint('seconds to deadline',round(json.load(open('TASK.json'))['search_deadline_epoch']-time.time()))\nEOF\ngit add REPORT.md && git commit -qm \"Report summary caveat\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\"; git status --short | head; pgrep -fl \"_engine.py|scratch/exp.py\" | head -2; ls BLOCKER.json 2>/dev/null",
+      "description": "Add top-level caveat to the report and verify final state"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "sdwis-lcr-lead-action-level-next-period--r1",
+    "trace": "0014.jsonl",
+    "line": 2,
+    "tool_use_id": "toolu_01HSXvCmVYPePN9FDGeQEWor",
+    "tool": "Bash",
+    "input": {
+      "command": "PY=$(python3 -c \"import json;print(json.load(open('TASK.json'))['python'])\"); $PY - <<'EOF'\nimport ast,time,json\nsrc=open('train.py').read(); t=ast.parse(src)\nimports=sorted({(n.names[0].name if isinstance(n,ast.Import) else n.module) for n in ast.walk(t) if isinstance(n,(ast.Import,ast.ImportFrom))})\nfuncs=[n.name for n in t.body if isinstance(n,ast.FunctionDef)]\ncalls={getattr(n.func,'attr',getattr(n.func,'id','')) for n in ast.walk(t) if isinstance(n,ast.Call)}\nio=sorted(calls&{'open','read_csv','read_parquet','urlopen','get','post','system','popen','load','loads'})\nident=[w for w in ('PWSID','row_id','target_period_start','next_pb90_exceeds_action_level') if w in src]\nline=f\"60. Static check of the delivered train.py: imports {imports}; top-level functions {funcs}; file or network calls {io or 'none'}; references to identifier, date or target columns {ident or 'none'}.\"\nprint(line); open('LOG.md','a').write(line+'\\n')\nprint('seconds left',round(json.load(open('TASK.json'))['search_deadline_epoch']-time.time()))\nEOF\ngit add LOG.md && git commit -qm \"Static check of delivered train.py\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\"; git status --short | head -3",
+      "description": "Static check that train.py has no file or network access and no identifier, date or target references",
+      "timeout": 30000
+    },
+    "reasons": [
+      "network_or_source_reference"
+    ]
+  },
+  {
+    "run": "sdwis-lcr-lead-action-level-next-period--r2",
+    "trace": "0000.jsonl",
+    "line": 13,
+    "tool_use_id": "toolu_01NuqUjL9MeyjPXHoDDDLpSK",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/sdwis-lcr-lead-action-level-next-period/.study/runs/sdwis-lcr-lead-action-level-next-period--r2 && python3 -c \"\nimport json;d=json.load(open('release/reproduction/construction.json'));print(json.dumps(d,indent=1)[:7000])\"; cat release/reproduction/train.py; head -5 release/extract/public/train.csv",
+      "description": "Inspect construction contract, baseline trainer, data head"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "sdwis-lcr-lead-action-level-next-period--r2",
+    "trace": "0000.jsonl",
+    "line": 712,
+    "tool_use_id": "toolu_01XF8Kkya9NWXoiiRqswJ3Jw",
+    "tool": "Bash",
+    "input": {
+      "command": "$(cat lab/py.txt) - <<'EOF'\ns=open('REPORT.md').read()\ns=s.replace('''Retrospective prediction under the release's stated assumptions. No holdout result is claimed;\nthe holdout, source snapshot and other runs were not accessed.\n''','''Best eligible trial: **93f2b952, validation ROC AUC 0.8124** (Brier 0.02175), against 0.7951 for\nthe scaffold baseline. About +0.015 of the +0.017 comes from regularising the booster; features\nand drift handling add the remainder, which validation alone cannot separate from noise.\n\nRetrospective prediction under the release's stated assumptions. No holdout result is claimed;\nthe holdout, source snapshot and other runs were not accessed.\n''')\ns=s.replace('A sixth evaluator call, 8e30561f, was an official','A seventh evaluator call, 8e30561f, was an official')\nopen('REPORT.md','w').write(s)\nEOF\nsed -n 75,175p REPORT.md; date +%s",
+      "description": "Add summary lead and review remainder of report"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "sdwis-lcr-lead-action-level-next-period--r3",
+    "trace": "0000.jsonl",
+    "line": 15,
+    "tool_use_id": "toolu_0192nGGcqkHWLZevQWSnSqkf",
+    "tool": "Bash",
+    "input": {
+      "command": "cd /Users/earino/research/factory-prospective-study/.local/studies/sdwis-lcr-lead-action-level-next-period/.study/runs/sdwis-lcr-lead-action-level-next-period--r3 && PY=$(python3 -c \"import json;print(json.load(open('TASK.json'))['python'])\") && $PY -I - <<'EOF'\nimport json,pandas as pd\nc=json.load(open('release/reproduction/construction.json'))\nq=c['quality']\nprint({k:(v if k not in('evaluation_contract',) else '...') for k,v in q.items()})\nprint([k for k in c])\nprint(json.dumps(q['evaluation_contract'],indent=0)[-3000:])\ntr=pd.read_csv('release/extract/public/train.csv');ev=pd.read_csv('release/extract/public/eval.csv')\nprint(tr.head(8).T)\nprint(tr.describe(include='all').T)\nprint(ev.describe(include='all').T)\nimport xgboost,sklearn,numpy;print(xgboost.__version__,sklearn.__version__,pd.__version__,numpy.__version__)\nEOF\ncat release/reproduction/train.py",
+      "description": "Inspect predictor contract, data summaries and baseline training script"
+    },
+    "reasons": [
+      "access_reference"
+    ]
+  },
+  {
+    "run": "sdwis-lcr-lead-action-level-next-period--r3",
+    "trace": "0000.jsonl",
+    "line": 123,
+    "tool_use_id": "toolu_01AaX5GC1rstfnSJnYtfqf4q",
+    "tool": "Bash",
+    "input": {
+      "command": "cat > BACKLOG.md <<'EOF'\n# BACKLOG\n\nOpen\n- [ ] Feature ablation (drop-one) on 3 backtest folds + val, 3 seeds\n- [ ] Regularisation sweep (colsample, lambda, gamma, max_delta_step, depth/mcw)\n- [ ] Agency encodings: one-hot + ordinal, label-free agency stats, OOF target encodings\n- [ ] n_estimators via internal chronological early stopping inside fit\n- [ ] Error analysis on validation (never-exceeded positives; unit-error rows; by agency)\n- [ ] Seed-repeat diagnostic for the chosen config (noise floor)\n- [ ] Simplification: smallest feature set that keeps AUC\n\nRejected / not pursued\n- Recency sample weights from training row order: no gain offline (and row order is a proxy\n  for the excluded target_period_start), dropped.\n- Pseudo-identifier lookup (population+agency+owner+source as a system fingerprint to look up\n  a system's training labels): would rebuild the excluded PWSID identifier -> prohibited, not tried.\n- Monotone constraints on lead features: no change offline.\nEOF\ncat > LOG.md <<'EOF'\n# LOG (run r3)\n\nClock: search window ~85 min. Evaluator X has only the 14 declared features\n(row_id, PWSID, target_period_start are dropped by the harness), so no date/ID features exist.\nValidation: 17,368 rows, 416 positives -> AUC standard error roughly 0.012; most differences below are noise-level.\n\nOffline diagnostics (diag/harness.py, NOT a selector): three training-only chronological folds that mimic\nthe release split (fit < cutoff; score 5 years after cutoff with prior period end < cutoff; cutoffs 1999/2004/2009)\nplus train->validation. All preprocessing refit per fold.\n\n| # | trial id | change | val AUC | Brier | notes |\n|---|----------|--------|---------|-------|-------|\n| 1 | 01f24192 | scaffold baseline (100 trees, depth 6, lr 0.1, native categoricals) | 0.79511 | 0.02222 | offline bt mean 0.7813 |\n| 2 | 199347a4 | depth 4, 400x0.03, mcw 5, sub/col 0.8, lambda 5; ordinal category codes; engineered lead features | 0.80950 | 0.02186 | bt mean 0.7825 (3-seed 0.7828); gain is from hyperparameters, raw vs engineered features ~equal |\n\nOffline findings so far\n- prior_pb90 has unit errors (values >= ~1 \"mg/L\", 890/950 of them in OH, label rate ~1-3% like low readings).\n  Unit-fixed feature does not move AUC: trees already isolate the range.\n- Engineered lead features (prev-prev value, max/mean of last two, exceed counts): ~0 effect on any fold.\n- Agency matters (dropping it: bt mean 0.7825 -> 0.7710, val 0.8095 -> 0.7969).\n- Recency weights, monotone constraints: no effect.\n- depth 2..6, 200..800 trees: all within ~0.005 on val; depth 4-5 best on backtests.\nEOF\nsleep 1; cat \"/private/tmp/claude-501/-Users-earino-research-factory-prospective-study--local-studies-sdwis-lcr-lead-action-level-next-period--study-runs-sdwis-lcr-lead-action-level-next-period--r3/7a77efb5-7c6e-4538-b770-d80ddebd246e/tasks/b8ahae9r4.output\" | tail -2; date +%s",
+      "description": "Write initial BACKLOG.md and LOG.md, check sweep output"
+    },
+    "reasons": [
+      "process_reference"
+    ]
+  },
+  {
+    "run": "sdwis-lcr-lead-action-level-next-period--r3",
+    "trace": "0000.jsonl",
+    "line": 257,
+    "tool_use_id": "toolu_01Mmv3k9eTZkFLRXg2xVusUJ",
+    "tool": "Bash",
+    "input": {
+      "command": "pkill -f \"diag/sweep2.py\" ; sleep 0.5; pgrep -fl \"sweep2\" ; date +%s",
+      "description": "Stop the slow DART sweep process"
+    },
+    "reasons": [
+      "process_reference"
+    ]
+  }
+]
