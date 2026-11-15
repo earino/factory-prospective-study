@@ -20,14 +20,14 @@ blue='#24658a'; teal='#16867b'; gold='#c78c2d'; grey='#a8b4be'
 labels=['Civil trials','Utility reliability','Pipeline penalties','Device recalls','Airline routes','Research grants','Air enforcement','Wastewater','Wildlife strikes','Building permits','Railway hazmat']
 names={r['dataset']:s for r,s in zip(cohort,labels)}
 # Workflow figure, whose labels describe implementation rather than measurements.
-fig,ax=plt.subplots(figsize=(7.0,2.0));ax.set_xlim(0,10);ax.set_ylim(0,3);ax.axis('off')
+fig,ax=plt.subplots(figsize=(7.0,1.65));ax.set_xlim(0,10);ax.set_ylim(.55,3);ax.axis('off')
 for i,(title,body) in enumerate([('Discover','Source + task\nEvidence + rights'),('Build','Generated code\nWorker checks'),('Evaluate','Bounded semantic\nreview + repair'),('Publish','Manifest + tags\nAnonymous reads')]):
  x=i*2.5;ax.add_patch(FancyBboxPatch((x+.08,1.38),2.15,1.1,boxstyle='round,pad=.06',facecolor='#eef4f7',edgecolor=blue,lw=.8));ax.text(x+1.155,2.18,title,ha='center',weight='bold',color=blue);ax.text(x+1.155,1.75,body,ha='center',va='center',fontsize=8)
  if i<3:ax.annotate('',xy=(x+2.58,1.93),xytext=(x+2.25,1.93),arrowprops=dict(arrowstyle='->',color=blue,lw=1))
 ax.text(5,2.85,'Production: bounded model judgment; deterministic state, retries, workers and transfer',ha='center',fontsize=8)
 ax.plot([.15,9.8],[1.09,1.09],color=grey,lw=.7)
 ax.text(.1,.62,'Independent consumers',weight='bold',color=teal);ax.text(3.1,.62,'Pin release  →  3 research runs + controls  →  Freeze  →  Holdout + review',fontsize=8)
-fig.savefig(figdir/'workflow.pdf');plt.close(fig)
+fig.savefig(figdir/'workflow.pdf',pad_inches=.03);plt.close(fig)
 # Cost and repeat workload; retries are stage attempts, never source rejection counts.
 A=sum([D[f'evidence/costs/2026-11-15/inputs/attempts_{s}.json'] for s in ('carry_in','new_admissions')],[])
 parse=datetime.datetime.fromisoformat; start=parse(C['window_start']); stop=parse(C['cutoff'])

@@ -269,3 +269,7 @@ Read the abstract in isolation and against the results. All body text, draft
 notices, measured figures, table and evidence remain unchanged. Rendered and
 inspected all seven final pages after the rewrite and figure annotation removal.
 Final manuscript SHA-256: `659f487c7c7f33d88e6e8a661376deae0499a25bd2976fa631320e22d09d2403`.
+
+Figure 1 layout follow-up: after removing the annotation, its canvas retained
+unused bottom space. Trimmed the vertical extent and figure height together,
+preserving the diagram scale and standard LaTeX caption spacing.
