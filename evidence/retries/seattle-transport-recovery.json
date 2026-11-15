@@ -1,0 +1,32 @@
+{
+  "frozen_barrier_sha256": "632318dbbd48be9068a8278d026b48cebf74ac4ef2879f35529487a48621e264",
+  "frozen_submission_sha256": {
+    "evidence/frozen/seattle-building-permit-completion--ordinary/FREEZE.json": "16a31c569e8036e89aeb2dff121708673134c6ad10078909b2e6cb113e584512",
+    "evidence/frozen/seattle-building-permit-completion--r1--random/FREEZE.json": "676d809128436a17295d908ffb8a0bdc4e127dfc4e5d21a11d64a377e965862d",
+    "evidence/frozen/seattle-building-permit-completion--r1/FREEZE.json": "798a40de1fd97b64fe67cf64047998516cca79a9a768dfa881438e7135e4a385",
+    "evidence/frozen/seattle-building-permit-completion--released/FREEZE.json": "bd2a7bdb0599337383891f2ffd54727f3a544df2ebe5b6fa3f8b4f6f86c10520"
+  },
+  "kind": "Git HTTP 408 while pushing frozen artifacts, before holdout scoring",
+  "observed_at": "2026-11-15T23:38:29.994077+00:00",
+  "original_outcome": {
+    "branch": "consumer/seattle-building-permit-completion-retry-2",
+    "dataset": "seattle-building-permit-completion",
+    "error": "Consumer runner exited 1; see /Users/earino/research/factory-prospective-study/.local/logs/seattle-building-permit-completion-retry-2.log",
+    "execution_id": "seattle-building-permit-completion-retry-2",
+    "finished": "2026-11-15T23:37:08.388806+00:00",
+    "started": "2026-11-15T21:52:53.525159+00:00",
+    "status": "incomplete"
+  },
+  "recovery": "Retry transfer of the same commit; resume the same workspace using terminal research and frozen controls. No new research or model selection.",
+  "resumption_result": {
+    "branch": "consumer/seattle-building-permit-completion-retry-2",
+    "commit": "d63aa6895c4e36d08ba79931b39ce10ca4de3a22",
+    "dataset": "seattle-building-permit-completion",
+    "execution_id": "seattle-building-permit-completion-retry-2",
+    "finished": "2026-11-15T23:40:30.476883+00:00",
+    "frozen_submissions_unchanged": true,
+    "resumed_at": "2026-11-15T23:38:59.971703+00:00",
+    "started": "2026-11-15T21:52:53.525159+00:00",
+    "status": "complete"
+  }
+}

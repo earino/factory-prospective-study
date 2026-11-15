@@ -1,0 +1,38 @@
+{
+  "dataset": "seattle-building-permit-completion",
+  "cluster_columns": [
+    "issueddate"
+  ],
+  "clusters": 566,
+  "rows": 6326,
+  "positives": 4789,
+  "missing_cluster_rows": 0,
+  "largest_cluster": 31,
+  "seed": 1606238178,
+  "valid_replicates": 2000,
+  "invalid_replicates": 0,
+  "comparisons": [
+    {
+      "run": "seattle-building-permit-completion--r1",
+      "control": "seattle-building-permit-completion--ordinary",
+      "delta": 0.030285191897012953,
+      "low": 0.014459127690020638,
+      "high": 0.04521802058386542
+    },
+    {
+      "run": "seattle-building-permit-completion--r1",
+      "control": "seattle-building-permit-completion--r1--random",
+      "delta": 0.014702555859889777,
+      "low": 0.004987869179617679,
+      "high": 0.025169516482532097
+    }
+  ],
+  "inputs": {
+    "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-2/.study/holdout/seattle-building-permit-completion/holdout.csv": "aea92d0461c05b38c321e7012138c494921c01525676fb781e0fbb2885e44bd4",
+    "/Users/earino/research/factory-prospective-study/evidence/reviews/seattle-building-permit-completion-retry-2/cluster.json": "976d8ec6c08df11cbc0c2d6dff99cb4d1736fa5bf716b3a7ea9d7ed8523c28be",
+    "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-2/results/scores/seattle-building-permit-completion--ordinary/predictions.csv.gz": "2fdfe93d8e151afe00ae3e71275134d7314786cf78d958daf9834a426515786d",
+    "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-2/results/scores/seattle-building-permit-completion--r1/predictions.csv.gz": "e48f3b8ce91ad6c2693cf75cf404952ce981bce0bf606ed42ff215908ec67ea4",
+    "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-2/results/scores/seattle-building-permit-completion--r1--random/predictions.csv.gz": "4b8b04375cdf647b75aebbd7d7d8e3dd3ed1e4e7e17d0cfc9228ad1a51cc50b3"
+  },
+  "method": "2000 paired whole-entity draws, pointwise percentile95%; conditional on fitted models, cohort and declared dependence"
+}
