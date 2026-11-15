@@ -1,6 +1,6 @@
 # Consumer study results
 
-Generated 2026-11-15T12:27:51.760851+00:00
+Generated 2026-11-15T12:28:07.145032+00:00
 
 Measured records are in summary.json and scores.csv. Failures remain in the denominator.
 
@@ -12,7 +12,7 @@ Compliance triage (separate from scores):
 
 - seattle-building-permit-completion--r1: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
 - seattle-building-permit-completion--r2: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
-- seattle-building-permit-completion--r3: not yet audited; forbidden asset copies unknown; tool-access flags unknown. Semantic compliance requires review.
+- seattle-building-permit-completion--r3: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
 
 Scores (including flagged attempts; do not treat all as compliant results):
 

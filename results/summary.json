@@ -1,6 +1,6 @@
 {
   "cli_reported_cost_usd_not_invoice": 0.0,
-  "generated_at": "2026-11-15T12:27:51.760851+00:00",
+  "generated_at": "2026-11-15T12:28:07.145032+00:00",
   "limitations": [
     "Five selected factory releases; three attempts are descriptive, not agent rankings.",
     "Pinned consumer scaffold and deterministic downloads are provided assistance.",
@@ -71,11 +71,17 @@
       "verified_forbidden_copies": 0
     },
     {
+      "compliance_triage": "no_automatic_access_flag",
       "dataset": "seattle-building-permit-completion",
       "error": "RuntimeError: Three CLI failures; preserved as a failed attempt, not silently restarted",
+      "holdout_content_hits": [],
       "id": "seattle-building-permit-completion--r3",
+      "integrity": "requires_semantic_review",
       "interruptions": null,
+      "protocol_caveats": [],
       "research_active_s": 213.93094579101307,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
       "status": "failed",
       "timing": {
         "cli_invocations": 3,
@@ -89,7 +95,9 @@
         "other_active_wall_s": 213.93094579101307,
         "research_active_s": 213.93094579101307,
         "trial_records": 0
-      }
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
     }
   ],
   "protocol_sha256": "3f143a30876a2a85dd37b1b910f5c3bc6c4b2c9962def5fadd4e3834c8450fc3",
