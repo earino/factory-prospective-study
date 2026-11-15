@@ -1,6 +1,6 @@
 {
-  "cli_reported_cost_usd_not_invoice": 462.13087600000006,
-  "generated_at": "2026-11-15T18:17:03.169815+00:00",
+  "cli_reported_cost_usd_not_invoice": 898.9768239999997,
+  "generated_at": "2026-11-15T18:17:27.678856+00:00",
   "limitations": [
     "Five selected factory releases; three attempts are descriptive, not agent rankings.",
     "Pinned consumer scaffold and deterministic downloads are provided assistance.",
@@ -71,25 +71,33 @@
       "verified_forbidden_copies": 0
     },
     {
+      "compliance_triage": "no_automatic_access_flag",
       "dataset": "seattle-building-permit-completion",
       "error": null,
+      "holdout_content_hits": [],
       "id": "seattle-building-permit-completion--r3",
+      "integrity": "requires_semantic_review",
       "interruptions": null,
-      "research_active_s": null,
-      "status": "not_finished",
+      "protocol_caveats": [],
+      "research_active_s": 5100.015653127979,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
+      "status": "frozen",
       "timing": {
-        "cli_invocations": 0,
+        "cli_invocations": 16,
         "evaluation_wall_sum_s": 236.0898385829787,
         "fit_cpu_sum_s": 12.803322999999999,
         "fit_wall_sum_s": 5.888398832001258,
-        "harness_wall_union_s": 0,
+        "harness_wall_union_s": 243.2108428478241,
         "incomplete_or_failed_trials": 0,
         "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
         "ok_trials": 26,
-        "other_active_wall_s": 0,
-        "research_active_s": 0,
+        "other_active_wall_s": 4856.804810280155,
+        "research_active_s": 5100.015653127979,
         "trial_records": 26
-      }
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
     }
   ],
   "protocol_sha256": "a8517f1e11bb1294d2e50c9b24e9a56aef49eb42f1eae53b1d21515b4eb9be43",
@@ -97,10 +105,10 @@
     "claude-fable-5-2"
   ],
   "reported_usage": {
-    "cache_creation_input_tokens": 681403,
-    "cache_read_input_tokens": 78952196,
-    "input_tokens": 682,
-    "output_tokens": 449444
+    "cache_creation_input_tokens": 1101850,
+    "cache_read_input_tokens": 140789648,
+    "input_tokens": 1144,
+    "output_tokens": 724453
   },
   "requested_model": "claude-fable-5-2",
   "scores": [
@@ -113,6 +121,16 @@
       "kind": "agent",
       "validation_auc": 0.6566011611617636,
       "validation_brier": 0.17031022974011256
+    },
+    {
+      "dataset": "seattle-building-permit-completion",
+      "holdout_auc": null,
+      "holdout_brier": null,
+      "holdout_rows": null,
+      "id": "seattle-building-permit-completion--r3",
+      "kind": "agent",
+      "validation_auc": 0.6565911309708891,
+      "validation_brier": 0.17010653874750195
     }
   ]
 }

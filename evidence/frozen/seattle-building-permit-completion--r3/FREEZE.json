@@ -1,0 +1,50 @@
+{
+  "dataset": "seattle-building-permit-completion",
+  "environment": "25da8bd4a246c5c78ad693276de09eadf5101df88801ff3a001bba60c8643400",
+  "files": {
+    "booster.json": {
+      "bytes": 437605,
+      "sha256": "95c493bab1140f73746912fa4cbeae7c2c5bc34eb37aa2f2a47101e3a6c4d805"
+    },
+    "model.pkl": {
+      "bytes": 465916,
+      "sha256": "26743d2d1d9e71de10b012244d361e5e25198ba9238dbd9f7b2de55b2a65cf91"
+    },
+    "train.py": {
+      "bytes": 8212,
+      "sha256": "d68b730063551d362dc1affcddac5c00a638de0c1bbb50bc3679b3eaa1c555fe"
+    },
+    "validation.csv.gz": {
+      "bytes": 76108,
+      "sha256": "821203f06a4c2e70b4a29303153cf927cf6fd870d47def0b4469199832a6cd86"
+    },
+    "validation.json": {
+      "bytes": 1097,
+      "sha256": "895939677c626dd6766997372a6f6161e6b790baa41fdc7e20cdbb5401ecd305"
+    }
+  },
+  "frozen_at": "2026-11-15T18:17:04.152503+00:00",
+  "run": "seattle-building-permit-completion--r3",
+  "selected_trial": {
+    "artifact_sha256": "26743d2d1d9e71de10b012244d361e5e25198ba9238dbd9f7b2de55b2a65cf91",
+    "auc": 0.6565911309708891,
+    "backtest": {},
+    "brier": 0.17010653874750195,
+    "code_sha256": "d68b730063551d362dc1affcddac5c00a638de0c1bbb50bc3679b3eaa1c555fe",
+    "elapsed_s": 10.97859920898918,
+    "evaluation_wall_s": 10.683152583005722,
+    "finished_epoch": 1794764818.6031628,
+    "fit_cpu_s": 0.5664109999999996,
+    "fit_wall_s": 0.24715716700302437,
+    "id": "69da0c3b7edc4038812de6554b5fb1ad",
+    "mode": "validation",
+    "note": "H11 defect fix found by integrity check: validation has 22 rows with standardplan=1 (none in training; 95.5% complete) that H10 scores at 0.64 because threshold splits route the unseen value like a blank. Reduce standardplan to recorded(0) vs blank; training matrix and fitted trees are unchanged, only those rows move",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-1/.study/runs/seattle-building-permit-completion--r3/trials/69da0c3b7edc4038812de6554b5fb1ad",
+    "phase": "evaluation",
+    "rows_score": 7135,
+    "rows_train": 11286,
+    "started_epoch": 1794764807.624042,
+    "status": "ok",
+    "utc": "2026-11-15T17:46:47.624035+00:00"
+  }
+}

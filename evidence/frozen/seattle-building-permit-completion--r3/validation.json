@@ -1,0 +1,23 @@
+{
+  "id": "69da0c3b7edc4038812de6554b5fb1ad",
+  "utc": "2026-11-15T17:46:47.624035+00:00",
+  "started_epoch": 1794764807.624042,
+  "mode": "validation",
+  "note": "H11 defect fix found by integrity check: validation has 22 rows with standardplan=1 (none in training; 95.5% complete) that H10 scores at 0.64 because threshold splits route the unseen value like a blank. Reduce standardplan to recorded(0) vs blank; training matrix and fitted trees are unchanged, only those rows move",
+  "code_sha256": "d68b730063551d362dc1affcddac5c00a638de0c1bbb50bc3679b3eaa1c555fe",
+  "status": "ok",
+  "fit_wall_s": 0.24715716700302437,
+  "fit_cpu_s": 0.5664109999999996,
+  "phase": "evaluation",
+  "evaluation_wall_s": 10.683152583005722,
+  "auc": 0.6565911309708891,
+  "brier": 0.17010653874750195,
+  "rows_train": 11286,
+  "rows_score": 7135,
+  "backtest": {},
+  "artifact_sha256": "26743d2d1d9e71de10b012244d361e5e25198ba9238dbd9f7b2de55b2a65cf91",
+  "finished_epoch": 1794764818.6031628,
+  "elapsed_s": 10.97859920898918,
+  "cold_replay_at": "2026-11-15T18:17:03.982186+00:00",
+  "no_retraining": true
+}
