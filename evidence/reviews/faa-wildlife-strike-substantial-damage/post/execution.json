@@ -1,0 +1,20 @@
+[
+  {
+    "ok": true,
+    "tool": "review_checks.py"
+  },
+  {
+    "error": "Command exited 1: Traceback (most recent call last):\n  File \"/Users/earino/research/factory-prospective-study/review_tools/probe_all_training_features.py\", line 29, in <module>\n    spec=importlib.util.spec_from_file_location('review_solution',ROOT/'evidence/frozen'/rid/'train.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)\n                                                                                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap_external>\", line 936, in exec_module\n  File \"<frozen importlib._bootstrap_external>\", line 1073, in get_code\n  File \"<frozen importlib._bootstrap_external>\", line 1130, in get_data\nFileNotFoundError: [Errno 2] No such file or directory: '/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage/evidence/frozen/faa-wildlife-strike-substantial-damage--r1/train.py'\n",
+    "ok": false,
+    "tool": "probe_all_training_features.py"
+  },
+  {
+    "error": "File \"/Users/earino/research/factory-prospective-study/review_tools/probe_artifacts.py\", line 32, in <module>\n    d=ROOT/'evidence/frozen'/rid; a=pickle.loads((d/'model.pkl').read_bytes());rel=ROOT/'.study/runs'/rid/'release/extract';meta=json.loads((rel/'meta.json').read_text());df=pd.read_csv(rel/'public/eval.csv');X=df[allowed(rid)];idx=np.linspace(0,len(X)-1,min(25,len(X)),dtype=int);X=X.iloc[idx].reset_index(drop=True)\n                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/earino/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/pathlib.py\", line 1050, in read_bytes\n    with self.open(mode='rb') as f:\n         ^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/earino/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/pathlib.py\", line 1044, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage/evidence/frozen/faa-wildlife-strike-substantial-damage--r1/model.pkl'\n",
+    "ok": false,
+    "tool": "probe_artifacts.py"
+  },
+  {
+    "ok": true,
+    "tool": "bootstrap.py"
+  }
+]

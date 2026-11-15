@@ -2,9 +2,12 @@
 
 {
   "consumer": {
+    "branch": "consumer/faa-wildlife-strike-substantial-damage",
+    "commit": "49de5907b0fcb37161020cb606ddaf510ef5f5c3",
     "dataset": "faa-wildlife-strike-substantial-damage",
-    "started": "2026-11-15T10:21:16.733585+00:00",
-    "status": "running"
+    "finished": "2026-11-15T11:35:09.935894+00:00",
+    "started": "2026-11-15T10:21:16.734063+00:00",
+    "status": "complete"
   },
   "factory_counts": {
     "build": 2,
@@ -12,7 +15,7 @@
     "published": 16,
     "rejected": 7
   },
-  "observed_at": "2026-11-15T11:21:40.526972+00:00",
+  "observed_at": "2026-11-15T11:52:02.988838+00:00",
   "paper": {},
   "queue": [
     {
@@ -82,9 +85,9 @@
     {
       "dataset": "faa-wildlife-strike-substantial-damage",
       "verified_at": "2026-11-15T09:22:16.250788+00:00",
-      "status": "queued",
+      "status": "complete",
       "selected": true,
-      "branch": null,
+      "branch": "consumer/faa-wildlife-strike-substantial-damage",
       "error": null
     }
   ],

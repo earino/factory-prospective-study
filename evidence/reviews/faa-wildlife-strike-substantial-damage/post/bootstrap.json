@@ -1,0 +1,22 @@
+{
+  "dataset": "faa-wildlife-strike-substantial-damage",
+  "cluster_columns": [
+    "incident_date",
+    "state"
+  ],
+  "clusters": 16290,
+  "rows": 25425,
+  "positives": 107,
+  "missing_cluster_rows": 0,
+  "largest_cluster": 17,
+  "seed": 215814400,
+  "valid_replicates": 2000,
+  "invalid_replicates": 0,
+  "comparisons": [],
+  "inputs": {
+    "/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage/.study/holdout/faa-wildlife-strike-substantial-damage/holdout.csv": "93f873d655ca600d170755ceb73a9769992938d8f56fa39a9ab9c7d54c7f3aa4",
+    "/Users/earino/research/factory-prospective-study/evidence/reviews/faa-wildlife-strike-substantial-damage/cluster.json": "05a76f7655010e3f06bbf302d1b7a075f0b044f74d3424e3cbc22431bd3269f1",
+    "/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage/results/scores/faa-wildlife-strike-substantial-damage--ordinary/predictions.csv.gz": "13c3fe676e38c51fe08f494b1bd6e613f82eff2784c451978387a6aa54f3ff40"
+  },
+  "method": "2000 paired whole-entity draws, pointwise percentile95%; conditional on fitted models, cohort and declared dependence"
+}
