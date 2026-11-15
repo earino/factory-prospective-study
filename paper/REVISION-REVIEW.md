@@ -297,3 +297,30 @@ requiring exactly seven pages; the shorter paper is not padded.
 The source/result manuscript hashes and changed audit paragraph IDs are recorded
 in analysis/paragraph-audit-application.json. Seattle's authorized fresh retry is
 still pending; this revision changes presentation, not measured outcomes.
+
+## Accepted two-note revision — operational lessons and contribution framing
+
+- Replaced the repeated operational discussion with a four-row risk / design
+  response / evidence table. Resource reconciliation is the control for stale
+  reservations; durable state supports resumption. Attempt counts expose repeated
+  work without asserting records were lost. Semantic errors and execution-versus-
+  validity are one row. Historical-feature exposure remains conditional.
+- The table states that control effectiveness was not tested in controlled
+  comparisons. It does not describe every proposed practice as a proven control.
+  Source cases, consumer results, and dependence-key guidance remain separate.
+- Related Work now closes its three subsections with the study's contribution:
+  continuing public production and bounded accounting; a traceable operating
+  case; consumer use plus source-validity checks. No universal absence or first-
+  system claim is used. The consumer/ML-agent distinction is explicit.
+- Added two cited references: AgentOps and Measurement and Fairness. Claim-level
+  primary-source verification is in VERIFIED-LITERATURE-NOTES.md. Measurement
+  theory motivates comparing declaration and implementation; the paper does not
+  claim to demonstrate fairness harms or measure construct validity.
+- Removed the old operational recap and replaced the three-practice paragraph
+  with the dependence-key recommendation not covered by the table. Six pages
+  remain after removing an obsolete forced bibliography break; fonts and margins
+  are unchanged. Numerical evidence and all plotted comparisons are unchanged.
+
+Reader check: the Related Work closing sentences identify the combined deployment
+record without needing citation details. Table responses are applicable beyond
+dataset production and evidence cells show their actual scope and limitations.

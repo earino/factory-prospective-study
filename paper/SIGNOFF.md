@@ -333,3 +333,13 @@ Final paragraph-value check: compressed the worker-budget intervention into one
 sentence in the production results. The pending reconciliation notice is in
 Methods; candidate-state mechanics and defensive wording are removed. Rebuilt
 and visually inspected all six pages; aggregate and clean-source checks pass.
+
+## Operational lessons and related-work revision — 15 November
+
+Accepted both review directions with the agreed corrections. Four design lessons
+replace repeated discussion; three Related Work subsections identify the combined
+deployment contribution without unsupported absence claims. Two verified citations
+bring the total to 22. Results, controls, cost boundaries, source cases, and
+limitations remain unchanged. Verification: six-page render, numerical audit,
+portable-source rebuild, and clean-checkout aggregate check. Exact-commit CI is
+checked after push. This is not a sign-off on pending result integration.

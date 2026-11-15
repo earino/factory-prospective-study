@@ -20,7 +20,11 @@ figure, with rows ordered by median gain over untuned XGBoost. Captions retain
 reading keys without repeating the discussion. Source-quality findings remain separate. The agreed reasoning is saved in
 [PAPER-DIRECTION.md](PAPER-DIRECTION.md#use-independent-consumption-to-assess-output-value).
 
-This remains an interim author-review draft. Its 20 references support the
+Section V now gives four design lessons linked to observed evidence. Related Work
+positions the contribution through continuing production, operational evidence,
+and separate consumer use, without claiming that prior work lacks every component.
+
+This remains an interim author-review draft. Its 22 references support the
 methods, production reliability, artifact evaluation, and human-work discussion.
 
 - [LaTeX manuscript](draft/main.tex)

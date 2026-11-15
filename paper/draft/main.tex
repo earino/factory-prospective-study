@@ -1,7 +1,7 @@
 \documentclass[conference,10pt,letterpaper]{IEEEtran}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{graphicx,booktabs,amsmath,url}
+\usepackage{graphicx,booktabs,amsmath,url,array,tabularx}
 \usepackage[hidelinks]{hyperref}
 \urlstyle{same}
 \renewcommand{\ttdefault}{lmtt}
@@ -125,8 +125,25 @@ Task & Holdout rows & Untuned & Consumer range & Tuned random & Groups\\\midrule
 \textbf{Historical features and scoring access.} The wastewater task uses the previous year's exceedance as a predictor. This is legitimate when that outcome is available, but supplying future rows also exposes earlier labels. Our scorer supplies one row at a time. The feature therefore requires an explicit definition of accessible rows and outcomes; ordinary model execution does not establish safe unrestricted batch use.
 
 \section{Discussion and Engineering Lessons}
-\subsection{Integration makes failures inspectable}
-The factory repeatedly moved from discovery to artifacts that separate consumers could use. Retry counts show work hidden by final release totals, while the accounting repair shows that resource state can stop production independently of model capability. Durable attempts and artifact identities made these failures inspectable and supported resumption, consistent with production-agent research on reliability and controllable designs~\cite{production}.
+\subsection{Design lessons from observed failures}
+Table~\ref{tab:lessons} connects operational and evaluation risks to practices for other agentic pipelines.
+
+\begin{table*}[t]
+\caption{Design lessons and their deployment evidence.}
+\label{tab:lessons}
+\centering\small
+\begin{minipage}{\textwidth}
+These practices follow from observed failures and recoveries; their effectiveness was not tested in controlled comparisons.\par\smallskip
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{.21\textwidth}>{\raggedright\arraybackslash}p{.32\textwidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Risk & Design response & Evidence in this deployment \\\midrule
+Stale resource reservations block execution. & Reconcile reservations with actual worker state; preserve stage state for resumption. & Reservations persisted after worker deletion. An accounting repair restored construction (Section IV-A). \\\addlinespace
+Release totals hide repeated work. & Retain attempt-level outcomes; report attempts alongside completed outputs. & The window contained 394 stage attempts and 11 publications; 76 discovery and 184 build attempts were retries (Section IV-A). \\\addlinespace
+Executable artifacts violate task meaning. & Compare task declarations with construction code; assess consumer use separately from source validity. & Consumers used ten tasks; semantic review recorded 14 repair outcomes, yet the SBIR population mismatch survived acceptance (Section IV). \\\addlinespace
+Feature validity depends on scoring access. & Specify accessible rows and outcomes in the scoring contract. & Future rows can expose earlier labels through wastewater's prior-year predictor; scoring here supplies one row at a time (Section IV-D). \\\bottomrule
+\end{tabularx}
+\end{minipage}
+\end{table*}
 
 \subsection{Recurring expenditure informs operation}
 Low recurring expenditure makes exploration plausible for a group that already has the system. Total cost per validated useful benchmark remains unknown because development, correction, and expert review are not measured. Analyst interviews describe discovery, wrangling, modeling, and reporting~\cite{kandel}; curation logs record transformation and quality checks~\cite{lafia}. These resemble the factory's steps but supply no matched human-cost denominator. Chaining theory offers an interpretation of adjacent task automation~\cite{chaining}, not a causal result tested here. Development, policy, correction, and responsibility remain human work whose displacement we have not measured.
@@ -134,18 +151,21 @@ Low recurring expenditure makes exploration plausible for a group that already h
 \subsection{Performance and validity need separate evidence}
 Consumers demonstrated artifact use and room for improvement over a fixed model. Tuned search tested added agent benefit: conventional tuning can match agent-led work while the dataset still supports useful experimentation. Neither comparison establishes whether the task represents its declared population or uses information available at prediction time.
 
-The cases suggest three practices: compare population declarations with selection code, preserve non-predictor dependence keys, and specify scoring access to rows and historical outcomes. Audit literature motivates examining task setup and outcome measurement together~\cite{abc,agentsuite}.
+Releases should also preserve dependence keys separately from predictor inputs, so consumers can estimate uncertainty without treating correlated rows as independent.
 
 \section{Related Work}
-\subsection{Discovery, construction, and operating cost}
+\subsection{From task generation to continuing production}
 AutoData~\cite{autodata-web} and DatasetResearch~\cite{datasetresearch} address collection and discovery. MLE-Smith~\cite{qiang2026mlesmith} generates competition-style tasks from supplied datasets; AutoSDT~\cite{autosdt} searches code repositories for scientific programs and adapts them into tasks.
 
-Reported costs have different boundaries. MLE-Smith's first arXiv version reports \$0.78 per task for generation and verification from supplied datasets. AutoSDT reports about \$0.55 per task; its appendix accounts for API expenditure across repository search, selection, and adaptation. Our denominator is publications during an operating window, with failed attempts, worker charges, and hosting included. Different outputs, resource coverage, and pricing prevent an efficiency ranking.
+Reported costs have different boundaries. MLE-Smith's first arXiv version reports \$0.78 per task for generation and verification from supplied datasets. AutoSDT reports about \$0.55 per task; its appendix accounts for API expenditure across repository search, selection, and adaptation. Different outputs, resource coverage, and pricing prevent an efficiency ranking. Our study connects source discovery to public delivery in a continuing factory, with a window-level operating ratio that includes unsuccessful attempts, workers, and hosting.
 
-\subsection{Artifact quality and independent use}
-The Agentic Benchmark Checklist distinguishes task validity, outcome validity, and reporting~\cite{abc}; AgentSuite audits user, environment, ground-truth, and evaluation components~\cite{agentsuite}. Our selection and scoring-access findings illustrate why task setup matters alongside measured performance. AutoDataBench evaluates generated executable tasks for validity and other quality dimensions~\cite{autodatabench}; CurationBench evaluates data-selection policies under a fixed downstream recipe~\cite{curation}. These connect artifact construction to evaluation, while Datasheets emphasizes provenance and intended use~\cite{datasheets}.
+\subsection{From observability to operating evidence}
+Pan et al.~\cite{production} study deployed agents and identify reliability as a central concern. Dong et al.~\cite{agentops} organize the artifacts and data needed for lifecycle observability. Our deployment provides a concrete case linking retained attempts and resource state to a production interruption and recovery, alongside the artifacts delivered and resources consumed.
 
-MLAgentBench and MLE-bench evaluate agents on machine-learning work~\cite{mlagentbench,mlebench}. Here, consumer agents evaluate datasets made by a separate producer. Cost-aware agent evaluation~\cite{agents-matter} motivates including conventional controls when interpreting their results.
+\subsection{From artifact checks to independent use}
+The Agentic Benchmark Checklist separates task validity, outcome validity, and reporting~\cite{abc}; AgentSuite audits benchmark components~\cite{agentsuite}. Jacobs and Wallach~\cite{measurement} distinguish intended constructs from their operationalization. That distinction motivates inspecting task declarations alongside construction code, rather than inferring validity from execution. AutoDataBench evaluates generated task quality~\cite{autodatabench}; CurationBench evaluates selection policies under a fixed downstream recipe~\cite{curation}; Datasheets documents provenance and intended use~\cite{datasheets}.
+
+MLAgentBench and MLE-bench assess agents solving machine-learning tasks~\cite{mlagentbench,mlebench}. Cost-aware agent evaluation motivates conventional controls~\cite{agents-matter}. Here, separate consumer agents probe the usability and modeling headroom of factory outputs; source review checks their stated meaning. This combines evidence of public artifact use with task-validity checks in the same deployment, without treating either as sufficient alone.
 
 \section{Threats to Validity and Evidence Availability}
 This short, single-factory study uses one production-model family and consumer configuration. The 29 scored models are repeated attempts on ten datasets, not 29 independent demonstrations of dataset quality. This small interim cohort cannot estimate a general probability of producing useful benchmarks or long-run operating reliability; remaining evaluations may change the results.
@@ -164,7 +184,6 @@ Dataset Factory connected source discovery to public prediction datasets at low 
 \section*{AI Assistance}
 AI systems assisted implementation, literature search, review briefs, source and transcript review, analysis, and manuscript drafting. Production and consumer models are identified in the method. The author retains responsibility for the claims, source verification, and final submitted text.
 
-\IEEEtriggeratref{11}
 \bibliographystyle{IEEEtran}
 \bibliography{refs}
 \end{document}

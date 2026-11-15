@@ -277,3 +277,27 @@ Primary-source checks for the targeted additions and cost comparisons:
 The two auditing citations replace the peripheral DataMaster/model-specialization
 sentence in the manuscript. Existing bibliography entries remain for provenance.
 No new experimental framework or auditing implementation is introduced.
+
+## Operational lessons and contribution framing — 15 November
+
+Two citations added to the cited bibliography (20 to 22); no survey expansion.
+
+- **Dong, Lu, and Zhu, AgentOps: Enabling Observability of LLM Agents**:
+  [arXiv v2](https://arxiv.org/html/2411.05285v2), introduction and taxonomy,
+  supports tracing agent artifacts and associated lifecycle data. Authors, title,
+  and November 2024 revision verified on the arXiv record. This is a taxonomy
+  based on a mapping study, not evidence that our controls improve reliability.
+- **Jacobs and Wallach, Measurement and Fairness**:
+  [published-text version](https://arxiv.org/html/1912.05511v3), introduction and
+  Section 3, distinguishes constructs from operationalizations and examines
+  assumptions connecting them. FAccT 2021 and DOI 10.1145/3442188.3445901 appear in
+  the paper itself (publisher DOI endpoint returned 403). Used to motivate checking
+  task declarations against construction, not to classify the SBIR population
+  mismatch as a demonstrated fairness harm or a validated construct measure.
+- **Pan et al., Measuring Agents in Production**:
+  [v4 abstract](https://arxiv.org/abs/2512.04123v4) rechecked for the claim that
+  reliability is a central production challenge. Already cited; no addition.
+
+The prior MLE-Smith/AutoSDT cost-boundary verification remains applicable. New
+closing statements describe this study's scope; they do not assert that other
+work excludes failures, lacks public delivery, or never studies ongoing systems.
