@@ -1,0 +1,99 @@
+{
+  "cli_reported_cost_usd_not_invoice": 15.606178199999997,
+  "generated_at": "2026-11-15T18:02:50.427041+00:00",
+  "limitations": [
+    "Five selected factory releases; three attempts are descriptive, not agent rankings.",
+    "Pinned consumer scaffold and deterministic downloads are provided assistance.",
+    "CLI-reported model IDs are not independent provider attestation.",
+    "Public holdout isolation and semantic compliance are procedural, not enforced by an OS sandbox.",
+    "CFPB holdout was used in earlier pilot work outside this study.",
+    "Random search matches observed eligible primary-trial fitting CPU, not unlogged diagnostics or token work.",
+    "Fresh Claude trajectories are nondeterministic; frozen artifact replay is reproducible.",
+    "No factory-wide publication yield or spend is inferred from this consumer study."
+  ],
+  "outcomes": [
+    {
+      "compliance_triage": "no_automatic_access_flag",
+      "dataset": "seattle-building-permit-completion",
+      "error": null,
+      "holdout_content_hits": [],
+      "id": "seattle-building-permit-completion--r1",
+      "integrity": "requires_semantic_review",
+      "interruptions": null,
+      "protocol_caveats": [],
+      "research_active_s": 4248.895481999993,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
+      "status": "blocked",
+      "timing": {
+        "cli_invocations": 1,
+        "evaluation_wall_sum_s": 223.97748966499057,
+        "fit_cpu_sum_s": 152.928162,
+        "fit_wall_sum_s": 58.391938415996265,
+        "harness_wall_union_s": 283.7323694229126,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 20,
+        "other_active_wall_s": 3965.16311257708,
+        "research_active_s": 4248.895481999993,
+        "trial_records": 20
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
+    },
+    {
+      "dataset": "seattle-building-permit-completion",
+      "error": null,
+      "id": "seattle-building-permit-completion--r2",
+      "interruptions": null,
+      "research_active_s": null,
+      "status": "not_finished",
+      "timing": {
+        "cli_invocations": 0,
+        "evaluation_wall_sum_s": 121.44742412499909,
+        "fit_cpu_sum_s": 57.428856999999994,
+        "fit_wall_sum_s": 23.251504041996668,
+        "harness_wall_union_s": 0,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 22,
+        "other_active_wall_s": 0,
+        "research_active_s": 0,
+        "trial_records": 22
+      }
+    },
+    {
+      "dataset": "seattle-building-permit-completion",
+      "error": null,
+      "id": "seattle-building-permit-completion--r3",
+      "interruptions": null,
+      "research_active_s": null,
+      "status": "not_finished",
+      "timing": {
+        "cli_invocations": 0,
+        "evaluation_wall_sum_s": 219.47777020798821,
+        "fit_cpu_sum_s": 11.892057,
+        "fit_wall_sum_s": 5.507562790007796,
+        "harness_wall_union_s": 0,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 24,
+        "other_active_wall_s": 0,
+        "research_active_s": 0,
+        "trial_records": 24
+      }
+    }
+  ],
+  "protocol_sha256": "a8517f1e11bb1294d2e50c9b24e9a56aef49eb42f1eae53b1d21515b4eb9be43",
+  "reported_models": [
+    "claude-fable-5-2"
+  ],
+  "reported_usage": {
+    "cache_creation_input_tokens": 277775,
+    "cache_read_input_tokens": 20710251,
+    "input_tokens": 236,
+    "output_tokens": 175446
+  },
+  "requested_model": "claude-fable-5-2",
+  "scores": []
+}

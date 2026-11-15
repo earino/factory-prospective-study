@@ -1,0 +1,196 @@
+{
+  "attempts": 0,
+  "blocker": {
+    "action_taken": "Task, target, features and evaluator left unchanged; features used as permitted by the release contract. Concern disclosed here and in REPORT.md with an ablation. Roughly 0.03 of validation AUC is attributable to these rows; the share may be larger on later cohorts if the blank share keeps rising.",
+    "affected_claim": "README / construction.json: 'Only fields written at submittal, during plan review, or at issuance are used' and feature availability of `standardplan` (and of the plan-review sub-record fields `numberreviewcycles`, `daysoutcorrections`, `totaldaysplanreview`) assumed at issuance.",
+    "blocks_scoring": false,
+    "evidence": {
+      "data_used": "public train.csv and eval.csv only (no holdout, no raw source)",
+      "effect_on_metric_local_diagnostics": {
+        "best_model_validation_auc_all_rows": 0.661,
+        "best_model_validation_auc_excluding_pocket_rows": 0.63,
+        "model_without_standardplan_and_missingness_flags": 0.631
+      },
+      "numberreviewcycles_null": {
+        "note": "same rows also have null daysoutcorrections and totaldaysplanreview",
+        "train": {
+          "completed_rate": 0.016,
+          "rows": 61
+        },
+        "validation": {
+          "completed_rate": 0.04,
+          "rows": 25
+        }
+      },
+      "standardplan_null_among_unit_adding_permits": {
+        "comparison": "unit-adding permits with populated standardplan complete at ~0.75-0.86 in every half-year",
+        "definition": "standardplan is null AND housingunitsadded >= 1",
+        "share_of_completed_unit_adding_permits_with_null_standardplan": 0.0004,
+        "share_of_non_completed_unit_adding_permits_with_null_standardplan": 0.192,
+        "share_of_unit_adding_permits_by_half_year": {
+          "2016H1": 0.023,
+          "2016H2": 0.031,
+          "2017H1": 0.028,
+          "2017H2": 0.045,
+          "2018H1": 0.034,
+          "2018H2": 0.059,
+          "2019H1": 0.053,
+          "2019H2": 0.048,
+          "2020H1": 0.059,
+          "2020H2": 0.078
+        },
+        "train": {
+          "completed_rate": 0.014,
+          "rows": 140
+        },
+        "validation": {
+          "completed_rate": 0.0,
+          "rows": 146
+        }
+      }
+    },
+    "interpretation": "A field that is blank for 19% of never-completed unit-adding permits but for 0.04% of completed ones, with the blank share rising toward recent cohorts, is most simply explained by the field being written or finalised after issuance (or wiped on cancellation) in the current snapshot. That is outcome-dependent information not available at the stated prediction time. It is not proven: no historical ledger exists, and the release itself says availability is assumed, not proven.",
+    "kind": "suspected_post_issuance_leakage_via_field_missingness",
+    "not_done": "No repair of the dataset, no change of target, no access to holdout or raw source to confirm.",
+    "run_id": "seattle-building-permit-completion--r1",
+    "scope": "partial: does not prevent scoring or selection; affects interpretation of the release's prediction-time claim"
+  },
+  "created_at": "2026-11-15T16:51:52.466885+00:00",
+  "dataset": "seattle-building-permit-completion",
+  "finished_at": "2026-11-15T18:02:41.398929+00:00",
+  "guarded": {
+    "CLAUDE.md": "7b5d6f6da87cada9d7ce2e71a2e8852d5368e5c3fbebe3b106d02af24859f681",
+    "_engine.py": "7f88cf7891d732b70ee3eb7001cdcbb097e06ebf7608fbc77374dc39a65c34bd",
+    "evaluate.py": "4058a082deda77182e2f16b69b20bd17a680ec344f4656277ce6f513c10fdebc",
+    "mcp.json": "e93fc8db2b1bd77107fe6c758bca9545fa864cf7cce8ab93a7b2b93a1d566a7b",
+    "release/LICENSE-EVIDENCE.json": "ff7141e98807cf0373bd8c0a0bce28cbc0bb0409f80211778639668f1ed148b0",
+    "release/LICENSE.md": "f33b585718c4e0cf2c51e5e34184b41df83b074f0b932495b11f2b107a660477",
+    "release/MANIFEST.json": "c8d716bd8365da0a786ee1e26c5c6cfb1d2b1efe788d6f6a36369f9980e56589",
+    "release/README.md": "07dae93ceefcb4e1155cf52e67d3f4fa1becb0d45d67bf4e4ba8b939d75585ef",
+    "release/SOURCES.json": "04758e5354cc9d2eaf154a77f3d2ba0225b00bf3fd2d65c0f382a57220998c0d",
+    "release/evaluation.json": "c81d73707f4851236dacfd8752c741be5a79d089d40cbfe02a715a5abf90e379",
+    "release/extract/meta.json": "767e29ef2df31a06b97bf83f62027fe7a40e376bf3b98ce238b79e7a5c6acf68",
+    "release/extract/public/eval.csv": "db5726b6c72f69815bade3f012146a198b8772589f255bccb3af094c5d076017",
+    "release/extract/public/train.csv": "525fdf9a69b3449654fecebcc0087e1155c1fe00a4de72175cbf7366566da283",
+    "release/reproduction/build.py": "38de47212ea79f8afe764f4b359bcc6a41f3343620dc6e5c7d484e78d76a3d37",
+    "release/reproduction/construction.json": "75cf2be1eff93324e133dca424efecf1ff0f67a0037500362d59cab4601d4420",
+    "release/reproduction/requirements.txt": "5c72f3268174d20364624f76680e189c408a05dba2e7b8cfe12d077b3865e7f0",
+    "release/reproduction/train.py": "a3c6bcf13735bc85c52129ded68f839090dffdc266ebc3810dc61b2e6ea5e7e8"
+  },
+  "id": "seattle-building-permit-completion--r1",
+  "invocations": [
+    {
+      "argv": [
+        "claude",
+        "-p",
+        "Read CLAUDE.md and TASK.json and execute the research assignment now. Use TASK.json's Python executable for experiments. Never access holdout or other runs. Work until the supervisor deadline; do not stop at a plan or a plateau.",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "high",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--safe-mode",
+        "--setting-sources",
+        "",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-1/.study/runs/seattle-building-permit-completion--r1/mcp.json",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "dontAsk",
+        "--permission-prompts",
+        "none",
+        "--tools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--allowedTools",
+        "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch",
+        "--no-chrome",
+        "--session-id",
+        "6ea0c6a9-dfce-4819-a151-e984865ef78b"
+      ],
+      "assistant_usage": {
+        "cache_creation_input_tokens": 277775,
+        "cache_read_input_tokens": 20710251,
+        "input_tokens": 236,
+        "output_tokens": 1558
+      },
+      "completed_response_messages_with_usage": 118,
+      "elapsed_s": 4248.895481999993,
+      "ended_at": "2026-11-15T18:02:41.393837+00:00",
+      "index": 0,
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "pid": 86122,
+      "result": {
+        "duration_api_ms": 1841762,
+        "duration_ms": 4248588,
+        "is_error": false,
+        "modelUsage": {
+          "claude-fable-5-2": {
+            "cacheCreationEphemeral1hInputTokens": 277775,
+            "cacheCreationEphemeral5mInputTokens": 0,
+            "cacheCreationInputTokens": 277775,
+            "cacheReadInputTokens": 20710251,
+            "canonicalModel": "claude-fable-5-2",
+            "contextWindow": 1000000,
+            "costBasis": "list",
+            "costUSD": 15.606178199999997,
+            "inputTokens": 236,
+            "maxOutputTokens": 128000,
+            "outputTokens": 175446,
+            "provider": "firstParty",
+            "thinkingTokens": 70891,
+            "webSearchRequests": 0
+          }
+        },
+        "num_turns": 119,
+        "session_id": "6ea0c6a9-dfce-4819-a151-e984865ef78b",
+        "subtype": "success",
+        "total_cost_usd": 15.606178199999997,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 277775,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 277775,
+          "cache_read_input_tokens": 20710251,
+          "fallback_credit": null,
+          "inference_geo": "global",
+          "input_tokens": 236,
+          "iterations": [],
+          "output_tokens": 175446,
+          "output_tokens_details": {
+            "thinking_tokens": 70891
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        }
+      },
+      "returncode": 0,
+      "session_id": "6ea0c6a9-dfce-4819-a151-e984865ef78b",
+      "started_at": "2026-11-15T16:51:52.472502+00:00",
+      "status": "exited",
+      "usage_basis": "CLI final result"
+    }
+  ],
+  "research_active_s": 4248.895481999993,
+  "session_id": "6ea0c6a9-dfce-4819-a151-e984865ef78b",
+  "status": "blocked",
+  "task_contract": {
+    "dataset": "seattle-building-permit-completion",
+    "experiment_seconds": 300,
+    "python": "/Users/earino/research/factory-prospective-study/.local/studies/seattle-building-permit-completion-retry-1/.study/venv/bin/python",
+    "refit_validation": false,
+    "run_id": "seattle-building-permit-completion--r1",
+    "seed": 42,
+    "selection": "highest validation AUC; ties <=1e-9 earliest trial",
+    "threads": 5
+  }
+}
