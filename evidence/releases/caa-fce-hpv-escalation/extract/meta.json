@@ -1,0 +1,57 @@
+{
+  "name": "caa-fce-hpv-escalation",
+  "description": "After a Clean Air Act source completes a full compliance evaluation with no active High Priority Violator episode, will that source enter High Priority Violator (HPV) status within the next 12 months?",
+  "target": "hpv_escalation_12m",
+  "positive_label": 1,
+  "id_columns": [
+    "evaluation_id"
+  ],
+  "columns": [
+    "evaluation_id",
+    "evaluation_end_date",
+    "hpv_escalation_12m",
+    "state",
+    "epa_region",
+    "sic_2digit",
+    "naics_2digit",
+    "facility_type_code",
+    "air_pollutant_class_code",
+    "program_count",
+    "pollutant_count",
+    "comp_monitor_type_code",
+    "state_epa_flag",
+    "prior_evaluations_3y",
+    "days_since_last_evaluation",
+    "prior_stack_test_failures_3y",
+    "prior_hpv_count",
+    "days_since_hpv_resolution",
+    "prior_formal_actions_3y",
+    "prior_penalties_3y",
+    "prior_tv_deviations_3y"
+  ],
+  "rows": {
+    "train": 58183,
+    "eval": 36500,
+    "holdout": 20011
+  },
+  "positive_rate": {
+    "train": 0.010638846398432532,
+    "eval": 0.011424657534246575,
+    "holdout": 0.007445904752386188
+  },
+  "split": {
+    "train": {
+      "start": "2015-01-01T00:00:00.000",
+      "end": "2019-01-01T00:00:00.000"
+    },
+    "eval": {
+      "start": "2020-01-01T00:00:00.000",
+      "end": "2023-01-01T00:00:00.000"
+    },
+    "holdout": {
+      "start": "2024-01-01T00:00:00.000",
+      "end": "2025-07-01T00:00:00.000"
+    }
+  },
+  "split_description": "Frozen calendar boundaries on ACTUAL_END_DATE, set from date coverage only and never from label performance: train 2015-01-01 to 2018-12-31; all of 2019 excluded as a 365-day embargo; eval 2020-01-01 to 2022-12-31; all of 2023 excluded as embargo; holdout 2024-01-01 to 2025-06-30 (2025-06-30 + 365 days = 2026-06-30, inside the 2026-11-07 extract). No shuffling. Because the same facility can appear in several years, the fixed robustness variant assigns each facility to the split holding its earliest eligible evaluation and drops that facility's later rows from eval and holdout scoring."
+}
