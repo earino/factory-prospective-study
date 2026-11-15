@@ -1,0 +1,23 @@
+{
+  "id": "bf53fc11e7ec4183b47f503a556ccf9a",
+  "utc": "2026-11-15T17:36:38.163315+00:00",
+  "started_epoch": 1794764198.163327,
+  "mode": "validation",
+  "note": "H8: the 2,531 new-recording-regime training rows are worth ~+0.02 AUC, so rows from that regime are more informative per row about later permits. Weight rows with recorded plan-review days 1.5x (feature-based recency proxy, no row order). Gentle dose; local +0.002 on validation, backtests flat to slightly lower (backtest fit partition has almost no such rows, so it cannot really test this). Otherwise H7",
+  "code_sha256": "f70b5243c595bee2f68ad85bad5af20e9f588afd717e951a038f0b46847fe89c",
+  "status": "ok",
+  "fit_wall_s": 2.6016134999954375,
+  "fit_cpu_s": 6.307397000000001,
+  "phase": "evaluation",
+  "evaluation_wall_s": 6.58464337499754,
+  "auc": 0.6566011611617636,
+  "brier": 0.17031022974011256,
+  "rows_train": 11286,
+  "rows_score": 7135,
+  "backtest": {},
+  "artifact_sha256": "724050b8b6d99d372cbe7c8378bbd70df9ad82d2065546cd554f4840ba810634",
+  "finished_epoch": 1794764207.435168,
+  "elapsed_s": 9.271553582992055,
+  "cold_replay_at": "2026-11-15T18:16:59.376002+00:00",
+  "no_retraining": true
+}

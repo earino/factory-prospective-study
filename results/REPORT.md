@@ -1,21 +1,22 @@
 # Consumer study results
 
-Generated 2026-11-15T18:02:50.427041+00:00
+Generated 2026-11-15T18:17:03.169815+00:00
 
 Measured records are in summary.json and scores.csv. Failures remain in the denominator.
 
 Requested model: `claude-fable-5-2`. Reported models: claude-fable-5-2.
 
-Registered attempts: 3; frozen: 0; failed/blocked: 1.
+Registered attempts: 3; frozen: 1; failed/blocked: 1.
 
 Compliance triage (separate from scores):
 
 - seattle-building-permit-completion--r1: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
-- seattle-building-permit-completion--r2: not yet audited; forbidden asset copies unknown; tool-access flags unknown. Semantic compliance requires review.
+- seattle-building-permit-completion--r2: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
 - seattle-building-permit-completion--r3: not yet audited; forbidden asset copies unknown; tool-access flags unknown. Semantic compliance requires review.
 
 Scores (including flagged attempts; do not treat all as compliant results):
 
+- seattle-building-permit-completion--r2: validation AUC 0.656601; holdout AUC not scored.
 
 ## Limits
 
