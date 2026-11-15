@@ -1,0 +1,23 @@
+{
+  "audited_at": "2026-11-15T03:45:54.435829+00:00",
+  "before_coordinator_holdout": true,
+  "compliance": "requires_review",
+  "integrity": "requires_semantic_review",
+  "limits": "No OS isolation. Deleted/transformed files and concealed requests may escape detection. A URL mention is not proof of cheating.",
+  "protected_input_changes": [],
+  "protocol_caveats": [],
+  "run": "wser-effluent-exceedance--r2",
+  "semantic_compliance": "not_established_by_automated_checks",
+  "source_read_flags": [],
+  "tool_access_flags": [
+    {
+      "input_excerpt": "{\"output_mode\": \"count\", \"path\": \"/Users/earino/research/factory-prospective-study/.local/studies/wser-effluent-exceedance/.study/runs/wser-effluent-exceedance--r2/scratch\", \"pattern\": \"private/|holdout\\\\.csv|source-snapshot|hf_hub|datasets\\\\.load|requests\\\\.|urllib\"}",
+      "interpretation": "possible prohibited access; may be a legitimate documentation mention; review tool result",
+      "line": 5,
+      "tool": "Grep",
+      "tool_use_id": "toolu_019Qy3ewrPy1hnLzYa2tncBc",
+      "trace": "cli/0024.jsonl"
+    }
+  ],
+  "verified_forbidden_asset_copies": []
+}

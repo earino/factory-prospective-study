@@ -1,6 +1,6 @@
 # Consumer study results
 
-Generated 2026-11-15T03:45:32.143775+00:00
+Generated 2026-11-15T03:45:54.439899+00:00
 
 Measured records are in summary.json and scores.csv. Failures remain in the denominator.
 
@@ -11,7 +11,7 @@ Registered attempts: 3; frozen: 3; failed/blocked: 0.
 Compliance triage (separate from scores):
 
 - wser-effluent-exceedance--r1: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
-- wser-effluent-exceedance--r2: not yet audited; forbidden asset copies unknown; tool-access flags unknown. Semantic compliance requires review.
+- wser-effluent-exceedance--r2: requires_review; forbidden asset copies 0; tool-access flags 1. Semantic compliance requires review.
 - wser-effluent-exceedance--r3: not yet audited; forbidden asset copies unknown; tool-access flags unknown. Semantic compliance requires review.
 
 Scores (including flagged attempts; do not treat all as compliant results):

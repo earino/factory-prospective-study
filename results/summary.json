@@ -1,6 +1,6 @@
 {
   "cli_reported_cost_usd_not_invoice": 2009.830582199999,
-  "generated_at": "2026-11-15T03:45:32.143775+00:00",
+  "generated_at": "2026-11-15T03:45:54.439899+00:00",
   "limitations": [
     "Five selected factory releases; three attempts are descriptive, not agent rankings.",
     "Pinned consumer scaffold and deterministic downloads are provided assistance.",
@@ -42,11 +42,17 @@
       "verified_forbidden_copies": 0
     },
     {
+      "compliance_triage": "requires_review",
       "dataset": "wser-effluent-exceedance",
       "error": null,
+      "holdout_content_hits": [],
       "id": "wser-effluent-exceedance--r2",
+      "integrity": "requires_semantic_review",
       "interruptions": null,
+      "protocol_caveats": [],
       "research_active_s": 5100.5005682909905,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
       "status": "frozen",
       "timing": {
         "cli_invocations": 36,
@@ -60,7 +66,9 @@
         "other_active_wall_s": 5031.250193020147,
         "research_active_s": 5100.5005682909905,
         "trial_records": 12
-      }
+      },
+      "tool_access_flags": 1,
+      "verified_forbidden_copies": 0
     },
     {
       "dataset": "wser-effluent-exceedance",
