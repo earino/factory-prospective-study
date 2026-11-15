@@ -39,6 +39,21 @@ AGENT’27 explicitly welcomes experience papers and emphasizes empirical eviden
 reusable methods, operations, and validation across the agent lifecycle:
 https://conf.researchr.org/track/icse-2027/agent-2027-papers
 
+## Opening and abstract: why the factory exists
+
+Eduardo's 15 November prose revision: lead with the work needed to turn public
+sources into usable prediction benchmarks, and why connecting those steps makes
+exploration practical for a small research group. Then explain the system,
+observation and evaluation, main findings, and contribution. Counts are evidence,
+not the motivation. The independent consumer study tests the factory's outputs;
+it is not the reason the factory was built.
+
+Keep the abstract self-contained. Include the cost boundary and substantive
+quality findings, but leave detailed tariff ranges, retry chronology, pending-run
+status, and operational timestamps to the methods and results. Do not replace
+motivation with a status report or a list of disclaimers. Preserve the distinction
+between low measured operating cost and unmeasured human labor savings.
+
 ## Put production cost and reliability near the front
 
 Report the production funnel, elapsed time, resource use, failure and retry causes,

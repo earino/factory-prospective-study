@@ -157,3 +157,13 @@ selection across original and recovery attempts.
   retained; source bundle rebuilt in a clean directory with matching PDF text,
   embedded fonts, no Type 3 fonts, no overfull boxes or unresolved citations.
   `output/QA.json` hashes both evidence snapshots and delivered artifacts.
+
+## Motivation and abstract revision — 15 November 2026
+
+Rewrote the abstract and the first two introduction paragraphs to lead with the
+work of constructing prediction benchmarks and why the factory was built. The
+201-word abstract follows motivation, approach, evidence, findings, and contribution.
+Detailed tariff ranges and pending-run chronology remain in the body. No evidence,
+result, cost denominator, experiment, or production setting changed. Recorded the
+opening's purpose in `PAPER-DIRECTION.md` for subsequent revisions. All seven pages
+were rendered and inspected; the source bundle passes the clean-build checks.
