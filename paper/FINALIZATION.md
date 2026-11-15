@@ -43,3 +43,11 @@ Seattle r1 and utility recovery remain pending. Eight access flags explained by
 recorded tool results. The paper writer now recognizes the existing manual draft
 and will not launch a competing scheduled rewrite. Final counts/costs still await
 the fixed cutoff; no completion claim.
+
+22:47 UTC: All 12 evaluated releases now have exact-artifact acceptance receipts,
+including complete saved holdouts; coverage matches the cohort release tags and
+artifact versions. Cost calculator accepts a separate output directory for the
+final export; replay produced exactly the three prior numerical records. Seattle
+r1 remains live (PID 37888 observed at 22:43 UTC); no duplicate launched.
+The separate Seattle combination script is prepared but must be run and verified
+only after retry-2 and its postchecks are complete.

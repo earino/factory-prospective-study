@@ -7,6 +7,7 @@
   "builder_sha256": "83c612c6325b71e358d962750c56737f824cf2ed3d8751148a5f369c8e5ec73e",
   "descriptor_sha256": "3b668f1e98c1c80ebeada1e2b055eb9c60a318c404b1e7e73149a60bc1370c78",
   "builder_in_original_prompt_matches_published_bytes": true,
+  "population_in_original_prompt_matches_published_declaration": true,
   "explicit_population_and_code_check_instructions": true,
   "published_selection_rule": "One row per firm key: keep only firms whose earliest award_year in the frozen file is a Phase I award from 2005 through 2018, with no earlier Phase II or Phase III record and with the four-year label window closed. Later Phase II records from the same firm key and agency define the target; no outcome field is used to select rows.",
   "selection_rule_absent_from_original_prompt": true,

@@ -1,16 +1,22 @@
 #!/usr/bin/env python3
 """Recalculate interim costs from pinned compact records; no network or mutations to study evidence."""
-import collections, datetime as dt, hashlib, json, math, sys
+import argparse, collections, datetime as dt, hashlib, json, math, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'evidence/costs/2026-11-15'
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--output', type=Path, default=ROOT / 'evidence/costs/2026-11-15',
+                    help='Cost evidence directory containing pinned inputs/')
+parser.add_argument('--summary-only', action='store_true',
+                    help='Write numeric records only; keep the dated interim narrative unchanged')
+args = parser.parse_args()
+OUT = args.output.resolve()
 IN = OUT / 'inputs'
 def read(name): return json.loads((IN / name).read_text())
 def date(x): return dt.datetime.fromisoformat(x.replace('Z', '+00:00'))
 def write(name, obj): (OUT / name).write_text(json.dumps(obj, indent=2, sort_keys=True) + '\n')
 summary = read('summary.json'); rates = read('rates.json')
-start = date(summary['cohort_definition']['window_start']); end = date(summary['cutoff'])
+start = date(summary['cohort_definition']['window_start']); end = date(summary['cutoff'] or summary['cohort_definition']['window_close'])
 usage = read('model_usage.json')
 zero_usage = set(read('scout-accounting-readback.json')['zero_usage_attempts'])
 rows = []; missing = []; seen = set()
@@ -61,7 +67,9 @@ for job in read('jobs_ledger.json'):
                     'created_at':job['created_at'],'deleted_at':job.get('deleted_at'),
                     'observed_lifetime_hours':elapsed/3600,'billed_hours':hours,
                     'provider_hourly_eur_gross_server_ipv4':rate,'cost_eur':hours*rate})
-consumer=read('consumer_sessions.json')
+consumer_available = (IN / 'consumer_sessions.json').exists()
+assert consumer_available or args.summary_only, 'A dated narrative requires its consumer accounting input'
+consumer=read('consumer_sessions.json') if consumer_available else []
 assert len({x['session_id'] for x in consumer if x.get('session_id')}) == len([x for x in consumer if x.get('session_id')])
 consumer_groups={}
 for category in ['research','pre_review']:
@@ -99,8 +107,12 @@ result={'window_start':start.isoformat(),'cutoff':end.isoformat(),'elapsed_hours
         'model_by_stage':by_stage,'consumer':consumer_groups,
         'consumer_total_reported_usd':sum(v['reported_cost_usd'] for v in consumer_groups.values()),
         'basis':'Current published price estimate, not invoice. Entire start-boundary overlapping sessions/jobs included conservatively. Missing records are not assumed zero. Window cost per publication is not lifetime dataset construction cost. Nous-route token usage valued at DeepSeek direct equivalent rates; Ollama route at Ollama rates. Timing range uses session intervals, not guessed call times. Consumer modelUsage and cost are last cumulative counters per unique session.'}
+if not consumer_available:
+    result['consumer'] = None
+    result['consumer_total_reported_usd'] = None
 write('factory-model-costs.json',rows);write('factory-worker-costs.json',workers);write('summary.json',result)
-(OUT/'REPORT.md').write_text(f'''# Interim operating costs — 15 November 2026
+if not args.summary_only:
+ (OUT/'REPORT.md').write_text(f'''# Interim operating costs — 15 November 2026
 
 Factory cost at published token rates: **${low+worker_usd+hosting:.2f}–${high+worker_usd+hosting:.2f}**,
 or **${(low+worker_usd+hosting)/summary['published_in_window_total']:.2f}–${(high+worker_usd+hosting)/summary['published_in_window_total']:.2f} per publication** across {summary['published_in_window_total']} new releases.

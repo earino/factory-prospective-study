@@ -18,6 +18,7 @@ assert sha(builder.encode()) == manifest["assets"]["reproduction/build.py"]["sha
 prompt = (P / "evaluate-1/prompt.txt").read_text()
 packet = json.loads(prompt[prompt.index('{"construction_code":'):])
 assert packet["construction_code"] == builder
+assert packet["source"]["task"]["population"] == json.loads(descriptor_bytes)["quality"]["task"]["population"]
 selection = json.loads(descriptor_bytes)["quality"]["timing"]["row_selection"]["rule"]
 assert "no outcome field is used to select rows" in selection
 assert "no outcome field is used to select rows" not in prompt
@@ -49,6 +50,7 @@ report = {
     "builder_sha256": sha(builder.encode()),
     "descriptor_sha256": sha(descriptor_bytes),
     "builder_in_original_prompt_matches_published_bytes": True,
+    "population_in_original_prompt_matches_published_declaration": True,
     "explicit_population_and_code_check_instructions": True,
     "published_selection_rule": selection,
     "selection_rule_absent_from_original_prompt": True,
