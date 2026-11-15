@@ -1,0 +1,37 @@
+{
+  "basis": "Last available cumulative cost per independent CLI session, not per-invocation sum; estimates, not invoice. Deadline-truncated final invocations may leave unreported usage.",
+  "runs": [
+    {
+      "run": "fra-form54-hazmat-release--r1",
+      "session_id": "99c3adb2-738b-427a-8ec2-8239a7ef2074",
+      "invocations": 18,
+      "naive_sum_cumulative_cost": 439.91988560000004,
+      "last_reported_session_cost": 27.409008200000006,
+      "monotone_cumulative_cost": true,
+      "final_invocation_has_result": true,
+      "short_invocations_under_10s": 1
+    },
+    {
+      "run": "fra-form54-hazmat-release--r2",
+      "session_id": "182f3f84-bed7-4327-8ca8-2345801c225c",
+      "invocations": 19,
+      "naive_sum_cumulative_cost": 642.9500692000005,
+      "last_reported_session_cost": 37.55258760000003,
+      "monotone_cumulative_cost": true,
+      "final_invocation_has_result": true,
+      "short_invocations_under_10s": 1
+    },
+    {
+      "run": "fra-form54-hazmat-release--r3",
+      "session_id": "a36946ac-44a9-4003-8439-c186529aa900",
+      "invocations": 21,
+      "naive_sum_cumulative_cost": 625.3096043999999,
+      "last_reported_session_cost": 32.848008199999995,
+      "monotone_cumulative_cost": true,
+      "final_invocation_has_result": true,
+      "short_invocations_under_10s": 1
+    }
+  ],
+  "sum_last_reported_session_cost": 97.80960400000004,
+  "original_naive_sum": 1708.1795592000003
+}

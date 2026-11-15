@@ -1,0 +1,15 @@
+{
+  "cluster_columns": ["primacy_agency_code"],
+  "reason": "The primacy agency is the unit that reports LCR results to EPA (README.md:22), so it determines which system-periods exist as rows and under what conventions; the release itself says reporting is uneven across agencies and base rates must be read per jurisdiction (README.md:56). Training rows support this: label intraclass correlation by agency is 0.055 with one row per system, train positive rates by agency run from 0.5% to 33.8%, and 880 of 922 implausible prior values above 1 mg/L come from one agency. The contract's own cluster, PWSID, is the physical entity and repeats in train (median 5 rows per system), but the embargo at build.py:465-468 leaves one row per system in eval (17,368 rows, 17,368 PWSIDs observed) and by the same code in holdout, so PWSID clustering at scoring time would reduce to treating rows as independent. PWSID is nested within primacy_agency_code on every train row (first two PWSID characters equal the agency code; one agency per PWSID), so agency clusters also contain any system-level dependence. Chosen from source meaning and public train/eval structure only; no holdout rows or holdout metrics were inspected.",
+  "status": "declared",
+  "limitations": [
+    "Few and unequal clusters: 63 agencies in train and 62 in eval, about 30 effective clusters by row count; the largest holds 9.4% of eval rows. Intervals will be wide and somewhat unstable.",
+    "Only 54 of 62 eval agencies have at least one positive; if scoring requires a minimum number of clusters with positives in holdout, that must be confirmed there without reference to metrics.",
+    "primacy_agency_code is also a declared predictor (build.py:17), not a non-predictor carry. It is a current-vintage attribute with a PWSID-prefix fallback (build.py:212-218), assumed stable over time.",
+    "This departs from the contract's stated qualification cluster, PWSID (construction.json:12, construction.json:127; build.py:498). PWSID remains the correct unit for any analysis on train, where systems repeat, and is a reasonable sensitivity check at scoring time, where it is expected to equal row-level resampling.",
+    "One row per system in holdout follows from the code but was not verified on holdout rows.",
+    "Agency-level dependence was measured on training labels, not on model errors; no model was fitted. A model that absorbs agency base rates through the primacy_agency_code feature may leave less residual dependence than the label correlation suggests, in which case this clustering is conservative.",
+    "Clustering within holdout does not address dependence between splits: 16,884 of 17,368 eval systems also appear in train, and holdout features are built from the same systems' earlier label-bearing measurements.",
+    "Dependence that crosses agencies is not captured, for example systems buying water from a common wholesaler or shared calendar effects; 78% of eval rows have a 2014 target start. No released column identifies wholesaler links."
+  ]
+}
