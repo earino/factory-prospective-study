@@ -1,0 +1,49 @@
+{
+  "dataset": "faa-wildlife-strike-substantial-damage",
+  "files": {
+    "booster.json": {
+      "bytes": 762700,
+      "sha256": "8eaa54670c326d063c8355a885bba9f2470bd9e80c10b1374b3a57017fdfb610"
+    },
+    "model.pkl": {
+      "bytes": 609273,
+      "sha256": "1a8303a6c392e593d0387f0e144c1850ce04efdf09f10d95bf6037a56e0e4622"
+    },
+    "train.py": {
+      "bytes": 1246,
+      "sha256": "dec54af7c386838d0626c96cf90446ddaacfef56147b185a46758b285e64690f"
+    },
+    "validation.csv.gz": {
+      "bytes": 385788,
+      "sha256": "2bb580bec9f22e86bbc64ae9e92d8a561a5b46bd31fb85cc229174556421a3d1"
+    },
+    "validation.json": {
+      "bytes": 939,
+      "sha256": "b3f267da8d1a562c52b75b8a97d19eddc9910f22b516697fd56bf7a8d50392d4"
+    }
+  },
+  "frozen_at": "2026-11-15T16:25:06.344772+00:00",
+  "run": "faa-wildlife-strike-substantial-damage--r2--random",
+  "selected_trial": {
+    "artifact_sha256": "1a8303a6c392e593d0387f0e144c1850ce04efdf09f10d95bf6037a56e0e4622",
+    "auc": 0.8961849849659522,
+    "backtest": {},
+    "brier": 0.010794214890154946,
+    "code_sha256": "dec54af7c386838d0626c96cf90446ddaacfef56147b185a46758b285e64690f",
+    "elapsed_s": 11.733047874993645,
+    "evaluation_wall_s": 11.123159125010716,
+    "finished_epoch": 1794759881.473323,
+    "fit_cpu_s": 1.2045789999999998,
+    "fit_wall_s": 0.41432637500111014,
+    "id": "ae549055f69e475d93fd05c2758b7dad",
+    "mode": "validation",
+    "note": "{\"n_estimators\": 100, \"max_depth\": 8, \"learning_rate\": 0.2, \"min_child_weight\": 10, \"subsample\": 1.0, \"colsample_bytree\": 1.0, \"reg_lambda\": 30}",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/faa-wildlife-strike-substantial-damage-retry-1/.study/controls/faa-wildlife-strike-substantial-damage--r2--random/trials/ae549055f69e475d93fd05c2758b7dad",
+    "phase": "evaluation",
+    "rows_score": 33250,
+    "rows_train": 84196,
+    "started_epoch": 1794759869.739787,
+    "status": "ok",
+    "utc": "2026-11-15T16:24:29.739778+00:00"
+  }
+}
