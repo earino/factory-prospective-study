@@ -61,9 +61,16 @@ usage explicitly. At closeout, replace the long chronological SIGNOFF with a
 current claim-to-evidence sign-off, preserving the old file/history. Update model
 wording to match the two recorded provider aliases.
 
-23:08 UTC: Final-snapshot loading, table/figure generation and numerical checks
+23:05 UTC: Final-snapshot loading, table/figure generation and numerical checks
 are prepared. A temporary replay reproduced all existing table cells, comparison
 records and prior derived values exactly. The final-data branch still awaits the
 actual recovery results and production export. Consumers remain the selected
 twelve even if the publication queue grows; all window publications enter cost
 and production accounting. Earlier evidence snapshots remain unchanged.
+
+Analysis preparation was pushed as 72d650b3f17c062aca49a26bfd5478785509778a;
+exact-commit CI passed (Actions run 43772852960). The old numerical verification
+also passed. Seattle remains live; check its outcome after research ends around
+23:19 UTC, then run the prepared composite and review the new selected solution.
+The queued utility recovery can start through the existing controller once the
+consumer lock is released. Do not run a second coordinator.
