@@ -109,7 +109,7 @@ Keep this discussion focused; do not turn the paper into a labor-economics surve
 
 ## Paper structure and presentation
 
-Target the full experience-paper limit: at most eight IEEE pages including references.
+Eduardo’s requested length: at most seven IEEE pages including references (confirmed 15 November).
 
 1. Introduction: lead with final observed output, cost, and independent-use findings.
 2. System and work allocation: explain the complete workflow and the responsibilities
@@ -136,3 +136,5 @@ Reconcile production costs and record coverage; complete artifact and transcript
 reviews; build the three figures; write the manuscript around the resulting
 evidence. Continue collection under the existing schedule. Do not add new studies
 or delay writing to expand the literature search.
+
+Interim cost evidence is now available in [the cost report](../evidence/costs/2026-11-15/REPORT.md), with pinned inputs and an offline calculation script. Update the same method at the final cutoff; do not reuse frozen-only consumer cost totals.

@@ -1,0 +1,34 @@
+{
+  "repository": "earino/dataset-factory",
+  "commit": "f4aaf5cd44d427594811b7168111015fc55b510a",
+  "path": "audits/prospective-2026-11/interim-2026-11-15T1424Z",
+  "sha256": {
+    "model_usage.json": "e94e225110efe897f82eede08225860fed3f509f33d42d08df54c21266882427",
+    "jobs_ledger.json": "c46b7ba98055fe9dfd356a35a868ef598141f692f705c9012956614aa7604c00",
+    "attempts_carry_in.json": "bbef7a38053b63f2ba7310f74286bf1a134190abf241a68c0db45197b278d969",
+    "attempts_new_admissions.json": "53785da359414b4d52edc5b0c818bd135ffdcbe6d8f46673fb12dace8f675223",
+    "summary.json": "c56053c80151fadab41279398d6a98360b191c226adedff4efff7e7881aba89d",
+    "note.md": "d174d547d690ffe9c6f995a1bb8cc2cdaa0c16357e7ba2dcc2c4e49d5a250a41",
+    "repairs.md": "b4938d9b94bece1f936db4ef8ea69b795d878d8a1254841c1a4c33c3a43c586d",
+    "cohort.json": "7de4701e5cdcbbdcc269e4142ec39bfcdf62cb2bd52938f8f4a71298fd95b031",
+    "scout_prospective_export.py": "93639f44d18fa36e6f587443b651e6513e2707e94032cc8c8cb02fe037f69e40"
+  },
+  "jobs_ledger_projection": {
+    "retained_fields": [
+      "attempt",
+      "stage",
+      "candidate",
+      "status",
+      "created_at",
+      "deleted_at",
+      "duration_seconds",
+      "provider_hourly_eur",
+      "server_id",
+      "server_type",
+      "location",
+      "cohort_group"
+    ],
+    "sha256": "eb92a81f4cb51768b3d03014c189f595f806009a518946c40f164661017a060a",
+    "original_sha256": "c46b7ba98055fe9dfd356a35a868ef598141f692f705c9012956614aa7604c00"
+  }
+}

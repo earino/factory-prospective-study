@@ -1,0 +1,124 @@
+{
+  "basis": "Current published price estimate, not invoice. Entire start-boundary overlapping sessions/jobs included conservatively. Missing records are not assumed zero. Window cost per publication is not lifetime dataset construction cost. Nous-route token usage valued at DeepSeek direct equivalent rates; Ollama route at Ollama rates. Timing range uses session intervals, not guessed call times. Consumer modelUsage and cost are last cumulative counters per unique session.",
+  "consumer": {
+    "pre_review": {
+      "no_cost_result": 0,
+      "reported_cost_usd": 28.5167166,
+      "sessions": 11,
+      "statuses": {
+        "error": 3,
+        "result": 8
+      },
+      "tokens": {
+        "cacheCreationInputTokens": 892937,
+        "cacheReadInputTokens": 5926758,
+        "inputTokens": 254557,
+        "outputTokens": 334666
+      }
+    },
+    "research": {
+      "no_cost_result": 0,
+      "reported_cost_usd": 498.0960875,
+      "sessions": 33,
+      "statuses": {
+        "failed": 12,
+        "frozen": 21
+      },
+      "tokens": {
+        "cacheCreationInputTokens": 7329261,
+        "cacheReadInputTokens": 928088739,
+        "inputTokens": 147803,
+        "outputTokens": 4880310
+      }
+    }
+  },
+  "consumer_total_reported_usd": 526.6128041000001,
+  "cutoff": "2026-11-15T14:24:01+00:00",
+  "elapsed_hours": 64.93380001555556,
+  "factory_peak_usd_per_release": 3.5702561370089794,
+  "factory_time_priced_usd_per_release_range": [
+    2.5305268759180697,
+    2.5403702037362517
+  ],
+  "factory_total_peak_rate_usd": 39.27281750709877,
+  "factory_total_time_priced_usd_range": [
+    27.835795635098766,
+    27.944072241098766
+  ],
+  "hosting_usd": 1.8037166670987657,
+  "missing_model_usage": [
+    {
+      "attempt": "rw-11da79a259ae-evaluate-2",
+      "group": "started_in_window",
+      "reason": "HTTP 402 before generation; zero tokens per Scout database readback",
+      "stage": "evaluate"
+    },
+    {
+      "attempt": "rw-11da79a259ae-evaluate-3",
+      "group": "started_in_window",
+      "reason": "HTTP 402 before generation; zero tokens per Scout database readback",
+      "stage": "evaluate"
+    },
+    {
+      "attempt": "rw-11da79a259ae-evaluate-4",
+      "group": "started_in_window",
+      "reason": "HTTP 402 before generation; zero tokens per Scout database readback",
+      "stage": "evaluate"
+    },
+    {
+      "attempt": "rw-9f863b0276ff-discover-2",
+      "group": "started_in_window",
+      "reason": "HTTP 402 before generation; zero tokens per Scout database readback",
+      "stage": "discover"
+    },
+    {
+      "attempt": "rw-9f863b0276ff-discover-4",
+      "group": "started_in_window",
+      "reason": "HTTP 402 before generation; zero tokens per Scout database readback",
+      "stage": "discover"
+    }
+  ],
+  "model_all_off_peak_usd": 12.638355636,
+  "model_by_stage": {
+    "build": {
+      "peak_rate_usd": 11.523527375999999,
+      "sessions": 210,
+      "time_priced_high_usd": 6.3056584739999995,
+      "time_priced_low_usd": 6.217136544
+    },
+    "discover": {
+      "peak_rate_usd": 11.971424088,
+      "sessions": 136,
+      "time_priced_high_usd": 6.60500274,
+      "time_priced_low_usd": 6.585248064
+    },
+    "evaluate": {
+      "peak_rate_usd": 1.781759808,
+      "sessions": 28,
+      "time_priced_high_usd": 1.037304792,
+      "time_priced_low_usd": 1.037304792
+    }
+  },
+  "model_peak_rate_usd": 25.276711272,
+  "model_sessions_with_usage": 374,
+  "model_time_priced_usd_range": [
+    13.8396894,
+    13.947966006
+  ],
+  "published_datasets": 11,
+  "tokens": {
+    "cache_read_tokens": 91107712,
+    "calls": 2412,
+    "input_tokens": 21694498,
+    "output_tokens": 15184763
+  },
+  "window_start": "2026-11-12T21:27:59.319944+00:00",
+  "workers": {
+    "billed_hours": 188,
+    "eur": 11.03184,
+    "jobs": 187,
+    "lifetime_hours": 18.53026539361111,
+    "running_at_cutoff": 1,
+    "usd": 12.192389568000001
+  }
+}

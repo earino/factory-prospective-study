@@ -1,0 +1,24 @@
+{
+  "checked_date": "2026-11-15",
+  "usd_per_eur": 1.1052,
+  "fx_date": "2026-11-13",
+  "fx_source": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html",
+  "hosting_month_usd": 20,
+  "hosting_basis": "Eduardo supplied Nous hosting price; prorated by 30 calendar days in November.",
+  "model_per_million_usd": {
+    "input": 0.3,
+    "cached_input": 0.006,
+    "output": 1.2,
+    "off_peak_factor": 0.5
+  },
+  "model_sources": [
+    "https://ollama.com/pricing",
+    "https://api-docs.deepseek.com/quick_start/pricing/"
+  ],
+  "peak_hours_utc": {
+    "ollama-cloud": "weekdays 12:00\u201318:00",
+    "nous_direct_deepseek_equivalent": "weekdays 01:00\u201304:00 and 06:00\u201310:00"
+  },
+  "worker_basis": "Recorded provider_hourly_eur: Hetzner pricing API gross server + primary IPv4, verified in factory/worker.py check_price at commit 215715771b1c93f474cc7a8a223c732bf4710266. Round each lifetime up to full hours. All selected jobs under monthly cap.",
+  "worker_billing_source": "https://docs.hetzner.com/cloud/billing/faq/"
+}
