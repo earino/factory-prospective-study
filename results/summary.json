@@ -1,0 +1,100 @@
+{
+  "cli_reported_cost_usd_not_invoice": 0.0,
+  "generated_at": "2026-11-15T12:27:36.218717+00:00",
+  "limitations": [
+    "Five selected factory releases; three attempts are descriptive, not agent rankings.",
+    "Pinned consumer scaffold and deterministic downloads are provided assistance.",
+    "CLI-reported model IDs are not independent provider attestation.",
+    "Public holdout isolation and semantic compliance are procedural, not enforced by an OS sandbox.",
+    "CFPB holdout was used in earlier pilot work outside this study.",
+    "Random search matches observed eligible primary-trial fitting CPU, not unlogged diagnostics or token work.",
+    "Fresh Claude trajectories are nondeterministic; frozen artifact replay is reproducible.",
+    "No factory-wide publication yield or spend is inferred from this consumer study."
+  ],
+  "outcomes": [
+    {
+      "compliance_triage": "no_automatic_access_flag",
+      "dataset": "seattle-building-permit-completion",
+      "error": "RuntimeError: Three CLI failures; preserved as a failed attempt, not silently restarted",
+      "holdout_content_hits": [],
+      "id": "seattle-building-permit-completion--r1",
+      "integrity": "requires_semantic_review",
+      "interruptions": null,
+      "protocol_caveats": [],
+      "research_active_s": 213.22848237400467,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
+      "status": "failed",
+      "timing": {
+        "cli_invocations": 3,
+        "evaluation_wall_sum_s": 0,
+        "fit_cpu_sum_s": 0,
+        "fit_wall_sum_s": 0,
+        "harness_wall_union_s": 0,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 0,
+        "other_active_wall_s": 213.22848237400467,
+        "research_active_s": 213.22848237400467,
+        "trial_records": 0
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
+    },
+    {
+      "dataset": "seattle-building-permit-completion",
+      "error": "RuntimeError: Three CLI failures; preserved as a failed attempt, not silently restarted",
+      "id": "seattle-building-permit-completion--r2",
+      "interruptions": null,
+      "research_active_s": 213.52487762599776,
+      "status": "failed",
+      "timing": {
+        "cli_invocations": 3,
+        "evaluation_wall_sum_s": 0,
+        "fit_cpu_sum_s": 0,
+        "fit_wall_sum_s": 0,
+        "harness_wall_union_s": 0,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 0,
+        "other_active_wall_s": 213.52487762599776,
+        "research_active_s": 213.52487762599776,
+        "trial_records": 0
+      }
+    },
+    {
+      "dataset": "seattle-building-permit-completion",
+      "error": null,
+      "id": "seattle-building-permit-completion--r3",
+      "interruptions": null,
+      "research_active_s": null,
+      "status": "not_finished",
+      "timing": {
+        "cli_invocations": 0,
+        "evaluation_wall_sum_s": 0,
+        "fit_cpu_sum_s": 0,
+        "fit_wall_sum_s": 0,
+        "harness_wall_union_s": 0,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 0,
+        "other_active_wall_s": 0,
+        "research_active_s": 0,
+        "trial_records": 0
+      }
+    }
+  ],
+  "protocol_sha256": "3f143a30876a2a85dd37b1b910f5c3bc6c4b2c9962def5fadd4e3834c8450fc3",
+  "reported_models": [
+    "<synthetic>",
+    "claude-fable-5-2"
+  ],
+  "reported_usage": {
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  "requested_model": "claude-fable-5-2",
+  "scores": []
+}
