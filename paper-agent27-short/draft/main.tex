@@ -37,7 +37,7 @@ Construction is a separate model task without tools. It receives the source prop
 
 \begin{figure*}[t]
 \centering\includegraphics[width=\textwidth]{workflow.pdf}
-\caption{Production workflow with milestones observed during the window. Dashed blue boxes are model tasks; solid green boxes are deterministic operations. Models return bounded proposals and review decisions; the controller owns stage transitions, retries, and external operations.}
+\caption{Source-to-release workflow. Model tasks and code execution are separate activities; semantic repair returns to builder generation. The controller manages the process.}
 \label{fig:workflow}
 \end{figure*}
 
@@ -97,8 +97,6 @@ Estimated recurring expenditure was \$38.23--\$38.33: \$19.10--\$19.21 for infer
 \caption{Estimated expenditure by stage, using midpoint inference tariffs. Hosting is shared across stages.}
 \label{fig:costs}
 \end{figure}
-
-
 
 \subsection{Consumer use}
 All twelve evaluated releases supported completed prediction experiments through held-out scoring. Five of the six listed conditions of use were stated in the releases, including isolated-row access for both history-feature tasks. Carrier-code exits were disclosed, but apparent entries were not. Of the eight listed concerns, one was stated, three were partly stated, and four were not found in the inspected documents (Table~\ref{tab:releases}).

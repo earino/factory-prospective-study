@@ -1,9 +1,9 @@
 {
   "pages": 5,
-  "pdf_sha256": "5a64e23706309d71b04ed2229c6be1281ebb25736b8da1d1856156cf3df024e0",
-  "source_zip_sha256": "85456358fa44c7a47936f7b379b23b6157656eddd4c1839e4b055e32afc3a5d6",
-  "manuscript_sha256": "21d9f95edb30ab2aa6c6169c019677f9efa67c0fde089674cdd13c886b0f7d9b",
-  "clean_build_directory": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/factory-sequence-paper-toze0ngu/paper-agent27-short",
+  "pdf_sha256": "9de8a644a9a83545b508358b0376596bd2cf9162ee7df9e812af16365bc0998a",
+  "source_zip_sha256": "6bc1424be847c979f8910c242e7dca10995e6675557e964afa02e64174748485",
+  "manuscript_sha256": "8a7ec256414f8715fc387fb3a6027d900d6631ce181eab528216ccf46a630076",
+  "clean_build_directory": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/factory-workflow-paper-v_pc7kk_/paper-agent27-short",
   "clean_build_exit": 0,
   "portable_build_pdf_text_matches": true,
   "no_overfull_or_unresolved_references": true,
@@ -16,29 +16,21 @@
       4,
       5
     ],
-    "result": "All five pages inspected; final execution connectors checked in color and grayscale. No green-to-green model bypass, clipping, or text collisions. Diagram text exceeds caption size."
+    "result": "All five pages inspected, with workflow also checked in grayscale. Single forward activity sequence, one semantic repair loop, explicit Model/Code labels; no clipping or text collisions. SBIR remains in prose."
   },
-  "record_checks_sha256": "e6b745952ec849d078beaafec99f0727068deccbf05426067d7b8357a4487891",
+  "record_checks_sha256": "f83a70bc680149fb2d56c2e8e9cd204108d019efe0d261ebbbda9952d9f5ae90",
   "disclosure_review_sha256": "e8eaddb3fff30ac3786888559bcd88b55b04e7adb240a5fc6ec40a31d96f32e1",
   "long_paper_files_preserved": 310,
   "workflow": {
-    "sha256": "1e7df1f7d58056b53c164eb2405683a1d6157e9df545525f88800caedff031a5",
+    "sha256": "81ffb4ecefe5aae9c4694fa94749350203ed0d70cb174b04bf1cd4a3ba33d111",
     "width_pt": 514.8,
-    "height_pt": 151.2,
-    "dimensions_unchanged": true,
-    "diagram_font_rounded_pt": 9,
-    "caption_font_rounded_pt": 8,
-    "grayscale_border_styles": "dashed model / solid deterministic",
-    "milestones": [
-      54,
-      18,
-      14
-    ],
+    "height_pt": 116.64,
+    "smallest_native_font_pt": 8.7,
+    "caption_font_pt": 8,
+    "grayscale_border_styles": "dashed model / solid code, plus explicit labels",
     "semantic_returns": 4,
-    "omitted_for_space": [
-      "defer/reject exits",
-      "per-box turn limits"
-    ],
-    "flow": "Single execution sequence: discovery -> generation -> worker -> review -> routing -> publication; repair returns to generation."
+    "flow": "Source proposal -> builder generation -> worker execution/checks/baseline -> semantic review -> public publication/verification; semantic repair returns to generation.",
+    "controller": "Shared band for state, transitions, retries and worker management; no additional flow arrows.",
+    "operating_milestones": "Retained in results prose; omitted from process diagram."
   }
 }

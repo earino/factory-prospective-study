@@ -27,3 +27,12 @@ packet input, and the semantic repair cap. Publication policy is inside the gree
 box. Dashed/solid borders support grayscale reading. The packet connector now
 reaches the Evaluate model box directly. Original graphic dimensions retained;
 all pages, grayscale and font sizes checked before delivery.
+
+Workflow revision: replaced the two-row stage grid with one activity sequence.
+Builder generation and execution are separate; Model/Code labels identify
+responsibility, and one return path shows semantic repair. The controller has
+a shared operations band. Counts remain in results prose. The proposed SBIR
+evidence diagram was removed after author review because it duplicated the
+prose and occupied too much space. The original SBIR prose is retained.
+All five pages and the grayscale workflow were inspected; the portable source
+archive builds independently with matching PDF text.
