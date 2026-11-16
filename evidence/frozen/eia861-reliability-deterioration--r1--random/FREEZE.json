@@ -1,0 +1,49 @@
+{
+  "dataset": "eia861-reliability-deterioration",
+  "files": {
+    "booster.json": {
+      "bytes": 145849,
+      "sha256": "412405e99fbbec69b0caafce6eb60725515af3815c3184edce78c4910d5e3c30"
+    },
+    "model.pkl": {
+      "bytes": 138769,
+      "sha256": "349d24740cd4c9917075334860f02e7f39edb398258ea4a94ecc0c5d3f587608"
+    },
+    "train.py": {
+      "bytes": 1247,
+      "sha256": "bdd7f9055b53bbaedcb26ee59297eee3f02cd5ea2ee59ea27ad52266fb74b0d5"
+    },
+    "validation.csv.gz": {
+      "bytes": 15257,
+      "sha256": "685803ea8d68c54be4ad2977a25b9bc31343e32b3af71ceb8027511b35f3ef4c"
+    },
+    "validation.json": {
+      "bytes": 938,
+      "sha256": "bc4c5360f8406e7d1f6f2e0932d54dcbdd0031ee01fb5a769ea241c1dff06af1"
+    }
+  },
+  "frozen_at": "2026-11-16T01:17:11.979688+00:00",
+  "run": "eia861-reliability-deterioration--r1--random",
+  "selected_trial": {
+    "artifact_sha256": "349d24740cd4c9917075334860f02e7f39edb398258ea4a94ecc0c5d3f587608",
+    "auc": 0.7111788696087107,
+    "backtest": {},
+    "brier": 0.11478685990900725,
+    "code_sha256": "bdd7f9055b53bbaedcb26ee59297eee3f02cd5ea2ee59ea27ad52266fb74b0d5",
+    "elapsed_s": 4.157858874998055,
+    "evaluation_wall_s": 4.092218583013164,
+    "finished_epoch": 1794791811.7260532,
+    "fit_cpu_s": 0.09723100000000007,
+    "fit_wall_s": 0.05263333299080841,
+    "id": "acb319c4f5c04124ba9727886ceae83a",
+    "mode": "validation",
+    "note": "{\"n_estimators\": 100, \"max_depth\": 4, \"learning_rate\": 0.02, \"min_child_weight\": 10, \"subsample\": 0.7, \"colsample_bytree\": 1.0, \"reg_lambda\": 10}",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/eia861-reliability-deterioration-retry-1/.study/controls/eia861-reliability-deterioration--r1--random/trials/acb319c4f5c04124ba9727886ceae83a",
+    "phase": "evaluation",
+    "rows_score": 1294,
+    "rows_train": 2453,
+    "started_epoch": 1794791807.5679529,
+    "status": "ok",
+    "utc": "2026-11-16T01:16:47.567947+00:00"
+  }
+}

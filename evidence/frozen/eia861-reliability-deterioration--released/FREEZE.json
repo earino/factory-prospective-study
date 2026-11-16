@@ -1,0 +1,28 @@
+{
+  "dataset": "eia861-reliability-deterioration",
+  "files": {
+    "booster.json": {
+      "bytes": 166581,
+      "sha256": "c5c952856ac49f324e223c331315261a62e3373f59d457d739b5d430be63420f"
+    },
+    "model.pkl": {
+      "bytes": 129975,
+      "sha256": "9fa3e0cead7c361ca6a605efdc5837deacffaddb47e4733572a5cea019aa11ab"
+    },
+    "train.py": {
+      "bytes": 1160,
+      "sha256": "431a0f15145a8578df4bc149ee13483cbc7f06e15ac8214356c08da99d9e5d21"
+    },
+    "validation.csv.gz": {
+      "bytes": 15421,
+      "sha256": "1b3067b5b798975c9fb32e202086e0fcecbf7fe286ccfe9944f4715245f15625"
+    },
+    "validation.json": {
+      "bytes": 804,
+      "sha256": "eaf2f8d7b088107faa93e3ad1f1bc0b9f4aa47b797f6c9e47c0c2d85a457731d"
+    }
+  },
+  "frozen_at": "2026-11-16T01:16:12.560168+00:00",
+  "matches_released_baseline": false,
+  "run": "eia861-reliability-deterioration--released"
+}
