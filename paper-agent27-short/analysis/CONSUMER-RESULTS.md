@@ -1,7 +1,7 @@
 # Consumer performance in the short paper
 
 The author requested evidence about predictive performance in addition to artifact
-use and source-review findings. Figure 3 uses the existing final selection of all
+use and source-review findings. The performance figure uses the existing final selection of all
 twelve evaluated releases and all three frozen consumer models per release.
 It introduces no new model fits, trials, cohort selection, or holdout scoring.
 
@@ -29,8 +29,8 @@ grants. Consumer/control score ranges overlap for routes, lead, air enforcement,
 and wildlife strikes.
 
 The plot retains task order by absolute consumer median and shows consumer-minus-
-reference AUC on one common axis. Two separated tracks per task distinguish the
-untuned and tuned references without overlapping markers. Each point is the
+reference AUC in two aligned panels, one per reference. Both panels use identical
+axis limits, zero lines, and task order; no markers overlap. Each point is the
 median of the three paired differences, not the difference between method medians.
 Bars span the three observed paired differences, not confidence intervals;
 no statistical-significance claim is made. Existing grouped-bootstrap analyses

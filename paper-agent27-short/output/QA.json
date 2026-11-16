@@ -1,8 +1,8 @@
 {
   "pages": 5,
-  "pdf_sha256": "8b0c1413b6ce2bcecb4aa912ef4072dde88e4e1f283dd04472f26066308ca9b8",
-  "source_zip_sha256": "a6e53e8abdbce42d9b17c9910109324872bb14ba21cccd5d2b296a06792c3573",
-  "manuscript_sha256": "f10243b1cd34afb64a9231e77b3ea36bcf88d53a227de942629f5fb9b39b5780",
+  "pdf_sha256": "d5a0cd7490b14fca652e47c64e84e0af02bb80674801597da8c709dada172764",
+  "source_zip_sha256": "af1c7412482cbf415c898486a07630950fe789913e7f5f1916fa34da03b0eee4",
+  "manuscript_sha256": "c97ecf10a76420abd54ab692485aff30feb716999894fd5fe042505886e6151f",
   "clean_build_directory": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/factory-tuned-paper-z29v7oq5/paper-agent27-short",
   "clean_build_exit": 0,
   "portable_build_pdf_text_matches": true,
@@ -16,9 +16,9 @@
       4,
       5
     ],
-    "result": "All five pages inspected; shared-axis difference plot also checked in grayscale. Two vertically separated reference comparisons per task, no marker overlap or clipping. Five pages with unchanged manuscript fonts."
+    "result": "Pages 1\u20133 unchanged from inspected version. Pages 4\u20135 inspected after two-panel change; performance figure checked in grayscale. No clipping or overlapping markers; five pages and unchanged manuscript fonts."
   },
-  "record_checks_sha256": "03802a4785df649aebf03835d21ce3a153e7153359b944d1a70de6861e2dc6b2",
+  "record_checks_sha256": "71ee90686e70d96af0d7ed1791bb87d0c4f03a486db30151285ce3099c12fae5",
   "disclosure_review_sha256": "e8eaddb3fff30ac3786888559bcd88b55b04e7adb240a5fc6ec40a31d96f32e1",
   "long_paper_files_preserved": 310,
   "workflow": {
@@ -34,7 +34,7 @@
     "operating_milestones": "Retained in results prose; omitted from process diagram."
   },
   "consumer_results": {
-    "figure_sha256": "d0b6483014aa990040857c183b520614ab20943f43cc6028994c6ce653c6574e",
+    "figure_sha256": "0250ac0797d0c17d1d9ed8fae30792b2ce53c59243333ce90c2109a1f4573cb4",
     "data_sha256": "6935892ca36d506dfd1bbd7fe341769e35b56cf44eaea5b50516bcbef6e55dcc",
     "datasets": 12,
     "consumer_models": 36,
@@ -53,6 +53,7 @@
     },
     "clean_checkout": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/factory-tuned-paper-z29v7oq5/record-checkout",
     "clean_check_exit": 0,
-    "historical_ignored_paper_artifacts_restored_for_preservation_checks": 161
+    "historical_ignored_paper_artifacts_restored_for_preservation_checks": 161,
+    "layout": "Two aligned panels, one per reference; common axis limits and zero, one median/range per task per panel."
   }
 }

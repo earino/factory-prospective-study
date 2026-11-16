@@ -84,7 +84,11 @@ For predictive performance, we compare consumers with an untuned XGBoost referen
 
 Separate bounded Fable reviews examined the pinned task descriptions, construction code, and permitted public data before scoring. They checked target meaning, timing, selection, splits, and label-derived history. The reviews shared instructions, but access to publisher documentation varied; raw source snapshots and holdout rows were outside their scope. Table~\ref{tab:releases} reports principal findings, distinguishing observed contradictions, unresolved concerns, and conditions of use. We compared each listed finding with the pinned release README and construction descriptor; \emph{not found} refers to these documents. Explicit isolated-row access counts as a stated restriction, even without an explanation of cross-row exposure. The final two production releases were outside both the consumer and separate-review cohort.
 
-
+\begin{figure*}[t]
+\centering\includegraphics[width=\textwidth]{consumer-results.pdf}
+\caption{Consumer AUC minus each reference. Points show median paired differences; bars span three runs. Positive values favor consumers.}
+\label{fig:consumer}
+\end{figure*}
 
 \section{Deployment Results}
 \subsection{Operation and recurring expenditure}
@@ -100,14 +104,6 @@ Estimated recurring expenditure was \$38.23--\$38.33: \$19.10--\$19.21 for infer
 \centering\includegraphics[width=\columnwidth]{stage-costs.pdf}
 \caption{Estimated expenditure by stage, using midpoint inference tariffs. Hosting is shared across stages.}
 \label{fig:costs}
-\end{figure}
-
-
-
-\begin{figure}[t]
-\centering\includegraphics[width=\columnwidth]{consumer-results.pdf}
-\caption{Consumer AUC minus each reference. Points show median paired differences; bars span three runs. Positive values favor consumers.}
-\label{fig:consumer}
 \end{figure}
 
 \subsection{Consumer use and predictive performance}

@@ -67,33 +67,30 @@ assert report['all_three_above_baseline_tasks'] == 11
 assert report['consumer_tuned_medians_within_001'] == 5
 (OUT/'analysis/consumer-results.json').write_text(json.dumps(report, indent=2)+'\n')
 
-plt.rcParams.update({'font.family': 'DejaVu Sans', 'pdf.fonttype': 42, 'font.size': 8.5})
-fig, ax = plt.subplots(figsize=(3.48, 3.35))
-fig.subplots_adjust(left=.445, right=.945, top=.84, bottom=.17)
-for y, r in enumerate(rows):
-    if y % 2 == 0: ax.axhspan(y-.5, y+.5, color='#f2f4f6', zorder=0)
-    comparisons = [([v-r['baseline_auc'] for v in r['consumer_scores'].values()], -.23, '#8a939a'),
-                   ([v-r['tuned_scores'][k+'--random'] for k,v in r['consumer_scores'].items()], .23, '#246d98')]
-    for values, offset, color in comparisons:
-        center = statistics.median(values)
-        ax.plot([min(values), max(values)], [y+offset, y+offset], color=color, lw=1.4, zorder=2)
-        ax.scatter(center, y+offset, marker='o', s=14, color=color, zorder=3)
-ax.axvline(0, color='#38434b', lw=.9, zorder=1)
-ax.set_yticks(range(len(rows)), [r['label'] for r in rows])
-ax.set_ylim(len(rows)-.5, -.5)
-ax.set_xlim(-.025, .08)
-ax.set_xticks([-.02, 0, .02, .04, .06, .08], ['−.02','0','+.02','+.04','+.06','+.08'])
-ax.tick_params(axis='y', length=0, pad=5)
-ax.tick_params(axis='x', length=2, color='#aab6bd', labelsize=8)
-for side in ['top', 'right', 'left']: ax.spines[side].set_visible(False)
-ax.spines['bottom'].set_color('#aab6bd')
-ax.set_axisbelow(True); ax.grid(axis='x', color='#e0e5e9', lw=.5)
-from matplotlib.lines import Line2D
-fig.legend(handles=[Line2D([], [], marker='o', color='#8a939a', markersize=3.5, label='Consumer − untuned'),
-                    Line2D([], [], marker='o', color='#246d98', markersize=3.5, label='Consumer − tuned search')],
-           loc='upper left', bbox_to_anchor=(.03, 1.0), frameon=False, fontsize=8.5,
-           handlelength=1.5, labelspacing=.4)
-ax.set_xlabel('Difference in holdout AUC', fontsize=8.7, labelpad=5)
+plt.rcParams.update({'font.family': 'DejaVu Sans', 'pdf.fonttype': 42, 'font.size': 8.9})
+fig, axes = plt.subplots(1, 2, figsize=(7.15, 2.65), sharex=True, sharey=True)
+fig.subplots_adjust(left=.235, right=.975, top=.86, bottom=.18, wspace=.16)
+for ax, reference, title in zip(axes, ['untuned', 'tuned'],
+        ['Against untuned XGBoost', 'Against tuned random search']):
+    for y, r in enumerate(rows):
+        if y % 2 == 0: ax.axhspan(y-.5, y+.5, color='#f2f4f6', zorder=0)
+        values = ([v-r['baseline_auc'] for v in r['consumer_scores'].values()]
+                  if reference == 'untuned' else
+                  [v-r['tuned_scores'][k+'--random'] for k,v in r['consumer_scores'].items()])
+        ax.plot([min(values), max(values)], [y, y], color='#246d98', lw=1.4, zorder=2)
+        ax.scatter(statistics.median(values), y, marker='o', s=18, color='#246d98', zorder=3)
+    ax.axvline(0, color='#38434b', lw=.9, zorder=1)
+    ax.set_title(title, fontsize=9.5, fontweight='bold', pad=8)
+    ax.set_ylim(len(rows)-.5, -.5)
+    ax.set_xlim(-.025, .08)
+    ax.set_xticks([-.02, 0, .02, .04, .06, .08], ['−.02','0','+.02','+.04','+.06','+.08'])
+    ax.tick_params(axis='y', length=0, pad=6)
+    ax.tick_params(axis='x', length=2, color='#aab6bd', labelsize=8.5)
+    for side in ['top', 'right', 'left']: ax.spines[side].set_visible(False)
+    ax.spines['bottom'].set_color('#aab6bd')
+    ax.set_axisbelow(True); ax.grid(axis='x', color='#e0e5e9', lw=.5)
+axes[0].set_yticks(range(len(rows)), [r['label'] for r in rows])
+fig.text(.605, .035, 'Difference in holdout AUC (consumer − reference)', fontsize=9, ha='center')
 fig.savefig(OUT/'draft/figures/consumer-results.pdf', metadata={'CreationDate': None, 'ModDate': None})
 plt.close(fig)
 print(json.dumps({'datasets': len(rows), 'all_three_above_baseline': 11, 'median_auc_range': report['median_auc_range']}))

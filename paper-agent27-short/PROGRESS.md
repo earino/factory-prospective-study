@@ -60,3 +60,9 @@ The Table I interpretation sentence remains. Following author feedback, the
 figure shows paired AUC differences on one shared axis, with two separated tracks
 per task. Direct changes replace separate method panels and overlapping symbols.
 The manuscript contains no discussion of these editorial decisions.
+
+Final visualization revision: two aligned difference panels, one against the
+untuned reference and one against paired tuned search. Both share the same
+limits, zero position, task order, and marker style. The performance figure is
+now full width above the cost chart on page 4; figure references update
+automatically. The manuscript remains five pages.
