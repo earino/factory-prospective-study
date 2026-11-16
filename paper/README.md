@@ -1,68 +1,55 @@
-# Dataset Factory paper draft
+# Dataset Factory paper
 
-The revised full draft is [the seven-page PDF](output/paper.pdf).
-The draft includes all 12 cohort publications and 36 scored consumer models,
-three per dataset. The authorized recoveries are complete. All 49 research
-attempts remain recorded, including twelve provider failures and one premature
-stop. Production costs still use the 64.93-hour export ending at 14:24 UTC on
-15 November and its 11-publication denominator. The final production export is
-scheduled for 07:00 UTC on 16 November; it will update the operating figures.
+The completed seven-page manuscript is [paper.pdf](output/paper.pdf), with
+[portable LaTeX source](output/paper-source.zip). It includes 22 references.
+The paper has not been submitted, and the evidence repository remains private.
 
-The paragraph-value audit has been applied; the earlier three full-paper readability passes are
-recorded in [REVISION-REVIEW.md](REVISION-REVIEW.md). The paper separates operation,
-independent use, and source validity while retaining the integrated factory as its
-contribution. Cost is a bounded operating-window ratio, not total construction cost.
+The observation window closed on 16 November 2026 at 07:00 UTC. It contains
+14 public releases and 540 stage attempts over 81.53 hours. Estimated recurring
+production cost is $38.23–$38.33, or $2.73–$2.74 per publication, with explicit
+exclusions for development and labor. The independent consumer cohort is the
+first twelve releases: 36 scored models, three per release. All 49 physical
+research attempts remain recorded, including original failures and recoveries.
 
-The current interpretation centers the factory's datasets. Untuned XGBoost is the
-reference for modeling headroom; tuned random search tests
-added agent benefit. Both appear side by side in the main
-figure, with rows ordered by median gain over untuned XGBoost. Captions retain
-reading keys without repeating the discussion. Source-quality findings remain separate. The agreed reasoning is saved in
-[PAPER-DIRECTION.md](PAPER-DIRECTION.md#use-independent-consumption-to-assess-output-value).
+The paper separates production, consumer use and task validity. Untuned XGBoost
+measures modeling headroom; tuned random search tests added agent benefit.
+Figure 3 shows every available grouped comparison, ordered by median gain over
+the untuned reference. The detailed SBIR acceptance reconstruction explains how
+the population mismatch survived review, without claiming an untested cause.
+Service maintenance is distinguished from manual dataset decisions.
 
-Section V now gives four design lessons linked to observed evidence. Related Work
-positions the contribution through continuing production, operational evidence,
-and separate consumer use, without claiming that prior work lacks every component.
-
-The original SBIR acceptance packet is now reconstructed in
-[the acceptance audit](analysis/final-2026-11-16/SBIR-ACCEPTANCE-AUDIT.md). The paper
-separates service maintenance from dataset production. All twelve cohort artifacts
-have exact-version qualification receipts. Selected-code and conduct review is
-complete for all 36 selected solutions. Sampled probes passed after the three
-previous checker errors were resolved without changing model artifacts.
-
-This remains an interim author-review draft. Its 22 references support the
-methods, production reliability, artifact evaluation, and human-work discussion.
-
+- [Claim-to-evidence sign-off](SIGNOFF.md)
 - [LaTeX manuscript](draft/main.tex)
-- [Portable LaTeX source bundle](output/paper-source.zip)
-- [Evidence and verification record](SIGNOFF.md)
-- [Current editorial direction](PAPER-DIRECTION.md)
-- [Literature corrections](materials/VERIFIED-LITERATURE-NOTES.md)
+- [Final cost evidence](../evidence/costs/2026-11-16/REPORT.md)
+- [SBIR acceptance audit](analysis/final-2026-11-16/SBIR-ACCEPTANCE-AUDIT.md)
+- [Selected-code and conduct review](analysis/final-2026-11-16/CODE-CONDUCT-REVIEW.md)
+- [Qualification receipts for twelve exact artifacts](analysis/final-2026-11-16/qualification-coverage.json)
+- [Verified literature notes](materials/VERIFIED-LITERATURE-NOTES.md)
 
-Rebuild the PDF from this directory's parent with `sh paper/build.sh`.
-It requires pdfLaTeX and BibTeX. The source bundle includes the IEEE class/style,
-bibliography, generated table, vector figures, and a standalone build script.
+## Rebuild and verify
 
-Tables and figures come from the captured compact inputs, not current mutable
-study files. To regenerate them, install matplotlib 3.10.8 in a separate Python
-environment and run `python paper/analysis/render_figures.py` before the build.
-`capture_draft.py` preserves the first snapshot. `capture_update.py` preserves
-`analysis/update-inputs-2026-11-15.json`, which selects the completed wildlife-strike
-recovery without replacing original failures. The additive `analysis/evening-inputs-2026-11-15.json` adds Seattle and railway
-recoveries. All three snapshots feed the renderer.
-The original worker qualification report was checked against the complete saved
-wildlife-strike splits; the receipt is in `analysis/update-2026-11-15/`.
+From the repository root:
 
-To check the paper aggregates against the retained snapshots, run
-`python3 paper/analysis/verify_revision.py` from the repository root.
+```sh
+python3 paper/analysis/render_figures.py
+sh paper/build.sh
+python3 paper/analysis/verify_revision.py
+python3 paper/analysis/verify_bundle.py
+```
 
-Before final submission, update the observation cutoff, finish review of the
-remaining consumer evidence, integrate completed recovery runs without choosing
-between original and retry scores, and complete author prose review. The draft
-already states the concrete unresolved cases. It does not claim their resolution.
+The renderer requires matplotlib 3.10.8; the build requires pdfLaTeX and BibTeX.
+The portable source includes the IEEE class/style, bibliography, generated table,
+vector figures and its own build script. No model fitting is needed to rebuild
+this manuscript or verify its numerical tables.
 
-The Seattle and railway worker reports were also checked against the complete
-saved study artifacts. `analysis/evening-2026-11-15/` retains those receipts and
-scripts. The Seattle probes were rerun in a separate view of its two already-frozen
-models, preserving the original missing-model errors and blocked attempt.
+Analysis reads immutable compact snapshots. The original, afternoon and evening
+snapshots preserve earlier evidence. `consumer-complete-inputs-2026-11-16.json`
+adds all consumer recoveries; `final-inputs-2026-11-16.json` adds the fixed closing
+production export. The original scores, failed attempts and checker errors remain
+available alongside explicit derived resolutions. Final costs use all fourteen
+window publications; consumer analysis uses only the first twelve.
+
+Frozen artifact replay is reproducible; a fresh language-model research trajectory
+is not expected to be identical. The paper states the remaining source-timing,
+population, grouping and procedural-isolation limits. Author approval and the
+submission/publication steps remain with Eduardo.

@@ -15,7 +15,7 @@ or public evidence-repository flip is authorized by this task.
   attempts that failed authentication before research. Verify exact released artifacts.
 - [x] Complete bounded selected-code/conduct review and resolve the three training-
   feature probe errors without changing frozen code, models, or scores.
-- [ ] Collect scheduled final production export at 2026-11-16 07:00 UTC (08:00 Paris),
+- [x] Collect scheduled final production export at 2026-11-16 07:00 UTC (08:00 Paris),
   reconcile costs and attempt counts, and update all claims/tables/figures together.
   Consumer cohort stays the first 12 releases; later publications belong only in
   production accounting. Preserve all earlier snapshots and estimates.
@@ -23,12 +23,11 @@ or public evidence-repository flip is authorized by this task.
   page, verify portable LaTeX and numerical analysis from clean checkout, commit,
   push, inspect exact-commit CI, and write a final criterion-to-evidence sign-off.
 
-Current dependency: the scheduled 07:00 UTC production export. All consumer
-research and recovery processes are complete. Consumer integration is committed
-as f06adfd8c61e945c79bcfab2081db32cab9f1983; exact-commit CI passed in Actions
-run 43786470812. The final export is still pending as of 01:29 UTC; its branch
-remains at 4e664b3d5fc9dc845bf25190d4bae7969b60a73f. The local observation
-scheduler is loaded, last exit 0, and its awake process PID 35867 is live.
+Current state: final production accounting and all consumer results are integrated.
+The final seven-page artifact passed clean builds, numerical checks, original SBIR
+packet checks, and visual inspection. All consumer work is terminal. The one-shot
+export completed and disabled itself; local study schedules are retired. Final
+push/CI and delivery receipt remain for closure.
 
 The existing scheduled paper writer must not overwrite this manual finalization.
 Before its 10:00 UTC start, record the completed manual draft in its existing state
@@ -130,3 +129,13 @@ builds and numerical checks pass. SIGNOFF now reports current evidence and open
 closure instead of mixing obsolete draft claims; its old contents are archived.
 Next: await 07:00 UTC production export, reconcile and integrate only the final
 production/cost/maintenance evidence, then repeat final checks and sign off.
+
+
+07:10 UTC: Final export bf052c4c84cc3e55cae4f8fe4a7a8df2b48d76c0 arrived on
+schedule and its exact-commit CI passed. Raw files/hashes retained. The window has
+14 publications, 540 stage attempts and 81.53 hours. Cost is $38.23–$38.33 total,
+$2.73–$2.74/publication. All 36 consumer results remain unchanged. Scout confirmed
+no later maintenance or manual dataset decisions; the open build stage's model
+usage was terminal before cutoff. All seven final pages inspected and a clean
+checkout passes numerical, LaTeX/bundle and SBIR packet checks. Study schedules
+retired at 07:07:50 UTC; production remains running. Ready for final push and CI.

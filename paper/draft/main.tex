@@ -13,7 +13,7 @@
 \bstctlcite{IEEEexample:BSTcontrol}
 \maketitle
 \begin{abstract}
-Building prediction benchmarks from public data requires finding suitable sources, defining meaningful tasks, and producing files that others can use. We built Dataset Factory to carry out this process continuously, from source discovery to public release. Language models interpret sources and generate construction code; deterministic software manages execution, retries, and publication under a standing release policy. We examined the deployed system through operating records, prediction experiments, and source reviews. Over a 65-hour accounting window, the factory published 11 datasets at an estimated recurring operating cost of \$28. This estimate includes failed production attempts, worker servers, and hosting, but excludes development and human labor. Separate agents trained three XGBoost models for each of twelve releases. On eleven, all three models had higher held-out scores than the untuned reference; gains over tuned random search were less consistent. Source review also found that one dataset's selection rules contradicted its stated population. This deployment shows that an automated factory can deliver datasets for prediction experiments at low recurring cost, while task-definition errors can survive its publication checks.
+Building prediction benchmarks from public data requires finding suitable sources, defining meaningful tasks, and producing files that others can use. We built Dataset Factory to carry out this process continuously, from source discovery to public release. Language models interpret sources and generate construction code; deterministic software manages execution, retries, and publication under a standing release policy. We examined the deployed system through operating records, prediction experiments, and source reviews. Over an 82-hour accounting window, the factory published 14 datasets at an estimated recurring operating cost of \$38. This estimate includes failed production attempts, worker servers, and hosting, but excludes development and human labor. Separate agents trained three XGBoost models for each of twelve releases. On eleven, all three models had higher held-out scores than the untuned reference; gains over tuned random search were less consistent. Source review also found that one dataset's selection rules contradicted its stated population. This deployment shows that an automated factory can deliver datasets for prediction experiments at low recurring cost, while task-definition errors can survive its publication checks.
 
 \end{abstract}
 \begin{IEEEkeywords}agentic engineering, dataset construction, prediction benchmarks, operating cost, empirical evaluation\end{IEEEkeywords}
@@ -51,16 +51,16 @@ A manifest records the accepted files and their checksums. Publication transfers
 
 \section{Observation and Evaluation Method}
 \subsection{Production record and cohort}
-Production accounting covers 12 November 2026 at 21:28 UTC through 15 November at 14:24 UTC (64.93 hours); consumer experiments completed on 16 November at 01:21 UTC. A read-only export retains candidates, attempts, resource usage, and publication identities. Public snapshots supplement the ledger. Maintenance records distinguish service administration from manual changes to datasets, sources, labels, or acceptance decisions; none of the latter were recorded.
+Production accounting covers 12 November 2026 at 21:28 UTC through 16 November at 07:00 UTC (81.53 hours); consumer experiments completed on 16 November at 01:21 UTC. A read-only export retains candidates, attempts, resource usage, and publication identities. Public snapshots supplement the ledger. Maintenance records distinguish service administration from manual changes to datasets, sources, labels, or acceptance decisions; none of the latter were recorded.
 
 An admitted record starts as a search slot, not necessarily a distinct source. We therefore count completed milestones by candidate and repeated work by attempt. These counts describe continuing operation rather than a completed-cohort success rate.
 
-The consumer cohort comprises the first 12 new releases in publication-verification order, excluding seven earlier pilot releases. Selection does not depend on domain or model performance. The first accepted version is pinned, and failures remain in the cohort. Eleven releases appeared within the accounting window; the twelfth, drinking-water lead, appeared afterward and is excluded from the cost denominator. Discovery continues without consumer feedback to selection or acceptance.
+The consumer cohort comprises the first 12 new releases in publication-verification order, excluding seven earlier pilot releases. Selection does not depend on domain or model performance. The first accepted version is pinned, and failures remain in the cohort. Fourteen releases appeared within the accounting window; all enter production accounting, while the first twelve form the consumer cohort. Discovery continues without consumer feedback to selection or acceptance.
 
 \subsection{Cost accounting}
 We estimate recurring production expenditure from recorded inference usage, temporary workers, and allocated hosting. Dated provider rates distinguish token categories and peak/off-peak timing; all-peak pricing provides a sensitivity check. Earlier Nous-routed inference is valued at direct DeepSeek rates. Hosting is allocated from a \$20 monthly plan. These are resource-based estimates, not reconciled invoices; rates and calculation details are retained in the evidence.
 
-The estimate includes unsuccessful production attempts and resource use from sessions or workers crossing the starting boundary. Dividing expenditure by the 11 publications verified within the window gives an operating ratio, not the lifetime construction cost of each dataset.
+The estimate includes unsuccessful production attempts and resource use from sessions or workers crossing the starting boundary. Dividing expenditure by the 14 publications verified within the window gives an operating ratio, not the lifetime construction cost of each dataset.
 
 The estimate excludes development, author and operator labor, paper preparation, upstream data collection, and unmetered external services. The separate Claude consumer experiment is evaluation expenditure, not factory production. Correction and expert-review effort are unmeasured, so this is not cost per validated useful benchmark. We have no matched human-construction experiment or measured labor-saving ratio.
 
@@ -82,19 +82,19 @@ Artifact probes check row-order and batch-size invariance, external activity dur
 
 \section{Results}
 \subsection{Operation: production across sources}
-The window contains 394 started stage attempts. Forty-one candidates completed discovery, 14 a build, and 11 acceptance and publication. Repeated work included 76 discovery retries, 184 build retries, and 14 semantic repair outcomes (Fig.~\ref{fig:operations}). Retries can include waiting or reconciliation; these are attempt counts, not counts of unique defects. Other candidates remained deferred, rejected, or active.
+The window contains 540 started stage attempts. Fifty-four candidates completed discovery, 18 a build, and 14 acceptance and publication. Repeated work included 101 discovery retries, 260 build retries, and 21 semantic repair outcomes (Fig.~\ref{fig:operations}). Retries can include waiting or reconciliation; these are attempt counts, not counts of unique defects. Other candidates remained deferred, rejected, or active.
 
-For the eleven releases in the accounting window, admission-to-publication time ranged from 40 to 189 minutes, with a median of 106. This excludes unsuccessful candidates and their waiting time. A worker-budget accounting error stopped construction after workers were deleted; a repair restored it.
+For the fourteen releases in the accounting window, admission-to-publication time ranged from 40 to 231 minutes, with a median of 109. This excludes unsuccessful candidates and their waiting time. A worker-budget accounting error stopped construction after workers were deleted; a repair restored it.
 
 \begin{figure*}[t]
 \centering\includegraphics[width=\textwidth]{operations.pdf}
-\caption{Interim production accounting, 12--15 November: (a) estimated recurring cost, with inference shown at the midpoint of its tariff range; (b) stage attempts, including retries.}
+\caption{Production accounting, 12--16 November: (a) estimated recurring cost, with inference shown at the midpoint of its tariff range; (b) stage attempts, including retries.}
 \label{fig:operations}
 \end{figure*}
 
 
 \subsection{Operation: recurring expenditure}
-Estimated recurring expenditure was \$27.84--\$27.94 over 64.93 hours, or \$2.53--\$2.54 per publication. Figure~\ref{fig:operations} gives the inference, worker, and hosting components. All-peak inference pricing raises the ratio to \$3.57. The estimate includes unsuccessful work and public delivery, with the exclusions in Section III.
+Estimated recurring expenditure was \$38.23--\$38.33 over 81.53 hours, or \$2.73--\$2.74 per publication. Figure~\ref{fig:operations} gives the inference, worker, and hosting components. All-peak inference pricing raises the ratio to \$3.92. The estimate includes unsuccessful work and public delivery, with the exclusions in Section III.
 
 \subsection{Use: independent experiments and modeling headroom}
 Consumers produced 36 scored models across twelve datasets, three per dataset (Table~\ref{tab:scores}). The record contains 49 attempts: 36 scored, twelve stopped at provider access failures, and one stopped on a non-blocking task concern. Fresh sessions recovered the failed and stopped attempts; their original records remain available.
@@ -140,8 +140,8 @@ These practices follow from observed failures and recoveries; their effectivenes
 \toprule
 Risk & Design response & Evidence in this deployment \\\midrule
 Stale resource reservations block execution. & Reconcile reservations with actual worker state; preserve stage state for resumption. & Reservations persisted after worker deletion. An accounting repair restored construction (Section IV-A). \\\addlinespace
-Release totals hide repeated work. & Retain attempt-level outcomes; report attempts alongside completed outputs. & The window contained 394 stage attempts and 11 publications; 76 discovery and 184 build attempts were retries (Section IV-A). \\\addlinespace
-Executable artifacts violate task meaning. & Supply the full population and selection contract; match each filter to it. Assess consumer use separately from source validity. & Consumers used twelve tasks; semantic review recorded 14 repair outcomes, yet the SBIR population mismatch survived acceptance (Section IV). \\\addlinespace
+Release totals hide repeated work. & Retain attempt-level outcomes; report attempts alongside completed outputs. & The window contained 540 stage attempts and 14 publications; 101 discovery and 260 build attempts were retries (Section IV-A). \\\addlinespace
+Executable artifacts violate task meaning. & Supply the full population and selection contract; match each filter to it. Assess consumer use separately from source validity. & Consumers used twelve tasks; semantic review recorded 21 repair outcomes, yet the SBIR population mismatch survived acceptance (Section IV). \\\addlinespace
 Feature validity depends on scoring access. & Specify accessible rows and outcomes in the scoring contract. & Future rows can expose earlier labels through wastewater's prior-year predictor; scoring here supplies one row at a time (Section IV-D). \\\bottomrule
 \end{tabularx}
 \end{minipage}

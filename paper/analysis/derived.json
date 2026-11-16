@@ -1,32 +1,32 @@
 {
-  "stage_attempts": 394,
+  "stage_attempts": 540,
   "stage_status_counts": {
     "discover": {
-      "done": 41,
-      "retry": 76,
+      "done": 54,
+      "retry": 101,
       "repair": 0,
-      "defer": 20,
+      "defer": 30,
       "reject": 0,
       "running": 0
     },
     "build": {
-      "done": 27,
-      "retry": 184,
+      "done": 37,
+      "retry": 260,
       "repair": 0,
       "defer": 1,
       "reject": 0,
-      "running": 2
+      "running": 1
     },
     "evaluate": {
-      "done": 11,
+      "done": 14,
       "retry": 4,
-      "repair": 14,
+      "repair": 21,
       "defer": 0,
       "reject": 2,
       "running": 0
     },
     "publish": {
-      "done": 11,
+      "done": 14,
       "retry": 1,
       "repair": 0,
       "defer": 0,
@@ -35,15 +35,15 @@
     }
   },
   "unique_done_candidates": {
-    "discover": 41,
-    "build": 14,
-    "evaluate": 11,
-    "publish": 11
+    "discover": 54,
+    "build": 18,
+    "evaluate": 14,
+    "publish": 14
   },
   "publication_latency_minutes": {
     "min": 40.313263166666665,
-    "median": 106.2903345,
-    "max": 189.2361460333333
+    "median": 108.77065580833334,
+    "max": 231.22633425
   },
   "selected_consumer_outcomes": {
     "frozen": 36
@@ -67,17 +67,17 @@
     "sdwis-lcr-lead-action-level-next-period": "sdwis-lcr-lead-action-level-next-period"
   },
   "published_cohort_size": 12,
-  "production_publications": 11,
+  "production_publications": 14,
   "artifact_probes": 36,
   "training_probe_errors": [],
   "cost": {
     "total": [
-      27.835795635098766,
-      27.944072241098766
+      38.2266659901605,
+      38.33494259616049
     ],
     "per_release": [
-      2.5305268759180697,
-      2.5403702037362517
+      2.730476142154321,
+      2.738210185440035
     ]
   }
 }

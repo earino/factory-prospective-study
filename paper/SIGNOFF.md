@@ -1,9 +1,9 @@
 # Current paper evidence and verification — 16 November 2026
 
-The seven-page draft includes all twelve consumer datasets and 36 scored models.
-Consumer evaluation and selected-code review are complete. **Production accounting
-still ends at 15 November, 14:24 UTC. Final sign-off remains open until the
-scheduled 16 November, 07:00 UTC production export is reconciled and integrated.**
+The seven-page manuscript includes the fixed closing production export, all twelve
+consumer datasets and 36 scored models. Numerical checks, exact-artifact receipts,
+source reconstruction, bounded code/conduct review, clean LaTeX builds and all-page
+visual inspection are complete. Final commit CI is recorded in the delivery receipt.
 The paper has not been submitted, and the evidence repository remains private.
 
 Earlier draft records are preserved in
@@ -15,14 +15,25 @@ Earlier draft records are preserved in
   and the maintenance inventory distinguish two generic service changes—inference
   routing and worker-reservation accounting—from dataset decisions. No manual
   source, label, candidate-state or acceptance change was recorded in the inspected
-  window. See [the SBIR and maintenance audit](analysis/final-2026-11-16/SBIR-ACCEPTANCE-AUDIT.md).
-  Reconcile any later service events with the final export.
-- **11 publications, 394 stage attempts, and recurring cost of $27.84–$27.94.**
-  These remain the measured 64.93-hour window, not the final observation window.
-  [Cost evidence](../evidence/costs/2026-11-15/REPORT.md) includes failed production
+  window. See [the SBIR and maintenance audit](analysis/final-2026-11-16/SBIR-ACCEPTANCE-AUDIT.md)
+  and [final readback](../evidence/costs/2026-11-16/inputs/final-readback.json).
+  The final export retains the same two changes and deployed production head.
+- **14 publications, 540 stage attempts, and recurring cost of $38.23–$38.33.**
+  The final 81.53-hour window ends at 16 November, 07:00 UTC.
+  [Cost evidence](../evidence/costs/2026-11-16/REPORT.md) includes failed production
   attempts, temporary workers and allocated hosting. It excludes development,
-  labor and independent consumer evaluation. The $2.53–$2.54 publication ratio is
+  labor and independent consumer evaluation. The $2.73–$2.74 publication ratio is
   not cost per validated useful benchmark or a measured saving over human work.
+  [The final snapshot](analysis/final-inputs-2026-11-16.json) retains the raw closing
+  export at factory commit `bf052c4c84cc3e55cae4f8fe4a7a8df2b48d76c0`, all fourteen
+  production identities, and the separate first-twelve consumer cohort. Five
+  missing usage rows are confirmed pre-generation failures; the sole open stage's
+  model counters had finished before cutoff. No unresolved usage was assumed zero.
+- **Operational results.** Attempt records support 54/18/14/14 distinct completed
+  discovery/build/acceptance/publication milestones, 101 discovery retries,
+  260 build retries and 21 semantic repairs. Successful-release latency is
+  40–231 minutes, median 109. These are continuing-system observations, not a
+  completed-candidate yield estimate. Figure 2 and the text share these records.
 - **Twelve datasets, 36 scored models, 49 physical research attempts.**
   [The completed consumer snapshot](analysis/consumer-complete-inputs-2026-11-16.json)
   retains original and recovery summaries, pins, and report hashes. The record
@@ -69,22 +80,30 @@ Earlier draft records are preserved in
 [QA.json](output/QA.json) records the PDF/source hashes, seven-page count, embedded
 fonts, absence of overfull boxes or unresolved references, and matching text from
 a clean portable-source build. All seven rendered pages were inspected after the
-consumer update. [The clean-checkout receipt](analysis/final-2026-11-16/consumer-complete-clean-check.json)
-records an independent checkout build and numerical verification. Earlier evidence
+final production update. [The final clean-checkout receipt](analysis/final-2026-11-16/final-clean-check.json)
+records an independent checkout build, numerical verification and original SBIR
+packet checks. [Claim checks](analysis/final-2026-11-16/manuscript-claim-checks.json)
+match the final manuscript to the numerical record and screen obsolete wording. Earlier evidence
 snapshots retain their original hashes.
 
 The current PDF is [paper.pdf](output/paper.pdf); the portable source is
-[paper-source.zip](output/paper-source.zip). Exact-commit CI is checked after push.
+[paper-source.zip](output/paper-source.zip). The delivery receipt links the exact
+pushed artifact commit and its CI result.
 
-## Remaining closure and genuine limits
+## Scope closure and genuine limits
 
-Integrate the scheduled final production export, recalculate costs, reconcile
-later service events and update all production counts and dates. Repeat numerical,
-clean-build and page checks on that final artifact; then record its commit and CI.
+The consumer cohort is closed and complete. The one-shot Scout export completed
+and disabled itself with no next run. The local study monitor and awake schedules
+were archived and unloaded through their existing retirement procedure; see
+[monitor-stop.json](../evidence/monitor-stop.json). Factory production continues.
+No consumer findings were sent back to production and no dataset was changed.
+No further experiment or implementation is required for this manuscript.
 
-The consumer cohort is closed and complete. No additional consumer experiment is
-needed. PHMSA penalties lack an operator grouping, so their differences have no
-intervals. Other grouping and historical-timing limits, the SBIR population
-mismatch, and wastewater's scoring-access dependence remain explicit. We do not
-claim general factory reliability, universal benchmark validity, total economic
-cost, or technically enforced consumer isolation.
+PHMSA penalties lack an operator grouping, so their differences have no intervals.
+Other grouping and historical-timing limits, the SBIR population mismatch, and
+wastewater's scoring-access dependence remain explicit. We do not claim general
+factory reliability, universal benchmark validity, total economic cost, or
+technically enforced consumer isolation. These are reported scientific limits,
+not unresolved implementation tasks hidden by the sign-off.
+
+Eduardo retains author approval and the submission/evidence-publication steps.

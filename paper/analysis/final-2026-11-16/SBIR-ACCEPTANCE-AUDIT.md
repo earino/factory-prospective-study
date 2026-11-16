@@ -95,5 +95,11 @@ or published artifacts. Scout reports no manual candidate or acceptance changes.
 
 These records support describing automated dataset production with service
 maintenance. They do not justify counting paper review or study administration
-as human assistance to the factory. The final export must still be checked for
-events after this inventory's 15 November 22:23 UTC collection time.
+as human assistance to the factory. The final 07:00 UTC export at commit
+`bf052c4c84cc3e55cae4f8fe4a7a8df2b48d76c0` retains the same two-commit inventory
+and deployed head. Scout's 07:02 UTC read-only check confirms no additional
+service/configuration or manual dataset/source/label/acceptance/candidate-state
+changes after 22:23 UTC. The readback is retained in
+`evidence/costs/2026-11-16/inputs/final-readback.json`. The original export's
+`repairs.md` contains a stale 'none' sentence; its two-commit inventory and the
+inspected patches establish the two service changes instead.
