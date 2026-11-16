@@ -7,13 +7,13 @@ or public evidence-repository flip is authorized by this task.
 - [x] Reconstruct original SBIR acceptance input/response and explain the observed
   failure mechanism, distinguishing evidence from inference. Scout exports records;
   Codex performs the analysis. No consumer finding is sent back to production.
-- [ ] Separate service administration from human dataset selection/construction/
+- [x] Separate service administration from human dataset selection/construction/
   acceptance. Use the maintenance inventory; do not infer interventions from general
   development activity or count independent evaluation as factory assistance.
-- [ ] Integrate completed drinking-water results and the single Seattle r1 retry,
+- [x] Integrate completed drinking-water results and the single Seattle r1 retry,
   keeping original failures and Seattle r2/r3. Also recover the three utility
   attempts that failed authentication before research. Verify exact released artifacts.
-- [ ] Complete bounded selected-code/conduct review and resolve the three training-
+- [x] Complete bounded selected-code/conduct review and resolve the three training-
   feature probe errors without changing frozen code, models, or scores.
 - [ ] Collect scheduled final production export at 2026-11-16 07:00 UTC (08:00 Paris),
   reconcile costs and attempt counts, and update all claims/tables/figures together.
@@ -23,9 +23,12 @@ or public evidence-repository flip is authorized by this task.
   page, verify portable LaTeX and numerical analysis from clean checkout, commit,
   push, inspect exact-commit CI, and write a final criterion-to-evidence sign-off.
 
-Current dependencies: Seattle driver PID 32727 / runner 37719 live at 22:20 UTC;
-85-minute research started about 21:54 UTC. Scout evidence request sent as a normal
-Telegram message at 22:22 UTC. Final export schedule remains unchanged.
+Current dependency: the scheduled 07:00 UTC production export. All consumer
+research and recovery processes are complete. Consumer integration is committed
+as f06adfd8c61e945c79bcfab2081db32cab9f1983; exact-commit CI passed in Actions
+run 43786470812. The final export is still pending as of 01:29 UTC; its branch
+remains at 4e664b3d5fc9dc845bf25190d4bae7969b60a73f. The local observation
+scheduler is loaded, last exit 0, and its awake process PID 35867 is live.
 
 The existing scheduled paper writer must not overwrite this manual finalization.
 Before its 10:00 UTC start, record the completed manual draft in its existing state
