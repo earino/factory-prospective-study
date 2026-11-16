@@ -1,41 +1,45 @@
-# Dataset Factory prospective study
+# Dataset Factory: deployment study and evidence
 
-Paper-ready target: **16 November 2026, afternoon Europe/Paris**.
-Protocol: [PROTOCOL.md](PROTOCOL.md). Machine dates/settings: [protocol.json](protocol.json).
+This repository accompanies **Operating an Agent-Driven Dataset Factory: Discovery,
+Construction, and Public Release**, an AGENT 2027 short experience paper. It contains
+an 81.53-hour production record with 14 public releases and separate prediction
+experiments on the first 12 releases. The repository is being prepared for public
+release at submission; it is currently private.
 
-**Current paper direction (agreed 15 November):**
-[From Public Data to Prediction Benchmarks](paper/PAPER-DIRECTION.md).
-Center the complete factory, production cost and reliability, and independent
-usefulness of its outputs. This supersedes earlier editorial outlines; the study
-protocol and experiments remain unchanged. The scheduled writer reads this direction.
+- [Read the five-page paper](paper-agent27-short/output/paper.pdf).
+- [Download the portable LaTeX source](paper-agent27-short/output/paper-source.zip).
+- [Find the evidence for each result](EVIDENCE.md), including the original SBIR
+  acceptance packet, consumer programs, transcripts, and frozen models.
+- [Check release preparation](paper-agent27-short/RELEASE-CHECK.md).
 
-A local LaunchAgent polls the public factory dashboard, records all candidates,
-and dispatches the first 12 new releases to three 85-minute Fable 5.2 consumer
-attempts each. Each dataset gets a separate local Git study and private evidence
-branch. No more than three consumer attempts run concurrently. Existing seven
-releases are excluded pilot material. The cohort closes 16 November at 08:00 Paris.
+The public [factory implementation](https://github.com/earino/dataset-factory) is
+separate from this study. Production decisions and consumer experiments are
+separate records. A completed experiment establishes execution under the stated
+predictor contract; it does not by itself establish task validity.
 
-`python3 controller.py status` reads state. `collect` only collects; `tick` runs the
-scheduled orchestration. `run_study.py self-test` tests the inherited runner.
-The LaunchAgent requires this Mac to stay awake, signed in, connected and able to
-use authenticated Claude Code and GitHub. Missed polls resume at login; they are
-not retroactive observations. Local logs and workspaces live in `.local/`.
+## Rebuild the paper
 
-The controller schedules a bounded analysis/writing run on November 16 and retains
-its output for author review. Scheduling is not proof of a finished or correct
-paper. `STATUS.md`, evidence and paper/SIGNOFF.md distinguish actual outcomes.
-Nothing is automatically submitted or made public.
+From a checkout, with `pdflatex` and `bibtex` installed:
 
-Install once with `python3 install_monitor.py`. The monitor checks every five
-minutes and captures a dashboard observation every thirty minutes. A separate
-`caffeinate -i` assertion prevents idle sleep through November 16 at 16:00 Paris;
-it does not prevent manual sleep, shutdown or logout. Both jobs are scoped to
-this study. To stop future scheduling, use `launchctl bootout gui/$(id -u)/org.earino.factory-prospective-study`
-and the same command with `.awake` appended. At November 16 16:00 Paris, the next five-minute tick archives both owned
-LaunchAgent plists and unloads them. If the Mac is asleep or logged out, cleanup
-runs on the first tick after it returns. Evidence and study files remain intact.
-Stopping scheduling manually does not interrupt an experiment already running;
-those processes have their own registered deadlines.
+```sh
+sh paper-agent27-short/build.sh
+```
 
-The November 15 deadline amendment preserves the original protocol and the
-then-observed cohort in `evidence/protocol-amendments/2026-11-15-deadline.json`.
+The portable source archive builds without the study data or Python. The source
+figures and their numeric inputs are in `paper-agent27-short/scripts/` and
+`paper-agent27-short/analysis/`. The [verification receipt](paper-agent27-short/SIGNOFF.md)
+records the build, figure, source-identity, and evidence checks.
+
+## Reproduce the study
+
+[PROTOCOL.md](PROTOCOL.md) and [protocol.json](protocol.json) define the experiments;
+[agent.md](agent.md) and `run_study.py` define the consumer runner. The
+[frozen input snapshot](paper/analysis/final-inputs-2026-11-16.json) selects the
+reported records, including retries. [EVIDENCE.md](EVIDENCE.md) links to each
+consumer evidence commit, which carries the full experiment files beyond the
+compact summaries on `main`.
+
+The longer manuscript and analyses remain in `paper/`; the five-page submission
+is in `paper-agent27-short/`. [Monitor operations](MONITOR-OPERATIONS.md) preserves
+the collection schedule and local operation instructions. Collection and analysis
+commands can launch work; building the paper does not.

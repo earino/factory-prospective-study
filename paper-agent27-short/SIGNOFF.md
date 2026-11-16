@@ -29,7 +29,7 @@ writing task, not conference submission or an assurance of acceptance.
   from the untested missing-declaration counterfactual and proposed remedy.
 - Wastewater: conditional scoring access is distinguished from observed leakage.
 - Engineering lessons separate demonstrated recovery from proposed controls.
-- Related work: sixteen citations drawn from the verified literature record;
+- Related work: seventeen citations drawn from the verified literature record;
   no efficiency ranking across different accounting boundaries.
 - Prose inspected for writing-process commentary, scope inflation and repeated
   qualifications; the manuscript states the final study and findings directly.
@@ -69,3 +69,18 @@ carrier-code condition is partly stated. SBIR is explicitly marked as conflictin
 statements; the timing concern has a separate partial-disclosure judgment. The
 PDF remains five pages after moving disclosure into its own column and preserving
 the latency range and median in prose. All original longer-paper hashes still match.
+
+## Submission preparation — 16 November 2026
+
+The final short version names Hermes Agent, explains the work allocation, and
+cites *Identical Runs, Different Results* in the repeated-run method. All seventeen
+cited records and the recorded model identifiers were checked; access exceptions
+are listed in `analysis/reference-check.json`. The root README and EVIDENCE.md
+now lead to the final paper and the original SBIR packet. Authenticated remote
+Git checks matched all 1,957 integrity-listed consumer files across 17 retained
+commits. Anonymous evidence access remains a submission-release check while the
+repository is private. No public flip or conference submission occurred.
+
+The final PDF remains five pages. A fresh portable-source build matched its text;
+the modified record verifier passed in a separate checkout. All five pages were
+visually checked, fonts are embedded, and the 310 longer-paper files are unchanged.

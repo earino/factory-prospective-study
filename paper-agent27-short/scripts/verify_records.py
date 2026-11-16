@@ -113,7 +113,8 @@ for banned in ['presentation emphasis','we now focus','later paper','interim res
  assert banned.lower() not in tex.lower(), banned
 citations=set()
 for c in re.findall(r'\\cite\{([^}]+)\}',tex): citations.update(c.split(','))
-assert len(citations)==16
+assert len(citations)==17
+assert 'identical-runs' in citations
 performance=read('paper-agent27-short/analysis/consumer-results.json')
 assert sha(ROOT/performance['snapshot'])==performance['snapshot_sha256']
 assert sha(ROOT/performance['qualification_coverage'])==performance['qualification_coverage_sha256']

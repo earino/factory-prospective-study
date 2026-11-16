@@ -1,9 +1,9 @@
 {
   "pages": 5,
-  "pdf_sha256": "24ec9a7b71e4c2cd87bc200c8d6691812f58f96e09ea04fdaaf000073ecb63cd",
-  "source_zip_sha256": "01785bce9e0a9e413c288eecda452a476e8f7159e680b5557914694195fd2b60",
-  "manuscript_sha256": "577eb9fe7c0febd2e61bbfbc22bcfcfa65421b2b6ebc014eb38da86f43e94bf7",
-  "clean_build_directory": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/factory-display-polish-sv7nmrod/paper-agent27-short",
+  "pdf_sha256": "79c8dbbc1a3a252e28b8f7c760e0193fea962c4a3d7574eb7e689c0dd33bcae8",
+  "source_zip_sha256": "22845c4327418635f277279d6eaebde8fc10dcc7706592bf0cd5ca184a10b33f",
+  "manuscript_sha256": "3e3233a5405134b591dafc56330d18aad6d24b9b63b208a269e05c3e514784d4",
+  "clean_build_directory": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/factory-submission-check-wx7p17q2/paper-agent27-short",
   "clean_build_exit": 0,
   "portable_build_pdf_text_matches": true,
   "no_overfull_or_unresolved_references": true,
@@ -16,9 +16,9 @@
       4,
       5
     ],
-    "result": "Page 1 unchanged from inspected version. Pages 2\u20135 inspected after display polish; all three figures inspected in grayscale. Exact task labels/order match Table I. No clipping, overlapping labels, overfull boxes, or unresolved references; five pages with unchanged manuscript fonts."
+    "result": "All five final pages inspected after design rationale, prior-paper citation and Hermes runtime additions. Figures remain unchanged and readable; no clipping, overlapping labels or unresolved references. Five pages with standard manuscript fonts."
   },
-  "record_checks_sha256": "42bc58642301cb1de0880f871a7157db803c6164e58a51cdbff4cfe16361c926",
+  "record_checks_sha256": "c67dd1d7466b6b3c591c673d1e78ebca994a45339d6c52ba9fb27cd71c0405ca",
   "disclosure_review_sha256": "e8eaddb3fff30ac3786888559bcd88b55b04e7adb240a5fc6ec40a31d96f32e1",
   "long_paper_files_preserved": 310,
   "workflow": {
@@ -52,7 +52,7 @@
       "mixed_tasks": 2,
       "all_control_higher_tasks": 1
     },
-    "clean_checkout": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/factory-display-polish-sv7nmrod/record-checkout",
+    "clean_checkout": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/factory-submission-check-wx7p17q2/record-checkout",
     "clean_check_exit": 0,
     "historical_ignored_paper_artifacts_restored_for_preservation_checks": 161,
     "layout": "Two aligned panels, one per reference; common axis limits and zero, one median/range per task per panel.",
@@ -71,5 +71,14 @@
     "workflow": 1,
     "costs": 2,
     "consumer": 3
+  },
+  "submission_preparation": {
+    "cited_references": 17,
+    "prior_paper_citation": "identical-runs",
+    "hermes_runtime_named": true,
+    "evidence_consumer_commits_checked": 17,
+    "evidence_files_checked": 1957,
+    "repository_public": false,
+    "conference_submitted": false
   }
 }

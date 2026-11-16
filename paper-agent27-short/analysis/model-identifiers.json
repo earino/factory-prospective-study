@@ -1,0 +1,438 @@
+{
+  "production_usage_source": "evidence/costs/2026-11-16/inputs/model_usage.json",
+  "production_recorded_routes": [
+    {
+      "provider": "nous",
+      "model": "deepseek/deepseek-v4.1-flash-1017",
+      "task_records": 690
+    },
+    {
+      "provider": "ollama-cloud",
+      "model": "deepseek-v4.1-flash",
+      "task_records": 888
+    }
+  ],
+  "consumer_protocol_requested_model": "claude-fable-5-2",
+  "consumer_archived_states": [
+    {
+      "study": "caa-fce-hpv-escalation",
+      "run": "caa-fce-hpv-escalation--r1",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "4f689569f6a67bbc9973acffbf81070003d4e3c189465694892ff1d53b4800f4"
+    },
+    {
+      "study": "caa-fce-hpv-escalation",
+      "run": "caa-fce-hpv-escalation--r2",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "695afdc2666a89ae25c4203576d596ceb9beff5bf8605a51f6e9f58824326b1e"
+    },
+    {
+      "study": "caa-fce-hpv-escalation",
+      "run": "caa-fce-hpv-escalation--r3",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "310ba58385e680b281ec714656d5ae4b88ab7c7251336a083f934e08fc3e7603"
+    },
+    {
+      "study": "eia861-reliability-deterioration",
+      "run": "eia861-reliability-deterioration--r1",
+      "models": [
+        "<synthetic>",
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "9801656eb6c886b82c0b3cd4d3b12ce0be6ee280bafb5b6497647a5ac7140421"
+    },
+    {
+      "study": "eia861-reliability-deterioration",
+      "run": "eia861-reliability-deterioration--r2",
+      "models": [
+        "<synthetic>",
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "9767e1fc4f3de886c0f02da7c47d55a480c2c7a296a4eea7de9ad0935101cbd5"
+    },
+    {
+      "study": "eia861-reliability-deterioration",
+      "run": "eia861-reliability-deterioration--r3",
+      "models": [
+        "<synthetic>",
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "b51bb315c3b43c9d502238162005c18911378328a6ccc4c05fda1c37d2e751cf"
+    },
+    {
+      "study": "eia861-reliability-deterioration-retry-1",
+      "run": "eia861-reliability-deterioration--r1",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "40c1b5df17019a4a4d093534e63a2a46bb46f9ea51b1225e70d6dc38e78bd833"
+    },
+    {
+      "study": "eia861-reliability-deterioration-retry-1",
+      "run": "eia861-reliability-deterioration--r2",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "c164b4a4b21ec91f8ff054a554c42f9d958e567752effebc532f35ca31e54eb4"
+    },
+    {
+      "study": "eia861-reliability-deterioration-retry-1",
+      "run": "eia861-reliability-deterioration--r3",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "08c03be8fb8b80944f575e442775f79b1f5ca1fcf0315e91f20dde339fa64a51"
+    },
+    {
+      "study": "faa-wildlife-strike-substantial-damage",
+      "run": "faa-wildlife-strike-substantial-damage--r1",
+      "models": [
+        "<synthetic>",
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "cc5664c420f5f4b49009ebf7c0afee9968773177c054a0597aab68e32430d65c"
+    },
+    {
+      "study": "faa-wildlife-strike-substantial-damage",
+      "run": "faa-wildlife-strike-substantial-damage--r2",
+      "models": [
+        "<synthetic>",
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "5a874594890ce0057d4aedbfe2e3739285bc94e7c3c93b013360614342171bd4"
+    },
+    {
+      "study": "faa-wildlife-strike-substantial-damage",
+      "run": "faa-wildlife-strike-substantial-damage--r3",
+      "models": [
+        "<synthetic>",
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "cec76b584c98ca565c475c6a4eecd1b9c8e96c0aece8a84a1868acabcd66103a"
+    },
+    {
+      "study": "faa-wildlife-strike-substantial-damage-retry-1",
+      "run": "faa-wildlife-strike-substantial-damage--r1",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "78e3143389b22222e2d8fdb06f3b0fdd1a87a4cc14924f8dc1322229f4b6dd93"
+    },
+    {
+      "study": "faa-wildlife-strike-substantial-damage-retry-1",
+      "run": "faa-wildlife-strike-substantial-damage--r2",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "3db7649aa3c7a47e91c2b13d63e0480c22dda200132b534eedbf2f268e4ede00"
+    },
+    {
+      "study": "faa-wildlife-strike-substantial-damage-retry-1",
+      "run": "faa-wildlife-strike-substantial-damage--r3",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "9a6c90f780531855385e1640fdff53fef8870a635d5a8a16dbbf0167caef67ad"
+    },
+    {
+      "study": "fda-510k-five-year-recall",
+      "run": "fda-510k-five-year-recall--r1",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "1bb99091196c3c5c25918b31f0a9035aebb299babed8527551a7c2ae0edcf055"
+    },
+    {
+      "study": "fda-510k-five-year-recall",
+      "run": "fda-510k-five-year-recall--r2",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "b8985d8d75cd7bee161deabaded6c3e3b747c61b8f822960d33c2b922b0bee6b"
+    },
+    {
+      "study": "fda-510k-five-year-recall",
+      "run": "fda-510k-five-year-recall--r3",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "575cb6fdc38833bea126f02cbea33baa63def69219560be0eda6d500df1a7313"
+    },
+    {
+      "study": "fjc-civil-trial-36m",
+      "run": "fjc-civil-trial-36m--r1",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "7a307375d6d66ecd2132baaf5a9b741e0aead36178f27679e5b4f37b8381aa21"
+    },
+    {
+      "study": "fjc-civil-trial-36m",
+      "run": "fjc-civil-trial-36m--r2",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "da13b229073b9e51fb1dcde2358f9b85faaa54886b2afc772658ebaf923c669e"
+    },
+    {
+      "study": "fjc-civil-trial-36m",
+      "run": "fjc-civil-trial-36m--r3",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "d39dacd0d9edf570544a61b70bfd5dcd477c4cf60b47c897fcaefd15e8b86b24"
+    },
+    {
+      "study": "fra-form54-hazmat-release",
+      "run": "fra-form54-hazmat-release--r1",
+      "models": [
+        "<synthetic>",
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "adace0532710b5f146c56a50e529f179c61bc440bc58d5d87ea91ebc24df3155"
+    },
+    {
+      "study": "fra-form54-hazmat-release",
+      "run": "fra-form54-hazmat-release--r2",
+      "models": [
+        "<synthetic>",
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "e8eaf6a1a61ae27d076a8148b69b6ca4109b26ffcb213bb37fd56472a4a2276c"
+    },
+    {
+      "study": "fra-form54-hazmat-release",
+      "run": "fra-form54-hazmat-release--r3",
+      "models": [
+        "<synthetic>",
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "fdbda653667830590f31970cd71ea47793fba9889d6a0bbdd4bc7dafdb6dc9bc"
+    },
+    {
+      "study": "fra-form54-hazmat-release-retry-1",
+      "run": "fra-form54-hazmat-release--r1",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "143fc6f7c133038ea333cfd2fb335960d666aff041e27fcf37db18dd663b0ca4"
+    },
+    {
+      "study": "fra-form54-hazmat-release-retry-1",
+      "run": "fra-form54-hazmat-release--r2",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "862775be2c15e79c58ed5b33a759350af8bfa8b5cf1a3c0f83c105a34235b1ec"
+    },
+    {
+      "study": "fra-form54-hazmat-release-retry-1",
+      "run": "fra-form54-hazmat-release--r3",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "37c07909d7e17b9e5a0b08cfb9913024ea4324fa4cea3352ed75d3b0d8c0f423"
+    },
+    {
+      "study": "phmsa-pipeline-penalty-reduction",
+      "run": "phmsa-pipeline-penalty-reduction--r1",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "f1a2e8661ff3397c2a9fbf0cc6ef760f08926965f7878af4a1fc5dac20bc1485"
+    },
+    {
+      "study": "phmsa-pipeline-penalty-reduction",
+      "run": "phmsa-pipeline-penalty-reduction--r2",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "ab1b3275a89ee892d6aeeea8079fc7c20b8abb6c424918efa5754066e958ae03"
+    },
+    {
+      "study": "phmsa-pipeline-penalty-reduction",
+      "run": "phmsa-pipeline-penalty-reduction--r3",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "b67e4313a48770d222b3410371caf3e74f3e281cfd8a8d7ef8f1a25f571116b5"
+    },
+    {
+      "study": "sbir-phase1-to-phase2-conversion",
+      "run": "sbir-phase1-to-phase2-conversion--r1",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "aaf72cb00d140629061fc95fe43f7e8d0a855ec5ffb0a3d978b0853fe211c809"
+    },
+    {
+      "study": "sbir-phase1-to-phase2-conversion",
+      "run": "sbir-phase1-to-phase2-conversion--r2",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "b397afca5e2e8e66a95f26d02ce457a1637f69ffed0a74d497d4d3f6417e65d3"
+    },
+    {
+      "study": "sbir-phase1-to-phase2-conversion",
+      "run": "sbir-phase1-to-phase2-conversion--r3",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "734afefe4bc5b51c9e1fa435d077355e57c886ad45e8430c308763000fde731b"
+    },
+    {
+      "study": "sdwis-lcr-lead-action-level-next-period",
+      "run": "sdwis-lcr-lead-action-level-next-period--r1",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "ce122c504d7831e256196eb9b57f96a482b13dbc9d5790d869f290e1eadc3351"
+    },
+    {
+      "study": "sdwis-lcr-lead-action-level-next-period",
+      "run": "sdwis-lcr-lead-action-level-next-period--r2",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "a347338bfab1588342483417c4770873a03d20317ce12b36bb50ca75383f861a"
+    },
+    {
+      "study": "sdwis-lcr-lead-action-level-next-period",
+      "run": "sdwis-lcr-lead-action-level-next-period--r3",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "f73b9c764b01dadd5f04c225860d6c795deda7d7faa3d4683c82db54935d7fff"
+    },
+    {
+      "study": "seattle-building-permit-completion",
+      "run": "seattle-building-permit-completion--r1",
+      "models": [
+        "<synthetic>",
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "983aac4f6b38f744251898b6cff43d48e9344bbc0d32439e302a9de8ac681c0b"
+    },
+    {
+      "study": "seattle-building-permit-completion",
+      "run": "seattle-building-permit-completion--r2",
+      "models": [
+        "<synthetic>",
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "1b4049cf7211d98875be74ca49ee1857faf3168e2f8432c1bd0e65726e7dd0f6"
+    },
+    {
+      "study": "seattle-building-permit-completion",
+      "run": "seattle-building-permit-completion--r3",
+      "models": [
+        "<synthetic>",
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "761b2071f84eb0927387927d0bd10be2055fc6431c23a5bd2171abd756a155e5"
+    },
+    {
+      "study": "seattle-building-permit-completion-retry-1",
+      "run": "seattle-building-permit-completion--r1",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "2ef4f983d72134f3159aed7be3f2572eb611cd9a78559b57fd4655c4f727e900"
+    },
+    {
+      "study": "seattle-building-permit-completion-retry-1",
+      "run": "seattle-building-permit-completion--r2",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "ee8216fe5c8e070fc5c162488e3ab06c963bce43d8bf9bbfb0c579700e9c6da4"
+    },
+    {
+      "study": "seattle-building-permit-completion-retry-1",
+      "run": "seattle-building-permit-completion--r3",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "1a45296524d403ed7394a9f2a7e59936449f8b43d019099c26e93b9308732ea8"
+    },
+    {
+      "study": "seattle-building-permit-completion-retry-2",
+      "run": "seattle-building-permit-completion--r1",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "f4b89a6d1ef89477d6b7511820d8cc596a1c034de0635c80f8d81e3687f2ddec"
+    },
+    {
+      "study": "t100-new-route-survival",
+      "run": "t100-new-route-survival--r1",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "47b3ebee720beaadf6b6623ddea5d7b2f2056a183a0c59bddd4f48bc56b37f88"
+    },
+    {
+      "study": "t100-new-route-survival",
+      "run": "t100-new-route-survival--r2",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "9229690a27d1954fa377ec941115f9df8f244216a4e2431f9b8f2642287f85df"
+    },
+    {
+      "study": "t100-new-route-survival",
+      "run": "t100-new-route-survival--r3",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "fc27ccc288ac65303b077ff686d428410762267a8484ba579646f0ffa6ca78c4"
+    },
+    {
+      "study": "wser-effluent-exceedance",
+      "run": "wser-effluent-exceedance--r1",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "cf50d7f497534b3f8ee01f34c58486b5e7a386c05bba53962d345dbc78ff42ff"
+    },
+    {
+      "study": "wser-effluent-exceedance",
+      "run": "wser-effluent-exceedance--r2",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "6d5e7a2b05eaf68a9481b39263236847a8ef8d8441515e5bfe0d614e680a0859"
+    },
+    {
+      "study": "wser-effluent-exceedance",
+      "run": "wser-effluent-exceedance--r3",
+      "models": [
+        "claude-fable-5-2"
+      ],
+      "state_sha256": "938f273df7177ea4b94cfcff182e03f7413d5e2b06484d1817b21a5817a35286"
+    }
+  ],
+  "consumer_observed_model_counts": {
+    "claude-fable-5-2": 49,
+    "<synthetic>": 12
+  },
+  "scope": "Recorded provider/CLI identifiers, not independent attestation of model weights. Counts are archived runs/task records, not the selected scored cohort.",
+  "runtime": {
+    "name": "Hermes Agent",
+    "upstream": "https://github.com/NousResearch/hermes-agent",
+    "factory_commit": "215715771b1c93f474cc7a8a223c732bf4710266",
+    "source_files": [
+      "factory/model_tasks.py",
+      "factory/hermes_write_task.py"
+    ],
+    "implementation": "Research/review invoke Hermes oneshot CLI; construction invokes HermesCLI with an explicit empty toolset."
+  },
+  "non_model_marker_note": "The CLI also records <synthetic> messages in some failed/error invocations. This marker is retained in the inventory and is not a model identifier."
+}

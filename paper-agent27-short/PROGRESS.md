@@ -76,3 +76,17 @@ omits the repeated Consumer column, while retaining Not evaluated findings for
 the two non-cohort releases. The workflow adds an execution-diagnostics repair
 path. Neither the diagram nor the prose attributes all 260 build retries to
 execution repairs; the existing waiting/reconciliation distinction remains.
+
+## Final rationale, citation and release preparation — 16 November 2026
+
+Added two sentences explaining the model/controller work allocation. Added the
+Hermes Agent runtime with its upstream link after checking the pinned factory call
+path. Added the author's *Identical Runs, Different Results* citation to support
+the repeated-run discussion; the entry existed but had not been cited. Kept the
+abstract, performance framing, cost terminology and remedy caveat unchanged.
+
+Reworked the root README for evidence readers; retained its monitor instructions
+in MONITOR-OPERATIONS.md. EVIDENCE.md links the SBIR packet directly and provides
+commit-pinned consumer archives. Verified 1,957 integrity-listed files against 17
+remote commits. Recorded reference/model checks and remaining public-release
+steps in RELEASE-CHECK.md. No visibility change or conference submission.
