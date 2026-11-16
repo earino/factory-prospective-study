@@ -106,3 +106,11 @@ Figure 1 caption now identifies blue dashed boxes as model tasks and green solid
 boxes as code operations. It replaces the generic separation sentence and retains
 the repair explanation. Five pages; page 2 visually checked, all other pages
 pixel-identical, and portable build text matches. Record verification passed.
+
+## Co-author — 16 November 2026
+
+Added Szilard Pafka as second author, with Epoch and szilard@epoch.com, matching
+the author block in the previous *Identical Runs, Different Results* manuscript.
+Updated PDF author metadata and the AI-assistance responsibility statement to
+plural. Five pages; portable source builds identically. All five pages inspected
+after minor text reflow. Record verification passed.
