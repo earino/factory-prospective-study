@@ -1,0 +1,247 @@
+{
+  "snapshot": "paper/analysis/final-inputs-2026-11-16.json",
+  "snapshot_sha256": "688ab6558045a5acfa9791cfa36d1417c20d7791ffbbbff74a35a6ed907b3db3",
+  "qualification_coverage": "paper/analysis/final-2026-11-16/qualification-coverage.json",
+  "qualification_coverage_sha256": "39776ce9339e62506eccf7e55b958066bd3c1083fb376d55ea579511fbe884ba",
+  "scope": "Descriptive holdout AUC from fixed baseline and all three frozen consumer models. Ranges are observed run ranges, not confidence intervals. Existing final-run selection and qualification receipts are reused; no new fits or holdout-based model selection.",
+  "baseline": {
+    "n_estimators": 100,
+    "max_depth": 6,
+    "learning_rate": 0.1
+  },
+  "records": [
+    {
+      "dataset": "t100-new-route-survival",
+      "label": "Route survival",
+      "summary": "evidence/consumer/t100-new-route-survival/results/summary.json",
+      "summary_sha256": "b5e636a192e8f06b227d62b6da450c62902cfae265eff550d4c219ba380c1e46",
+      "qualification_receipt": "paper/analysis/final-2026-11-16/t100-new-route-survival-artifact-verification.json",
+      "qualification_receipt_sha256": "3982cd23ba784a464c35c7bb1068f9e2d3cd84711ac660ccc8cdf00918184884",
+      "holdout_rows": 1209,
+      "baseline_auc": 0.601343037214886,
+      "consumer_scores": {
+        "t100-new-route-survival--r1": 0.6006572629051621,
+        "t100-new-route-survival--r2": 0.5959483793517407,
+        "t100-new-route-survival--r3": 0.6101620648259303
+      },
+      "consumer_median": 0.6006572629051621,
+      "consumer_min": 0.5959483793517407,
+      "consumer_max": 0.6101620648259303,
+      "all_three_above_baseline": false
+    },
+    {
+      "dataset": "sbir-phase1-to-phase2-conversion",
+      "label": "Phase I to II award",
+      "summary": "evidence/consumer/sbir-phase1-to-phase2-conversion/results/summary.json",
+      "summary_sha256": "3fde06962f7a62b441e3dc93b66427704f8d6f5ea20983ddc414c820b2969eab",
+      "qualification_receipt": "paper/analysis/final-2026-11-16/sbir-phase1-to-phase2-conversion-artifact-verification.json",
+      "qualification_receipt_sha256": "89500e98acb14593509f0bca507871008c4c737abda54f7d9f72d294006f7bd8",
+      "holdout_rows": 1704,
+      "baseline_auc": 0.5791267625296663,
+      "consumer_scores": {
+        "sbir-phase1-to-phase2-conversion--r1": 0.6079261482619015,
+        "sbir-phase1-to-phase2-conversion--r2": 0.6069600725952813,
+        "sbir-phase1-to-phase2-conversion--r3": 0.602377495462795
+      },
+      "consumer_median": 0.6069600725952813,
+      "consumer_min": 0.602377495462795,
+      "consumer_max": 0.6079261482619015,
+      "all_three_above_baseline": true
+    },
+    {
+      "dataset": "phmsa-pipeline-penalty-reduction",
+      "label": "Penalty reduction",
+      "summary": "evidence/consumer/phmsa-pipeline-penalty-reduction/results/summary.json",
+      "summary_sha256": "55e3e2e60d284b9eee5dacca1ade8ad8ef45fa5ce998972542b3910a0b35357d",
+      "qualification_receipt": "paper/analysis/final-2026-11-16/phmsa-pipeline-penalty-reduction-artifact-verification.json",
+      "qualification_receipt_sha256": "db68be072da6a018ce768853b60eb48271a511ae363a59f9dc4d6f8fcc682a82",
+      "holdout_rows": 149,
+      "baseline_auc": 0.5569679849340865,
+      "consumer_scores": {
+        "phmsa-pipeline-penalty-reduction--r1": 0.6352165725047082,
+        "phmsa-pipeline-penalty-reduction--r2": 0.6224105461393596,
+        "phmsa-pipeline-penalty-reduction--r3": 0.618361581920904
+      },
+      "consumer_median": 0.6224105461393596,
+      "consumer_min": 0.618361581920904,
+      "consumer_max": 0.6352165725047082,
+      "all_three_above_baseline": true
+    },
+    {
+      "dataset": "seattle-building-permit-completion",
+      "label": "Permit completion",
+      "summary": "paper/analysis/final-2026-11-16/seattle-composite/summary.json",
+      "summary_sha256": "7c9b8a0a104faac353d69f48126ae49f0f2087f65f5fc7526299394dff066e30",
+      "qualification_receipt": "paper/analysis/evening-2026-11-15/seattle-building-permit-completion-artifact-verification.json",
+      "qualification_receipt_sha256": "8d6a2a7a56d5130d47aceb12c5e78baea65f31758e5f9cc5508ba2cdf14f9a62",
+      "holdout_rows": 6326,
+      "baseline_auc": 0.6179365855905143,
+      "consumer_scores": {
+        "seattle-building-permit-completion--r1": 0.6482217774875273,
+        "seattle-building-permit-completion--r2": 0.6473918284596301,
+        "seattle-building-permit-completion--r3": 0.6551826709794852
+      },
+      "consumer_median": 0.6482217774875273,
+      "consumer_min": 0.6473918284596301,
+      "consumer_max": 0.6551826709794852,
+      "all_three_above_baseline": true
+    },
+    {
+      "dataset": "fda-510k-five-year-recall",
+      "label": "Five-year recall",
+      "summary": "evidence/consumer/fda-510k-five-year-recall/results/summary.json",
+      "summary_sha256": "747ece2f4150b77adfff9e6568c0dd4502e7c6108fc24cd4d88090cd912870a4",
+      "qualification_receipt": "paper/analysis/final-2026-11-16/fda-510k-five-year-recall-artifact-verification.json",
+      "qualification_receipt_sha256": "4555647663abfa74df6b1d24cd4b104e901176bff45bbff896634ca271fcbbfb",
+      "holdout_rows": 9014,
+      "baseline_auc": 0.6546462828368741,
+      "consumer_scores": {
+        "fda-510k-five-year-recall--r1": 0.7267897056286667,
+        "fda-510k-five-year-recall--r2": 0.7269229294093058,
+        "fda-510k-five-year-recall--r3": 0.730755753079311
+      },
+      "consumer_median": 0.7269229294093058,
+      "consumer_min": 0.7267897056286667,
+      "consumer_max": 0.730755753079311,
+      "all_three_above_baseline": true
+    },
+    {
+      "dataset": "eia861-reliability-deterioration",
+      "label": "Reliability deterioration",
+      "summary": "evidence/consumer/eia861-reliability-deterioration-retry-1/results/summary.json",
+      "summary_sha256": "bd13fa9a5016004677cf6b0b84a2e9f45d2255030d8d7372a7b5c948f71cb142",
+      "qualification_receipt": "paper/analysis/final-2026-11-16/eia861-reliability-deterioration-artifact-verification.json",
+      "qualification_receipt_sha256": "86dcb0d9704745c2d81d88885a975feddff12760655dc080f366ec8011b6a3ae",
+      "holdout_rows": 2062,
+      "baseline_auc": 0.6975096903123701,
+      "consumer_scores": {
+        "eia861-reliability-deterioration--r1": 0.736249144972438,
+        "eia861-reliability-deterioration--r2": 0.7397606258131144,
+        "eia861-reliability-deterioration--r3": 0.7394253208868145
+      },
+      "consumer_median": 0.7394253208868145,
+      "consumer_min": 0.736249144972438,
+      "consumer_max": 0.7397606258131144,
+      "all_three_above_baseline": true
+    },
+    {
+      "dataset": "fjc-civil-trial-36m",
+      "label": "Trial within 36 months",
+      "summary": "evidence/consumer/fjc-civil-trial-36m/results/summary.json",
+      "summary_sha256": "e95ec855ae897079556674356bbf4f471e51d7589dc2043f428553df53e1390e",
+      "qualification_receipt": "paper/analysis/final-2026-11-16/fjc-civil-trial-36m-artifact-verification.json",
+      "qualification_receipt_sha256": "462bdd381bcbbca2e6c4980be0f74913cea16967b1523954672b3d8770dd5f10",
+      "holdout_rows": 113510,
+      "baseline_auc": 0.7106307543317625,
+      "consumer_scores": {
+        "fjc-civil-trial-36m--r1": 0.7476899786923299,
+        "fjc-civil-trial-36m--r2": 0.7460685891913093,
+        "fjc-civil-trial-36m--r3": 0.7494586603370813
+      },
+      "consumer_median": 0.7476899786923299,
+      "consumer_min": 0.7460685891913093,
+      "consumer_max": 0.7494586603370813,
+      "all_three_above_baseline": true
+    },
+    {
+      "dataset": "sdwis-lcr-lead-action-level-next-period",
+      "label": "Next-period lead",
+      "summary": "evidence/consumer/sdwis-lcr-lead-action-level-next-period/results/summary.json",
+      "summary_sha256": "76db3d77d321bd30a82a272fdedd1bad2f4f750150ec3fad066215d1602c3c9d",
+      "qualification_receipt": "paper/analysis/final-2026-11-16/sdwis-lcr-lead-action-level-next-period-artifact-verification.json",
+      "qualification_receipt_sha256": "fa13beea16ce94f39949a2cc0e6ac90888be5b81f5f74840e1b287d185087fcd",
+      "holdout_rows": 17568,
+      "baseline_auc": 0.7595473729773051,
+      "consumer_scores": {
+        "sdwis-lcr-lead-action-level-next-period--r1": 0.7751352958591472,
+        "sdwis-lcr-lead-action-level-next-period--r2": 0.7737698143330446,
+        "sdwis-lcr-lead-action-level-next-period--r3": 0.7660623494438212
+      },
+      "consumer_median": 0.7737698143330446,
+      "consumer_min": 0.7660623494438212,
+      "consumer_max": 0.7751352958591472,
+      "all_three_above_baseline": true
+    },
+    {
+      "dataset": "fra-form54-hazmat-release",
+      "label": "Hazmat release",
+      "summary": "evidence/consumer/fra-form54-hazmat-release-retry-1/results/summary.json",
+      "summary_sha256": "34d0e7812cbc704d114b9266279309a50503d8a45adff45ce78be0d0e80c8195",
+      "qualification_receipt": "paper/analysis/evening-2026-11-15/fra-form54-hazmat-release-artifact-verification.json",
+      "qualification_receipt_sha256": "6782e351e79af2515dcd3c5c681fae6325d3764de6b3c9a51c2c5c9ab4f6ac96",
+      "holdout_rows": 5189,
+      "baseline_auc": 0.731304347826087,
+      "consumer_scores": {
+        "fra-form54-hazmat-release--r1": 0.7840868425551314,
+        "fra-form54-hazmat-release--r2": 0.7901749387429483,
+        "fra-form54-hazmat-release--r3": 0.7910633084506239
+      },
+      "consumer_median": 0.7901749387429483,
+      "consumer_min": 0.7840868425551314,
+      "consumer_max": 0.7910633084506239,
+      "all_three_above_baseline": true
+    },
+    {
+      "dataset": "caa-fce-hpv-escalation",
+      "label": "Violation escalation",
+      "summary": "evidence/consumer/caa-fce-hpv-escalation/results/summary.json",
+      "summary_sha256": "ace4fc3186d8f1ef682a4c234462542f04178ae48319965388956f08b4e523aa",
+      "qualification_receipt": "paper/analysis/final-2026-11-16/caa-fce-hpv-escalation-artifact-verification.json",
+      "qualification_receipt_sha256": "e75471b3f39daf357370868d638007a1355c5d7efd3ecb93478bc1ad987aa5a2",
+      "holdout_rows": 20011,
+      "baseline_auc": 0.8519093827949766,
+      "consumer_scores": {
+        "caa-fce-hpv-escalation--r1": 0.8684167399350823,
+        "caa-fce-hpv-escalation--r2": 0.8714592094850441,
+        "caa-fce-hpv-escalation--r3": 0.8602094384136447
+      },
+      "consumer_median": 0.8684167399350823,
+      "consumer_min": 0.8602094384136447,
+      "consumer_max": 0.8714592094850441,
+      "all_three_above_baseline": true
+    },
+    {
+      "dataset": "wser-effluent-exceedance",
+      "label": "Wastewater exceedance",
+      "summary": "evidence/consumer/wser-effluent-exceedance/results/summary.json",
+      "summary_sha256": "81a3c0dd6cd02dd7335b0e4f4bb17cda2eca6bffd7ae2ddd1ed82d2bef7308c1",
+      "qualification_receipt": "paper/analysis/final-2026-11-16/wser-effluent-exceedance-artifact-verification.json",
+      "qualification_receipt_sha256": "c22481fb0f9c2c569ecd1ba286e3833a9ac42866f34d03c7e6bf4ac03ff97f98",
+      "holdout_rows": 3988,
+      "baseline_auc": 0.8927942514658074,
+      "consumer_scores": {
+        "wser-effluent-exceedance--r1": 0.9012614718317122,
+        "wser-effluent-exceedance--r2": 0.9012600245673132,
+        "wser-effluent-exceedance--r3": 0.901548030182699
+      },
+      "consumer_median": 0.9012614718317122,
+      "consumer_min": 0.9012600245673132,
+      "consumer_max": 0.901548030182699,
+      "all_three_above_baseline": true
+    },
+    {
+      "dataset": "faa-wildlife-strike-substantial-damage",
+      "label": "Strike damage",
+      "summary": "evidence/consumer/faa-wildlife-strike-substantial-damage-retry-1/results/summary.json",
+      "summary_sha256": "c59d728f709077c723391f88002c46770792295feaaf75eaf3709918b4f9112e",
+      "qualification_receipt": "paper/analysis/update-2026-11-15/faa-artifact-verification.json",
+      "qualification_receipt_sha256": "975647a8f916570bda365cbccd8767350ecdbd431b2298bda44d333c797664b7",
+      "holdout_rows": 25425,
+      "baseline_auc": 0.893778797250377,
+      "consumer_scores": {
+        "faa-wildlife-strike-substantial-damage--r1": 0.9128234649648987,
+        "faa-wildlife-strike-substantial-damage--r2": 0.9195533745338731,
+        "faa-wildlife-strike-substantial-damage--r3": 0.9081156843825051
+      },
+      "consumer_median": 0.9128234649648987,
+      "consumer_min": 0.9081156843825051,
+      "consumer_max": 0.9195533745338731,
+      "all_three_above_baseline": true
+    }
+  ],
+  "all_three_above_baseline_tasks": 11,
+  "median_auc_range": [
+    0.6006572629051621,
+    0.9128234649648987
+  ]
+}

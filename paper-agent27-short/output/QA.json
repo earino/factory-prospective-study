@@ -1,9 +1,9 @@
 {
   "pages": 5,
-  "pdf_sha256": "9de8a644a9a83545b508358b0376596bd2cf9162ee7df9e812af16365bc0998a",
-  "source_zip_sha256": "6bc1424be847c979f8910c242e7dca10995e6675557e964afa02e64174748485",
-  "manuscript_sha256": "8a7ec256414f8715fc387fb3a6027d900d6631ce181eab528216ccf46a630076",
-  "clean_build_directory": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/factory-workflow-paper-v_pc7kk_/paper-agent27-short",
+  "pdf_sha256": "573a7643b4303a71ff78cdccca25b20583e70829ea86904b006983462602ef52",
+  "source_zip_sha256": "caa514e34d3cdc340e9c9196868235f74c5f6fa17408b8fb9329174aaeebf6b2",
+  "manuscript_sha256": "a70c69ea58b576b2847c55aff2e072d6ff1d62bef529a22f5e32b7ebb3e85e63",
+  "clean_build_directory": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/factory-consumer-paper-x46uqygq/paper-agent27-short",
   "clean_build_exit": 0,
   "portable_build_pdf_text_matches": true,
   "no_overfull_or_unresolved_references": true,
@@ -16,9 +16,9 @@
       4,
       5
     ],
-    "result": "All five pages inspected, with workflow also checked in grayscale. Single forward activity sequence, one semantic repair loop, explicit Model/Code labels; no clipping or text collisions. SBIR remains in prose."
+    "result": "All five pages inspected, including consumer plot in grayscale. Text and markers legible; no clipping or collisions; manuscript fonts unchanged."
   },
-  "record_checks_sha256": "f83a70bc680149fb2d56c2e8e9cd204108d019efe0d261ebbbda9952d9f5ae90",
+  "record_checks_sha256": "562f010127e5048ce410bcaf5867746d26c642fb5bd28733e865425395cd8116",
   "disclosure_review_sha256": "e8eaddb3fff30ac3786888559bcd88b55b04e7adb240a5fc6ec40a31d96f32e1",
   "long_paper_files_preserved": 310,
   "workflow": {
@@ -32,5 +32,18 @@
     "flow": "Source proposal -> builder generation -> worker execution/checks/baseline -> semantic review -> public publication/verification; semantic repair returns to generation.",
     "controller": "Shared band for state, transitions, retries and worker management; no additional flow arrows.",
     "operating_milestones": "Retained in results prose; omitted from process diagram."
+  },
+  "consumer_results": {
+    "figure_sha256": "964e689669ddd6c231157191d969cd3c6562c8e147a683d46a3c98d0d3fa5e9c",
+    "data_sha256": "cb997c7ac6a74cc11faa663ee81620a363a9b2fc6cbf38f51c8fe3a71c4ea1cd",
+    "datasets": 12,
+    "models": 36,
+    "baseline": "fixed untuned XGBoost",
+    "summary": "median and min/max across three observed runs, not confidence intervals",
+    "sorted_by": "consumer median, ascending top to bottom",
+    "qualification_receipts_checked": 12,
+    "clean_checkout": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/factory-consumer-paper-x46uqygq/record-checkout",
+    "clean_check_exit": 0,
+    "historical_ignored_paper_artifacts_restored_for_preservation_checks": 161
   }
 }

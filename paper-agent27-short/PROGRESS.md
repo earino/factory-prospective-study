@@ -36,3 +36,17 @@ evidence diagram was removed after author review because it duplicated the
 prose and occupied too much space. The original SBIR prose is retained.
 All five pages and the grayscale workflow were inspected; the portable source
 archive builds independently with matching PDF text.
+
+Consumer-performance addition: Figure 3 shows the fixed untuned XGBoost baseline
+and consumer median/range for all twelve evaluated releases, sorted by median.
+The method states model settings, validation selection, held-out scoring, and
+the descriptive meaning of the ranges. Results and abstract report that all
+three consumer runs exceed the reference on eleven tasks; airline routes are
+mixed. Source-review limitations remain in place. Cawley and Talbot and
+MLAgentBench were restored and checked against publisher pages. Supporting
+identities, scores, qualifications, and interpretation are recorded in
+`analysis/consumer-results.json` and `analysis/CONSUMER-RESULTS.md`.
+
+All five pages were inspected; the new plot was also checked in grayscale.
+The portable source builds with identical PDF text. Figure generation and the
+revised evidence checks passed in a separate checkout. No new experiments ran.

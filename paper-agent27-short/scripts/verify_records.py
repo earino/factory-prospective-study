@@ -113,7 +113,27 @@ for banned in ['presentation emphasis','we now focus','later paper','interim res
  assert banned.lower() not in tex.lower(), banned
 citations=set()
 for c in re.findall(r'\\cite\{([^}]+)\}',tex): citations.update(c.split(','))
-assert len(citations)==13
+assert len(citations)==15
+performance=read('paper-agent27-short/analysis/consumer-results.json')
+assert sha(ROOT/performance['snapshot'])==performance['snapshot_sha256']
+assert sha(ROOT/performance['qualification_coverage'])==performance['qualification_coverage_sha256']
+assert {r['dataset'] for r in performance['records']}==set(consumer)
+for r in performance['records']:
+ assert sha(ROOT/r['summary'])==r['summary_sha256']
+ summary=read(r['summary'])
+ baseline=[s for s in summary['scores'] if s['kind']=='ordinary']
+ agents={s['id']:s['holdout_auc'] for s in summary['scores'] if s['kind']=='agent'}
+ assert len(baseline)==1 and len(agents)==3
+ assert r['consumer_scores']==agents and r['baseline_auc']==baseline[0]['holdout_auc']
+ assert r['consumer_median']==statistics.median(agents.values())
+ assert r['consumer_min']==min(agents.values()) and r['consumer_max']==max(agents.values())
+ assert r['all_three_above_baseline']==(min(agents.values())>r['baseline_auc'])
+ assert sha(ROOT/r['qualification_receipt'])==r['qualification_receipt_sha256']
+ assert read(r['qualification_receipt'])['accept_exit_code']==0
+assert sum(r['all_three_above_baseline'] for r in performance['records'])==11
+assert [round(v,3) for v in performance['median_auc_range']]==[.601,.913]
+gains=[r['consumer_median']-r['baseline_auc'] for r in performance['records'] if r['all_three_above_baseline']]
+assert [round(min(gains),3),round(max(gains),3)]==[.008,.072]
 report={'production_attempts':len(attempts),'milestones':milestones,'retry_counts':{'discovery':101,'build':260,'semantic_repair':21},
  'publications':14,'consumer_datasets':12,'scored_models_checked':sum(r['scored_models'] for r in consumer.values()),
  'consumer_summaries':consumer,'latency_min_max_median_minutes':[min(latencies),max(latencies),statistics.median(latencies)],
@@ -123,6 +143,8 @@ report={'production_attempts':len(attempts),'milestones':milestones,'retry_count
  'disclosure_concerns':dict(concern_statuses),
  'disclosure_review_sha256':sha(OUT/'analysis/disclosure-review.json'),
  'manuscript_sha256':sha(OUT/'draft/main.tex'),
+ 'consumer_results_sha256':sha(OUT/'analysis/consumer-results.json'),
+ 'consumer_results_checked':len(performance['records']),
  'scope':'Recorded quantities, input identities, consumer completion, source-review identities and known wording checks. Does not mechanically establish semantic correctness of every sentence; manual claim and page reviews are separate.'}
 (OUT/'analysis/record-checks.json').write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps({k:report[k] for k in ['publications','consumer_datasets','production_attempts','stage_costs_reconcile','long_paper_files_preserved']}))

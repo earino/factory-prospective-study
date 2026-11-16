@@ -18,7 +18,8 @@ writing task, not conference submission or an assurance of acceptance.
   stages; hosting remains shared. Boundaries are stated in the cost method.
 - Consumer use: all twelve cohort releases have frozen, scored models in retained
   records. The short paper reports completion, with procedural isolation stated,
-  and omits AUC, headroom and random-search comparisons.
+  and includes descriptive held-out AUC against an untuned reference, with median
+  and observed range across three runs. Random-search comparisons remain omitted.
 - Fourteen-release table: record timestamps and selected source-review findings are
   mapped in `analysis/release-records.json`. The last two releases are marked not
   evaluated. Review scope and differing publisher-document access are stated.
@@ -27,7 +28,7 @@ writing task, not conference submission or an assurance of acceptance.
   from the untested missing-declaration counterfactual and proposed remedy.
 - Wastewater: conditional scoring access is distinguished from observed leakage.
 - Engineering lessons separate demonstrated recovery from proposed controls.
-- Related work: thirteen citations drawn from the verified literature record;
+- Related work: fifteen citations drawn from the verified literature record;
   no efficiency ranking across different accounting boundaries.
 - Prose inspected for writing-process commentary, scope inflation and repeated
   qualifications; the manuscript states the final study and findings directly.

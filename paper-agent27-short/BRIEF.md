@@ -13,8 +13,11 @@ estimated recurring expenditure around $2.74 per publication, completed consumer
 experiments on twelve releases, and the documented SBIR acceptance failure.
 
 Define usable as a completed prediction experiment ending in held-out scoring of
-a frozen model under the predictor contract. Remove AUC and random-search results
-from this version; retain the original evidence. Use no labor-saving, comparative
+a frozen model under the predictor contract. Eduardo's subsequent instruction
+restores a compact predictive-performance result: untuned XGBoost versus the
+median and observed range of the three consumer runs on all twelve releases.
+Retain the source-review limitations; do not equate scores with task validity.
+Keep the random-search comparison outside this version. Use no labor-saving, comparative
 efficiency, general reliability or universal validity claim.
 
 Describe discovery inputs/tools/output, construction and repair, reviewer inputs,
