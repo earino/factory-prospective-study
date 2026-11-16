@@ -99,3 +99,10 @@ single-line Construction label, with checks and baseline fitting stated in its
 caption. A 20% height increase was tried but exceeded five pages; the single-line
 option keeps labels clear within the original footprint. Record checks and the
 portable build pass. Pages 1–2 are unchanged; pages 3–5 were inspected.
+
+## Workflow legend — 16 November 2026
+
+Figure 1 caption now identifies blue dashed boxes as model tasks and green solid
+boxes as code operations. It replaces the generic separation sentence and retains
+the repair explanation. Five pages; page 2 visually checked, all other pages
+pixel-identical, and portable build text matches. Record verification passed.
