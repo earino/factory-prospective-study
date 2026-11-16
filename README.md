@@ -1,10 +1,9 @@
 # Dataset Factory: deployment study and evidence
 
 This repository accompanies **Operating an Agent-Driven Dataset Factory: Discovery,
-Construction, and Public Release**, an AGENT 2027 short experience paper. It contains
+Construction, and Public Release**, a short experience paper submitted to AGENT 2027. It contains
 an 81.53-hour production record with 14 public releases and separate prediction
-experiments on the first 12 releases. The repository is being prepared for public
-release at submission; it is currently private.
+experiments on the first 12 releases. The repository is public; the evidence guide links the retained records and archives.
 
 - [Read the five-page paper](paper-agent27-short/output/paper.pdf).
 - [Download the portable LaTeX source](paper-agent27-short/output/paper-source.zip).

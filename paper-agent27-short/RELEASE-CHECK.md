@@ -1,7 +1,7 @@
 # Submission and evidence release check
 
-Prepared 16 November 2026. The manuscript and evidence index are ready for the
-submission release; the repository remains private and no submission was made.
+Released 16 November 2026. The repository is public. Eduardo reported completing
+the HotCRP submission; the submission form and receipt were not independently inspected.
 
 ## Completed preparation
 
@@ -22,13 +22,18 @@ submission release; the repository remains private and no submission was made.
 - The portable LaTeX package and the separate-checkout record verification are
   recorded in [QA.json](output/QA.json). The longer paper remains unchanged.
 
-## At submission
+## Public release verification
 
-1. Make `earino/factory-prospective-study` public under the agreed release plan.
-2. From an unauthenticated client, open the README, paper, SBIR packet, and pinned
-   consumer evidence links. Download a frozen-model file and one archive part and
-   compare their recorded hashes. These checks cannot pass while the repo is private.
-3. Submit the final five-page PDF through the official workshop submission site.
+- `earino/factory-prospective-study` is public, verified through an unauthenticated API request.
+- Anonymous requests opened the repository, README, evidence guide, submitted PDF,
+  SBIR declaration, builder, reviewer prompt and response, and acceptance analysis.
+- All 17 pinned consumer evidence tree links and integrity manifests were accessible.
+- One frozen consumer model and one complete archive part were downloaded without
+  credentials and matched the integrity manifest's SHA-256 and byte count.
+- [Verification receipt](analysis/public-evidence-verification.json): 46 successful
+  anonymous checks. This samples bulk downloads; the earlier authenticated check
+  covers all 1,957 manifest-listed files.
+- The manuscript PDF and research artifacts were not changed for this release.
 
 The [official call](https://conf.researchr.org/home/icse-2027/agent-2027) specifies
 five pages including references, single-anonymous review, and 20 November 2026 AoE.

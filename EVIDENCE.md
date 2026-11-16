@@ -41,6 +41,12 @@ establish whether a complete declaration would have changed that decision.
 - Verification: [short-paper receipt](paper-agent27-short/SIGNOFF.md) and
   [record checks](paper-agent27-short/analysis/record-checks.json).
 
+## Public access
+
+The repository is public. [Anonymous release checks](paper-agent27-short/analysis/public-evidence-verification.json)
+cover the paper, SBIR evidence, all 17 pinned consumer links and integrity manifests,
+and checksum-verified downloads of one consumer model and one archive part.
+
 ## Full consumer archives
 
 Each link uses the commit retained in its outcome record, rather than a moving

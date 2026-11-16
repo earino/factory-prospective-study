@@ -180,3 +180,13 @@ added from these aggregate outcome labels, and no new experiment was run.
 Final deferral revision: five pages; clean-checkout accounting/history checks
 and portable PDF text comparison pass. Pages 1-2 are pixel-identical to the
 previous inspected build; pages 3-5 were re-inspected. No template or font changes.
+
+## Public evidence release — 16 November 2026
+
+Eduardo reported marking the HotCRP submission ready for review, then explicitly
+authorized public release. Changed the study repository from private to public.
+Forty-six unauthenticated requests verified visibility, core paper/SBIR files,
+all 17 pinned consumer tree links and integrity manifests, and one model and one
+complete archive part with matching hashes. Recorded public-evidence-verification.json
+and updated the reader-facing release status. The PDF and research artifacts are
+unchanged. Submission completion is the author's report, not a browser readback.
