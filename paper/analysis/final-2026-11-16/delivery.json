@@ -1,0 +1,48 @@
+{
+  "completed_at": "2026-11-16T07:11:51.949818+00:00",
+  "artifact_commit": "9708c22d9e05af489327df52fee41036f601ff31",
+  "artifact_ci": {
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/earino/factory-prospective-study/actions/runs/43821926437"
+  },
+  "pdf_sha256": "6c13f075c1b5fe7a233c18c832a74ba61792792166b471b79792ffab4b6f6a76",
+  "source_bundle_sha256": "f2a4b424cd248dad11c76b39a6735983f6d5b1c4b1f4b33bf8d4f2ebced8fce0",
+  "final_snapshot_sha256": "688ab6558045a5acfa9791cfa36d1417c20d7791ffbbbff74a35a6ed907b3db3",
+  "pages": 7,
+  "production_publications": 14,
+  "consumer_datasets": 12,
+  "consumer_models": 36,
+  "research_attempts_retained": 49,
+  "selected_code_reviews": 36,
+  "full_artifact_qualification_receipts": 12,
+  "final_cost_usd_range": [
+    38.2266659901605,
+    38.33494259616049
+  ],
+  "checks": [
+    "final numerical records and table cells",
+    "seven-page portable LaTeX build with embedded fonts and no undefined references or overfull boxes",
+    "all seven rendered pages inspected",
+    "clean checkout build, numerical analysis and SBIR packet verification",
+    "source/cost export provenance and closing maintenance/usage readback",
+    "historical snapshots and original failures preserved"
+  ],
+  "signoff": "paper/SIGNOFF.md",
+  "study_schedules_retired": true,
+  "export_job_completed_and_disabled": true,
+  "production_changed_by_paper_work": false,
+  "submitted": false,
+  "evidence_repository_private": true,
+  "remaining_author_actions": [
+    "Author approval of submitted text",
+    "Submission and evidence-repository publication when authorized"
+  ],
+  "scientific_limits": [
+    "Single factory and short observation window",
+    "Operating-cost estimate excludes development and human labor",
+    "Procedural consumer isolation, not an OS boundary",
+    "Conditional dependence-group intervals; PHMSA operator grouping unavailable",
+    "SBIR selection mismatch and declared historical/scoring-interface limits remain reported"
+  ]
+}

@@ -3,7 +3,8 @@
 The seven-page manuscript includes the fixed closing production export, all twelve
 consumer datasets and 36 scored models. Numerical checks, exact-artifact receipts,
 source reconstruction, bounded code/conduct review, clean LaTeX builds and all-page
-visual inspection are complete. Final commit CI is recorded in the delivery receipt.
+visual inspection are complete. The [delivery receipt](analysis/final-2026-11-16/delivery.json) records the artifact
+commit and passing CI.
 The paper has not been submitted, and the evidence repository remains private.
 
 Earlier draft records are preserved in
@@ -107,3 +108,5 @@ technically enforced consumer isolation. These are reported scientific limits,
 not unresolved implementation tasks hidden by the sign-off.
 
 Eduardo retains author approval and the submission/evidence-publication steps.
+
+Artifact commit: `9708c22d9e05af489327df52fee41036f601ff31`. [Exact-commit CI passed](https://github.com/earino/factory-prospective-study/actions/runs/43821926437).

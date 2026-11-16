@@ -19,7 +19,7 @@ or public evidence-repository flip is authorized by this task.
   reconcile costs and attempt counts, and update all claims/tables/figures together.
   Consumer cohort stays the first 12 releases; later publications belong only in
   production accounting. Preserve all earlier snapshots and estimates.
-- [ ] Remove stale draft-status prose, check claims and citations, render every
+- [x] Remove stale draft-status prose, check claims and citations, render every
   page, verify portable LaTeX and numerical analysis from clean checkout, commit,
   push, inspect exact-commit CI, and write a final criterion-to-evidence sign-off.
 
@@ -27,7 +27,7 @@ Current state: final production accounting and all consumer results are integrat
 The final seven-page artifact passed clean builds, numerical checks, original SBIR
 packet checks, and visual inspection. All consumer work is terminal. The one-shot
 export completed and disabled itself; local study schedules are retired. Final
-push/CI and delivery receipt remain for closure.
+push/CI and delivery receipt are complete.
 
 The existing scheduled paper writer must not overwrite this manual finalization.
 Before its 10:00 UTC start, record the completed manual draft in its existing state
@@ -139,3 +139,8 @@ no later maintenance or manual dataset decisions; the open build stage's model
 usage was terminal before cutoff. All seven final pages inspected and a clean
 checkout passes numerical, LaTeX/bundle and SBIR packet checks. Study schedules
 retired at 07:07:50 UTC; production remains running. Ready for final push and CI.
+
+2026-11-16T07:11:51.949818+00:00: Final artifact commit 9708c22d9e05af489327df52fee41036f601ff31 pushed; CI passed
+(https://github.com/earino/factory-prospective-study/actions/runs/43821926437). Delivery receipt and criterion-to-evidence sign-off complete.
+No pending goal work remains. No submission or evidence-repository publication
+was performed. All study schedules are retired; factory production continues.
