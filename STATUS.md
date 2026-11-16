@@ -2,10 +2,13 @@
 
 {
   "consumer": {
+    "branch": "consumer/eia861-reliability-deterioration-retry-1",
+    "commit": "6d6926dcb712fbdbaf5c54b3f45a1eabae783d38",
     "dataset": "eia861-reliability-deterioration",
     "execution_id": "eia861-reliability-deterioration-retry-1",
-    "started": "2026-11-15T23:41:10.737480+00:00",
-    "status": "running"
+    "finished": "2026-11-16T01:20:51.222879+00:00",
+    "started": "2026-11-15T23:41:10.737797+00:00",
+    "status": "complete"
   },
   "factory_counts": {
     "build": 1,
@@ -14,11 +17,13 @@
     "published": 20,
     "rejected": 7
   },
-  "observed_at": "2026-11-16T01:00:43.990242+00:00",
+  "observed_at": "2026-11-16T01:31:12.305835+00:00",
   "paper": {
     "at": "2026-11-15T22:40:26.170977+00:00",
-    "draft_commit": "3e79ff17bf89a0e7087f4b3af542a679760bcaee",
+    "consumer_status": "complete: 12 datasets, 36 scored models; code/conduct and sampled probes reviewed",
+    "draft_commit": "f06adfd8c61e945c79bcfab2081db32cab9f1983",
     "finalization_status": "in_progress",
+    "next_action": "Reconcile and integrate scheduled 2026-11-16 07:00 UTC production export, then final verification and sign-off",
     "origin": "Codex manual paper work authorized by Eduardo",
     "reason": "A verified manual draft already exists. The active overnight goal owns finalization; do not launch a competing scheduled paper writer.",
     "status": "draft_produced"
@@ -172,7 +177,15 @@
     {
       "dataset": "eia861-reliability-deterioration",
       "execution_id": "eia861-reliability-deterioration-retry-1",
-      "outcome": {}
+      "outcome": {
+        "branch": "consumer/eia861-reliability-deterioration-retry-1",
+        "commit": "6d6926dcb712fbdbaf5c54b3f45a1eabae783d38",
+        "dataset": "eia861-reliability-deterioration",
+        "execution_id": "eia861-reliability-deterioration-retry-1",
+        "finished": "2026-11-16T01:20:51.222879+00:00",
+        "started": "2026-11-15T23:41:10.737797+00:00",
+        "status": "complete"
+      }
     }
   ],
   "snapshot_generated_at": "2026-11-16T00:52:19+00:00",
