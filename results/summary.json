@@ -1,6 +1,6 @@
 {
   "cli_reported_cost_usd_not_invoice": 1827.7338310000007,
-  "generated_at": "2026-11-16T01:15:35.938398+00:00",
+  "generated_at": "2026-11-16T01:20:33.734646+00:00",
   "limitations": [
     "Five selected factory releases; three attempts are descriptive, not agent rankings.",
     "Pinned consumer scaffold and deterministic downloads are provided assistance.",
@@ -114,9 +114,19 @@
   "scores": [
     {
       "dataset": "eia861-reliability-deterioration",
-      "holdout_auc": null,
-      "holdout_brier": null,
-      "holdout_rows": null,
+      "holdout_auc": 0.6975096903123701,
+      "holdout_brier": 0.13771475728858643,
+      "holdout_rows": 2062,
+      "id": "eia861-reliability-deterioration--ordinary",
+      "kind": "ordinary",
+      "validation_auc": 0.6790162941018044,
+      "validation_brier": 0.12413928687166705
+    },
+    {
+      "dataset": "eia861-reliability-deterioration",
+      "holdout_auc": 0.736249144972438,
+      "holdout_brier": 0.12441504655237003,
+      "holdout_rows": 2062,
       "id": "eia861-reliability-deterioration--r1",
       "kind": "agent",
       "validation_auc": 0.7329917086683851,
@@ -124,9 +134,19 @@
     },
     {
       "dataset": "eia861-reliability-deterioration",
-      "holdout_auc": null,
-      "holdout_brier": null,
-      "holdout_rows": null,
+      "holdout_auc": 0.7140712388846416,
+      "holdout_brier": 0.12820083059799073,
+      "holdout_rows": 2062,
+      "id": "eia861-reliability-deterioration--r1--random",
+      "kind": "random",
+      "validation_auc": 0.7111788696087107,
+      "validation_brier": 0.11478685990900725
+    },
+    {
+      "dataset": "eia861-reliability-deterioration",
+      "holdout_auc": 0.7397606258131144,
+      "holdout_brier": 0.12429490289461874,
+      "holdout_rows": 2062,
       "id": "eia861-reliability-deterioration--r2",
       "kind": "agent",
       "validation_auc": 0.733128775345312,
@@ -134,13 +154,43 @@
     },
     {
       "dataset": "eia861-reliability-deterioration",
-      "holdout_auc": null,
-      "holdout_brier": null,
-      "holdout_rows": null,
+      "holdout_auc": 0.7185148674204321,
+      "holdout_brier": 0.12880165354225095,
+      "holdout_rows": 2062,
+      "id": "eia861-reliability-deterioration--r2--random",
+      "kind": "random",
+      "validation_auc": 0.7111163479666037,
+      "validation_brier": 0.11608290806613326
+    },
+    {
+      "dataset": "eia861-reliability-deterioration",
+      "holdout_auc": 0.7394253208868145,
+      "holdout_brier": 0.12460346011284953,
+      "holdout_rows": 2062,
       "id": "eia861-reliability-deterioration--r3",
       "kind": "agent",
       "validation_auc": 0.73123869801085,
       "validation_brier": 0.11438575043462287
+    },
+    {
+      "dataset": "eia861-reliability-deterioration",
+      "holdout_auc": 0.7162423382824341,
+      "holdout_brier": 0.13170878989899162,
+      "holdout_rows": 2062,
+      "id": "eia861-reliability-deterioration--r3--random",
+      "kind": "random",
+      "validation_auc": 0.6984292639759917,
+      "validation_brier": 0.1180790169461886
+    },
+    {
+      "dataset": "eia861-reliability-deterioration",
+      "holdout_auc": 0.7112270148473021,
+      "holdout_brier": 0.13109772399706468,
+      "holdout_rows": 2062,
+      "id": "eia861-reliability-deterioration--released",
+      "kind": "released",
+      "validation_auc": 0.6859441729829556,
+      "validation_brier": 0.12008807061910082
     }
   ]
 }
