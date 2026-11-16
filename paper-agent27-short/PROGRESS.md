@@ -114,3 +114,69 @@ the author block in the previous *Identical Runs, Different Results* manuscript.
 Updated PDF author metadata and the AI-assistance responsibility statement to
 plural. Five pages; portable source builds identically. All five pages inspected
 after minor text reflow. Record verification passed.
+
+## Complete accounting and inspectable acceptance failure — 16 November 2026
+
+Reconciled all 540 stage attempts and all 54 discovery-completed candidates at
+the fixed cutoff. Table II reports every stage/outcome cell. There are 119 done,
+366 retry, 21 repair, 31 defer, two reject, and one open attempt. The 54 candidates
+were 14 published, 37 deferred, two rejected, and one active. These are cutoff
+states, not a closed-cohort success rate.
+
+The 366 retries divide into 206 worker outcomes, 98 model-invocation failures,
+61 proposal/controller validation failures, and one publication reconciliation.
+The 206 worker retry records match 206 distinct deleted workers; 205 carry the
+construction/qualification-failure outcome and one expiry before durable upload.
+These operation categories do not identify unique bugs or prove root causes.
+The pinned state implementation shows that waiting resumes the same attempt;
+corrected the earlier wording that could imply wait polls inflated attempt counts.
+The final-state export cannot recover the number of intermediate waits.
+
+Replaced the successful-release trace with exact SBIR selection-rule, builder
+condition, and acceptance-response excerpts. The missing-declaration
+counterfactual remains untested. Publication now explains code-checked anonymous
+receipts, and results distinguish fourteen verified publications, twelve
+consumer/source-reviewed releases, and the unknown number semantically valid.
+Retained both performance controls with less repeated numerical narration.
+Clarified that eight concern entries include three separate lead-task findings.
+Related work states the contribution as observed operating evidence.
+
+Hosted research is documented from September 2026 and the replacement controller
+from November. Added that history without extending the measured 81.53-hour
+window or claiming uninterrupted operation of the present configuration.
+Pinned sources are in analysis/operational-source-excerpts.json.
+
+The manuscript fits five pages with the existing figures and release table plus
+the small accounting table. No new experiment or production operation was run.
+
+Verification: revised generator and record checker pass in a separate checkout;
+the extracted portable source builds to matching PDF text. All five pages were
+inspected, fonts are embedded, and no overfull boxes or unresolved references
+remain. All 310 original long-paper hashes match.
+
+## Deferral reconciliation — 16 November 2026
+
+Checked the reviewers' proposed reconciliation against candidate histories rather
+than inferring it from totals. Of the 37 deferred discovery-completed candidates,
+31 reached the five-worker-failure limit, three the five-task-failure limit,
+two the semantic repair limit, and one had an explicit build deferral. Only the
+two semantic-repair cases had completed a build. Thus 35 deferred before any
+completed build, not the review's proposed 36. The 18 build-completed candidates
+were 14 published, two rejected, and two deferred; the active candidate had no
+completed build at cutoff.
+
+Added the 34/2/1 reconciliation, explained that limit-triggering attempts keep
+Retry/Repair outcomes, and clarified repeated stage completion in Table II's
+caption. The execution-cost lesson now connects 35 pre-completion deferrals with
+the observed construction expenditure. No causal link to tool-less generation
+is claimed. The generator records every deferred candidate's final attempt and
+the verifier checks the five-failure scope counters.
+
+The compact job export contains truncated result JSON for all 205
+construction/qualification failures; the expired worker has no result object.
+It does not contain full failure diagnostics. No complete cause taxonomy was
+added from these aggregate outcome labels, and no new experiment was run.
+
+Final deferral revision: five pages; clean-checkout accounting/history checks
+and portable PDF text comparison pass. Pages 1-2 are pixel-identical to the
+previous inspected build; pages 3-5 were re-inspected. No template or font changes.

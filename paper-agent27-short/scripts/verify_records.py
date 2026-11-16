@@ -25,6 +25,78 @@ counts=Counter((a['stage'],a['status']) for a in attempts)
 assert counts['discover','retry']==101 and counts['build','retry']==260 and counts['evaluate','repair']==21
 milestones={s:len({a['candidate'] for a in attempts if a['stage']==s and a['status']=='done'}) for s in ['discover','build','evaluate','publish']}
 assert milestones=={'discover':54,'build':18,'evaluate':14,'publish':14}
+accounting=read('paper-agent27-short/analysis/attempt-accounting.json')
+for path,digest in accounting['sources'].items(): assert sha(ROOT/path)==digest
+assert (accounting['window_start'],accounting['cutoff'])==(cost['window_start'],cost['cutoff'])
+for stage_name,outcomes in accounting['stage_outcomes'].items():
+ for outcome,count in outcomes.items(): assert counts[stage_name,outcome]==count
+assert accounting['stage_totals']=={'discover':185,'build':299,'evaluate':41,'publish':15}
+assert accounting['outcome_totals']=={'done':119,'retry':366,'repair':21,'defer':31,'reject':2,'running':1}
+assert sum(accounting['stage_totals'].values())==sum(accounting['outcome_totals'].values())==540
+retry_ids={a['id'] for a in attempts if a['status']=='retry'}
+assert {r['attempt'] for r in accounting['retry_records']}==retry_ids
+assert len(accounting['retry_records'])==len(retry_ids)==366
+assert Counter(r['category'] for r in accounting['retry_records'])==accounting['retry_categories']=={
+ 'worker_outcome':206,'model_invocation':98,'proposal_or_controller_validation':61,'publication_reconciliation':1}
+attempt_by_id={a['id']:a for a in attempts}
+jobs={j['attempt']:j for j in read('evidence/costs/2026-11-16/inputs/jobs_ledger.json')}
+for r in accounting['retry_records']:
+ original=attempt_by_id[r['attempt']]
+ assert original['stage']==r['stage']
+ # Inspect the original result separately from the generator's reason extraction.
+ if r['category']=='model_invocation': assert '"reason":"Model invocation failed:' in original['result']
+ elif r['category']=='worker_outcome':
+  result=json.loads(original['result'])
+  assert result['retry_scope']=='worker'
+  assert result['reason'] in ['Construction/qualification failed; artifacts preserved and worker deleted','Worker expired before durable upload']
+  assert jobs[r['attempt']]['status']=='deleted'
+ elif r['category']=='publication_reconciliation':
+  assert original['stage']=='publish'
+  assert json.loads(original['result'])['reason']=='Publication incomplete; retry reconciles destination files and tags'
+ else:
+  assert original['stage'] in ['discover','build']
+  assert 'Model invocation failed:' not in original['result']
+assert len({r['server_id'] for r in accounting['worker_retry_jobs']})==206
+for r in accounting['worker_retry_jobs']: assert r['server_id']==jobs[r['attempt']]['server_id']
+discovered={a['candidate'] for a in attempts if a['stage']=='discover' and a['status']=='done'}
+cutoff_candidates=[]
+for name in ['candidates_carry_in.json','candidates_new_admissions.json']:
+ cutoff_candidates.extend(c for c in read('evidence/costs/2026-11-16/inputs/'+name) if c['id'] in discovered)
+assert len(cutoff_candidates)==len({c['id'] for c in cutoff_candidates})==54
+assert all(datetime.fromisoformat(c['updated'])<end for c in cutoff_candidates)
+assert Counter(c['stage'] for c in cutoff_candidates)==accounting['discovery_completed_cutoff_states']=={
+ 'published':14,'deferred':37,'rejected':2,'build':1}
+assert accounting['discovery_completed_candidates']==cutoff_candidates
+built={a['candidate'] for a in attempts if a['stage']=='build' and a['status']=='done'}
+deferred={c['id']:c for c in cutoff_candidates if c['stage']=='deferred'}
+assert len(accounting['deferred_candidate_records'])==len(deferred)==37
+assert {d['candidate'] for d in accounting['deferred_candidate_records']}==set(deferred)
+assert sum(c not in built for c in deferred)==accounting['deferred_without_completed_build']==35
+assert accounting['deferral_categories']=={'build_worker_failure_limit':31,'build_task_failure_limit':3,'semantic_repair_limit':2,'explicit_build_deferral':1}
+assert Counter(d['category'] for d in accounting['deferred_candidate_records'])==accounting['deferral_categories']
+for d in accounting['deferred_candidate_records']:
+ assert d['completed_build']==(d['candidate'] in built)
+ history=sorted((a for a in attempts if a['candidate']==d['candidate']),key=lambda a:a['started'])
+ last=history[-1]
+ assert d['last_attempt']==last['id'] and d['last_outcome']==last['status']
+ if d['category'].startswith('build_'):
+  assert last['status']=='retry' and last['stage']=='build'
+  assert deferred[d['candidate']]['reason'].startswith('Attempt limit reached:')
+  scope=json.loads(last['result']).get('retry_scope','task')
+  assert d['category']=='build_'+scope+'_failure_limit'
+  failures=[]
+  for a in history:
+   if a['stage']=='build' and a['status']=='retry':
+    try: failure_scope=json.loads(a['result']).get('retry_scope','task')
+    except json.JSONDecodeError:
+     assert '[truncated ' in a['result']
+     failure_scope='task'
+    if failure_scope==scope: failures.append(a)
+  assert len(failures)==5
+ elif d['category']=='semantic_repair_limit':
+  assert d['completed_build'] and last['status']=='repair' and last['stage']=='evaluate'
+  assert deferred[d['candidate']]['reason'].startswith('Semantic repair limit reached:')
+ else: assert not d['completed_build'] and last['status']=='defer' and last['stage']=='build'
 assert len(snapshot['production_cohort'])==14 and len(snapshot['consumer_cohort'])==12
 latencies=[]
 for r,original in zip(release['records'],snapshot['production_cohort'],strict=True):
@@ -71,6 +143,8 @@ response=json.loads((p/'evaluate-1/response.json').read_text())
 assert response['verdict']=='accept' and response['findings']==[]
 assert 'Population matches the rule' in response['reason']
 assert 'unknown/missing phases in a window are excluded' in response['reason']
+assert 'unknown/missing phases in a window are excluded rather than labeled negative' in response['reason']
+assert "for future in range(year + 1, year + 5):\n            if future in unknown_phase.get((key, agency), set()):\n                ambiguous = True\n                break\n        if ambiguous:\n            excluded['unknown_phase_in_window'] += 1\n            continue" in builder
 # The first-publication trace is taken from its original stage records.
 trace=[a for a in attempts if a['candidate']=='source-000048']
 assert len(trace)==10
@@ -157,6 +231,11 @@ assert overlap==set(performance['overlapping_run_ranges'])=={'t100-new-route-sur
 gains=[r['consumer_median']-r['baseline_auc'] for r in performance['records'] if r['all_three_above_baseline']]
 assert [round(min(gains),3),round(max(gains),3)]==[.008,.072]
 report={'production_attempts':len(attempts),'milestones':milestones,'retry_counts':{'discovery':101,'build':260,'semantic_repair':21},
+ 'attempt_accounting_sha256':sha(OUT/'analysis/attempt-accounting.json'),
+ 'complete_attempt_outcomes':accounting['stage_outcomes'],
+ 'discovery_completed_cutoff_states':accounting['discovery_completed_cutoff_states'],
+ 'deferral_categories':accounting['deferral_categories'],
+ 'deferred_without_completed_build':accounting['deferred_without_completed_build'],
  'publications':14,'consumer_datasets':12,'scored_models_checked':sum(r['scored_models'] for r in consumer.values()),
  'consumer_summaries':consumer,'latency_min_max_median_minutes':[min(latencies),max(latencies),statistics.median(latencies)],
  'cost_range_usd':cost['factory_total_time_priced_usd_range'],'stage_costs_reconcile':True,'build_share_percent':stage['build_share_at_midpoint']*100,

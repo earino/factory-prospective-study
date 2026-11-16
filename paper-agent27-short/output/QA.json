@@ -1,9 +1,9 @@
 {
   "pages": 5,
-  "pdf_sha256": "3708f3f03ce49d7f2ef0e3ba1eacde37662b49fdd29d079041c145d02f32b6bc",
-  "source_zip_sha256": "381ea6af3dcce1d8f26875a1af9b6e08bb4234cd57866d7bc04abfb02636e74a",
-  "manuscript_sha256": "9201aea24e5bcc883fbf6b3e8a1945311d223fd4e542ce7e96a6e510727f5b86",
-  "clean_build_directory": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/factory-coauthor-pglpbyn4/paper-agent27-short",
+  "pdf_sha256": "5589905184ea739878a6c50df2648a5fdc5765638ee37353271205d4e70a3f8a",
+  "source_zip_sha256": "c412c7b5f105a1bfd313ca190d455fefa1110da473f7338adfad1d8a719cdca6",
+  "manuscript_sha256": "b1068ec99c5f65d9bc5b04ccfd4b8530293920c8714fb967e942e2f3250d9af4",
+  "clean_build_directory": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/factory-final-accounting-3ecpqivh/portable/paper-agent27-short",
   "clean_build_exit": 0,
   "portable_build_pdf_text_matches": true,
   "no_overfull_or_unresolved_references": true,
@@ -16,9 +16,9 @@
       4,
       5
     ],
-    "result": "All five pages inspected after adding Szilard Pafka, his affiliation/email and PDF metadata, and pluralizing the author-responsibility statement. Minor text reflow; five pages, no clipping or overlap, no unresolved references."
+    "result": "Five pages inspected after complete accounting and exact SBIR excerpts. Final deferral reconciliation leaves pages 1-2 pixel-identical; pages 3-5 re-inspected. Tables, code excerpts and figures remain readable, with no clipping or overlap and no unresolved references."
   },
-  "record_checks_sha256": "14b30666e0b7350b72e297a0d5efcecc0fd63c29f32b2988ecadf838de876c6e",
+  "record_checks_sha256": "26d7a28a9fcc251b0804a3245b82a1af0fb0ca119aeae56d07f0d4ae245f79a3",
   "disclosure_review_sha256": "e8eaddb3fff30ac3786888559bcd88b55b04e7adb240a5fc6ec40a31d96f32e1",
   "long_paper_files_preserved": 310,
   "workflow": {
@@ -52,7 +52,7 @@
       "mixed_tasks": 2,
       "all_control_higher_tasks": 1
     },
-    "clean_checkout": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/factory-submission-check-wx7p17q2/record-checkout",
+    "clean_checkout": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/factory-final-accounting-3ecpqivh/record-checkout",
     "clean_check_exit": 0,
     "historical_ignored_paper_artifacts_restored_for_preservation_checks": 161,
     "layout": "Two aligned panels, one per reference; common axis limits and zero, one median/range per task per panel.",
@@ -85,5 +85,32 @@
   "authors": [
     "Eduardo Ari\u00f1o de la Rubia",
     "Szilard Pafka"
-  ]
+  ],
+  "operating_accounting": {
+    "data_sha256": "83c5bc1a6f4dbcddc17409e495223bad8ae79ad5110f74c4aaceaa8ba9acf9f2",
+    "pinned_source_excerpts_sha256": "f7e6e9ef36ceff7b22c56cdf58387456dc7f67c99aba3ed4ec8fce39d0ac9aa4",
+    "stage_attempts": 540,
+    "retry_categories": {
+      "worker_outcome": 206,
+      "model_invocation": 98,
+      "proposal_or_controller_validation": 61,
+      "publication_reconciliation": 1
+    },
+    "candidate_cutoff_states": {
+      "published": 14,
+      "deferred": 37,
+      "rejected": 2,
+      "build": 1
+    },
+    "clean_checkout": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/factory-final-accounting-3ecpqivh/record-checkout",
+    "clean_check_exit": 0,
+    "table": 2,
+    "deferral_categories": {
+      "build_worker_failure_limit": 31,
+      "build_task_failure_limit": 3,
+      "semantic_repair_limit": 2,
+      "explicit_build_deferral": 1
+    },
+    "deferred_without_completed_build": 35
+  }
 }

@@ -11,6 +11,54 @@
     "build": 260,
     "semantic_repair": 21
   },
+  "attempt_accounting_sha256": "83c5bc1a6f4dbcddc17409e495223bad8ae79ad5110f74c4aaceaa8ba9acf9f2",
+  "complete_attempt_outcomes": {
+    "discover": {
+      "done": 54,
+      "retry": 101,
+      "repair": 0,
+      "defer": 30,
+      "reject": 0,
+      "running": 0
+    },
+    "build": {
+      "done": 37,
+      "retry": 260,
+      "repair": 0,
+      "defer": 1,
+      "reject": 0,
+      "running": 1
+    },
+    "evaluate": {
+      "done": 14,
+      "retry": 4,
+      "repair": 21,
+      "defer": 0,
+      "reject": 2,
+      "running": 0
+    },
+    "publish": {
+      "done": 14,
+      "retry": 1,
+      "repair": 0,
+      "defer": 0,
+      "reject": 0,
+      "running": 0
+    }
+  },
+  "discovery_completed_cutoff_states": {
+    "published": 14,
+    "deferred": 37,
+    "rejected": 2,
+    "build": 1
+  },
+  "deferral_categories": {
+    "build_worker_failure_limit": 31,
+    "build_task_failure_limit": 3,
+    "semantic_repair_limit": 2,
+    "explicit_build_deferral": 1
+  },
+  "deferred_without_completed_build": 35,
   "publications": 14,
   "consumer_datasets": 12,
   "scored_models_checked": 36,
@@ -108,7 +156,7 @@
     "stated": 1
   },
   "disclosure_review_sha256": "e8eaddb3fff30ac3786888559bcd88b55b04e7adb240a5fc6ec40a31d96f32e1",
-  "manuscript_sha256": "9201aea24e5bcc883fbf6b3e8a1945311d223fd4e542ce7e96a6e510727f5b86",
+  "manuscript_sha256": "b1068ec99c5f65d9bc5b04ccfd4b8530293920c8714fb967e942e2f3250d9af4",
   "consumer_results_sha256": "eb3b8c3a899ba12a870a04802b361c588617c68c82372abb6802f9832e56ad86",
   "consumer_results_checked": 12,
   "scope": "Recorded quantities, input identities, consumer completion, source-review identities and known wording checks. Does not mechanically establish semantic correctness of every sentence; manual claim and page reviews are separate."

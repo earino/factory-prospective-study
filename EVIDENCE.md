@@ -28,6 +28,9 @@ establish whether a complete declaration would have changed that decision.
 - Production window, stages and costs: [cost record](evidence/costs/2026-11-16/),
   [frozen analysis inputs](paper/analysis/final-inputs-2026-11-16.json), and
   [stage-cost calculation](paper-agent27-short/scripts/draw_stage_costs.py).
+- Table II: [complete attempt accounting](paper-agent27-short/analysis/attempt-accounting.json),
+  [reproducible calculation](paper-agent27-short/scripts/prepare_attempt_accounting.py),
+  and [pinned controller/history excerpts](paper-agent27-short/analysis/operational-source-excerpts.json).
 - Table I: [release records](paper-agent27-short/analysis/release-records.json),
   [disclosure comparisons](paper-agent27-short/analysis/disclosure-review.json),
   and [pinned release documents](paper-agent27-short/analysis/disclosure-documents/).

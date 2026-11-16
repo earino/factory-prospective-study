@@ -1,0 +1,4248 @@
+{
+  "window_start": "2026-11-12T21:27:59.319944+00:00",
+  "cutoff": "2026-11-16T07:00:00+00:00",
+  "sources": {
+    "evidence/costs/2026-11-16/summary.json": "d5e4e738063826521b0738f17a368f9b35ecf5e57cdcc5f94896bbc6bbce288f",
+    "evidence/costs/2026-11-16/inputs/attempts_carry_in.json": "bbef7a38053b63f2ba7310f74286bf1a134190abf241a68c0db45197b278d969",
+    "evidence/costs/2026-11-16/inputs/attempts_new_admissions.json": "0e26c56ac3f0a73dce77a9292ed014bd99be654d0417cfda80fecd41e747292c",
+    "evidence/costs/2026-11-16/inputs/candidates_carry_in.json": "e70fc778622b947d0a313e4b1fc3edd846c3621ab57d256e102d8493059028f1",
+    "evidence/costs/2026-11-16/inputs/candidates_new_admissions.json": "b60680407b2fdb10a61f71b2b69cdb1cdbc7155f4f3e2a673567b2b13d69300e",
+    "evidence/costs/2026-11-16/inputs/jobs_ledger.json": "b04fcece15576ab10c8df9a973c6f85b98fef21bbe9b0d32c2e8eec96c162acc"
+  },
+  "attempt_unit": "One durable stage attempt, potentially spanning multiple controller ticks. Waiting updates the same running attempt; intermediate wait counts are not recoverable from the final-state export.",
+  "stage_outcomes": {
+    "discover": {
+      "done": 54,
+      "retry": 101,
+      "repair": 0,
+      "defer": 30,
+      "reject": 0,
+      "running": 0
+    },
+    "build": {
+      "done": 37,
+      "retry": 260,
+      "repair": 0,
+      "defer": 1,
+      "reject": 0,
+      "running": 1
+    },
+    "evaluate": {
+      "done": 14,
+      "retry": 4,
+      "repair": 21,
+      "defer": 0,
+      "reject": 2,
+      "running": 0
+    },
+    "publish": {
+      "done": 14,
+      "retry": 1,
+      "repair": 0,
+      "defer": 0,
+      "reject": 0,
+      "running": 0
+    }
+  },
+  "outcome_totals": {
+    "done": 119,
+    "retry": 366,
+    "repair": 21,
+    "defer": 31,
+    "reject": 2,
+    "running": 1
+  },
+  "stage_totals": {
+    "discover": 185,
+    "build": 299,
+    "evaluate": 41,
+    "publish": 15
+  },
+  "retry_categories": {
+    "worker_outcome": 206,
+    "proposal_or_controller_validation": 61,
+    "model_invocation": 98,
+    "publication_reconciliation": 1
+  },
+  "retry_records": [
+    {
+      "attempt": "rw-f63d90f6fc37-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-080e85a65cfd-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-f63d90f6fc37-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-f63d90f6fc37-build-5",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-080e85a65cfd-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-080e85a65cfd-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-080e85a65cfd-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-080e85a65cfd-build-5",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Construction needs bounded Python source"
+    },
+    {
+      "attempt": "rw-080e85a65cfd-build-6",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-c23b2c955a0e-discover-1",
+      "stage": "discover",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Missing source evidence: attribution"
+    },
+    {
+      "attempt": "rw-c23b2c955a0e-discover-2",
+      "stage": "discover",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Missing source evidence: attribution"
+    },
+    {
+      "attempt": "rw-c23b2c955a0e-discover-3",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 395.445, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-b5a2d8b16744-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 502.763, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-b5a2d8b16744-discover-2",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 336.943, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-523d86249acf-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 332.554, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-4e8c0bcd0d8c-build-1",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Construction declarations fail existing qualification checks: [{\"check\": \"timing.every_feature_documented\", \"ok\": false, \"detail\": \"features documented as avail"
+    },
+    {
+      "attempt": "rw-4e8c0bcd0d8c-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-e3d144fa19f1-discover-1",
+      "stage": "discover",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Missing source evidence: attribution"
+    },
+    {
+      "attempt": "rw-e3d144fa19f1-discover-2",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 360.75, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response_"
+    },
+    {
+      "attempt": "rw-e3d144fa19f1-discover-3",
+      "stage": "discover",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Missing source evidence: attribution"
+    },
+    {
+      "attempt": "rw-e3d144fa19f1-discover-4",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 356.166, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-e3d144fa19f1-discover-5",
+      "stage": "discover",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Missing source evidence: attribution"
+    },
+    {
+      "attempt": "rw-a0e68561ec00-build-1",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Construction Python does not parse at line 31, column 12: invalid syntax. Perhaps you forgot a comma?"
+    },
+    {
+      "attempt": "rw-767af1b394fd-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 316.821, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-a0e68561ec00-build-2",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Construction Python does not parse at line 15, column 6: invalid syntax"
+    },
+    {
+      "attempt": "rw-767af1b394fd-discover-2",
+      "stage": "discover",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Missing source evidence: attribution"
+    },
+    {
+      "attempt": "rw-a0e68561ec00-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-767af1b394fd-discover-3",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 516.231, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-a0e68561ec00-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-767af1b394fd-build-1",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Construction declarations fail existing qualification checks: [{\"check\": \"contract.vintage_and_selection\", \"ok\": false, \"detail\": \"Vintage, selection and limita"
+    },
+    {
+      "attempt": "rw-a0e68561ec00-build-5",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-767af1b394fd-build-2",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Construction declarations fail existing qualification checks: [{\"check\": \"contract.vintage_and_selection\", \"ok\": false, \"detail\": \"Vintage, selection and limita"
+    },
+    {
+      "attempt": "rw-a0e68561ec00-build-6",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-767af1b394fd-build-3",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Construction declarations fail existing qualification checks: [{\"check\": \"contract.vintage_and_selection\", \"ok\": false, \"detail\": \"Vintage, selection and limita"
+    },
+    {
+      "attempt": "rw-a0e68561ec00-build-7",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-767af1b394fd-build-4",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Construction declarations fail existing qualification checks: [{\"check\": \"contract.vintage_and_selection\", \"ok\": false, \"detail\": \"Vintage, selection and limita"
+    },
+    {
+      "attempt": "rw-767af1b394fd-build-5",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Construction declarations fail existing qualification checks: [{\"check\": \"contract.vintage_and_selection\", \"ok\": false, \"detail\": \"Vintage, selection and limita"
+    },
+    {
+      "attempt": "rw-3e29b2d88d00-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-f4eeb53e5bf2-discover-1",
+      "stage": "discover",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Missing source evidence: attribution"
+    },
+    {
+      "attempt": "rw-f4eeb53e5bf2-discover-2",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 441.495, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-3e29b2d88d00-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-f4eeb53e5bf2-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-1299c545ed28-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 480.986, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-1299c545ed28-discover-2",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": false,
+      "reason_prefix": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 543.009, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\":"
+    },
+    {
+      "attempt": "rw-f4eeb53e5bf2-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-1299c545ed28-discover-3",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 455.749, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-f4eeb53e5bf2-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-1299c545ed28-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-f4eeb53e5bf2-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-f4eeb53e5bf2-build-5",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-b2d536ffe9c1-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 300.697, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-1299c545ed28-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-1299c545ed28-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-11da79a259ae-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-1299c545ed28-build-4",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Construction Python does not parse at line 115, column 20: invalid syntax. Perhaps you forgot a comma?"
+    },
+    {
+      "attempt": "rw-11da79a259ae-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-9f863b0276ff-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": false,
+      "reason_prefix": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 216.941, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\":"
+    },
+    {
+      "attempt": "rw-11da79a259ae-evaluate-1",
+      "stage": "evaluate",
+      "category": "model_invocation",
+      "truncated_reason": false,
+      "reason_prefix": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 98.489, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": "
+    },
+    {
+      "attempt": "rw-9f863b0276ff-discover-2",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 7.161, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response_d"
+    },
+    {
+      "attempt": "rw-11da79a259ae-evaluate-2",
+      "stage": "evaluate",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 7.706, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response_d"
+    },
+    {
+      "attempt": "rw-9f863b0276ff-discover-3",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": false,
+      "reason_prefix": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 78.528, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": "
+    },
+    {
+      "attempt": "rw-11da79a259ae-evaluate-3",
+      "stage": "evaluate",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 8.8, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response_dia"
+    },
+    {
+      "attempt": "rw-9f863b0276ff-discover-4",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 7.82, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response_di"
+    },
+    {
+      "attempt": "rw-11da79a259ae-evaluate-4",
+      "stage": "evaluate",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 8.164, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response_d"
+    },
+    {
+      "attempt": "rw-11da79a259ae-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-9f863b0276ff-discover-5",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 248.355, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-ab76adcada28-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 255.628, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-ab76adcada28-discover-2",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 286.482, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-3c5a623babd4-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 418.016, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-ab76adcada28-discover-3",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 451.704, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-3c5a623babd4-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-ab76adcada28-discover-4",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 537.199, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-ab76adcada28-discover-5",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 524.699, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-3c5a623babd4-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-3c5a623babd4-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-7d6aa3671f1e-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-3c5a623babd4-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-7d6aa3671f1e-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-7d6aa3671f1e-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-7d6aa3671f1e-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Worker expired before durable upload"
+    },
+    {
+      "attempt": "rw-3c5a623babd4-build-5",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-7d6aa3671f1e-build-5",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-91ffa6294e52-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 244.847, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-bae7d4036d95-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-91ffa6294e52-discover-2",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 238.083, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-bae7d4036d95-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-bae7d4036d95-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-91ffa6294e52-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-bae7d4036d95-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-bae7d4036d95-build-5",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Construction needs bounded Python source"
+    },
+    {
+      "attempt": "rw-bae7d4036d95-build-6",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-af0a34c3dcd2-discover-1",
+      "stage": "discover",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Missing source evidence: attribution"
+    },
+    {
+      "attempt": "rw-af0a34c3dcd2-discover-2",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 280.002, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-f2cd4d4b5a2d-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 432.599, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-af0a34c3dcd2-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-f2cd4d4b5a2d-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-af0a34c3dcd2-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-f2cd4d4b5a2d-build-2",
+      "stage": "build",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 182.632, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-f2cd4d4b5a2d-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-af0a34c3dcd2-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-af0a34c3dcd2-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-af0a34c3dcd2-build-5",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-64e7b0c7d522-build-1",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Construction declarations fail existing qualification checks: [{\"check\": \"timing.every_feature_documented\", \"ok\": false, \"detail\": \"features documented as avail"
+    },
+    {
+      "attempt": "rw-64e7b0c7d522-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-f2cd4d4b5a2d-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-64e7b0c7d522-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-f2cd4d4b5a2d-build-5",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-64e7b0c7d522-build-5",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Construction needs bounded Python source"
+    },
+    {
+      "attempt": "rw-359604032c14-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 436.676, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-359604032c14-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-359604032c14-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-359604032c14-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-359604032c14-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-359604032c14-build-5",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-9f58fbd0fa13-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 269.675, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-64e7b0c7d522-build-9",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Task context exceeds 128 KiB"
+    },
+    {
+      "attempt": "rw-9f58fbd0fa13-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-b6daec6d3aba-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 365.264, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-9f58fbd0fa13-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-b6daec6d3aba-discover-2",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 237.079, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-b6daec6d3aba-discover-3",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 358.507, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-b6daec6d3aba-discover-4",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 208.488, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-f83a982816f8-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 384.504, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-b6daec6d3aba-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-f83a982816f8-build-1",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Construction declarations fail existing qualification checks: [{\"check\": \"timing.every_feature_documented\", \"ok\": false, \"detail\": \"features documented as avail"
+    },
+    {
+      "attempt": "rw-b6daec6d3aba-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-f83a982816f8-build-2",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Construction descriptor lacks target"
+    },
+    {
+      "attempt": "rw-b6daec6d3aba-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-f83a982816f8-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-b6daec6d3aba-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-f83a982816f8-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-f83a982816f8-build-5",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-b6daec6d3aba-build-5",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-e66801b3a1a3-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 420.387, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-e66801b3a1a3-discover-2",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 405.894, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-f83a982816f8-build-6",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-fc9a71924d7b-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 469.922, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-f83a982816f8-build-7",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-fc9a71924d7b-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-fc9a71924d7b-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-77b090c2552c-build-1",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": true,
+      "reason_prefix": "Construction declarations fail existing qualification checks: [{\\\"check\\\": \\\"timing.every_feature_documented\\\", \\\"ok\\\": false, \\\"detail\\\": \\\"features documented"
+    },
+    {
+      "attempt": "rw-fc9a71924d7b-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-77b090c2552c-build-2",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Construction declarations fail existing qualification checks: [{\"check\": \"contract.vintage_and_selection\", \"ok\": false, \"detail\": \"Vintage, selection and limita"
+    },
+    {
+      "attempt": "rw-fc9a71924d7b-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-77b090c2552c-build-3",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Construction declarations fail existing qualification checks: [{\"check\": \"contract.vintage_and_selection\", \"ok\": false, \"detail\": \"Vintage, selection and limita"
+    },
+    {
+      "attempt": "rw-77b090c2552c-build-4",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Construction declarations fail existing qualification checks: [{\"check\": \"contract.vintage_and_selection\", \"ok\": false, \"detail\": \"Vintage, selection and limita"
+    },
+    {
+      "attempt": "rw-fc9a71924d7b-build-5",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-77b090c2552c-build-5",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Construction descriptor lacks target"
+    },
+    {
+      "attempt": "rw-f45832b80902-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 448.571, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-be5838ec23c9-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 212.038, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-f45832b80902-discover-2",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 333.548, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-be5838ec23c9-discover-2",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 360.331, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-f45832b80902-discover-3",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 452.521, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-be5838ec23c9-discover-3",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 310.844, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-f45832b80902-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-be5838ec23c9-build-1",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Source access recipe must be nonempty text"
+    },
+    {
+      "attempt": "rw-f45832b80902-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-f45832b80902-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-f45832b80902-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-f45832b80902-build-5",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-58e90277d81d-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-be5838ec23c9-publish-1",
+      "stage": "publish",
+      "category": "publication_reconciliation",
+      "truncated_reason": false,
+      "reason_prefix": "Publication incomplete; retry reconciles destination files and tags"
+    },
+    {
+      "attempt": "rw-58e90277d81d-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-58e90277d81d-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-58e90277d81d-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-58e90277d81d-build-5",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-17210db0fb94-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 295.481, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-17210db0fb94-discover-2",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 564.928, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-17210db0fb94-discover-3",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 375.357, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-17210db0fb94-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-978461e02d49-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 420.573, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-17210db0fb94-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-17210db0fb94-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-7048eece2e81-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 367.841, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-17210db0fb94-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-7048eece2e81-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-17210db0fb94-build-5",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-7048eece2e81-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-7048eece2e81-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-7048eece2e81-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-b12097e1cb7a-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 279.09, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response_"
+    },
+    {
+      "attempt": "rw-b12097e1cb7a-build-1",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Construction declarations fail existing qualification checks: [{\"check\": \"contract.vintage_and_selection\", \"ok\": false, \"detail\": \"Vintage, selection and limita"
+    },
+    {
+      "attempt": "rw-b12097e1cb7a-build-2",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Construction declarations fail existing qualification checks: [{\"check\": \"contract.vintage_and_selection\", \"ok\": false, \"detail\": \"Vintage, selection and limita"
+    },
+    {
+      "attempt": "rw-b12097e1cb7a-build-3",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Construction declarations fail existing qualification checks: [{\"check\": \"contract.vintage_and_selection\", \"ok\": false, \"detail\": \"Vintage, selection and limita"
+    },
+    {
+      "attempt": "rw-adcfc5406f64-discover-1",
+      "stage": "discover",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Missing source evidence: attribution"
+    },
+    {
+      "attempt": "rw-b12097e1cb7a-build-4",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Construction declarations fail existing qualification checks: [{\"check\": \"contract.vintage_and_selection\", \"ok\": false, \"detail\": \"Vintage, selection and limita"
+    },
+    {
+      "attempt": "rw-adcfc5406f64-discover-2",
+      "stage": "discover",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Source evidence requires public HTTPS URLs without credentials"
+    },
+    {
+      "attempt": "rw-b12097e1cb7a-build-5",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-adcfc5406f64-discover-3",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 357.989, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-b12097e1cb7a-build-6",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-adcfc5406f64-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-b12097e1cb7a-build-7",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-adcfc5406f64-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-b12097e1cb7a-build-8",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-b12097e1cb7a-build-9",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-9b0bc4edbf98-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 434.664, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-9b0bc4edbf98-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-adcfc5406f64-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-9b0bc4edbf98-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-9b0bc4edbf98-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-9b0bc4edbf98-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-9b0bc4edbf98-build-5",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-5bf7599d000f-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 418.46, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response_"
+    },
+    {
+      "attempt": "rw-adcfc5406f64-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-5bf7599d000f-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-adcfc5406f64-build-5",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Construction needs bounded Python source"
+    },
+    {
+      "attempt": "rw-adcfc5406f64-build-6",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-5bf7599d000f-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-5bf7599d000f-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-5bf7599d000f-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-5bf7599d000f-build-5",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-475ebff34fde-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 337.012, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-475ebff34fde-discover-2",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 506.703, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-10faaa806d61-discover-1",
+      "stage": "discover",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Missing source evidence: attribution"
+    },
+    {
+      "attempt": "rw-cdc9d9b56673-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-10faaa806d61-discover-2",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 331.035, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-cdc9d9b56673-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-cdc9d9b56673-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-2e60ed342d55-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 282.035, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-cdc9d9b56673-build-4",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "argument of type 'NoneType' is not a container or iterable"
+    },
+    {
+      "attempt": "rw-2e60ed342d55-build-1",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Construction declarations fail existing qualification checks: [{\"check\": \"timing.every_feature_documented\", \"ok\": false, \"detail\": \"features documented as avail"
+    },
+    {
+      "attempt": "rw-cdc9d9b56673-build-5",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "argument of type 'NoneType' is not a container or iterable"
+    },
+    {
+      "attempt": "rw-2e60ed342d55-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-cdc9d9b56673-build-6",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "argument of type 'NoneType' is not a container or iterable"
+    },
+    {
+      "attempt": "rw-2e60ed342d55-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-cdc9d9b56673-build-7",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "argument of type 'NoneType' is not a container or iterable"
+    },
+    {
+      "attempt": "rw-cdc9d9b56673-build-8",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "argument of type 'NoneType' is not a container or iterable"
+    },
+    {
+      "attempt": "rw-5869f2b669ee-build-1",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": true,
+      "reason_prefix": "Construction declarations fail existing qualification checks: [{\\\"check\\\": \\\"contract.scope\\\", \\\"ok\\\": false, \\\"detail\\\": \\\"use=None; access='isolated_rows'; ev"
+    },
+    {
+      "attempt": "rw-ac5b99da5882-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 498.705, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-5869f2b669ee-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-ac5b99da5882-discover-2",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 357.464, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-5869f2b669ee-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-ac5b99da5882-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-5869f2b669ee-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-5869f2b669ee-build-5",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-5869f2b669ee-build-6",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-d5055b6671fa-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-3d1fe6826c77-build-1",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Construction declarations fail existing qualification checks: [{\"check\": \"timing.every_feature_documented\", \"ok\": false, \"detail\": \"features documented as avail"
+    },
+    {
+      "attempt": "rw-3d1fe6826c77-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-d5055b6671fa-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-3d1fe6826c77-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-d5055b6671fa-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-d5055b6671fa-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-d5055b6671fa-build-5",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-7067c1a1c069-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 402.735, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-7067c1a1c069-discover-2",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 400.648, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-025dcb36b1dc-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-7067c1a1c069-discover-3",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 307.221, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-025dcb36b1dc-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-7067c1a1c069-discover-4",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 332.672, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-7067c1a1c069-discover-5",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 418.067, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-025dcb36b1dc-build-3",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Model response is not JSON: Expecting value at line 1, column 1"
+    },
+    {
+      "attempt": "rw-025dcb36b1dc-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-328f52635acd-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-025dcb36b1dc-build-5",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-328f52635acd-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-025dcb36b1dc-build-6",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-c7ee0e9402a9-build-1",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Construction declarations fail existing qualification checks: [{\"check\": \"timing.every_feature_documented\", \"ok\": false, \"detail\": \"features documented as avail"
+    },
+    {
+      "attempt": "rw-328f52635acd-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-c7ee0e9402a9-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-328f52635acd-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-c7ee0e9402a9-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-328f52635acd-build-5",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-a5e3265c031f-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 246.64, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response_"
+    },
+    {
+      "attempt": "rw-a5e3265c031f-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-c7ee0e9402a9-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-c7ee0e9402a9-build-5",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-b341258d1b16-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-c7ee0e9402a9-build-6",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-b341258d1b16-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-6945f0f15bc8-build-1",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Construction declarations fail existing qualification checks: [{\"check\": \"timing.every_feature_documented\", \"ok\": false, \"detail\": \"features documented as avail"
+    },
+    {
+      "attempt": "rw-b341258d1b16-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-6945f0f15bc8-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-b341258d1b16-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-6945f0f15bc8-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-b341258d1b16-build-5",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-6945f0f15bc8-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-0533fb61d938-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 528.918, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-6945f0f15bc8-build-5",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-6945f0f15bc8-build-6",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-11a45d2e7fb0-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 301.667, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-11a45d2e7fb0-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-b7b5bdf50800-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 392.758, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-11a45d2e7fb0-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-11a45d2e7fb0-build-3",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Source access recipe must be nonempty text"
+    },
+    {
+      "attempt": "rw-a4c3cc84332a-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 531.672, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-11a45d2e7fb0-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-8673bff0349c-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-8673bff0349c-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-8673bff0349c-build-3",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Terms repair may change only the declared source-evidence fields"
+    },
+    {
+      "attempt": "rw-8673bff0349c-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-11a45d2e7fb0-build-9",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-9191e4f5f154-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 243.404, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-9191e4f5f154-discover-2",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 456.872, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-9191e4f5f154-discover-3",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 342.335, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-8673bff0349c-build-5",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Terms repair may change only the declared source-evidence fields"
+    },
+    {
+      "attempt": "rw-9191e4f5f154-discover-4",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 380.321, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-8673bff0349c-build-6",
+      "stage": "build",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 190.258, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-9191e4f5f154-discover-5",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 550.508, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-8673bff0349c-build-7",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-810936db77de-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 309.06, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response_"
+    },
+    {
+      "attempt": "rw-8673bff0349c-build-8",
+      "stage": "build",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 207.899, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-810936db77de-discover-2",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 287.301, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-8673bff0349c-build-9",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-810936db77de-discover-3",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 310.33, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response_"
+    },
+    {
+      "attempt": "rw-ef6e7869e08c-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-810936db77de-discover-4",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 310.359, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-ef6e7869e08c-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-810936db77de-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-ef6e7869e08c-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-810936db77de-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-810936db77de-build-3",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Construction descriptor lacks target"
+    },
+    {
+      "attempt": "rw-810936db77de-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-ef6e7869e08c-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-ef6e7869e08c-build-5",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-cc34a332ce86-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 315.902, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-98906a0445f5-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 383.893, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-98906a0445f5-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-0f4dade102e6-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 375.605, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-35d47d7b0db7-discover-1",
+      "stage": "discover",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Missing source evidence: attribution"
+    },
+    {
+      "attempt": "rw-98906a0445f5-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-35d47d7b0db7-discover-2",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 530.018, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-98906a0445f5-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-35d47d7b0db7-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-98906a0445f5-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-35d47d7b0db7-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-98906a0445f5-build-5",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-35d47d7b0db7-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-457b06451214-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-35d47d7b0db7-build-4",
+      "stage": "build",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 197.083, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-35d47d7b0db7-build-5",
+      "stage": "build",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 168.092, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-35d47d7b0db7-build-6",
+      "stage": "build",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 170.91, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response_"
+    },
+    {
+      "attempt": "rw-457b06451214-build-2",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Construction Python does not parse at line 830, column 13: '[' was never closed"
+    },
+    {
+      "attempt": "rw-35d47d7b0db7-build-7",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-457b06451214-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-35d47d7b0db7-build-8",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Construction must declare fixed baseline references"
+    },
+    {
+      "attempt": "rw-35d47d7b0db7-build-9",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-457b06451214-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-0af46414376f-discover-1",
+      "stage": "discover",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Missing source evidence: attribution"
+    },
+    {
+      "attempt": "rw-0af46414376f-discover-2",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 235.079, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-457b06451214-build-5",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-7f160d7e5ea6-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 334.579, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-457b06451214-build-6",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-7f160d7e5ea6-discover-2",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": false,
+      "reason_prefix": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 528.16, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": "
+    },
+    {
+      "attempt": "rw-42c79977be8e-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 415.704, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-7f160d7e5ea6-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-7f160d7e5ea6-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-42c79977be8e-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-7f160d7e5ea6-build-3",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "argument of type 'NoneType' is not a container or iterable"
+    },
+    {
+      "attempt": "rw-7f160d7e5ea6-build-4",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "argument of type 'NoneType' is not a container or iterable"
+    },
+    {
+      "attempt": "rw-7f160d7e5ea6-build-5",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-42c79977be8e-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-7f160d7e5ea6-build-6",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-42c79977be8e-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-42c79977be8e-build-4",
+      "stage": "build",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Model response is not JSON: Expecting value at line 1, column 1"
+    },
+    {
+      "attempt": "rw-42c79977be8e-build-5",
+      "stage": "build",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 251.542, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-42c79977be8e-build-6",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-6476113a94c2-discover-1",
+      "stage": "discover",
+      "category": "model_invocation",
+      "truncated_reason": true,
+      "reason_prefix": "Model invocation failed: {\\\"exit_code\\\": 1, \\\"elapsed_seconds\\\": 298.396, \\\"parser_error\\\": [], \\\"diagnostic\\\": \\\"\\\\nsession_id: [opaque-value]\\\\n\\\", \\\"response"
+    },
+    {
+      "attempt": "rw-42c79977be8e-build-7",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-6476113a94c2-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-0cc3ee50ab66-build-1",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-0cc3ee50ab66-build-2",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-0cc3ee50ab66-build-3",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-0cc3ee50ab66-build-4",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-0cc3ee50ab66-build-5",
+      "stage": "build",
+      "category": "worker_outcome",
+      "truncated_reason": false,
+      "reason_prefix": "Construction/qualification failed; artifacts preserved and worker deleted"
+    },
+    {
+      "attempt": "rw-ae3a330a0369-discover-1",
+      "stage": "discover",
+      "category": "proposal_or_controller_validation",
+      "truncated_reason": false,
+      "reason_prefix": "Missing source evidence: attribution"
+    }
+  ],
+  "worker_retry_jobs": [
+    {
+      "attempt": "rw-f63d90f6fc37-build-3",
+      "server_id": 175892371
+    },
+    {
+      "attempt": "rw-080e85a65cfd-build-1",
+      "server_id": 175903916
+    },
+    {
+      "attempt": "rw-f63d90f6fc37-build-4",
+      "server_id": 175896803
+    },
+    {
+      "attempt": "rw-f63d90f6fc37-build-5",
+      "server_id": 175899960
+    },
+    {
+      "attempt": "rw-080e85a65cfd-build-2",
+      "server_id": 175905919
+    },
+    {
+      "attempt": "rw-080e85a65cfd-build-3",
+      "server_id": 175908048
+    },
+    {
+      "attempt": "rw-080e85a65cfd-build-4",
+      "server_id": 175910284
+    },
+    {
+      "attempt": "rw-080e85a65cfd-build-6",
+      "server_id": 175913596
+    },
+    {
+      "attempt": "rw-4e8c0bcd0d8c-build-2",
+      "server_id": 175917545
+    },
+    {
+      "attempt": "rw-a0e68561ec00-build-3",
+      "server_id": 175930334
+    },
+    {
+      "attempt": "rw-a0e68561ec00-build-4",
+      "server_id": 175931688
+    },
+    {
+      "attempt": "rw-a0e68561ec00-build-5",
+      "server_id": 175933427
+    },
+    {
+      "attempt": "rw-a0e68561ec00-build-6",
+      "server_id": 175934700
+    },
+    {
+      "attempt": "rw-a0e68561ec00-build-7",
+      "server_id": 175935837
+    },
+    {
+      "attempt": "rw-3e29b2d88d00-build-1",
+      "server_id": 175938186
+    },
+    {
+      "attempt": "rw-3e29b2d88d00-build-2",
+      "server_id": 175940096
+    },
+    {
+      "attempt": "rw-f4eeb53e5bf2-build-1",
+      "server_id": 175944211
+    },
+    {
+      "attempt": "rw-f4eeb53e5bf2-build-2",
+      "server_id": 175945982
+    },
+    {
+      "attempt": "rw-f4eeb53e5bf2-build-3",
+      "server_id": 175948153
+    },
+    {
+      "attempt": "rw-1299c545ed28-build-1",
+      "server_id": 175950784
+    },
+    {
+      "attempt": "rw-f4eeb53e5bf2-build-4",
+      "server_id": 175949420
+    },
+    {
+      "attempt": "rw-f4eeb53e5bf2-build-5",
+      "server_id": 175949913
+    },
+    {
+      "attempt": "rw-1299c545ed28-build-2",
+      "server_id": 175951905
+    },
+    {
+      "attempt": "rw-1299c545ed28-build-3",
+      "server_id": 175952527
+    },
+    {
+      "attempt": "rw-11da79a259ae-build-1",
+      "server_id": 175953207
+    },
+    {
+      "attempt": "rw-11da79a259ae-build-2",
+      "server_id": 175954096
+    },
+    {
+      "attempt": "rw-11da79a259ae-build-4",
+      "server_id": 176022526
+    },
+    {
+      "attempt": "rw-3c5a623babd4-build-1",
+      "server_id": 176030024
+    },
+    {
+      "attempt": "rw-3c5a623babd4-build-2",
+      "server_id": 176031994
+    },
+    {
+      "attempt": "rw-3c5a623babd4-build-3",
+      "server_id": 176033083
+    },
+    {
+      "attempt": "rw-7d6aa3671f1e-build-1",
+      "server_id": 176034008
+    },
+    {
+      "attempt": "rw-3c5a623babd4-build-4",
+      "server_id": 176035527
+    },
+    {
+      "attempt": "rw-7d6aa3671f1e-build-2",
+      "server_id": 176034531
+    },
+    {
+      "attempt": "rw-7d6aa3671f1e-build-3",
+      "server_id": 176035069
+    },
+    {
+      "attempt": "rw-7d6aa3671f1e-build-4",
+      "server_id": 176036361
+    },
+    {
+      "attempt": "rw-3c5a623babd4-build-5",
+      "server_id": 176041360
+    },
+    {
+      "attempt": "rw-7d6aa3671f1e-build-5",
+      "server_id": 176041861
+    },
+    {
+      "attempt": "rw-bae7d4036d95-build-1",
+      "server_id": 176043502
+    },
+    {
+      "attempt": "rw-bae7d4036d95-build-2",
+      "server_id": 176044148
+    },
+    {
+      "attempt": "rw-bae7d4036d95-build-3",
+      "server_id": 176044799
+    },
+    {
+      "attempt": "rw-91ffa6294e52-build-1",
+      "server_id": 176046251
+    },
+    {
+      "attempt": "rw-bae7d4036d95-build-4",
+      "server_id": 176045697
+    },
+    {
+      "attempt": "rw-bae7d4036d95-build-6",
+      "server_id": 176047213
+    },
+    {
+      "attempt": "rw-af0a34c3dcd2-build-1",
+      "server_id": 176049958
+    },
+    {
+      "attempt": "rw-f2cd4d4b5a2d-build-1",
+      "server_id": 176050934
+    },
+    {
+      "attempt": "rw-af0a34c3dcd2-build-2",
+      "server_id": 176051654
+    },
+    {
+      "attempt": "rw-f2cd4d4b5a2d-build-3",
+      "server_id": 176053915
+    },
+    {
+      "attempt": "rw-af0a34c3dcd2-build-3",
+      "server_id": 176052449
+    },
+    {
+      "attempt": "rw-af0a34c3dcd2-build-4",
+      "server_id": 176052907
+    },
+    {
+      "attempt": "rw-af0a34c3dcd2-build-5",
+      "server_id": 176053439
+    },
+    {
+      "attempt": "rw-64e7b0c7d522-build-2",
+      "server_id": 176054655
+    },
+    {
+      "attempt": "rw-f2cd4d4b5a2d-build-4",
+      "server_id": 176054944
+    },
+    {
+      "attempt": "rw-64e7b0c7d522-build-3",
+      "server_id": 176055603
+    },
+    {
+      "attempt": "rw-f2cd4d4b5a2d-build-5",
+      "server_id": 176056019
+    },
+    {
+      "attempt": "rw-359604032c14-build-1",
+      "server_id": 176060630
+    },
+    {
+      "attempt": "rw-359604032c14-build-2",
+      "server_id": 176060941
+    },
+    {
+      "attempt": "rw-359604032c14-build-3",
+      "server_id": 176061438
+    },
+    {
+      "attempt": "rw-359604032c14-build-4",
+      "server_id": 176061782
+    },
+    {
+      "attempt": "rw-359604032c14-build-5",
+      "server_id": 176062186
+    },
+    {
+      "attempt": "rw-9f58fbd0fa13-build-1",
+      "server_id": 176065812
+    },
+    {
+      "attempt": "rw-9f58fbd0fa13-build-2",
+      "server_id": 176066665
+    },
+    {
+      "attempt": "rw-b6daec6d3aba-build-1",
+      "server_id": 176069648
+    },
+    {
+      "attempt": "rw-b6daec6d3aba-build-2",
+      "server_id": 176070837
+    },
+    {
+      "attempt": "rw-b6daec6d3aba-build-3",
+      "server_id": 176122558
+    },
+    {
+      "attempt": "rw-f83a982816f8-build-3",
+      "server_id": 176122732
+    },
+    {
+      "attempt": "rw-b6daec6d3aba-build-4",
+      "server_id": 176123927
+    },
+    {
+      "attempt": "rw-f83a982816f8-build-4",
+      "server_id": 176123413
+    },
+    {
+      "attempt": "rw-f83a982816f8-build-5",
+      "server_id": 176125339
+    },
+    {
+      "attempt": "rw-b6daec6d3aba-build-5",
+      "server_id": 176124350
+    },
+    {
+      "attempt": "rw-f83a982816f8-build-6",
+      "server_id": 176126471
+    },
+    {
+      "attempt": "rw-f83a982816f8-build-7",
+      "server_id": 176127582
+    },
+    {
+      "attempt": "rw-fc9a71924d7b-build-1",
+      "server_id": 176129055
+    },
+    {
+      "attempt": "rw-fc9a71924d7b-build-2",
+      "server_id": 176130200
+    },
+    {
+      "attempt": "rw-fc9a71924d7b-build-3",
+      "server_id": 176131207
+    },
+    {
+      "attempt": "rw-fc9a71924d7b-build-4",
+      "server_id": 176131974
+    },
+    {
+      "attempt": "rw-fc9a71924d7b-build-5",
+      "server_id": 176132704
+    },
+    {
+      "attempt": "rw-f45832b80902-build-1",
+      "server_id": 176137330
+    },
+    {
+      "attempt": "rw-f45832b80902-build-2",
+      "server_id": 176138786
+    },
+    {
+      "attempt": "rw-f45832b80902-build-3",
+      "server_id": 176140274
+    },
+    {
+      "attempt": "rw-f45832b80902-build-4",
+      "server_id": 176140920
+    },
+    {
+      "attempt": "rw-f45832b80902-build-5",
+      "server_id": 176141545
+    },
+    {
+      "attempt": "rw-58e90277d81d-build-1",
+      "server_id": 176143033
+    },
+    {
+      "attempt": "rw-58e90277d81d-build-2",
+      "server_id": 176143469
+    },
+    {
+      "attempt": "rw-58e90277d81d-build-3",
+      "server_id": 176143950
+    },
+    {
+      "attempt": "rw-58e90277d81d-build-4",
+      "server_id": 176144407
+    },
+    {
+      "attempt": "rw-58e90277d81d-build-5",
+      "server_id": 176145110
+    },
+    {
+      "attempt": "rw-17210db0fb94-build-1",
+      "server_id": 176148197
+    },
+    {
+      "attempt": "rw-17210db0fb94-build-2",
+      "server_id": 176149447
+    },
+    {
+      "attempt": "rw-17210db0fb94-build-3",
+      "server_id": 176151461
+    },
+    {
+      "attempt": "rw-17210db0fb94-build-4",
+      "server_id": 176152445
+    },
+    {
+      "attempt": "rw-7048eece2e81-build-1",
+      "server_id": 176153263
+    },
+    {
+      "attempt": "rw-17210db0fb94-build-5",
+      "server_id": 176156605
+    },
+    {
+      "attempt": "rw-7048eece2e81-build-2",
+      "server_id": 176154198
+    },
+    {
+      "attempt": "rw-7048eece2e81-build-3",
+      "server_id": 176154709
+    },
+    {
+      "attempt": "rw-7048eece2e81-build-4",
+      "server_id": 176155101
+    },
+    {
+      "attempt": "rw-b12097e1cb7a-build-5",
+      "server_id": 176160590
+    },
+    {
+      "attempt": "rw-b12097e1cb7a-build-6",
+      "server_id": 176161227
+    },
+    {
+      "attempt": "rw-adcfc5406f64-build-1",
+      "server_id": 176161995
+    },
+    {
+      "attempt": "rw-b12097e1cb7a-build-7",
+      "server_id": 176162471
+    },
+    {
+      "attempt": "rw-adcfc5406f64-build-2",
+      "server_id": 176164259
+    },
+    {
+      "attempt": "rw-b12097e1cb7a-build-8",
+      "server_id": 176163000
+    },
+    {
+      "attempt": "rw-b12097e1cb7a-build-9",
+      "server_id": 176163509
+    },
+    {
+      "attempt": "rw-9b0bc4edbf98-build-1",
+      "server_id": 176164847
+    },
+    {
+      "attempt": "rw-adcfc5406f64-build-3",
+      "server_id": 176171308
+    },
+    {
+      "attempt": "rw-9b0bc4edbf98-build-2",
+      "server_id": 176165655
+    },
+    {
+      "attempt": "rw-9b0bc4edbf98-build-3",
+      "server_id": 176167880
+    },
+    {
+      "attempt": "rw-9b0bc4edbf98-build-4",
+      "server_id": 176168386
+    },
+    {
+      "attempt": "rw-9b0bc4edbf98-build-5",
+      "server_id": 176168639
+    },
+    {
+      "attempt": "rw-adcfc5406f64-build-4",
+      "server_id": 176172340
+    },
+    {
+      "attempt": "rw-5bf7599d000f-build-1",
+      "server_id": 176173124
+    },
+    {
+      "attempt": "rw-adcfc5406f64-build-6",
+      "server_id": 176175732
+    },
+    {
+      "attempt": "rw-5bf7599d000f-build-2",
+      "server_id": 176173873
+    },
+    {
+      "attempt": "rw-5bf7599d000f-build-3",
+      "server_id": 176174381
+    },
+    {
+      "attempt": "rw-5bf7599d000f-build-4",
+      "server_id": 176174674
+    },
+    {
+      "attempt": "rw-5bf7599d000f-build-5",
+      "server_id": 176175186
+    },
+    {
+      "attempt": "rw-cdc9d9b56673-build-1",
+      "server_id": 176178274
+    },
+    {
+      "attempt": "rw-cdc9d9b56673-build-2",
+      "server_id": 176179443
+    },
+    {
+      "attempt": "rw-cdc9d9b56673-build-3",
+      "server_id": 176180308
+    },
+    {
+      "attempt": "rw-2e60ed342d55-build-2",
+      "server_id": 176181555
+    },
+    {
+      "attempt": "rw-2e60ed342d55-build-3",
+      "server_id": 176182133
+    },
+    {
+      "attempt": "rw-5869f2b669ee-build-2",
+      "server_id": 176184389
+    },
+    {
+      "attempt": "rw-5869f2b669ee-build-3",
+      "server_id": 176185340
+    },
+    {
+      "attempt": "rw-ac5b99da5882-build-1",
+      "server_id": 176185992
+    },
+    {
+      "attempt": "rw-5869f2b669ee-build-4",
+      "server_id": 176186497
+    },
+    {
+      "attempt": "rw-5869f2b669ee-build-5",
+      "server_id": 176187875
+    },
+    {
+      "attempt": "rw-5869f2b669ee-build-6",
+      "server_id": 176188493
+    },
+    {
+      "attempt": "rw-d5055b6671fa-build-1",
+      "server_id": 176191497
+    },
+    {
+      "attempt": "rw-3d1fe6826c77-build-2",
+      "server_id": 176191848
+    },
+    {
+      "attempt": "rw-d5055b6671fa-build-2",
+      "server_id": 176192830
+    },
+    {
+      "attempt": "rw-3d1fe6826c77-build-3",
+      "server_id": 176193062
+    },
+    {
+      "attempt": "rw-d5055b6671fa-build-3",
+      "server_id": 176194291
+    },
+    {
+      "attempt": "rw-d5055b6671fa-build-4",
+      "server_id": 176194918
+    },
+    {
+      "attempt": "rw-d5055b6671fa-build-5",
+      "server_id": 176195510
+    },
+    {
+      "attempt": "rw-025dcb36b1dc-build-1",
+      "server_id": 176201210
+    },
+    {
+      "attempt": "rw-025dcb36b1dc-build-2",
+      "server_id": 176202245
+    },
+    {
+      "attempt": "rw-025dcb36b1dc-build-4",
+      "server_id": 176204680
+    },
+    {
+      "attempt": "rw-328f52635acd-build-1",
+      "server_id": 176206233
+    },
+    {
+      "attempt": "rw-025dcb36b1dc-build-5",
+      "server_id": 176206837
+    },
+    {
+      "attempt": "rw-328f52635acd-build-2",
+      "server_id": 176208979
+    },
+    {
+      "attempt": "rw-025dcb36b1dc-build-6",
+      "server_id": 176207704
+    },
+    {
+      "attempt": "rw-328f52635acd-build-3",
+      "server_id": 176210432
+    },
+    {
+      "attempt": "rw-c7ee0e9402a9-build-2",
+      "server_id": 176210817
+    },
+    {
+      "attempt": "rw-328f52635acd-build-4",
+      "server_id": 176211334
+    },
+    {
+      "attempt": "rw-c7ee0e9402a9-build-3",
+      "server_id": 176213001
+    },
+    {
+      "attempt": "rw-328f52635acd-build-5",
+      "server_id": 176212255
+    },
+    {
+      "attempt": "rw-a5e3265c031f-build-1",
+      "server_id": 176214476
+    },
+    {
+      "attempt": "rw-c7ee0e9402a9-build-4",
+      "server_id": 176215898
+    },
+    {
+      "attempt": "rw-c7ee0e9402a9-build-5",
+      "server_id": 176219188
+    },
+    {
+      "attempt": "rw-b341258d1b16-build-1",
+      "server_id": 176220468
+    },
+    {
+      "attempt": "rw-c7ee0e9402a9-build-6",
+      "server_id": 176220939
+    },
+    {
+      "attempt": "rw-b341258d1b16-build-2",
+      "server_id": 176222007
+    },
+    {
+      "attempt": "rw-b341258d1b16-build-3",
+      "server_id": 176223148
+    },
+    {
+      "attempt": "rw-6945f0f15bc8-build-2",
+      "server_id": 176223367
+    },
+    {
+      "attempt": "rw-b341258d1b16-build-4",
+      "server_id": 176224286
+    },
+    {
+      "attempt": "rw-6945f0f15bc8-build-3",
+      "server_id": 176224855
+    },
+    {
+      "attempt": "rw-b341258d1b16-build-5",
+      "server_id": 176225387
+    },
+    {
+      "attempt": "rw-6945f0f15bc8-build-4",
+      "server_id": 176226043
+    },
+    {
+      "attempt": "rw-6945f0f15bc8-build-5",
+      "server_id": 176227684
+    },
+    {
+      "attempt": "rw-6945f0f15bc8-build-6",
+      "server_id": 176229140
+    },
+    {
+      "attempt": "rw-11a45d2e7fb0-build-1",
+      "server_id": 176231711
+    },
+    {
+      "attempt": "rw-11a45d2e7fb0-build-2",
+      "server_id": 176232970
+    },
+    {
+      "attempt": "rw-11a45d2e7fb0-build-4",
+      "server_id": 176235540
+    },
+    {
+      "attempt": "rw-8673bff0349c-build-1",
+      "server_id": 176240176
+    },
+    {
+      "attempt": "rw-8673bff0349c-build-2",
+      "server_id": 176241633
+    },
+    {
+      "attempt": "rw-8673bff0349c-build-4",
+      "server_id": 176244529
+    },
+    {
+      "attempt": "rw-11a45d2e7fb0-build-9",
+      "server_id": 176243204
+    },
+    {
+      "attempt": "rw-8673bff0349c-build-7",
+      "server_id": 176248146
+    },
+    {
+      "attempt": "rw-8673bff0349c-build-9",
+      "server_id": 176249827
+    },
+    {
+      "attempt": "rw-ef6e7869e08c-build-1",
+      "server_id": 176251576
+    },
+    {
+      "attempt": "rw-ef6e7869e08c-build-2",
+      "server_id": 176252502
+    },
+    {
+      "attempt": "rw-810936db77de-build-1",
+      "server_id": 176255124
+    },
+    {
+      "attempt": "rw-ef6e7869e08c-build-3",
+      "server_id": 176256465
+    },
+    {
+      "attempt": "rw-810936db77de-build-2",
+      "server_id": 176255897
+    },
+    {
+      "attempt": "rw-810936db77de-build-4",
+      "server_id": 176263430
+    },
+    {
+      "attempt": "rw-ef6e7869e08c-build-4",
+      "server_id": 176257188
+    },
+    {
+      "attempt": "rw-ef6e7869e08c-build-5",
+      "server_id": 176259936
+    },
+    {
+      "attempt": "rw-98906a0445f5-build-1",
+      "server_id": 176266971
+    },
+    {
+      "attempt": "rw-98906a0445f5-build-2",
+      "server_id": 176268612
+    },
+    {
+      "attempt": "rw-98906a0445f5-build-3",
+      "server_id": 176269665
+    },
+    {
+      "attempt": "rw-35d47d7b0db7-build-1",
+      "server_id": 176270238
+    },
+    {
+      "attempt": "rw-98906a0445f5-build-4",
+      "server_id": 176270960
+    },
+    {
+      "attempt": "rw-35d47d7b0db7-build-2",
+      "server_id": 176271306
+    },
+    {
+      "attempt": "rw-98906a0445f5-build-5",
+      "server_id": 176271799
+    },
+    {
+      "attempt": "rw-35d47d7b0db7-build-3",
+      "server_id": 176272724
+    },
+    {
+      "attempt": "rw-457b06451214-build-1",
+      "server_id": 176273267
+    },
+    {
+      "attempt": "rw-35d47d7b0db7-build-7",
+      "server_id": 176274514
+    },
+    {
+      "attempt": "rw-457b06451214-build-3",
+      "server_id": 176274959
+    },
+    {
+      "attempt": "rw-35d47d7b0db7-build-9",
+      "server_id": 176275601
+    },
+    {
+      "attempt": "rw-457b06451214-build-4",
+      "server_id": 176276846
+    },
+    {
+      "attempt": "rw-457b06451214-build-5",
+      "server_id": 176277864
+    },
+    {
+      "attempt": "rw-457b06451214-build-6",
+      "server_id": 176278588
+    },
+    {
+      "attempt": "rw-7f160d7e5ea6-build-1",
+      "server_id": 176281159
+    },
+    {
+      "attempt": "rw-7f160d7e5ea6-build-2",
+      "server_id": 176282076
+    },
+    {
+      "attempt": "rw-42c79977be8e-build-1",
+      "server_id": 176283104
+    },
+    {
+      "attempt": "rw-7f160d7e5ea6-build-5",
+      "server_id": 176283650
+    },
+    {
+      "attempt": "rw-42c79977be8e-build-2",
+      "server_id": 176284062
+    },
+    {
+      "attempt": "rw-7f160d7e5ea6-build-6",
+      "server_id": 176284483
+    },
+    {
+      "attempt": "rw-42c79977be8e-build-3",
+      "server_id": 176285030
+    },
+    {
+      "attempt": "rw-42c79977be8e-build-6",
+      "server_id": 176287743
+    },
+    {
+      "attempt": "rw-42c79977be8e-build-7",
+      "server_id": 176289165
+    },
+    {
+      "attempt": "rw-6476113a94c2-build-1",
+      "server_id": 176289730
+    },
+    {
+      "attempt": "rw-0cc3ee50ab66-build-1",
+      "server_id": 176291176
+    },
+    {
+      "attempt": "rw-0cc3ee50ab66-build-2",
+      "server_id": 176292392
+    },
+    {
+      "attempt": "rw-0cc3ee50ab66-build-3",
+      "server_id": 176293372
+    },
+    {
+      "attempt": "rw-0cc3ee50ab66-build-4",
+      "server_id": 176294554
+    },
+    {
+      "attempt": "rw-0cc3ee50ab66-build-5",
+      "server_id": 176295441
+    }
+  ],
+  "discovery_completed_cutoff_states": {
+    "published": 14,
+    "deferred": 37,
+    "rejected": 2,
+    "build": 1
+  },
+  "discovery_completed_candidates": [
+    {
+      "id": "source-000048",
+      "stage": "published",
+      "reason": "Published and anonymously verified on GitHub and Hugging Face",
+      "created": "2026-11-13T00:44:02.032360+00:00",
+      "updated": "2026-11-13T02:30:19.452430+00:00",
+      "next_run": null,
+      "cohort_group": "new-admission",
+      "dataset": "fjc-civil-trial-36m",
+      "version": "v-86c6129e8102da78"
+    },
+    {
+      "id": "source-000051",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+      "created": "2026-11-13T02:31:01.648234+00:00",
+      "updated": "2026-11-13T04:20:19.568065+00:00",
+      "next_run": "2026-11-13T04:21:19.568065+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000052",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction declarations fail existing qualification checks: [{\"check\": \"contract.vintage_and_selection\", \"ok\": false, \"detail\": \"Vintage, selection and limitations must be explicit; declarations are not measurements\", \"evidence\": {}}]",
+      "created": "2026-11-13T02:41:01.873664+00:00",
+      "updated": "2026-11-13T04:22:11.772056+00:00",
+      "next_run": "2026-11-13T04:23:11.772056+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000053",
+      "stage": "published",
+      "reason": "Published and anonymously verified on GitHub and Hugging Face",
+      "created": "2026-11-13T04:21:01.954803+00:00",
+      "updated": "2026-11-13T05:28:19.001460+00:00",
+      "next_run": null,
+      "cohort_group": "new-admission",
+      "dataset": "eia861-reliability-deterioration",
+      "version": "v-498e55482c3ed94b"
+    },
+    {
+      "id": "source-000054",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+      "created": "2026-11-13T04:23:01.594980+00:00",
+      "updated": "2026-11-13T06:45:26.070560+00:00",
+      "next_run": "2026-11-13T06:46:26.070560+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000055",
+      "stage": "published",
+      "reason": "Published and anonymously verified on GitHub and Hugging Face",
+      "created": "2026-11-13T05:29:01.272979+00:00",
+      "updated": "2026-11-13T07:53:15.783341+00:00",
+      "next_run": null,
+      "cohort_group": "new-admission",
+      "dataset": "phmsa-pipeline-penalty-reduction",
+      "version": "v-bbc08f68dbbd24b5"
+    },
+    {
+      "id": "source-000057",
+      "stage": "deferred",
+      "reason": "Semantic repair limit reached: The row construction is substantively sound: parameter 44201, duration 8-HR RUN AVG BEGIN HOUR, ppm units, one pinned eight-hour ozone standard per year, No Events preferred, POC collapse to the NAAQS primary or lowest POC, prior-year completeness Y and Observation Per...[truncated 1173]",
+      "created": "2026-11-13T06:59:01.114229+00:00",
+      "updated": "2026-11-13T19:18:07.575707+00:00",
+      "next_run": null,
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000060",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+      "created": "2026-11-13T19:19:01.794850+00:00",
+      "updated": "2026-11-13T22:11:20.205973+00:00",
+      "next_run": "2026-11-13T22:12:20.205973+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000062",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+      "created": "2026-11-13T20:22:01.549932+00:00",
+      "updated": "2026-11-13T22:21:17.861088+00:00",
+      "next_run": "2026-11-13T22:22:17.861088+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000064",
+      "stage": "published",
+      "reason": "Published and anonymously verified on GitHub and Hugging Face",
+      "created": "2026-11-13T22:20:01.646257+00:00",
+      "updated": "2026-11-13T23:42:15.349488+00:00",
+      "next_run": null,
+      "cohort_group": "new-admission",
+      "dataset": "fda-510k-five-year-recall",
+      "version": "v-68e59a5ac91ad404"
+    },
+    {
+      "id": "source-000065",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+      "created": "2026-11-13T22:22:01.470278+00:00",
+      "updated": "2026-11-13T23:29:16.423108+00:00",
+      "next_run": "2026-11-13T23:30:16.423108+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000067",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+      "created": "2026-11-13T23:36:01.956476+00:00",
+      "updated": "2026-11-14T00:52:16.675676+00:00",
+      "next_run": "2026-11-14T00:53:16.675676+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000068",
+      "stage": "published",
+      "reason": "Published and anonymously verified on GitHub and Hugging Face",
+      "created": "2026-11-13T23:43:01.321342+00:00",
+      "updated": "2026-11-14T02:04:19.792527+00:00",
+      "next_run": null,
+      "cohort_group": "new-admission",
+      "dataset": "t100-new-route-survival",
+      "version": "v-d32decf32c315be4"
+    },
+    {
+      "id": "source-000069",
+      "stage": "rejected",
+      "reason": "The prior split-policy item is still unresolved in the supplied task text, and a new material source-interpretation error invalidates the label as constructed. EPA documents RET ('Retired') as the status assigned to the previous permit version when a permit is reissued before its expiration, i.e. ex...[truncated 1369]",
+      "created": "2026-11-14T00:53:01.190982+00:00",
+      "updated": "2026-11-14T03:53:16.844777+00:00",
+      "next_run": null,
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000070",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+      "created": "2026-11-14T02:05:01.228538+00:00",
+      "updated": "2026-11-14T03:04:19.614776+00:00",
+      "next_run": "2026-11-14T03:05:19.614776+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000072",
+      "stage": "published",
+      "reason": "Published and anonymously verified on GitHub and Hugging Face",
+      "created": "2026-11-14T03:12:01.628352+00:00",
+      "updated": "2026-11-14T04:36:15.599185+00:00",
+      "next_run": null,
+      "cohort_group": "new-admission",
+      "dataset": "sbir-phase1-to-phase2-conversion",
+      "version": "v-0d2e623e604ecf78"
+    },
+    {
+      "id": "source-000073",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+      "created": "2026-11-14T03:54:01.413884+00:00",
+      "updated": "2026-11-14T18:02:17.417974+00:00",
+      "next_run": "2026-11-14T18:03:17.417974+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000074",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+      "created": "2026-11-14T04:37:01.125925+00:00",
+      "updated": "2026-11-14T18:46:20.475848+00:00",
+      "next_run": "2026-11-14T18:47:20.475848+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000076",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+      "created": "2026-11-14T18:24:02.147577+00:00",
+      "updated": "2026-11-14T19:45:16.161915+00:00",
+      "next_run": "2026-11-14T19:46:16.161915+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000077",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction descriptor lacks target",
+      "created": "2026-11-14T18:47:01.248650+00:00",
+      "updated": "2026-11-14T19:44:44.844535+00:00",
+      "next_run": "2026-11-14T19:45:44.844535+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000078",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+      "created": "2026-11-14T19:45:01.524845+00:00",
+      "updated": "2026-11-14T21:36:19.377832+00:00",
+      "next_run": "2026-11-14T21:37:19.377832+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000079",
+      "stage": "published",
+      "reason": "Published and anonymously verified on GitHub and Hugging Face",
+      "created": "2026-11-14T19:46:02.309057+00:00",
+      "updated": "2026-11-14T22:55:16.477819+00:00",
+      "next_run": null,
+      "cohort_group": "new-admission",
+      "dataset": "caa-fce-hpv-escalation",
+      "version": "v-fd86cbb0bc96aaca"
+    },
+    {
+      "id": "source-000080",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+      "created": "2026-11-14T21:37:01.498320+00:00",
+      "updated": "2026-11-14T22:23:16.218598+00:00",
+      "next_run": "2026-11-14T22:24:16.218598+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000081",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+      "created": "2026-11-14T22:24:01.721340+00:00",
+      "updated": "2026-11-15T00:53:16.506774+00:00",
+      "next_run": "2026-11-15T00:54:16.506774+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000082",
+      "stage": "rejected",
+      "reason": "The artifact does not implement the declared task. The declared dataset is the FAC Single Audit going-concern prediction (source.dataset_id 'fac-single-audit-going-concern', bulk files at app.fac.gov, label = next audit is_going_concern_included='Yes'), but the construction, the downloaded bytes and...[truncated 1638]",
+      "created": "2026-11-14T22:56:02.146354+00:00",
+      "updated": "2026-11-14T23:36:34.132792+00:00",
+      "next_run": null,
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000083",
+      "stage": "published",
+      "reason": "Published and anonymously verified on GitHub and Hugging Face",
+      "created": "2026-11-14T23:37:01.123310+00:00",
+      "updated": "2026-11-15T01:17:16.726399+00:00",
+      "next_run": null,
+      "cohort_group": "new-admission",
+      "dataset": "wser-effluent-exceedance",
+      "version": "v-3ceae5479cda761c"
+    },
+    {
+      "id": "source-000084",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+      "created": "2026-11-15T00:54:01.595097+00:00",
+      "updated": "2026-11-15T02:35:41.305620+00:00",
+      "next_run": "2026-11-15T02:36:41.305620+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000086",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+      "created": "2026-11-15T01:25:01.602124+00:00",
+      "updated": "2026-11-15T05:55:19.967742+00:00",
+      "next_run": "2026-11-15T05:56:19.967742+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000087",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+      "created": "2026-11-15T02:36:01.735501+00:00",
+      "updated": "2026-11-15T04:27:18.568758+00:00",
+      "next_run": "2026-11-15T04:28:18.568758+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000089",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+      "created": "2026-11-15T04:36:01.715359+00:00",
+      "updated": "2026-11-15T05:38:19.957566+00:00",
+      "next_run": "2026-11-15T05:39:19.957566+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000092",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: argument of type 'NoneType' is not a container or iterable",
+      "created": "2026-11-15T06:05:02.151395+00:00",
+      "updated": "2026-11-15T07:26:10.308986+00:00",
+      "next_run": "2026-11-15T07:27:10.308986+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000094",
+      "stage": "deferred",
+      "reason": "The exact source URL in the recipe, https://ieg.worldbankgroup.org/sites/default/files/Data/IEG_ICRR-PPAR_Lessons_Ratings_2026-10-09.xlsx, is the verbatim href of the publisher's own DOWNLOAD DATA link on https://ieg.worldbankgroup.org/ieg-data-world-bank-project-ratings-and-lessons (page states 'Da...[truncated 1371]",
+      "created": "2026-11-15T06:49:02.028792+00:00",
+      "updated": "2026-11-15T07:30:12.266756+00:00",
+      "next_run": null,
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000095",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+      "created": "2026-11-15T07:27:02.601092+00:00",
+      "updated": "2026-11-15T08:55:16.041462+00:00",
+      "next_run": "2026-11-15T08:56:16.041462+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000096",
+      "stage": "published",
+      "reason": "Published and anonymously verified on GitHub and Hugging Face",
+      "created": "2026-11-15T07:31:01.192161+00:00",
+      "updated": "2026-11-15T09:22:16.250788+00:00",
+      "next_run": null,
+      "cohort_group": "new-admission",
+      "dataset": "faa-wildlife-strike-substantial-damage",
+      "version": "v-d654c9f4ddfcf60c"
+    },
+    {
+      "id": "source-000098",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+      "created": "2026-11-15T09:03:02.154324+00:00",
+      "updated": "2026-11-15T10:32:17.437591+00:00",
+      "next_run": "2026-11-15T10:33:17.437591+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000099",
+      "stage": "published",
+      "reason": "Published and anonymously verified on GitHub and Hugging Face",
+      "created": "2026-11-15T09:23:01.852038+00:00",
+      "updated": "2026-11-15T11:22:19.117088+00:00",
+      "next_run": null,
+      "cohort_group": "new-admission",
+      "dataset": "fra-form54-hazmat-release",
+      "version": "v-c59d614ee9c4ce97"
+    },
+    {
+      "id": "source-000100",
+      "stage": "published",
+      "reason": "Published and anonymously verified on GitHub and Hugging Face",
+      "created": "2026-11-15T10:33:01.304747+00:00",
+      "updated": "2026-11-15T11:13:20.100537+00:00",
+      "next_run": null,
+      "cohort_group": "new-admission",
+      "dataset": "seattle-building-permit-completion",
+      "version": "v-67a46c698fa813cc"
+    },
+    {
+      "id": "source-000102",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+      "created": "2026-11-15T11:23:01.227440+00:00",
+      "updated": "2026-11-15T12:57:18.811351+00:00",
+      "next_run": "2026-11-15T12:58:18.811351+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000104",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+      "created": "2026-11-15T12:19:02.169809+00:00",
+      "updated": "2026-11-15T13:50:16.777324+00:00",
+      "next_run": "2026-11-15T13:51:16.777324+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000106",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+      "created": "2026-11-15T13:08:01.740820+00:00",
+      "updated": "2026-11-15T15:32:19.254129+00:00",
+      "next_run": "2026-11-15T15:33:19.254129+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000107",
+      "stage": "published",
+      "reason": "Published and anonymously verified on GitHub and Hugging Face",
+      "created": "2026-11-15T13:51:01.649227+00:00",
+      "updated": "2026-11-15T14:56:16.234161+00:00",
+      "next_run": null,
+      "cohort_group": "new-admission",
+      "dataset": "sdwis-lcr-lead-action-level-next-period",
+      "version": "v-5917644e4c46057e"
+    },
+    {
+      "id": "source-000109",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+      "created": "2026-11-15T15:07:01.660550+00:00",
+      "updated": "2026-11-15T16:17:15.694251+00:00",
+      "next_run": "2026-11-15T16:18:15.694251+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000110",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+      "created": "2026-11-15T15:33:01.657448+00:00",
+      "updated": "2026-11-15T16:56:18.900558+00:00",
+      "next_run": "2026-11-15T16:57:18.900558+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000112",
+      "stage": "deferred",
+      "reason": "Semantic repair limit reached: The build code is internally sound and the retained evidence re-confirms its arithmetic and population, but the written specification still states the pre-repair next-survey label, and the construction notes again claim rewrites that are not in the submitted payload. t...[truncated 1507]",
+      "created": "2026-11-15T16:50:01.697672+00:00",
+      "updated": "2026-11-15T19:23:40.279596+00:00",
+      "next_run": null,
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000117",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+      "created": "2026-11-15T18:09:01.573545+00:00",
+      "updated": "2026-11-15T20:36:19.137307+00:00",
+      "next_run": "2026-11-15T20:37:19.137307+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000119",
+      "stage": "published",
+      "reason": "Published and anonymously verified on GitHub and Hugging Face",
+      "created": "2026-11-15T20:10:02.172727+00:00",
+      "updated": "2026-11-16T00:01:15.752782+00:00",
+      "next_run": null,
+      "cohort_group": "new-admission",
+      "dataset": "usgs-streamgage-record-survival",
+      "version": "v-75d63061fc7d7395"
+    },
+    {
+      "id": "source-000120",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+      "created": "2026-11-15T20:37:01.613963+00:00",
+      "updated": "2026-11-15T23:15:18.051853+00:00",
+      "next_run": "2026-11-15T23:16:18.051853+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000122",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+      "created": "2026-11-15T23:29:01.322316+00:00",
+      "updated": "2026-11-16T01:23:20.142833+00:00",
+      "next_run": "2026-11-16T01:24:20.142833+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000124",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+      "created": "2026-11-16T00:19:01.227451+00:00",
+      "updated": "2026-11-16T02:20:17.385103+00:00",
+      "next_run": "2026-11-16T02:21:17.385103+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000125",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+      "created": "2026-11-16T01:24:02.099668+00:00",
+      "updated": "2026-11-16T03:03:19.385577+00:00",
+      "next_run": "2026-11-16T03:04:19.385577+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000127",
+      "stage": "published",
+      "reason": "Published and anonymously verified on GitHub and Hugging Face",
+      "created": "2026-11-16T02:46:01.829555+00:00",
+      "updated": "2026-11-16T05:08:15.959655+00:00",
+      "next_run": null,
+      "cohort_group": "new-admission",
+      "dataset": "ca-beach-advisory-duration",
+      "version": "v-2cdf2a6e0df3956f"
+    },
+    {
+      "id": "source-000128",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+      "created": "2026-11-16T03:04:01.548672+00:00",
+      "updated": "2026-11-16T05:36:19.237454+00:00",
+      "next_run": "2026-11-16T05:37:19.237454+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000130",
+      "stage": "build",
+      "reason": "An active or interrupted job exists; reconcile it before launching another",
+      "created": "2026-11-16T05:14:01.367243+00:00",
+      "updated": "2026-11-16T06:48:02.508742+00:00",
+      "next_run": "2026-11-16T06:53:02.508742+00:00",
+      "cohort_group": "new-admission"
+    },
+    {
+      "id": "source-000131",
+      "stage": "deferred",
+      "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+      "created": "2026-11-16T05:37:01.458819+00:00",
+      "updated": "2026-11-16T06:49:19.704506+00:00",
+      "next_run": "2026-11-16T06:50:19.704506+00:00",
+      "cohort_group": "new-admission"
+    }
+  ],
+  "deferred_candidate_records": [
+    {
+      "candidate": "source-000051",
+      "completed_build": false,
+      "category": "build_worker_failure_limit",
+      "last_attempt": "rw-a0e68561ec00-build-7",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000052",
+      "completed_build": false,
+      "category": "build_task_failure_limit",
+      "last_attempt": "rw-767af1b394fd-build-5",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000054",
+      "completed_build": false,
+      "category": "build_worker_failure_limit",
+      "last_attempt": "rw-f4eeb53e5bf2-build-5",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000057",
+      "completed_build": true,
+      "category": "semantic_repair_limit",
+      "last_attempt": "rw-11da79a259ae-evaluate-9",
+      "last_outcome": "repair"
+    },
+    {
+      "candidate": "source-000060",
+      "completed_build": false,
+      "category": "build_worker_failure_limit",
+      "last_attempt": "rw-3c5a623babd4-build-5",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000062",
+      "completed_build": false,
+      "category": "build_worker_failure_limit",
+      "last_attempt": "rw-7d6aa3671f1e-build-5",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000065",
+      "completed_build": false,
+      "category": "build_worker_failure_limit",
+      "last_attempt": "rw-bae7d4036d95-build-6",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000067",
+      "completed_build": false,
+      "category": "build_worker_failure_limit",
+      "last_attempt": "rw-af0a34c3dcd2-build-5",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000070",
+      "completed_build": false,
+      "category": "build_worker_failure_limit",
+      "last_attempt": "rw-359604032c14-build-5",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000073",
+      "completed_build": false,
+      "category": "build_worker_failure_limit",
+      "last_attempt": "rw-b6daec6d3aba-build-5",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000074",
+      "completed_build": false,
+      "category": "build_worker_failure_limit",
+      "last_attempt": "rw-f83a982816f8-build-7",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000076",
+      "completed_build": false,
+      "category": "build_worker_failure_limit",
+      "last_attempt": "rw-fc9a71924d7b-build-5",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000077",
+      "completed_build": false,
+      "category": "build_task_failure_limit",
+      "last_attempt": "rw-77b090c2552c-build-5",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000078",
+      "completed_build": false,
+      "category": "build_worker_failure_limit",
+      "last_attempt": "rw-f45832b80902-build-5",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000080",
+      "completed_build": false,
+      "category": "build_worker_failure_limit",
+      "last_attempt": "rw-58e90277d81d-build-5",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000081",
+      "completed_build": false,
+      "category": "build_worker_failure_limit",
+      "last_attempt": "rw-17210db0fb94-build-5",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000084",
+      "completed_build": false,
+      "category": "build_worker_failure_limit",
+      "last_attempt": "rw-b12097e1cb7a-build-9",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000086",
+      "completed_build": false,
+      "category": "build_worker_failure_limit",
+      "last_attempt": "rw-adcfc5406f64-build-6",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000087",
+      "completed_build": false,
+      "category": "build_worker_failure_limit",
+      "last_attempt": "rw-9b0bc4edbf98-build-5",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000089",
+      "completed_build": false,
+      "category": "build_worker_failure_limit",
+      "last_attempt": "rw-5bf7599d000f-build-5",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000092",
+      "completed_build": false,
+      "category": "build_task_failure_limit",
+      "last_attempt": "rw-cdc9d9b56673-build-8",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000094",
+      "completed_build": false,
+      "category": "explicit_build_deferral",
+      "last_attempt": "rw-2e60ed342d55-build-4",
+      "last_outcome": "defer"
+    },
+    {
+      "candidate": "source-000095",
+      "completed_build": false,
+      "category": "build_worker_failure_limit",
+      "last_attempt": "rw-5869f2b669ee-build-6",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000098",
+      "completed_build": false,
+      "category": "build_worker_failure_limit",
+      "last_attempt": "rw-d5055b6671fa-build-5",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000102",
+      "completed_build": false,
+      "category": "build_worker_failure_limit",
+      "last_attempt": "rw-025dcb36b1dc-build-6",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000104",
+      "completed_build": false,
+      "category": "build_worker_failure_limit",
+      "last_attempt": "rw-328f52635acd-build-5",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000106",
+      "completed_build": false,
+      "category": "build_worker_failure_limit",
+      "last_attempt": "rw-c7ee0e9402a9-build-6",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000109",
+      "completed_build": false,
+      "category": "build_worker_failure_limit",
+      "last_attempt": "rw-b341258d1b16-build-5",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000110",
+      "completed_build": false,
+      "category": "build_worker_failure_limit",
+      "last_attempt": "rw-6945f0f15bc8-build-6",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000112",
+      "completed_build": true,
+      "category": "semantic_repair_limit",
+      "last_attempt": "rw-11a45d2e7fb0-evaluate-5",
+      "last_outcome": "repair"
+    },
+    {
+      "candidate": "source-000117",
+      "completed_build": false,
+      "category": "build_worker_failure_limit",
+      "last_attempt": "rw-8673bff0349c-build-9",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000120",
+      "completed_build": false,
+      "category": "build_worker_failure_limit",
+      "last_attempt": "rw-ef6e7869e08c-build-5",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000122",
+      "completed_build": false,
+      "category": "build_worker_failure_limit",
+      "last_attempt": "rw-98906a0445f5-build-5",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000124",
+      "completed_build": false,
+      "category": "build_worker_failure_limit",
+      "last_attempt": "rw-35d47d7b0db7-build-9",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000125",
+      "completed_build": false,
+      "category": "build_worker_failure_limit",
+      "last_attempt": "rw-457b06451214-build-6",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000128",
+      "completed_build": false,
+      "category": "build_worker_failure_limit",
+      "last_attempt": "rw-42c79977be8e-build-7",
+      "last_outcome": "retry"
+    },
+    {
+      "candidate": "source-000131",
+      "completed_build": false,
+      "category": "build_worker_failure_limit",
+      "last_attempt": "rw-0cc3ee50ab66-build-5",
+      "last_outcome": "retry"
+    }
+  ],
+  "deferral_categories": {
+    "build_worker_failure_limit": 31,
+    "build_task_failure_limit": 3,
+    "semantic_repair_limit": 2,
+    "explicit_build_deferral": 1
+  },
+  "deferred_without_completed_build": 35,
+  "limits": "Retry categories describe recorded operation boundaries, not unique underlying bugs or causal diagnoses. A worker outcome can reflect construction, qualification or infrastructure failure. Deferred is the recorded cutoff state, not a prediction that a candidate can never resume."
+}

@@ -84,3 +84,23 @@ repository is private. No public flip or conference submission occurred.
 The final PDF remains five pages. A fresh portable-source build matched its text;
 the modified record verifier passed in a separate checkout. All five pages were
 visually checked, fonts are embedded, and the 310 longer-paper files are unchanged.
+
+## Complete operational accounting and exact SBIR evidence
+
+The new `analysis/attempt-accounting.json` and generator reconcile every stage
+attempt and the cutoff dispositions of the 54 discovery-completed candidates.
+The verifier checks input hashes, stage/outcome totals, retry classification,
+worker identities, candidate cutoff timestamps, and the exact builder condition
+quoted in the revised manuscript. Table II distinguishes stage outcomes from
+candidate milestones. Waiting resumes an existing attempt, as shown by pinned
+controller code in `analysis/operational-source-excerpts.json`.
+
+The same source record supports the anonymous publication-receipt checks and the
+September/November service history. That history is context, not an extension of
+the fixed observation window. Both performance controls and all three figures
+remain. The original long-paper evidence is unchanged.
+
+Deferrals reconcile at candidate level: 34 build-limit, two semantic-limit,
+and one explicit build deferral. The last attempts retain retry/repair/defer
+outcomes as applicable. Thirty-five had no completed build. The generator and
+verifier check the histories, including the separate five-failure counters.
