@@ -46,26 +46,30 @@
     "max": 189.2361460333333
   },
   "selected_consumer_outcomes": {
-    "frozen": 29,
-    "failed": 3,
-    "blocked": 1
+    "frozen": 36
   },
   "original_consumer_outcomes": {
-    "frozen": 21,
+    "frozen": 24,
     "failed": 12
   },
   "selected_execution_ids": {
     "faa-wildlife-strike-substantial-damage": "faa-wildlife-strike-substantial-damage-retry-1",
     "seattle-building-permit-completion": "seattle-building-permit-completion-retry-1",
-    "fra-form54-hazmat-release": "fra-form54-hazmat-release-retry-1"
+    "fra-form54-hazmat-release": "fra-form54-hazmat-release-retry-1",
+    "fjc-civil-trial-36m": "fjc-civil-trial-36m",
+    "eia861-reliability-deterioration": "eia861-reliability-deterioration-retry-1",
+    "phmsa-pipeline-penalty-reduction": "phmsa-pipeline-penalty-reduction",
+    "fda-510k-five-year-recall": "fda-510k-five-year-recall",
+    "t100-new-route-survival": "t100-new-route-survival",
+    "sbir-phase1-to-phase2-conversion": "sbir-phase1-to-phase2-conversion",
+    "caa-fce-hpv-escalation": "caa-fce-hpv-escalation",
+    "wser-effluent-exceedance": "wser-effluent-exceedance",
+    "sdwis-lcr-lead-action-level-next-period": "sdwis-lcr-lead-action-level-next-period"
   },
   "published_cohort_size": 12,
-  "artifact_probes": 29,
-  "training_probe_errors": [
-    "fda-510k-five-year-recall--r2",
-    "t100-new-route-survival--r3",
-    "faa-wildlife-strike-substantial-damage--r1"
-  ],
+  "production_publications": 11,
+  "artifact_probes": 36,
+  "training_probe_errors": [],
   "cost": {
     "total": [
       27.835795635098766,

@@ -8,11 +8,15 @@ import datetime as dt
 import hashlib
 import json
 import subprocess
+import argparse
 
 ROOT = Path(__file__).resolve().parents[3]
 HERE = Path(__file__).resolve().parent
-DEST = ROOT / 'paper/analysis/final-inputs-2026-11-16.json'
-COST = 'evidence/costs/2026-11-16'
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--consumer-only', action='store_true', help='Capture completed consumers while retaining the existing production window')
+args = parser.parse_args()
+DEST = ROOT / ('paper/analysis/consumer-complete-inputs-2026-11-16.json' if args.consumer_only else 'paper/analysis/final-inputs-2026-11-16.json')
+COST = 'evidence/costs/2026-11-15' if args.consumer_only else 'evidence/costs/2026-11-16'
 data, hashes, reviews, consumers = {}, {}, {}, {}
 
 
@@ -74,35 +78,43 @@ for replacement in fixed:
     reviews.setdefault(ds, {})['training-feature-probes.json'] = path
 
 for name in ['summary.json', 'factory-model-costs.json', 'factory-worker-costs.json',
-             'inputs/cohort.json', 'inputs/attempts_carry_in.json', 'inputs/attempts_new_admissions.json',
-             'inputs/candidates_carry_in.json', 'inputs/candidates_new_admissions.json']:
+             'inputs/cohort.json', 'inputs/attempts_carry_in.json', 'inputs/attempts_new_admissions.json']:
     read(f'{COST}/{name}')
 cost = data[f'{COST}/summary.json']
-assert dt.datetime.fromisoformat(cost['cutoff']) == dt.datetime(2026, 11, 16, 7, tzinfo=dt.timezone.utc)
+if not args.consumer_only:
+    assert dt.datetime.fromisoformat(cost['cutoff']) == dt.datetime(2026, 11, 16, 7, tzinfo=dt.timezone.utc)
 # The export's cohort.json is capped at twelve; production accounting is not.
 start, stop = (dt.datetime.fromisoformat(cost[k]) for k in ['window_start', 'cutoff'])
-candidates = sum([data[f'{COST}/inputs/candidates_{k}.json'] for k in ['carry_in', 'new_admissions']], [])
-attempts = sum([data[f'{COST}/inputs/attempts_{k}.json'] for k in ['carry_in', 'new_admissions']], [])
-first_publication = {}
-for a in attempts:
-    if a['stage'] == 'publish' and a['status'] == 'done' and a.get('finished'):
-        when = dt.datetime.fromisoformat(a['finished'])
-        first_publication[a['candidate']] = min(first_publication.get(a['candidate'], when), when)
-production = []
-for c in candidates:
-    when = first_publication.get(c['id'])
-    if c['stage'] == 'published' and when is not None and start <= when <= stop:
-        production.append({'id': c['id'], 'dataset': c['dataset'], 'created': c['created'], 'published_at': when.isoformat()})
-production.sort(key=lambda r: (r['published_at'], r['id']))
+if args.consumer_only:
+    production = data[f'{COST}/inputs/cohort.json']
+else:
+    for name in ['inputs/candidates_carry_in.json', 'inputs/candidates_new_admissions.json']:
+        read(f'{COST}/{name}')
+    candidates = sum([data[f'{COST}/inputs/candidates_{k}.json'] for k in ['carry_in', 'new_admissions']], [])
+    attempts = sum([data[f'{COST}/inputs/attempts_{k}.json'] for k in ['carry_in', 'new_admissions']], [])
+    first_publication = {}
+    for a in attempts:
+        if a['stage'] == 'publish' and a['status'] == 'done' and a.get('finished'):
+            when = dt.datetime.fromisoformat(a['finished'])
+            first_publication[a['candidate']] = min(first_publication.get(a['candidate'], when), when)
+    production = []
+    for c in candidates:
+        when = first_publication.get(c['id'])
+        if c['stage'] == 'published' and when is not None and start <= when <= stop:
+            production.append({'id': c['id'], 'dataset': c['dataset'], 'created': c['created'], 'published_at': when.isoformat()})
+    production.sort(key=lambda r: (r['published_at'], r['id']))
 assert len(production) == cost['published_datasets']
-assert [r['dataset'] for r in production[:12]] == [r['dataset'] for r in cohort]
+assert [r['dataset'] for r in production[:12]] == [r['dataset'] for r in cohort[:min(len(production), 12)]]
 read('paper/analysis/final-2026-11-16/qualification-coverage.json')
 read('paper/analysis/final-2026-11-16/sbir-acceptance/checks.json')
+read('paper/analysis/final-2026-11-16/code-conduct-review.json')
 
 snapshot = {
     'captured_at': dt.datetime.now(dt.timezone.utc).isoformat(),
     'repository_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
     'cost_base': COST,
+    'consumer_complete': True,
+    'production_final': not args.consumer_only,
     'production_cohort': production,
     'consumer_cohort': [{'dataset': r['dataset'], 'verified_at': r['release']['verified_at']} for r in cohort],
     'analysis_selection': selected,

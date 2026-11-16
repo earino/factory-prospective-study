@@ -1,0 +1,71 @@
+[
+  {
+    "run": "faa-wildlife-strike-substantial-damage--r1",
+    "original_probe_error": "AssertionError()",
+    "execution": "faa-wildlife-strike-substantial-damage-retry-1",
+    "frozen_code_sha256": "6c5c537b9b8169659edec54c04235ac4ad9dde4407b53efbb0f20c64e27b4043",
+    "full_training_rows": 84196,
+    "fitted_rows": 92615,
+    "unique_source_rows_in_fit": 84196,
+    "mapping": "original rows plus fixed-seed SIZE_MASK subset",
+    "captured_labels_match_mapping": true,
+    "checks": [
+      {
+        "source_row": 0,
+        "original_copies": 1,
+        "perturbed_copies": 1,
+        "compared_copies": 1,
+        "changed_own_feature_cells": 0,
+        "row_mapping_changed": false
+      },
+      {
+        "source_row": 46307,
+        "original_copies": 2,
+        "perturbed_copies": 2,
+        "compared_copies": 2,
+        "changed_own_feature_cells": 0,
+        "row_mapping_changed": false
+      }
+    ],
+    "scope": "Two retained source rows, including copies. Label-dependent row selection is recorded separately from own-label feature encoding. No trees fit and no scores computed.",
+    "training_feature_rows": 92615
+  },
+  {
+    "run": "faa-wildlife-strike-substantial-damage--r2",
+    "full_training_rows": 84196,
+    "training_feature_rows": 84196,
+    "checks": [
+      {
+        "row": 0,
+        "changed_own_feature_cells": 0,
+        "max_absolute_change": 0.0,
+        "augmented_copies": 1
+      },
+      {
+        "row": 42098,
+        "changed_own_feature_cells": 0,
+        "max_absolute_change": 0.0,
+        "augmented_copies": 1
+      }
+    ]
+  },
+  {
+    "run": "faa-wildlife-strike-substantial-damage--r3",
+    "full_training_rows": 84196,
+    "training_feature_rows": 84196,
+    "checks": [
+      {
+        "row": 0,
+        "changed_own_feature_cells": 0,
+        "max_absolute_change": 0.0,
+        "augmented_copies": 1
+      },
+      {
+        "row": 42098,
+        "changed_own_feature_cells": 0,
+        "max_absolute_change": 0.0,
+        "augmented_copies": 1
+      }
+    ]
+  }
+]

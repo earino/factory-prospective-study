@@ -1,0 +1,71 @@
+[
+  {
+    "run": "fda-510k-five-year-recall--r1",
+    "full_training_rows": 30563,
+    "training_feature_rows": 30563,
+    "checks": [
+      {
+        "row": 0,
+        "changed_own_feature_cells": 0,
+        "max_absolute_change": 0.0,
+        "augmented_copies": 1
+      },
+      {
+        "row": 15281,
+        "changed_own_feature_cells": 0,
+        "max_absolute_change": 0.0,
+        "augmented_copies": 1
+      }
+    ]
+  },
+  {
+    "run": "fda-510k-five-year-recall--r2",
+    "original_probe_error": "AssertionError()",
+    "execution": "fda-510k-five-year-recall",
+    "frozen_code_sha256": "849894d92a3a194dc26b957770e2c630c5efa28a9cff60876b515d6287b4205c",
+    "full_training_rows": 30563,
+    "fitted_rows": 27506,
+    "unique_source_rows_in_fit": 27506,
+    "mapping": "preserved DataFrame index",
+    "captured_labels_match_mapping": true,
+    "checks": [
+      {
+        "source_row": 3057,
+        "original_copies": 1,
+        "perturbed_copies": 1,
+        "compared_copies": 1,
+        "changed_own_feature_cells": 0,
+        "row_mapping_changed": false
+      },
+      {
+        "source_row": 16810,
+        "original_copies": 1,
+        "perturbed_copies": 1,
+        "compared_copies": 1,
+        "changed_own_feature_cells": 0,
+        "row_mapping_changed": false
+      }
+    ],
+    "scope": "Two retained source rows, including copies. Label-dependent row selection is recorded separately from own-label feature encoding. No trees fit and no scores computed.",
+    "training_feature_rows": 27506
+  },
+  {
+    "run": "fda-510k-five-year-recall--r3",
+    "full_training_rows": 30563,
+    "training_feature_rows": 30563,
+    "checks": [
+      {
+        "row": 0,
+        "changed_own_feature_cells": 0,
+        "max_absolute_change": 0.0,
+        "augmented_copies": 1
+      },
+      {
+        "row": 15281,
+        "changed_own_feature_cells": 0,
+        "max_absolute_change": 0.0,
+        "augmented_copies": 1
+      }
+    ]
+  }
+]

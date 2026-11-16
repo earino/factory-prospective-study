@@ -114,3 +114,16 @@ production export, calculate final costs, reconcile any later administration,
 then regenerate tables/figures and final seven-page paper. Do not start more
 consumer experiments or send their findings to production. Exec session 73081
 has exited successfully; it must not be restarted.
+
+
+01:30 UTC: Integrated all twelve consumer datasets and 36 scored models into the
+abstract, results, threats, table and median-ordered interval figure. Captured a
+separate immutable consumer-complete snapshot; final production remains pending.
+Verified 49 physical research outcomes (36 frozen, 12 failed, 1 blocked), seven
+tasks with all three positive intervals versus untuned and five versus random.
+The existing two lazy pandas imports remain recorded as dependency reads; they
+are not data access. All seven pages inspected. Portable-source and clean-checkout
+builds and numerical checks pass. SIGNOFF now reports current evidence and open
+closure instead of mixing obsolete draft claims; its old contents are archived.
+Next: await 07:00 UTC production export, reconcile and integrate only the final
+production/cost/maintenance evidence, then repeat final checks and sign off.

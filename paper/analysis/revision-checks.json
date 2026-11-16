@@ -2,22 +2,27 @@
   "snapshot_sha256": {
     "draft-inputs.json": "1799b8991cf9b73b4477e8741d71f1f08b15e4ef98e4d24829de3b6c05ee0170",
     "update-inputs-2026-11-15.json": "578e13f2058620d46b282414078059f9467eeedbc21f36b5331d6106676151b5",
-    "evening-inputs-2026-11-15.json": "665c491cdedc20d7fc188fd2d13a36ed99dc9c52dc7f26effb15b06f1118bc96"
+    "evening-inputs-2026-11-15.json": "665c491cdedc20d7fc188fd2d13a36ed99dc9c52dc7f26effb15b06f1118bc96",
+    "consumer-complete-inputs-2026-11-16.json": "efd53aefe4c73371afa5caf31ad9a953f38d59230efb45c22c7783e6a899b840"
   },
-  "unchanged_evidence_accounting_figure_table": true,
-  "figure3_comparisons_unchanged": true,
-  "figure3_order": "median untuned AUC gain, ascending top to bottom, shared by both panels",
-  "publications": 12,
-  "cost_denominator": 11,
-  "scored_models": 29,
-  "scored_datasets": 10,
+  "historical_snapshots_unchanged": true,
+  "production_final": false,
+  "production_publications": 11,
+  "consumer_datasets": 12,
+  "scored_models": 36,
   "selected_outcomes": {
-    "frozen": 29,
-    "failed": 3,
+    "frozen": 36
+  },
+  "all_research_attempts": 49,
+  "all_research_outcomes": {
+    "frozen": 36,
+    "failed": 12,
     "blocked": 1
   },
+  "selected_code_reviews": 36,
   "tasks_with_all_point_estimates_above_untuned": [
     "fjc-civil-trial-36m",
+    "eia861-reliability-deterioration",
     "phmsa-pipeline-penalty-reduction",
     "fda-510k-five-year-recall",
     "sbir-phase1-to-phase2-conversion",
@@ -25,39 +30,107 @@
     "wser-effluent-exceedance",
     "faa-wildlife-strike-substantial-damage",
     "seattle-building-permit-completion",
-    "fra-form54-hazmat-release"
+    "fra-form54-hazmat-release",
+    "sdwis-lcr-lead-action-level-next-period"
   ],
   "positive_intervals": {
     "ordinary": {
       "fjc-civil-trial-36m": 3,
+      "eia861-reliability-deterioration": 3,
       "fda-510k-five-year-recall": 3,
       "t100-new-route-survival": 0,
       "sbir-phase1-to-phase2-conversion": 0,
       "caa-fce-hpv-escalation": 0,
       "wser-effluent-exceedance": 3,
       "faa-wildlife-strike-substantial-damage": 3,
-      "seattle-building-permit-completion": 2,
-      "fra-form54-hazmat-release": 3
+      "seattle-building-permit-completion": 3,
+      "fra-form54-hazmat-release": 3,
+      "sdwis-lcr-lead-action-level-next-period": 2
     },
     "random": {
       "fjc-civil-trial-36m": 3,
+      "eia861-reliability-deterioration": 3,
       "fda-510k-five-year-recall": 3,
       "t100-new-route-survival": 0,
       "sbir-phase1-to-phase2-conversion": 0,
       "caa-fce-hpv-escalation": 0,
       "wser-effluent-exceedance": 1,
       "faa-wildlife-strike-substantial-damage": 1,
-      "seattle-building-permit-completion": 2,
-      "fra-form54-hazmat-release": 3
+      "seattle-building-permit-completion": 3,
+      "fra-form54-hazmat-release": 3,
+      "sdwis-lcr-lead-action-level-next-period": 0
     }
   },
-  "artifact_probe_passes": 29,
-  "own_label_probe_errors": [
-    "fda-510k-five-year-recall--r2",
-    "t100-new-route-survival--r3",
-    "faa-wildlife-strike-substantial-damage--r1"
+  "datasets_without_intervals": [
+    "phmsa-pipeline-penalty-reduction"
   ],
-  "table_cells_checked": true,
-  "cost_and_attempt_aggregates_checked": true,
-  "cited_references": 22
+  "artifact_probe_dependency_reads": [
+    [
+      "phmsa-pipeline-penalty-reduction--r2",
+      {
+        "event": "open",
+        "path": "/Users/earino/research/factory-prospective-study/.local/studies/phmsa-pipeline-penalty-reduction/.study/venv/lib/python3.11/site-packages/pandas/core/methods/__pycache__/to_dict.cpython-311.pyc",
+        "dependency_read": true
+      }
+    ],
+    [
+      "sbir-phase1-to-phase2-conversion--r2",
+      {
+        "event": "open",
+        "path": "/Users/earino/research/factory-prospective-study/.local/studies/sbir-phase1-to-phase2-conversion/.study/venv/lib/python3.11/site-packages/pandas/core/methods/__pycache__/to_dict.cpython-311.pyc",
+        "dependency_read": true
+      }
+    ]
+  ],
+  "artifact_probe_passes": 36,
+  "own_label_probe_passes": 36,
+  "stage_attempts": 394,
+  "discovery_retries": 76,
+  "build_retries": 184,
+  "semantic_repair_outcomes": 14,
+  "unique_completed_candidates": {
+    "discover": 41,
+    "build": 14,
+    "evaluate": 11,
+    "publish": 11
+  },
+  "publication_latency_minutes": {
+    "min": 40.313263166666665,
+    "median": 106.2903345,
+    "max": 189.2361460333333
+  },
+  "cost_and_table_cells_checked": true,
+  "cited_references": 22,
+  "missing_model_usage": [
+    {
+      "attempt": "rw-11da79a259ae-evaluate-2",
+      "group": "started_in_window",
+      "reason": "HTTP 402 before generation; zero tokens per Scout database readback",
+      "stage": "evaluate"
+    },
+    {
+      "attempt": "rw-11da79a259ae-evaluate-3",
+      "group": "started_in_window",
+      "reason": "HTTP 402 before generation; zero tokens per Scout database readback",
+      "stage": "evaluate"
+    },
+    {
+      "attempt": "rw-11da79a259ae-evaluate-4",
+      "group": "started_in_window",
+      "reason": "HTTP 402 before generation; zero tokens per Scout database readback",
+      "stage": "evaluate"
+    },
+    {
+      "attempt": "rw-9f863b0276ff-discover-2",
+      "group": "started_in_window",
+      "reason": "HTTP 402 before generation; zero tokens per Scout database readback",
+      "stage": "discover"
+    },
+    {
+      "attempt": "rw-9f863b0276ff-discover-4",
+      "group": "started_in_window",
+      "reason": "HTTP 402 before generation; zero tokens per Scout database readback",
+      "stage": "discover"
+    }
+  ]
 }

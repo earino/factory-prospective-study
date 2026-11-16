@@ -107,6 +107,60 @@
       ]
     }
   },
+  "sdwis-lcr-lead-action-level-next-period": {
+    "ordinary": {
+      "positive_intervals": 2,
+      "comparisons": [
+        {
+          "run": "sdwis-lcr-lead-action-level-next-period--r1",
+          "control": "sdwis-lcr-lead-action-level-next-period--ordinary",
+          "delta": 0.015587922881841965,
+          "low": 0.005207767777014635,
+          "high": 0.025936685867147452
+        },
+        {
+          "run": "sdwis-lcr-lead-action-level-next-period--r2",
+          "control": "sdwis-lcr-lead-action-level-next-period--ordinary",
+          "delta": 0.014222441355739357,
+          "low": 0.0018370137038695945,
+          "high": 0.026533776219507272
+        },
+        {
+          "run": "sdwis-lcr-lead-action-level-next-period--r3",
+          "control": "sdwis-lcr-lead-action-level-next-period--ordinary",
+          "delta": 0.006514976466515887,
+          "low": -0.007183987376156731,
+          "high": 0.01988289901931061
+        }
+      ]
+    },
+    "random": {
+      "positive_intervals": 0,
+      "comparisons": [
+        {
+          "run": "sdwis-lcr-lead-action-level-next-period--r1",
+          "control": "sdwis-lcr-lead-action-level-next-period--r1--random",
+          "delta": -0.00014883026157519463,
+          "low": -0.010461189949391953,
+          "high": 0.010055133788753718
+        },
+        {
+          "run": "sdwis-lcr-lead-action-level-next-period--r2",
+          "control": "sdwis-lcr-lead-action-level-next-period--r2--random",
+          "delta": 0.006197327413089315,
+          "low": -0.005955042233564018,
+          "high": 0.021135265571982628
+        },
+        {
+          "run": "sdwis-lcr-lead-action-level-next-period--r3",
+          "control": "sdwis-lcr-lead-action-level-next-period--r3--random",
+          "delta": -0.01047093940633581,
+          "low": -0.02681063911027082,
+          "high": 0.004582699039479635
+        }
+      ]
+    }
+  },
   "caa-fce-hpv-escalation": {
     "ordinary": {
       "positive_intervals": 0,
@@ -271,8 +325,15 @@
   },
   "seattle-building-permit-completion": {
     "ordinary": {
-      "positive_intervals": 2,
+      "positive_intervals": 3,
       "comparisons": [
+        {
+          "run": "seattle-building-permit-completion--r1",
+          "control": "seattle-building-permit-completion--ordinary",
+          "delta": 0.030285191897012953,
+          "low": 0.014459127690020638,
+          "high": 0.04521802058386542
+        },
         {
           "run": "seattle-building-permit-completion--r2",
           "control": "seattle-building-permit-completion--ordinary",
@@ -290,8 +351,15 @@
       ]
     },
     "random": {
-      "positive_intervals": 2,
+      "positive_intervals": 3,
       "comparisons": [
+        {
+          "run": "seattle-building-permit-completion--r1",
+          "control": "seattle-building-permit-completion--r1--random",
+          "delta": 0.014702555859889777,
+          "low": 0.004987869179617679,
+          "high": 0.025169516482532097
+        },
         {
           "run": "seattle-building-permit-completion--r2",
           "control": "seattle-building-permit-completion--r2--random",
@@ -359,6 +427,60 @@
           "delta": 0.025598283587998427,
           "low": 0.011713813631842079,
           "high": 0.03833253925615217
+        }
+      ]
+    }
+  },
+  "eia861-reliability-deterioration": {
+    "ordinary": {
+      "positive_intervals": 3,
+      "comparisons": [
+        {
+          "run": "eia861-reliability-deterioration--r1",
+          "control": "eia861-reliability-deterioration--ordinary",
+          "delta": 0.038739454660067896,
+          "low": 0.013460392514335156,
+          "high": 0.06558538404032171
+        },
+        {
+          "run": "eia861-reliability-deterioration--r2",
+          "control": "eia861-reliability-deterioration--ordinary",
+          "delta": 0.042250935500744324,
+          "low": 0.01830999009410668,
+          "high": 0.06697334978538216
+        },
+        {
+          "run": "eia861-reliability-deterioration--r3",
+          "control": "eia861-reliability-deterioration--ordinary",
+          "delta": 0.04191563057444436,
+          "low": 0.01818163026310989,
+          "high": 0.06749004692278039
+        }
+      ]
+    },
+    "random": {
+      "positive_intervals": 3,
+      "comparisons": [
+        {
+          "run": "eia861-reliability-deterioration--r1",
+          "control": "eia861-reliability-deterioration--r1--random",
+          "delta": 0.02217790608779624,
+          "low": 0.003643061423784752,
+          "high": 0.04066627733115772
+        },
+        {
+          "run": "eia861-reliability-deterioration--r2",
+          "control": "eia861-reliability-deterioration--r2--random",
+          "delta": 0.02124575839268228,
+          "low": 0.005416674408399727,
+          "high": 0.037215741210331874
+        },
+        {
+          "run": "eia861-reliability-deterioration--r3",
+          "control": "eia861-reliability-deterioration--r3--random",
+          "delta": 0.023182982604380453,
+          "low": 0.001163025553327035,
+          "high": 0.04523466450400561
         }
       ]
     }

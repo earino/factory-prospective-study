@@ -1,0 +1,71 @@
+[
+  {
+    "run": "t100-new-route-survival--r1",
+    "full_training_rows": 3734,
+    "training_feature_rows": 7468,
+    "checks": [
+      {
+        "row": 0,
+        "changed_own_feature_cells": 0,
+        "max_absolute_change": 0.0,
+        "augmented_copies": 2
+      },
+      {
+        "row": 1867,
+        "changed_own_feature_cells": 0,
+        "max_absolute_change": 0.0,
+        "augmented_copies": 2
+      }
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r2",
+    "full_training_rows": 3734,
+    "training_feature_rows": 29872,
+    "checks": [
+      {
+        "row": 0,
+        "changed_own_feature_cells": 0,
+        "max_absolute_change": 0.0,
+        "augmented_copies": 8
+      },
+      {
+        "row": 1867,
+        "changed_own_feature_cells": 0,
+        "max_absolute_change": 0.0,
+        "augmented_copies": 8
+      }
+    ]
+  },
+  {
+    "run": "t100-new-route-survival--r3",
+    "original_probe_error": "AssertionError()",
+    "execution": "t100-new-route-survival",
+    "frozen_code_sha256": "f09c1c7e1bc7159d778a0515886a99b1a2ac807d0464dcdcda8c2b93dc63d08d",
+    "full_training_rows": 3734,
+    "fitted_rows": 3503,
+    "unique_source_rows_in_fit": 3503,
+    "mapping": "preserved DataFrame index",
+    "captured_labels_match_mapping": true,
+    "checks": [
+      {
+        "source_row": 0,
+        "original_copies": 1,
+        "perturbed_copies": 1,
+        "compared_copies": 1,
+        "changed_own_feature_cells": 0,
+        "row_mapping_changed": false
+      },
+      {
+        "source_row": 1937,
+        "original_copies": 1,
+        "perturbed_copies": 1,
+        "compared_copies": 1,
+        "changed_own_feature_cells": 0,
+        "row_mapping_changed": false
+      }
+    ],
+    "scope": "Two retained source rows, including copies. Label-dependent row selection is recorded separately from own-label feature encoding. No trees fit and no scores computed.",
+    "training_feature_rows": 3503
+  }
+]

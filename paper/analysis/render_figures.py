@@ -6,7 +6,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyBboxPatch
 from matplotlib.ticker import MaxNLocator
-from evidence_inputs import (P, D, E, C, final, cost_base, cohort, production_cohort,
+from evidence_inputs import (P, D, E, C, final, consumer_complete, cost_base, cohort, production_cohort,
                              execution_ids, names, consumer_path, review_path)
 figdir=P/'draft/figures'; gen=P/'draft/generated'
 plt.rcParams.update({'font.family':'DejaVu Sans','font.size':8,'pdf.fonttype':42,'ps.fonttype':42,'axes.spines.top':False,'axes.spines.right':False,'axes.labelcolor':'#243342','text.color':'#243342','axes.edgecolor':'#9ba6ad','xtick.color':'#53616b','ytick.color':'#53616b','savefig.bbox':'tight'})
@@ -36,7 +36,7 @@ bx.invert_yaxis();bx.set_xlabel('Recorded stage attempts started in window');bx.
 for y,v in enumerate(left):bx.text(v+2,y,str(v),va='center',fontsize=8)
 fig.tight_layout(w_pad=2);fig.savefig(figdir/'operations.pdf');plt.close(fig)
 # All available paired intervals, no best-run selection.
-fig,axes=plt.subplots(1,2,figsize=(7,3.35 if not final else 3.95),sharey=True)
+fig,axes=plt.subplots(1,2,figsize=(7,3.35 if not consumer_complete else 3.95),sharey=True)
 with_ci=[r for r in cohort if (review_path(r['dataset'],'bootstrap.json') in D and len(D[review_path(r['dataset'],'bootstrap.json')]['comparisons']))]
 # Keep both panels aligned; order by median run-level gain over untuned XGBoost.
 def median_untuned_gain(r):
@@ -60,7 +60,7 @@ for panel,(control,title) in enumerate([('ordinary','(a) Versus untuned XGBoost'
    i=int(c['run'].rsplit('--r',1)[1])-1
    assert xlo<c['low']<=c['delta']<=c['high']<xhi,(ds,c)
    ax.errorbar(c['delta'],j+(i-1)*.21,xerr=[[c['delta']-c['low']],[c['high']-c['delta']]],fmt=['o','s','^'][i],color=[blue,teal,gold][i],capsize=2,ms=2.5,lw=.9,label=f'Run {i+1}' if j==0 else None)
- ax.set_yticks(range(len(titles)),titles,fontsize=7.5);ax.set_xlim(xlo,xhi);ax.xaxis.set_major_locator(MaxNLocator(nbins=5)) if final else ax.set_xticks([-.05,0,.05,.10]);ax.tick_params(axis='x',labelsize=7);ax.grid(axis='x',alpha=.15);ax.set_xlabel('Holdout AUC difference',fontsize=8);ax.set_title(title,fontsize=8.5,loc='left')
+ ax.set_yticks(range(len(titles)),titles,fontsize=7.5);ax.set_xlim(xlo,xhi);ax.xaxis.set_major_locator(MaxNLocator(nbins=5)) if consumer_complete else ax.set_xticks([-.05,0,.05,.10]);ax.tick_params(axis='x',labelsize=7);ax.grid(axis='x',alpha=.15);ax.set_xlabel('Holdout AUC difference',fontsize=8);ax.set_title(title,fontsize=8.5,loc='left')
 axes[0].invert_yaxis();axes[1].legend(frameon=False,loc='lower left',fontsize=6)
 fig.tight_layout(w_pad=1);fig.savefig(figdir/'consumer-intervals.pdf');plt.close(fig)
 (P/'analysis/comparator-summary.json').write_text(json.dumps(comparison_summary,indent=2)+'\n')
@@ -76,8 +76,8 @@ for r in cohort:
  artifacts+=len(D.get(review_path(ds,'artifact-probes.json'),[]))
 selected_queue = [r for r in D['queue.json'] if r.get('selected')]
 assert len(selected_queue)==12 and any(r['dataset']=='sdwis-lcr-lead-action-level-next-period' for r in selected_queue)
-if not final: rows.append('Drinking-water lead & -- & -- & -- & -- & -- '+chr(92)*2)
+if not consumer_complete: rows.append('Drinking-water lead & -- & -- & -- & -- & -- '+chr(92)*2)
 (gen/'score-rows.tex').write_text('\n'.join(line.rstrip(chr(92))+chr(92)*2 for line in rows)+'\n')
 lat=[(parse(r['published_at'])-parse(r['created'])).total_seconds()/60 for r in production_cohort]
-metrics={'stage_attempts':len(A),'stage_status_counts':{s:{k:counts[s,k] for k in ['done','retry','repair','defer','reject','running']} for s in stages},'unique_done_candidates':{s:len({a['candidate'] for a in A if a['stage']==s and a['status']=='done'}) for s in stages},'publication_latency_minutes':{'min':min(lat),'median':statistics.median(lat),'max':max(lat)},'selected_consumer_outcomes':dict(outcome_counts),'original_consumer_outcomes':dict(collections.Counter(x['status'] for r in cohort for x in D[f"evidence/consumer/{r['dataset']}/results/summary.json"]['outcomes'])),'selected_execution_ids':execution_ids,'published_cohort_size':len(cohort) if final else len(D['queue.json']),'production_publications':len(production_cohort),'artifact_probes':artifacts,'training_probe_errors':probe_errors,'cost':{'total':C['factory_total_time_priced_usd_range'],'per_release':C['factory_time_priced_usd_per_release_range']}}
+metrics={'stage_attempts':len(A),'stage_status_counts':{s:{k:counts[s,k] for k in ['done','retry','repair','defer','reject','running']} for s in stages},'unique_done_candidates':{s:len({a['candidate'] for a in A if a['stage']==s and a['status']=='done'}) for s in stages},'publication_latency_minutes':{'min':min(lat),'median':statistics.median(lat),'max':max(lat)},'selected_consumer_outcomes':dict(outcome_counts),'original_consumer_outcomes':dict(collections.Counter(x['status'] for r in cohort for x in D[f"evidence/consumer/{r['dataset']}/results/summary.json"]['outcomes'])),'selected_execution_ids':execution_ids,'published_cohort_size':len(cohort) if consumer_complete else len(D['queue.json']),'production_publications':len(production_cohort),'artifact_probes':artifacts,'training_probe_errors':probe_errors,'cost':{'total':C['factory_total_time_priced_usd_range'],'per_release':C['factory_time_priced_usd_per_release_range']}}
 (P/'analysis/derived.json').write_text(json.dumps(metrics,indent=2)+'\n');print(json.dumps(metrics,indent=2))

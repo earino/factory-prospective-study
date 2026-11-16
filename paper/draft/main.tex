@@ -13,7 +13,7 @@
 \bstctlcite{IEEEexample:BSTcontrol}
 \maketitle
 \begin{abstract}
-Building prediction benchmarks from public data requires finding suitable sources, defining meaningful tasks, and producing files that others can use. We built Dataset Factory to carry out this process continuously, from source discovery to public release. Language models interpret sources and generate construction code; deterministic software manages execution, retries, and publication under a standing release policy. We examined the deployed system through operating records, prediction experiments, and source reviews. Over a 65-hour accounting window, the factory published 11 datasets at an estimated recurring operating cost of \$28. This estimate includes failed production attempts, worker servers, and hosting, but excludes development and human labor. Separate agents trained XGBoost models for ten releases. On nine, all evaluated models had higher held-out scores than the untuned reference; gains over tuned random search were less consistent. Source review also found that one dataset's selection rules contradicted its stated population. This deployment shows that an automated factory can deliver datasets for prediction experiments at low recurring cost, while task-definition errors can survive its publication checks.
+Building prediction benchmarks from public data requires finding suitable sources, defining meaningful tasks, and producing files that others can use. We built Dataset Factory to carry out this process continuously, from source discovery to public release. Language models interpret sources and generate construction code; deterministic software manages execution, retries, and publication under a standing release policy. We examined the deployed system through operating records, prediction experiments, and source reviews. Over a 65-hour accounting window, the factory published 11 datasets at an estimated recurring operating cost of \$28. This estimate includes failed production attempts, worker servers, and hosting, but excludes development and human labor. Separate agents trained three XGBoost models for each of twelve releases. On eleven, all three models had higher held-out scores than the untuned reference; gains over tuned random search were less consistent. Source review also found that one dataset's selection rules contradicted its stated population. This deployment shows that an automated factory can deliver datasets for prediction experiments at low recurring cost, while task-definition errors can survive its publication checks.
 
 \end{abstract}
 \begin{IEEEkeywords}agentic engineering, dataset construction, prediction benchmarks, operating cost, empirical evaluation\end{IEEEkeywords}
@@ -51,7 +51,7 @@ A manifest records the accepted files and their checksums. Publication transfers
 
 \section{Observation and Evaluation Method}
 \subsection{Production record and cohort}
-Production accounting covers 12 November 2026 at 21:28 UTC through 15 November at 14:24 UTC (64.93 hours); consumer evidence includes recoveries completed by 20:08 UTC. The planned final cutoff is 16 November at 07:00 UTC. A read-only export retains candidates, attempts, resource usage, and publication identities. Public snapshots supplement the ledger. Maintenance records distinguish service administration from manual changes to datasets, sources, labels, or acceptance decisions; none of the latter were recorded.
+Production accounting covers 12 November 2026 at 21:28 UTC through 15 November at 14:24 UTC (64.93 hours); consumer experiments completed on 16 November at 01:21 UTC. A read-only export retains candidates, attempts, resource usage, and publication identities. Public snapshots supplement the ledger. Maintenance records distinguish service administration from manual changes to datasets, sources, labels, or acceptance decisions; none of the latter were recorded.
 
 An admitted record starts as a search slot, not necessarily a distinct source. We therefore count completed milestones by candidate and repeated work by attempt. These counts describe continuing operation rather than a completed-cohort success rate.
 
@@ -71,7 +71,7 @@ Consumers can change XGBoost~\cite{xgboost} preprocessing, features, and hyperpa
 
 Selection uses replayed validation area under the ROC curve (AUC). Selected code and fitted models are frozen before the holdout is fetched, after all attempts and controls for that dataset finish. Scoring uses the saved model with row-wise feature preparation. Validation optimization can overfit selection~\cite{cawley}; held-out scoring assesses the selected artifacts.
 
-Holdouts are public, but consumers are prohibited from accessing them, other runs, or coordinator files. Isolation is procedural rather than an operating-system security boundary. We retain transcripts, file hashes, and selected code for conduct review. Attempts affected by provider failures received fresh sessions with unchanged release pins and budgets; prior results were not supplied to those sessions. Original outcomes remain recorded, with no selection between successful original and retry models.
+Holdouts are public, but consumers are prohibited from accessing them, other runs, or coordinator files. Isolation is procedural rather than an operating-system security boundary. We retain transcripts, file hashes, and selected code for conduct review. Provider access failures and one premature stop were retried with unchanged release pins and budgets; prior results were not supplied to the fresh sessions. Original outcomes remain recorded, with no selection between successful original and retry models.
 
 \subsection{Source review, uncertainty, and artifact probes}
 A separate bounded Fable review precedes scoring. It examines the task contract, construction code, available source documentation, and permitted public data for target meaning, timing, selection, and label-derived history. Reports identify unread or unavailable evidence. The reviewer declares a dependence grouping but neither approves publication nor selects the consumer cohort.
@@ -97,10 +97,10 @@ For the eleven releases in the accounting window, admission-to-publication time 
 Estimated recurring expenditure was \$27.84--\$27.94 over 64.93 hours, or \$2.53--\$2.54 per publication. Figure~\ref{fig:operations} gives the inference, worker, and hosting components. All-peak inference pricing raises the ratio to \$3.57. The estimate includes unsuccessful work and public delivery, with the exclusions in Section III.
 
 \subsection{Use: independent experiments and modeling headroom}
-Consumers produced 29 scored models across ten datasets (Table~\ref{tab:scores}). Nine datasets have three models; Seattle has two, with one attempt stopped before scoring. Provider failures affected 12 original attempts; fresh sessions recovered scores for three datasets. Utility-reliability access failures remain; drinking-water evaluation is running.
+Consumers produced 36 scored models across twelve datasets, three per dataset (Table~\ref{tab:scores}). The record contains 49 attempts: 36 scored, twelve stopped at provider access failures, and one stopped on a non-blocking task concern. Fresh sessions recovered the failed and stopped attempts; their original records remain available.
 
 \begin{table*}[t]
-\caption{Interim holdout AUC. Ranges span three scored attempts (two for building permits), not confidence intervals. Untuned denotes fixed XGBoost; Groups counts resampling groups. ``?'' means unresolved grouping; ``--'' means no scored result or grouping; drinking-water results are pending.}
+\caption{Holdout AUC. Ranges span three consumer runs and their tuned controls. Untuned denotes fixed XGBoost; Groups counts resampling groups (``?'' means unavailable).}
 \label{tab:scores}\centering\small
 \begin{tabular}{lrrrrr}\toprule
 Task & Holdout rows & Untuned & Consumer range & Tuned random & Groups\\\midrule
@@ -108,9 +108,9 @@ Task & Holdout rows & Untuned & Consumer range & Tuned random & Groups\\\midrule
 \bottomrule\end{tabular}
 \end{table*}
 
-\textbf{Headroom over the fixed model.} All available consumer point estimates exceed untuned XGBoost on nine of ten scored tasks; airline routes are mixed. All three paired intervals are above zero for five tasks, and both scored Seattle intervals are positive. Research-grant and air-enforcement intervals include zero despite positive point differences. Figure~\ref{fig:intervals}(a) shows every available comparison.
+\textbf{Headroom over the fixed model.} All three consumer point estimates exceed untuned XGBoost on eleven of twelve tasks; airline routes are mixed. All three paired intervals are above zero for seven tasks. Two drinking-water intervals are positive; the third includes zero. Research-grant and air-enforcement intervals include zero despite positive point differences. Figure~\ref{fig:intervals}(a) shows every available comparison.
 
-\textbf{Added benefit over conventional tuning.} Against tuned random search, all three intervals are above zero for three tasks; both scored Seattle intervals are also positive. One wastewater and one wildlife-strike interval are above zero; the other available intervals include zero. Research-grant point differences favor random search in all three runs (Fig.~\ref{fig:intervals}(b)).
+\textbf{Added benefit over conventional tuning.} Against tuned random search, all three intervals are above zero for five tasks. One wastewater and one wildlife-strike interval are above zero; the other available intervals include zero. Research-grant point differences favor random search in all three runs (Fig.~\ref{fig:intervals}(b)).
 
 \begin{figure*}[t]
 \centering\includegraphics[width=\textwidth]{consumer-intervals.pdf}
@@ -141,7 +141,7 @@ These practices follow from observed failures and recoveries; their effectivenes
 Risk & Design response & Evidence in this deployment \\\midrule
 Stale resource reservations block execution. & Reconcile reservations with actual worker state; preserve stage state for resumption. & Reservations persisted after worker deletion. An accounting repair restored construction (Section IV-A). \\\addlinespace
 Release totals hide repeated work. & Retain attempt-level outcomes; report attempts alongside completed outputs. & The window contained 394 stage attempts and 11 publications; 76 discovery and 184 build attempts were retries (Section IV-A). \\\addlinespace
-Executable artifacts violate task meaning. & Supply the full population and selection contract; match each filter to it. Assess consumer use separately from source validity. & Consumers used ten tasks; semantic review recorded 14 repair outcomes, yet the SBIR population mismatch survived acceptance (Section IV). \\\addlinespace
+Executable artifacts violate task meaning. & Supply the full population and selection contract; match each filter to it. Assess consumer use separately from source validity. & Consumers used twelve tasks; semantic review recorded 14 repair outcomes, yet the SBIR population mismatch survived acceptance (Section IV). \\\addlinespace
 Feature validity depends on scoring access. & Specify accessible rows and outcomes in the scoring contract. & Future rows can expose earlier labels through wastewater's prior-year predictor; scoring here supplies one row at a time (Section IV-D). \\\bottomrule
 \end{tabularx}
 \end{minipage}
@@ -170,11 +170,11 @@ The Agentic Benchmark Checklist separates task validity, outcome validity, and r
 MLAgentBench and MLE-bench assess agents solving machine-learning tasks~\cite{mlagentbench,mlebench}. Cost-aware agent evaluation motivates conventional controls~\cite{agents-matter}. Here, separate consumer agents probe the usability and modeling headroom of factory outputs; source review checks their stated meaning. This combines evidence of public artifact use with task-validity checks in the same deployment, without treating either as sufficient alone.
 
 \section{Threats to Validity and Evidence Availability}
-This short, single-factory study uses one production-model family and consumer configuration. The 29 scored models are repeated attempts on ten datasets, not 29 independent demonstrations of dataset quality. This small interim cohort cannot estimate a general probability of producing useful benchmarks or long-run operating reliability; remaining evaluations may change the results.
+This short, single-factory study uses one production-model family and consumer configuration. The 36 scored models are repeated attempts on twelve datasets, not 36 independent demonstrations of dataset quality. This small cohort cannot estimate a general probability of producing useful benchmarks or long-run operating reliability.
 
-All tasks draw on existing public records, so prior model exposure is possible. Sampled artifact checks passed for all 29 scored models, and no tested own-label feature changed. Review of selected code and flagged requests found no evidence of holdout reads. Public holdouts remain reachable, however; these checks establish neither complete procedural compliance nor technical isolation.
+All tasks draw on existing public records, so prior model exposure is possible. Sampled artifact checks passed for all 36 scored models, and no tested own-label feature changed. Review of selected code and flagged requests found no evidence of holdout reads. Public holdouts remain reachable, however; these checks establish neither complete procedural compliance nor technical isolation.
 
-Dependence keys are imperfect. FDA product codes miss firm and recall-event dependencies; day groups miss recurring aircraft, projects, carriers, and locations; state groups can miss environmental dependencies. Pipeline-enforcement penalties lacks operator identifiers, so we report point differences without intervals. The other intervals remain conditional on their declared groupings.
+Dependence keys are imperfect. FDA product codes miss firm and recall-event dependencies; day groups miss recurring aircraft, projects, carriers, and locations; state groups can miss environmental dependencies. Utility groups do not capture common year or weather effects. Pipeline-enforcement penalties lacks operator identifiers, so we report point differences without intervals. The other intervals remain conditional on their declared groupings.
 
 Timing also limits intended use. Civil-trial inputs can postdate filing, and railway-hazmat and wildlife-strike results concern retrospective snapshots rather than verified initial-event forecasts. In Seattle permits, associations involving missing fields raised an unverified concern about post-issuance updates. Resolving that concern requires source-timing evidence.
 

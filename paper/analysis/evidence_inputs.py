@@ -4,6 +4,9 @@ from pathlib import Path
 
 P = Path(__file__).resolve().parents[1]
 snapshot_names = ['draft-inputs.json', 'update-inputs-2026-11-15.json', 'evening-inputs-2026-11-15.json']
+consumer_name = 'consumer-complete-inputs-2026-11-16.json'
+if (P / 'analysis' / consumer_name).exists():
+    snapshot_names.append(consumer_name)
 final_name = 'final-inputs-2026-11-16.json'
 if (P / 'analysis' / final_name).exists():
     snapshot_names.append(final_name)
@@ -16,6 +19,7 @@ for name in snapshot_names:
     for ds, overrides in E.get('review_overrides', {}).items():
         review_overrides.setdefault(ds, {}).update(overrides)
 final = snapshot_names[-1] == final_name
+consumer_complete = E.get('consumer_complete', final)
 cost_base = E.get('cost_base', 'evidence/costs/2026-11-15')
 C = D[f'{cost_base}/summary.json']
 cohort = E.get('consumer_cohort', D[f'{cost_base}/inputs/cohort.json'])

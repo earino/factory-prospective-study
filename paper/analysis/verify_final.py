@@ -7,10 +7,10 @@ import math
 import re
 import statistics
 
-from evidence_inputs import (P, D, E, C, final, cost_base, cohort, production_cohort,
+from evidence_inputs import (P, D, E, C, final, consumer_complete, cost_base, cohort, production_cohort,
                              consumer_path, review_path, snapshot_names)
 
-assert final, 'The final evidence snapshot has not been captured'
+assert consumer_complete, 'The completed consumer evidence has not been captured'
 sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
 historical = {
     'draft-inputs.json': '1799b8991cf9b73b4477e8741d71f1f08b15e4ef98e4d24829de3b6c05ee0170',
@@ -41,6 +41,7 @@ for i, item in enumerate(cohort):
     span = lambda rows: f"{min(r['holdout_auc'] for r in rows):.3f}--{max(r['holdout_auc'] for r in rows):.3f}" if rows else '--'
     cells = [x.strip().rstrip('\\').strip() for x in table[i].split('&')]
     assert cells[1:5] == [f"{ordinary['holdout_rows']:,}", f"{ordinary['holdout_auc']:.3f}", span(agents), span(random)], ds
+    assert len(agents) == 3, ds
     models += len(agents)
     if agents and all(r['holdout_auc'] > ordinary['holdout_auc'] for r in agents):
         all_above.append(ds)
@@ -65,8 +66,26 @@ for i, item in enumerate(cohort):
             assert r['low'] <= r['delta'] <= r['high']
         positive[control][ds] = sum(r['low'] > 0 for r in comparisons)
 
+# Count physical research attempts, excluding the derived Seattle composite.
+cohort_ids = {r['dataset'] for r in cohort}
+physical = []
+for path, value in D.items():
+    if path.startswith('evidence/consumer/') and path.endswith('/results/summary.json'):
+        physical.extend(r for r in value['outcomes'] if r.get('dataset') in cohort_ids)
+physical_counts = collections.Counter(r['status'] for r in physical)
+assert len(physical) == 49 and physical_counts == {'frozen': 36, 'failed': 12, 'blocked': 1}
+review = D['paper/analysis/final-2026-11-16/code-conduct-review.json']
+assert len(review['runs']) == models == 36
+assert {r['run'] for r in review['runs']} == {r['run'] for r in probes}
+assert len(all_above) == 11
+assert sum(n == 3 for n in positive['ordinary'].values()) == 7
+assert sum(n == 3 for n in positive['random'].values()) == 5
 assert len(probes) == len(training) == models
-assert all(r['batch_equals_single_rows'] and r['reverse_order_invariant'] and not r['prepare_external_events'] for r in probes)
+assert all(r['batch_equals_single_rows'] and r['reverse_order_invariant'] for r in probes)
+external_events = [(r['run'], e) for r in probes for e in r['prepare_external_events']]
+# The probe records lazy imports as well as data access. Inspect and retain the
+# two pandas dependency reads; do not misreport them as an empty event list.
+assert all(e.get('dependency_read') and e['event'] == 'open' and e['path'].endswith('/pandas/core/methods/__pycache__/to_dict.cpython-311.pyc') for _, e in external_events)
 assert not [r for r in training if 'error' in r], 'Resolve checker errors before making a passing-check claim'
 assert all(c['changed_own_feature_cells'] == 0 for r in training for c in r['checks'])
 
@@ -97,11 +116,16 @@ assert len(re.findall(r'\\bibitem\{', (P / 'output/main.bbl').read_text())) == 2
 report = {
     'snapshot_sha256': {n: sha(P / 'analysis' / n) for n in snapshot_names},
     'historical_snapshots_unchanged': True,
+    'production_final': final,
     'production_publications': len(production_cohort),
     'consumer_datasets': len(cohort), 'scored_models': models,
     'selected_outcomes': dict(counts),
+    'all_research_attempts': len(physical),
+    'all_research_outcomes': dict(physical_counts),
+    'selected_code_reviews': len(review['runs']),
     'tasks_with_all_point_estimates_above_untuned': all_above,
     'positive_intervals': positive, 'datasets_without_intervals': missing_intervals,
+    'artifact_probe_dependency_reads': external_events,
     'artifact_probe_passes': len(probes), 'own_label_probe_passes': len(training),
     'stage_attempts': len(attempts),
     'discovery_retries': stage['discover', 'retry'], 'build_retries': stage['build', 'retry'],

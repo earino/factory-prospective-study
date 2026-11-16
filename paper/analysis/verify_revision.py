@@ -2,7 +2,7 @@
 from pathlib import Path
 import collections, datetime, hashlib, json, re, statistics, subprocess
 P=Path(__file__).resolve().parents[1]
-if (P/'analysis/final-inputs-2026-11-16.json').exists():
+if any((P/'analysis'/name).exists() for name in ['consumer-complete-inputs-2026-11-16.json', 'final-inputs-2026-11-16.json']):
  import runpy
  runpy.run_path(str(P/'analysis/verify_final.py'), run_name='__main__')
  raise SystemExit(0)
