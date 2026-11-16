@@ -1,9 +1,9 @@
 {
   "pages": 5,
-  "pdf_sha256": "49745d88a938602befaeebc77c2e3cafb9d7e065b72dc95387cc0acbc57dee00",
-  "source_zip_sha256": "6cd3c9c8df40070c426564f3a4f89a35856df4f5cd806fd055d2d1e737c4e4aa",
-  "manuscript_sha256": "b849342f28a08e66dbb0d7311ed0da28b4052e24b4a70389155d46ec8cf64b3e",
-  "clean_build_directory": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/factory-lessons-paper-zq79brxw/paper-agent27-short",
+  "pdf_sha256": "5a64e23706309d71b04ed2229c6be1281ebb25736b8da1d1856156cf3df024e0",
+  "source_zip_sha256": "85456358fa44c7a47936f7b379b23b6157656eddd4c1839e4b055e32afc3a5d6",
+  "manuscript_sha256": "21d9f95edb30ab2aa6c6169c019677f9efa67c0fde089674cdd13c886b0f7d9b",
+  "clean_build_directory": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/factory-sequence-paper-toze0ngu/paper-agent27-short",
   "clean_build_exit": 0,
   "portable_build_pdf_text_matches": true,
   "no_overfull_or_unresolved_references": true,
@@ -16,9 +16,29 @@
       4,
       5
     ],
-    "result": "Pages 2\u20135 re-inspected after final wording changes; page 1 unchanged. Clear table columns, readable figures, no clipping or collisions."
+    "result": "All five pages inspected; final execution connectors checked in color and grayscale. No green-to-green model bypass, clipping, or text collisions. Diagram text exceeds caption size."
   },
-  "record_checks_sha256": "42d42592f00cc74bef518e291aca08de58982e3d13553956b942a77d25734396",
+  "record_checks_sha256": "e6b745952ec849d078beaafec99f0727068deccbf05426067d7b8357a4487891",
   "disclosure_review_sha256": "e8eaddb3fff30ac3786888559bcd88b55b04e7adb240a5fc6ec40a31d96f32e1",
-  "long_paper_files_preserved": 310
+  "long_paper_files_preserved": 310,
+  "workflow": {
+    "sha256": "1e7df1f7d58056b53c164eb2405683a1d6157e9df545525f88800caedff031a5",
+    "width_pt": 514.8,
+    "height_pt": 151.2,
+    "dimensions_unchanged": true,
+    "diagram_font_rounded_pt": 9,
+    "caption_font_rounded_pt": 8,
+    "grayscale_border_styles": "dashed model / solid deterministic",
+    "milestones": [
+      54,
+      18,
+      14
+    ],
+    "semantic_returns": 4,
+    "omitted_for_space": [
+      "defer/reject exits",
+      "per-box turn limits"
+    ],
+    "flow": "Single execution sequence: discovery -> generation -> worker -> review -> routing -> publication; repair returns to generation."
+  }
 }

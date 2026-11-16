@@ -21,3 +21,9 @@ Final prose revision: merged the two generic lessons, added the construction-cos
 lesson, replaced the vague concern count with 1/3/4, changed the table header to
 Principal review finding, and defined tool-calling cycles while removing the
 unused construction turn detail. PDF and portable archive reverified.
+
+Figure 1 redrawn with observed milestones, model return contracts, neutral review
+packet input, and the semantic repair cap. Publication policy is inside the green
+box. Dashed/solid borders support grayscale reading. The packet connector now
+reaches the Evaluate model box directly. Original graphic dimensions retained;
+all pages, grayscale and font sizes checked before delivery.

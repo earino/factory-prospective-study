@@ -37,7 +37,7 @@ Construction is a separate model task without tools. It receives the source prop
 
 \begin{figure*}[t]
 \centering\includegraphics[width=\textwidth]{workflow.pdf}
-\caption{Production workflow. Models return bounded proposals and review decisions; the controller owns stage transitions and external operations.}
+\caption{Production workflow with milestones observed during the window. Dashed blue boxes are model tasks; solid green boxes are deterministic operations. Models return bounded proposals and review decisions; the controller owns stage transitions, retries, and external operations.}
 \label{fig:workflow}
 \end{figure*}
 

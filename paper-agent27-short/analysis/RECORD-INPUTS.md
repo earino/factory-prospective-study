@@ -133,3 +133,26 @@ detail; the ten-minute timeout and separate worker execution remain explicit.
 The runtime boundary was rechecked in pinned `factory/model_tasks.py` and
 `factory/hermes_write_task.py`; `docs/OPERATIONS.md` identifies max-turns as the
 tool-calling iteration cap. No new production or consumer experiment was run.
+
+## Workflow figure evidence and layout
+
+Figure 1 keeps the original 7.15 by 2.1 inch graphic. Milestones (54 discovery
+completions, 18 build completions, 14 publications) match the frozen attempt
+checks and Section IV; they are not rates or a completed-cohort funnel. Return
+labels match Section II's structured proposal/deferral, builder/metadata, and
+accept/repair/reject with findings. The review-packet annotation identifies the
+builder, checks and selected descriptor fields, with a connected path from worker
+checks into the review model. It makes no causal claim about SBIR. The four-return
+cap matches Section II and pinned state.py's fifth-repair deferral.
+
+Model boxes have dashed borders and code boxes solid borders, preserving the
+distinction in grayscale. Publication has no model box; standing policy is inside
+the operation box. The legend is in the caption. Font extraction from the composed
+PDF reports diagram text at 9 pt (rounded) and the caption at 8 pt. To retain the
+original height and legibility, the lower-priority exit arrows and per-box turn
+limits are omitted. No per-stage exit counts are inferred.
+
+The final connectors show one execution sequence, not separate control-flow and
+data-flow overlays. Discovery output enters code generation; worker output enters
+the review model; review output enters deterministic routing. There is no direct
+worker-to-routing bypass. Semantic repair returns to code generation.
