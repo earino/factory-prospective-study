@@ -109,11 +109,11 @@ concern_statuses=Counter(f['disclosure'] for r in disclosure['records'] for f in
 assert dict(concern_statuses)=={'stated':1,'partly_stated':3,'not_found':4}
 assert disclosure['concern_counts']=={'total':8,**dict(concern_statuses)}
 tex=(OUT/'draft/main.tex').read_text()
-for banned in ['presentation emphasis','we now focus','later paper','interim results','random-search','holdout AUC','BLOCKER.json','---','…']:
+for banned in ['presentation emphasis','we now focus','later paper','interim results','holdout AUC','BLOCKER.json','---','…']:
  assert banned.lower() not in tex.lower(), banned
 citations=set()
 for c in re.findall(r'\\cite\{([^}]+)\}',tex): citations.update(c.split(','))
-assert len(citations)==15
+assert len(citations)==16
 performance=read('paper-agent27-short/analysis/consumer-results.json')
 assert sha(ROOT/performance['snapshot'])==performance['snapshot_sha256']
 assert sha(ROOT/performance['qualification_coverage'])==performance['qualification_coverage_sha256']
@@ -125,6 +125,11 @@ for r in performance['records']:
  agents={s['id']:s['holdout_auc'] for s in summary['scores'] if s['kind']=='agent'}
  assert len(baseline)==1 and len(agents)==3
  assert r['consumer_scores']==agents and r['baseline_auc']==baseline[0]['holdout_auc']
+ tuned={s['id']:s['holdout_auc'] for s in summary['scores'] if s['kind']=='random'}
+ assert len(tuned)==3 and set(tuned)=={k+'--random' for k in agents}
+ assert r['tuned_scores']==tuned
+ assert r['tuned_median']==statistics.median(tuned.values())
+ assert r['tuned_min']==min(tuned.values()) and r['tuned_max']==max(tuned.values())
  assert r['consumer_median']==statistics.median(agents.values())
  assert r['consumer_min']==min(agents.values()) and r['consumer_max']==max(agents.values())
  assert r['all_three_above_baseline']==(min(agents.values())>r['baseline_auc'])
@@ -132,6 +137,16 @@ for r in performance['records']:
  assert read(r['qualification_receipt'])['accept_exit_code']==0
 assert sum(r['all_three_above_baseline'] for r in performance['records'])==11
 assert [round(v,3) for v in performance['median_auc_range']]==[.601,.913]
+assert sum(abs(r['consumer_median']-r['tuned_median'])<.01 for r in performance['records'])==5
+sbir=next(r for r in performance['records'] if r['dataset']=='sbir-phase1-to-phase2-conversion')
+assert min(sbir['tuned_scores'].values())>max(sbir['consumer_scores'].values())
+paired={r['dataset']:[v-r['tuned_scores'][k+'--random'] for k,v in r['consumer_scores'].items()] for r in performance['records']}
+assert paired==performance['paired_comparisons']
+assert sum(min(v)>0 for v in paired.values())==9
+assert sum(min(v)<0<max(v) for v in paired.values())==2
+assert sum(max(v)<0 for v in paired.values())==1
+overlap={r['dataset'] for r in performance['records'] if max(r['consumer_min'],r['tuned_min'])<=min(r['consumer_max'],r['tuned_max'])}
+assert overlap==set(performance['overlapping_run_ranges'])=={'t100-new-route-survival','sdwis-lcr-lead-action-level-next-period','caa-fce-hpv-escalation','faa-wildlife-strike-substantial-damage'}
 gains=[r['consumer_median']-r['baseline_auc'] for r in performance['records'] if r['all_three_above_baseline']]
 assert [round(min(gains),3),round(max(gains),3)]==[.008,.072]
 report={'production_attempts':len(attempts),'milestones':milestones,'retry_counts':{'discovery':101,'build':260,'semantic_repair':21},

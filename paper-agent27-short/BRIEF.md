@@ -15,9 +15,12 @@ experiments on twelve releases, and the documented SBIR acceptance failure.
 Define usable as a completed prediction experiment ending in held-out scoring of
 a frozen model under the predictor contract. Eduardo's subsequent instruction
 restores a compact predictive-performance result: untuned XGBoost versus the
-median and observed range of the three consumer runs on all twelve releases.
+three consumer runs and their paired random-search controls on all twelve
+releases. Plot paired AUC differences from both references, with medians and
+observed ranges.
 Retain the source-review limitations; do not equate scores with task validity.
-Keep the random-search comparison outside this version. Use no labor-saving, comparative
+Report both controls together; the abstract reports completed experiments only.
+Use no labor-saving, comparative
 efficiency, general reliability or universal validity claim.
 
 Describe discovery inputs/tools/output, construction and repair, reviewer inputs,

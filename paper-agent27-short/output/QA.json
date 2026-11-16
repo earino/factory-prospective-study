@@ -1,9 +1,9 @@
 {
   "pages": 5,
-  "pdf_sha256": "573a7643b4303a71ff78cdccca25b20583e70829ea86904b006983462602ef52",
-  "source_zip_sha256": "caa514e34d3cdc340e9c9196868235f74c5f6fa17408b8fb9329174aaeebf6b2",
-  "manuscript_sha256": "a70c69ea58b576b2847c55aff2e072d6ff1d62bef529a22f5e32b7ebb3e85e63",
-  "clean_build_directory": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/factory-consumer-paper-x46uqygq/paper-agent27-short",
+  "pdf_sha256": "8b0c1413b6ce2bcecb4aa912ef4072dde88e4e1f283dd04472f26066308ca9b8",
+  "source_zip_sha256": "a6e53e8abdbce42d9b17c9910109324872bb14ba21cccd5d2b296a06792c3573",
+  "manuscript_sha256": "f10243b1cd34afb64a9231e77b3ea36bcf88d53a227de942629f5fb9b39b5780",
+  "clean_build_directory": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/factory-tuned-paper-z29v7oq5/paper-agent27-short",
   "clean_build_exit": 0,
   "portable_build_pdf_text_matches": true,
   "no_overfull_or_unresolved_references": true,
@@ -16,9 +16,9 @@
       4,
       5
     ],
-    "result": "All five pages inspected, including consumer plot in grayscale. Text and markers legible; no clipping or collisions; manuscript fonts unchanged."
+    "result": "All five pages inspected; shared-axis difference plot also checked in grayscale. Two vertically separated reference comparisons per task, no marker overlap or clipping. Five pages with unchanged manuscript fonts."
   },
-  "record_checks_sha256": "562f010127e5048ce410bcaf5867746d26c642fb5bd28733e865425395cd8116",
+  "record_checks_sha256": "03802a4785df649aebf03835d21ce3a153e7153359b944d1a70de6861e2dc6b2",
   "disclosure_review_sha256": "e8eaddb3fff30ac3786888559bcd88b55b04e7adb240a5fc6ec40a31d96f32e1",
   "long_paper_files_preserved": 310,
   "workflow": {
@@ -34,15 +34,24 @@
     "operating_milestones": "Retained in results prose; omitted from process diagram."
   },
   "consumer_results": {
-    "figure_sha256": "964e689669ddd6c231157191d969cd3c6562c8e147a683d46a3c98d0d3fa5e9c",
-    "data_sha256": "cb997c7ac6a74cc11faa663ee81620a363a9b2fc6cbf38f51c8fe3a71c4ea1cd",
+    "figure_sha256": "d0b6483014aa990040857c183b520614ab20943f43cc6028994c6ce653c6574e",
+    "data_sha256": "6935892ca36d506dfd1bbd7fe341769e35b56cf44eaea5b50516bcbef6e55dcc",
     "datasets": 12,
-    "models": 36,
-    "baseline": "fixed untuned XGBoost",
-    "summary": "median and min/max across three observed runs, not confidence intervals",
-    "sorted_by": "consumer median, ascending top to bottom",
+    "consumer_models": 36,
+    "tuned_controls": 36,
+    "references": [
+      "fixed untuned XGBoost",
+      "paired random-search controls"
+    ],
+    "summary": "median and min/max of three paired consumer-minus-reference AUC differences, not confidence intervals",
+    "task_order": "unchanged ascending absolute consumer median",
     "qualification_receipts_checked": 12,
-    "clean_checkout": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/factory-consumer-paper-x46uqygq/record-checkout",
+    "paired_point_outcomes": {
+      "all_consumer_higher_tasks": 9,
+      "mixed_tasks": 2,
+      "all_control_higher_tasks": 1
+    },
+    "clean_checkout": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/factory-tuned-paper-z29v7oq5/record-checkout",
     "clean_check_exit": 0,
     "historical_ignored_paper_artifacts_restored_for_preservation_checks": 161
   }

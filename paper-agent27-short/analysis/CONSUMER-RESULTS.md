@@ -11,22 +11,33 @@ summary files against the frozen long-paper snapshot. Seattle uses the existing
 composite of recovered r1 and unchanged r2/r3; utility reliability uses its recorded
 recovery selection. All twelve original full-artifact acceptance receipts pass.
 
-The comparator is the consumer study's fixed untuned XGBoost model, not the
-factory's shipped baseline or tuned random search. The fixed settings are 100
+The comparators are the consumer study's fixed untuned XGBoost model and its
+three paired random-search controls, not the factory's shipped baseline. The fixed settings are 100
 trees, depth 6, learning rate 0.1, with native categorical handling, as recorded in
 `run_study.py`'s starter. The separate agents can change features, preprocessing,
 and model parameters within the task contract. The comparison does not isolate
-the contribution of feature engineering or establish superiority over tuning.
+the contribution of feature engineering. Random search tunes tree and sampling
+parameters using the same permitted inputs. Its budget targets successful primary
+validation fitting CPU, with a wall-time cap and possible last-trial overshoot;
+inference, backtests, and other diagnostics are excluded.
 
 Consumer median AUC spans 0.600657 to 0.912823. All three models exceed the fixed
 reference on eleven tasks; route survival has two lower and one higher score.
-Among those eleven tasks, median gains span 0.008467 to 0.072277 AUC. The plot
-sorts by consumer median. Its bars span observed runs, not confidence intervals;
+Among those eleven tasks, median gains span 0.008467 to 0.072277 AUC. All three paired point differences favor consumers on nine tasks, are mixed on
+airline routes and drinking-water lead, and favor random search on research
+grants. Consumer/control score ranges overlap for routes, lead, air enforcement,
+and wildlife strikes.
+
+The plot retains task order by absolute consumer median and shows consumer-minus-
+reference AUC on one common axis. Two separated tracks per task distinguish the
+untuned and tuned references without overlapping markers. Each point is the
+median of the three paired differences, not the difference between method medians.
+Bars span the three observed paired differences, not confidence intervals;
 no statistical-significance claim is made. Existing grouped-bootstrap analyses
 remain in the preserved longer-paper evidence. Source timing, selection, and
 scoring-access limitations remain in the short-paper table and case analysis.
 
-Two references were restored from the existing bibliography and checked against
+Three references were restored from the existing bibliography and checked against
 their publisher pages on 16 November 2026:
 
 - Cawley and Talbot, JMLR 11 (2010), 2079–2107:
@@ -36,6 +47,10 @@ their publisher pages on 16 November 2026:
   https://proceedings.mlr.press/v235/huang24y.html
   Positions agent-based ML experimentation; this paper uses consumers to describe
   the factory's outputs rather than rank consumer-agent systems.
+
+- Bergstra and Bengio, JMLR 13 (2012), 281–305:
+  https://jmlr.org/papers/v13/bergstra12a.html
+  Supports the conventional random-search control.
 
 The manuscript stays within five pages. The longer-paper files retain all their
 original hashes. Figure generation and the revised record checks passed in a

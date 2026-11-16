@@ -3,7 +3,7 @@
   "snapshot_sha256": "688ab6558045a5acfa9791cfa36d1417c20d7791ffbbbff74a35a6ed907b3db3",
   "qualification_coverage": "paper/analysis/final-2026-11-16/qualification-coverage.json",
   "qualification_coverage_sha256": "39776ce9339e62506eccf7e55b958066bd3c1083fb376d55ea579511fbe884ba",
-  "scope": "Descriptive holdout AUC from fixed baseline and all three frozen consumer models. Ranges are observed run ranges, not confidence intervals. Existing final-run selection and qualification receipts are reused; no new fits or holdout-based model selection.",
+  "scope": "Descriptive holdout AUC from fixed baseline, all three frozen consumer models, and their three paired random-search controls. Ranges are observed run ranges, not confidence intervals. Existing final-run selection and qualification receipts are reused; no new fits or holdout-based model selection.",
   "baseline": {
     "n_estimators": 100,
     "max_depth": 6,
@@ -27,6 +27,14 @@
       "consumer_median": 0.6006572629051621,
       "consumer_min": 0.5959483793517407,
       "consumer_max": 0.6101620648259303,
+      "tuned_scores": {
+        "t100-new-route-survival--r1--random": 0.6176515606242499,
+        "t100-new-route-survival--r2--random": 0.5928601440576231,
+        "t100-new-route-survival--r3--random": 0.5878301320528212
+      },
+      "tuned_median": 0.5928601440576231,
+      "tuned_min": 0.5878301320528212,
+      "tuned_max": 0.6176515606242499,
       "all_three_above_baseline": false
     },
     {
@@ -46,6 +54,14 @@
       "consumer_median": 0.6069600725952813,
       "consumer_min": 0.602377495462795,
       "consumer_max": 0.6079261482619015,
+      "tuned_scores": {
+        "sbir-phase1-to-phase2-conversion--r1--random": 0.6165014658662571,
+        "sbir-phase1-to-phase2-conversion--r2--random": 0.6144304062543627,
+        "sbir-phase1-to-phase2-conversion--r3--random": 0.6165433477593187
+      },
+      "tuned_median": 0.6165014658662571,
+      "tuned_min": 0.6144304062543627,
+      "tuned_max": 0.6165433477593187,
       "all_three_above_baseline": true
     },
     {
@@ -65,6 +81,14 @@
       "consumer_median": 0.6224105461393596,
       "consumer_min": 0.618361581920904,
       "consumer_max": 0.6352165725047082,
+      "tuned_scores": {
+        "phmsa-pipeline-penalty-reduction--r1--random": 0.5878531073446328,
+        "phmsa-pipeline-penalty-reduction--r2--random": 0.6087570621468926,
+        "phmsa-pipeline-penalty-reduction--r3--random": 0.5970809792843691
+      },
+      "tuned_median": 0.5970809792843691,
+      "tuned_min": 0.5878531073446328,
+      "tuned_max": 0.6087570621468926,
       "all_three_above_baseline": true
     },
     {
@@ -84,6 +108,14 @@
       "consumer_median": 0.6482217774875273,
       "consumer_min": 0.6473918284596301,
       "consumer_max": 0.6551826709794852,
+      "tuned_scores": {
+        "seattle-building-permit-completion--r1--random": 0.6335192216276375,
+        "seattle-building-permit-completion--r2--random": 0.6347200596465576,
+        "seattle-building-permit-completion--r3--random": 0.6328318542832856
+      },
+      "tuned_median": 0.6335192216276375,
+      "tuned_min": 0.6328318542832856,
+      "tuned_max": 0.6347200596465576,
       "all_three_above_baseline": true
     },
     {
@@ -103,6 +135,14 @@
       "consumer_median": 0.7269229294093058,
       "consumer_min": 0.7267897056286667,
       "consumer_max": 0.730755753079311,
+      "tuned_scores": {
+        "fda-510k-five-year-recall--r1--random": 0.6644125067815719,
+        "fda-510k-five-year-recall--r2--random": 0.6561716402136784,
+        "fda-510k-five-year-recall--r3--random": 0.6615195147917257
+      },
+      "tuned_median": 0.6615195147917257,
+      "tuned_min": 0.6561716402136784,
+      "tuned_max": 0.6644125067815719,
       "all_three_above_baseline": true
     },
     {
@@ -122,6 +162,14 @@
       "consumer_median": 0.7394253208868145,
       "consumer_min": 0.736249144972438,
       "consumer_max": 0.7397606258131144,
+      "tuned_scores": {
+        "eia861-reliability-deterioration--r1--random": 0.7140712388846416,
+        "eia861-reliability-deterioration--r2--random": 0.7185148674204321,
+        "eia861-reliability-deterioration--r3--random": 0.7162423382824341
+      },
+      "tuned_median": 0.7162423382824341,
+      "tuned_min": 0.7140712388846416,
+      "tuned_max": 0.7185148674204321,
       "all_three_above_baseline": true
     },
     {
@@ -141,6 +189,14 @@
       "consumer_median": 0.7476899786923299,
       "consumer_min": 0.7460685891913093,
       "consumer_max": 0.7494586603370813,
+      "tuned_scores": {
+        "fjc-civil-trial-36m--r1--random": 0.7229394844139647,
+        "fjc-civil-trial-36m--r2--random": 0.7287865423666984,
+        "fjc-civil-trial-36m--r3--random": 0.723860376749083
+      },
+      "tuned_median": 0.723860376749083,
+      "tuned_min": 0.7229394844139647,
+      "tuned_max": 0.7287865423666984,
       "all_three_above_baseline": true
     },
     {
@@ -160,6 +216,14 @@
       "consumer_median": 0.7737698143330446,
       "consumer_min": 0.7660623494438212,
       "consumer_max": 0.7751352958591472,
+      "tuned_scores": {
+        "sdwis-lcr-lead-action-level-next-period--r1--random": 0.7752841261207224,
+        "sdwis-lcr-lead-action-level-next-period--r2--random": 0.7675724869199554,
+        "sdwis-lcr-lead-action-level-next-period--r3--random": 0.7765332888501569
+      },
+      "tuned_median": 0.7752841261207224,
+      "tuned_min": 0.7675724869199554,
+      "tuned_max": 0.7765332888501569,
       "all_three_above_baseline": true
     },
     {
@@ -179,6 +243,14 @@
       "consumer_median": 0.7901749387429483,
       "consumer_min": 0.7840868425551314,
       "consumer_max": 0.7910633084506239,
+      "tuned_scores": {
+        "fra-form54-hazmat-release--r1--random": 0.7512655991794405,
+        "fra-form54-hazmat-release--r2--random": 0.7504450396033963,
+        "fra-form54-hazmat-release--r3--random": 0.7472847455695482
+      },
+      "tuned_median": 0.7504450396033963,
+      "tuned_min": 0.7472847455695482,
+      "tuned_max": 0.7512655991794405,
       "all_three_above_baseline": true
     },
     {
@@ -198,6 +270,14 @@
       "consumer_median": 0.8684167399350823,
       "consumer_min": 0.8602094384136447,
       "consumer_max": 0.8714592094850441,
+      "tuned_scores": {
+        "caa-fce-hpv-escalation--r1--random": 0.8560382072542151,
+        "caa-fce-hpv-escalation--r2--random": 0.8627541783271012,
+        "caa-fce-hpv-escalation--r3--random": 0.8522525222694308
+      },
+      "tuned_median": 0.8560382072542151,
+      "tuned_min": 0.8522525222694308,
+      "tuned_max": 0.8627541783271012,
       "all_three_above_baseline": true
     },
     {
@@ -217,6 +297,14 @@
       "consumer_median": 0.9012614718317122,
       "consumer_min": 0.9012600245673132,
       "consumer_max": 0.901548030182699,
+      "tuned_scores": {
+        "wser-effluent-exceedance--r1--random": 0.9002154614873898,
+        "wser-effluent-exceedance--r2--random": 0.8992362062134678,
+        "wser-effluent-exceedance--r3--random": 0.9011655905652833
+      },
+      "tuned_median": 0.9002154614873898,
+      "tuned_min": 0.8992362062134678,
+      "tuned_max": 0.9011655905652833,
       "all_three_above_baseline": true
     },
     {
@@ -236,10 +324,87 @@
       "consumer_median": 0.9128234649648987,
       "consumer_min": 0.9081156843825051,
       "consumer_max": 0.9195533745338731,
+      "tuned_scores": {
+        "faa-wildlife-strike-substantial-damage--r1--random": 0.9091333933302965,
+        "faa-wildlife-strike-substantial-damage--r2--random": 0.9048748516994669,
+        "faa-wildlife-strike-substantial-damage--r3--random": 0.9042419674082124
+      },
+      "tuned_median": 0.9048748516994669,
+      "tuned_min": 0.9042419674082124,
+      "tuned_max": 0.9091333933302965,
       "all_three_above_baseline": true
     }
   ],
   "all_three_above_baseline_tasks": 11,
+  "paired_comparisons": {
+    "t100-new-route-survival": [
+      -0.01699429771908778,
+      0.003088235294117614,
+      0.022331932773109076
+    ],
+    "sbir-phase1-to-phase2-conversion": [
+      -0.008575317604355592,
+      -0.007470333659081452,
+      -0.014165852296523784
+    ],
+    "phmsa-pipeline-penalty-reduction": [
+      0.04736346516007539,
+      0.01365348399246702,
+      0.021280602636534862
+    ],
+    "seattle-building-permit-completion": [
+      0.014702555859889777,
+      0.012671768813072415,
+      0.02235081669619965
+    ],
+    "fda-510k-five-year-recall": [
+      0.062377198847094806,
+      0.07075128919562745,
+      0.0692362382875853
+    ],
+    "eia861-reliability-deterioration": [
+      0.02217790608779635,
+      0.02124575839268228,
+      0.023182982604380342
+    ],
+    "fjc-civil-trial-36m": [
+      0.024750494278365176,
+      0.017282046824610875,
+      0.025598283587998316
+    ],
+    "sdwis-lcr-lead-action-level-next-period": [
+      -0.00014883026157519463,
+      0.006197327413089204,
+      -0.0104709394063357
+    ],
+    "fra-form54-hazmat-release": [
+      0.03282124337569092,
+      0.03972989913955205,
+      0.04377856288107573
+    ],
+    "caa-fce-hpv-escalation": [
+      0.012378532680867194,
+      0.008705031157942855,
+      0.0079569161442139
+    ],
+    "wser-effluent-exceedance": [
+      0.00104601034432239,
+      0.0020238183538454635,
+      0.00038243961741568633
+    ],
+    "faa-wildlife-strike-substantial-damage": [
+      0.003690071634602221,
+      0.014678522834406182,
+      0.003873716974292729
+    ]
+  },
+  "overlapping_run_ranges": [
+    "t100-new-route-survival",
+    "sdwis-lcr-lead-action-level-next-period",
+    "caa-fce-hpv-escalation",
+    "faa-wildlife-strike-substantial-damage"
+  ],
+  "consumer_tuned_medians_within_001": 5,
   "median_auc_range": [
     0.6006572629051621,
     0.9128234649648987

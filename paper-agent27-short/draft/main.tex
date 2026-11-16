@@ -14,7 +14,7 @@
 \maketitle
 
 \begin{abstract}
-Turning public data into prediction datasets requires connecting source discovery, task definition, construction, and distribution. We deployed Dataset Factory to perform these steps continuously under a standing release policy. Bounded language-model tasks interpret sources, write construction code, and review task meaning; deterministic software manages state, workers, retries, and publication. Over 81.53 hours, the factory published 14 datasets at an estimated recurring operating expenditure of about \$2.74 per publication. The accounting includes failed attempts, inference, workers, and hosting. Separate agents completed prediction experiments on all twelve evaluated releases; all three runs exceeded untuned XGBoost on eleven. Source review nevertheless identified a task whose construction filters contradicted its population declaration. The original reviewer accepted later-record exclusions without reconciling them with the published selection rule. This experience documents an operating source-to-release workflow and shows why successful execution and consumer use need separate checks of task meaning.
+Turning public data into prediction datasets requires connecting source discovery, task definition, construction, and distribution. We deployed Dataset Factory to perform these steps continuously under a standing release policy. Bounded language-model tasks interpret sources, write construction code, and review task meaning; deterministic software manages state, workers, retries, and publication. Over 81.53 hours, the factory published 14 datasets at an estimated recurring operating expenditure of about \$2.74 per publication. The accounting includes failed attempts, inference, workers, and hosting. Separate agents completed prediction experiments on all twelve evaluated releases. Source review nevertheless identified a task whose construction filters contradicted its population declaration. The original reviewer accepted later-record exclusions without reconciling them with the published selection rule. This experience documents an operating source-to-release workflow and shows why successful execution and consumer use need separate checks of task meaning.
 \end{abstract}
 \begin{IEEEkeywords}agentic engineering, dataset construction, deployment experience, operating cost, semantic review\end{IEEEkeywords}
 
@@ -80,9 +80,11 @@ The consumer cohort comprises the first twelve new releases in publication-verif
 
 We define \emph{usable} as supporting a completed prediction experiment under the predictor contract, ending in held-out scoring of a frozen model. This definition does not establish task validity.
 
-For predictive performance, we compare consumers with an untuned XGBoost reference using 100 trees, depth 6, learning rate 0.1, and native categorical handling. Consumers select models by validation area under the ROC curve (AUC); final scoring uses held-out data to separate selection from evaluation~\cite{cawley}. We report the median and range of three consumer holdout scores per task. These ranges describe observed run variation, not sampling uncertainty.
+For predictive performance, we compare consumers with an untuned XGBoost reference using 100 trees, depth 6, learning rate 0.1, and native categorical handling. A random-search control~\cite{randomsearch} tunes tree and sampling parameters on the same permitted inputs. Each control targets its paired consumer's fitting CPU from successful primary validation trials, subject to a wall-time cap and final-trial overshoot; inference, backtests, and other diagnostics are excluded. Consumers and controls select models by validation area under the ROC curve (AUC); final scoring uses held-out data to separate selection from evaluation~\cite{cawley}. We summarize three runs per task and plot median paired AUC differences and their ranges. Ranges describe observed run variation, not sampling uncertainty.
 
 Separate bounded Fable reviews examined the pinned task descriptions, construction code, and permitted public data before scoring. They checked target meaning, timing, selection, splits, and label-derived history. The reviews shared instructions, but access to publisher documentation varied; raw source snapshots and holdout rows were outside their scope. Table~\ref{tab:releases} reports principal findings, distinguishing observed contradictions, unresolved concerns, and conditions of use. We compared each listed finding with the pinned release README and construction descriptor; \emph{not found} refers to these documents. Explicit isolated-row access counts as a stated restriction, even without an explanation of cross-row exposure. The final two production releases were outside both the consumer and separate-review cohort.
+
+
 
 \section{Deployment Results}
 \subsection{Operation and recurring expenditure}
@@ -100,14 +102,16 @@ Estimated recurring expenditure was \$38.23--\$38.33: \$19.10--\$19.21 for infer
 \label{fig:costs}
 \end{figure}
 
+
+
 \begin{figure}[t]
 \centering\includegraphics[width=\columnwidth]{consumer-results.pdf}
-\caption{Held-out performance on twelve tasks. Squares show untuned XGBoost; dots and bars show the consumer median and range across three runs.}
+\caption{Consumer AUC minus each reference. Points show median paired differences; bars span three runs. Positive values favor consumers.}
 \label{fig:consumer}
 \end{figure}
 
 \subsection{Consumer use and predictive performance}
-All twelve evaluated releases supported completed prediction experiments through held-out scoring. Consumer median AUC ranged from 0.601 to 0.913 (Fig.~\ref{fig:consumer}). All three consumers scored above the untuned reference on eleven tasks; airline-route results were mixed. Median gains on those eleven tasks ranged from 0.008 to 0.072 AUC. The releases thus supported model development with observable gains over a fixed starting model, alongside tasks where that model already performed strongly. These comparisons concern the published splits and predictor contracts; the selection and timing findings in Table~\ref{tab:releases} remain material to their use.
+All twelve evaluated releases supported completed prediction experiments through held-out scoring. Consumer median AUC ranged from 0.601 to 0.913. Figure~\ref{fig:consumer} shows differences from both references. All three consumers scored above the untuned reference on eleven tasks; airline-route results were mixed. Median gains on those eleven tasks ranged from 0.008 to 0.072 AUC. All three paired point comparisons favored consumers on nine tasks, were mixed on airline routes and drinking-water lead, and favored random search on research grants. Consumer and control ranges of absolute scores overlapped for routes, lead, air enforcement, and wildlife strikes. These comparisons concern the published splits and predictor contracts; the selection and timing findings in Table~\ref{tab:releases} remain material to their use.
 
 Five of the six listed conditions of use were stated in the releases, including isolated-row access for both history-feature tasks. Carrier-code exits were disclosed, but apparent entries were not. Of the eight listed concerns, one was stated, three were partly stated, and four were not found in the inspected documents (Table~\ref{tab:releases}).
 
@@ -143,7 +147,6 @@ Dataset Factory connected source discovery to public prediction datasets at abou
 \section*{AI Assistance}
 AI systems assisted implementation, literature search, review briefs, source and transcript review, analysis, and drafting. Production and consumer models are identified above. The author is responsible for the claims and final text.
 
-\IEEEtriggeratref{4}
 \bibliographystyle{IEEEtran}
 \bibliography{refs}
 \end{document}

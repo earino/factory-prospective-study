@@ -50,3 +50,13 @@ identities, scores, qualifications, and interpretation are recorded in
 All five pages were inspected; the new plot was also checked in grayscale.
 The portable source builds with identical PDF text. Figure generation and the
 revised evidence checks passed in a separate checkout. No new experiments ran.
+
+Tuned-control revision: the performance comparison now includes all three paired
+random-search controls per release. The abstract reports completion only. Methods
+state the fitting-CPU target and its limits, with Bergstra and Bengio restored.
+Results distinguish nine all-positive paired task comparisons, two mixed tasks,
+and research grants favoring random search; overlapping score ranges are named.
+The Table I interpretation sentence remains. Following author feedback, the
+figure shows paired AUC differences on one shared axis, with two separated tracks
+per task. Direct changes replace separate method panels and overlapping symbols.
+The manuscript contains no discussion of these editorial decisions.
