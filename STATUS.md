@@ -17,7 +17,7 @@
     "published": 20,
     "rejected": 7
   },
-  "observed_at": "2026-11-16T03:02:22.856087+00:00",
+  "observed_at": "2026-11-16T03:32:45.278403+00:00",
   "paper": {
     "at": "2026-11-15T22:40:26.170977+00:00",
     "consumer_status": "complete: 12 datasets, 36 scored models; code/conduct and sampled probes reviewed",
