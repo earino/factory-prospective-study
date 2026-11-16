@@ -1,6 +1,6 @@
 # Consumer study results
 
-Generated 2026-11-16T01:14:54.792420+00:00
+Generated 2026-11-16T01:15:16.075421+00:00
 
 Measured records are in summary.json and scores.csv. Failures remain in the denominator.
 
@@ -12,7 +12,7 @@ Compliance triage (separate from scores):
 
 - eia861-reliability-deterioration--r1: not yet audited; forbidden asset copies unknown; tool-access flags unknown. Semantic compliance requires review.
 - eia861-reliability-deterioration--r2: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
-- eia861-reliability-deterioration--r3: not yet audited; forbidden asset copies unknown; tool-access flags unknown. Semantic compliance requires review.
+- eia861-reliability-deterioration--r3: no_automatic_access_flag; forbidden asset copies 0; tool-access flags 0. Semantic compliance requires review.
 
 Scores (including flagged attempts; do not treat all as compliant results):
 
