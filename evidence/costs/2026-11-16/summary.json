@@ -1,0 +1,93 @@
+{
+  "basis": "Current published price estimate, not invoice. Entire start-boundary overlapping sessions/jobs included conservatively. Missing records are not assumed zero. Window cost per publication is not lifetime dataset construction cost. Nous-route token usage valued at DeepSeek direct equivalent rates; Ollama route at Ollama rates. Timing range uses session intervals, not guessed call times. Consumer modelUsage and cost are last cumulative counters per unique session.",
+  "consumer": null,
+  "consumer_total_reported_usd": null,
+  "cutoff": "2026-11-16T07:00:00+00:00",
+  "elapsed_hours": 81.53352223777779,
+  "factory_peak_usd_per_release": 3.92314493072575,
+  "factory_time_priced_usd_per_release_range": [
+    2.730476142154321,
+    2.738210185440035
+  ],
+  "factory_total_peak_rate_usd": 54.9240290301605,
+  "factory_total_time_priced_usd_range": [
+    38.2266659901605,
+    38.33494259616049
+  ],
+  "hosting_usd": 2.264820062160494,
+  "missing_model_usage": [
+    {
+      "attempt": "rw-11da79a259ae-evaluate-2",
+      "group": "started_in_window",
+      "reason": "HTTP 402 before generation; zero tokens per Scout database readback",
+      "stage": "evaluate"
+    },
+    {
+      "attempt": "rw-11da79a259ae-evaluate-3",
+      "group": "started_in_window",
+      "reason": "HTTP 402 before generation; zero tokens per Scout database readback",
+      "stage": "evaluate"
+    },
+    {
+      "attempt": "rw-11da79a259ae-evaluate-4",
+      "group": "started_in_window",
+      "reason": "HTTP 402 before generation; zero tokens per Scout database readback",
+      "stage": "evaluate"
+    },
+    {
+      "attempt": "rw-9f863b0276ff-discover-2",
+      "group": "started_in_window",
+      "reason": "HTTP 402 before generation; zero tokens per Scout database readback",
+      "stage": "discover"
+    },
+    {
+      "attempt": "rw-9f863b0276ff-discover-4",
+      "group": "started_in_window",
+      "reason": "HTTP 402 before generation; zero tokens per Scout database readback",
+      "stage": "discover"
+    }
+  ],
+  "model_all_off_peak_usd": 17.898696804,
+  "model_by_stage": {
+    "build": {
+      "peak_rate_usd": 16.238357999999998,
+      "sessions": 294,
+      "time_priced_high_usd": 8.663073786,
+      "time_priced_low_usd": 8.574551856
+    },
+    "discover": {
+      "peak_rate_usd": 17.103185844,
+      "sessions": 184,
+      "time_priced_high_usd": 9.170883618,
+      "time_priced_low_usd": 9.151128942
+    },
+    "evaluate": {
+      "peak_rate_usd": 2.455849764,
+      "sessions": 38,
+      "time_priced_high_usd": 1.37434977,
+      "time_priced_low_usd": 1.37434977
+    }
+  },
+  "model_peak_rate_usd": 35.797393608,
+  "model_sessions_with_usage": 516,
+  "model_time_priced_usd_range": [
+    19.100030568,
+    19.208307173999998
+  ],
+  "published_datasets": 14,
+  "tokens": {
+    "cache_read_tokens": 129523918,
+    "calls": 3404,
+    "input_tokens": 32387979,
+    "output_tokens": 21086547
+  },
+  "window_start": "2026-11-12T21:27:59.319944+00:00",
+  "workers": {
+    "billed_hours": 260,
+    "eur": 15.2568,
+    "jobs": 259,
+    "lifetime_hours": 25.238655244444445,
+    "running_at_cutoff": 0,
+    "usd": 16.861815359999998
+  }
+}

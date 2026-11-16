@@ -1,0 +1,14 @@
+{
+  "observed_at": "2026-11-15T14:26:00Z",
+  "source": "Scout normal Telegram response, inspected by Codex; failure diagnostics also present in pinned attempts export.",
+  "cache_semantics": "Scout inspected /opt/hermes/agent/usage_pricing.py normalize_usage lines 66\u201379 and 683\u2013690: input_tokens excludes cache_read_tokens and cache_write_tokens; the three buckets sum to prompt tokens.",
+  "zero_usage_attempts": [
+    "rw-11da79a259ae-evaluate-2",
+    "rw-11da79a259ae-evaluate-3",
+    "rw-11da79a259ae-evaluate-4",
+    "rw-9f863b0276ff-discover-2",
+    "rw-9f863b0276ff-discover-4"
+  ],
+  "zero_usage_basis": "All five failed with HTTP 402 before generation; Scout found exactly five matching zero-token oneshot sessions and no session_model_usage rows. This is Scout readback, not a local database replication.",
+  "final_export": "2026-11-16T07:00:00Z unchanged; job d35f2e1ec147"
+}

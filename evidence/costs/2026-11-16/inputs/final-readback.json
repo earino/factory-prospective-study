@@ -1,0 +1,45 @@
+{
+  "observed_at": "2026-11-16T07:02:00Z",
+  "source": "Scout normal Telegram response, inspected by Codex; read-only checks, no production changes",
+  "maintenance": {
+    "since": "2026-11-15T22:23:00Z",
+    "deployed_head": "215715771b1c93f474cc7a8a223c732bf4710266",
+    "tracked_modifications": 0,
+    "additional_service_or_config_changes": [],
+    "manual_dataset_source_label_acceptance_candidate_changes": [],
+    "configuration_mtimes": {
+      "pipeline.json": "2026-11-13T18:15Z",
+      "local.json": "2026-11-12T21:20Z",
+      "research-budget.json": "2026-11-12T21:24Z"
+    },
+    "basis": "Same code/configuration and cron inventory; candidate/attempt writes are from running controller ticks. Two-commit production inventory remains complete."
+  },
+  "open_stage_usage": {
+    "attempt": "rw-6476113a94c2-build-2",
+    "session_id": "local-6efb0df389573f7b1229a59b4cecad12a35b95183d10371175844c00e0c91f9f",
+    "ended_at": "2026-11-16T06:07:33.622Z",
+    "end_reason": "cli_close",
+    "calls": 9,
+    "tasks": {
+      "title_generation": 1,
+      "main": 8
+    },
+    "final_counters_match_export": true,
+    "last_seen": "2026-11-16T06:07:32.642Z",
+    "usage_written_at": "2026-11-16T06:07:33Z",
+    "completion_exit_code": 0,
+    "elapsed_seconds": 327.883,
+    "explanation": "The remaining running ledger entry is the worker stage. Its worker was created at 07:00:05Z, after the accounting cutoff. It is not a live model counter."
+  },
+  "export_job": {
+    "id": "d35f2e1ec147",
+    "state": "completed",
+    "repeat_total": 1,
+    "repeat_completed": 1,
+    "next_run_at": null,
+    "enabled": false,
+    "last_run_at": "2026-11-16T07:01:37Z",
+    "status": "ok"
+  },
+  "limits": "Scout database/filesystem readback, not an independent local database replica."
+}

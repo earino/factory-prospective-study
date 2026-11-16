@@ -12,12 +12,12 @@
   },
   "factory_counts": {
     "build": 1,
-    "deferred": 101,
+    "deferred": 102,
     "discover": 1,
     "published": 21,
     "rejected": 7
   },
-  "observed_at": "2026-11-16T06:34:58.807975+00:00",
+  "observed_at": "2026-11-16T07:05:21.032106+00:00",
   "paper": {
     "at": "2026-11-15T22:40:26.170977+00:00",
     "consumer_status": "complete: 12 datasets, 36 scored models; code/conduct and sampled probes reviewed",
@@ -196,7 +196,7 @@
       }
     }
   ],
-  "snapshot_generated_at": "2026-11-16T05:52:34+00:00",
+  "snapshot_generated_at": "2026-11-16T06:52:18+00:00",
   "window": {
     "analysis_start": "2026-11-16T10:00:00Z",
     "attempt_minutes": 85,
