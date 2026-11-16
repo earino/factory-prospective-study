@@ -9,12 +9,12 @@
   },
   "factory_counts": {
     "build": 1,
-    "deferred": 94,
-    "evaluate": 1,
-    "published": 19,
+    "deferred": 95,
+    "discover": 1,
+    "published": 20,
     "rejected": 7
   },
-  "observed_at": "2026-11-16T00:30:21.665992+00:00",
+  "observed_at": "2026-11-16T01:00:43.990242+00:00",
   "paper": {
     "at": "2026-11-15T22:40:26.170977+00:00",
     "draft_commit": "3e79ff17bf89a0e7087f4b3af542a679760bcaee",
@@ -119,6 +119,14 @@
       "selected": true,
       "branch": "consumer/sdwis-lcr-lead-action-level-next-period",
       "error": null
+    },
+    {
+      "dataset": "usgs-streamgage-record-survival",
+      "verified_at": "2026-11-16T00:01:15.752782+00:00",
+      "status": "capacity_excluded",
+      "selected": false,
+      "branch": null,
+      "error": null
     }
   ],
   "retries": [
@@ -167,7 +175,7 @@
       "outcome": {}
     }
   ],
-  "snapshot_generated_at": "2026-11-15T23:51:50+00:00",
+  "snapshot_generated_at": "2026-11-16T00:52:19+00:00",
   "window": {
     "analysis_start": "2026-11-16T10:00:00Z",
     "attempt_minutes": 85,

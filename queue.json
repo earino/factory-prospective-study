@@ -515,5 +515,44 @@
     "started": "2026-11-15T20:08:03.671707+00:00",
     "status": "complete",
     "verified_at": "2026-11-15T14:56:16.234161+00:00"
+  },
+  {
+    "dataset": "usgs-streamgage-record-survival",
+    "release": {
+      "artifact_version": "be72de55eb39dc02a4465ad1a926ab93deb921b7c5431f21d9bbb166ded7998a",
+      "assets": 33,
+      "baseline_display": "See versioned evaluation.json; public validation only",
+      "dataset": "usgs-streamgage-record-survival",
+      "destinations": {
+        "github": "https://github.com/earino/factory-usgs-streamgage-record-survival/releases/tag/v-75d63061fc7d7395",
+        "huggingface": "https://huggingface.co/datasets/earino/factory-usgs-streamgage-record-survival"
+      },
+      "detail_id": "source-000119",
+      "disposition": "public",
+      "published": true,
+      "release_tag": "v-75d63061fc7d7395",
+      "rows": 3460,
+      "splits": {
+        "eval": {
+          "rows": 448
+        },
+        "holdout": {
+          "rows": 574
+        },
+        "train": {
+          "rows": 2438
+        }
+      },
+      "verified": {
+        "github": true,
+        "huggingface": true
+      },
+      "verified_all": true,
+      "verified_at": "2026-11-16T00:01:15.752782+00:00",
+      "workflow": "modern"
+    },
+    "selected": false,
+    "status": "capacity_excluded",
+    "verified_at": "2026-11-16T00:01:15.752782+00:00"
   }
 ]
