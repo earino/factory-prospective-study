@@ -1,0 +1,39 @@
+{
+  "audited_at": "2026-11-16T01:15:35.934727+00:00",
+  "before_coordinator_holdout": true,
+  "compliance": "requires_review",
+  "integrity": "requires_semantic_review",
+  "limits": "No OS isolation. Deleted/transformed files and concealed requests may escape detection. A URL mention is not proof of cheating.",
+  "protected_input_changes": [],
+  "protocol_caveats": [],
+  "run": "eia861-reliability-deterioration--r1",
+  "semantic_compliance": "not_established_by_automated_checks",
+  "source_read_flags": [],
+  "tool_access_flags": [
+    {
+      "input_excerpt": "{\"content\": \"# REPORT \\u2014 eia861-reliability-deterioration, run r1\\n\\nNo holdout result is claimed. Holdout rows, source snapshots, raw outcome\\nrecords, other runs and coordinator state were not opened.\\n\\n## Result\\n\\n| trial | what | validation AUC | Brier |\\n|-------|------|---------------:|------:|\\n| `7dd879e4\\u2026` | scaffold baseline (raw columns, depth 6, 100 trees) | 0.6790 | 0.1241 |\\n| `e8ca2eba\\u2026` | median-relative log features + OOF state target encoding | 0.7229 | 0.1149 |\\n| `535e1adf\\u2026` | **compact 13 features, no state (best eligible)** | **0.7270** | 0.1149 |\\n| `3cffd10b\\u2026` | same model as a minimal clean module (bit-identical predictions) | 0.7270 | 0.1149 |\\n\\nRelease reference on the same rows: full model 0.6964, majority prior 0.5,\\ncalendar/identity base rates 0.6173.\\n\\nThe gain over the scaffold is +0.048 AUC; a utility-cluster bootstrap on\\nvalidation gives a 95% interval of [+0.017, +0.083] for that difference and\\n[0.680, 0.769] for the compact model's AUC. Everything after the first feature\\nblock is inside that noise: I could not separate any later variant from the\\ncompact model. The two tied trials differ by less than 1e-9, so the earlier\\none (`535e1adf\\u2026`) is the one the selection rule picks; `train.py` in the\\nworking tree is the clean equivalent.\\n\\nTraining-only checks for the compact model: grouped-by-utility 5-fold CV AUC\\n0.774 (6 repeats); forward chronological fit <2018 \\u2192 2018-19: 0.773; harness\\nbacktest fit <2019 \\u2192 2019: 0.794.\\n\\n## What the model is\\n\\nOne `XGBClassifier` (hist, depth 2, 300 trees, lr 0.03, subsample 0.8,\\ncolsample 0.8, min_child_weight 5, lambda 5) on 13 deterministic single-row\\nfeatures:\\n\\n- baseline level: log median of the three SAIDI lags; log lag2, log lag3\\n- distance of the latest year from the label threshold: `log(1.5\\u00b7median) \\u2212 log(lag1)`\\n- spread around the median: upside and downside log-ratios, mean-vs-median skew\\n- size / event-count proxies: l",
+      "interpretation": "possible prohibited access; may be a legitimate documentation mention; review tool result",
+      "line": 454,
+      "tool": "Write",
+      "tool_use_id": "toolu_01FTtQ7dmXGDgFnqEUXrMnMZ",
+      "trace": "cli/0000.jsonl"
+    },
+    {
+      "input_excerpt": "{\"content\": \"# REPORT \\u2014 eia861-reliability-deterioration, run r1\\n\\nNo holdout result is claimed. Holdout rows, source snapshots, raw outcome\\nrecords, other runs and coordinator state were not opened.\\n\\n## Result\\n\\n| trial | what | validation AUC | Brier |\\n|-------|------|---------------:|------:|\\n| `7dd879e4\\u2026` | scaffold baseline (raw columns, depth 6, 100 trees) | 0.6790 | 0.1241 |\\n| `e8ca2eba\\u2026` | median-relative log features + OOF state target encoding | 0.7229 | 0.1149 |\\n| `535e1adf\\u2026` | compact 13 features, no state | 0.7270 | 0.1149 |\\n| `3cffd10b\\u2026` | same model as a minimal clean module (bit-identical predictions) | 0.7270 | 0.1149 |\\n| `7ed61d0c\\u2026` | **11 features, monotone constraints on 7 (best eligible)** | **0.7301** | 0.1154 |\\n\\nRelease references on the same rows: full model 0.6964, majority prior 0.5,\\ncalendar/identity base rates 0.6173. Simple rules I computed on validation:\\nrepeat-last-jump (lag1 \\u2265 1.5\\u00d7lag2) 0.581, lag-1 level 0.580.\\n\\nHow much of this is real:\\n\\n- **Baseline \\u2192 engineered features (+0.048 to +0.051) is real.** A\\n  utility-cluster bootstrap on validation puts the compact model's gain over\\n  the scaffold at 95% CI [+0.017, +0.083].\\n- **Compact \\u2192 monotone (+0.003) is consistent in sign but small.** It was\\n  chosen on training-only evidence before the harness run, it is positive in\\n  10 of 10 seed repeats (mean +0.0029), but the cluster bootstrap of the two\\n  recorded prediction sets gives [\\u22120.0007, +0.0073].\\n- Everything else I tried is indistinguishable from these two models.\\n\\nThe best trial's own AUC has a cluster-bootstrap interval of roughly \\u00b10.045\\n(compact model: [0.680, 0.769]). Its Brier is slightly worse than the compact\\nmodel's (0.1154 vs 0.1149); both beat the majority prior (0.1250).\\n\\nTraining-only checks for the best model: grouped-by-utility 5-fold CV AUC\\n0.775 (4 repeats); forward chronological fit <2018 \\u2192 2018-19: 0.778; harness\\nbac",
+      "interpretation": "possible prohibited access; may be a legitimate documentation mention; review tool result",
+      "line": 644,
+      "tool": "Write",
+      "tool_use_id": "toolu_01TGJfi3vgtJFaDKFWrSckFc",
+      "trace": "cli/0000.jsonl"
+    },
+    {
+      "input_excerpt": "{\"command\": \"PY=/Users/earino/research/factory-prospective-study/.local/studies/eia861-reliability-deterioration-retry-1/.study/venv/bin/python; $PY - <<'EOF'\\nr=open('REPORT.md').read()\\na='''- The release README lists a test split at `extract/private/holdout.csv`; it'''\\nassert a in r\\nr=r.replace(a,'''- **The release's reference score is not like-for-like with study trials.**\\n  I reproduced the stated `full_model` numbers from the documented recipe in\\n  memory (AUC 0.6963780731791774 exactly; Brier equal to 1e-11). That recipe\\n  feeds `utility_id`, `forecast_year` and `decision_date` to the model, which\\n  this study's evaluator withholds as carry columns, and uses 30 trees where\\n  the study scaffold uses 100. Compare study trials with the scaffold trial\\n  (0.679), not with 0.696.\\n- The release README lists a test split at `extract/private/holdout.csv`; it''')\\nopen('REPORT.md','w').write(r)\\nl=open('LOG.md').read()\\nl+='''- Release baseline reproduced in memory from the documented recipe: AUC\\n  0.6963780731791774 (exact), Brier 0.11904852786 vs stated 0.11904852784;\\n  majority-prior Brier exact. The recipe uses decision_date, utility_id and\\n  forecast_year as inputs (carry columns here) and 30 trees.\\n'''\\nopen('LOG.md','w').write(l)\\nEOF\\ngit add LOG.md REPORT.md && git commit -qm \\\"Release baseline reproduction note\\n\\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\\\"; date +%s\", \"description\": \"Record the release-baseline reproduction and comparability note\"}",
+      "interpretation": "possible prohibited access; may be a legitimate documentation mention; review tool result",
+      "line": 972,
+      "tool": "Bash",
+      "tool_use_id": "toolu_01V1oLj3iLF4pWKsPXcckDJj",
+      "trace": "cli/0000.jsonl"
+    }
+  ],
+  "verified_forbidden_asset_copies": []
+}
