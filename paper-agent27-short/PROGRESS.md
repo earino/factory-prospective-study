@@ -1,20 +1,18 @@
 # Progress
 
-The five-page short-paper draft is written and verified. The manuscript is frozen
-for Eduardo to send to the second reviewer; no extra result has been added merely
-to fill the page limit.
+The five-page manuscript is revised with the authorized disclosure comparison.
+The table now separates source-review findings from release disclosure. Timing
+range and median remain in the text; individual times remain in the evidence.
 
-Completed:
-- Separate directory, IEEE source, production workflow, fourteen-release table,
-  and stage-cost figure derived from the existing usage records.
-- All required record inputs resolved in `analysis/RECORD-INPUTS.md`.
-- Numerical and input-identity checks pass, including consumer completion, SBIR's
-  original review packet, the successful-release trace, and stage-cost reconciliation.
-- All five rendered pages inspected. Fonts embedded; no overfull boxes or unresolved
-  references. Portable source archive builds independently with matching PDF text.
-- All 310 files in the original longer-paper directory retain their saved hashes.
+- Inspected the pinned README and descriptor for each of twelve reviewed releases.
+- Verified all 24 documents against their original manifests and saved full copies.
+- Recorded exact passages, per-finding judgments and rationale in
+  `analysis/disclosure-review.json`, summarized in `analysis/DISCLOSURE-REVIEW.md`.
+- Five of six listed conditions have corresponding stated restrictions; carrier
+  exits are stated but apparent entries are not. SBIR's documents conflict.
+- Rebuilt and inspected the five-page PDF; readable separate disclosure column,
+  unchanged font size, and no changes to the longer-paper directory.
 
-Delivery verification is recorded in `SIGNOFF.md` and `output/QA.json`.
-Git push and exact-commit CI are the remaining delivery checks at this checkpoint.
-Further editorial feedback can be applied to a later revision. Submission and
-public release of the evidence repository remain separate actions.
+Artifact hashes and portable-build verification are recorded in `output/QA.json`.
+The revision is committed/pushed with exact-commit CI checked before delivery.
+The paper is not submitted; the evidence repository remains private.

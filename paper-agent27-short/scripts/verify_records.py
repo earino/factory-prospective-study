@@ -78,6 +78,33 @@ assert Counter((a['stage'],a['status']) for a in trace)=={('discover','done'):1,
 assert 'letter-suffixed' in next(a['result'] for a in trace if a['stage']=='evaluate' and a['ordinal']==2)
 preserved=read('paper-agent27-short/analysis/long-paper-preservation.json')
 for path,digest in preserved.items(): assert sha(ROOT/path)==digest, f'Long-paper file changed: {path}'
+disclosure=read('paper-agent27-short/analysis/disclosure-review.json')
+assert {r['dataset'] for r in disclosure['records']}==set(consumer)
+condition_statuses=Counter()
+for row in disclosure['records']:
+ assert sha(ROOT/row['pin_path'])==row['pin_sha256']
+ pin=read(row['pin_path'])
+ assert pin[:3]==[row['dataset'],row['version'],row['huggingface_commit']]
+ assert sha(ROOT/row['review_path'])==row['review_sha256']
+ manifest=read(row['documents']['MANIFEST.json']['path'])
+ assert row['documents']['MANIFEST.json']['sha256']==pin[3]
+ for name,doc in row['documents'].items():
+  assert sha(ROOT/doc['path'])==doc['sha256']
+  if name!='MANIFEST.json': assert manifest['assets'][name]['sha256']==doc['sha256']
+ for finding in row['findings']:
+  if finding['category']=='condition': condition_statuses[finding['disclosure']]+=1
+  for evidence in finding['evidence']:
+   doc=ROOT/row['documents'][evidence['file']]['path']
+   if 'pointer' in evidence:
+    value=json.loads(doc.read_text())
+    for part in evidence['pointer'].strip('/').split('/'):
+     value=value[int(part)] if isinstance(value,list) else value[part]
+    assert value==evidence['value']
+   else: assert doc.read_text().splitlines()[evidence['line']-1]==evidence['quote']
+ table_record=next(r for r in release['records'] if r['dataset']==row['dataset'])
+ assert table_record['disclosure_findings']==row['findings']
+assert dict(condition_statuses)=={'stated':5,'partly_stated':1}
+assert disclosure['condition_counts']=={'total':6,'stated':5,'partly_stated':1}
 tex=(OUT/'draft/main.tex').read_text()
 for banned in ['presentation emphasis','we now focus','later paper','interim results','random-search','holdout AUC','BLOCKER.json','---','…']:
  assert banned.lower() not in tex.lower(), banned
@@ -89,6 +116,8 @@ report={'production_attempts':len(attempts),'milestones':milestones,'retry_count
  'consumer_summaries':consumer,'latency_min_max_median_minutes':[min(latencies),max(latencies),statistics.median(latencies)],
  'cost_range_usd':cost['factory_total_time_priced_usd_range'],'stage_costs_reconcile':True,'build_share_percent':stage['build_share_at_midpoint']*100,
  'sbir_original_files_verified':len(retrieval['sha256']),'first_release_trace_attempts':len(trace),'long_paper_files_preserved':len(preserved),'citations':sorted(citations),
+ 'disclosure_documents_checked':36,'disclosure_conditions':dict(condition_statuses),
+ 'disclosure_review_sha256':sha(OUT/'analysis/disclosure-review.json'),
  'manuscript_sha256':sha(OUT/'draft/main.tex'),
  'scope':'Recorded quantities, input identities, consumer completion, source-review identities and known wording checks. Does not mechanically establish semantic correctness of every sentence; manual claim and page reviews are separate.'}
 (OUT/'analysis/record-checks.json').write_text(json.dumps(report,indent=2)+'\n')

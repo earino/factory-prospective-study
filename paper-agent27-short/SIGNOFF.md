@@ -51,3 +51,19 @@ The manuscript is ready for Eduardo's next editorial review. This checkpoint wil
 be committed and pushed with the repository's exact-commit CI checked before
 completion is reported. CI results remain available in GitHub Actions for the
 commit carrying this receipt. The repository remains private; nothing is submitted.
+
+## Disclosure revision
+
+The new table column is supported by `analysis/disclosure-review.json` and its
+preserved documents, all matched to the original pin/manifest identities. Exact
+JSON values and quoted lines are checked by `scripts/verify_records.py`. The
+stated/partial/not-found judgments are manual readings with recorded rationale,
+not classifications inferred by that script. This addition compares existing
+selected findings with published documentation; it does not expand review coverage
+to the final two releases or establish that stated restrictions are enforced.
+
+Five of six selected conditions have corresponding stated restrictions. The
+carrier-code condition is partly stated. SBIR is explicitly marked as conflicting
+statements; the timing concern has a separate partial-disclosure judgment. The
+PDF remains five pages after moving disclosure into its own column and preserving
+the latency range and median in prose. All original longer-paper hashes still match.

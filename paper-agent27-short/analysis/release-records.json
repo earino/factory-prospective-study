@@ -16,8 +16,30 @@
       "finding_categories": [
         "condition"
       ],
+      "disclosure_label": "Stated",
       "review_path": "evidence/reviews/fjc-civil-trial-36m/PRE-REVIEW.md",
       "review_sections": "Summary; R1",
+      "disclosure_findings": [
+        {
+          "category": "condition",
+          "finding": "Post-filing jury information; retrospective use",
+          "disclosure": "stated",
+          "rationale": "The card explicitly warns that JURY may reflect later corrections and does not establish historical availability.",
+          "evidence": [
+            {
+              "file": "README.md",
+              "contains": "filing-time fields such as JURY may reflect later corrections",
+              "line": 51,
+              "quote": "- Current-vintage retrospective: the IDB is a 2026 snapshot and records may be overwritten within the reporting year, so filing-time fields such as JURY may reflect later corrections; this does not prove historical operational availability."
+            },
+            {
+              "file": "reproduction/construction.json",
+              "pointer": "/quality/evaluation_contract/limitations/0",
+              "value": "Current-vintage retrospective snapshot: the IDB is a 2026 file and records may be overwritten across updates, so this is not proof of historical operational availability."
+            }
+          ]
+        }
+      ],
       "review_sha256": "36ee32ddeffc9abf0e72051250a970571d89b89951db7bab05ee495527546397"
     },
     {
@@ -33,8 +55,29 @@
       "finding_categories": [
         "condition"
       ],
+      "disclosure_label": "Access stated",
       "review_path": "evidence/reviews/eia861-reliability-deterioration-retry-1/PRE-REVIEW.md",
       "review_sections": "6; R1",
+      "disclosure_findings": [
+        {
+          "category": "condition",
+          "finding": "Lagged outcomes require restricted scoring access",
+          "disclosure": "stated",
+          "rationale": "The descriptor expressly requires isolated_rows. This states the access restriction, although it does not explain recovery of earlier targets from later rows.",
+          "evidence": [
+            {
+              "file": "reproduction/construction.json",
+              "pointer": "/quality/evaluation_contract/access",
+              "value": "isolated_rows"
+            },
+            {
+              "file": "reproduction/construction.json",
+              "pointer": "/quality/evaluation_contract/cross_row_audit/rationale",
+              "value": "Rows are utility-cohorts. Features are lagged at least one year behind the forecast year and the target uses only the following calendar year. No label-derived rates are shipped for eval or holdout. Event clustering uses utility identity because the annual source contains no day-level event date."
+            }
+          ]
+        }
+      ],
       "review_sha256": "3bf75b6cbd9a1bfbb0d16a9415f86a845af2b009930d4590bb017b30dc3b0c11"
     },
     {
@@ -50,8 +93,34 @@
       "finding_categories": [
         "concern"
       ],
+      "disclosure_label": "Partly stated",
       "review_path": "evidence/reviews/phmsa-pipeline-penalty-reduction/PRE-REVIEW.md",
       "review_sections": "R1",
+      "disclosure_findings": [
+        {
+          "category": "concern",
+          "finding": "Original-notice timing is unverified",
+          "disclosure": "partly_stated",
+          "rationale": "Historical notice-date availability is expressly assumed and revisions after closure are disclosed. The specific original-or-most-recent meaning of Notice_Sent_Date is not stated in either document.",
+          "evidence": [
+            {
+              "file": "reproduction/construction.json",
+              "pointer": "/quality/evaluation_contract/limitations/0",
+              "value": "Current-vintage extract as of 2026-11-03; historical records may have been revised after case closure, so this is retrospective research rather than a historical forecasting claim."
+            },
+            {
+              "file": "reproduction/construction.json",
+              "pointer": "/quality/evaluation_contract/limitations/6",
+              "value": "No full-row historical availability ledger exists; feature availability at historical notice dates is assumed from current field definitions and the dictionary."
+            },
+            {
+              "file": "reproduction/construction.json",
+              "pointer": "/quality/task/prediction_time",
+              "value": "Notice_Sent_Date, before the operator response, hearing or any order."
+            }
+          ]
+        }
+      ],
       "review_sha256": "949f6d1935a0a0f7af28750be4fc9408dffbdaf72eae884bb0dbdf2ea8dd966b"
     },
     {
@@ -67,8 +136,34 @@
       "finding_categories": [
         "concern"
       ],
+      "disclosure_label": "Not found",
       "review_path": "evidence/reviews/fda-510k-five-year-recall/PRE-REVIEW.md",
       "review_sections": "R5",
+      "disclosure_findings": [
+        {
+          "category": "concern",
+          "finding": "Undated recalls can become negatives; incidence unverified",
+          "disclosure": "not_found",
+          "rationale": "The documents describe missing recall linkage, date boundaries and parse checks, but do not state that an undated linked recall can leave a clearance negative. A date-parse check is not disclosure of this label consequence.",
+          "evidence": [
+            {
+              "file": "reproduction/construction.json",
+              "pointer": "/quality/evaluation_contract/limitations/0",
+              "value": "The outcome is linked only through the 510(k) number: 20,792 of 59,705 device recall product records carry no k_number and are invisible, so the label is a lower bound on true recall incidence for cleared devices."
+            },
+            {
+              "file": "reproduction/construction.json",
+              "pointer": "/quality/evaluation_contract/limitations/2",
+              "value": "event_date_initiated is the firm's action date, not FDA's classification date, so a recall initiated near the end of a window but classified later can sit at the boundary."
+            },
+            {
+              "file": "reproduction/construction.json",
+              "pointer": "/source_access_recipe",
+              "value": "Two plain HTTPS downloads, no account or key, both resolved in one pass because signed or dated product URLs expire: https://download.open.fda.gov/device/510k/device-510k-0001-of-0001.json.zip and https://download.open.fda.gov/device/recall/device-recall-0001-of-0001.json.zip. fetch(url, cache, name) keeps the local file plus its URL and SHA256. Each archive holds one UTF-8 JSON member containing a meta envelope and a results array; locate the results array by finding the quoted results key whose value is an array (the meta block also carries a results key, but its value is an object), then decode one record at a time with json.JSONDecoder.raw_decode over a 1 MB chunk buffer. Read last_updated from the recall meta head for the snapshot date. Build the clearance table from k_number, decision_date, date_received, decision_code, clearance_type, advisory_committee, product_code, third_party_flag, applicant, country_code and openfda.device_class; index the recall table by exploded k_numbers with event_date_initiated; label a clearance positive when any recall event date for that k_number falls between decision_date and decision_date plus 1826 days."
+            }
+          ]
+        }
+      ],
       "review_sha256": "cfbec85f9c6c405033f9077ba66768624e43771047f1fe65109d749860b779d6"
     },
     {
@@ -84,8 +179,30 @@
       "finding_categories": [
         "condition"
       ],
+      "disclosure_label": "Exits stated; entries not found",
       "review_path": "evidence/reviews/t100-new-route-survival/PRE-REVIEW.md",
       "review_sections": "R2",
+      "disclosure_findings": [
+        {
+          "category": "condition",
+          "finding": "Carrier-code changes can count as entries or exits",
+          "disclosure": "partly_stated",
+          "rationale": "Both documents explicitly disclose the exit side; neither spells out inherited routes appearing as new entries. This agrees with review R2.",
+          "evidence": [
+            {
+              "file": "README.md",
+              "contains": "Corporate events are confounded with route failure:",
+              "line": 54,
+              "quote": "- Corporate events are confounded with route failure: mergers, certificate transfers and UniqueCarrier re-coding make an acquired carrier's routes vanish from the panel and be labelled discontinued even where service continued under another code."
+            },
+            {
+              "file": "reproduction/construction.json",
+              "pointer": "/quality/evaluation_contract/limitations/6",
+              "value": "Seasonal suspensions, mergers, certificate transfers and carrier re-coding can be coded as route exits."
+            }
+          ]
+        }
+      ],
       "review_sha256": "3797d2fa53af3585a471bf662600fa04d76648c4af949e19bb72fb86d1658c67"
     },
     {
@@ -102,8 +219,58 @@
         "contradiction",
         "concern"
       ],
+      "disclosure_label": "Selection: conflicting statements; timing: partly stated",
       "review_path": "evidence/reviews/sbir-phase1-to-phase2-conversion/PRE-REVIEW.md",
       "review_sections": "Summary; 8.1; 8.3",
+      "disclosure_findings": [
+        {
+          "category": "contradiction",
+          "finding": "Selection declaration conflicts with later-record exclusions",
+          "disclosure": "conflicting_statements",
+          "rationale": "The release discloses missing-phase and agency exclusions, while its selection rule asserts that no outcome field selects rows. Disclosure does not reconcile these statements. The broad any-year exclusion behavior is not fully described.",
+          "evidence": [
+            {
+              "file": "reproduction/construction.json",
+              "pointer": "/quality/evaluation_contract/limitations/7",
+              "value": "Phase II records with missing agency or an unknown or missing phase in a label window are excluded, not treated as negative."
+            },
+            {
+              "file": "reproduction/construction.json",
+              "pointer": "/quality/timing/row_selection/rule",
+              "value": "One row per firm key: keep only firms whose earliest award_year in the frozen file is a Phase I award from 2005 through 2018, with no earlier Phase II or Phase III record and with the four-year label window closed. Later Phase II records from the same firm key and agency define the target; no outcome field is used to select rows."
+            },
+            {
+              "file": "README.md",
+              "contains": "Phase II records with missing agency or an unknown or missing phase",
+              "line": 66,
+              "quote": "- Phase II records with missing agency or an unknown or missing phase in a label window are excluded, not treated as negative."
+            }
+          ]
+        },
+        {
+          "category": "concern",
+          "finding": "Award-amount timing",
+          "disclosure": "partly_stated",
+          "rationale": "The card says award amounts may have been corrected after the award. It does not describe the reviewer's unverified Phase I option mechanism or resolve that mechanism. The feature evidence calls the amount verified.",
+          "evidence": [
+            {
+              "file": "README.md",
+              "contains": "award_amount and number_employees are as-published values that may have been corrected after the award",
+              "line": 51,
+              "quote": "- SBIR.gov is agency-reported and uneven across agencies and years; award_amount and number_employees are as-published values that may have been corrected after the award, so this is a current-vintage retrospective extract and not a snapshot of what an analyst saw on the award date."
+            },
+            {
+              "file": "reproduction/construction.json",
+              "pointer": "/quality/evaluation_contract/feature_evidence/award_amount",
+              "value": {
+                "availability": "Stored as published; Phase I amount only; may be blank and is not imputed",
+                "source": "SBIR.gov award data dictionary, Award Amount field",
+                "status": "verified"
+              }
+            }
+          ]
+        }
+      ],
       "review_sha256": "8a57f3408387b2a46df231f6225ff6044fb63a44f20c870c7981a20b419416b6"
     },
     {
@@ -119,8 +286,29 @@
       "finding_categories": [
         "concern"
       ],
+      "disclosure_label": "Not found",
       "review_path": "evidence/reviews/caa-fce-hpv-escalation/PRE-REVIEW.md",
       "review_sections": "R1",
+      "disclosure_findings": [
+        {
+          "category": "concern",
+          "finding": "Earliest episode-resolution rule; incidence unverified",
+          "disclosure": "not_found",
+          "rationale": "Construction notes describe collapsing resolved episodes but omit the choice of the earliest date when dates differ. Neither document states the resulting possibility that an active episode passes the exclusion.",
+          "evidence": [
+            {
+              "file": "reproduction/construction.json",
+              "pointer": "/construction_notes",
+              "value": "Repair scope: the saved builder was rejected before execution with the message that the source access recipe must be nonempty text, so this repair supplies a concrete nonempty access recipe and adds no change to the frozen question, population, label, features or split windows. Code defects fixed while preserving behaviour: (1) the archive reader ended with a bare raise that could only ever surface a RuntimeError without evidence, and it now raises an AssertionError naming the archive member and the decoding error; (2) the conservative HPV resolution collapse was reimplemented in vectorised form but keeps exactly the previous rule, so a resolution date is used only when every row of a facility and day-zero group carries one, and otherwise the episode stays open; (3) exclusion counts for active HPV, same-day day-zero and another full evaluation in the prior 365 days are now recorded before the filters run, so the funnel check reports how many rows each frozen rule removed instead of re-reporting zero on rows that were already filtered, and the post-filter checks still assert zero; (4) field names are resolved from the observed archived header with a small candidate list per table, and any resolution failure raises with the archive member name, the missing candidate names and the observed headers bounded to 4000 characters, so a header mismatch is diagnosable rather than silent. Honest limitations retained: the supplied research names the stack-test and Title V certification tables but not their exact date columns, so those builders probe documented candidate names in a fixed order and fail with header evidence instead of silently guessing; the facilities table is expected to expose STATE, EPA_REGION, FACILITY_TYPE_CODE, SIC_CODES, NAICS_CODES and AIR_POLLUTANT_CLASS_CODE, with STATE_CODE and AIR_POLLUTANT_CLASS accepted only as naming variants, and this expectation is an assumption rather than a verified data dictionary entry. Title V deviation interpretation is now evidence-based rather than an abort on the entire table: confirmed Yes values count as reported deviations, No values count as none, and any other value is recorded in that check and treated as no confirmed deviation, so the build state that a row-level flag is unconfirmed rather than silently calling it a deviation. No feature is derived from labels, no group rates or target encodings are shipped, no threshold is fitted on eval or holdout, and unknown HPV outcomes are never turned into negative labels because the population requires a fully observed 365-day horizon before the snapshot boundary. Program and pollutant counts remain current-snapshot membership counts, and days-since and penalty features stay blank rather than zero when the source supplies no value; a penalty of zero is written only when there were no formal actions at all. No execution against the live archive was possible in this write-only phase, so table row counts, population funnel counts, per-split positives and feature coverage are computed from the constructed frame and will surface as check failures with their actual values if the current snapshot differs from the documented semantics; the 2026-11-07 extract boundary comes from the publisher index and is not inferred from holdout rows. references are unchanged because the prior HPV episode count remains the available persistence score column with increasing risk direction."
+            },
+            {
+              "file": "reproduction/construction.json",
+              "pointer": "/quality/task/population",
+              "value": "FCE activity rows from ICIS-AIR_FCES_PCES.csv with COMP_MONITOR_TYPE_CODE in {FOO, FFO}; ACTUAL_END_DATE in a frozen half-open split window; at least one ICIS-AIR_PROGRAMS.csv row for the facility; no active HPV episode at t, meaning HPV_DAYZERO_DATE <= t and HPV_RESOLVED_DATE is null or > t; no HPV day-zero equal to t; no other full evaluation at the same facility with ACTUAL_END_DATE in [t-365 days, t); and t+365 days on or before 2026-11-07. Duplicate FCE activity rows and same-facility same-day full evaluations are collapsed deterministically."
+            }
+          ]
+        }
+      ],
       "review_sha256": "621087bf5292b46619fd5483e1cd40d58e6d26417e6f513ed7f44ce95fbf2788"
     },
     {
@@ -136,8 +324,34 @@
       "finding_categories": [
         "condition"
       ],
+      "disclosure_label": "Access stated",
       "review_path": "evidence/reviews/wser-effluent-exceedance/PRE-REVIEW.md",
       "review_sections": "Summary; R1",
+      "disclosure_findings": [
+        {
+          "category": "condition",
+          "finding": "Prior-year outcome requires restricted scoring access",
+          "disclosure": "stated",
+          "rationale": "The descriptor explicitly requires isolated_rows. The access restriction is stated; the reverse-label exposure mechanism across years is not explained. This does not validate an unrestricted batch interface.",
+          "evidence": [
+            {
+              "file": "reproduction/construction.json",
+              "pointer": "/quality/evaluation_contract/access",
+              "value": "isolated_rows"
+            },
+            {
+              "file": "reproduction/construction.json",
+              "pointer": "/quality/evaluation_contract/limitations/11",
+              "value": "Prior-year exceedance and worst margin are missing, not zero, for 2015 targets and any year without an evaluable positive-limit row; stray pre-2015 positive-limit rows are deliberately ignored for limit-based features."
+            },
+            {
+              "file": "reproduction/construction.json",
+              "pointer": "/quality/evaluation_contract/cross_row_audit/rationale",
+              "value": "Chronological target-year splits; all historical features use only monitoring rows with year earlier than the target year; limit-based history is forced missing before 2015; no current-vintage operational status filter is applied; no label-derived group rates are shipped. Population eligibility is outcome-conditioned by design and disclosed in timing.row_selection; independent-event clusters use system_id rather than the constant decision date."
+            }
+          ]
+        }
+      ],
       "review_sha256": "8a0dfcd6610c8434e866a8ccae73d41f08b0f0c6c2a40d3bd439ab84e222a714"
     },
     {
@@ -153,8 +367,31 @@
       "finding_categories": [
         "condition"
       ],
+      "disclosure_label": "Stated",
       "review_path": "evidence/reviews/faa-wildlife-strike-substantial-damage-retry-1/PRE-REVIEW.md",
       "review_sections": "Summary; M4; M6",
+      "disclosure_findings": [
+        {
+          "category": "condition",
+          "finding": "Retrospective reports with known damage outcomes",
+          "disclosure": "stated",
+          "rationale": "The card expressly describes retrospective reconstruction and the post-event known-damage filter.",
+          "evidence": [
+            {
+              "file": "README.md",
+              "contains": "The label is an adjudicated code selected by the NWSD manager",
+              "line": 53,
+              "quote": "- The label is an adjudicated code selected by the NWSD manager from the report and can be revised; the snapshot is current-vintage, so this shows what can be reconstructed retrospectively, not that the damage code was available to an operator at the time."
+            },
+            {
+              "file": "README.md",
+              "contains": "Dropping rows with blank DAMAGE",
+              "line": 54,
+              "quote": "- Dropping rows with blank DAMAGE is a label-availability filter applied after the event and may correlate with reporting quality, so the modelling population is not a random sample of strikes."
+            }
+          ]
+        }
+      ],
       "review_sha256": "5322daad361fb66e6d2aa61f3a0986a1b3c850beaecd655c6de02dc11d9264e1"
     },
     {
@@ -170,8 +407,31 @@
       "finding_categories": [
         "concern"
       ],
+      "disclosure_label": "Stated",
       "review_path": "evidence/reviews/seattle-building-permit-completion-retry-1/PRE-REVIEW.md",
       "review_sections": "R1",
+      "disclosure_findings": [
+        {
+          "category": "concern",
+          "finding": "Post-issuance field updates are unverified",
+          "disclosure": "stated",
+          "rationale": "The card names mutable cost and housing fields, and the descriptor says issuance-time availability is assumed, not proven. This states the concern; it does not resolve it.",
+          "evidence": [
+            {
+              "file": "README.md",
+              "contains": "Current-vintage retrospectivity: EstProjectCost and HousingUnits",
+              "line": 52,
+              "quote": "- Current-vintage retrospectivity: EstProjectCost and HousingUnits are documented as subject to change if the project is modified, and the plan-review day columns are frequently null in 2016-era rows. Nothing here proves those fields were visible to an analyst in 2016; only that they are recorded on the current snapshot and are logically prior to issuance."
+            },
+            {
+              "file": "README.md",
+              "contains": "Feature availability at issuance is assumed",
+              "line": 64,
+              "quote": "- There is no full-row historical availability ledger. Feature availability at issuance is assumed from field semantics and current-snapshot presence, not proven."
+            }
+          ]
+        }
+      ],
       "review_sha256": "79187ef6b27d91aeb58b915b93bb9b528f3294b43e9f716d8aac371c3fbc45b5"
     },
     {
@@ -187,8 +447,30 @@
       "finding_categories": [
         "condition"
       ],
+      "disclosure_label": "Stated",
       "review_path": "evidence/reviews/fra-form54-hazmat-release-retry-1/PRE-REVIEW.md",
       "review_sections": "3; 7",
+      "disclosure_findings": [
+        {
+          "category": "condition",
+          "finding": "Retrospective accident-report fields",
+          "disclosure": "stated",
+          "rationale": "Both documents state that first-notification availability is inferred and that no field timestamps separate initial knowledge from the final report.",
+          "evidence": [
+            {
+              "file": "reproduction/construction.json",
+              "pointer": "/quality/evaluation_contract/limitations/1",
+              "value": "The label is recorded on the same retrospective form as the features, so availability of the inputs at first notification is a scene-knowledge inference; the extract has no field-level timestamp separating initial scene knowledge from the final report."
+            },
+            {
+              "file": "README.md",
+              "contains": "The label comes from the same retrospective form",
+              "line": 52,
+              "quote": "- The label comes from the same retrospective form as the features, so the claim that inputs were available at the decision instant is an inference about scene knowledge, not a documented field-level timestamp; the FRA data has no separate initial-versus-final report structure to prove it."
+            }
+          ]
+        }
+      ],
       "review_sha256": "ee35beeb3d00aa639d76857cdd6cb459d965b4494c897eec4156452881ec573b"
     },
     {
@@ -204,8 +486,78 @@
       "finding_categories": [
         "concern"
       ],
+      "disclosure_label": "Overlap and units: not found; embargo: partly stated",
       "review_path": "evidence/reviews/sdwis-lcr-lead-action-level-next-period/PRE-REVIEW.md",
       "review_sections": "8.2; 8.3; 8.5",
+      "disclosure_findings": [
+        {
+          "category": "concern",
+          "finding": "Older-history overlap",
+          "disclosure": "not_found",
+          "rationale": "The descriptor instead asserts that all contributing historical records end before the target period. Neither document states that older periods are admitted by start order without an end-date test; incidence remains unverified.",
+          "evidence": [
+            {
+              "file": "reproduction/construction.json",
+              "pointer": "/quality/evaluation_contract/feature_evidence/ever_exceeded_before",
+              "value": {
+                "availability": "all contributing records precede the decision instant",
+                "source": "EPA ECHO SDWA national download, SDWA_LCR_SAMPLES.csv",
+                "status": "verified",
+                "url": "https://echo.epa.gov/tools/data-downloads/sdwa-download-summary"
+              }
+            },
+            {
+              "file": "reproduction/construction.json",
+              "pointer": "/quality/task/prediction_time",
+              "value": "First day, the SAMPLING_START_DATE, of the target PB90 monitoring period. Every prior lead or copper measurement, violation date and milestone date used is strictly before that date; current-vintage system attributes are time-invariant covariates."
+            }
+          ]
+        },
+        {
+          "category": "concern",
+          "finding": "Implausible unit magnitudes",
+          "disclosure": "not_found",
+          "rationale": "The descriptor specifies conversion to mg/L but neither document identifies the implausible high magnitudes or the unverified unit-label explanation observed by review.",
+          "evidence": [
+            {
+              "file": "reproduction/construction.json",
+              "pointer": "/quality/measurements/0",
+              "value": {
+                "column": "prior_pb90_mg_l",
+                "frame": "prior system monitoring-period 90th-percentile lead summary from SDWA_LCR_SAMPLES, converted to mg/L",
+                "unit": "mg/L"
+              }
+            },
+            {
+              "file": "reproduction/construction.json",
+              "pointer": "/quality/external_threshold",
+              "value": {
+                "source": "40 CFR 141.80(c)(2), lead action level in force for labels through 2023-12-31",
+                "unit": "mg/L",
+                "value": 0.015
+              }
+            }
+          ]
+        },
+        {
+          "category": "concern",
+          "finding": "Embargo narrows the scored population",
+          "disclosure": "partly_stated",
+          "rationale": "The split policy explicitly requires the prior period to end before the split starts. The documents do not explain its consequence: only first post-boundary periods survive and some monitoring cycles disappear from scoring.",
+          "evidence": [
+            {
+              "file": "reproduction/construction.json",
+              "pointer": "/quality/task/split_policy",
+              "value": "Chronological on target SAMPLING_START_DATE with fixed half-open windows train 1995-01-01 to 2014-01-01, eval 2014-01-01 to 2019-01-01 and holdout 2019-01-01 to 2024-01-01. For eval and holdout the prior period SAMPLING_END_DATE must be before the split start; train is the earliest split and retains only prior dates before each target period. No shuffling. Each system contributes at most one row per target period after latest-reported de-duplication. The primacy-agency floor is computed from pairs whose prior period ended before 2014-01-01 and uses no labels."
+            },
+            {
+              "file": "reproduction/construction.json",
+              "pointer": "/quality/task/population",
+              "value": "Community water systems in the EPA ECHO SDWA national download whose PWS_TYPE_CODE field is CWS and that have at least two PB90 lead 90th-percentile summary records, where the target PB90 period starts strictly after the prior PB90 period end and no more than four years later, with target period start on or before 2023-12-31. No filter on current PWS_ACTIVITY_CODE. Primacy agencies with fewer than 20 eligible pairs whose prior period ended before 2014-01-01 are excluded from all splits; this floor uses training-era feature dates only."
+            }
+          ]
+        }
+      ],
       "review_sha256": "d68f8e1350f23bc3cd8412f2c762b88a5edc1613a388708b7c81f2a06550a77b"
     },
     {
@@ -221,8 +573,10 @@
       "finding_categories": [
         "not_evaluated"
       ],
+      "disclosure_label": "Not evaluated",
       "review_path": null,
       "review_sections": null,
+      "disclosure_findings": [],
       "review_sha256": null
     },
     {
@@ -238,8 +592,10 @@
       "finding_categories": [
         "not_evaluated"
       ],
+      "disclosure_label": "Not evaluated",
       "review_path": null,
       "review_sections": null,
+      "disclosure_findings": [],
       "review_sha256": null
     }
   ]

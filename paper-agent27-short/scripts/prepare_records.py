@@ -25,6 +25,23 @@ labels = {
  'usgs-streamgage-record-survival': ('Record survival (streamgages)', 'Not evaluated.', ['not_evaluated'], None),
  'ca-beach-advisory-duration': ('Advisory duration (beaches)', 'Not evaluated.', ['not_evaluated'], None),
 }
+disclosures=json.loads((OUT/'analysis/disclosure-review.json').read_text())
+disclosure_by_dataset={r['dataset']:r for r in disclosures['records']}
+disclosure_labels={
+ 'fjc-civil-trial-36m': 'Stated',
+ 'eia861-reliability-deterioration': 'Access stated',
+ 'phmsa-pipeline-penalty-reduction': 'Partly stated',
+ 'fda-510k-five-year-recall': 'Not found',
+ 't100-new-route-survival': 'Exits stated; entries not found',
+ 'sbir-phase1-to-phase2-conversion': 'Selection: conflicting statements; timing: partly stated',
+ 'caa-fce-hpv-escalation': 'Not found',
+ 'wser-effluent-exceedance': 'Access stated',
+ 'faa-wildlife-strike-substantial-damage': 'Stated',
+ 'seattle-building-permit-completion': 'Stated',
+ 'fra-form54-hazmat-release': 'Stated',
+ 'sdwis-lcr-lead-action-level-next-period': 'Overlap and units: not found; embargo: partly stated',
+}
+
 records=[]
 for row in snapshot['production_cohort']:
  ds=row['dataset']; label,finding,categories,sections=labels[ds]
@@ -33,7 +50,9 @@ for row in snapshot['production_cohort']:
  latency=(datetime.fromisoformat(row['published_at'])-datetime.fromisoformat(row['created'])).total_seconds()/60
  records.append({**row,'label':label,'latency_minutes':latency,'latency_rounded':round(latency),
    'consumer':'Completed' if selected else 'Not evaluated','finding':finding,'finding_categories':categories,
+   'disclosure_label':disclosure_labels.get(ds,'Not evaluated'),
    'review_path':report,'review_sections':sections,
+   'disclosure_findings':disclosure_by_dataset.get(ds,{}).get('findings',[]),
    'review_sha256':hashlib.sha256((ROOT/report).read_bytes()).hexdigest() if report else None})
 assert len(records)==14 and sum(r['consumer']=='Completed' for r in records)==12
 (OUT/'analysis/release-records.json').write_text(json.dumps({'snapshot':str(snapshot_path.relative_to(ROOT)),
@@ -44,6 +63,6 @@ def tex(s):
  return s.replace('&',r'\&').replace('%',r'\%').replace('_',r'\_')
 lines=[]
 for r in records:
- lines.append(f"{tex(r['label'])} & {r['latency_rounded']} & {r['consumer']} & {tex(r['finding'])} \\\\")
+ lines.append(f"{tex(r['label'])} & {r['consumer']} & {tex(r['finding'])} & {tex(r['disclosure_label'])} \\\\")
 (OUT/'draft/generated/release-rows.tex').write_text('\n'.join(lines)+'\n')
 print('Prepared 14 release rows from frozen timestamps and 12 retained reviews.')

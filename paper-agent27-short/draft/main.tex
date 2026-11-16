@@ -54,16 +54,17 @@ One coordinator launches workers, preserves operation identities, and reconciles
 A standing policy permits publication after artifact, semantic, and distribution checks, without per-dataset human approval. During the observation window, service administration changed the inference route and repaired worker-budget accounting. The inspected records show no manual changes to source selection, dataset construction, labels, or acceptance decisions.
 
 \begin{table*}[t]
-\caption{Publications in verification order, with selected source-review findings. Time is admission to publication in minutes.}
+\caption{Publications in verification order: selected review findings and disclosure in pinned release documents.}
 \label{tab:releases}
 \centering\small
 \renewcommand{\arraystretch}{1.17}
-\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{.255\textwidth}r>{\raggedright\arraybackslash}p{.12\textwidth}>{\raggedright\arraybackslash}X@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.24\textwidth}>{\raggedright\arraybackslash}p{.105\textwidth}>{\raggedright\arraybackslash}p{.40\textwidth}>{\raggedright\arraybackslash}p{.20\textwidth}@{}}
 \toprule
-Task (domain) & Time & Consumer & Selected review finding\\\midrule
+Task (domain) & Consumer & Selected review finding & Release disclosure\\\midrule
 \csname @@input\endcsname generated/release-rows.tex
 \bottomrule
-\end{tabularx}
+\end{tabular}
 \end{table*}
 
 \section{Observation and Evaluation Method}
@@ -79,7 +80,7 @@ The consumer cohort comprises the first twelve new releases in publication-verif
 
 We define \emph{usable} as supporting a completed prediction experiment under the predictor contract, ending in held-out scoring of a frozen model. This definition does not establish task validity.
 
-Separate bounded Fable reviews examined the pinned task descriptions, construction code, and permitted public data before scoring. They checked target meaning, timing, selection, splits, and label-derived history. The reviews shared instructions, but access to publisher documentation varied; raw source snapshots and holdout rows were outside their scope. Table~\ref{tab:releases} reports selected findings, distinguishing observed contradictions, unresolved concerns, and conditions of use. The final two production releases were outside both the consumer and separate-review cohort.
+Separate bounded Fable reviews examined the pinned task descriptions, construction code, and permitted public data before scoring. They checked target meaning, timing, selection, splits, and label-derived history. The reviews shared instructions, but access to publisher documentation varied; raw source snapshots and holdout rows were outside their scope. Table~\ref{tab:releases} reports selected findings, distinguishing observed contradictions, unresolved concerns, and conditions of use. We compared each listed finding with the pinned release README and construction descriptor; \emph{not found} refers to these documents. Explicit isolated-row access counts as a stated restriction, even without an explanation of cross-row exposure. The final two production releases were outside both the consumer and separate-review cohort.
 
 \section{Deployment Results}
 \subsection{Operation and recurring expenditure}
@@ -100,10 +101,10 @@ Estimated recurring expenditure was \$38.23--\$38.33: \$19.10--\$19.21 for infer
 
 
 \subsection{Consumer use}
-All twelve evaluated releases supported completed prediction experiments through held-out scoring. Source review identified limitations that execution alone did not resolve, including retrospective timing conditions and concerns whose incidence requires raw-source inspection (Table~\ref{tab:releases}).
+All twelve evaluated releases supported completed prediction experiments through held-out scoring. Five of the six listed conditions of use were stated in the releases, including isolated-row access for both history-feature tasks. Carrier-code exits were disclosed, but apparent entries were not. Several concerns were only partly stated or were not found in the inspected documents (Table~\ref{tab:releases}).
 
 \subsection{A population contradiction survived acceptance}\label{sec:validity}
-The SBIR research-grant task predicts whether a firm's first Phase I award is followed by a Phase II award from the same agency within the next four fiscal years. Its published selection declaration says that outcome fields do not select rows. The builder nevertheless excludes firms with unknown award phases in the outcome window and firms with ambiguous phase or agency records. Excluding uncertain labels can be reasonable, but these filters narrow the declared population. Their effect on scores is unmeasured.
+The SBIR research-grant task predicts whether a firm's first Phase I award is followed by a Phase II award from the same agency within the next four fiscal years. Its published selection declaration says that outcome fields do not select rows. The builder nevertheless excludes firms with unknown award phases in the outcome window and firms with ambiguous phase or agency records. The release's limitations disclose some of these exclusions, contradicting its selection rule. Their effect on scores is unmeasured.
 
 The original semantic reviewer received the complete builder, population description, passing check reports, and instructions to compare code with population rules. It did not receive the full published selection declaration. It explicitly accepted the later-record exclusions as label handling, concluded that the population matched the rule, and requested no repair. A separate pre-scoring review identified the contradiction from the published code and declaration. Inspection of the retained acceptance packet and response established this sequence. The record does not establish whether supplying the missing declaration would have changed acceptance.
 
@@ -121,7 +122,7 @@ A different condition appears in wastewater prediction. A prior-year outcome is 
 \section{Related Work}
 AutoData~\cite{autodata-web} and DatasetResearch~\cite{datasetresearch} address web collection and dataset discovery. MLE-Smith~\cite{qiang2026mlesmith} constructs ML tasks from supplied datasets; AutoSDT~\cite{autosdt} searches repositories and adapts scientific programs into tasks. Their reported per-task costs use different output and accounting boundaries, so they cannot support an efficiency ranking with this deployment. Our contribution connects discovery, construction, public delivery, retained failures, and separate consumer use in one operating record.
 
-Studies of deployed agents emphasize reliability~\cite{production}, while AgentOps organizes the artifacts needed for lifecycle observability~\cite{agentops}. Jacobs and Wallach distinguish intended constructs from operational definitions~\cite{measurement}; the Agentic Benchmark Checklist separates task validity, outcome validity, and reporting~\cite{abc}. Datasheets connects provenance with intended use~\cite{datasheets}, and AutoDataBench examines generated task quality~\cite{autodatabench}. SBIR provides a concrete acceptance case in which executable construction and a favorable semantic review did not ensure agreement with the published task declaration.
+Studies of deployed agents emphasize reliability~\cite{production}, while AgentOps organizes the artifacts needed for lifecycle observability~\cite{agentops}. Jacobs and Wallach distinguish intended constructs from operational definitions~\cite{measurement}; the Agentic Benchmark Checklist separates task validity, outcome validity, and reporting~\cite{abc}. Datasheets connects provenance with intended use~\cite{datasheets}, and AutoDataBench examines generated task quality~\cite{autodatabench}.
 
 \section{Limitations and Evidence}
 This is one factory, one production-model family, and a short observation window. Public sources may have appeared in model training, and holdout isolation was procedural rather than technical. Source reviews were bounded and do not establish a defect rate across releases. Current-vintage records restrict historical forecasting claims: civil-trial inputs can postdate filing, accident tasks use retrospective reports, and Seattle field-update timing remains unresolved. Human policy, development, and responsibility remain outside the automated dataset decisions.
@@ -134,7 +135,7 @@ Dataset Factory connected source discovery to public prediction datasets at abou
 \section*{AI Assistance}
 AI systems assisted implementation, literature search, review briefs, source and transcript review, analysis, and drafting. Production and consumer models are identified above. The author is responsible for the claims and final text.
 
-\IEEEtriggeratref{8}
+\IEEEtriggeratref{4}
 \bibliographystyle{IEEEtran}
 \bibliography{refs}
 \end{document}

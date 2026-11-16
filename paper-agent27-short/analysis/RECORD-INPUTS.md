@@ -106,3 +106,17 @@ Use a full-width table with readable findings. Try all four requested columns;
 remove per-release latency before reducing font size below normal table size.
 No stand-alone successful trace is necessary if the system prose gives concrete
 inputs, outputs and repair behavior. Retain wastewater only if the layout allows.
+
+## Published disclosure comparison, 16 November revision
+
+Each selected condition and concern was compared with the original pinned README
+and construction descriptor. All 24 documents and their 12 manifests were checked
+against the original pins and copied to `disclosure-documents/`. Exact supporting
+passages, per-finding judgments and explicit partial-disclosure rationales are in
+`disclosure-review.json`; the readable account is `DISCLOSURE-REVIEW.md`. Five of
+six selected conditions have stated restrictions; the remaining condition has
+its exit side stated but its entry side absent. Explicit isolated-row access is
+counted as a stated restriction, not as an explanation or enforcement proof.
+SBIR contains conflicting published statements, rather than simply an undisclosed
+filter. Findings and disclosure now occupy separate table columns. Per-release
+times remain in the evidence; the manuscript retains the range and median.

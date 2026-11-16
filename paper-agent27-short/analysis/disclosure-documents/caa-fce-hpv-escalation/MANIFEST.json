@@ -1,0 +1,472 @@
+{
+  "schema": "factory-1",
+  "dataset": "caa-fce-hpv-escalation",
+  "version": "v-fd86cbb0bc96aaca",
+  "artifact_version": "2a1b8fe5efdf2f0bae9a7777de98d0019bb70404c8aafbe0291a615e93f0573b",
+  "assets": {
+    "LICENSE-EVIDENCE.json": {
+      "sha256": "b3f442788bad4896117fd25950fcef0ac25543eef8ea1a1b2900adff35d86217",
+      "bytes": 709,
+      "asset_name": "LICENSE-EVIDENCE.json"
+    },
+    "LICENSE.md": {
+      "sha256": "bd6b92717449eb1720c94a11e280399f72fe562857155309fb2c9b9fcddf135b",
+      "bytes": 1118,
+      "asset_name": "LICENSE.md"
+    },
+    "README.md": {
+      "sha256": "8f0e6c98cebd31fc7aeed2fb96283fcedac23e4aa0668872351e0f8e78ff06ea",
+      "bytes": 6289,
+      "asset_name": "README.md"
+    },
+    "SOURCES.json": {
+      "sha256": "69b011ef70a9baec688746ac79db17d6d41ddf9d655e3f94ffe660d372dcc7f1",
+      "bytes": 864,
+      "asset_name": "SOURCES.json"
+    },
+    "evaluation.json": {
+      "sha256": "6d894da0f18f1f2bfc4265c92ca2434c12ff6606af93c5e81a387d0384601c24",
+      "bytes": 3146,
+      "asset_name": "evaluation.json"
+    },
+    "extract/meta.json": {
+      "sha256": "f8bd0f8655817860d92429bacacd771001688ce95536d802b99e385bc14debf2",
+      "bytes": 2070,
+      "asset_name": "extract__meta.json"
+    },
+    "extract/private/holdout.csv": {
+      "sha256": "328cae91ac22bb739cc8c93a341862ad3cd2bb5ece033702ffab0efcb907f619",
+      "bytes": 1859525,
+      "asset_name": "extract__private__holdout.csv"
+    },
+    "extract/public/eval.csv": {
+      "sha256": "5208e17e2fc09f7c80325d071820091511a50f7a694b242b5a54370c460abd9a",
+      "bytes": 3395393,
+      "asset_name": "extract__public__eval.csv"
+    },
+    "extract/public/train.csv": {
+      "sha256": "13345512d8aa4e29573e1720afcd2dd4443bd28bdde36d346a90d54bb13391ae",
+      "bytes": 5398238,
+      "asset_name": "extract__public__train.csv"
+    },
+    "extract/quality.json": {
+      "sha256": "cfb35f09d2bb29c608d829ebbfeb4d08f633fc9b241008399cfa30f29553317f",
+      "bytes": 22015,
+      "asset_name": "extract__quality.json"
+    },
+    "get_dataset.py": {
+      "sha256": "fad89222d50f9d9709225c34909be74c591df409c08b8b5951eba9d3cadfdd48",
+      "bytes": 3680,
+      "asset_name": "get_dataset.py"
+    },
+    "qualification.json": {
+      "sha256": "f29a15477ad70b31754729b94155abacca72f931f934bd12656f3c0dcf3b8c67",
+      "bytes": 16679,
+      "asset_name": "qualification.json"
+    },
+    "reproduction/LICENSE-CC0-1.0.txt": {
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+      "bytes": 7048,
+      "asset_name": "reproduction__LICENSE-CC0-1.0.txt"
+    },
+    "reproduction/LICENSE-MIT.txt": {
+      "sha256": "56b932ff064e5da113ae10175c8546325f64f26e1ece71683ffcbf8b2304fe1c",
+      "bytes": 1124,
+      "asset_name": "reproduction__LICENSE-MIT.txt"
+    },
+    "reproduction/artifact_scrub.py": {
+      "sha256": "8c663253e691a7b8751f9c853b40a3752a833360caafb1ea8e8f534e64af4b68",
+      "bytes": 11369,
+      "asset_name": "reproduction__artifact_scrub.py"
+    },
+    "reproduction/build.py": {
+      "sha256": "fab82e778b3a6e144da3beded9649961a314c40e7e272185c2635993eaef9e43",
+      "bytes": 37619,
+      "asset_name": "reproduction__build.py"
+    },
+    "reproduction/construction.json": {
+      "sha256": "eaff61f2898844c603df57935cc5f3745645f0835260f9ed34514a386f203c8a",
+      "bytes": 25862,
+      "asset_name": "reproduction__construction.json"
+    },
+    "reproduction/dataset_package.py": {
+      "sha256": "c2364defe58dcc99322be59a1bb04894ce00e823ce37afeb37bc31012f744327",
+      "bytes": 7927,
+      "asset_name": "reproduction__dataset_package.py"
+    },
+    "reproduction/dataset_run.py": {
+      "sha256": "8085fae14d6e93b852e692e18c1ef72113a3601f48f78901b6d1ae6db278de57",
+      "bytes": 12381,
+      "asset_name": "reproduction__dataset_run.py"
+    },
+    "reproduction/get_dataset.py": {
+      "sha256": "fad89222d50f9d9709225c34909be74c591df409c08b8b5951eba9d3cadfdd48",
+      "bytes": 3680,
+      "asset_name": "reproduction__get_dataset.py"
+    },
+    "reproduction/leakage_battery.py": {
+      "sha256": "adbf7ee0aca0012b78cc1f1e4aeb968a23717cae30f66a02e080215e75f830e3",
+      "bytes": 17379,
+      "asset_name": "reproduction__leakage_battery.py"
+    },
+    "reproduction/provenance.json": {
+      "sha256": "11a9c4f355a6345b1a64b1bb34afd669daa68a62b53b6635c45f9861295a81a7",
+      "bytes": 573,
+      "asset_name": "reproduction__provenance.json"
+    },
+    "reproduction/qualify_dataset.py": {
+      "sha256": "bff6d43d0904182e2612c32bab702e41addbf389904a236c209e78be39e37a6b",
+      "bytes": 66067,
+      "asset_name": "reproduction__qualify_dataset.py"
+    },
+    "reproduction/recovery_recipes.py": {
+      "sha256": "f64c542fcda232169c95ace17421b45275194b934938c0ea4c9b68e6f844ad0e",
+      "bytes": 17609,
+      "asset_name": "reproduction__recovery_recipes.py"
+    },
+    "reproduction/requirements.txt": {
+      "sha256": "5c72f3268174d20364624f76680e189c408a05dba2e7b8cfe12d077b3865e7f0",
+      "bytes": 160,
+      "asset_name": "reproduction__requirements.txt"
+    },
+    "reproduction/source.json": {
+      "sha256": "11d4fd71844b301e5d552c380b31a1286b0dc2243502092d0951d265a633e592",
+      "bytes": 20859,
+      "asset_name": "reproduction__source.json"
+    },
+    "reproduction/source_io.py": {
+      "sha256": "0c60eed4968cd342148efbaac7e4fa98f00708d8e6c14c0929928687b9af1ea3",
+      "bytes": 5607,
+      "asset_name": "reproduction__source_io.py"
+    },
+    "reproduction/train.py": {
+      "sha256": "a3c6bcf13735bc85c52129ded68f839090dffdc266ebc3810dc61b2e6ea5e7e8",
+      "bytes": 2500,
+      "asset_name": "reproduction__train.py"
+    },
+    "reproduction/validate.py": {
+      "sha256": "b597e7f84fed614e64b4a86fbecbd6ec0145916a24d0d221a796586976418e7b",
+      "bytes": 1277,
+      "asset_name": "reproduction__validate.py"
+    },
+    "reproduction/validate.sh": {
+      "sha256": "3f06ca48f11c2e05d331b4d8394284925de660c1d4b086d2f8243959e83b7e6d",
+      "bytes": 482,
+      "asset_name": "reproduction__validate.sh"
+    },
+    "source-checks.json": {
+      "sha256": "f911d2f8eeb207e9862b4508200f5fd1c3dea16c1950684ac1ce949012e9f133",
+      "bytes": 9265,
+      "asset_name": "source-checks.json"
+    },
+    "source-snapshot.tar.gz": {
+      "sha256": "44b5b15fc7d935e13ad27571c2c485133b6b99c981ade386b629c48ab2f29bf8",
+      "bytes": 69469269,
+      "asset_name": "source-snapshot.tar.gz"
+    },
+    "verify_dataset.py": {
+      "sha256": "f4a4bb7f565cdbd075c520621f881876b491eaed91a5e6e70afb31e4753f9834",
+      "bytes": 1276,
+      "asset_name": "verify_dataset.py"
+    }
+  },
+  "source": {
+    "attribution": "No credit required for U.S. Government work; courtesy credit only: U.S. Environmental Protection Agency, Enforcement and Compliance History Online (ECHO), ICIS-Air national dataset.",
+    "citation": "",
+    "documentation_url": "https://echo.epa.gov/tools/data-downloads/icis-air-download-summary",
+    "license": "Public domain \u2014 U.S. Government work (EPA standard open data licence; 17 U.S.C. \u00a7 105)",
+    "publisher": "U.S. Environmental Protection Agency, Enforcement and Compliance History Online (ECHO) \u2014 ICIS-Air",
+    "redistribution": true,
+    "terms_excerpt": "Unless otherwise specified, all data produced by the U.S EPA is by default in the public domain and is not subject to domestic copyright protection under 17 U.S.C. \u00a7 105.",
+    "terms_url": "https://edg.epa.gov/EPA_Data_License.htm",
+    "urls": [
+      "https://echo.epa.gov/files/echodownloads/ICIS-AIR_downloads.zip"
+    ]
+  },
+  "task": {
+    "decision_user": "State/local air-agency compliance supervisors and EPA regional enforcement staff choosing the follow-up track for a just-evaluated source: routine close-out, targeted compliance assistance, follow-up inspection, or case development.",
+    "features": [
+      {
+        "name": "state",
+        "meaning": "Two-letter STATE of the facility from the current facilities snapshot; coarse control for delegated-program and reporting practice.",
+        "availability": "Current facilities snapshot; static control assumed representative for historical evaluation dates.",
+        "evidence_url": "https://echo.epa.gov/tools/data-downloads/icis-air-download-summary"
+      },
+      {
+        "name": "epa_region",
+        "meaning": "EPA_REGION from the current facilities snapshot; coarse federal-region control.",
+        "availability": "Current facilities snapshot; static control assumed representative for historical evaluation dates.",
+        "evidence_url": "https://echo.epa.gov/tools/data-downloads/icis-air-download-summary"
+      },
+      {
+        "name": "sic_2digit",
+        "meaning": "First two digits of the first SIC code in SIC_CODES; coarse industry and process class.",
+        "availability": "Current SIC_CODES list; first code prefix only, assumed approximate historical industry class.",
+        "evidence_url": "https://echo.epa.gov/tools/data-downloads/icis-air-download-summary"
+      },
+      {
+        "name": "naics_2digit",
+        "meaning": "First two digits of the first NAICS code in NAICS_CODES; alternative industry class.",
+        "availability": "Current NAICS_CODES list; first code prefix only, assumed approximate historical industry class.",
+        "evidence_url": "https://echo.epa.gov/tools/data-downloads/icis-air-download-summary"
+      },
+      {
+        "name": "facility_type_code",
+        "meaning": "FACILITY_TYPE_CODE owner or operator class such as corporation, municipality, federal or state facility.",
+        "availability": "Current facilities snapshot; static owner class assumed representative for historical evaluation dates.",
+        "evidence_url": "https://echo.epa.gov/tools/data-downloads/icis-air-download-summary"
+      },
+      {
+        "name": "air_pollutant_class_code",
+        "meaning": "AIR_POLLUTANT_CLASS_CODE such as major, synthetic minor or minor emission status.",
+        "availability": "Current facilities snapshot; emission class assumed approximate for historical evaluation dates.",
+        "evidence_url": "https://echo.epa.gov/tools/data-downloads/icis-air-download-summary"
+      },
+      {
+        "name": "program_count",
+        "meaning": "Count of distinct PROGRAM_CODE rows attached to the facility in the current programs snapshot; breadth of regulatory regimes.",
+        "availability": "Current programs membership list; counts are approximate for historical dates.",
+        "evidence_url": "https://echo.epa.gov/tools/data-downloads/icis-air-download-summary"
+      },
+      {
+        "name": "pollutant_count",
+        "meaning": "Count of distinct pollutant codes in the current pollutants snapshot; breadth of tracked pollutants.",
+        "availability": "Current pollutants list; counts are approximate for historical dates.",
+        "evidence_url": "https://echo.epa.gov/tools/data-downloads/icis-air-download-summary"
+      },
+      {
+        "name": "comp_monitor_type_code",
+        "meaning": "COMP_MONITOR_TYPE_CODE on the triggering evaluation row, distinguishing on-site and off-site full evaluations.",
+        "availability": "Recorded on the evaluation activity row; current-vintage record.",
+        "evidence_url": "https://echo.epa.gov/tools/data-downloads/icis-air-download-summary"
+      },
+      {
+        "name": "state_epa_flag",
+        "meaning": "STATE_EPA_FLAG on the triggering evaluation row, indicating state, local or EPA lead.",
+        "availability": "Recorded on the evaluation activity row; current-vintage record.",
+        "evidence_url": "https://echo.epa.gov/tools/data-downloads/icis-air-download-summary"
+      },
+      {
+        "availability": "Dated activity history strictly before t; back-entry in the current snapshot is unverified.",
+        "evidence_url": "https://echo.epa.gov/tools/data-downloads/icis-air-download-summary",
+        "meaning": "Count of FCE or PCE activity records at the facility with ACTUAL_END_DATE in the 1095 days before t.",
+        "name": "prior_evaluations_3y"
+      },
+      {
+        "availability": "Dated activity history strictly before t; blank when no prior evaluation is recorded.",
+        "evidence_url": "https://echo.epa.gov/tools/data-downloads/icis-air-download-summary",
+        "meaning": "Days from the most recent prior FCE or PCE ACTUAL_END_DATE before t to t; blank when no prior evaluation exists.",
+        "name": "days_since_last_evaluation"
+      },
+      {
+        "availability": "Dated stack-test history before t; exact date column selected from candidate names because the research did not name it.",
+        "evidence_url": "https://echo.epa.gov/tools/data-downloads/icis-air-download-summary",
+        "meaning": "Count of stack-test activities with AIR_STACK_TEST_STATUS_CODE FAI and selected test date in the 1095 days before t.",
+        "name": "prior_stack_test_failures_3y"
+      },
+      {
+        "name": "prior_hpv_count",
+        "meaning": "Count of distinct HPV day-zero episodes before t; active episodes are excluded from the population, so included rows have completed prior episodes.",
+        "availability": "Dated HPV day-zero history before t; active episodes are excluded from the population.",
+        "evidence_url": "https://echo.epa.gov/tools/data-downloads/icis-air-download-summary"
+      },
+      {
+        "name": "days_since_hpv_resolution",
+        "meaning": "Days from the latest HPV_RESOLVED_DATE before t to t; blank when no prior resolution exists.",
+        "availability": "Dated HPV resolution history before t; blank when no prior resolution is recorded.",
+        "evidence_url": "https://echo.epa.gov/tools/data-downloads/icis-air-download-summary"
+      },
+      {
+        "availability": "Dated formal-action history before t; back-entry in the current snapshot is unverified.",
+        "evidence_url": "https://echo.epa.gov/tools/data-downloads/icis-air-download-summary",
+        "meaning": "Count of formal-action activities with SETTLEMENT_ENTERED_DATE in the 1095 days before t.",
+        "name": "prior_formal_actions_3y"
+      },
+      {
+        "name": "prior_penalties_3y",
+        "meaning": "Sum of PENALTY_AMOUNT for formal actions settled in the 1095 days before t; zero only when there are no actions, blank when actions exist but penalties are missing.",
+        "availability": "Dated formal-action penalties before t; missing penalties are preserved as blank rather than zero.",
+        "evidence_url": "https://echo.epa.gov/tools/data-downloads/icis-air-download-summary"
+      },
+      {
+        "availability": "Dated Title V certification history before t; exact certification-date column selected from candidate names because the research did not name it.",
+        "evidence_url": "https://echo.epa.gov/tools/data-downloads/icis-air-download-summary",
+        "meaning": "Count of Title V annual certifications with FACILITY_RPT_DEVIATION_FLAG Y and certification date in the 1095 days before t.",
+        "name": "prior_tv_deviations_3y"
+      }
+    ],
+    "outcome_horizon": "365 days after the evaluation end date. Labels exist only where t+365 days precedes the data extract (2026-11-07), which caps the last usable evaluation date at 2025-11-07.",
+    "population": "FCE activity rows from ICIS-AIR_FCES_PCES.csv with COMP_MONITOR_TYPE_CODE in {FOO, FFO}; ACTUAL_END_DATE in a frozen half-open split window; at least one ICIS-AIR_PROGRAMS.csv row for the facility; no active HPV episode at t, meaning HPV_DAYZERO_DATE <= t and HPV_RESOLVED_DATE is null or > t; no HPV day-zero equal to t; no other full evaluation at the same facility with ACTUAL_END_DATE in [t-365 days, t); and t+365 days on or before 2026-11-07. Duplicate FCE activity rows and same-facility same-day full evaluations are collapsed deterministically.",
+    "prediction_time": "ACTUAL_END_DATE, normalized to a date, at the end of the full compliance evaluation; the decision is made after the evaluation report is entered. All historical features use records dated strictly before t. Static facility attributes and program or pollutant membership are current-snapshot approximations, not historical as-of values.",
+    "question": "After a Clean Air Act source completes a full compliance evaluation with no active High Priority Violator episode, will that source enter High Priority Violator (HPV) status within the next 12 months?",
+    "simple_references": "Majority class; prior HPV history; state and agency base rates; industry base rates; calendar-year prevalence. No label-derived group-rate feature is shipped.",
+    "split_policy": "Frozen calendar boundaries on ACTUAL_END_DATE, set from date coverage only and never from label performance: train 2015-01-01 to 2018-12-31; all of 2019 excluded as a 365-day embargo; eval 2020-01-01 to 2022-12-31; all of 2023 excluded as embargo; holdout 2024-01-01 to 2025-06-30 (2025-06-30 + 365 days = 2026-06-30, inside the 2026-11-07 extract). No shuffling. Because the same facility can appear in several years, the fixed robustness variant assigns each facility to the split holding its earliest eligible evaluation and drops that facility's later rows from eval and holdout scoring.",
+    "target": "1 if the facility has at least one HPV_DAYZERO_DATE in the interval (t, t+365 days], where t is the evaluation's ACTUAL_END_DATE; 0 otherwise. Evaluations at sources already in an active HPV episode at t (HPV_DAYZERO_DATE <= t with no HPV_RESOLVED_DATE <= t), and same-day day-zero dates, are excluded rather than labelled 0, because the label must post-date the decision instant.",
+    "usefulness": "HPV status is a formal, dated enforcement-priority transition, so the label is not a copy of an input attribute. The pre-evaluation features cover agency practice, industry, program breadth, inspection cadence, prior stack-test failures, prior penalties and certification deviations. This supports ranking follow-up after routine evaluations; it is not a causal estimate of enforcement effects."
+  },
+  "rows": {
+    "train": 58183,
+    "eval": 36500,
+    "holdout": 20011
+  },
+  "evaluation_contract": {
+    "access": "isolated_rows",
+    "cross_row_audit": {
+      "auxiliary_files_review": "Only the three declared CSVs are written; no extra evaluation files, fixture labels or answer scaffolds are shipped.",
+      "probes": [],
+      "rationale": "Features are constructed row-wise from records dated before each evaluation; no holdout labels or aggregate scored-label rates are used."
+    },
+    "feature_evidence": {
+      "evaluation_id": {
+        "availability": "Constructed from PGM_SYS_ID and ACTIVITY_ID present on every included FCE row.",
+        "source": "ICIS-AIR_FCES_PCES.csv",
+        "status": "verified"
+      },
+      "evaluation_end_date": {
+        "availability": "ACTUAL_END_DATE normalized to a date; every historical feature is filtered to dates before this instant.",
+        "source": "ICIS-AIR_FCES_PCES.csv",
+        "status": "verified"
+      },
+      "state": {
+        "availability": "Current facilities snapshot; static control assumed representative for historical evaluation dates.",
+        "source": "ICIS-AIR_FACILITIES.csv",
+        "status": "assumed"
+      },
+      "epa_region": {
+        "availability": "Current facilities snapshot; static control assumed representative for historical evaluation dates.",
+        "source": "ICIS-AIR_FACILITIES.csv",
+        "status": "assumed"
+      },
+      "sic_2digit": {
+        "availability": "Current SIC_CODES list; first code prefix only, assumed approximate historical industry class.",
+        "source": "ICIS-AIR_FACILITIES.csv",
+        "status": "assumed"
+      },
+      "naics_2digit": {
+        "availability": "Current NAICS_CODES list; first code prefix only, assumed approximate historical industry class.",
+        "source": "ICIS-AIR_FACILITIES.csv",
+        "status": "assumed"
+      },
+      "facility_type_code": {
+        "availability": "Current facilities snapshot; static owner class assumed representative for historical evaluation dates.",
+        "source": "ICIS-AIR_FACILITIES.csv",
+        "status": "assumed"
+      },
+      "air_pollutant_class_code": {
+        "availability": "Current facilities snapshot; emission class assumed approximate for historical evaluation dates.",
+        "source": "ICIS-AIR_FACILITIES.csv",
+        "status": "assumed"
+      },
+      "program_count": {
+        "availability": "Current programs membership list; counts are approximate for historical dates.",
+        "source": "ICIS-AIR_PROGRAMS.csv",
+        "status": "assumed"
+      },
+      "pollutant_count": {
+        "availability": "Current pollutants list; counts are approximate for historical dates.",
+        "source": "ICIS-AIR_POLLUTANTS.csv",
+        "status": "assumed"
+      },
+      "comp_monitor_type_code": {
+        "availability": "Recorded on the evaluation activity row; current-vintage record.",
+        "source": "ICIS-AIR_FCES_PCES.csv",
+        "status": "assumed"
+      },
+      "state_epa_flag": {
+        "availability": "Recorded on the evaluation activity row; current-vintage record.",
+        "source": "ICIS-AIR_FCES_PCES.csv",
+        "status": "assumed"
+      },
+      "prior_evaluations_3y": {
+        "availability": "Dated activity history strictly before t; back-entry in the current snapshot is unverified.",
+        "source": "ICIS-AIR_FCES_PCES.csv",
+        "status": "assumed"
+      },
+      "days_since_last_evaluation": {
+        "availability": "Dated activity history strictly before t; blank when no prior evaluation is recorded.",
+        "source": "ICIS-AIR_FCES_PCES.csv",
+        "status": "assumed"
+      },
+      "prior_stack_test_failures_3y": {
+        "availability": "Dated stack-test history before t; exact date column selected from candidate names because the research did not name it.",
+        "source": "ICIS-AIR_STACK_TESTS.csv",
+        "status": "assumed"
+      },
+      "prior_hpv_count": {
+        "availability": "Dated HPV day-zero history before t; active episodes are excluded from the population.",
+        "source": "ICIS-AIR_VIOLATION_HISTORY.csv",
+        "status": "assumed"
+      },
+      "days_since_hpv_resolution": {
+        "availability": "Dated HPV resolution history before t; blank when no prior resolution is recorded.",
+        "source": "ICIS-AIR_VIOLATION_HISTORY.csv",
+        "status": "assumed"
+      },
+      "prior_formal_actions_3y": {
+        "availability": "Dated formal-action history before t; back-entry in the current snapshot is unverified.",
+        "source": "ICIS-AIR_FORMAL_ACTIONS.csv",
+        "status": "assumed"
+      },
+      "prior_penalties_3y": {
+        "availability": "Dated formal-action penalties before t; missing penalties are preserved as blank rather than zero.",
+        "source": "ICIS-AIR_FORMAL_ACTIONS.csv",
+        "status": "assumed"
+      },
+      "prior_tv_deviations_3y": {
+        "availability": "Dated Title V certification history before t; exact certification-date column selected from candidate names because the research did not name it.",
+        "source": "ICIS-AIR_TITLEV_CERTS.csv",
+        "status": "assumed"
+      }
+    },
+    "limitations": [
+      "Single current-vintage snapshot extracted 2026-11-07: earlier records reflect later corrections and back-entry, so historical operational visibility is unverified; the design is retrospective.",
+      "HPV designation is discretionary and applied differently across state, local and EPA-led programs and years, so part of the label reflects agency practice.",
+      "No full-row availability ledger exists, so training_label_timing is unverified and all feature availability claims are assumptions or current-snapshot facts.",
+      "The supplied research did not name the exact date columns in the stack-test and Title V certification tables; the builder probes documented candidates and fails with observed headers if none is found.",
+      "The hazardous-air-pollutant indicator was not verified, so no HAP count feature is shipped.",
+      "Program and pollutant breadth are current snapshot membership counts, not as-of-decision values.",
+      "The same facility can appear in multiple years; this no-shuffle design does not remove within-facility dependence.",
+      "The 2020-2022 evaluation window overlaps the COVID-19 disruption, which is disclosed rather than corrected.",
+      "No causal claim is made; the task ranks escalation risk and does not estimate effects of evaluations or enforcement.",
+      "No label-derived group rates or target encoding are used; prior history features use only records dated before each evaluation.",
+      "Same-facility same-day full evaluations are collapsed deterministically after the preceding-365-day filter."
+    ],
+    "selection": {
+      "kind": "prediction_time",
+      "evidence": "Population, label and split rules are fixed from ACTUAL_END_DATE and source codes; labels are never used to select rows, features or thresholds."
+    },
+    "training_label_timing": "unverified",
+    "use": "retrospective_research",
+    "vintage": {
+      "kind": "current_snapshot",
+      "evidence": "EPA ECHO ICIS-Air ZIP index lists last modification 2026-11-07; no historical vintages are used."
+    }
+  },
+  "limitations": [
+    "Single current-vintage snapshot (extract 2026-11-07): earlier records reflect later corrections and back-entry, so this design does not demonstrate what was operationally visible to an agency at the time; it is explicitly retrospective.",
+    "ICIS-Air replaced the Air Facility System around October 2014 and AFS is distributed as a separate frozen file; the design does not join the two, so usable evaluation history is roughly a decade and the build must report the first year with national coverage before accepting the frozen splits.",
+    "HPV designation is discretionary and applied differently across state, local and EPA-led programs and across years, so part of the label reflects agency practice rather than source behaviour; state and agency identifiers are therefore mandatory controls, not optional features.",
+    "Coverage is state-reported and uneven: some agencies enter evaluations late or not at all, and HPV practice changed over the period, so base rates vary by agency and year.",
+    "AIR_POLLUTANT_CLASS_CODE, program lists and pollutant lists are snapshot values rather than as-of-decision values; they are used only as coarse counts and flagged as approximate, and the build should report a variant without them.",
+    "Repeated evaluations at one facility create dependence between rows; the 365-day thinning and the facility-disjoint robustness variant reduce but do not eliminate it, and no facility-random cross-validation is used.",
+    "The 2020-2022 evaluation window overlaps the COVID-19 period, when inspection schedules and enforcement practice were disrupted; this is disclosed rather than corrected.",
+    "Records originate with state, local and tribal agencies and are compiled by EPA; EPA's public-domain statement covers data it produces and factual data elements are not copyrightable, but no state-specific terms were reviewed for individual submissions, and ECHO presents the data 'for informational purposes only'.",
+    "No causal claim: the task ranks escalation risk, it does not estimate the effect of evaluations or enforcement on subsequent compliance.",
+    "Single current-vintage snapshot extracted 2026-11-07: earlier records reflect later corrections and back-entry, so historical operational visibility is unverified; the design is retrospective.",
+    "HPV designation is discretionary and applied differently across state, local and EPA-led programs and years, so part of the label reflects agency practice.",
+    "No full-row availability ledger exists, so training_label_timing is unverified and all feature availability claims are assumptions or current-snapshot facts.",
+    "The supplied research did not name the exact date columns in the stack-test and Title V certification tables; the builder probes documented candidates and fails with observed headers if none is found.",
+    "The hazardous-air-pollutant indicator was not verified, so no HAP count feature is shipped.",
+    "Program and pollutant breadth are current snapshot membership counts, not as-of-decision values.",
+    "The same facility can appear in multiple years; this no-shuffle design does not remove within-facility dependence.",
+    "The 2020-2022 evaluation window overlaps the COVID-19 disruption, which is disclosed rather than corrected.",
+    "No causal claim is made; the task ranks escalation risk and does not estimate effects of evaluations or enforcement.",
+    "No label-derived group rates or target encoding are used; prior history features use only records dated before each evaluation.",
+    "Same-facility same-day full evaluations are collapsed deterministically after the preceding-365-day filter.",
+    "No uncertainty interval; observed differences do not establish universal headroom"
+  ],
+  "qualification": {
+    "gate_version": "1.6.1",
+    "ok": true
+  }
+}
