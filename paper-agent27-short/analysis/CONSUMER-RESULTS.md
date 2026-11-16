@@ -28,7 +28,7 @@ airline routes and drinking-water lead, and favor random search on research
 grants. Consumer/control score ranges overlap for routes, lead, air enforcement,
 and wildlife strikes.
 
-The plot retains task order by absolute consumer median and shows consumer-minus-
+The plot uses the exact short names and publication order of Table I and shows consumer-minus-
 reference AUC in two aligned panels, one per reference. Both panels use identical
 axis limits, zero lines, and task order; no markers overlap. Each point is the
 median of the three paired differences, not the difference between method medians.

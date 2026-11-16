@@ -66,3 +66,13 @@ untuned reference and one against paired tuned search. Both share the same
 limits, zero position, task order, and marker style. The performance figure is
 now full width above the cost chart on page 4; figure references update
 automatically. The manuscript remains five pages.
+
+Final display polish: the release records now supply one canonical short task name
+and publication order to the performance plot. Prose uses the same names. The
+absolute-score-range sentence is removed. Cost is Fig. 2, performance Fig. 3,
+with matching citation order. The cost figure is 72% of its former height and
+labels construction inference ($8.62) and workers ($15.89). The release table
+omits the repeated Consumer column, while retaining Not evaluated findings for
+the two non-cohort releases. The workflow adds an execution-diagnostics repair
+path. Neither the diagram nor the prose attributes all 260 build retries to
+execution repairs; the existing waiting/reconciliation distinction remains.

@@ -11,6 +11,114 @@
   },
   "records": [
     {
+      "dataset": "fjc-civil-trial-36m",
+      "label": "Trial within 36 months",
+      "summary": "evidence/consumer/fjc-civil-trial-36m/results/summary.json",
+      "summary_sha256": "e95ec855ae897079556674356bbf4f471e51d7589dc2043f428553df53e1390e",
+      "qualification_receipt": "paper/analysis/final-2026-11-16/fjc-civil-trial-36m-artifact-verification.json",
+      "qualification_receipt_sha256": "462bdd381bcbbca2e6c4980be0f74913cea16967b1523954672b3d8770dd5f10",
+      "holdout_rows": 113510,
+      "baseline_auc": 0.7106307543317625,
+      "consumer_scores": {
+        "fjc-civil-trial-36m--r1": 0.7476899786923299,
+        "fjc-civil-trial-36m--r2": 0.7460685891913093,
+        "fjc-civil-trial-36m--r3": 0.7494586603370813
+      },
+      "consumer_median": 0.7476899786923299,
+      "consumer_min": 0.7460685891913093,
+      "consumer_max": 0.7494586603370813,
+      "tuned_scores": {
+        "fjc-civil-trial-36m--r1--random": 0.7229394844139647,
+        "fjc-civil-trial-36m--r2--random": 0.7287865423666984,
+        "fjc-civil-trial-36m--r3--random": 0.723860376749083
+      },
+      "tuned_median": 0.723860376749083,
+      "tuned_min": 0.7229394844139647,
+      "tuned_max": 0.7287865423666984,
+      "all_three_above_baseline": true
+    },
+    {
+      "dataset": "eia861-reliability-deterioration",
+      "label": "Reliability deterioration",
+      "summary": "evidence/consumer/eia861-reliability-deterioration-retry-1/results/summary.json",
+      "summary_sha256": "bd13fa9a5016004677cf6b0b84a2e9f45d2255030d8d7372a7b5c948f71cb142",
+      "qualification_receipt": "paper/analysis/final-2026-11-16/eia861-reliability-deterioration-artifact-verification.json",
+      "qualification_receipt_sha256": "86dcb0d9704745c2d81d88885a975feddff12760655dc080f366ec8011b6a3ae",
+      "holdout_rows": 2062,
+      "baseline_auc": 0.6975096903123701,
+      "consumer_scores": {
+        "eia861-reliability-deterioration--r1": 0.736249144972438,
+        "eia861-reliability-deterioration--r2": 0.7397606258131144,
+        "eia861-reliability-deterioration--r3": 0.7394253208868145
+      },
+      "consumer_median": 0.7394253208868145,
+      "consumer_min": 0.736249144972438,
+      "consumer_max": 0.7397606258131144,
+      "tuned_scores": {
+        "eia861-reliability-deterioration--r1--random": 0.7140712388846416,
+        "eia861-reliability-deterioration--r2--random": 0.7185148674204321,
+        "eia861-reliability-deterioration--r3--random": 0.7162423382824341
+      },
+      "tuned_median": 0.7162423382824341,
+      "tuned_min": 0.7140712388846416,
+      "tuned_max": 0.7185148674204321,
+      "all_three_above_baseline": true
+    },
+    {
+      "dataset": "phmsa-pipeline-penalty-reduction",
+      "label": "Penalty reduction",
+      "summary": "evidence/consumer/phmsa-pipeline-penalty-reduction/results/summary.json",
+      "summary_sha256": "55e3e2e60d284b9eee5dacca1ade8ad8ef45fa5ce998972542b3910a0b35357d",
+      "qualification_receipt": "paper/analysis/final-2026-11-16/phmsa-pipeline-penalty-reduction-artifact-verification.json",
+      "qualification_receipt_sha256": "db68be072da6a018ce768853b60eb48271a511ae363a59f9dc4d6f8fcc682a82",
+      "holdout_rows": 149,
+      "baseline_auc": 0.5569679849340865,
+      "consumer_scores": {
+        "phmsa-pipeline-penalty-reduction--r1": 0.6352165725047082,
+        "phmsa-pipeline-penalty-reduction--r2": 0.6224105461393596,
+        "phmsa-pipeline-penalty-reduction--r3": 0.618361581920904
+      },
+      "consumer_median": 0.6224105461393596,
+      "consumer_min": 0.618361581920904,
+      "consumer_max": 0.6352165725047082,
+      "tuned_scores": {
+        "phmsa-pipeline-penalty-reduction--r1--random": 0.5878531073446328,
+        "phmsa-pipeline-penalty-reduction--r2--random": 0.6087570621468926,
+        "phmsa-pipeline-penalty-reduction--r3--random": 0.5970809792843691
+      },
+      "tuned_median": 0.5970809792843691,
+      "tuned_min": 0.5878531073446328,
+      "tuned_max": 0.6087570621468926,
+      "all_three_above_baseline": true
+    },
+    {
+      "dataset": "fda-510k-five-year-recall",
+      "label": "Five-year recall",
+      "summary": "evidence/consumer/fda-510k-five-year-recall/results/summary.json",
+      "summary_sha256": "747ece2f4150b77adfff9e6568c0dd4502e7c6108fc24cd4d88090cd912870a4",
+      "qualification_receipt": "paper/analysis/final-2026-11-16/fda-510k-five-year-recall-artifact-verification.json",
+      "qualification_receipt_sha256": "4555647663abfa74df6b1d24cd4b104e901176bff45bbff896634ca271fcbbfb",
+      "holdout_rows": 9014,
+      "baseline_auc": 0.6546462828368741,
+      "consumer_scores": {
+        "fda-510k-five-year-recall--r1": 0.7267897056286667,
+        "fda-510k-five-year-recall--r2": 0.7269229294093058,
+        "fda-510k-five-year-recall--r3": 0.730755753079311
+      },
+      "consumer_median": 0.7269229294093058,
+      "consumer_min": 0.7267897056286667,
+      "consumer_max": 0.730755753079311,
+      "tuned_scores": {
+        "fda-510k-five-year-recall--r1--random": 0.6644125067815719,
+        "fda-510k-five-year-recall--r2--random": 0.6561716402136784,
+        "fda-510k-five-year-recall--r3--random": 0.6615195147917257
+      },
+      "tuned_median": 0.6615195147917257,
+      "tuned_min": 0.6561716402136784,
+      "tuned_max": 0.6644125067815719,
+      "all_three_above_baseline": true
+    },
+    {
       "dataset": "t100-new-route-survival",
       "label": "Route survival",
       "summary": "evidence/consumer/t100-new-route-survival/results/summary.json",
@@ -65,195 +173,6 @@
       "all_three_above_baseline": true
     },
     {
-      "dataset": "phmsa-pipeline-penalty-reduction",
-      "label": "Penalty reduction",
-      "summary": "evidence/consumer/phmsa-pipeline-penalty-reduction/results/summary.json",
-      "summary_sha256": "55e3e2e60d284b9eee5dacca1ade8ad8ef45fa5ce998972542b3910a0b35357d",
-      "qualification_receipt": "paper/analysis/final-2026-11-16/phmsa-pipeline-penalty-reduction-artifact-verification.json",
-      "qualification_receipt_sha256": "db68be072da6a018ce768853b60eb48271a511ae363a59f9dc4d6f8fcc682a82",
-      "holdout_rows": 149,
-      "baseline_auc": 0.5569679849340865,
-      "consumer_scores": {
-        "phmsa-pipeline-penalty-reduction--r1": 0.6352165725047082,
-        "phmsa-pipeline-penalty-reduction--r2": 0.6224105461393596,
-        "phmsa-pipeline-penalty-reduction--r3": 0.618361581920904
-      },
-      "consumer_median": 0.6224105461393596,
-      "consumer_min": 0.618361581920904,
-      "consumer_max": 0.6352165725047082,
-      "tuned_scores": {
-        "phmsa-pipeline-penalty-reduction--r1--random": 0.5878531073446328,
-        "phmsa-pipeline-penalty-reduction--r2--random": 0.6087570621468926,
-        "phmsa-pipeline-penalty-reduction--r3--random": 0.5970809792843691
-      },
-      "tuned_median": 0.5970809792843691,
-      "tuned_min": 0.5878531073446328,
-      "tuned_max": 0.6087570621468926,
-      "all_three_above_baseline": true
-    },
-    {
-      "dataset": "seattle-building-permit-completion",
-      "label": "Permit completion",
-      "summary": "paper/analysis/final-2026-11-16/seattle-composite/summary.json",
-      "summary_sha256": "7c9b8a0a104faac353d69f48126ae49f0f2087f65f5fc7526299394dff066e30",
-      "qualification_receipt": "paper/analysis/evening-2026-11-15/seattle-building-permit-completion-artifact-verification.json",
-      "qualification_receipt_sha256": "8d6a2a7a56d5130d47aceb12c5e78baea65f31758e5f9cc5508ba2cdf14f9a62",
-      "holdout_rows": 6326,
-      "baseline_auc": 0.6179365855905143,
-      "consumer_scores": {
-        "seattle-building-permit-completion--r1": 0.6482217774875273,
-        "seattle-building-permit-completion--r2": 0.6473918284596301,
-        "seattle-building-permit-completion--r3": 0.6551826709794852
-      },
-      "consumer_median": 0.6482217774875273,
-      "consumer_min": 0.6473918284596301,
-      "consumer_max": 0.6551826709794852,
-      "tuned_scores": {
-        "seattle-building-permit-completion--r1--random": 0.6335192216276375,
-        "seattle-building-permit-completion--r2--random": 0.6347200596465576,
-        "seattle-building-permit-completion--r3--random": 0.6328318542832856
-      },
-      "tuned_median": 0.6335192216276375,
-      "tuned_min": 0.6328318542832856,
-      "tuned_max": 0.6347200596465576,
-      "all_three_above_baseline": true
-    },
-    {
-      "dataset": "fda-510k-five-year-recall",
-      "label": "Five-year recall",
-      "summary": "evidence/consumer/fda-510k-five-year-recall/results/summary.json",
-      "summary_sha256": "747ece2f4150b77adfff9e6568c0dd4502e7c6108fc24cd4d88090cd912870a4",
-      "qualification_receipt": "paper/analysis/final-2026-11-16/fda-510k-five-year-recall-artifact-verification.json",
-      "qualification_receipt_sha256": "4555647663abfa74df6b1d24cd4b104e901176bff45bbff896634ca271fcbbfb",
-      "holdout_rows": 9014,
-      "baseline_auc": 0.6546462828368741,
-      "consumer_scores": {
-        "fda-510k-five-year-recall--r1": 0.7267897056286667,
-        "fda-510k-five-year-recall--r2": 0.7269229294093058,
-        "fda-510k-five-year-recall--r3": 0.730755753079311
-      },
-      "consumer_median": 0.7269229294093058,
-      "consumer_min": 0.7267897056286667,
-      "consumer_max": 0.730755753079311,
-      "tuned_scores": {
-        "fda-510k-five-year-recall--r1--random": 0.6644125067815719,
-        "fda-510k-five-year-recall--r2--random": 0.6561716402136784,
-        "fda-510k-five-year-recall--r3--random": 0.6615195147917257
-      },
-      "tuned_median": 0.6615195147917257,
-      "tuned_min": 0.6561716402136784,
-      "tuned_max": 0.6644125067815719,
-      "all_three_above_baseline": true
-    },
-    {
-      "dataset": "eia861-reliability-deterioration",
-      "label": "Reliability deterioration",
-      "summary": "evidence/consumer/eia861-reliability-deterioration-retry-1/results/summary.json",
-      "summary_sha256": "bd13fa9a5016004677cf6b0b84a2e9f45d2255030d8d7372a7b5c948f71cb142",
-      "qualification_receipt": "paper/analysis/final-2026-11-16/eia861-reliability-deterioration-artifact-verification.json",
-      "qualification_receipt_sha256": "86dcb0d9704745c2d81d88885a975feddff12760655dc080f366ec8011b6a3ae",
-      "holdout_rows": 2062,
-      "baseline_auc": 0.6975096903123701,
-      "consumer_scores": {
-        "eia861-reliability-deterioration--r1": 0.736249144972438,
-        "eia861-reliability-deterioration--r2": 0.7397606258131144,
-        "eia861-reliability-deterioration--r3": 0.7394253208868145
-      },
-      "consumer_median": 0.7394253208868145,
-      "consumer_min": 0.736249144972438,
-      "consumer_max": 0.7397606258131144,
-      "tuned_scores": {
-        "eia861-reliability-deterioration--r1--random": 0.7140712388846416,
-        "eia861-reliability-deterioration--r2--random": 0.7185148674204321,
-        "eia861-reliability-deterioration--r3--random": 0.7162423382824341
-      },
-      "tuned_median": 0.7162423382824341,
-      "tuned_min": 0.7140712388846416,
-      "tuned_max": 0.7185148674204321,
-      "all_three_above_baseline": true
-    },
-    {
-      "dataset": "fjc-civil-trial-36m",
-      "label": "Trial within 36 months",
-      "summary": "evidence/consumer/fjc-civil-trial-36m/results/summary.json",
-      "summary_sha256": "e95ec855ae897079556674356bbf4f471e51d7589dc2043f428553df53e1390e",
-      "qualification_receipt": "paper/analysis/final-2026-11-16/fjc-civil-trial-36m-artifact-verification.json",
-      "qualification_receipt_sha256": "462bdd381bcbbca2e6c4980be0f74913cea16967b1523954672b3d8770dd5f10",
-      "holdout_rows": 113510,
-      "baseline_auc": 0.7106307543317625,
-      "consumer_scores": {
-        "fjc-civil-trial-36m--r1": 0.7476899786923299,
-        "fjc-civil-trial-36m--r2": 0.7460685891913093,
-        "fjc-civil-trial-36m--r3": 0.7494586603370813
-      },
-      "consumer_median": 0.7476899786923299,
-      "consumer_min": 0.7460685891913093,
-      "consumer_max": 0.7494586603370813,
-      "tuned_scores": {
-        "fjc-civil-trial-36m--r1--random": 0.7229394844139647,
-        "fjc-civil-trial-36m--r2--random": 0.7287865423666984,
-        "fjc-civil-trial-36m--r3--random": 0.723860376749083
-      },
-      "tuned_median": 0.723860376749083,
-      "tuned_min": 0.7229394844139647,
-      "tuned_max": 0.7287865423666984,
-      "all_three_above_baseline": true
-    },
-    {
-      "dataset": "sdwis-lcr-lead-action-level-next-period",
-      "label": "Next-period lead",
-      "summary": "evidence/consumer/sdwis-lcr-lead-action-level-next-period/results/summary.json",
-      "summary_sha256": "76db3d77d321bd30a82a272fdedd1bad2f4f750150ec3fad066215d1602c3c9d",
-      "qualification_receipt": "paper/analysis/final-2026-11-16/sdwis-lcr-lead-action-level-next-period-artifact-verification.json",
-      "qualification_receipt_sha256": "fa13beea16ce94f39949a2cc0e6ac90888be5b81f5f74840e1b287d185087fcd",
-      "holdout_rows": 17568,
-      "baseline_auc": 0.7595473729773051,
-      "consumer_scores": {
-        "sdwis-lcr-lead-action-level-next-period--r1": 0.7751352958591472,
-        "sdwis-lcr-lead-action-level-next-period--r2": 0.7737698143330446,
-        "sdwis-lcr-lead-action-level-next-period--r3": 0.7660623494438212
-      },
-      "consumer_median": 0.7737698143330446,
-      "consumer_min": 0.7660623494438212,
-      "consumer_max": 0.7751352958591472,
-      "tuned_scores": {
-        "sdwis-lcr-lead-action-level-next-period--r1--random": 0.7752841261207224,
-        "sdwis-lcr-lead-action-level-next-period--r2--random": 0.7675724869199554,
-        "sdwis-lcr-lead-action-level-next-period--r3--random": 0.7765332888501569
-      },
-      "tuned_median": 0.7752841261207224,
-      "tuned_min": 0.7675724869199554,
-      "tuned_max": 0.7765332888501569,
-      "all_three_above_baseline": true
-    },
-    {
-      "dataset": "fra-form54-hazmat-release",
-      "label": "Hazmat release",
-      "summary": "evidence/consumer/fra-form54-hazmat-release-retry-1/results/summary.json",
-      "summary_sha256": "34d0e7812cbc704d114b9266279309a50503d8a45adff45ce78be0d0e80c8195",
-      "qualification_receipt": "paper/analysis/evening-2026-11-15/fra-form54-hazmat-release-artifact-verification.json",
-      "qualification_receipt_sha256": "6782e351e79af2515dcd3c5c681fae6325d3764de6b3c9a51c2c5c9ab4f6ac96",
-      "holdout_rows": 5189,
-      "baseline_auc": 0.731304347826087,
-      "consumer_scores": {
-        "fra-form54-hazmat-release--r1": 0.7840868425551314,
-        "fra-form54-hazmat-release--r2": 0.7901749387429483,
-        "fra-form54-hazmat-release--r3": 0.7910633084506239
-      },
-      "consumer_median": 0.7901749387429483,
-      "consumer_min": 0.7840868425551314,
-      "consumer_max": 0.7910633084506239,
-      "tuned_scores": {
-        "fra-form54-hazmat-release--r1--random": 0.7512655991794405,
-        "fra-form54-hazmat-release--r2--random": 0.7504450396033963,
-        "fra-form54-hazmat-release--r3--random": 0.7472847455695482
-      },
-      "tuned_median": 0.7504450396033963,
-      "tuned_min": 0.7472847455695482,
-      "tuned_max": 0.7512655991794405,
-      "all_three_above_baseline": true
-    },
-    {
       "dataset": "caa-fce-hpv-escalation",
       "label": "Violation escalation",
       "summary": "evidence/consumer/caa-fce-hpv-escalation/results/summary.json",
@@ -282,7 +201,7 @@
     },
     {
       "dataset": "wser-effluent-exceedance",
-      "label": "Wastewater exceedance",
+      "label": "Exceedance",
       "summary": "evidence/consumer/wser-effluent-exceedance/results/summary.json",
       "summary_sha256": "81a3c0dd6cd02dd7335b0e4f4bb17cda2eca6bffd7ae2ddd1ed82d2bef7308c1",
       "qualification_receipt": "paper/analysis/final-2026-11-16/wser-effluent-exceedance-artifact-verification.json",
@@ -333,10 +252,111 @@
       "tuned_min": 0.9042419674082124,
       "tuned_max": 0.9091333933302965,
       "all_three_above_baseline": true
+    },
+    {
+      "dataset": "seattle-building-permit-completion",
+      "label": "Permit completion",
+      "summary": "paper/analysis/final-2026-11-16/seattle-composite/summary.json",
+      "summary_sha256": "7c9b8a0a104faac353d69f48126ae49f0f2087f65f5fc7526299394dff066e30",
+      "qualification_receipt": "paper/analysis/evening-2026-11-15/seattle-building-permit-completion-artifact-verification.json",
+      "qualification_receipt_sha256": "8d6a2a7a56d5130d47aceb12c5e78baea65f31758e5f9cc5508ba2cdf14f9a62",
+      "holdout_rows": 6326,
+      "baseline_auc": 0.6179365855905143,
+      "consumer_scores": {
+        "seattle-building-permit-completion--r1": 0.6482217774875273,
+        "seattle-building-permit-completion--r2": 0.6473918284596301,
+        "seattle-building-permit-completion--r3": 0.6551826709794852
+      },
+      "consumer_median": 0.6482217774875273,
+      "consumer_min": 0.6473918284596301,
+      "consumer_max": 0.6551826709794852,
+      "tuned_scores": {
+        "seattle-building-permit-completion--r1--random": 0.6335192216276375,
+        "seattle-building-permit-completion--r2--random": 0.6347200596465576,
+        "seattle-building-permit-completion--r3--random": 0.6328318542832856
+      },
+      "tuned_median": 0.6335192216276375,
+      "tuned_min": 0.6328318542832856,
+      "tuned_max": 0.6347200596465576,
+      "all_three_above_baseline": true
+    },
+    {
+      "dataset": "fra-form54-hazmat-release",
+      "label": "Hazmat release",
+      "summary": "evidence/consumer/fra-form54-hazmat-release-retry-1/results/summary.json",
+      "summary_sha256": "34d0e7812cbc704d114b9266279309a50503d8a45adff45ce78be0d0e80c8195",
+      "qualification_receipt": "paper/analysis/evening-2026-11-15/fra-form54-hazmat-release-artifact-verification.json",
+      "qualification_receipt_sha256": "6782e351e79af2515dcd3c5c681fae6325d3764de6b3c9a51c2c5c9ab4f6ac96",
+      "holdout_rows": 5189,
+      "baseline_auc": 0.731304347826087,
+      "consumer_scores": {
+        "fra-form54-hazmat-release--r1": 0.7840868425551314,
+        "fra-form54-hazmat-release--r2": 0.7901749387429483,
+        "fra-form54-hazmat-release--r3": 0.7910633084506239
+      },
+      "consumer_median": 0.7901749387429483,
+      "consumer_min": 0.7840868425551314,
+      "consumer_max": 0.7910633084506239,
+      "tuned_scores": {
+        "fra-form54-hazmat-release--r1--random": 0.7512655991794405,
+        "fra-form54-hazmat-release--r2--random": 0.7504450396033963,
+        "fra-form54-hazmat-release--r3--random": 0.7472847455695482
+      },
+      "tuned_median": 0.7504450396033963,
+      "tuned_min": 0.7472847455695482,
+      "tuned_max": 0.7512655991794405,
+      "all_three_above_baseline": true
+    },
+    {
+      "dataset": "sdwis-lcr-lead-action-level-next-period",
+      "label": "Next-period lead exceedance",
+      "summary": "evidence/consumer/sdwis-lcr-lead-action-level-next-period/results/summary.json",
+      "summary_sha256": "76db3d77d321bd30a82a272fdedd1bad2f4f750150ec3fad066215d1602c3c9d",
+      "qualification_receipt": "paper/analysis/final-2026-11-16/sdwis-lcr-lead-action-level-next-period-artifact-verification.json",
+      "qualification_receipt_sha256": "fa13beea16ce94f39949a2cc0e6ac90888be5b81f5f74840e1b287d185087fcd",
+      "holdout_rows": 17568,
+      "baseline_auc": 0.7595473729773051,
+      "consumer_scores": {
+        "sdwis-lcr-lead-action-level-next-period--r1": 0.7751352958591472,
+        "sdwis-lcr-lead-action-level-next-period--r2": 0.7737698143330446,
+        "sdwis-lcr-lead-action-level-next-period--r3": 0.7660623494438212
+      },
+      "consumer_median": 0.7737698143330446,
+      "consumer_min": 0.7660623494438212,
+      "consumer_max": 0.7751352958591472,
+      "tuned_scores": {
+        "sdwis-lcr-lead-action-level-next-period--r1--random": 0.7752841261207224,
+        "sdwis-lcr-lead-action-level-next-period--r2--random": 0.7675724869199554,
+        "sdwis-lcr-lead-action-level-next-period--r3--random": 0.7765332888501569
+      },
+      "tuned_median": 0.7752841261207224,
+      "tuned_min": 0.7675724869199554,
+      "tuned_max": 0.7765332888501569,
+      "all_three_above_baseline": true
     }
   ],
   "all_three_above_baseline_tasks": 11,
   "paired_comparisons": {
+    "fjc-civil-trial-36m": [
+      0.024750494278365176,
+      0.017282046824610875,
+      0.025598283587998316
+    ],
+    "eia861-reliability-deterioration": [
+      0.02217790608779635,
+      0.02124575839268228,
+      0.023182982604380342
+    ],
+    "phmsa-pipeline-penalty-reduction": [
+      0.04736346516007539,
+      0.01365348399246702,
+      0.021280602636534862
+    ],
+    "fda-510k-five-year-recall": [
+      0.062377198847094806,
+      0.07075128919562745,
+      0.0692362382875853
+    ],
     "t100-new-route-survival": [
       -0.01699429771908778,
       0.003088235294117614,
@@ -346,41 +366,6 @@
       -0.008575317604355592,
       -0.007470333659081452,
       -0.014165852296523784
-    ],
-    "phmsa-pipeline-penalty-reduction": [
-      0.04736346516007539,
-      0.01365348399246702,
-      0.021280602636534862
-    ],
-    "seattle-building-permit-completion": [
-      0.014702555859889777,
-      0.012671768813072415,
-      0.02235081669619965
-    ],
-    "fda-510k-five-year-recall": [
-      0.062377198847094806,
-      0.07075128919562745,
-      0.0692362382875853
-    ],
-    "eia861-reliability-deterioration": [
-      0.02217790608779635,
-      0.02124575839268228,
-      0.023182982604380342
-    ],
-    "fjc-civil-trial-36m": [
-      0.024750494278365176,
-      0.017282046824610875,
-      0.025598283587998316
-    ],
-    "sdwis-lcr-lead-action-level-next-period": [
-      -0.00014883026157519463,
-      0.006197327413089204,
-      -0.0104709394063357
-    ],
-    "fra-form54-hazmat-release": [
-      0.03282124337569092,
-      0.03972989913955205,
-      0.04377856288107573
     ],
     "caa-fce-hpv-escalation": [
       0.012378532680867194,
@@ -396,13 +381,28 @@
       0.003690071634602221,
       0.014678522834406182,
       0.003873716974292729
+    ],
+    "seattle-building-permit-completion": [
+      0.014702555859889777,
+      0.012671768813072415,
+      0.02235081669619965
+    ],
+    "fra-form54-hazmat-release": [
+      0.03282124337569092,
+      0.03972989913955205,
+      0.04377856288107573
+    ],
+    "sdwis-lcr-lead-action-level-next-period": [
+      -0.00014883026157519463,
+      0.006197327413089204,
+      -0.0104709394063357
     ]
   },
   "overlapping_run_ranges": [
     "t100-new-route-survival",
-    "sdwis-lcr-lead-action-level-next-period",
     "caa-fce-hpv-escalation",
-    "faa-wildlife-strike-substantial-damage"
+    "faa-wildlife-strike-substantial-damage",
+    "sdwis-lcr-lead-action-level-next-period"
   ],
   "consumer_tuned_medians_within_001": 5,
   "median_auc_range": [

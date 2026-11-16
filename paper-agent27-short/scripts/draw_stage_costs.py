@@ -34,21 +34,23 @@ report={'sources':{str((base/n).relative_to(ROOT)):hashlib.sha256((base/n).read_
  'build_share_at_midpoint':rows['build']['midpoint_usd']/((low+high)/2)}
 (OUT/'analysis/stage-costs.json').write_text(json.dumps(report,indent=2)+'\n')
 plt.rcParams.update({'font.family':'DejaVu Sans','pdf.fonttype':42,'font.size':8})
-fig,ax=plt.subplots(figsize=(3.48,2.28))
-fig.subplots_adjust(left=.35,right=.94,top=.82,bottom=.22)
+fig,ax=plt.subplots(figsize=(3.48,1.65))
+fig.subplots_adjust(left=.35,right=.93,top=.80,bottom=.25)
 labels=['Discovery','Construction\n+ checks','Semantic review','Publication','Shared hosting']
-for i,(_,r) in enumerate(rows.items()):
+for i,(stage,r) in enumerate(rows.items()):
  left=0
  for amount,color in [((r['inference_low_usd']+r['inference_high_usd'])/2,'#286f98'),(r['worker_usd'],'#16877c'),(r['hosting_usd'],'#8d99a5')]:
-  if amount: ax.barh(i,amount,left=left,height=.56,color=color)
+  if amount:
+   ax.barh(i,amount,left=left,height=.62,color=color)
+   if stage=='build': ax.text(left+amount/2,i,f'${amount:.2f}',ha='center',va='center',fontsize=8,color='white')
   left+=amount
- ax.text(left+.45,i,f'${left:.2f}',va='center',fontsize=7.5,color='#243746')
+ ax.text(left+.45,i,f'${left:.2f}',va='center',fontsize=8,color='#243746')
 ax.set_yticks(range(5),labels); ax.invert_yaxis(); ax.set_xlim(0,29)
-ax.set_xticks([0,10,20]); ax.set_xlabel('Estimated recurring expenditure (USD)',fontsize=7.7,labelpad=5)
+ax.set_xticks([0,10,20]); ax.set_xlabel('Estimated recurring expenditure (USD)',fontsize=8,labelpad=5)
 ax.tick_params(axis='y',length=0,pad=6); ax.tick_params(axis='x',length=2,color='#aab6bd')
 for side in ['top','right','left']: ax.spines[side].set_visible(False)
 ax.spines['bottom'].set_color('#aab6bd'); ax.set_axisbelow(True); ax.grid(axis='x',color='#e5e9ed',lw=.6)
 from matplotlib.patches import Patch
-fig.legend(handles=[Patch(color='#286f98',label='Inference'),Patch(color='#16877c',label='Workers'),Patch(color='#8d99a5',label='Hosting')],loc='upper center',ncol=3,frameon=False,fontsize=7.5,bbox_to_anchor=(.54,1),handlelength=1,columnspacing=1.3)
+fig.legend(handles=[Patch(color='#286f98',label='Inference'),Patch(color='#16877c',label='Workers'),Patch(color='#8d99a5',label='Hosting')],loc='upper center',ncol=3,frameon=False,fontsize=8,bbox_to_anchor=(.54,1),handlelength=1,columnspacing=1.3)
 fig.savefig(OUT/'draft/figures/stage-costs.pdf',metadata={'CreationDate':None,'ModDate':None})
 print(json.dumps({'total_midpoint':(low+high)/2,'build_share':report['build_share_at_midpoint']}))

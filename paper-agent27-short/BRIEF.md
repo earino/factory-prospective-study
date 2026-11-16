@@ -29,8 +29,9 @@ service changes from manual dataset/source/acceptance decisions. Report repeated
 attempts without implying unique-defect counts or cost shares. Cost boundaries
 belong once in the method. Keep the successful-publication latency range/median.
 
-One production-only workflow figure; one readable 14-release table, with consumer
-completion and specific source-review findings. Do not turn conditional concerns
+One production-only workflow figure; one readable 14-release table with specific
+source-review findings. Consumer completion is stated in prose. Task names and
+publication order are shared between the table, performance figure, and prose. Do not turn conditional concerns
 into established defects or non-reviewed releases into passes. Inspect existing
 review scopes; a new audit is not required. Latency may leave the table if needed.
 

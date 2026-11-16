@@ -118,6 +118,12 @@ performance=read('paper-agent27-short/analysis/consumer-results.json')
 assert sha(ROOT/performance['snapshot'])==performance['snapshot_sha256']
 assert sha(ROOT/performance['qualification_coverage'])==performance['qualification_coverage_sha256']
 assert {r['dataset'] for r in performance['records']}==set(consumer)
+evaluated_releases=[r for r in release['records'] if r['dataset'] in consumer]
+assert [r['dataset'] for r in performance['records']]==[r['dataset'] for r in evaluated_releases]
+for plotted, released in zip(performance['records'],evaluated_releases,strict=True):
+ assert plotted['label']==released['short_name']==released['label'].split(' (')[0]
+assert 'ranges of absolute scores overlapped' not in tex
+assert 'Task (domain) & Consumer' not in tex
 for r in performance['records']:
  assert sha(ROOT/r['summary'])==r['summary_sha256']
  summary=read(r['summary'])

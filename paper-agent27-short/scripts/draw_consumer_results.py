@@ -14,12 +14,13 @@ snapshot = json.loads(snapshot_path.read_text())
 coverage_path = ROOT/'paper/analysis/final-2026-11-16/qualification-coverage.json'
 coverage = json.loads(coverage_path.read_text())
 sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
-labels = ['Trial within 36 months', 'Reliability deterioration', 'Penalty reduction',
-          'Five-year recall', 'Route survival', 'Phase I to II award',
-          'Violation escalation', 'Wastewater exceedance', 'Strike damage',
-          'Permit completion', 'Hazmat release', 'Next-period lead']
+release_records = json.loads((OUT/'analysis/release-records.json').read_text())['records']
 rows = []
-for (dataset, selected), label in zip(snapshot['analysis_selection'].items(), labels, strict=True):
+for release in release_records:
+    dataset = release['dataset']
+    if dataset not in snapshot['analysis_selection']: continue
+    selected = snapshot['analysis_selection'][dataset]
+    label = release['short_name']
     path = snapshot.get('consumer_overrides', {}).get(
         dataset, f'evidence/consumer/{selected}/results/summary.json')
     assert sha(ROOT/path) == snapshot['sources'][path]
@@ -51,7 +52,6 @@ for (dataset, selected), label in zip(snapshot['analysis_selection'].items(), la
                  'tuned_median': statistics.median(tuned_values),
                  'tuned_min': min(tuned_values), 'tuned_max': max(tuned_values),
                  'all_three_above_baseline': min(values) > baseline})
-rows.sort(key=lambda r: r['consumer_median'])
 report = {'snapshot': str(snapshot_path.relative_to(ROOT)), 'snapshot_sha256': sha(snapshot_path),
           'qualification_coverage': str(coverage_path.relative_to(ROOT)),
           'qualification_coverage_sha256': sha(coverage_path),
@@ -69,7 +69,7 @@ assert report['consumer_tuned_medians_within_001'] == 5
 
 plt.rcParams.update({'font.family': 'DejaVu Sans', 'pdf.fonttype': 42, 'font.size': 8.9})
 fig, axes = plt.subplots(1, 2, figsize=(7.15, 2.65), sharex=True, sharey=True)
-fig.subplots_adjust(left=.235, right=.975, top=.86, bottom=.18, wspace=.16)
+fig.subplots_adjust(left=.27, right=.975, top=.86, bottom=.18, wspace=.16)
 for ax, reference, title in zip(axes, ['untuned', 'tuned'],
         ['Against untuned XGBoost', 'Against tuned random search']):
     for y, r in enumerate(rows):

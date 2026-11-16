@@ -48,7 +48,7 @@ for row in snapshot['production_cohort']:
  selected=snapshot['analysis_selection'].get(ds)
  report=f'evidence/reviews/{selected}/PRE-REVIEW.md' if selected else None
  latency=(datetime.fromisoformat(row['published_at'])-datetime.fromisoformat(row['created'])).total_seconds()/60
- records.append({**row,'label':label,'latency_minutes':latency,'latency_rounded':round(latency),
+ records.append({**row,'label':label,'short_name':label.split(' (')[0],'latency_minutes':latency,'latency_rounded':round(latency),
    'consumer':'Completed' if selected else 'Not evaluated','finding':finding,'finding_categories':categories,
    'disclosure_label':disclosure_labels.get(ds,'Not evaluated'),
    'review_path':report,'review_sections':sections,
@@ -63,6 +63,6 @@ def tex(s):
  return s.replace('&',r'\&').replace('%',r'\%').replace('_',r'\_')
 lines=[]
 for r in records:
- lines.append(f"{tex(r['label'])} & {r['consumer']} & {tex(r['finding'])} & {tex(r['disclosure_label'])} \\\\")
+ lines.append(f"{tex(r['label'])} & {tex(r['finding'])} & {tex(r['disclosure_label'])} \\\\")
 (OUT/'draft/generated/release-rows.tex').write_text('\n'.join(lines)+'\n')
 print('Prepared 14 release rows from frozen timestamps and 12 retained reviews.')

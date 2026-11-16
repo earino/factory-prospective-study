@@ -1,9 +1,9 @@
 {
   "pages": 5,
-  "pdf_sha256": "d5a0cd7490b14fca652e47c64e84e0af02bb80674801597da8c709dada172764",
-  "source_zip_sha256": "af1c7412482cbf415c898486a07630950fe789913e7f5f1916fa34da03b0eee4",
-  "manuscript_sha256": "c97ecf10a76420abd54ab692485aff30feb716999894fd5fe042505886e6151f",
-  "clean_build_directory": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/factory-tuned-paper-z29v7oq5/paper-agent27-short",
+  "pdf_sha256": "24ec9a7b71e4c2cd87bc200c8d6691812f58f96e09ea04fdaaf000073ecb63cd",
+  "source_zip_sha256": "01785bce9e0a9e413c288eecda452a476e8f7159e680b5557914694195fd2b60",
+  "manuscript_sha256": "577eb9fe7c0febd2e61bbfbc22bcfcfa65421b2b6ebc014eb38da86f43e94bf7",
+  "clean_build_directory": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/factory-display-polish-sv7nmrod/paper-agent27-short",
   "clean_build_exit": 0,
   "portable_build_pdf_text_matches": true,
   "no_overfull_or_unresolved_references": true,
@@ -16,26 +16,27 @@
       4,
       5
     ],
-    "result": "Pages 1\u20133 unchanged from inspected version. Pages 4\u20135 inspected after two-panel change; performance figure checked in grayscale. No clipping or overlapping markers; five pages and unchanged manuscript fonts."
+    "result": "Page 1 unchanged from inspected version. Pages 2\u20135 inspected after display polish; all three figures inspected in grayscale. Exact task labels/order match Table I. No clipping, overlapping labels, overfull boxes, or unresolved references; five pages with unchanged manuscript fonts."
   },
-  "record_checks_sha256": "71ee90686e70d96af0d7ed1791bb87d0c4f03a486db30151285ce3099c12fae5",
+  "record_checks_sha256": "42bc58642301cb1de0880f871a7157db803c6164e58a51cdbff4cfe16361c926",
   "disclosure_review_sha256": "e8eaddb3fff30ac3786888559bcd88b55b04e7adb240a5fc6ec40a31d96f32e1",
   "long_paper_files_preserved": 310,
   "workflow": {
-    "sha256": "81ffb4ecefe5aae9c4694fa94749350203ed0d70cb174b04bf1cd4a3ba33d111",
+    "sha256": "1dc9b4b5a8deef0cdadf763668a6d77a416cf0f1d329e9bbdf4e66ebf1797857",
     "width_pt": 514.8,
-    "height_pt": 116.64,
+    "height_pt": 138.24,
     "smallest_native_font_pt": 8.7,
     "caption_font_pt": 8,
     "grayscale_border_styles": "dashed model / solid code, plus explicit labels",
     "semantic_returns": 4,
     "flow": "Source proposal -> builder generation -> worker execution/checks/baseline -> semantic review -> public publication/verification; semantic repair returns to generation.",
     "controller": "Shared band for state, transitions, retries and worker management; no additional flow arrows.",
-    "operating_milestones": "Retained in results prose; omitted from process diagram."
+    "operating_milestones": "Retained in results prose; omitted from process diagram.",
+    "execution_repair": "Worker diagnostics return to builder generation; no count assigned."
   },
   "consumer_results": {
-    "figure_sha256": "0250ac0797d0c17d1d9ed8fae30792b2ce53c59243333ce90c2109a1f4573cb4",
-    "data_sha256": "6935892ca36d506dfd1bbd7fe341769e35b56cf44eaea5b50516bcbef6e55dcc",
+    "figure_sha256": "b331d3cc615c95394eacf316309aabc9c85c17aa70800bb0ea7dd53bb02229e9",
+    "data_sha256": "9071cdcddf9b418379bbceeb231c8545d2cc8a7a225f56f30e95680995c929a6",
     "datasets": 12,
     "consumer_models": 36,
     "tuned_controls": 36,
@@ -44,16 +45,31 @@
       "paired random-search controls"
     ],
     "summary": "median and min/max of three paired consumer-minus-reference AUC differences, not confidence intervals",
-    "task_order": "unchanged ascending absolute consumer median",
+    "task_order": "Table I publication order",
     "qualification_receipts_checked": 12,
     "paired_point_outcomes": {
       "all_consumer_higher_tasks": 9,
       "mixed_tasks": 2,
       "all_control_higher_tasks": 1
     },
-    "clean_checkout": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/factory-tuned-paper-z29v7oq5/record-checkout",
+    "clean_checkout": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/factory-display-polish-sv7nmrod/record-checkout",
     "clean_check_exit": 0,
     "historical_ignored_paper_artifacts_restored_for_preservation_checks": 161,
-    "layout": "Two aligned panels, one per reference; common axis limits and zero, one median/range per task per panel."
+    "layout": "Two aligned panels, one per reference; common axis limits and zero, one median/range per task per panel.",
+    "task_names": "Canonical short_name from release-records.json"
+  },
+  "cost_figure": {
+    "sha256": "792156c6cfa3ae01d0366306795a17bab5064bbba7a43d06d9c65bc13ec8b5c1",
+    "height_in": 1.65,
+    "previous_height_in": 2.28,
+    "construction_segment_labels_usd": [
+      8.62,
+      15.89
+    ]
+  },
+  "figure_numbers": {
+    "workflow": 1,
+    "costs": 2,
+    "consumer": 3
   }
 }
