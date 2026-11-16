@@ -1,0 +1,98 @@
+{
+  "production_attempts": 540,
+  "milestones": {
+    "discover": 54,
+    "build": 18,
+    "evaluate": 14,
+    "publish": 14
+  },
+  "retry_counts": {
+    "discovery": 101,
+    "build": 260,
+    "semantic_repair": 21
+  },
+  "publications": 14,
+  "consumer_datasets": 12,
+  "scored_models_checked": 36,
+  "consumer_summaries": {
+    "fjc-civil-trial-36m": {
+      "scored_models": 3,
+      "summary": "evidence/consumer/fjc-civil-trial-36m/results/summary.json"
+    },
+    "eia861-reliability-deterioration": {
+      "scored_models": 3,
+      "summary": "evidence/consumer/eia861-reliability-deterioration-retry-1/results/summary.json"
+    },
+    "phmsa-pipeline-penalty-reduction": {
+      "scored_models": 3,
+      "summary": "evidence/consumer/phmsa-pipeline-penalty-reduction/results/summary.json"
+    },
+    "fda-510k-five-year-recall": {
+      "scored_models": 3,
+      "summary": "evidence/consumer/fda-510k-five-year-recall/results/summary.json"
+    },
+    "t100-new-route-survival": {
+      "scored_models": 3,
+      "summary": "evidence/consumer/t100-new-route-survival/results/summary.json"
+    },
+    "sbir-phase1-to-phase2-conversion": {
+      "scored_models": 3,
+      "summary": "evidence/consumer/sbir-phase1-to-phase2-conversion/results/summary.json"
+    },
+    "caa-fce-hpv-escalation": {
+      "scored_models": 3,
+      "summary": "evidence/consumer/caa-fce-hpv-escalation/results/summary.json"
+    },
+    "wser-effluent-exceedance": {
+      "scored_models": 3,
+      "summary": "evidence/consumer/wser-effluent-exceedance/results/summary.json"
+    },
+    "faa-wildlife-strike-substantial-damage": {
+      "scored_models": 3,
+      "summary": "evidence/consumer/faa-wildlife-strike-substantial-damage-retry-1/results/summary.json"
+    },
+    "seattle-building-permit-completion": {
+      "scored_models": 3,
+      "summary": "paper/analysis/final-2026-11-16/seattle-composite/summary.json"
+    },
+    "fra-form54-hazmat-release": {
+      "scored_models": 3,
+      "summary": "evidence/consumer/fra-form54-hazmat-release-retry-1/results/summary.json"
+    },
+    "sdwis-lcr-lead-action-level-next-period": {
+      "scored_models": 3,
+      "summary": "evidence/consumer/sdwis-lcr-lead-action-level-next-period/results/summary.json"
+    }
+  },
+  "latency_min_max_median_minutes": [
+    40.313263166666665,
+    231.22633425,
+    108.77065580833334
+  ],
+  "cost_range_usd": [
+    38.2266659901605,
+    38.33494259616049
+  ],
+  "stage_costs_reconcile": true,
+  "build_share_percent": 64.02120225404651,
+  "sbir_original_files_verified": 15,
+  "first_release_trace_attempts": 10,
+  "long_paper_files_preserved": 310,
+  "citations": [
+    "abc",
+    "agentops",
+    "autodata-web",
+    "autodatabench",
+    "autosdt",
+    "datasetresearch",
+    "datasheets",
+    "kandel",
+    "lafia",
+    "measurement",
+    "production",
+    "qiang2026mlesmith",
+    "xgboost"
+  ],
+  "manuscript_sha256": "9fd932d6c1009ffb1a237fd3993a93bd518d4ea1c0419a01e1bd7ed136295abe",
+  "scope": "Recorded quantities, input identities, consumer completion, source-review identities and known wording checks. Does not mechanically establish semantic correctness of every sentence; manual claim and page reviews are separate."
+}

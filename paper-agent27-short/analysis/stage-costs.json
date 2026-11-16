@@ -1,0 +1,65 @@
+{
+  "sources": {
+    "evidence/costs/2026-11-16/summary.json": "d5e4e738063826521b0738f17a368f9b35ecf5e57cdcc5f94896bbc6bbce288f",
+    "evidence/costs/2026-11-16/factory-worker-costs.json": "f88bc7de63cacec7b477f4c4e0f107c9b527acd238d3adca548d7370d0c7ee40"
+  },
+  "usd_per_eur": 1.1051999999999997,
+  "scope": "Same recorded recurring-cost estimate and window as the original calculation; attribution follows recorded model and worker stages. Build includes construction, checks and baseline fitting. Hosting remains shared. No cost is assigned from retry counts.",
+  "stages": {
+    "discover": {
+      "inference_low_usd": 9.151128942,
+      "inference_high_usd": 9.170883618,
+      "worker_usd": 0.0,
+      "hosting_usd": 0.0,
+      "workers": 0,
+      "total_low_usd": 9.151128942,
+      "total_high_usd": 9.170883618,
+      "midpoint_usd": 9.161006279999999
+    },
+    "build": {
+      "inference_low_usd": 8.574551856,
+      "inference_high_usd": 8.663073786,
+      "worker_usd": 15.889018319999996,
+      "hosting_usd": 0.0,
+      "workers": 244,
+      "total_low_usd": 24.463570175999998,
+      "total_high_usd": 24.552092105999996,
+      "midpoint_usd": 24.507831140999997
+    },
+    "evaluate": {
+      "inference_low_usd": 1.37434977,
+      "inference_high_usd": 1.37434977,
+      "worker_usd": 0.0,
+      "hosting_usd": 0.0,
+      "workers": 0,
+      "total_low_usd": 1.37434977,
+      "total_high_usd": 1.37434977,
+      "midpoint_usd": 1.37434977
+    },
+    "publish": {
+      "inference_low_usd": 0.0,
+      "inference_high_usd": 0.0,
+      "worker_usd": 0.9727970399999998,
+      "hosting_usd": 0.0,
+      "workers": 15,
+      "total_low_usd": 0.9727970399999998,
+      "total_high_usd": 0.9727970399999998,
+      "midpoint_usd": 0.9727970399999998
+    },
+    "hosting": {
+      "inference_low_usd": 0.0,
+      "inference_high_usd": 0.0,
+      "worker_usd": 0.0,
+      "hosting_usd": 2.264820062160494,
+      "workers": 0,
+      "total_low_usd": 2.264820062160494,
+      "total_high_usd": 2.264820062160494,
+      "midpoint_usd": 2.264820062160494
+    }
+  },
+  "total_range_usd": [
+    38.22666599016049,
+    38.33494259616049
+  ],
+  "build_share_at_midpoint": 0.6402120225404652
+}

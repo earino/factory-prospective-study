@@ -1,0 +1,246 @@
+{
+  "snapshot": "paper/analysis/final-inputs-2026-11-16.json",
+  "snapshot_sha256": "688ab6558045a5acfa9791cfa36d1417c20d7791ffbbbff74a35a6ed907b3db3",
+  "scope": "Selected findings from existing bounded reviews; not an exhaustive or uniform audit. No review performed for the final two releases.",
+  "records": [
+    {
+      "id": "source-000048",
+      "dataset": "fjc-civil-trial-36m",
+      "created": "2026-11-13T00:44:02.032360+00:00",
+      "published_at": "2026-11-13T02:30:19.452430+00:00",
+      "label": "Trial within 36 months (courts)",
+      "latency_minutes": 106.2903345,
+      "latency_rounded": 106,
+      "consumer": "Completed",
+      "finding": "Condition: post-filing jury information; retrospective use.",
+      "finding_categories": [
+        "condition"
+      ],
+      "review_path": "evidence/reviews/fjc-civil-trial-36m/PRE-REVIEW.md",
+      "review_sections": "Summary; R1",
+      "review_sha256": "36ee32ddeffc9abf0e72051250a970571d89b89951db7bab05ee495527546397"
+    },
+    {
+      "id": "source-000053",
+      "dataset": "eia861-reliability-deterioration",
+      "created": "2026-11-13T04:21:01.954803+00:00",
+      "published_at": "2026-11-13T05:28:19.001460+00:00",
+      "label": "Reliability deterioration (electricity)",
+      "latency_minutes": 67.28411095,
+      "latency_rounded": 67,
+      "consumer": "Completed",
+      "finding": "Condition: lagged outcomes require restricted scoring access.",
+      "finding_categories": [
+        "condition"
+      ],
+      "review_path": "evidence/reviews/eia861-reliability-deterioration-retry-1/PRE-REVIEW.md",
+      "review_sections": "6; R1",
+      "review_sha256": "3bf75b6cbd9a1bfbb0d16a9415f86a845af2b009930d4590bb017b30dc3b0c11"
+    },
+    {
+      "id": "source-000055",
+      "dataset": "phmsa-pipeline-penalty-reduction",
+      "created": "2026-11-13T05:29:01.272979+00:00",
+      "published_at": "2026-11-13T07:53:15.783341+00:00",
+      "label": "Penalty reduction (pipelines)",
+      "latency_minutes": 144.24183936666668,
+      "latency_rounded": 144,
+      "consumer": "Completed",
+      "finding": "Concern: original-notice timing is unverified.",
+      "finding_categories": [
+        "concern"
+      ],
+      "review_path": "evidence/reviews/phmsa-pipeline-penalty-reduction/PRE-REVIEW.md",
+      "review_sections": "R1",
+      "review_sha256": "949f6d1935a0a0f7af28750be4fc9408dffbdaf72eae884bb0dbdf2ea8dd966b"
+    },
+    {
+      "id": "source-000064",
+      "dataset": "fda-510k-five-year-recall",
+      "created": "2026-11-13T22:20:01.646257+00:00",
+      "published_at": "2026-11-13T23:42:15.349488+00:00",
+      "label": "Five-year recall (medical devices)",
+      "latency_minutes": 82.22838718333334,
+      "latency_rounded": 82,
+      "consumer": "Completed",
+      "finding": "Concern: undated recalls can become negatives; incidence unverified.",
+      "finding_categories": [
+        "concern"
+      ],
+      "review_path": "evidence/reviews/fda-510k-five-year-recall/PRE-REVIEW.md",
+      "review_sections": "R5",
+      "review_sha256": "cfbec85f9c6c405033f9077ba66768624e43771047f1fe65109d749860b779d6"
+    },
+    {
+      "id": "source-000068",
+      "dataset": "t100-new-route-survival",
+      "created": "2026-11-13T23:43:01.321342+00:00",
+      "published_at": "2026-11-14T02:04:19.792527+00:00",
+      "label": "Route survival (aviation)",
+      "latency_minutes": 141.30785308333333,
+      "latency_rounded": 141,
+      "consumer": "Completed",
+      "finding": "Condition: carrier-code changes can count as entries or exits.",
+      "finding_categories": [
+        "condition"
+      ],
+      "review_path": "evidence/reviews/t100-new-route-survival/PRE-REVIEW.md",
+      "review_sections": "R2",
+      "review_sha256": "3797d2fa53af3585a471bf662600fa04d76648c4af949e19bb72fb86d1658c67"
+    },
+    {
+      "id": "source-000072",
+      "dataset": "sbir-phase1-to-phase2-conversion",
+      "created": "2026-11-14T03:12:01.628352+00:00",
+      "published_at": "2026-11-14T04:36:15.599185+00:00",
+      "label": "Phase I to II award (research grants)",
+      "latency_minutes": 84.23284721666667,
+      "latency_rounded": 84,
+      "consumer": "Completed",
+      "finding": "Contradiction: selection declaration; concern: award-amount timing.",
+      "finding_categories": [
+        "contradiction",
+        "concern"
+      ],
+      "review_path": "evidence/reviews/sbir-phase1-to-phase2-conversion/PRE-REVIEW.md",
+      "review_sections": "Summary; 8.1; 8.3",
+      "review_sha256": "8a57f3408387b2a46df231f6225ff6044fb63a44f20c870c7981a20b419416b6"
+    },
+    {
+      "id": "source-000079",
+      "dataset": "caa-fce-hpv-escalation",
+      "created": "2026-11-14T19:46:02.309057+00:00",
+      "published_at": "2026-11-14T22:55:16.477819+00:00",
+      "label": "Violation escalation (air regulation)",
+      "latency_minutes": 189.2361460333333,
+      "latency_rounded": 189,
+      "consumer": "Completed",
+      "finding": "Concern: episode-resolution rule; incidence unverified.",
+      "finding_categories": [
+        "concern"
+      ],
+      "review_path": "evidence/reviews/caa-fce-hpv-escalation/PRE-REVIEW.md",
+      "review_sections": "R1",
+      "review_sha256": "621087bf5292b46619fd5483e1cd40d58e6d26417e6f513ed7f44ce95fbf2788"
+    },
+    {
+      "id": "source-000083",
+      "dataset": "wser-effluent-exceedance",
+      "created": "2026-11-14T23:37:01.123310+00:00",
+      "published_at": "2026-11-15T01:17:16.726399+00:00",
+      "label": "Exceedance (wastewater)",
+      "latency_minutes": 100.26005148333334,
+      "latency_rounded": 100,
+      "consumer": "Completed",
+      "finding": "Condition: prior-year outcome requires restricted scoring access.",
+      "finding_categories": [
+        "condition"
+      ],
+      "review_path": "evidence/reviews/wser-effluent-exceedance/PRE-REVIEW.md",
+      "review_sections": "Summary; R1",
+      "review_sha256": "8a0dfcd6610c8434e866a8ccae73d41f08b0f0c6c2a40d3bd439ab84e222a714"
+    },
+    {
+      "id": "source-000096",
+      "dataset": "faa-wildlife-strike-substantial-damage",
+      "created": "2026-11-15T07:31:01.192161+00:00",
+      "published_at": "2026-11-15T09:22:16.250788+00:00",
+      "label": "Strike damage (aviation)",
+      "latency_minutes": 111.25097711666668,
+      "latency_rounded": 111,
+      "consumer": "Completed",
+      "finding": "Condition: retrospective reports with known damage outcomes.",
+      "finding_categories": [
+        "condition"
+      ],
+      "review_path": "evidence/reviews/faa-wildlife-strike-substantial-damage-retry-1/PRE-REVIEW.md",
+      "review_sections": "Summary; M4; M6",
+      "review_sha256": "5322daad361fb66e6d2aa61f3a0986a1b3c850beaecd655c6de02dc11d9264e1"
+    },
+    {
+      "id": "source-000100",
+      "dataset": "seattle-building-permit-completion",
+      "created": "2026-11-15T10:33:01.304747+00:00",
+      "published_at": "2026-11-15T11:13:20.100537+00:00",
+      "label": "Permit completion (construction)",
+      "latency_minutes": 40.313263166666665,
+      "latency_rounded": 40,
+      "consumer": "Completed",
+      "finding": "Concern: post-issuance field updates are unverified.",
+      "finding_categories": [
+        "concern"
+      ],
+      "review_path": "evidence/reviews/seattle-building-permit-completion-retry-1/PRE-REVIEW.md",
+      "review_sections": "R1",
+      "review_sha256": "79187ef6b27d91aeb58b915b93bb9b528f3294b43e9f716d8aac371c3fbc45b5"
+    },
+    {
+      "id": "source-000099",
+      "dataset": "fra-form54-hazmat-release",
+      "created": "2026-11-15T09:23:01.852038+00:00",
+      "published_at": "2026-11-15T11:22:19.117088+00:00",
+      "label": "Hazmat release (railways)",
+      "latency_minutes": 119.28775083333333,
+      "latency_rounded": 119,
+      "consumer": "Completed",
+      "finding": "Condition: retrospective accident-report fields.",
+      "finding_categories": [
+        "condition"
+      ],
+      "review_path": "evidence/reviews/fra-form54-hazmat-release-retry-1/PRE-REVIEW.md",
+      "review_sections": "3; 7",
+      "review_sha256": "ee35beeb3d00aa639d76857cdd6cb459d965b4494c897eec4156452881ec573b"
+    },
+    {
+      "id": "source-000107",
+      "dataset": "sdwis-lcr-lead-action-level-next-period",
+      "created": "2026-11-15T13:51:01.649227+00:00",
+      "published_at": "2026-11-15T14:56:16.234161+00:00",
+      "label": "Next-period lead exceedance (water)",
+      "latency_minutes": 65.24308223333334,
+      "latency_rounded": 65,
+      "consumer": "Completed",
+      "finding": "Concerns: older-history overlap, unit magnitudes, embargo selection.",
+      "finding_categories": [
+        "concern"
+      ],
+      "review_path": "evidence/reviews/sdwis-lcr-lead-action-level-next-period/PRE-REVIEW.md",
+      "review_sections": "8.2; 8.3; 8.5",
+      "review_sha256": "d68f8e1350f23bc3cd8412f2c762b88a5edc1613a388708b7c81f2a06550a77b"
+    },
+    {
+      "id": "source-000119",
+      "dataset": "usgs-streamgage-record-survival",
+      "created": "2026-11-15T20:10:02.172727+00:00",
+      "published_at": "2026-11-16T00:01:15.752782+00:00",
+      "label": "Record survival (streamgages)",
+      "latency_minutes": 231.22633425,
+      "latency_rounded": 231,
+      "consumer": "Not evaluated",
+      "finding": "Not evaluated.",
+      "finding_categories": [
+        "not_evaluated"
+      ],
+      "review_path": null,
+      "review_sections": null,
+      "review_sha256": null
+    },
+    {
+      "id": "source-000127",
+      "dataset": "ca-beach-advisory-duration",
+      "created": "2026-11-16T02:46:01.829555+00:00",
+      "published_at": "2026-11-16T05:08:15.959655+00:00",
+      "label": "Advisory duration (beaches)",
+      "latency_minutes": 142.23550166666666,
+      "latency_rounded": 142,
+      "consumer": "Not evaluated",
+      "finding": "Not evaluated.",
+      "finding_categories": [
+        "not_evaluated"
+      ],
+      "review_path": null,
+      "review_sections": null,
+      "review_sha256": null
+    }
+  ]
+}
