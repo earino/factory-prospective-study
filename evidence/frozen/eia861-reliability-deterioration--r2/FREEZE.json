@@ -1,0 +1,50 @@
+{
+  "dataset": "eia861-reliability-deterioration",
+  "environment": "25da8bd4a246c5c78ad693276de09eadf5101df88801ff3a001bba60c8643400",
+  "files": {
+    "booster.json": {
+      "bytes": 154757,
+      "sha256": "5bdbc4c2da945355c7841a4a71e7560821fb65a55cb724a3002d3902f90879ce"
+    },
+    "model.pkl": {
+      "bytes": 187133,
+      "sha256": "01c2bdc70f8a170aba9d2cf070cd38e7591c37f66fe1ebf87fe24a0d019ebdaa"
+    },
+    "train.py": {
+      "bytes": 2736,
+      "sha256": "3629935c297987686d274591eac8f98c068f5682a9a71ca9d56462235f18c41d"
+    },
+    "validation.csv.gz": {
+      "bytes": 15359,
+      "sha256": "3b397d896aa0c5353eb50320c3f0c6ba44054f542d1428f97bc1365b20ef902b"
+    },
+    "validation.json": {
+      "bytes": 1034,
+      "sha256": "b55167a4eb2aa564287b2c3a97cf29e244f96ae29ab85657c892a166a672d5fd"
+    }
+  },
+  "frozen_at": "2026-11-16T01:14:53.784048+00:00",
+  "run": "eia861-reliability-deterioration--r2",
+  "selected_trial": {
+    "artifact_sha256": "01c2bdc70f8a170aba9d2cf070cd38e7591c37f66fe1ebf87fe24a0d019ebdaa",
+    "auc": 0.733128775345312,
+    "backtest": {},
+    "brier": 0.114341532554739,
+    "code_sha256": "3629935c297987686d274591eac8f98c068f5682a9a71ca9d56462235f18c41d",
+    "elapsed_s": 4.829827458015643,
+    "evaluation_wall_s": 4.753029915998923,
+    "finished_epoch": 1794788010.172361,
+    "fit_cpu_s": 0.10630600000000001,
+    "fit_wall_s": 0.061031791992718354,
+    "id": "7cf8dfe5722d450ca3aca11cf4d30e60",
+    "mode": "validation",
+    "note": "H4 minimal model: 8 stateless features (median/min level, max/med and max/min volatility ratios, lag1/median momentum, customers, CAIDI, municipal flag); training-only CV equals the 22-feature model, so fewer noisy inputs should be at least as good out of time",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/eia861-reliability-deterioration-retry-1/.study/runs/eia861-reliability-deterioration--r2/trials/7cf8dfe5722d450ca3aca11cf4d30e60",
+    "phase": "evaluation",
+    "rows_score": 1294,
+    "rows_train": 2453,
+    "started_epoch": 1794788005.34221,
+    "status": "ok",
+    "utc": "2026-11-16T00:13:25.342202+00:00"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "fefb7874ac014dd8bbc3aa80e81c2444",
+  "utc": "2026-11-16T00:44:31.875166+00:00",
+  "started_epoch": 1794789871.8751721,
+  "mode": "validation",
+  "note": "H5 simplification: 7 features (drop range = redundant with max/median and mean/median; drop own/std_other = never split on). Training-only support: drop-one-by-forecast-gap shows range is the only feature whose removal never hurts; over 5 seeds gap1 +0.0065, gap2 +0.0005, gap3 +0.0077 vs the 10-feature model, grouped CV equal (-0.0008, 12 repeats). Validation seen in diagnostics (+0.001, within noise).",
+  "code_sha256": "5268ab34c72acf7e75270420bc17b0c4f36d80d6c592b3cc0b70a15f72abf085",
+  "status": "ok",
+  "fit_wall_s": 0.11401304099126719,
+  "fit_cpu_s": 0.19848399999999988,
+  "phase": "evaluation",
+  "evaluation_wall_s": 4.1294780829921365,
+  "auc": 0.73123869801085,
+  "brier": 0.11438575043462287,
+  "rows_train": 2453,
+  "rows_score": 1294,
+  "backtest": {},
+  "artifact_sha256": "afa53bef070822c83f692d59a1e1fe27f68b123c8344b343fd3cbb38e7ada18c",
+  "finished_epoch": 1794789876.135597,
+  "elapsed_s": 4.259971749997931,
+  "cold_replay_at": "2026-11-16T01:14:53.920463+00:00",
+  "no_retraining": true
+}

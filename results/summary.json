@@ -1,0 +1,130 @@
+{
+  "cli_reported_cost_usd_not_invoice": 1827.7338310000007,
+  "generated_at": "2026-11-16T01:14:54.792420+00:00",
+  "limitations": [
+    "Five selected factory releases; three attempts are descriptive, not agent rankings.",
+    "Pinned consumer scaffold and deterministic downloads are provided assistance.",
+    "CLI-reported model IDs are not independent provider attestation.",
+    "Public holdout isolation and semantic compliance are procedural, not enforced by an OS sandbox.",
+    "CFPB holdout was used in earlier pilot work outside this study.",
+    "Random search matches observed eligible primary-trial fitting CPU, not unlogged diagnostics or token work.",
+    "Fresh Claude trajectories are nondeterministic; frozen artifact replay is reproducible.",
+    "No factory-wide publication yield or spend is inferred from this consumer study."
+  ],
+  "outcomes": [
+    {
+      "dataset": "eia861-reliability-deterioration",
+      "error": null,
+      "id": "eia861-reliability-deterioration--r1",
+      "interruptions": null,
+      "research_active_s": 5100.404487789958,
+      "status": "frozen",
+      "timing": {
+        "cli_invocations": 18,
+        "evaluation_wall_sum_s": 57.03865687502548,
+        "fit_cpu_sum_s": 2.755292999999999,
+        "fit_wall_sum_s": 1.4473787510069087,
+        "harness_wall_union_s": 58.747161865234375,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 16,
+        "other_active_wall_s": 5041.657325924723,
+        "research_active_s": 5100.404487789958,
+        "trial_records": 16
+      }
+    },
+    {
+      "compliance_triage": "no_automatic_access_flag",
+      "dataset": "eia861-reliability-deterioration",
+      "error": null,
+      "holdout_content_hits": [],
+      "id": "eia861-reliability-deterioration--r2",
+      "integrity": "requires_semantic_review",
+      "interruptions": null,
+      "protocol_caveats": [],
+      "research_active_s": 5100.01778795998,
+      "semantic_compliance": "not_established_by_automated_checks",
+      "source_read_flags": 0,
+      "status": "frozen",
+      "timing": {
+        "cli_invocations": 23,
+        "evaluation_wall_sum_s": 67.60087929098518,
+        "fit_cpu_sum_s": 5.1645710000000005,
+        "fit_wall_sum_s": 2.669803124968894,
+        "harness_wall_union_s": 70.60991644859314,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 20,
+        "other_active_wall_s": 5029.4078715113865,
+        "research_active_s": 5100.01778795998,
+        "trial_records": 20
+      },
+      "tool_access_flags": 0,
+      "verified_forbidden_copies": 0
+    },
+    {
+      "dataset": "eia861-reliability-deterioration",
+      "error": null,
+      "id": "eia861-reliability-deterioration--r3",
+      "interruptions": null,
+      "research_active_s": 5100.221863958082,
+      "status": "frozen",
+      "timing": {
+        "cli_invocations": 29,
+        "evaluation_wall_sum_s": 47.22878012302681,
+        "fit_cpu_sum_s": 3.108744999999999,
+        "fit_wall_sum_s": 1.7108164580131415,
+        "harness_wall_union_s": 49.166507959365845,
+        "incomplete_or_failed_trials": 0,
+        "interpretation": "Other time includes inference, tool work, web research, latency and retry waits; not pure LLM reasoning. Interrupted trials are partly censored.",
+        "ok_trials": 12,
+        "other_active_wall_s": 5051.055355998717,
+        "research_active_s": 5100.221863958082,
+        "trial_records": 12
+      }
+    }
+  ],
+  "protocol_sha256": "ebaaa278d0c3866d51e009c168c69b5b8aad929f06660ccb2142093fe38b6177",
+  "reported_models": [
+    "claude-fable-5-2"
+  ],
+  "reported_usage": {
+    "cache_creation_input_tokens": 1221135,
+    "cache_read_input_tokens": 193354599,
+    "input_tokens": 1524,
+    "output_tokens": 857617
+  },
+  "requested_model": "claude-fable-5-2",
+  "scores": [
+    {
+      "dataset": "eia861-reliability-deterioration",
+      "holdout_auc": null,
+      "holdout_brier": null,
+      "holdout_rows": null,
+      "id": "eia861-reliability-deterioration--r1",
+      "kind": "agent",
+      "validation_auc": 0.7329917086683851,
+      "validation_brier": 0.11414255500564569
+    },
+    {
+      "dataset": "eia861-reliability-deterioration",
+      "holdout_auc": null,
+      "holdout_brier": null,
+      "holdout_rows": null,
+      "id": "eia861-reliability-deterioration--r2",
+      "kind": "agent",
+      "validation_auc": 0.733128775345312,
+      "validation_brier": 0.114341532554739
+    },
+    {
+      "dataset": "eia861-reliability-deterioration",
+      "holdout_auc": null,
+      "holdout_brier": null,
+      "holdout_rows": null,
+      "id": "eia861-reliability-deterioration--r3",
+      "kind": "agent",
+      "validation_auc": 0.73123869801085,
+      "validation_brier": 0.11438575043462287
+    }
+  ]
+}

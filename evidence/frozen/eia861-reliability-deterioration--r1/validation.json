@@ -1,0 +1,23 @@
+{
+  "id": "48b903819f3646488e324c6d17c2fef2",
+  "utc": "2026-11-16T00:54:14.824932+00:00",
+  "started_epoch": 1794790454.82494,
+  "mode": "validation",
+  "note": "H5: the 10 inputs are strongly correlated, so stronger per-tree column subsampling should decorrelate trees and generalise forward. colsample_bytree 0.5 with 250 trees was ahead of 0.8/300 on all five training-only cohort splits under paired bootstrap of training utilities (mean +.0034 on fresh resamples; +.0040 on the first set) and +.0011 on validation resamples (14/20); seed-mean val .7315 vs .7303",
+  "code_sha256": "776b56f3fd6813fb804cac631db611f28a2da6f8820eccdadace2b400ee4a2cc",
+  "status": "ok",
+  "fit_wall_s": 0.07995087499148212,
+  "fit_cpu_s": 0.15347299999999975,
+  "phase": "evaluation",
+  "evaluation_wall_s": 4.771461582975462,
+  "auc": 0.7329917086683851,
+  "brier": 0.11414255500564569,
+  "rows_train": 2453,
+  "rows_score": 1294,
+  "backtest": {},
+  "artifact_sha256": "3d7f1fba79b03eae02bf212552b405dd0c36b5ab012ae8b4eb96b687da3e5eb3",
+  "finished_epoch": 1794790459.693304,
+  "elapsed_s": 4.867792042001383,
+  "cold_replay_at": "2026-11-16T01:14:54.068311+00:00",
+  "no_retraining": true
+}

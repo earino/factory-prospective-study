@@ -1,0 +1,50 @@
+{
+  "dataset": "eia861-reliability-deterioration",
+  "environment": "25da8bd4a246c5c78ad693276de09eadf5101df88801ff3a001bba60c8643400",
+  "files": {
+    "booster.json": {
+      "bytes": 192413,
+      "sha256": "b02c85378e2e157db2fe017e3b0712ccd52f41ee2ba68858cc2347645d32a8e8"
+    },
+    "model.pkl": {
+      "bytes": 230573,
+      "sha256": "3d7f1fba79b03eae02bf212552b405dd0c36b5ab012ae8b4eb96b687da3e5eb3"
+    },
+    "train.py": {
+      "bytes": 4290,
+      "sha256": "776b56f3fd6813fb804cac631db611f28a2da6f8820eccdadace2b400ee4a2cc"
+    },
+    "validation.csv.gz": {
+      "bytes": 15490,
+      "sha256": "882a80ef4768eeb53101ef5f1a88a9b389f7a1d33c5089a36109c6e4af591532"
+    },
+    "validation.json": {
+      "bytes": 1180,
+      "sha256": "2ababdf203563bc09ca2df970f058bc163a0144c4d227734153aa88155f58a11"
+    }
+  },
+  "frozen_at": "2026-11-16T01:14:54.154304+00:00",
+  "run": "eia861-reliability-deterioration--r1",
+  "selected_trial": {
+    "artifact_sha256": "3d7f1fba79b03eae02bf212552b405dd0c36b5ab012ae8b4eb96b687da3e5eb3",
+    "auc": 0.7329917086683851,
+    "backtest": {},
+    "brier": 0.11414255500564569,
+    "code_sha256": "776b56f3fd6813fb804cac631db611f28a2da6f8820eccdadace2b400ee4a2cc",
+    "elapsed_s": 4.867792042001383,
+    "evaluation_wall_s": 4.771461582975462,
+    "finished_epoch": 1794790459.693304,
+    "fit_cpu_s": 0.15347299999999975,
+    "fit_wall_s": 0.07995087499148212,
+    "id": "48b903819f3646488e324c6d17c2fef2",
+    "mode": "validation",
+    "note": "H5: the 10 inputs are strongly correlated, so stronger per-tree column subsampling should decorrelate trees and generalise forward. colsample_bytree 0.5 with 250 trees was ahead of 0.8/300 on all five training-only cohort splits under paired bootstrap of training utilities (mean +.0034 on fresh resamples; +.0040 on the first set) and +.0011 on validation resamples (14/20); seed-mean val .7315 vs .7303",
+    "path": "/Users/earino/research/factory-prospective-study/.local/studies/eia861-reliability-deterioration-retry-1/.study/runs/eia861-reliability-deterioration--r1/trials/48b903819f3646488e324c6d17c2fef2",
+    "phase": "evaluation",
+    "rows_score": 1294,
+    "rows_train": 2453,
+    "started_epoch": 1794790454.82494,
+    "status": "ok",
+    "utc": "2026-11-16T00:54:14.824932+00:00"
+  }
+}

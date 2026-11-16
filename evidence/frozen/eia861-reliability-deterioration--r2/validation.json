@@ -1,0 +1,23 @@
+{
+  "id": "7cf8dfe5722d450ca3aca11cf4d30e60",
+  "utc": "2026-11-16T00:13:25.342202+00:00",
+  "started_epoch": 1794788005.34221,
+  "mode": "validation",
+  "note": "H4 minimal model: 8 stateless features (median/min level, max/med and max/min volatility ratios, lag1/median momentum, customers, CAIDI, municipal flag); training-only CV equals the 22-feature model, so fewer noisy inputs should be at least as good out of time",
+  "code_sha256": "3629935c297987686d274591eac8f98c068f5682a9a71ca9d56462235f18c41d",
+  "status": "ok",
+  "fit_wall_s": 0.061031791992718354,
+  "fit_cpu_s": 0.10630600000000001,
+  "phase": "evaluation",
+  "evaluation_wall_s": 4.753029915998923,
+  "auc": 0.733128775345312,
+  "brier": 0.114341532554739,
+  "rows_train": 2453,
+  "rows_score": 1294,
+  "backtest": {},
+  "artifact_sha256": "01c2bdc70f8a170aba9d2cf070cd38e7591c37f66fe1ebf87fe24a0d019ebdaa",
+  "finished_epoch": 1794788010.172361,
+  "elapsed_s": 4.829827458015643,
+  "cold_replay_at": "2026-11-16T01:14:53.704889+00:00",
+  "no_retraining": true
+}
