@@ -1,9 +1,9 @@
 {
   "pages": 5,
-  "pdf_sha256": "79c8dbbc1a3a252e28b8f7c760e0193fea962c4a3d7574eb7e689c0dd33bcae8",
-  "source_zip_sha256": "22845c4327418635f277279d6eaebde8fc10dcc7706592bf0cd5ca184a10b33f",
-  "manuscript_sha256": "3e3233a5405134b591dafc56330d18aad6d24b9b63b208a269e05c3e514784d4",
-  "clean_build_directory": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/factory-submission-check-wx7p17q2/paper-agent27-short",
+  "pdf_sha256": "9a6790e47ff05ad2d5c150315b4190219c619ed15f4ab52a68f50382acb704c7",
+  "source_zip_sha256": "8a4733faa48a4f0313ec5c638fff93a30e252c92b6de0c6207d11e46602cea63",
+  "manuscript_sha256": "43c8ee99735149ecb45e212b1ba3df89e648741389e40d570b4b27ab78009bba",
+  "clean_build_directory": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/factory-label-spacing-1heiswav/paper-agent27-short",
   "clean_build_exit": 0,
   "portable_build_pdf_text_matches": true,
   "no_overfull_or_unresolved_references": true,
@@ -16,9 +16,9 @@
       4,
       5
     ],
-    "result": "All five final pages inspected after design rationale, prior-paper citation and Hermes runtime additions. Figures remain unchanged and readable; no clipping, overlapping labels or unresolved references. Five pages with standard manuscript fonts."
+    "result": "Pages 1\u20132 pixel-identical to previously inspected version. Pages 3\u20135 inspected after wastewater naming and cost-label changes. Construction label no longer crowds adjacent rows; five pages, no clipping or overlap."
   },
-  "record_checks_sha256": "c67dd1d7466b6b3c591c673d1e78ebca994a45339d6c52ba9fb27cd71c0405ca",
+  "record_checks_sha256": "f1d324c50764a23897873a312f753a1a4f98eff18093af649bdeea10385843a5",
   "disclosure_review_sha256": "e8eaddb3fff30ac3786888559bcd88b55b04e7adb240a5fc6ec40a31d96f32e1",
   "long_paper_files_preserved": 310,
   "workflow": {
@@ -35,8 +35,8 @@
     "execution_repair": "Worker diagnostics return to builder generation; no count assigned."
   },
   "consumer_results": {
-    "figure_sha256": "b331d3cc615c95394eacf316309aabc9c85c17aa70800bb0ea7dd53bb02229e9",
-    "data_sha256": "9071cdcddf9b418379bbceeb231c8545d2cc8a7a225f56f30e95680995c929a6",
+    "figure_sha256": "0e0ed504c39daff83b94a27d9aa654279648e0d60a44aa3dfc65cc30cde74252",
+    "data_sha256": "eb3b8c3a899ba12a870a04802b361c588617c68c82372abb6802f9832e56ad86",
     "datasets": 12,
     "consumer_models": 36,
     "tuned_controls": 36,
@@ -59,13 +59,14 @@
     "task_names": "Canonical short_name from release-records.json"
   },
   "cost_figure": {
-    "sha256": "792156c6cfa3ae01d0366306795a17bab5064bbba7a43d06d9c65bc13ec8b5c1",
+    "sha256": "1e8ab714d9fb7f3297b0860379b9b1e2e50dbaca883a7e1340c5d49202094c79",
     "height_in": 1.65,
     "previous_height_in": 2.28,
     "construction_segment_labels_usd": [
       8.62,
       15.89
-    ]
+    ],
+    "construction_label": "Construction (single line); caption includes checks and baseline fitting"
   },
   "figure_numbers": {
     "workflow": 1,

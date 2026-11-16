@@ -36,7 +36,7 @@ report={'sources':{str((base/n).relative_to(ROOT)):hashlib.sha256((base/n).read_
 plt.rcParams.update({'font.family':'DejaVu Sans','pdf.fonttype':42,'font.size':8})
 fig,ax=plt.subplots(figsize=(3.48,1.65))
 fig.subplots_adjust(left=.35,right=.93,top=.80,bottom=.25)
-labels=['Discovery','Construction\n+ checks','Semantic review','Publication','Shared hosting']
+labels=['Discovery','Construction','Semantic review','Publication','Shared hosting']
 for i,(stage,r) in enumerate(rows.items()):
  left=0
  for amount,color in [((r['inference_low_usd']+r['inference_high_usd'])/2,'#286f98'),(r['worker_usd'],'#16877c'),(r['hosting_usd'],'#8d99a5')]:

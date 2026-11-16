@@ -88,7 +88,7 @@ Separate bounded Fable reviews examined the pinned task descriptions, constructi
 
 \begin{figure}[t]
 \centering\includegraphics[width=\columnwidth]{stage-costs.pdf}
-\caption{Estimated expenditure by stage, using midpoint inference tariffs. Hosting is shared across stages.}
+\caption{Estimated expenditure by stage at midpoint inference tariffs; construction includes checks and baseline fitting.}
 \label{fig:costs}
 \end{figure}
 
@@ -118,7 +118,7 @@ The \emph{Phase I to II award} task uses SBIR records to predict whether a firm'
 
 The original semantic reviewer received the complete builder, population description, passing check reports, and instructions to compare code with population rules. It did not receive the full published selection declaration. It explicitly accepted the later-record exclusions as label handling, concluded that the population matched the rule, and requested no repair. A separate pre-scoring review identified the contradiction from the published code and declaration. Inspection of the retained acceptance packet and response established this sequence. The record does not establish whether supplying the missing declaration would have changed acceptance.
 
-A different condition appears in \emph{Exceedance}. A prior-year outcome is a legitimate input when available, but future rows can expose earlier labels through that feature. Our scorer supplies one row at a time; no leakage or consumer misconduct was observed in this scoring. Unrestricted batch use was not established safe.
+A different condition appears in \emph{Wastewater exceedance}. A prior-year outcome is a legitimate input when available, but future rows can expose earlier labels through that feature. Our scorer supplies one row at a time; no leakage or consumer misconduct was observed in this scoring. Unrestricted batch use was not established safe.
 
 \section{Engineering Lessons}
 \textbf{Retain attempt and resource state} to expose repeated work and resume production after failures such as the worker-reservation error.
@@ -127,7 +127,7 @@ A different condition appears in \emph{Exceedance}. A prior-year outcome is a le
 
 \textbf{Review the claims that will be published.} For \emph{Phase I to II award}, checking the builder and a partial descriptor did not reconcile the selection declaration with its filters. We propose supplying the complete population/selection contract and requiring each inclusion rule to match it. This response has not been tested as a remedy.
 
-\textbf{Specify the scoring interface.} The history feature in \emph{Exceedance} shows why accessible rows and outcomes belong in the task contract. Successful execution and legitimate per-row features do not establish safe use under every interface.
+\textbf{Specify the scoring interface.} The history feature in \emph{Wastewater exceedance} shows why accessible rows and outcomes belong in the task contract. Successful execution and legitimate per-row features do not establish safe use under every interface.
 
 \section{Related Work}
 AutoData~\cite{autodata-web} and DatasetResearch~\cite{datasetresearch} address web collection and dataset discovery. MLE-Smith~\cite{qiang2026mlesmith} constructs ML tasks from supplied datasets; AutoSDT~\cite{autosdt} searches repositories and adapts scientific programs into tasks. Their reported per-task costs use different output and accounting boundaries, so they cannot support an efficiency ranking with this deployment. Our contribution connects discovery, construction, public delivery, retained failures, and separate consumer use in one operating record.

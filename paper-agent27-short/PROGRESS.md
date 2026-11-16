@@ -90,3 +90,12 @@ in MONITOR-OPERATIONS.md. EVIDENCE.md links the SBIR packet directly and provide
 commit-pinned consumer archives. Verified 1,957 integrity-listed files against 17
 remote commits. Recorded reference/model checks and remaining public-release
 steps in RELEASE-CHECK.md. No visibility change or conference submission.
+
+## Wastewater name and cost-label spacing — 16 November 2026
+
+Use Wastewater exceedance consistently in Table I, Figure 3 and prose. The
+canonical release label generates both the table and figure. Figure 2 uses a
+single-line Construction label, with checks and baseline fitting stated in its
+caption. A 20% height increase was tried but exceeded five pages; the single-line
+option keeps labels clear within the original footprint. Record checks and the
+portable build pass. Pages 1–2 are unchanged; pages 3–5 were inspected.

@@ -17,7 +17,7 @@ labels = {
  't100-new-route-survival': ('Route survival (aviation)', 'Condition: carrier-code changes can count as entries or exits.', ['condition'], 'R2'),
  'sbir-phase1-to-phase2-conversion': ('Phase I to II award (research grants)', 'Contradiction: selection declaration; concern: award-amount timing.', ['contradiction','concern'], 'Summary; 8.1; 8.3'),
  'caa-fce-hpv-escalation': ('Violation escalation (air regulation)', 'Concern: episode-resolution rule; incidence unverified.', ['concern'], 'R1'),
- 'wser-effluent-exceedance': ('Exceedance (wastewater)', 'Condition: prior-year outcome requires restricted scoring access.', ['condition'], 'Summary; R1'),
+ 'wser-effluent-exceedance': ('Wastewater exceedance (wastewater)', 'Condition: prior-year outcome requires restricted scoring access.', ['condition'], 'Summary; R1'),
  'faa-wildlife-strike-substantial-damage': ('Strike damage (aviation)', 'Condition: retrospective reports with known damage outcomes.', ['condition'], 'Summary; M4; M6'),
  'seattle-building-permit-completion': ('Permit completion (construction)', 'Concern: post-issuance field updates are unverified.', ['concern'], 'R1'),
  'fra-form54-hazmat-release': ('Hazmat release (railways)', 'Condition: retrospective accident-report fields.', ['condition'], '3; 7'),
