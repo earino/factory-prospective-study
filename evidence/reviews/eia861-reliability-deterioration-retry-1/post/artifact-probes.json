@@ -1,0 +1,52 @@
+[
+  {
+    "run": "eia861-reliability-deterioration--r1",
+    "real_validation_rows_checked": 25,
+    "batch_equals_single_rows": true,
+    "reverse_order_invariant": true,
+    "prepare_external_events": [],
+    "n_jobs": 5,
+    "feature_count": 10,
+    "selected_feature_names": [
+      "lcaidi",
+      "lcust",
+      "lmed",
+      "mean_med",
+      "gap",
+      "lint",
+      "lcustmin",
+      "t_up",
+      "t_down",
+      "med_caidi"
+    ]
+  },
+  {
+    "run": "eia861-reliability-deterioration--r2",
+    "real_validation_rows_checked": 25,
+    "batch_equals_single_rows": true,
+    "reverse_order_invariant": true,
+    "prepare_external_events": [],
+    "n_jobs": 5,
+    "feature_count": 8,
+    "selected_feature_names": [
+      "lmed",
+      "lmin",
+      "r_max_med",
+      "r_max_min",
+      "r_l1_med",
+      "lcust",
+      "own_2",
+      "lcaidi"
+    ]
+  },
+  {
+    "run": "eia861-reliability-deterioration--r3",
+    "real_validation_rows_checked": 25,
+    "batch_equals_single_rows": true,
+    "reverse_order_invariant": true,
+    "prepare_external_events": [],
+    "n_jobs": 5,
+    "feature_count": 7,
+    "selected_feature_names": null
+  }
+]

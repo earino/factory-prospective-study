@@ -101,3 +101,16 @@ Codex checked the actual predictor filter and row-wise scorer: the review
 assumption about utility ID/calendar inputs does not apply to these consumers
 or the ordinary/random controls. The bounded follow-up retains timing, selection
 and grouping limits without turning them into unsupported leakage claims.
+
+
+16 November, 01:25 UTC: Utility retry-1 completed; the existing controller exited
+normally. All three selected models, ten attention requests and targeted process
+follow-up were reviewed. All four posttools passed; selected-code review now covers
+36 solutions. All twelve consumer datasets have three scored models, including
+Seattle's preserved composite. Utility intervals are positive against both
+controls for all three runs, using 734 utility groups. Original failures remain.
+Next: integrate the completed consumer evidence with the fixed 07:00 UTC final
+production export, calculate final costs, reconcile any later administration,
+then regenerate tables/figures and final seven-page paper. Do not start more
+consumer experiments or send their findings to production. Exec session 73081
+has exited successfully; it must not be restarted.

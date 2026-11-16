@@ -1,0 +1,49 @@
+{
+  "execution": "eia861-reliability-deterioration-retry-1",
+  "sealed_study_commit": "6d6926dcb712fbdbaf5c54b3f45a1eabae783d38",
+  "selected_models": 3,
+  "scanned_unique_requests": 655,
+  "attention_requests_inspected": 10,
+  "original_flags_inspected": 3,
+  "prohibited_holdout_reads_observed": 0,
+  "posttools": [
+    {
+      "ok": true,
+      "tool": "review_checks.py"
+    },
+    {
+      "ok": true,
+      "tool": "probe_all_training_features.py"
+    },
+    {
+      "ok": true,
+      "tool": "probe_artifacts.py"
+    },
+    {
+      "ok": true,
+      "tool": "bootstrap.py"
+    }
+  ],
+  "cluster_columns": [
+    "utility_id"
+  ],
+  "clusters": 734,
+  "holdout_rows": 2062,
+  "all_three_intervals_above_zero_vs": [
+    "ordinary",
+    "paired_random"
+  ],
+  "input_hashes": {
+    "evidence/reviews/eia861-reliability-deterioration-retry-1/post/review-inventory.json": "279a0befbb53e0c65e60b6ad4b980d1c56a7a487f78ba6cef6f620de1a26817a",
+    "evidence/reviews/eia861-reliability-deterioration-retry-1/post/attention-requests.json": "92e7d20f4f7ade634466bc683c51b0cc5d95585acea47d75e738388835284712",
+    "evidence/reviews/eia861-reliability-deterioration-retry-1/post/artifact-probes.json": "7da0effc83d3b8cbbc5f00aa55d3844e253d13cb45b5927f63313f8485618cb5",
+    "evidence/reviews/eia861-reliability-deterioration-retry-1/post/training-feature-probes.json": "f8239298f4fa9bff7cabe47780dbd6cf3dbd865288b17a995fd05d8d75ba6956",
+    "evidence/reviews/eia861-reliability-deterioration-retry-1/post/bootstrap.json": "29d5ab2691f900dd51ba524bca0075b45d6fc22cef884450ddb30f0312f74767",
+    "evidence/reviews/eia861-reliability-deterioration-retry-1/post/control-features.json": "afa7d75da36924e45e2da37780d898fdad79a7715a38a80111991a0499b7b748"
+  },
+  "limits": [
+    "Manual review is bounded, not proof of all exploratory compliance or OS isolation.",
+    "Utility grouping does not capture all common year/weather shocks.",
+    "Random controls match eligible primary fitting CPU, excluding exploratory diagnostics."
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "basis": "Last available cumulative cost per independent CLI session, not per-invocation sum; estimates, not invoice. Deadline-truncated final invocations may leave unreported usage.",
+  "runs": [
+    {
+      "run": "eia861-reliability-deterioration--r1",
+      "session_id": "59a25fb0-2ab6-498b-beb3-4bfe0d8bb40b",
+      "invocations": 18,
+      "naive_sum_cumulative_cost": 593.5455922000008,
+      "last_reported_session_cost": 36.79990420000006,
+      "monotone_cumulative_cost": true,
+      "final_invocation_has_result": true,
+      "short_invocations_under_10s": 2
+    },
+    {
+      "run": "eia861-reliability-deterioration--r2",
+      "session_id": "9ab6ec1a-0f12-4ad5-947c-2ba5914f1878",
+      "invocations": 23,
+      "naive_sum_cumulative_cost": 576.8027147999996,
+      "last_reported_session_cost": 28.622921399999992,
+      "monotone_cumulative_cost": true,
+      "final_invocation_has_result": true,
+      "short_invocations_under_10s": 3
+    },
+    {
+      "run": "eia861-reliability-deterioration--r3",
+      "session_id": "bab5e51f-46eb-4aaf-86a1-385b5d74c85f",
+      "invocations": 29,
+      "naive_sum_cumulative_cost": 657.3855240000001,
+      "last_reported_session_cost": 27.103126200000005,
+      "monotone_cumulative_cost": true,
+      "final_invocation_has_result": true,
+      "short_invocations_under_10s": 2
+    }
+  ],
+  "sum_last_reported_session_cost": 92.52595180000006,
+  "original_naive_sum": 1827.7338310000005
+}

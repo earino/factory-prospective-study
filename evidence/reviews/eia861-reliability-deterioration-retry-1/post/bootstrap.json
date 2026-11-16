@@ -1,0 +1,70 @@
+{
+  "dataset": "eia861-reliability-deterioration",
+  "cluster_columns": [
+    "utility_id"
+  ],
+  "clusters": 734,
+  "rows": 2062,
+  "positives": 348,
+  "missing_cluster_rows": 0,
+  "largest_cluster": 3,
+  "seed": 143133813,
+  "valid_replicates": 2000,
+  "invalid_replicates": 0,
+  "comparisons": [
+    {
+      "run": "eia861-reliability-deterioration--r1",
+      "control": "eia861-reliability-deterioration--ordinary",
+      "delta": 0.038739454660067896,
+      "low": 0.013460392514335156,
+      "high": 0.06558538404032171
+    },
+    {
+      "run": "eia861-reliability-deterioration--r1",
+      "control": "eia861-reliability-deterioration--r1--random",
+      "delta": 0.02217790608779624,
+      "low": 0.003643061423784752,
+      "high": 0.04066627733115772
+    },
+    {
+      "run": "eia861-reliability-deterioration--r2",
+      "control": "eia861-reliability-deterioration--ordinary",
+      "delta": 0.042250935500744324,
+      "low": 0.01830999009410668,
+      "high": 0.06697334978538216
+    },
+    {
+      "run": "eia861-reliability-deterioration--r2",
+      "control": "eia861-reliability-deterioration--r2--random",
+      "delta": 0.02124575839268228,
+      "low": 0.005416674408399727,
+      "high": 0.037215741210331874
+    },
+    {
+      "run": "eia861-reliability-deterioration--r3",
+      "control": "eia861-reliability-deterioration--ordinary",
+      "delta": 0.04191563057444436,
+      "low": 0.01818163026310989,
+      "high": 0.06749004692278039
+    },
+    {
+      "run": "eia861-reliability-deterioration--r3",
+      "control": "eia861-reliability-deterioration--r3--random",
+      "delta": 0.023182982604380453,
+      "low": 0.001163025553327035,
+      "high": 0.04523466450400561
+    }
+  ],
+  "inputs": {
+    "/Users/earino/research/factory-prospective-study/.local/studies/eia861-reliability-deterioration-retry-1/.study/holdout/eia861-reliability-deterioration/holdout.csv": "721984dd348b46d1a1e468cf170d7a6e28e3ecf744919a51d7211183972061ff",
+    "/Users/earino/research/factory-prospective-study/evidence/reviews/eia861-reliability-deterioration-retry-1/cluster.json": "32fff9cfa9dc9cc874bc636ea31f7fca32a5e56bd4497a4e161374ada8fb0bb5",
+    "/Users/earino/research/factory-prospective-study/.local/studies/eia861-reliability-deterioration-retry-1/results/scores/eia861-reliability-deterioration--ordinary/predictions.csv.gz": "2b6ec43283b9627c0585582cd09418355e467d68784950e43f32e5e8265dc2ad",
+    "/Users/earino/research/factory-prospective-study/.local/studies/eia861-reliability-deterioration-retry-1/results/scores/eia861-reliability-deterioration--r1/predictions.csv.gz": "315b676c5d3762c6cf25aa445d5617fd2d9cf7ca0b1cd75c64563815505ab6d8",
+    "/Users/earino/research/factory-prospective-study/.local/studies/eia861-reliability-deterioration-retry-1/results/scores/eia861-reliability-deterioration--r2/predictions.csv.gz": "93712ef80b7faa3b3bd5551b610af1fc1fa3730ce97f782b28808e9cae290e68",
+    "/Users/earino/research/factory-prospective-study/.local/studies/eia861-reliability-deterioration-retry-1/results/scores/eia861-reliability-deterioration--r3/predictions.csv.gz": "63eb315090c00f9494fc0741e1cdc34b20ad529330912a5129cccd2e719a6070",
+    "/Users/earino/research/factory-prospective-study/.local/studies/eia861-reliability-deterioration-retry-1/results/scores/eia861-reliability-deterioration--r1--random/predictions.csv.gz": "3dbc378ebea27b0c274fc20f4ab11f020b036e69a8b758333eb3afa7c3a2cf60",
+    "/Users/earino/research/factory-prospective-study/.local/studies/eia861-reliability-deterioration-retry-1/results/scores/eia861-reliability-deterioration--r2--random/predictions.csv.gz": "16d3d843a50e7734df8b58db3773bdee540fa31605f806dddd0829208d1618e5",
+    "/Users/earino/research/factory-prospective-study/.local/studies/eia861-reliability-deterioration-retry-1/results/scores/eia861-reliability-deterioration--r3--random/predictions.csv.gz": "b8135fb493dd12661a9b65aa053a3b1dd0b77552cf8c3f5c5a6c3aece253b0c5"
+  },
+  "method": "2000 paired whole-entity draws, pointwise percentile95%; conditional on fitted models, cohort and declared dependence"
+}

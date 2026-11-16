@@ -1,0 +1,45 @@
+{
+  "agent_sha256": "2707b0ad7c4ddc1a794ed611c900bfe51798ff073ef4b19994ca90edda7ec906",
+  "attempt_total_seconds": 7200,
+  "cli_version": "2.1.323 (Claude Code)",
+  "compliance_policy": "preserve all results; automatic triage is not a semantic compliance verdict",
+  "control_budget": "match successful primary validation trial fitting CPU; cap by control wall time; exclude diagnostic/replay CPU; report over/undershoot",
+  "control_seconds": 5100,
+  "cpu_count": 16,
+  "datasets": [
+    "eia861-reliability-deterioration"
+  ],
+  "effort": "high",
+  "experiment_seconds": 300,
+  "holdout_policy": "public and accessible; prohibited during research; access violations are a study outcome, not prevented by network isolation",
+  "jobs": 3,
+  "model": "claude-fable-5-2",
+  "order": [
+    "eia861-reliability-deterioration--r1",
+    "eia861-reliability-deterioration--r2",
+    "eia861-reliability-deterioration--r3"
+  ],
+  "platform": "macOS-27.2-arm64-arm-64bit-Mach-O",
+  "prior_exposure": "New release cohort; prior seven releases excluded. Other dataset results may exist on the shared host but are prohibited. Per-dataset holdout barrier.",
+  "push": true,
+  "python": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 17.0.0 (clang-1700.6.4.2)]",
+  "refit_on_validation": false,
+  "registered_at": "2026-11-15T23:49:03.097218+00:00",
+  "release_list_sha256": "135cf738763473c7ac22a6d284b7fbba310a8268748f647ffc79c217602da0e5",
+  "releases": [
+    [
+      "eia861-reliability-deterioration",
+      "v-498e55482c3ed94b",
+      "345b43cc6cdbe14691bca74cfc067d62e2d980ee",
+      "050ce58bacf7c0073e7ccc3c1045438821cc6b76c095409ddb08d132f39e1559"
+    ]
+  ],
+  "repetitions": 3,
+  "research_seconds": 5100,
+  "runner_sha256": "be312425c32e6ce9dade71f265b4c7d7edfc1958a009dbc7682999b9278cfdf9",
+  "schema": 2,
+  "seed": 42,
+  "selection": "max replayed validation AUC; ties <=1e-9 earliest trial",
+  "smoke_excluded_from_study": false,
+  "threads": 5
+}

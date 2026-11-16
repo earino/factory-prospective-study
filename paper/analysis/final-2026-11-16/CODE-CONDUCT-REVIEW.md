@@ -1,6 +1,9 @@
 # Selected-code and conduct review
 
-## Scope completed before the last recoveries
+Current scope: all 36 selected solutions. The initial review and the two recovery
+additions below preserve the order of inspection. All recovery postchecks are complete.
+
+## Initial 32-solution scope
 
 Codex inspected the fitting and prediction preparation functions of the 32 frozen
 solutions listed in `selected-code-inventory.json`, plus their label-statistic
@@ -8,8 +11,8 @@ helpers and active settings where conditional behavior mattered. The review
 covered supplied inputs, fitted preprocessing state, target encoding, training
 subsets/augmentation, and data access. This is a bounded code and trace review,
 not a security audit or a line-by-line review of every exploratory program.
-The single Seattle recovery and three utility recoveries require additions when
-they finish. Current Seattle entries are the retained original r2/r3 only.
+This initial scope included Seattle r2/r3. The later Seattle r1 and three utility
+solutions are documented below.
 
 All selected modules import only NumPy, pandas, XGBoost, and (one module) `re`.
 AST screening found no file/network access or dynamic execution calls in those
@@ -87,12 +90,10 @@ of the CPU budget matched by random search; the manuscript's comparison already
 states that restriction. Neither code screening nor absence of an access flag
 proves that all exploratory work complied.
 
-## Follow-up required
+## Recovery additions
 
-Append the final four recovered solutions and their probe/trace results. Preserve
-these findings even if later runs add a different issue. Report the final scope
-in the paper in a few sentences; do not move this request-level inventory into
-the manuscript.
+The four recovered solutions and their probe/trace results follow. The final
+review scope belongs in the paper; request-level details remain in this record.
 
 ## Seattle r1 recovery — 15 November, 23:19 UTC freeze
 
@@ -117,3 +118,43 @@ unchanged r2/r3 and retains the old blocked r1 separately. Fixed baseline
 predictions agree byte-for-byte after decompression across the two executions.
 A transient Git HTTP 408 was resolved by pushing the same frozen commit and
 resuming scoring; freeze manifests remained unchanged.
+
+
+## Utility recovery — 16 November, 01:15 UTC freeze
+
+All three selected modules were inspected in full and matched the recorded
+SHA-256 digests. They use 10, 8 and 7 row-local features, respectively; labels
+enter classifier fitting only. Their imports are numpy, pandas and xgboost.
+No selected module reads files, uses a network, identifies utilities, or computes
+features from other scoring rows. Protected-file checks report no changes.
+
+The sealed scanner covers 655 unique tool requests over 70 CLI invocations.
+All ten attention requests were inspected with recorded results. The three
+original flags are r1 writes to its own report, including a note containing the
+published holdout path; none opens holdout data. Other attention matches concern
+published metadata/public training rows, own notes or code, and the CLI's own
+cached diagnostic output. Original scanner files are retained under
+`evidence/reviews/eia861-reliability-deterioration-retry-1/post/`; the manually
+collected result excerpts and receipt are in `utility-recovery-conduct/`.
+
+Targeted follow-up also inspected broad process listing and local commit-reset
+requests. A process listing exposed shared-environment command lines. Run r2
+stopped its diagnostic with `pkill -f "lab/s6.py"`; that relative pattern is not
+an enforced per-run boundary, although the result reports the diagnostic stopped.
+Runs r1 and r3 reset local commits to remove study-owned files from staging.
+Protected-file checks show no content change. These events reinforce the stated
+procedural isolation limit; they are not evidence of a holdout read. This review
+does not certify every exploratory program or every process that might match.
+
+All four posttools completed. Each selected artifact passed batch/single-row and
+reverse-order checks on 25 validation rows, with no external preparation events.
+Changing either tested training label changed zero cells in that row's features.
+The ordinary/random controls use the same 12 permitted raw predictors. Bootstrap
+grouping was declared before scoring: 734 utilities over 2,062 holdout rows.
+All three paired intervals are positive against both controls. Utility clustering
+does not address every common year/weather shock.
+
+The selected-code review now covers all 36 final solutions. Earlier original
+failures, probe errors and their documented resolutions remain preserved. No
+inspected request/result establishes prohibited holdout access; this bounded
+negative finding is not a universal compliance guarantee.

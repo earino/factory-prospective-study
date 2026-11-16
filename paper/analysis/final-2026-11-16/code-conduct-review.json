@@ -1,5 +1,5 @@
 {
-  "status": "33-solution review complete; three utility recovery solutions pending",
+  "status": "36 selected solutions reviewed; bounded code/conduct scope complete",
   "runs": [
     {
       "execution": "fjc-civil-trial-36m",
@@ -431,6 +431,48 @@
       "protected_input_changes": [],
       "original_flags_reviewed": 0,
       "finding": "No target encoding or data access. Labels enter classifier fitting only; category levels use training covariates; geographic regions are fixed. Both flagged references address own released metadata or scratch files."
+    },
+    {
+      "execution": "eia861-reliability-deterioration-retry-1",
+      "run": "eia861-reliability-deterioration--r1",
+      "code_sha256": "776b56f3fd6813fb804cac631db611f28a2da6f8820eccdadace2b400ee4a2cc",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "Complete selected module; row-local transforms and label use; scanner attention requests and recorded results, with targeted process/commit follow-up",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 3,
+      "finding": "Labels enter classifier fitting only; selected features are row-local. No selected-code file/network access or observed prohibited holdout read."
+    },
+    {
+      "execution": "eia861-reliability-deterioration-retry-1",
+      "run": "eia861-reliability-deterioration--r2",
+      "code_sha256": "3629935c297987686d274591eac8f98c068f5682a9a71ca9d56462235f18c41d",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "Complete selected module; row-local transforms and label use; scanner attention requests and recorded results, with targeted process/commit follow-up",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 0,
+      "finding": "Labels enter classifier fitting only; selected features are row-local. No selected-code file/network access or observed prohibited holdout read."
+    },
+    {
+      "execution": "eia861-reliability-deterioration-retry-1",
+      "run": "eia861-reliability-deterioration--r3",
+      "code_sha256": "5268ab34c72acf7e75270420bc17b0c4f36d80d6c592b3cc0b70a15f72abf085",
+      "imports": [
+        "numpy",
+        "pandas",
+        "xgboost"
+      ],
+      "review_scope": "Complete selected module; row-local transforms and label use; scanner attention requests and recorded results, with targeted process/commit follow-up",
+      "protected_input_changes": [],
+      "original_flags_reviewed": 0,
+      "finding": "Labels enter classifier fitting only; selected features are row-local. No selected-code file/network access or observed prohibited holdout read."
     }
   ],
   "scanner_attention_reason_counts": {
@@ -454,7 +496,9 @@
   "procedural_exceptions": [
     "CLI backgrounded long diagnostics",
     "PHMSA own scratch code under /tmp",
-    "CAA r2 process-stop command broader than its attempt"
+    "CAA r2 process-stop command broader than its attempt",
+    "Utility runs used broad process listings; r2 stopped a diagnostic by relative script-name pattern",
+    "Utility r1 and r3 reset local commits to unstage study-owned files; protected-file checks show no content changes"
   ],
   "source_report_sha256": {
     "fjc-civil-trial-36m": "2b416e03497c139dd1738c1f49e9503fa2a94ec2d5d4d71d4de4a178c3cf4e63",
@@ -468,5 +512,11 @@
     "seattle-building-permit-completion-retry-1": "4ab685561c787e3ef5cd10153f429a51d13a12517d50f1f2088e067b97a8adec",
     "fra-form54-hazmat-release-retry-1": "f95791e79ed686022a5dbc999fd0eb22c5329069818f0ab6c032d6ea90e7637c",
     "sdwis-lcr-lead-action-level-next-period": "62c862f31447c775895d1cbaf208fb368ecc8d129ab12ba82e7a181bdd18bf07"
+  },
+  "scanner_attention_reason_counts_scope": "Initial 32 solutions; Seattle and utility recovery scans retained separately",
+  "recovery_review_evidence": {
+    "Seattle": "paper/analysis/final-2026-11-16/seattle-recovery-conduct",
+    "utility": "evidence/reviews/eia861-reliability-deterioration-retry-1/post",
+    "utility_manual_results": "paper/analysis/final-2026-11-16/utility-recovery-conduct/attention-results.json"
   }
 }

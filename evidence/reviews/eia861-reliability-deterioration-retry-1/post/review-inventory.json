@@ -1,0 +1,68 @@
+[
+  {
+    "run": "eia861-reliability-deterioration--r1",
+    "selected_code_sha256": "776b56f3fd6813fb804cac631db611f28a2da6f8820eccdadace2b400ee4a2cc",
+    "selected_code_io_calls": [],
+    "transcripts_scanned": 18,
+    "unique_tool_requests": 264,
+    "tool_counts": {
+      "Bash": 251,
+      "Write": 4,
+      "Read": 6,
+      "Edit": 3
+    },
+    "existing_flag_results": [
+      {
+        "trace": "0000.jsonl",
+        "line": 455,
+        "tool_use_id": "toolu_01FTtQ7dmXGDgFnqEUXrMnMZ",
+        "result": "File created successfully at: /Users/earino/research/factory-prospective-study/.local/studies/eia861-reliability-deterioration-retry-1/.study/runs/eia861-reliability-deterioration--r1/REPORT.md (file state is current in your context \u2014 no need to Read it back)",
+        "is_error": null
+      },
+      {
+        "trace": "0000.jsonl",
+        "line": 645,
+        "tool_use_id": "toolu_01TGJfi3vgtJFaDKFWrSckFc",
+        "result": "The file /Users/earino/research/factory-prospective-study/.local/studies/eia861-reliability-deterioration-retry-1/.study/runs/eia861-reliability-deterioration--r1/REPORT.md has been updated successfully. (file state is current in your context \u2014 no need to Read it back)",
+        "is_error": null
+      },
+      {
+        "trace": "0000.jsonl",
+        "line": 973,
+        "tool_use_id": "toolu_01V1oLj3iLF4pWKsPXcckDJj",
+        "result": "1794788995",
+        "is_error": false
+      }
+    ],
+    "protected_input_changes": []
+  },
+  {
+    "run": "eia861-reliability-deterioration--r2",
+    "selected_code_sha256": "3629935c297987686d274591eac8f98c068f5682a9a71ca9d56462235f18c41d",
+    "selected_code_io_calls": [],
+    "transcripts_scanned": 23,
+    "unique_tool_requests": 200,
+    "tool_counts": {
+      "Bash": 197,
+      "Write": 1,
+      "Grep": 1,
+      "Read": 1
+    },
+    "existing_flag_results": [],
+    "protected_input_changes": []
+  },
+  {
+    "run": "eia861-reliability-deterioration--r3",
+    "selected_code_sha256": "5268ab34c72acf7e75270420bc17b0c4f36d80d6c592b3cc0b70a15f72abf085",
+    "selected_code_io_calls": [],
+    "transcripts_scanned": 29,
+    "unique_tool_requests": 191,
+    "tool_counts": {
+      "Bash": 187,
+      "Write": 1,
+      "Read": 3
+    },
+    "existing_flag_results": [],
+    "protected_input_changes": []
+  }
+]
