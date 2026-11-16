@@ -6,6 +6,8 @@ Five of six listed conditions have stated restrictions. Carrier-code exits are d
 
 `disclosure-review.json` contains exact passages or JSON pointers, manual rationales, pin identities and hashes. Complete inspected documents and their manifests are preserved in `disclosure-documents/`. A not-found judgment is limited to these inspected documents; a generic caveat does not count as full disclosure of a specific mechanism.
 
+Eight individual concerns are listed: one stated, three partly stated, and four not found. SDWIS contributes three separate concerns (older-history overlap, unit magnitudes, and embargo selection); counting table rows would mix findings and releases.
+
 ## fjc-civil-trial-36m
 
 - Post-filing jury information; retrospective use: **stated**. The card explicitly warns that JURY may reflect later corrections and does not establish historical availability.

@@ -16,3 +16,8 @@ range and median remain in the text; individual times remain in the evidence.
 Artifact hashes and portable-build verification are recorded in `output/QA.json`.
 The revision is committed/pushed with exact-commit CI checked before delivery.
 The paper is not submitted; the evidence repository remains private.
+
+Final prose revision: merged the two generic lessons, added the construction-cost
+lesson, replaced the vague concern count with 1/3/4, changed the table header to
+Principal review finding, and defined tool-calling cycles while removing the
+unused construction turn detail. PDF and portable archive reverified.

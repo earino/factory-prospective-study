@@ -105,6 +105,9 @@ for row in disclosure['records']:
  assert table_record['disclosure_findings']==row['findings']
 assert dict(condition_statuses)=={'stated':5,'partly_stated':1}
 assert disclosure['condition_counts']=={'total':6,'stated':5,'partly_stated':1}
+concern_statuses=Counter(f['disclosure'] for r in disclosure['records'] for f in r['findings'] if f['category']=='concern')
+assert dict(concern_statuses)=={'stated':1,'partly_stated':3,'not_found':4}
+assert disclosure['concern_counts']=={'total':8,**dict(concern_statuses)}
 tex=(OUT/'draft/main.tex').read_text()
 for banned in ['presentation emphasis','we now focus','later paper','interim results','random-search','holdout AUC','BLOCKER.json','---','…']:
  assert banned.lower() not in tex.lower(), banned
@@ -117,6 +120,7 @@ report={'production_attempts':len(attempts),'milestones':milestones,'retry_count
  'cost_range_usd':cost['factory_total_time_priced_usd_range'],'stage_costs_reconcile':True,'build_share_percent':stage['build_share_at_midpoint']*100,
  'sbir_original_files_verified':len(retrieval['sha256']),'first_release_trace_attempts':len(trace),'long_paper_files_preserved':len(preserved),'citations':sorted(citations),
  'disclosure_documents_checked':36,'disclosure_conditions':dict(condition_statuses),
+ 'disclosure_concerns':dict(concern_statuses),
  'disclosure_review_sha256':sha(OUT/'analysis/disclosure-review.json'),
  'manuscript_sha256':sha(OUT/'draft/main.tex'),
  'scope':'Recorded quantities, input identities, consumer completion, source-review identities and known wording checks. Does not mechanically establish semantic correctness of every sentence; manual claim and page reviews are separate.'}

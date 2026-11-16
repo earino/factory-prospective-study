@@ -120,3 +120,16 @@ counted as a stated restriction, not as an explanation or enforcement proof.
 SBIR contains conflicting published statements, rather than simply an undisclosed
 filter. Findings and disclosure now occupy separate table columns. Per-release
 times remain in the evidence; the manuscript retains the range and median.
+
+## Final wording checks
+
+The concern count uses individual findings: one stated, three partly stated, and
+four not found (eight total). SDWIS has three concerns, not one table-row verdict.
+The revised lessons merge the recordkeeping points and interpret the existing
+stage-cost figure, with the 64 percent share restricted to construction and checks.
+Research tool-calling cycles are defined in prose. The six-turn runtime ceiling
+for the tool-free construction wrapper is omitted as unhelpful implementation
+detail; the ten-minute timeout and separate worker execution remain explicit.
+The runtime boundary was rechecked in pinned `factory/model_tasks.py` and
+`factory/hermes_write_task.py`; `docs/OPERATIONS.md` identifies max-turns as the
+tool-calling iteration cap. No new production or consumer experiment was run.

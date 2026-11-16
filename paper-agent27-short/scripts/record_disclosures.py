@@ -103,6 +103,9 @@ report={'scope':'Manual comparison of each selected table finding with the compl
  'not_found':'The specific selected concern was not found in either inspected document.',
  'conflicting_statements':'Relevant exclusions are disclosed alongside the contradictory selection declaration.'},
  'condition_counts':{'total':len(conditions),'stated':sum(f['disclosure']=='stated' for f in conditions),'partly_stated':sum(f['disclosure']=='partly_stated' for f in conditions)},'records':records}
+concerns=[f for r in records for f in r['findings'] if f['category']=='concern']
+report['concern_counts']={'total':len(concerns), **{k:sum(f['disclosure']==k for f in concerns) for k in ['stated','partly_stated','not_found']}}
+assert report['concern_counts']=={'total':8,'stated':1,'partly_stated':3,'not_found':4}
 assert report['condition_counts']=={'total':6,'stated':5,'partly_stated':1}
 (OUT/'analysis/disclosure-review.json').write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps(report['condition_counts']))
