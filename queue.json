@@ -554,5 +554,44 @@
     "selected": false,
     "status": "capacity_excluded",
     "verified_at": "2026-11-16T00:01:15.752782+00:00"
+  },
+  {
+    "dataset": "ca-beach-advisory-duration",
+    "release": {
+      "artifact_version": "bbeefbfb31599f49805ff9f96a3c906953ee1cc565796c1d7faee484fdd91ca5",
+      "assets": 33,
+      "baseline_display": "See versioned evaluation.json; public validation only",
+      "dataset": "ca-beach-advisory-duration",
+      "destinations": {
+        "github": "https://github.com/earino/factory-ca-beach-advisory-duration/releases/tag/v-2cdf2a6e0df3956f",
+        "huggingface": "https://huggingface.co/datasets/earino/factory-ca-beach-advisory-duration"
+      },
+      "detail_id": "source-000127",
+      "disposition": "public",
+      "published": true,
+      "release_tag": "v-2cdf2a6e0df3956f",
+      "rows": 19061,
+      "splits": {
+        "eval": {
+          "rows": 4350
+        },
+        "holdout": {
+          "rows": 4769
+        },
+        "train": {
+          "rows": 9942
+        }
+      },
+      "verified": {
+        "github": true,
+        "huggingface": true
+      },
+      "verified_all": true,
+      "verified_at": "2026-11-16T05:08:15.959655+00:00",
+      "workflow": "modern"
+    },
+    "selected": false,
+    "status": "capacity_excluded",
+    "verified_at": "2026-11-16T05:08:15.959655+00:00"
   }
 ]

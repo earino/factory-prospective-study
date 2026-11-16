@@ -11,12 +11,13 @@
     "status": "complete"
   },
   "factory_counts": {
-    "build": 2,
-    "deferred": 99,
-    "published": 20,
+    "build": 1,
+    "deferred": 101,
+    "discover": 1,
+    "published": 21,
     "rejected": 7
   },
-  "observed_at": "2026-11-16T05:34:13.356313+00:00",
+  "observed_at": "2026-11-16T06:04:34.914552+00:00",
   "paper": {
     "at": "2026-11-15T22:40:26.170977+00:00",
     "consumer_status": "complete: 12 datasets, 36 scored models; code/conduct and sampled probes reviewed",
@@ -131,6 +132,14 @@
       "selected": false,
       "branch": null,
       "error": null
+    },
+    {
+      "dataset": "ca-beach-advisory-duration",
+      "verified_at": "2026-11-16T05:08:15.959655+00:00",
+      "status": "capacity_excluded",
+      "selected": false,
+      "branch": null,
+      "error": null
     }
   ],
   "retries": [
@@ -187,7 +196,7 @@
       }
     }
   ],
-  "snapshot_generated_at": "2026-11-16T04:51:58+00:00",
+  "snapshot_generated_at": "2026-11-16T05:52:34+00:00",
   "window": {
     "analysis_start": "2026-11-16T10:00:00Z",
     "attempt_minutes": 85,
