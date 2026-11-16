@@ -1,0 +1,68 @@
+{
+  "entrypoint": "main.tex",
+  "compiler": "pdflatex",
+  "pages": 5,
+  "source_archive_sha256": "d6b6eb3e5058c00e010a37d42dde7dc0482b9ddab61c708fe7fe6bfdbac50530",
+  "preview_sha256": "887c6c6a68412a50f409cc53a02417deff5b1624707802a4052caaa2280f3a47",
+  "submitted_pdf_sha256": "5589905184ea739878a6c50df2648a5fdc5765638ee37353271205d4e70a3f8a",
+  "submitted_tex_sha256": "b1068ec99c5f65d9bc5b04ccfd4b8530293920c8714fb967e942e2f3250d9af4",
+  "source_files": {
+    "IEEEtran.bst": {
+      "bytes": 57748,
+      "sha256": "314f0ece704568faf827011bac498650691b2b5ee06320720830e782416d5a5f"
+    },
+    "IEEEtran.cls": {
+      "bytes": 281957,
+      "sha256": "da751920a317ed318b7b5cd7fa585a6cc7d28502d457856382e9be24b10a3bd7"
+    },
+    "figures/consumer-results.pdf": {
+      "bytes": 26938,
+      "sha256": "0e0ed504c39daff83b94a27d9aa654279648e0d60a44aa3dfc65cc30cde74252"
+    },
+    "figures/stage-costs.pdf": {
+      "bytes": 14742,
+      "sha256": "1e8ab714d9fb7f3297b0860379b9b1e2e50dbaca883a7e1340c5d49202094c79"
+    },
+    "figures/workflow.pdf": {
+      "bytes": 17909,
+      "sha256": "1dc9b4b5a8deef0cdadf763668a6d77a416cf0f1d329e9bbdf4e66ebf1797857"
+    },
+    "generated/attempt-rows.tex": {
+      "bytes": 221,
+      "sha256": "0c34e01338f080372ed55541a9adc4085bda5b178e6c81012521c118ad8deafc"
+    },
+    "generated/release-rows.tex": {
+      "bytes": 1563,
+      "sha256": "a9a8a9fb0d36e166f0ba848e9d4853a166bed3391ba8f34b3e734faa686ce32a"
+    },
+    "main.bbl": {
+      "bytes": 4107,
+      "sha256": "4482454245c6508fcde9a7ef381de0a218e7435727c329d503227ba2e8868395"
+    },
+    "main.tex": {
+      "bytes": 22033,
+      "sha256": "b773f4e1c717f995e92985f40e7b57c62cc93f397ad411ceebf4bd44ba5df817"
+    },
+    "refs.bib": {
+      "bytes": 17845,
+      "sha256": "07eaf9183f0bc4ae9b3227d2a64bfd216aa529c836e6bdf1a281d19d253a670a"
+    }
+  },
+  "change_from_submitted_paper": "IEEE submission notice in first-page footer only; body text, figures and layout preserved.",
+  "notice": "This work has been submitted to the IEEE for possible publication. Copyright may be transferred without notice, after which this version may no longer be accessible.",
+  "compiled_bibliography_entries": 17,
+  "clean_build": "Three pdflatex passes from extracted archive, no BibTeX run or shell escape.",
+  "body_text_matches_submission": true,
+  "submitted_pdf_unchanged": true,
+  "no_overfull_or_unresolved_references": true,
+  "policy_sources": [
+    "https://info.arxiv.org/help/submit_tex.html",
+    "https://info.arxiv.org/help/prep.html",
+    "https://conferences.ieeeauthorcenter.ieee.org/get-published/post-your-paper/"
+  ],
+  "visual_review": {
+    "page_1": "Inspected: notice legible in bottom margin with no overlap; submitted body layout preserved.",
+    "pages_2_to_5": "Rendered PNGs pixel-identical to the inspected conference paper.",
+    "all_fonts_embedded": true
+  }
+}

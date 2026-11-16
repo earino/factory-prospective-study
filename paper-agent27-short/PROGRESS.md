@@ -190,3 +190,15 @@ all 17 pinned consumer tree links and integrity manifests, and one model and one
 complete archive part with matching hashes. Recorded public-evidence-verification.json
 and updated the reader-facing release status. The PDF and research artifacts are
 unchanged. Submission completion is the author's report, not a browser readback.
+
+## arXiv package — 16 November 2026
+
+Prepared a separate 10-file source ZIP with root main.tex/main.bbl, the IEEE
+class/style, bibliography, three figures, and table inputs. Added the required
+IEEE submission notice only to the preprint's first-page footer. The conference
+source/PDF and its portable source archive are unchanged. Clean extraction and
+three PDFLaTeX passes produce five pages, with no unresolved references or
+overfull boxes. Body text matches after excluding the notice; pages 2–5 are
+pixel-identical and page 1 was visually inspected. All fonts are embedded.
+Copied the upload ZIP to ~/Downloads/dataset-factory-arxiv.zip. No arXiv upload
+or final submission is claimed; Eduardo is completing the form.
