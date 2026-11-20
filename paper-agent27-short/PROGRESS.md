@@ -213,3 +213,26 @@ unrelated repairs, and one malformed comparison response. See
 `../experiments/sbir-semantic-review/FINDINGS.md` for evidence and limits.
 The submitted source, figures, conference PDF and arXiv package remain unchanged;
 the experiment is retained as evidence rather than silently revising submissions.
+
+## Five-page semantic-review result trial — 20 November 2026
+
+Checkpoint: annotated tag `agent27-before-semantic-review-update-2026-11-20`,
+commit `9b184d98317cb697021fcb9d3776739a60b30f01`, pushed before editing. Tagged
+conference PDF SHA-256: `5589905184ea739878a6c50df2648a5fdc5765638ee37353271205d4e70a3f8a`.
+Tag-push CI run `44806371028` passed. Main remains at this checkpoint; the trial
+uses branch `paper/semantic-review-result` in a separate worktree.
+
+Added a bounded post hoc experiment paragraph beside the historical SBIR case.
+It reports the two descriptors, three conditions, five reviews per combination,
+runtime differences, frozen detection rubric, all original-case acceptances,
+comparison repairs, and the malformed comparison response. Replaced the proposed
+remedy with the observed lesson. Explicitly excluded post hoc evaluations from
+production expenditure. Shortened repeated prose to make room; all empirical
+figures, tables, citations, the document preamble, font sizes, and margins remain
+unchanged. No writing-process discussion was added to the manuscript.
+
+The first trial was six pages. The concise trial is five, with all five pages
+rendered and inspected. The portable source ZIP rebuilds with matching PDF text,
+embedded fonts, and no overfull boxes or unresolved references. `output/QA.json`
+records artifact hashes and the final clean-build check. The main checkout,
+submitted PDFs, and arXiv upload package are untouched. No resubmission occurred.

@@ -23,13 +23,13 @@ Dataset Factory connected public-source discovery to fourteen published predicti
 
 We built the factory for a small research group that needs unfamiliar, real-world prediction tasks. Public records require interpretation, filtering, labels, splits, and reproducible packaging before another researcher can use them. Analyst interviews and curation records document this work in discovery, transformation, and quality checks~\cite{kandel,lafia}. Automating a single step still leaves the problem of connecting the steps across sources.
 
-This report describes the model/controller division of work, production and consumer use, and lessons from observed failures. Its evidence includes repeated attempts, recurring expenditure, and the original inputs and response of the failed semantic review.
+We report the model/controller division of work, production and consumer use, recurring expenditure, and failure evidence from retained attempts and review records.
 
 \section{System and Work Allocation}
 \subsection{Discovery and construction}
 Each release supplies a binary prediction task, training/validation/holdout splits, a predictor contract, construction code, a baseline, and source and license evidence. Matching versioned artifacts are published on GitHub and Hugging Face. The factory's code is public.\footnote{\url{https://github.com/earino/dataset-factory}}
 
-Models interpret sources and generate code. The controller owns persistent state, resource limits, and external operations, so failed attempts can resume from recorded state.
+Models interpret sources and generate code; the controller owns state, resources, and external operations, permitting resumption after failure.
 
 A scheduled controller advances SQLite state through the four stages in Fig.~\ref{fig:workflow}, keeping up to two candidate slots pending. Each receives previous task titles and a domain focus alternating infrastructure/environment with institutions, commerce, transport, and public services.
 
@@ -44,14 +44,14 @@ Construction is a separate model task without tools. It receives the source prop
 \end{figure*}
 
 \subsection{Review and bounded repair}
-The semantic reviewer receives the source/task description, complete builder, construction notes, evaluation contract, and compact source, license, qualification, and baseline reports. It can consult publisher documentation and returns accept, repair, or reject with specific findings. Mechanical checks cannot be waived by that response. The review packet contains selected descriptor fields rather than the complete published descriptor, a distinction that matters in the failure examined in Section~\ref{sec:validity}.
+The semantic reviewer receives the source/task description, complete builder, construction notes, evaluation contract, and compact source, license, qualification, and baseline reports. It can consult publisher documentation and returns accept, repair, or reject with specific findings. Mechanical checks cannot be waived by that response. The packet omits some published descriptor fields (Section~\ref{sec:validity}).
 
-Repairs receive saved proposals and bounded execution diagnostics or semantic findings, reusing unchanged fields. Access or terms failures can invoke same-source web research; malformed responses can be repaired without rediscovery. Rebuilt artifacts repeat checks and review. The controller permits up to four semantic returns to construction before deferral. Model-task and worker failures have separate five-failure limits per stage.
+Repairs reuse saved proposals and unchanged fields, receiving bounded execution diagnostics or semantic findings. Access/terms failures can invoke same-source research; malformed responses need no rediscovery. Rebuilt artifacts repeat checks and review. The controller permits up to four semantic returns to construction before deferral. Model-task and worker failures have separate five-failure limits per stage.
 
 Bounded model sessions run in Hermes Agent\footnote{\url{https://github.com/NousResearch/hermes-agent}}, using DeepSeek V4.1 Flash through Nous and Ollama Cloud. Research and review were capped at twelve tool-calling cycles, each comprising a model response and execution of its requested web tools. All tasks had a ten-minute timeout. Construction returns code for worker execution; it cannot run that code during generation. Models cannot directly launch workers, change coordinator state, or publish releases.
 
 \subsection{Publication and autonomy}
-One coordinator launches workers, preserves operation identities, and reconciles results; independent cleanup removes expired workers. A manifest binds accepted files to checksums. Workers retain source hashes and terms evidence; releases preserve upstream rights and attribution. Publication succeeds only when code validates anonymous download receipts from both platforms against the release identity and expected row counts. Saved attempts and frozen releases preserve evidence for resumption and inspection.
+One coordinator launches workers, preserves operation identities, and reconciles results; independent cleanup removes expired workers. A manifest binds accepted files to checksums. Workers retain source hashes and terms evidence; releases preserve upstream rights and attribution. Publication requires code-validated anonymous download receipts from both platforms matching release identity and expected row counts. Attempts and releases retain evidence for resumption and inspection.
 
 A standing policy permits publication after artifact, semantic, and distribution checks, without per-dataset human approval. During the observation window, service administration changed the inference route and repaired worker-budget accounting. The inspected records show no manual changes to source selection, dataset construction, labels, or acceptance decisions.
 
@@ -75,7 +75,7 @@ Hosted research began in September 2026; the controller described here replaced 
 
 Resource-based expenditure estimates use token categories, dated provider tariffs, worker lifetimes, and hosting, without invoice reconciliation. Hetzner CPX32 workers had four allocated CPUs, a 30-minute task timeout, and a 60-minute lifetime limit. Inference uses peak/off-peak timing, with all-peak sensitivity; Nous-routed tokens use direct DeepSeek rates. Workers use whole billed hours; hosting is allocated from a \$20 monthly plan.
 
-Accounting includes unsuccessful production work and whole recorded session/worker lifetimes crossing the opening boundary, with worker exposure capped at close. It excludes development, human labor, upstream data collection, unmetered services, and the separate consumer evaluation. Expenditure divided by publications verified within the window is an operating ratio, not a lifetime construction cost.
+Accounting includes unsuccessful production work and whole recorded session/worker lifetimes crossing the opening boundary, with worker exposure capped at close. It excludes development, human labor, upstream data collection, unmetered services, and consumer and post hoc evaluations. Expenditure divided by publications verified within the window is an operating ratio, not a lifetime construction cost.
 
 \subsection{Consumer use and source review}
 The consumer cohort comprises the first twelve new releases in verification order, with first accepted versions pinned. Separate Fable 5.2 agents under the same operator could modify XGBoost~\cite{xgboost} features, preprocessing, and parameters using training and labeled validation data within the predictor contract. Each release received three 85-minute attempts. Models were frozen before isolated-row held-out scoring; holdout access during research was procedurally prohibited. Provider failures and one premature stop were retried with unchanged pins and budgets; original records remain available.
@@ -133,7 +133,9 @@ Five of the six listed conditions of use were stated in the releases, including 
 \subsection{A population contradiction survived acceptance}\label{sec:validity}
 The \emph{Phase I to II award} task uses SBIR records to predict whether a firm's first Phase I award is followed by a Phase II award from the same agency within four fiscal years. Its published selection rule states: ``no outcome field is used to select rows.'' Yet the builder loops over \texttt{range(year + 1, year + 5)} and tests whether each future year occurs in \texttt{unknown\_phase.get((key, agency), set())}. A match sets \texttt{ambiguous = True}; the subsequent \texttt{continue} excludes that firm's row. Thus later award-phase information determines inclusion. Other filters exclude ambiguous phase or agency records. The release's limitations disclose some exclusions, contradicting its selection rule; their effect on scores is unmeasured.
 
-The original reviewer received the complete builder, population description, passing checks, and instructions to compare code with population rules, but not the full published selection declaration. Its response states ``Population matches the rule'' and ``unknown/missing phases in a window are excluded rather than labeled negative.'' It accepted the task with no findings or repair request. A separate pre-scoring review identified the contradiction from the published code and declaration. The original packet and response establish both incomplete review inputs and approval of the exclusions; they don't establish whether supplying the missing declaration would have changed acceptance.
+The original reviewer received the builder, population description, passing checks, and code-to-population comparison instructions, but not the full selection declaration. Its response states ``Population matches the rule'' and ``unknown/missing phases in a window are excluded rather than labeled negative.'' It accepted with no findings or repair. Separate pre-scoring review identified the contradiction from the published code and declaration.
+
+A post hoc test crossed two descriptors (original and one consistently declaring exclusions) with three conditions: original packet, full descriptor, and full descriptor plus explicit selection-code reconciliation. Thirty fresh reviews (five per combination) used unchanged builder and check reports, the recorded DeepSeek identifier via Ollama Cloud, and the same bounds. Local Hermes and web-backend differences prevent exact historical replay. Codex used a frozen detection rubric requiring the declaration, later-record exclusion, and their conflict. All 15 original-case reviews accepted without detection, including all ten receiving the full descriptor. None of the 15 comparison responses alleged that conflict; two requested unrelated repairs and one malformed response stated accept. These runs do not establish the cause of historical acceptance.
 
 A different condition appears in \emph{Wastewater exceedance}. A prior-year outcome is a legitimate input when available, but future rows can expose earlier labels through that feature. Our scorer supplies one row at a time; no leakage or consumer misconduct was observed in this scoring. Unrestricted batch use was not established safe.
 
@@ -142,9 +144,9 @@ A different condition appears in \emph{Wastewater exceedance}. A prior-year outc
 
 \textbf{Budget for execution as well as inference.} Thirty-five of 37 deferred candidates never completed a build. Construction, checks, and baseline fitting consumed 64\% of expenditure (Fig.~\ref{fig:costs}), with worker charges exceeding inference charges.
 
-\textbf{Review the claims that will be published.} For \emph{Phase I to II award}, checking the builder and a partial descriptor did not reconcile the selection declaration with its filters. We propose supplying the complete population/selection contract and requiring each inclusion rule to match it. This response has not been tested as a remedy.
+\textbf{Test semantic checks against known contradictions.} In the SBIR tests, several reviewers noted later-record exclusions yet accepted the original case. Supplying the full descriptor and requesting explicit reconciliation did not establish an effective check.
 
-\textbf{Specify the scoring interface.} The history feature in \emph{Wastewater exceedance} shows why accessible rows and outcomes belong in the task contract. Successful execution and legitimate per-row features do not establish safe use under every interface.
+\textbf{Specify the scoring interface.} The \emph{Wastewater exceedance} history feature requires a contract for accessible rows and outcomes. Execution success does not establish safety under every interface.
 
 \section{Related Work}
 AutoData~\cite{autodata-web} and DatasetResearch~\cite{datasetresearch} address web collection and dataset discovery. MLE-Smith~\cite{qiang2026mlesmith} constructs ML tasks from supplied datasets; AutoSDT~\cite{autosdt} searches repositories and adapts scientific programs into tasks. Their reported per-task costs use different output and accounting boundaries, so they cannot support an efficiency ranking with this deployment. Our contribution is operating evidence: source-to-public-release execution, expenditure including failed work, recovery from an operational fault, and a reconstructed acceptance failure.
@@ -154,10 +156,10 @@ MLAgentBench evaluates agents performing ML experiments~\cite{mlagentbench}; our
 \section{Limitations and Evidence}
 This is one factory, one production-model family, and a short observation window. Public sources may have appeared in model training, and holdout isolation was procedural rather than technical. Source reviews were bounded and do not establish a defect rate across releases. Current-vintage records restrict historical forecasting claims: \emph{Trial within 36 months} inputs can postdate filing, \emph{Strike damage} and \emph{Hazmat release} use retrospective reports, and field-update timing remains unresolved for \emph{Permit completion}. Human policy, development, and responsibility remain outside the automated dataset decisions.
 
-Release pins, operating records, transcripts, reviews, frozen models, and analysis code are retained in the study repository for public release at submission.\footnote{\url{https://github.com/earino/factory-prospective-study}}
+Release pins, operating records, transcripts, reviews, frozen models, analysis code, and the semantic-review experiment are public in the study repository.\footnote{\url{https://github.com/earino/factory-prospective-study}}
 
 \section{Conclusion}
-Dataset Factory connected discovery to public release at about \$2.74 per publication in estimated recurring expenditure. Separate agents used twelve releases, while source review exposed a population contradiction missed by acceptance. The experience supports checking task meaning separately from execution and consumer use.
+Dataset Factory connected discovery to public release at about \$2.74 per publication in estimated recurring expenditure. Consumer use and a missed population contradiction show why task meaning requires checks beyond execution.
 
 \section*{AI Assistance}
 AI systems assisted implementation, literature search, review briefs, source and transcript review, analysis, and drafting. Production and consumer models are identified above. The authors are responsible for the claims and final text.

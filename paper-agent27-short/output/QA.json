@@ -1,9 +1,9 @@
 {
   "pages": 5,
-  "pdf_sha256": "5589905184ea739878a6c50df2648a5fdc5765638ee37353271205d4e70a3f8a",
-  "source_zip_sha256": "c412c7b5f105a1bfd313ca190d455fefa1110da473f7338adfad1d8a719cdca6",
-  "manuscript_sha256": "b1068ec99c5f65d9bc5b04ccfd4b8530293920c8714fb967e942e2f3250d9af4",
-  "clean_build_directory": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/factory-final-accounting-3ecpqivh/portable/paper-agent27-short",
+  "pdf_sha256": "b78a69ea5d819cef87239c331b64f3c60027a73f0a5f61e0d17a433a6ad4da09",
+  "source_zip_sha256": "9ad055f6d5e1eee321a82dd6599cae97a478c97f35856103f26a36d685609286",
+  "manuscript_sha256": "9be801653e8c72b8d7a77c02efda31ba2868e411da7f9ce18a144ff0e6af41e7",
+  "clean_build_directory": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/agent27-semantic-final-ttil4l2j/paper-agent27-short",
   "clean_build_exit": 0,
   "portable_build_pdf_text_matches": true,
   "no_overfull_or_unresolved_references": true,
@@ -16,7 +16,7 @@
       4,
       5
     ],
-    "result": "Five pages inspected after complete accounting and exact SBIR excerpts. Final deferral reconciliation leaves pages 1-2 pixel-identical; pages 3-5 re-inspected. Tables, code excerpts and figures remain readable, with no clipping or overlap and no unresolved references."
+    "result": "All five pages rendered and inspected for this semantic-review-result trial. No clipping or overlap. Figure/table bytes, document preamble, fonts, margins and references unchanged."
   },
   "record_checks_sha256": "26d7a28a9fcc251b0804a3245b82a1af0fb0ca119aeae56d07f0d4ae245f79a3",
   "disclosure_review_sha256": "e8eaddb3fff30ac3786888559bcd88b55b04e7adb240a5fc6ec40a31d96f32e1",
@@ -80,12 +80,12 @@
     "evidence_consumer_commits_checked": 17,
     "evidence_files_checked": 1957,
     "repository_public": true,
-    "conference_submitted": true,
-    "submission_status_basis": "Eduardo reported marking the HotCRP submission ready for review; not independently inspected.",
+    "conference_submitted": false,
+    "submission_status_basis": "This revised trial has not been submitted; the tagged earlier version was submitted by Eduardo.",
     "anonymous_evidence_verification": "paper-agent27-short/analysis/public-evidence-verification.json"
   },
   "authors": [
-    "Eduardo Ari\u00f1o de la Rubia",
+    "Eduardo Ariño de la Rubia",
     "Szilard Pafka"
   ],
   "operating_accounting": {
@@ -114,5 +114,18 @@
       "explicit_build_deferral": 1
     },
     "deferred_without_completed_build": 35
+  },
+  "revision": {
+    "status": "Trial for author review; not uploaded to HotCRP or arXiv",
+    "checkpoint_tag": "agent27-before-semantic-review-update-2026-11-20",
+    "checkpoint_commit": "9b184d98317cb697021fcb9d3776739a60b30f01",
+    "experiment_result_commit": "9b184d98317cb697021fcb9d3776739a60b30f01",
+    "branch": "paper/semantic-review-result",
+    "word_counts_whitespace_in_tex": {
+      "before": 2599,
+      "after": 2592
+    },
+    "scope": "Added post hoc experiment paragraph; replaced proposed remedy with observed lesson; shortened repeated prose. Existing empirical figures/tables unchanged. arXiv package retains submitted version.",
+    "unchanged_evidence_checks": "Existing operating/consumer audit metadata is inherited from the checkpoint; no datasets or results changed."
   }
 }
