@@ -135,7 +135,7 @@ The \emph{Phase I to II award} task uses SBIR records to predict whether a firm'
 
 The original reviewer received the complete builder, population description, passing checks, and instructions to compare code with population rules, but not the full published selection declaration. Its response states ``Population matches the rule'' and ``unknown/missing phases in a window are excluded rather than labeled negative.'' It accepted the task with no findings or repair request. A separate pre-scoring review identified the contradiction from the published code and declaration.
 
-A post hoc test used the same model identifier and bounds for 30 fresh reviews: five per combination of two descriptors (original and a control consistently declaring exclusions) and three inputs (original packet, full descriptor, or full descriptor with explicit reconciliation instructions). All 15 original-case reviews accepted without linking the selection declaration to the conflicting later-record filters. All ten given the full descriptor noted relevant filters. None of the 15 control responses alleged that conflict. Runtime and web-backend differences prevent exact historical replay; these runs do not explain the historical acceptance.
+Ten post hoc reviews received the full published descriptor using the recorded model identifier and bounds; five also received explicit reconciliation instructions. All accepted without identifying the declaration--filter contradiction. One described the exclusions as ``conservative label-validity drops.'' Runtime and web-backend differences prevent exact historical replay, so these runs do not explain the historical acceptance. The full 30-review protocol and responses are in the study repository.
 
 A different condition appears in \emph{Wastewater exceedance}. A prior-year outcome is a legitimate input when available, but future rows can expose earlier labels through that feature. Our scorer supplies one row at a time; no leakage or consumer misconduct was observed in this scoring. Unrestricted batch use was not established safe.
 
@@ -144,7 +144,7 @@ A different condition appears in \emph{Wastewater exceedance}. A prior-year outc
 
 \textbf{Budget for execution as well as inference.} Thirty-five of 37 deferred candidates never completed a build. Construction, checks, and baseline fitting consumed 64\% of expenditure (Fig.~\ref{fig:costs}), with worker charges exceeding inference charges.
 
-\textbf{Test proposed review improvements.} Supplying the full declaration, even with explicit reconciliation instructions, did not demonstrate a remedy for this contradiction.
+\textbf{Reviewer acceptance does not establish reconciliation.} In this case, complete inputs and explicit comparison instructions did not produce detection of the known declaration--filter contradiction.
 
 \textbf{Specify the scoring interface.} The history feature in \emph{Wastewater exceedance} shows why accessible rows and outcomes belong in the task contract. Successful execution and legitimate per-row features do not establish safe use under every interface.
 

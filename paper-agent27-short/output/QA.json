@@ -1,9 +1,9 @@
 {
   "pages": 5,
-  "pdf_sha256": "9b93f0021b260dd160c74cadd377e47c3249dcc391b843488f296e0160db9719",
-  "source_zip_sha256": "b5e225a6f67219195491eee3b603d57b1b7bf3a93c5788e26dbf477020a989de",
-  "manuscript_sha256": "d8a83e2664f92de532b231e6dec36eb77047cc0581ca340ddc102a7d894c5051",
-  "clean_build_directory": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/agent27-round2-portable-tdy1ahzp/paper-agent27-short",
+  "pdf_sha256": "75b83e24cb2be1a023202bef40f8defc430dba197a00967a304271364cd07103",
+  "source_zip_sha256": "c82e6b2e74abf8fb67d08e1f9607af472b8a3f7e0aa36aba995617d3e2a05494",
+  "manuscript_sha256": "1b297a9ee981c59173c4e1661ae00c4956a41008f151ba58f071578a359d7c33",
+  "clean_build_directory": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/agent27-round3-portable-u3kbabab/paper-agent27-short",
   "clean_build_exit": 0,
   "portable_build_pdf_text_matches": true,
   "no_overfull_or_unresolved_references": true,
@@ -16,7 +16,7 @@
       4,
       5
     ],
-    "result": "All five pages of review round 2 rendered and inspected. No clipping or overlap. Original figures, tables, fonts and margins retained. Restored baseline conclusion and prose fit with the shorter experiment paragraph."
+    "result": "Round 3: pages 1–3 render byte-identically to the inspected round-2 PNGs; pages 4–5 re-inspected. Five pages with no clipping or overlap. Figures/tables/fonts/margins unchanged."
   },
   "record_checks_sha256": "26d7a28a9fcc251b0804a3245b82a1af0fb0ca119aeae56d07f0d4ae245f79a3",
   "disclosure_review_sha256": "e8eaddb3fff30ac3786888559bcd88b55b04e7adb240a5fc6ec40a31d96f32e1",
@@ -123,12 +123,29 @@
     "branch": "paper/semantic-review-result",
     "word_counts_whitespace_in_tex": {
       "before": 2599,
-      "after": 2596
+      "after": 2573
     },
-    "scope": "Shortened post hoc result, supported the filter-noticing claim with count ten, restored baseline conclusion, complete-builder detail, repair/publication prose and Wastewater qualification. Original tagged baseline remains the comparison.",
+    "scope": "Condensed result to ten original-case reviews receiving the full descriptor. Replaced broad filter-noticing count with exact r03 quote. Full 30-review design remains public; no new untested remedy proposed.",
     "unchanged_evidence_checks": "Existing operating/consumer audit metadata is inherited from the checkpoint; no datasets or results changed.",
-    "round": 2,
-    "experiment_paragraph_words": 91,
-    "lesson_words": 21
+    "round": 3,
+    "experiment_paragraph_words": 65,
+    "lesson_words": 24,
+    "public_experiment_checks": {
+      "PROTOCOL.md": {
+        "url": "https://raw.githubusercontent.com/earino/factory-prospective-study/9b184d98317cb697021fcb9d3776739a60b30f01/experiments/sbir-semantic-review/PROTOCOL.md",
+        "sha256": "bc2263f75d7016bb062742132c885cc31466ad421c0342a3f800f44d0df783be",
+        "anonymous": true
+      },
+      "FINDINGS.md": {
+        "url": "https://raw.githubusercontent.com/earino/factory-prospective-study/9b184d98317cb697021fcb9d3776739a60b30f01/experiments/sbir-semantic-review/FINDINGS.md",
+        "sha256": "50ec3c39eccc1a9b4a506f65c60f96971137d3e570e5c7c1b88f65540cf9045e",
+        "anonymous": true
+      },
+      "runs/r03/response.txt": {
+        "url": "https://raw.githubusercontent.com/earino/factory-prospective-study/9b184d98317cb697021fcb9d3776739a60b30f01/experiments/sbir-semantic-review/runs/r03/response.txt",
+        "sha256": "f3283ad2df6d6dc71daf873e02e5f4fa15b21896f4b4b09d1d6f357c0cb60f28",
+        "anonymous": true
+      }
+    }
   }
 }

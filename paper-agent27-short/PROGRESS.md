@@ -253,3 +253,22 @@ pages were rendered and inspected; the portable archive builds to matching text,
 with embedded fonts and no overfull boxes or unresolved references. The Desktop
 comparison uses the original tagged PDF and this second revision, not the first
 trial as its baseline. Nothing was uploaded to HotCRP or arXiv.
+
+## Independent-review round 3 — 20 November 2026
+
+Reduced the experiment paragraph to 65 words, focusing on the ten original-case
+reviews supplied with the full descriptor (five also received explicit comparison
+instructions). Removed the broad filter-noticing count: one response discusses
+phase records excluded from labeling, which does not clearly demonstrate that it
+recognized dataset-row exclusion. Replaced it with r03's exact “conservative
+label-validity drops” phrase. The full design and all 30 responses remain public.
+The lesson now states that acceptance did not establish reconciliation, without
+proposing another untested fix.
+
+Verified the protocol, report, and quoted response through anonymous downloads
+from the evidence commit. Five-page portable build matches the inspected PDF;
+all fonts are embedded and no overfull boxes or unresolved references occur.
+Pages 1–3 render identically to round 2; pages 4–5 were re-inspected. Desktop
+round 3 contains the exact original tagged baseline and the new revision. The
+same independent-review prompt is copied to the clipboard and saved beside them.
+No conference or arXiv upload was made.
