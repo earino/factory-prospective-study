@@ -1,6 +1,6 @@
 # Dataset Factory: AGENT 2027 short experience paper
 
-This branch contains **review round 3 of the five-page trial revision** with the semantic-review
+This branch contains **review round 4 of the five-page trial revision** with the semantic-review
 experiment result. It has not been uploaded to HotCRP or arXiv. The exact earlier
 version is tagged `agent27-before-semantic-review-update-2026-11-20` at
 `9b184d98317cb697021fcb9d3776739a60b30f01`. The `arxiv/` directory still contains

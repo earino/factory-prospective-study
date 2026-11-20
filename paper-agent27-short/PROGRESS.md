@@ -272,3 +272,23 @@ Pages 1–3 render identically to round 2; pages 4–5 were re-inspected. Deskto
 round 3 contains the exact original tagged baseline and the new revision. The
 same independent-review prompt is copied to the clipboard and saved beside them.
 No conference or arXiv upload was made.
+
+## Minimal-result revision, round 4 — 20 November 2026
+
+Reduced the post hoc result to two sentences (33 whitespace-delimited words).
+They state the ten full-descriptor reviews, the extra filter-to-declaration
+instruction in five, and zero detections. Removed control enumeration, the quote,
+and the 30-review count from the manuscript; the complete public experiment record
+is unchanged. Checked the other 20 responses: five original-packet reviews and
+fifteen consistent-descriptor reviews reported no target contradiction. None
+provides a hidden successful detection that would change the reported conclusion.
+
+Added one-task/reviewer-model/runtime limits in Section VII. Restored the imperative
+lesson heading and a short instruction to check selection claims against code.
+Did not propose a new untested release gate. Original conclusion, empirical
+figures/tables, references, font sizes and margins remain unchanged.
+
+Portable build is five pages and text-identical to the inspected PDF, with embedded
+fonts and no overfull boxes or unresolved references. Pages 1–3 render identically
+to round 3; pages 4–5 were inspected. Desktop round 4 again compares the exact tagged
+baseline with this version. Neither HotCRP nor arXiv was updated.
