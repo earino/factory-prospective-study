@@ -308,3 +308,28 @@ The PDF remains five pages. Pages 1–3 render identically to round 4; pages 4�
 were inspected. The portable archive builds to identical PDF text, with all fonts
 embedded and no overfull boxes or unresolved references. Desktop round 5 pairs
 this revision with the exact tagged baseline. No HotCRP or arXiv upload was made.
+
+## Bounded clarity revision and adversarial comparison — 20 November 2026
+
+Comparison checkpoint: `agent27-semantic-review-round5-2026-11-20` at
+`2fb394c9b3a279de6ad3c431ef2f36ae5a388f83`. Applied the agreed clarity edits
+without changing experiments, results, figures, or claim scope. Table II now labels
+attempt outcomes; prose separates these from candidate states. Checked that the
+30 discovery Defer attempts concern none of the 54 discovery-completed candidates,
+and all 19 additional successful builds followed semantic repair. Rounded the
+operating headline while preserving exact costs in the records. Fitting CPU
+remains distinct from total resources. Consumer performance has an explicit role
+within released contracts; no claim of task validity was added.
+
+The revised PDF is five pages and 20 TeX whitespace-delimited words shorter. All
+five pages were inspected; a clean portable build reproduces the PDF text with
+embedded fonts and no overfull boxes or unresolved references. The abstract, SBIR
+result, lessons, limitations, and conclusion are unchanged. Desktop's
+`Dataset Factory - Clarity Review` contains the exact saved checkpoint, the edited
+PDF, and the single adversarial prompt.
+
+Requested one comparison through `claude -p` with Read-only tools and both PDFs.
+It failed authentication before inference: the CLI login expired and cannot renew.
+Eduardo was asked to run `claude auth login`. No review has yet occurred; after
+login, run the saved prompt once, resolve only material errors, and stop. No
+HotCRP or arXiv upload occurred.

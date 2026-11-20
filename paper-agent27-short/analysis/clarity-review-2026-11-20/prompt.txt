@@ -1,0 +1,17 @@
+You are an independent adversarial reviewer of a five-page AGENT 2027 experience paper. Compare both PDFs in this directory, reading all five pages of each with the Read tool:
+- 01 - Saved Round 5.pdf: the saved checkpoint before the clarity edits.
+- 02 - Clarity Revision.pdf: the edited version.
+
+This is ONE bounded review, not an invitation to redesign the paper. Do not edit files, browse, run experiments, or delegate. Read both PDFs themselves, including their tables and figures. Evaluate whether the revision improves clarity while preserving the evidence and claim boundaries. Do not assume the revision is better.
+
+The clarity pass addresses candidate versus attempt counts (including deferrals and repeated builds), cost precision, dense accounting definitions, fitting-CPU matching, the purpose of consumer-performance comparisons, repeated disclosure counts, and proportionate claims about an operational incident.
+
+Actively look for changed meanings, misleading simplifications, numerical inconsistencies, omitted qualifications that matter, and any readability failure serious enough to affect interpretation. In particular, fitting CPU is not total compute; publication and modeling do not establish semantic validity. The observation window, experiments, results and five-page format are fixed. The semantic-review experiment was already in the saved checkpoint and is not being expanded here.
+
+Respond in at most 800 words:
+1. Verdict: keep the edited version, revert, or keep with a specific material correction.
+2. The most important improvements or regressions, with exact quotes and section/page references.
+3. At most three MUST-FIX issues, only if they materially affect correctness or comprehension. State 'None' if there are none. Distinguish a demonstrated error from an uncertainty you cannot resolve from the PDFs.
+4. State whether the paper is ready to stop revising on this scope.
+
+Do not produce minor wording preferences, an acceptance-probability estimate, a new research plan, a wholesale rewrite, or a list padded to three findings. It is acceptable to conclude that no further edit is warranted. A genuine material problem should still be reported even if it was present before this revision.

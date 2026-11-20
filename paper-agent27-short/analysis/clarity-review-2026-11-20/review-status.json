@@ -1,0 +1,45 @@
+{
+  "checkpoint_tag": "agent27-semantic-review-round5-2026-11-20",
+  "checkpoint_commit": "2fb394c9b3a279de6ad3c431ef2f36ae5a388f83",
+  "claude_version": "2.1.323 (Claude Code)",
+  "command": [
+    "claude",
+    "-p",
+    "--safe-mode",
+    "--strict-mcp-config",
+    "--tools",
+    "Read",
+    "--allowedTools",
+    "Read",
+    "--permission-mode",
+    "dontAsk",
+    "--no-session-persistence",
+    "--output-format",
+    "json"
+  ],
+  "input_pdf_sha256": {
+    "01 - Saved Round 5.pdf": "b0a9535ca9051d0851e17ad958d580c2c3b1d3bc74c0ed14eacc53e1c4c57b79",
+    "02 - Clarity Revision.pdf": "44bedebd9723effe0ecaaf4c81fccd6e0807420af24c9b8b7a770076100cbcd4"
+  },
+  "status": "Authentication failed before review; no model tokens consumed.",
+  "material_evidence_checks": {
+    "discovery_defer_attempts": 30,
+    "overlap_with_discovery_completed_candidates": 0,
+    "extra_successful_build_attempts": 19,
+    "all_extra_successful_builds_followed_semantic_repair": true,
+    "stage_attempts": 540,
+    "candidate_states": {
+      "published": 14,
+      "deferred": 37,
+      "rejected": 2,
+      "active": 1
+    }
+  },
+  "preserved_sections": [
+    "Abstract",
+    "SBIR case and rerun result",
+    "Engineering Lessons",
+    "Limitations",
+    "Conclusion"
+  ]
+}
