@@ -1,0 +1,43 @@
+{
+  "verified_utc": "2026-11-20T18:33:54.050120+00:00",
+  "source_tree": "4770416334d52289510dee823798e06118b6fb18",
+  "clean_checkout": true,
+  "uncompressed_wire_bodies_present": false,
+  "main_pdf_alias": "Copied tracked output/paper.pdf to ignored output/main.pdf; identical frozen SHA-256",
+  "commands": [
+    [
+      "python3",
+      "experiments/sbir-semantic-review/verify.py",
+      "--complete"
+    ],
+    [
+      "python3",
+      "experiments/sbir-semantic-review/check_capture.py"
+    ],
+    [
+      "python3",
+      "experiments/sbir-semantic-review/summarize.py"
+    ],
+    [
+      "python3",
+      "experiments/sbir-semantic-review/audit_exposure.py"
+    ],
+    [
+      "python3",
+      "run_study.py",
+      "self-test"
+    ],
+    [
+      "python3",
+      "-m",
+      "unittest",
+      "test_controller",
+      "-q"
+    ]
+  ],
+  "all_passed": true,
+  "aggregate_bytes_identical": true,
+  "study_self_tests": 20,
+  "controller_tests": 8,
+  "credential_scan": "Actual local inference credential absent from all 1268 inspected experiment files, including decompressed wire bodies; no credential value recorded."
+}

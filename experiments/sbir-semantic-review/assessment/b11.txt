@@ -1,0 +1,16 @@
+{
+  "verdict": "accept",
+  "reason": "The code matches the stated population, target, feature list and fixed chronological split. All mechanical source checks pass on the captured CSV (91,646,156 bytes, 219,780 source rows): aliases resolve to the published headers; Phase/Program/State/Y-N-U/amount/employee fields parse as expected; the target is binary and re-derived to zero disagreements against later same-firm same-agency Phase II records in y+1..y+4; award_date is constrained to the award-year federal fiscal year with zero boundary violations; split ranges are the half-open FY2005-2014 / FY2015-2016 / FY2017-2018 intervals and all three splits are nonempty with positives; record_ids are unique and disjoint. No label-derived group-rate or shared-rate feature is shipped, so the cross-row/label-exposure check is a completed absence; the per-row features come from the index Phase I record only. Holdout is not scored, consistent with the stated protocol. The 17 U.S.C. 105(a) basis, SBA database-maintenance statement, and exclusion of company-authored narrative are consistent with the cited publisher documentation. The remaining issues are declared design limitations rather than code/rule mismatches.",
+  "findings": [],
+  "limitations": [
+    "Population is outcome-conditioned: eligibility excludes firms using later-record phase/agency completeness (98 unknown-phase-in-window exclusions) and is not the unrestricted award-time population; the metadata explicitly declares this, making it a retrospective-research bias limitation rather than a construction error.",
+    "Firm identity uses UEI, else DUNS, else normalized company name plus state; split or merged identities can misassign labels, and the record_id disjointness check cannot detect real-firm duplication across identifier types.",
+    "For HHS awards proposal_award_date is absent, so award_date falls back to federal fiscal-year end; those rows share a date cluster and exact HHS award dates are unobserved.",
+    "The extract is current-vintage: award_amount and number_employees may reflect later corrections, so historical prediction-time availability is unverified; metadata marks training_label_timing unverified and use retrospective_research.",
+    "The published file's State column actually contains full state names (219,778 name rows, 0 two-letter codes) although the dictionary says 2-character codes; the builder canonicalizes correctly, but the source_examples note claiming 2-character state values is stale.",
+    "number_employees has 6 included values above the documented 0-500 range (max 9999) and award_amount has an outlier maximum of $3,418,440; the builder reports but does not clip or impute these as-published values.",
+    "The earliest-year-all-Phase-I rule excludes firms with a same-year Phase I/Phase II mix, and the label window starts at y+1, so fast-track or same-year conversions are not counted as positives.",
+    "Evaluation is public-validation-only (rows=1408, full_model AUC 0.6206, Brier 0.2368 versus majority 0.2466) with no uncertainty interval and no holdout scoring; this is a modest positive signal, not a universal ceiling.",
+    "The captured file is 91.6 MB versus the publisher page's stated 65 MB, consistent with current-vintage growth; the observed headers still match the no-abstract award export."
+  ]
+}

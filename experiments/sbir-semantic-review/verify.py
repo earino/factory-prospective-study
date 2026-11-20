@@ -1,12 +1,12 @@
 """Verify frozen evidence and run capture; no network or model calls."""
-import argparse,hashlib,json
+import argparse,gzip,hashlib,json
 from pathlib import Path
 BASE=Path(__file__).resolve().parent
 ROOT=BASE.parents[1]
 def read(p):return json.loads(p.read_text())
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def events(p):
- text=p.read_text()
+ text=gzip.decompress(p.read_bytes()).decode() if p.suffix=='.gz' else p.read_text()
  try:
   yield json.loads(text);return
  except json.JSONDecodeError:pass
@@ -53,6 +53,7 @@ def verify(complete=False):
     user=[m for m in body['messages'] if m['role']=='user']
     assert user[0]['content']==(d/'prompt.txt').read_text()
    response=req.with_name(req.name.replace('.request.json','.response.body'))
+   if not response.exists():response=Path(str(response)+'.gz')
    parsed=list(events(response)) if response.exists() else []
    models={e['model'] for e in parsed if e.get('model')}
    assert not models or models=={'deepseek-v4.1-flash'},models

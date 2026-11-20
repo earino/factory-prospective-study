@@ -1,0 +1,488 @@
+{
+  "assessor": "Codex, same investigator who prepared the protocol; condition labels hidden during initial assessment, content may reveal cases",
+  "stage": "Initial content assessment; case truth joined later to distinguish detection from false allegation",
+  "rows": [
+    {
+      "blind_id": "b01",
+      "response_sha256": "d8cdd3502c211ddf40d3a4ed4d5d9e66eeec6b2e66c44cc8f24b582d5ee9f9d0",
+      "target_conflict_alleged": false,
+      "partial_selection_finding": true,
+      "declared_selection_acknowledged": true,
+      "verdict": "accept",
+      "ambiguous": false,
+      "supporting_excerpts": [
+        "there is no declaration/implementation contradiction to report; the outcome-conditioned selection is disclosed three times (population, selection.kind=outcome_conditioned, limitations) and is a declared limitation rather than a hidden one. Publisher documentation confirms the field semantics the builder relies on: Phase '1' or '2', Program 'SBIR'/'STTR', Agency 2-4 characters, Award Year 'The Fiscal year of the award' as a 4-digit federal fiscal year, Proposal Award Date 'The first day of contract performance' and mandatory 'Yes, Except HHS', Number Employees optional 0-500, State '2 characters and in the US Postal Service's list of valid state codes', DUNS optional 9 digits, and the three ownership fields as Y/N/U radios (https://www.sbir.gov/data-resources/data-dictionary/award). The download URL is the one the publisher itself lists for the no-abstract file (https://www.sbir.gov/data-resources). Target direction (1 = later Phase II), units (USD, persons, federal fiscal year) and the positive/negative counts (4296/5390, with train+eval+holdout positives 2920+622+754 = 4296) are int",
+        "Population is outcome-conditioned as declared: 98 firms are dropped for an unknown-phase record inside their window, and any firm with a Phase II record lacking an agency is dropped outright. The shipped population is therefore not identifiable at the index award date, which limits deployment framing even though the label is valid on the declared rows.\",\n    \"The 'year + 4 > max_year' closure test never binds in this extract, because eligible years cap at 2018 and the file extends well past 2022; window maturity is real but the exclusion is inert.\",\n    \"train.csv labels are determined by Phase II records that occur inside the eval and holdout award years. Because firm keys are disjoint across splits by construction and features are index-only, this is not feature leakage at the entity level; identifier fragmentation (UEI, else DUNS, else name+state) could in principle key one real business twice, placing it in two splits, and that is disclosed as merge/split risk.\",\n    \"label_source_columns is narrowed to ['phase'], but the target rule also requires award_year (the y+1..y+4 window)"
+      ],
+      "other_concerns": [
+        "Self-consistency of source checks; source vocabulary; agency matching; fiscal dates; record identity and label timing."
+      ],
+      "assessment_note": "Explicitly reconciles the disclosed later-record exclusions; no target contradiction alleged."
+    },
+    {
+      "blind_id": "b02",
+      "response_sha256": "fb1e3f7588f95824d0e3c1359cb90df529e6bbcc203f5eba3d5ea759388def02",
+      "target_conflict_alleged": false,
+      "partial_selection_finding": true,
+      "declared_selection_acknowledged": true,
+      "verdict": "accept",
+      "ambiguous": false,
+      "supporting_excerpts": [
+        "Selection is outcome-conditioned and disclosed: inclusion depends on the firm's later records (unknown/missing-phase record in the y+1..y+4 window for the same agency, Phase II record with missing agency), so the released eval and holdout rows are not the population identifiable at the award date; the unknown-phase-in-window rule removed 98 firms and only reduces positives.\",\n    \"HHS awards omit Proposal Award Date, so ~30-40% of rows take the fiscal-year-end date and pile onto 30 September event clusters; the build does not report how many rows used the fallback, and the 'award_date within award fiscal year' check cannot detect this because it re-tests the builder's own derivation.\",\n    \"Six included rows ship number_employees above the documented 0-500 range (max 9999) and one Phase I row ships award_amount of $3,418,440; both are reported in the check objects but not corrected, so the feature values contradict the stated '0-500 employees' and 'Phase I amount' semantics at the tail.\",\n    \"The extract is current-vintage, so number_employees and award_amount may be post-award corr"
+      ],
+      "other_concerns": [
+        "Firm-key fragmentation; inferred Phase I/II linkage; current-vintage features; field outliers."
+      ],
+      "assessment_note": "Acknowledges declared outcome-conditioned selection. Its assertion that exclusions only reduce positives is not validated by this scoring."
+    },
+    {
+      "blind_id": "b03",
+      "response_sha256": "305e44fda03171f30f1b9189f64104f8ae7d33e2308e9b2b7890aa234483d966",
+      "target_conflict_alleged": false,
+      "partial_selection_finding": true,
+      "declared_selection_acknowledged": false,
+      "verdict": "accept",
+      "ambiguous": false,
+      "supporting_excerpts": [
+        "3,303 records carry an unrecognized phase value; the specific values are not reported, and such records are excluded from label windows rather than classified.\",\"The no-abstract file is a current-vintage administrative extract; number_employees and the ownership flags may reflect later corrections, so historical availability is unproven, training_label_timing is unverified, and the use is retrospective_research.\",\"Train labels for late train cohorts (e.g. FY2014, window to FY2018) mature after the eval index window; the split is chronological on index year, but the evaluation is retrospective rather than a strict pre-eval-only deployment.\",\"The publisher states 65 MB for the no-abstract CSV while the retrieved file is 91.6 MB; the size claim is stale, though the file hash/content is as measured.\",\"Same-year records of a non-Phase-I phase, or an earliest-year set containing anything other than Phase I, cause the whole firm to be dropped; this is stricter than the literal 'earlier record' wording but rare and conservative. A record with a missing award_year likewise excludes the firm.\"",
+        "Same-year records of a non-Phase-I phase, or an earliest-year set containing anything other than Phase I, cause the whole firm to be dropped; this is stricter than the literal 'earlier record' wording but rare and conservative. A record with a missing award_year likewise excludes the firm.\"]}"
+      ],
+      "other_concerns": [
+        "Firm-key fragmentation; fiscal-year clustering; retrospective label timing."
+      ],
+      "assessment_note": "Notes unknown-phase exclusions and stricter selection, but does not identify a conflict with a no-outcome-selection declaration."
+    },
+    {
+      "blind_id": "b04",
+      "response_sha256": "8ff751c45dfb2c94028ea75b6803e80711644478637ef2d3f7f7ceeb005aeaef",
+      "target_conflict_alleged": false,
+      "partial_selection_finding": true,
+      "declared_selection_acknowledged": true,
+      "verdict": "repair",
+      "ambiguous": false,
+      "supporting_excerpts": [
+        "Population is outcome-conditioned and disclosed: firms with an unknown/missing-phase record in the same agency within y+1..y+4 are excluded, so the cohort uses outcome-window data and is not fully identifiable at the award-announcement instant; this is declared as selection.kind 'outcome_conditioned'.\",\n    \"No parent key links Phase II to Phase I, so labels are inferred by firm/agency/year and some misassignment is unavoidable (disclosed).\",\n    \"`source_examples` and the SBIR data dictionary state the state field is a 2-character USPS code, but the observed file contains 0 two-letter codes and 219,778 full state names; the builder canonicalizes names to codes and the included-rows check shows 9,686 mapped codes, so this is a documentation/actual-format mismatch, not a data error.\",\n    \"`expected_size` says 65 MB but the fetched member is 91,646,156 bytes, indicating publisher documentation drift (or a grown file); the check only requires size > 0.\",\n    \"number_employees has 6 included rows above the documented 0-500 range (max 9,999); these are kept as numeric values rather than "
+      ],
+      "other_concerns": [
+        "Requests canonical firm-identity linkage and cross-split entity checks."
+      ],
+      "assessment_note": "Repair is for entity identity, not the target selection-declaration contradiction. Treats the later-record selection as disclosed."
+    },
+    {
+      "blind_id": "b05",
+      "response_sha256": "56b6ae138c4033e4848b063b95909cd8d0504a7e74446242e04cc16c2acd5f30",
+      "target_conflict_alleged": false,
+      "partial_selection_finding": true,
+      "declared_selection_acknowledged": false,
+      "verdict": "accept",
+      "ambiguous": false,
+      "supporting_excerpts": [
+        "3,303 source records carry an unrecognized phase; 98 firms with such a record inside a label window are dropped, an outcome-conditioned but small and conservative exclusion, and Phase III records are treated as neither conversion evidence nor ambiguity.\",\n    \"The evaluation scores only the 1,408 eval rows (holdout unscored), reports majority and calendar-identity baselines but not the specified agency-by-award-year conversion base rate, and gives a modest full-model AUC (0.62) with no uncertainty interval; incremental value over a within-agency-year rate is therefore not demonstrated.\"\n  ]\n}"
+      ],
+      "other_concerns": [
+        "Firm-key fragmentation; current-vintage features; field outliers; baseline coverage."
+      ],
+      "assessment_note": "Notes outcome-conditioned exclusions but calls them small and conservative; no declaration conflict alleged."
+    },
+    {
+      "blind_id": "b06",
+      "response_sha256": "d63fc96109def56bfe82922104ee1b4203ce46dd0fcf9e6df07ae9d2b5536c7c",
+      "target_conflict_alleged": false,
+      "partial_selection_finding": true,
+      "declared_selection_acknowledged": false,
+      "verdict": "accept",
+      "ambiguous": false,
+      "supporting_excerpts": [
+        "3,303 phase values (1.5% of records) are non-empty but map to none of 1/2/3 or 'Phase I/II/III' and are treated as unknown; where they fall in a label window the row is dropped (98 rows). The distinct raw values are not enumerated, so it is unconfirmed whether any are Phase II variants that would drop true conversions rather than count them.\",\"Same-year multiple Phase I records are dropped when any proposal_award_date is unparseable; because HHS omits that field, HHS firms with multiple same-year Phase I awards are categorically excluded. The exclusion counters (ambiguous_same_year_missing_date, tied_date, no_index_record, missing_agency) are computed but not surfaced in source-checks, so their size is unknown; proposal_submitted_date (mandatory for all agencies) is an unused tiebreaker.\",\"number_employees includes 6 rows above the docume"
+      ],
+      "other_concerns": [
+        "Firm-key fragmentation; HHS tie exclusions; employee outliers; stale source examples."
+      ],
+      "assessment_note": "Notes unknown-phase exclusions in label windows; no contradiction with a no-outcome-selection declaration alleged."
+    },
+    {
+      "blind_id": "b07",
+      "response_sha256": "da092495e21623211c7381f4607781a7cf7074907ed71cd932e52c1d4c12a14d",
+      "target_conflict_alleged": false,
+      "partial_selection_finding": true,
+      "declared_selection_acknowledged": false,
+      "verdict": "accept",
+      "ambiguous": false,
+      "supporting_excerpts": [
+        "3,303 source records carry a phase string the normalizer does not recognize and are only handled conservatively (firms with a blank-agency unknown-phase record dropped; 98 rows dropped for an unknown phase inside the label window); their composition is never characterized, so it is unverified that no genuine Phase II records are hidden there.\",\"Published descriptor text is stale against the run's own observations: it says the state column 'mixes' full names with two-letter codes, but the source check found 219,778 full names and zero two-letter codes; the documented 0-500 employee range is contradicted by 6 rows above 500 (max 9999); and the file is 91.6 MB, not the 65 MB quoted from https://www.sbir.gov/data-resources. The shipped data are normalized correctly, so this is documentation drift, not a data defect.\",\"There is no parent key l"
+      ],
+      "other_concerns": [
+        "Firm-key fragmentation; fiscal-date fallback; source metadata drift; unreported exclusion counters."
+      ],
+      "assessment_note": "Notes later unknown-phase exclusions, but treats selection as consistent; no target declaration conflict."
+    },
+    {
+      "blind_id": "b08",
+      "response_sha256": "60df9f76f01bb9b04275f9b6822f7967e54340280f5d6a7bdcbea6fc344c688e",
+      "target_conflict_alleged": false,
+      "partial_selection_finding": false,
+      "declared_selection_acknowledged": false,
+      "verdict": "accept",
+      "ambiguous": false,
+      "supporting_excerpts": [
+        "the label recheck and unknown-phase check are consistent-by-construction rather than independent, but no contradiction surfaces. Licence handling rests on 17 U.S.C. 105(a) for the SBA-compiled award records, excludes company-authored abstract/title text, and discloses the US-only territorial scope, so no additional publisher grant is required. Evaluation is an unmodified-runner baseline on the public eval split only (no holdout scoring) and reports majority/AUC/Brier, with the full model beating the majority prior. No unresolved material defect requiring correction was found.\",\n  \"findings\": [],\n  \"limitations\": [\n    \"Firm identity is a key (UEI > DUNS > normalized name+state), not a resolved legal entity. Firms merged or split across identifiers can create duplicate keys or collapse distinct firms, so split isolation is guaranteed at th"
+      ],
+      "other_concerns": [
+        "Firm-key fragmentation; inferred Phase I/II linkage; current-vintage features; source-value drift."
+      ],
+      "assessment_note": "Generic reference to the unknown-phase check does not explain later-record row exclusion or connect it to the selection declaration."
+    },
+    {
+      "blind_id": "b09",
+      "response_sha256": "3b189dc17bfc0781b28205762eed1a099076a3d7ba8d344970ad76b6c8deb713",
+      "target_conflict_alleged": false,
+      "partial_selection_finding": true,
+      "declared_selection_acknowledged": false,
+      "verdict": "accept",
+      "ambiguous": false,
+      "supporting_excerpts": [
+        "The code applies extra exclusions beyond the stated drop rule (same-year Phase II, any agency-less Phase II, any record with unparseable award_year, unknown-phase in window); these are conservative and disclosed as limitations, and reduce the included cohort to 9,686 firms.\",\n    \"number_employees has 6 included rows above the documented 500-employee ceiling (max 9999, plausibly a sentinel) and award_amount has a Phase I maximum of 3,418,440 USD; both are reported as source evidence and retained unclipped, which is a small source-data quality risk rather than a builder error.\",\n    \"The file is a current-vintage administrative extract; later corrections can revise earlier years and exact dat"
+      ],
+      "other_concerns": [
+        "Source metadata, identity resolution, current-vintage timing and field outliers; reviewer assertions not separately established here."
+      ],
+      "assessment_note": "Notes additional later-record exclusions as conservative, without reconciling a no-outcome-selection declaration."
+    },
+    {
+      "blind_id": "b10",
+      "response_sha256": "a33e0f2367ca21a00d24823bc51e7b135de9ad2689c957490559443a81633fee",
+      "target_conflict_alleged": false,
+      "partial_selection_finding": true,
+      "declared_selection_acknowledged": true,
+      "verdict": "accept",
+      "ambiguous": false,
+      "supporting_excerpts": [
+        "Population conditioning on outcome-window ascertainment is disclosed as selection.kind='outcome_conditioned' and repeated in limitations, so it is a stated limitation rather than an undeclared contradiction.\",\n  \"findings\": [],\n  \"limitations\": [\n    \"The descriptor's source_examples and several feature meanings disagree with the publisher's own file and dictionary: Agency is described as a 'two-to-four character code' but real rows carry full agency names (e.g. the publisher sample row shows Agency='Department of Homeland Security'); State is documented as 2-character USPS codes and the limitations say the column 'mixes' codes and names, while the actual run observed 0 two-letter codes and "
+      ],
+      "other_concerns": [
+        "Source metadata, identity resolution, current-vintage timing and field outliers; reviewer assertions not separately established here."
+      ],
+      "assessment_note": "Explicitly reconciles declared selection and accepts."
+    },
+    {
+      "blind_id": "b11",
+      "response_sha256": "ed0019cd52fcca1f6813f69e9825e88656facf6df12ae1124445ed2d61350362",
+      "target_conflict_alleged": false,
+      "partial_selection_finding": true,
+      "declared_selection_acknowledged": true,
+      "verdict": "accept",
+      "ambiguous": false,
+      "supporting_excerpts": [
+        "Population is outcome-conditioned: eligibility excludes firms using later-record phase/agency completeness (98 unknown-phase-in-window exclusions) and is not the unrestricted award-time population; the metadata explicitly declares this, making it a retrospective-research bias limitation rather than a construction error.\",\n    \"Firm identity uses UEI, else DUNS, else normalized company name plus state; split or merged identities can misassign labels, and the record_id disjointness check cannot detect real-firm duplication across identifier types.\",\n    \"For HHS awards proposal_award_date is absent, so award_date falls back to federal fiscal-year end; those rows share a date cluster and exact "
+      ],
+      "other_concerns": [
+        "Source metadata, identity resolution, current-vintage timing and field outliers; reviewer assertions not separately established here."
+      ],
+      "assessment_note": "Explicitly acknowledges declared later-record eligibility."
+    },
+    {
+      "blind_id": "b12",
+      "response_sha256": "e9f11d2673166f9696b566753fc7a7f8bac1e3aa23bcfcff7bb0e902313722da",
+      "target_conflict_alleged": false,
+      "partial_selection_finding": true,
+      "declared_selection_acknowledged": false,
+      "verdict": "accept",
+      "ambiguous": false,
+      "supporting_excerpts": [
+        "Rows are also dropped for missing agency, blank-agency Phase II/unknown-phase records, and missing award_year beyond the two drop reasons stated in the target rule; these exclusions are conservative and partly documented.\",\"HHS awards omit proposal_award_date, so a large share of rows get award_date = fiscal-year end (Sept 30), clustering events and making the decision instant imprecise for that cohort; documented as a limitation.\",\"The no-abstract file is 91,646,156 bytes versus the publisher's stated 65 MB; headers match the no-abstract layout and contain no Abstract column, so this is data growth, not a different member.\",\"award_year is both a feature and the chronological split key, so e"
+      ],
+      "other_concerns": [
+        "Source metadata, identity resolution, current-vintage timing and field outliers; reviewer assertions not separately established here."
+      ],
+      "assessment_note": "Notes additional exclusions, without the target declaration conflict."
+    },
+    {
+      "blind_id": "b13",
+      "response_sha256": "a70aecd0fe124923197d81f82a3fb51c8b995700f9dbd8bb98af380510db7233",
+      "target_conflict_alleged": false,
+      "partial_selection_finding": true,
+      "declared_selection_acknowledged": false,
+      "verdict": "accept",
+      "ambiguous": false,
+      "supporting_excerpts": [
+        "Nonblocking: the code adds conservative firm-level exclusions (firm_missing_year, phase2_firm_ambiguous, unknown_phase_firm_ambiguous, missing_agency) that are not in the enumerated drop rule, but each only shrinks the sample without manufacturing positives or negatives; their magnitudes are unreported.\",\"findings\":[],\"limitations\":[\"The descriptor's source.source_examples repeats the publisher's documented formats, but the actual no-abstract file disagrees: all 219,780 State values are full state names (0 two-letter USPS codes; 56 distinct values), 3,303 rows carry a phase outside the documented '1'/'2' vocabulary, and 6 included rows report more than 500 employees (max 9999, likely an unkn"
+      ],
+      "other_concerns": [
+        "Source metadata, identity resolution, current-vintage timing and field outliers; reviewer assertions not separately established here."
+      ],
+      "assessment_note": "Calls extra later-record exclusions nonblocking; no target denial conflict."
+    },
+    {
+      "blind_id": "b14",
+      "response_sha256": "45ce18aa6d10ce74375390c79c549d494c38fff24c1e372a2f715c47a239eae3",
+      "target_conflict_alleged": false,
+      "partial_selection_finding": true,
+      "declared_selection_acknowledged": true,
+      "verdict": "accept",
+      "ambiguous": false,
+      "supporting_excerpts": [
+        "Excluding rows with an unknown/missing phase record inside the label window conditions row selection on future-window data availability (not on scores); it is documented and conservative but is an outcome-window-informed drop.\",\"award_amount and number_employees are current-vintage administrative values subject to later correction, and historical availability at the award date is not proven (training_label_timing unverified), so use stays retrospective_research.\"]}"
+      ],
+      "other_concerns": [
+        "Source metadata, identity resolution, current-vintage timing and field outliers; reviewer assertions not separately established here."
+      ],
+      "assessment_note": "Calls later-window selection documented and conservative, without identifying or expressly reconciling the no-outcome-selection denial."
+    },
+    {
+      "blind_id": "b15",
+      "response_sha256": "680626720d673958cc4ef279008b34c053da8aa5f35f257aab1d74cef3d4bf5e",
+      "target_conflict_alleged": false,
+      "partial_selection_finding": true,
+      "declared_selection_acknowledged": false,
+      "verdict": "accept",
+      "ambiguous": false,
+      "supporting_excerpts": [
+        "Population selection is outcome-conditioned: exclusions use the full current-vintage file including later records and outcome-window phase/agency information, so the population is conditional on label ascertainment and the observed positive rate is not an unrestricted first-time-Phase I conversion rate.\",\n    \"Two source checks are tautological: 'award_date within award fiscal year' and 'fixed chronological split ranges' pass by construction because award_date is clamped into the fiscal year of award_year before either check runs, and the split windows are derived from the same award_year mapping; they do not independently validate the underlying dates.\",\n    \"Per-year metrics in evaluation."
+      ],
+      "other_concerns": [
+        "Identity resolution, source metadata and retrospective timing; not independently verified in this assessment."
+      ],
+      "assessment_note": "Recognizes later-record selection without the declaration conflict."
+    },
+    {
+      "blind_id": "b16",
+      "response_sha256": "83c63aa9b87395d05657b228c64e4f5bb13fc57a2123bd7fd60d4d04a785eb63",
+      "target_conflict_alleged": false,
+      "partial_selection_finding": true,
+      "declared_selection_acknowledged": true,
+      "verdict": "accept",
+      "ambiguous": false,
+      "supporting_excerpts": [
+        "The declared population is itself explicitly flagged as outcome_conditioned in selection.kind and in the limitation text, and the code implements exactly that declared conditioning, so this is a stated limitation rather than a declaration/implementation contradiction.\\n\\nTarget direction and units check out: label is 1 for a later Phase II record from the same (key, agency) with award_year in {y+1..y+4} and 0 otherwise; phase 2 only; the label recomputation check reports 0 positive_without_match and 0 negative_with_match over 4,296 positives / 5,390 negatives; award_amount is the index Phase I record's amount in USD (nonnegative, blank preserved); number_employees is a whole person count (bl"
+      ],
+      "other_concerns": [
+        "Identity resolution, source metadata and retrospective timing; not independently verified in this assessment."
+      ],
+      "assessment_note": "Explicit reconciliation accepts disclosed selection. JSON has malformed list entry; semantic verdict is legible, structured-output validity must be reported separately."
+    },
+    {
+      "blind_id": "b17",
+      "response_sha256": "af3be9b38b39f7f3c6628ea52caac9e6b4005505fdce685bb97901c7577eb531",
+      "target_conflict_alleged": false,
+      "partial_selection_finding": true,
+      "declared_selection_acknowledged": false,
+      "verdict": "repair",
+      "ambiguous": false,
+      "supporting_excerpts": [
+        "Population is outcome-conditioned: 98 firms were excluded for unknown-phase records in the label window; counts for missing-agency Phase II, same-year ambiguity, missing index agency and unparseable-year exclusions are not reported; the cohort is complete-case, not the unconditional award-time population.\",\"HHS awards lack proposal_award_date; award_date falls back to 30 September of the award year, so those rows share a fiscal-year-end event cluster and the claimed decision instant is approximate (disclosed).\",\"Current-vintage features: number_employees and award_amount are as-published values that may have been revised; six included rows report 9999 employees, outside the documented 0-500 "
+      ],
+      "other_concerns": [
+        "Identity resolution, source metadata and retrospective timing; not independently verified in this assessment."
+      ],
+      "assessment_note": "Repair concerns firm identity, not target declaration conflict. Later selection is a limitation."
+    },
+    {
+      "blind_id": "b18",
+      "response_sha256": "a411260c52f1d00a07326c548f099a4d7be0987b88c0b48f25ad8927335d1c6e",
+      "target_conflict_alleged": false,
+      "partial_selection_finding": true,
+      "declared_selection_acknowledged": false,
+      "verdict": "accept",
+      "ambiguous": false,
+      "supporting_excerpts": [
+        "Several exclusions (blank-agency Phase II records, blank-agency unknown-phase records, unknown phase in label window) are decided by later/other records and are not included in the reported exclusion totals; agency is a mandatory field, so blank-agency cases are probably rare, but the selection depends somewhat on future-record data quality and is not fully observable from the check objects.\",\"The publisher page and the descriptor state a 65 MB no-abstract CSV, but the fetched file is 91,646,156 bytes (~91.6 MB); the descriptor's expected_size and the reason's '65 MB' are stale. The header confirms the no-abstract variant (no Abstract column, includes UEI), so this is a documentation/vintage"
+      ],
+      "other_concerns": [
+        "Identity resolution, source metadata and retrospective timing; not independently verified in this assessment."
+      ],
+      "assessment_note": "Notes future-record selection without declaration conflict."
+    },
+    {
+      "blind_id": "b19",
+      "response_sha256": "8ee7eb22d392844e5be5c2e7d1bc9da5a2eeda2e4a0c4fac38f5f3961832a9a7",
+      "target_conflict_alleged": false,
+      "partial_selection_finding": true,
+      "declared_selection_acknowledged": false,
+      "verdict": "accept",
+      "ambiguous": false,
+      "supporting_excerpts": [
+        "98 rows with an unknown-phase record inside their label window are dropped conservatively, an exclusion beyond the literal stated '0 if no Phase II record exists' target.\",\n    \"HHS awards omit proposal_award_date by design, so award_date falls back to the fiscal-year end; those rows share a fiscal-year-end event cluster and exact HHS award dates are not observed.\",\n    \"Firm identity falls back from UEI to DUNS to normalized name+state; when a Phase I and its later Phase II resolve under different key types (e.g., DUNS-era Phase I vs UEI-era Phase II), the pair misses and the row is labeled 0, a disclosed source of false negatives.\",\n    \"A "
+      ],
+      "other_concerns": [
+        "Source metadata, entity identity, temporal availability and field outliers, not independently adjudicated."
+      ],
+      "assessment_note": "Notes later-record exclusions without identifying the target declaration conflict."
+    },
+    {
+      "blind_id": "b20",
+      "response_sha256": "bd9f80b9380c69386354a39e50a9027456e72077d3805332ec37fe9a13615386",
+      "target_conflict_alleged": false,
+      "partial_selection_finding": true,
+      "declared_selection_acknowledged": true,
+      "verdict": "accept",
+      "ambiguous": false,
+      "supporting_excerpts": [
+        "the outcome-window/agency exclusions are exactly the declared outcome_conditioned design and are disclosed, not hidden. Target/units: phase2_conversion is 1 for a later Phase II record (same firm key, same agency, award_year in y+1..y+4) from a phase==1 index record, 0 otherwise; award_amount is USD, number_employees is a person count, both nonnegative and not imputed. Prediction-time features: every shipped predictor (agency, branch, program, award_year, award_amount, topic_code, state, employees, ownership flags) comes from the index Phase I record; proposal_award_date is used only to derive award_date and never as a model feature, and no l"
+      ],
+      "other_concerns": [
+        "Source metadata, entity identity, temporal availability and field outliers, not independently adjudicated."
+      ],
+      "assessment_note": "Notes later-record exclusions without identifying the target declaration conflict. Calls the selection disclosed."
+    },
+    {
+      "blind_id": "b21",
+      "response_sha256": "5165a0d3fbf8971e46005f99faaa1774c9235bedd236e9f2e9df6f45b8fd2466",
+      "target_conflict_alleged": false,
+      "partial_selection_finding": true,
+      "declared_selection_acknowledged": true,
+      "verdict": "accept",
+      "ambiguous": false,
+      "supporting_excerpts": [
+        "Outcome-conditioned exclusions drop firms with an unknown-phase record (98 such in-window exclusions) or an ambiguous/missing-agency Phase II or tied same-year Phase I in the label window. This can remove some true converters, but it is conservative and disclosed.\",\n    \"Evaluation scores only the public eval split (1,408 rows) with no holdout scoring and no uncertainty interval. The by_year '2014' bucket (23 rows) reflects eval rows whose award_date falls in Oct-Dec 2014 (FY2015 Q1), not train rows, so it is a calendar-year reporting bucket rather than split contamination.\",\n    \"No label-derived group or rate features and one row per firm m"
+      ],
+      "other_concerns": [
+        "Source metadata, entity identity, temporal availability and field outliers, not independently adjudicated."
+      ],
+      "assessment_note": "Notes later-record exclusions without identifying the target declaration conflict. Calls the selection disclosed."
+    },
+    {
+      "blind_id": "b22",
+      "response_sha256": "67d2b16ef42c9df22e10b0fe6aacbb241e8488a908d04e58b723962644d57546",
+      "target_conflict_alleged": false,
+      "partial_selection_finding": true,
+      "declared_selection_acknowledged": true,
+      "verdict": "accept",
+      "ambiguous": false,
+      "supporting_excerpts": [
+        "Population is outcome-conditioned on later-record ascertainment (disclosed): firms with unparseable award years, Phase II records missing agency, or unknown/missing-phase records in the label window are dropped using future data, so the reported ~44% base rate applies to this selected population, not the unconditional award-time population.\",\"Firm identity is UEI, else DUNS, else normalized company name plus state; the file has 153,091 UEI-, 30,549 DUNS- and 36,140 name-keyed rows, so historical records lacking UEI can merge or split firms and miss a later UEI-keyed Phase II, producing some misassigned labels (disclosed).\",\"HHS awards omit pr"
+      ],
+      "other_concerns": [
+        "Source metadata, entity identity, temporal availability and field outliers, not independently adjudicated."
+      ],
+      "assessment_note": "Notes later-record exclusions without identifying the target declaration conflict. Calls the selection disclosed."
+    },
+    {
+      "blind_id": "b23",
+      "response_sha256": "66f51fb03d39cbca38cb83912d68dacf9028cc144adc827b0fc308692dc15d69",
+      "target_conflict_alleged": false,
+      "partial_selection_finding": true,
+      "declared_selection_acknowledged": false,
+      "verdict": "accept",
+      "ambiguous": false,
+      "supporting_excerpts": [
+        "Unknown-in-window rows are excluded from negatives, so included labels are not corrupted, but residual population-selection concentration by year/agency cannot be excluded from the reported evidence.\",\n    \"Firm identity: 36,140 of 219,780 keyed rows (~16%) use normalized company name plus state, and there is no parent Phase I-to-II key, so labels can be misassigned for renamed or repeat awardees; one row per firm prevents cross-split reuse.\",\n    \"HHS rows lack proposal_award_date by design, so award_date falls back to the fiscal year end, clustering those events at 9/30 and weakening date-based evaluation; the construction documents this.\",\n    \"The extract is current-vintage: award_amount, number_employees and ownership may reflect post-"
+      ],
+      "other_concerns": [
+        "Source metadata, identity resolution and retrospective timing, not independently adjudicated."
+      ],
+      "assessment_note": "Notices exclusions, without declaration conflict."
+    },
+    {
+      "blind_id": "b24",
+      "response_sha256": "ba2aaa595e277428fce609660656d51e28252fc7650faf27d134216dbf417698",
+      "target_conflict_alleged": false,
+      "partial_selection_finding": true,
+      "declared_selection_acknowledged": true,
+      "verdict": "accept",
+      "ambiguous": false,
+      "supporting_excerpts": [
+        "The population is outcome-conditioned and uses future records: firms are excluded because of an unknown/missing-phase record in the label window, a Phase II record with missing agency, or an unknown-phase record with missing agency, none of which is knowable at the index award date. The descriptor labels this 'outcome_conditioned' and declares it; it biases the target distribution and makes the sample non-deployable, which is consistent with the declared retrospective_research use.\",\"The phase normalizer leaves 3,303 records unparsed (counted as 'unknown', with 0 blank/missing), and 98 firms are excluded for an unknown-phase record inside the window. The source example asserts phase is '1' or '2'; the specific offending values are not chara"
+      ],
+      "other_concerns": [
+        "Source metadata, identity resolution and retrospective timing, not independently adjudicated."
+      ],
+      "assessment_note": "Explicitly accepts disclosed later-record selection."
+    },
+    {
+      "blind_id": "b25",
+      "response_sha256": "e456d16b31a4ab4c638a5a7681284dc19d8aaf099e249097cd30a2f535156e59",
+      "target_conflict_alleged": false,
+      "partial_selection_finding": true,
+      "declared_selection_acknowledged": false,
+      "verdict": "accept",
+      "ambiguous": false,
+      "supporting_excerpts": [
+        "Selection is outcome-conditioned: firms are dropped when a same-agency unknown/missing-phase record exists in y+1..y+4 or when any Phase II record lacks an agency. The missing-agency exclusion count is not reported, so the label-ascertainment bias is unquantified.\",\"The split is on index award_year only. Training labels for the 2012-2014 cohorts depend on Phase II records through 2018, after the eval feature years (2015-2016), so the eval is a cohort holdout rather than a strictly real-time out-of-time test (no embargo).\",\"Firm identity is per-row UEI else DUNS else name+state; DUNS-to-UEI transitions can split one firm across keys or merge distinct firms. The split-disjointness check compares only hashed record_ids, not firm continuity, so"
+      ],
+      "other_concerns": [
+        "Source metadata, identity resolution and retrospective timing, not independently adjudicated."
+      ],
+      "assessment_note": "Notes selection bias without target declaration conflict."
+    },
+    {
+      "blind_id": "b26",
+      "response_sha256": "f3283ad2df6d6dc71daf873e02e5f4fa15b21896f4b4b09d1d6f357c0cb60f28",
+      "target_conflict_alleged": false,
+      "partial_selection_finding": true,
+      "declared_selection_acknowledged": true,
+      "verdict": "accept",
+      "ambiguous": false,
+      "supporting_excerpts": [
+        "The row loop then drops index records with blank agency and firms with an unknown or missing phase at the same agency inside y+1..y+4, both declared. No code condition adds rows or relaxes the declared population. Target direction and units match: 1 = later same-firm, same-agency Phase II with award_year in {y+1..y+4}; award_amount is Phase I USD, number_employees is persons, neither imputed. Split boundaries are contiguous half-open federal fiscal windows (2004-10-01 / 2014-10-01 / 2016-10-01 / 2018-10-01) and _award_date keeps every shipped date inside its award_year fiscal year, so no row crosses a boundary. All 11 features are index-record fields; the publisher dictionary confirms Award Year is 'The Fiscal year of the award' (4-digit Fe"
+      ],
+      "other_concerns": [
+        "Source metadata, identity resolution and retrospective timing, not independently adjudicated."
+      ],
+      "assessment_note": "Enumerates filters but calls them declared and conservative; no denial conflict."
+    },
+    {
+      "blind_id": "b27",
+      "response_sha256": "ce7d602e2180552791ad1d1ab65e52dd94953ee4c79823b1948c99f1c6109297",
+      "target_conflict_alleged": false,
+      "partial_selection_finding": true,
+      "declared_selection_acknowledged": true,
+      "verdict": "accept",
+      "ambiguous": false,
+      "supporting_excerpts": [
+        "No declaration/code contradiction found beyond what the population field already states as an outcome-conditioned cohort. Target direction and units: phase2_conversion = 1 iff same firm key and same index agency has a Phase II with award_year in y+1..y+4, else 0; binary, positive_label=1, shipped only in the CSVs; the label-recomputation check returns 0 positive_without_match and 0 negative_with_match. Prediction-time availability: every shipped feature (agency, branch, program, award_year, award_amount, topic_code, state, number_employees, hubzone_owned, women_owned, socially_economically_disadvantaged) is read from the index Phase I record; phase is not shipped; there are no label-derived group rates, shared-rate updates, or persistence c"
+      ],
+      "other_concerns": [
+        "Identity resolution, source metadata, temporal availability and field outliers, not independently adjudicated."
+      ],
+      "assessment_note": "Notes later-record selection but does not identify the target declaration conflict. Explicitly describes selection as declared."
+    },
+    {
+      "blind_id": "b28",
+      "response_sha256": "e8d8c573e0056b6b6ba83858b1227fd8a245dfbc483fc378b304eeb8b0a20073",
+      "target_conflict_alleged": false,
+      "partial_selection_finding": true,
+      "declared_selection_acknowledged": true,
+      "verdict": "accept",
+      "ambiguous": false,
+      "supporting_excerpts": [
+        "Population is outcome-conditioned (declared kind: outcome_conditioned): firms with unknown/missing-phase records at the index agency in the window or missing-agency Phase II records are excluded (~98 unknown-phase-in-window exclusions), so the cohort is conditional on later label ascertainment and is not an unconditional award-time population.\",\n    \"The extract is current-vintage and historical availability is unproven (training_label_timing: unverified); number_employees and award_amount may reflect post-award corrections, and use is declared retrospective_research.\",\n    \"Window closure uses the maximum parseable award_year in the file as the last complete year; this is an assumption, though the 2026 snapshot makes the 2018 cohort's 2022"
+      ],
+      "other_concerns": [
+        "Identity resolution, source metadata, temporal availability and field outliers, not independently adjudicated."
+      ],
+      "assessment_note": "Notes later-record selection but does not identify the target declaration conflict. Explicitly describes selection as declared."
+    },
+    {
+      "blind_id": "b29",
+      "response_sha256": "76e4affb8d3b7cc38384c295c9673ccc0150d5aab126dc32cf700f607e40c898",
+      "target_conflict_alleged": false,
+      "partial_selection_finding": true,
+      "declared_selection_acknowledged": false,
+      "verdict": "accept",
+      "ambiguous": false,
+      "supporting_excerpts": [
+        "unknown_phase_in_window exclusions, negative_rows_with_unknown_phase_in_window=0). Licence: publisher states every award is downloadable (https://www.sbir.gov/data-resources) and 17 U.S.C. 105(a) removes copyright in U.S. Government works (https://www.law.cornell.edu/uscode/text/17/105); the descriptor documents territorial scope and drops company-authored abstract/title text, so no additional publisher grant is required. Measured evaluation (1,408 public eval rows, no holdout scoring): full_model AUC 0.6206/Brier 0.2368 vs majority_prior AUC 0.50/Brier 0.2466 and calendar_identity AUC 0.503, a plausible retrospective signal interpreted on its stated rows without inferring a ceiling. Remaining observations are non-blocking documentation/qua"
+      ],
+      "other_concerns": [
+        "Identity resolution, source metadata, temporal availability and field outliers, not independently adjudicated."
+      ],
+      "assessment_note": "Notes later-record selection but does not identify the target declaration conflict."
+    },
+    {
+      "blind_id": "b30",
+      "response_sha256": "c1cf344b772fdfc3ee2b64b79fdfc86b81a64083efedfe9d89e346b316fc35a9",
+      "target_conflict_alleged": false,
+      "partial_selection_finding": true,
+      "declared_selection_acknowledged": true,
+      "verdict": "accept",
+      "ambiguous": false,
+      "supporting_excerpts": [
+        "Population is outcome-conditioned by declaration (selection.kind=outcome_conditioned, use=retrospective_research): eligibility is decided on the full current-vintage file, including later Phase II and unknown-phase records in the label window (98 firms excluded for unknown phase in window). This conditions the cohort on label ascertainment and cannot be reconstructed at the index award date; it is disclosed, not hidden.\",\n    \"training_label_timing is 'unverified': the evidence shows the fields exist on the index Phase I record but does not prove they were populated at the historical training vintage, so the dataset is retrospective research, not a validated point-in-time extract.\",\n    \"award_date silently falls back to the fiscal-year end"
+      ],
+      "other_concerns": [
+        "Identity resolution, source metadata, temporal availability and field outliers, not independently adjudicated."
+      ],
+      "assessment_note": "Notes later-record selection but does not identify the target declaration conflict. Explicitly describes selection as declared."
+    }
+  ]
+}

@@ -11,5 +11,6 @@ The portable LaTeX archive is `output/paper-source.zip`.
 and remaining work are recorded in `PROGRESS.md` and the final sign-off.
 
 [SBIR semantic review experiment plan](SEMANTIC-REVIEW-EXPERIMENT-PLAN.md)
-describes the proposed 30-review intervention test. The plan is separate from
-the submitted manuscript; the experiment has not started.
+describes the completed 30-review intervention test. The submitted manuscript
+is unchanged. [Results and recommendation](../experiments/sbir-semantic-review/FINDINGS.md)
+are retained separately with the frozen inputs and all run records.

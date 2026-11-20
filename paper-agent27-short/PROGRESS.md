@@ -202,3 +202,14 @@ overfull boxes. Body text matches after excluding the notice; pages 2–5 are
 pixel-identical and page 1 was visually inspected. All fonts are embedded.
 Copied the upload ZIP to ~/Downloads/dataset-factory-arxiv.zip. No arXiv upload
 or final submission is claimed; Eduardo is completing the form.
+
+## SBIR review intervention — 20 November 2026
+
+Completed the separate 30-review experiment under the frozen protocol. Neither
+providing the full descriptor nor adding the explicit selection-code comparison
+instruction detected the contradiction in five original-case reviews each. All
+15 original-case reviews accepted. The report distinguishes partial findings,
+unrelated repairs, and one malformed comparison response. See
+`../experiments/sbir-semantic-review/FINDINGS.md` for evidence and limits.
+The submitted source, figures, conference PDF and arXiv package remain unchanged;
+the experiment is retained as evidence rather than silently revising submissions.

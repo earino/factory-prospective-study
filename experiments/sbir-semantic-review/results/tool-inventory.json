@@ -1,0 +1,826 @@
+[
+  {
+    "run_id": "r01",
+    "calls": [
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/data-resources/data-dictionary/award",
+            "https://www.sbir.gov/data-resources"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "run_id": "r02",
+    "calls": [
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/data-resources/data-dictionary/award",
+            "https://www.sbir.gov/data-resources"
+          ],
+          "char_limit": 12000
+        }
+      },
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://data.www.sbir.gov/mod_awarddatapublic_no_abstract/award_data_no_abstract.csv"
+          ],
+          "char_limit": 2500
+        }
+      }
+    ]
+  },
+  {
+    "run_id": "r03",
+    "calls": [
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/data-resources/data-dictionary/award",
+            "https://www.sbir.gov/data-resources"
+          ]
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": "SBIR.gov award data dictionary \"Award Year\" fiscal year definition phase \"Phase I\" \"Phase II\""
+        }
+      },
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://api.www.sbir.gov/public/api/awards?rows=3",
+            "https://www.sbir.gov/api/awards"
+          ],
+          "query": "sbir.gov \"award year\" proposal_award_date mismatch fiscal year solicitation year data issues"
+        }
+      },
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/about/policies",
+            "https://www.law.cornell.edu/uscode/text/17/105"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "run_id": "r04",
+    "calls": [
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/data-resources/data-dictionary/award",
+            "https://www.sbir.gov/data-resources"
+          ]
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": "SBIR.gov award data dictionary \"Award Year\" \"Proposal Award Date\" phase field"
+        }
+      }
+    ]
+  },
+  {
+    "run_id": "r05",
+    "calls": []
+  },
+  {
+    "run_id": "r06",
+    "calls": [
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/data-resources/data-dictionary/award",
+            "https://www.sbir.gov/data-resources",
+            "https://www.law.cornell.edu/uscode/text/17/105"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "run_id": "r07",
+    "calls": [
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/data-resources/data-dictionary/award",
+            "https://www.sbir.gov/data-resources"
+          ]
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": "SBIR.gov award data CSV \"State\" column full state name or two letter code award_data_no_abstract"
+        }
+      },
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/api",
+            "https://api.www.sbir.gov/public/api/awards?rows=2"
+          ]
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": "sbir.gov award_data_no_abstract.csv sample row \"State\" \"CA\" OR \"California\""
+        }
+      },
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://data.www.sbir.gov/mod_awarddatapublic_no_abstract/award_data_no_abstract.csv"
+          ],
+          "char_limit": 4000
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": "\"award_data_no_abstract\" OR \"SBIR\" awards csv github state column values California",
+          "limit": 10
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": "SBIR.gov award download CSV \"State\" \"VA\" \"CA\" column sample rows data dictionary",
+          "limit": 10
+        }
+      }
+    ]
+  },
+  {
+    "run_id": "r08",
+    "calls": [
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/data-resources/data-dictionary/award",
+            "https://www.sbir.gov/data-resources"
+          ]
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": "SBIR.gov award data CSV \"Phase\" column values \"Phase I\" \"Phase II\" \"Phase III\" data dictionary"
+        }
+      },
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://api.www.sbir.gov/public/api/awards?rows=3&start=0"
+          ],
+          "char_limit": 4000
+        }
+      },
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://data.www.sbir.gov/mod_awarddatapublic_no_abstract/award_data_no_abstract.csv"
+          ],
+          "char_limit": 3000
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": "\"Award Title,Agency,Branch,Phase,Program,Agency Tracking Number\" sbir csv"
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": "sbir award_data_no_abstract.csv columns State full state name \"Virginia\" OR \"California\" analysis"
+        }
+      },
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://raw.githubusercontent.com/gerwaric/sbirtools/main/docs/DESIGN.md"
+          ]
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": "sbirtools sample-sbir-awards.csv github gerwaric"
+        }
+      },
+      {
+        "name": "web_extract",
+        "arguments": {
+          "char_limit": 6000,
+          "urls": [
+            "https://raw.githubusercontent.com/gerwaric/sbirtools/main/docs/sample-sbir-awards.csv"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "run_id": "r09",
+    "calls": [
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/data-resources/data-dictionary/award",
+            "https://www.sbir.gov/data-resources"
+          ]
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": "SBIR.gov award data dictionary \"Proposal Award Date\" \"Award Year\" \"Number Employees\" state field"
+        }
+      }
+    ]
+  },
+  {
+    "run_id": "r10",
+    "calls": [
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/data-resources/data-dictionary/award",
+            "https://www.sbir.gov/data-resources",
+            "https://www.sbir.gov/about/policies"
+          ]
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": "SBIR.gov award data dictionary \"State\" field two letter abbreviation \"Number Employees\" \"Proposal Award Date\""
+        }
+      }
+    ]
+  },
+  {
+    "run_id": "r11",
+    "calls": [
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/data-resources/data-dictionary/award",
+            "https://www.sbir.gov/about/policies"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "run_id": "r12",
+    "calls": [
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/data-resources/data-dictionary/award",
+            "https://www.sbir.gov/data-resources"
+          ],
+          "char_limit": 30000
+        }
+      }
+    ]
+  },
+  {
+    "run_id": "r13",
+    "calls": [
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/data-resources/data-dictionary/award"
+          ]
+        }
+      },
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/data-resources"
+          ]
+        }
+      },
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://data.www.sbir.gov/mod_awarddatapublic_no_abstract/award_data_no_abstract.csv"
+          ],
+          "char_limit": 4000
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": "SBIR.gov award data csv \"Phase\" column values \"Phase I\" \"Phase II\" download award_data_no_abstract"
+        }
+      },
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/api"
+          ]
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": "SBIR.gov award data UEI DUNS backfill historical awards unique entity identifier added 2022"
+        }
+      },
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://api.www.sbir.gov/public/api/awards?agency=HHS&year=2010&rows=2",
+            "https://api.www.sbir.gov/public/api/awards?agency=DOE&year=2010&rows=2"
+          ]
+        }
+      },
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://files.gao.gov/reports/GAO-25-107942/index.html"
+          ],
+          "char_limit": 20000
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": "\"award_data_no_abstract\" SBIR csv github"
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": "sbir.gov award data \"state\" column full state name \"VIRGINIA\" csv download awards"
+        }
+      }
+    ]
+  },
+  {
+    "run_id": "r14",
+    "calls": [
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/data-resources/data-dictionary/award",
+            "https://www.sbir.gov/data-resources",
+            "https://www.sbir.gov/about/policies"
+          ],
+          "char_limit": 20000
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": "SBIR.gov award data dictionary Phase \"Phase I or Phase II\" proposal award date number employees"
+        }
+      }
+    ]
+  },
+  {
+    "run_id": "r15",
+    "calls": [
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/data-resources/data-dictionary/award",
+            "https://www.sbir.gov/data-resources",
+            "https://www.sbir.gov/about/policies"
+          ]
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": "SBIR.gov award data dictionary \"Award Year\" \"Proposal Award Date\" \"State\" field definition"
+        }
+      }
+    ]
+  },
+  {
+    "run_id": "r16",
+    "calls": [
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/data-resources/data-dictionary/award",
+            "https://www.sbir.gov/data-resources"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "run_id": "r17",
+    "calls": [
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/data-resources",
+            "https://www.sbir.gov/data-resources/data-dictionary/award",
+            "https://www.sbir.gov/about/policies"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "run_id": "r18",
+    "calls": [
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/data-resources/data-dictionary/award",
+            "https://www.sbir.gov/data-resources"
+          ],
+          "char_limit": 20000
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": "SBIR award data CSV \"State\" column full state name \"Proposal Award Date\" phase values"
+        }
+      },
+      {
+        "name": "web_extract",
+        "arguments": {
+          "char_limit": 15000,
+          "urls": [
+            "https://github.com/gerwaric/sbirtools/blob/main/docs/DESIGN.md",
+            "https://data.www.sbir.gov/mod_awarddatapublic_no_abstract/award_data_no_abstract.csv"
+          ]
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": "\"award_data_no_abstract.csv\" phase \"Phase IIA\" OR \"Phase IIB\" OR \"Phase 1\" state \"California\""
+        }
+      },
+      {
+        "name": "web_extract",
+        "arguments": {
+          "char_limit": 12000,
+          "urls": [
+            "https://raw.githubusercontent.com/gerwaric/sbirtools/main/docs/sample-sbir-awards.csv",
+            "https://www.sbir.gov/awards"
+          ]
+        }
+      },
+      {
+        "name": "web_extract",
+        "arguments": {
+          "char_limit": 10000,
+          "urls": [
+            "https://www.sbir.gov/api"
+          ]
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": "SBIR award data \"Phase\" column values \"Phase IIB\" download csv 219780"
+        }
+      },
+      {
+        "name": "web_extract",
+        "arguments": {
+          "char_limit": 8000,
+          "urls": [
+            "https://api.www.sbir.gov/public/api/awards?rows=5",
+            "https://api.www.sbir.gov/public/api/awards?agency=HHS&year=2022&rows=5"
+          ]
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": "site:sbir.gov awards \"Phase IIB\" NIH",
+          "limit": 10
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": "github raw sbir awards csv \"Phase IIB\" \"Award Year\" \"Number Employees\"",
+          "limit": 10
+        }
+      },
+      {
+        "name": "web_extract",
+        "arguments": {
+          "char_limit": 6000,
+          "urls": [
+            "https://www.sbir.gov/awards/200851"
+          ]
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "limit": 10,
+          "query": "\"award_data_no_abstract.csv\""
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "limit": 10,
+          "query": "sbir awards csv \"Phase\" \"Phase I\" \"Phase II\" sample rows github dataset"
+        }
+      }
+    ]
+  },
+  {
+    "run_id": "r19",
+    "calls": [
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/data-resources/data-dictionary/award",
+            "https://www.sbir.gov/data-resources"
+          ]
+        }
+      },
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/about/policies"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "run_id": "r20",
+    "calls": [
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/data-resources/data-dictionary/award",
+            "https://www.sbir.gov/data-resources"
+          ]
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": "SBIR.gov award data \"Award Year\" fiscal year definition data dictionary"
+        }
+      }
+    ]
+  },
+  {
+    "run_id": "r21",
+    "calls": []
+  },
+  {
+    "run_id": "r22",
+    "calls": [
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/data-resources/data-dictionary/award",
+            "https://www.sbir.gov/data-resources"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "run_id": "r23",
+    "calls": [
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/data-resources/data-dictionary/award",
+            "https://www.sbir.gov/data-resources"
+          ]
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": "SBIR.gov award data dictionary state field \"2 characters\" USPS proposal_award_date HHS number_employees 0-500"
+        }
+      }
+    ]
+  },
+  {
+    "run_id": "r24",
+    "calls": [
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/data-resources/data-dictionary/award",
+            "https://www.sbir.gov/data-resources"
+          ],
+          "char_limit": 18000
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": "SBIR.gov award data csv \"Phase\" column values \"Phase I\" \"Phase II\" \"Phase III\" data dictionary",
+          "limit": 8
+        }
+      },
+      {
+        "name": "web_extract",
+        "arguments": {
+          "char_limit": 6000,
+          "urls": [
+            "https://data.www.sbir.gov/mod_awarddatapublic_no_abstract/award_data_no_abstract.csv"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "run_id": "r25",
+    "calls": []
+  },
+  {
+    "run_id": "r26",
+    "calls": [
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/data-resources/data-dictionary/award",
+            "https://www.sbir.gov/data-resources"
+          ]
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": "SBIR.gov award data dictionary \"Award Year\" \"Proposal Award Date\" fiscal year phase"
+        }
+      },
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://data.www.sbir.gov/mod_awarddatapublic_no_abstract/award_data_no_abstract.csv"
+          ],
+          "char_limit": 4000
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": "\"award_data_no_abstract.csv\" SBIR State \"Phase I\" OR \"Phase II\" sample rows"
+        }
+      },
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/about/policies",
+            "https://www.sbir.gov/website-policies"
+          ]
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": "sbir.gov copyright \"government\" data terms of use site policies"
+        }
+      }
+    ]
+  },
+  {
+    "run_id": "r27",
+    "calls": [
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/data-resources/data-dictionary/award",
+            "https://www.sbir.gov/data-resources"
+          ],
+          "char_limit": 18000
+        }
+      }
+    ]
+  },
+  {
+    "run_id": "r28",
+    "calls": [
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/data-resources/data-dictionary/award",
+            "https://www.sbir.gov/data-resources"
+          ],
+          "char_limit": 20000
+        }
+      },
+      {
+        "name": "web_extract",
+        "arguments": {
+          "char_limit": 8000,
+          "urls": [
+            "https://api.www.sbir.gov/public/api/awards?rows=5",
+            "https://www.sbir.gov/about/policies"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "run_id": "r29",
+    "calls": [
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/data-resources/data-dictionary/award",
+            "https://www.sbir.gov/data-resources",
+            "https://www.sbir.gov/about/policies"
+          ],
+          "char_limit": 20000
+        }
+      }
+    ]
+  },
+  {
+    "run_id": "r30",
+    "calls": [
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://www.sbir.gov/data-resources/data-dictionary/award",
+            "https://www.sbir.gov/data-resources",
+            "https://www.sbir.gov/about/policies"
+          ]
+        }
+      },
+      {
+        "name": "web_extract",
+        "arguments": {
+          "urls": [
+            "https://api.www.sbir.gov/public/api/awards?rows=2",
+            "https://www.sbir.gov/api/awards.json?rows=2",
+            "https://www.law.cornell.edu/uscode/text/17/105"
+          ]
+        }
+      }
+    ]
+  }
+]

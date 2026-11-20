@@ -1,0 +1,15 @@
+Extraction failed — the configured extract backend can't fetch page content, so I have no verified page text to report.
+
+```json
+{
+  "url": "https://www.sbir.gov/data-resources/data-dictionary/award",
+  "title": null,
+  "extraction_succeeded": false,
+  "phase_field_meaning": null,
+  "error": "web_extract backend is search-only: \"DuckDuckGo (ddgs) is a search-only backend and cannot extract URL content. Set web.extract_backend to firecrawl, tavily, keenable, exa, or parallel.\""
+}
+```
+
+I won't fill in the Phase definition from memory or from the Policy Directive search snippets — those describe the SBIR/STTR phases generally, not what the data dictionary says the `phase` column contains, and the ask was specifically the dictionary's documented meaning.
+
+To get a real answer, set `web.extract_backend` to one of firecrawl / tavily / keenable / exa / parallel (exa is already working for search here) and I'll re-run the same URL.

@@ -1,0 +1,1753 @@
+{
+  "scheduled_reviews": 30,
+  "completed_processes": 30,
+  "with_final_response": 30,
+  "timeouts": 0,
+  "nonzero_exits": 0,
+  "usage": {
+    "api_call_count": 113,
+    "input_tokens": 1723684,
+    "output_tokens": 1298892,
+    "cache_read_tokens": 1944286,
+    "cache_write_tokens": 0,
+    "reasoning_tokens": 0
+  },
+  "usage_by_task": {
+    "title": {
+      "api_call_count": 30,
+      "input_tokens": 4242,
+      "output_tokens": 387,
+      "cache_read_tokens": 8328,
+      "cache_write_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "review": {
+      "api_call_count": 83,
+      "input_tokens": 1719442,
+      "output_tokens": 1298505,
+      "cache_read_tokens": 1935958,
+      "cache_write_tokens": 0,
+      "reasoning_tokens": 0
+    }
+  },
+  "runs": [
+    {
+      "case": "consistent",
+      "condition": "explicit_comparison",
+      "repetition": 5,
+      "prompt": "inputs/prompts/consistent--explicit_comparison.txt",
+      "run_id": "r01",
+      "finished": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 170.099,
+        "session_count": 1,
+        "has_response": true
+      },
+      "structured_output": {
+        "valid_json": true,
+        "parsed_verdict": "accept",
+        "error": null
+      },
+      "started": "2026-11-20T17:37:46Z",
+      "usage": {
+        "api_call_count": 3,
+        "input_tokens": 76619,
+        "output_tokens": 45527,
+        "cache_read_tokens": 2120,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "tasks": {
+        "title": {
+          "api_call_count": 1,
+          "input_tokens": 129,
+          "output_tokens": 13,
+          "cache_read_tokens": 290,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "review": {
+          "api_call_count": 2,
+          "input_tokens": 76490,
+          "output_tokens": 45514,
+          "cache_read_tokens": 1830,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      },
+      "tool_calls": 1,
+      "wire_chat_requests": 3,
+      "wire_usage": {
+        "reported_calls": 3,
+        "prompt_tokens": 78739,
+        "completion_tokens": 45527,
+        "cached_prompt_tokens": 2120
+      },
+      "response_model_ids": [
+        "deepseek-v4.1-flash"
+      ]
+    },
+    {
+      "case": "original",
+      "condition": "original_packet",
+      "repetition": 2,
+      "prompt": "inputs/prompts/original--original_packet.txt",
+      "run_id": "r02",
+      "finished": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 154.011,
+        "session_count": 1,
+        "has_response": true
+      },
+      "structured_output": {
+        "valid_json": true,
+        "parsed_verdict": "accept",
+        "error": null
+      },
+      "started": "2026-11-20T17:37:46Z",
+      "usage": {
+        "api_call_count": 3,
+        "input_tokens": 51497,
+        "output_tokens": 42090,
+        "cache_read_tokens": 22730,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "tasks": {
+        "title": {
+          "api_call_count": 1,
+          "input_tokens": 315,
+          "output_tokens": 13,
+          "cache_read_tokens": 104,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "review": {
+          "api_call_count": 2,
+          "input_tokens": 51182,
+          "output_tokens": 42077,
+          "cache_read_tokens": 22626,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      },
+      "tool_calls": 2,
+      "wire_chat_requests": 3,
+      "wire_usage": {
+        "reported_calls": 3,
+        "prompt_tokens": 74227,
+        "completion_tokens": 42090,
+        "cached_prompt_tokens": 22730
+      },
+      "response_model_ids": [
+        "deepseek-v4.1-flash"
+      ]
+    },
+    {
+      "case": "original",
+      "condition": "explicit_comparison",
+      "repetition": 2,
+      "prompt": "inputs/prompts/original--explicit_comparison.txt",
+      "run_id": "r03",
+      "finished": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 148.372,
+        "session_count": 1,
+        "has_response": true
+      },
+      "structured_output": {
+        "valid_json": true,
+        "parsed_verdict": "accept",
+        "error": null
+      },
+      "started": "2026-11-20T17:40:20Z",
+      "usage": {
+        "api_call_count": 5,
+        "input_tokens": 70282,
+        "output_tokens": 37186,
+        "cache_read_tokens": 112426,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "tasks": {
+        "title": {
+          "api_call_count": 1,
+          "input_tokens": 129,
+          "output_tokens": 13,
+          "cache_read_tokens": 290,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "review": {
+          "api_call_count": 4,
+          "input_tokens": 70153,
+          "output_tokens": 37173,
+          "cache_read_tokens": 112136,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      },
+      "tool_calls": 4,
+      "wire_chat_requests": 5,
+      "wire_usage": {
+        "reported_calls": 5,
+        "prompt_tokens": 182708,
+        "completion_tokens": 37186,
+        "cached_prompt_tokens": 112426
+      },
+      "response_model_ids": [
+        "deepseek-v4.1-flash"
+      ]
+    },
+    {
+      "case": "consistent",
+      "condition": "explicit_comparison",
+      "repetition": 4,
+      "prompt": "inputs/prompts/consistent--explicit_comparison.txt",
+      "run_id": "r04",
+      "finished": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 121.505,
+        "session_count": 1,
+        "has_response": true
+      },
+      "structured_output": {
+        "valid_json": false,
+        "parsed_verdict": null,
+        "error": "Expecting ',' delimiter: line 1 column 6169 (char 6168)"
+      },
+      "started": "2026-11-20T17:40:36Z",
+      "usage": {
+        "api_call_count": 3,
+        "input_tokens": 41632,
+        "output_tokens": 33056,
+        "cache_read_tokens": 27876,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "tasks": {
+        "title": {
+          "api_call_count": 1,
+          "input_tokens": 129,
+          "output_tokens": 12,
+          "cache_read_tokens": 290,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "review": {
+          "api_call_count": 2,
+          "input_tokens": 41503,
+          "output_tokens": 33044,
+          "cache_read_tokens": 27586,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      },
+      "tool_calls": 2,
+      "wire_chat_requests": 3,
+      "wire_usage": {
+        "reported_calls": 3,
+        "prompt_tokens": 69508,
+        "completion_tokens": 33056,
+        "cached_prompt_tokens": 27876
+      },
+      "response_model_ids": [
+        "deepseek-v4.1-flash"
+      ]
+    },
+    {
+      "case": "consistent",
+      "condition": "complete_packet",
+      "repetition": 5,
+      "prompt": "inputs/prompts/consistent--complete_packet.txt",
+      "run_id": "r05",
+      "finished": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 131.596,
+        "session_count": 1,
+        "has_response": true
+      },
+      "structured_output": {
+        "valid_json": true,
+        "parsed_verdict": "accept",
+        "error": null
+      },
+      "started": "2026-11-20T17:42:38Z",
+      "usage": {
+        "api_call_count": 2,
+        "input_tokens": 24346,
+        "output_tokens": 35325,
+        "cache_read_tokens": 2002,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "tasks": {
+        "title": {
+          "api_call_count": 1,
+          "input_tokens": 129,
+          "output_tokens": 14,
+          "cache_read_tokens": 290,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "review": {
+          "api_call_count": 1,
+          "input_tokens": 24217,
+          "output_tokens": 35311,
+          "cache_read_tokens": 1712,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      },
+      "tool_calls": 0,
+      "wire_chat_requests": 2,
+      "wire_usage": {
+        "reported_calls": 2,
+        "prompt_tokens": 26348,
+        "completion_tokens": 35325,
+        "cached_prompt_tokens": 2002
+      },
+      "response_model_ids": [
+        "deepseek-v4.1-flash"
+      ]
+    },
+    {
+      "case": "original",
+      "condition": "explicit_comparison",
+      "repetition": 1,
+      "prompt": "inputs/prompts/original--explicit_comparison.txt",
+      "run_id": "r06",
+      "finished": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 155.749,
+        "session_count": 1,
+        "has_response": true
+      },
+      "structured_output": {
+        "valid_json": true,
+        "parsed_verdict": "accept",
+        "error": null
+      },
+      "started": "2026-11-20T17:42:49Z",
+      "usage": {
+        "api_call_count": 3,
+        "input_tokens": 65442,
+        "output_tokens": 42710,
+        "cache_read_tokens": 27048,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "tasks": {
+        "title": {
+          "api_call_count": 1,
+          "input_tokens": 129,
+          "output_tokens": 13,
+          "cache_read_tokens": 290,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "review": {
+          "api_call_count": 2,
+          "input_tokens": 65313,
+          "output_tokens": 42697,
+          "cache_read_tokens": 26758,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      },
+      "tool_calls": 1,
+      "wire_chat_requests": 3,
+      "wire_usage": {
+        "reported_calls": 3,
+        "prompt_tokens": 92490,
+        "completion_tokens": 42710,
+        "cached_prompt_tokens": 27048
+      },
+      "response_model_ids": [
+        "deepseek-v4.1-flash"
+      ]
+    },
+    {
+      "case": "original",
+      "condition": "original_packet",
+      "repetition": 1,
+      "prompt": "inputs/prompts/original--original_packet.txt",
+      "run_id": "r07",
+      "finished": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 182.899,
+        "session_count": 1,
+        "has_response": true
+      },
+      "structured_output": {
+        "valid_json": true,
+        "parsed_verdict": "accept",
+        "error": null
+      },
+      "started": "2026-11-20T17:44:49Z",
+      "usage": {
+        "api_call_count": 6,
+        "input_tokens": 52096,
+        "output_tokens": 42507,
+        "cache_read_tokens": 137182,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "tasks": {
+        "title": {
+          "api_call_count": 1,
+          "input_tokens": 129,
+          "output_tokens": 12,
+          "cache_read_tokens": 290,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "review": {
+          "api_call_count": 5,
+          "input_tokens": 51967,
+          "output_tokens": 42495,
+          "cache_read_tokens": 136892,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      },
+      "tool_calls": 7,
+      "wire_chat_requests": 6,
+      "wire_usage": {
+        "reported_calls": 6,
+        "prompt_tokens": 189278,
+        "completion_tokens": 42507,
+        "cached_prompt_tokens": 137182
+      },
+      "response_model_ids": [
+        "deepseek-v4.1-flash"
+      ]
+    },
+    {
+      "case": "consistent",
+      "condition": "explicit_comparison",
+      "repetition": 3,
+      "prompt": "inputs/prompts/consistent--explicit_comparison.txt",
+      "run_id": "r08",
+      "finished": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 182.522,
+        "session_count": 1,
+        "has_response": true
+      },
+      "structured_output": {
+        "valid_json": true,
+        "parsed_verdict": "accept",
+        "error": null
+      },
+      "started": "2026-11-20T17:45:24Z",
+      "usage": {
+        "api_call_count": 7,
+        "input_tokens": 52512,
+        "output_tokens": 43919,
+        "cache_read_tokens": 220382,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "tasks": {
+        "title": {
+          "api_call_count": 1,
+          "input_tokens": 129,
+          "output_tokens": 12,
+          "cache_read_tokens": 290,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "review": {
+          "api_call_count": 6,
+          "input_tokens": 52383,
+          "output_tokens": 43907,
+          "cache_read_tokens": 220092,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      },
+      "tool_calls": 9,
+      "wire_chat_requests": 7,
+      "wire_usage": {
+        "reported_calls": 7,
+        "prompt_tokens": 272894,
+        "completion_tokens": 43919,
+        "cached_prompt_tokens": 220382
+      },
+      "response_model_ids": [
+        "deepseek-v4.1-flash"
+      ]
+    },
+    {
+      "case": "original",
+      "condition": "complete_packet",
+      "repetition": 4,
+      "prompt": "inputs/prompts/original--complete_packet.txt",
+      "run_id": "r09",
+      "finished": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 144.835,
+        "session_count": 1,
+        "has_response": true
+      },
+      "structured_output": {
+        "valid_json": true,
+        "parsed_verdict": "accept",
+        "error": null
+      },
+      "started": "2026-11-20T17:47:52Z",
+      "usage": {
+        "api_call_count": 3,
+        "input_tokens": 61280,
+        "output_tokens": 39421,
+        "cache_read_tokens": 3714,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "tasks": {
+        "title": {
+          "api_call_count": 1,
+          "input_tokens": 129,
+          "output_tokens": 15,
+          "cache_read_tokens": 290,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "review": {
+          "api_call_count": 2,
+          "input_tokens": 61151,
+          "output_tokens": 39406,
+          "cache_read_tokens": 3424,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      },
+      "tool_calls": 2,
+      "wire_chat_requests": 3,
+      "wire_usage": {
+        "reported_calls": 3,
+        "prompt_tokens": 64994,
+        "completion_tokens": 39421,
+        "cached_prompt_tokens": 3714
+      },
+      "response_model_ids": [
+        "deepseek-v4.1-flash"
+      ]
+    },
+    {
+      "case": "consistent",
+      "condition": "original_packet",
+      "repetition": 1,
+      "prompt": "inputs/prompts/consistent--original_packet.txt",
+      "run_id": "r10",
+      "finished": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 223.169,
+        "session_count": 1,
+        "has_response": true
+      },
+      "structured_output": {
+        "valid_json": true,
+        "parsed_verdict": "accept",
+        "error": null
+      },
+      "started": "2026-11-20T17:48:27Z",
+      "usage": {
+        "api_call_count": 3,
+        "input_tokens": 57156,
+        "output_tokens": 63332,
+        "cache_read_tokens": 23262,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "tasks": {
+        "title": {
+          "api_call_count": 1,
+          "input_tokens": 129,
+          "output_tokens": 13,
+          "cache_read_tokens": 290,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "review": {
+          "api_call_count": 2,
+          "input_tokens": 57027,
+          "output_tokens": 63319,
+          "cache_read_tokens": 22972,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      },
+      "tool_calls": 2,
+      "wire_chat_requests": 3,
+      "wire_usage": {
+        "reported_calls": 3,
+        "prompt_tokens": 80418,
+        "completion_tokens": 63332,
+        "cached_prompt_tokens": 23262
+      },
+      "response_model_ids": [
+        "deepseek-v4.1-flash"
+      ]
+    },
+    {
+      "case": "original",
+      "condition": "original_packet",
+      "repetition": 3,
+      "prompt": "inputs/prompts/original--original_packet.txt",
+      "run_id": "r11",
+      "finished": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 117.437,
+        "session_count": 1,
+        "has_response": true
+      },
+      "structured_output": {
+        "valid_json": true,
+        "parsed_verdict": "accept",
+        "error": null
+      },
+      "started": "2026-11-20T17:50:17Z",
+      "usage": {
+        "api_call_count": 3,
+        "input_tokens": 61535,
+        "output_tokens": 31328,
+        "cache_read_tokens": 3716,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "tasks": {
+        "title": {
+          "api_call_count": 1,
+          "input_tokens": 129,
+          "output_tokens": 13,
+          "cache_read_tokens": 290,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "review": {
+          "api_call_count": 2,
+          "input_tokens": 61406,
+          "output_tokens": 31315,
+          "cache_read_tokens": 3426,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      },
+      "tool_calls": 1,
+      "wire_chat_requests": 3,
+      "wire_usage": {
+        "reported_calls": 3,
+        "prompt_tokens": 65251,
+        "completion_tokens": 31328,
+        "cached_prompt_tokens": 3716
+      },
+      "response_model_ids": [
+        "deepseek-v4.1-flash"
+      ]
+    },
+    {
+      "case": "consistent",
+      "condition": "explicit_comparison",
+      "repetition": 2,
+      "prompt": "inputs/prompts/consistent--explicit_comparison.txt",
+      "run_id": "r12",
+      "finished": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 135.29,
+        "session_count": 1,
+        "has_response": true
+      },
+      "structured_output": {
+        "valid_json": true,
+        "parsed_verdict": "accept",
+        "error": null
+      },
+      "started": "2026-11-20T17:52:10Z",
+      "usage": {
+        "api_call_count": 3,
+        "input_tokens": 43853,
+        "output_tokens": 31565,
+        "cache_read_tokens": 27880,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "tasks": {
+        "title": {
+          "api_call_count": 1,
+          "input_tokens": 129,
+          "output_tokens": 13,
+          "cache_read_tokens": 290,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "review": {
+          "api_call_count": 2,
+          "input_tokens": 43724,
+          "output_tokens": 31552,
+          "cache_read_tokens": 27590,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      },
+      "tool_calls": 1,
+      "wire_chat_requests": 3,
+      "wire_usage": {
+        "reported_calls": 3,
+        "prompt_tokens": 71733,
+        "completion_tokens": 31565,
+        "cached_prompt_tokens": 27880
+      },
+      "response_model_ids": [
+        "deepseek-v4.1-flash"
+      ]
+    },
+    {
+      "case": "original",
+      "condition": "complete_packet",
+      "repetition": 1,
+      "prompt": "inputs/prompts/original--complete_packet.txt",
+      "run_id": "r13",
+      "finished": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 211.032,
+        "session_count": 1,
+        "has_response": true
+      },
+      "structured_output": {
+        "valid_json": true,
+        "parsed_verdict": "accept",
+        "error": null
+      },
+      "started": "2026-11-20T17:52:15Z",
+      "usage": {
+        "api_call_count": 7,
+        "input_tokens": 68452,
+        "output_tokens": 44388,
+        "cache_read_tokens": 212496,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "tasks": {
+        "title": {
+          "api_call_count": 1,
+          "input_tokens": 129,
+          "output_tokens": 13,
+          "cache_read_tokens": 290,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "review": {
+          "api_call_count": 6,
+          "input_tokens": 68323,
+          "output_tokens": 44375,
+          "cache_read_tokens": 212206,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      },
+      "tool_calls": 10,
+      "wire_chat_requests": 7,
+      "wire_usage": {
+        "reported_calls": 7,
+        "prompt_tokens": 280948,
+        "completion_tokens": 44388,
+        "cached_prompt_tokens": 212496
+      },
+      "response_model_ids": [
+        "deepseek-v4.1-flash"
+      ]
+    },
+    {
+      "case": "original",
+      "condition": "complete_packet",
+      "repetition": 3,
+      "prompt": "inputs/prompts/original--complete_packet.txt",
+      "run_id": "r14",
+      "finished": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 175.426,
+        "session_count": 1,
+        "has_response": true
+      },
+      "structured_output": {
+        "valid_json": true,
+        "parsed_verdict": "accept",
+        "error": null
+      },
+      "started": "2026-11-20T17:54:25Z",
+      "usage": {
+        "api_call_count": 3,
+        "input_tokens": 51274,
+        "output_tokens": 40924,
+        "cache_read_tokens": 26974,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "tasks": {
+        "title": {
+          "api_call_count": 1,
+          "input_tokens": 129,
+          "output_tokens": 12,
+          "cache_read_tokens": 290,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "review": {
+          "api_call_count": 2,
+          "input_tokens": 51145,
+          "output_tokens": 40912,
+          "cache_read_tokens": 26684,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      },
+      "tool_calls": 2,
+      "wire_chat_requests": 3,
+      "wire_usage": {
+        "reported_calls": 3,
+        "prompt_tokens": 78248,
+        "completion_tokens": 40924,
+        "cached_prompt_tokens": 26974
+      },
+      "response_model_ids": [
+        "deepseek-v4.1-flash"
+      ]
+    },
+    {
+      "case": "consistent",
+      "condition": "original_packet",
+      "repetition": 5,
+      "prompt": "inputs/prompts/consistent--original_packet.txt",
+      "run_id": "r15",
+      "finished": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 170.644,
+        "session_count": 1,
+        "has_response": true
+      },
+      "structured_output": {
+        "valid_json": true,
+        "parsed_verdict": "accept",
+        "error": null
+      },
+      "started": "2026-11-20T17:55:46Z",
+      "usage": {
+        "api_call_count": 3,
+        "input_tokens": 49357,
+        "output_tokens": 38688,
+        "cache_read_tokens": 23266,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "tasks": {
+        "title": {
+          "api_call_count": 1,
+          "input_tokens": 129,
+          "output_tokens": 13,
+          "cache_read_tokens": 290,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "review": {
+          "api_call_count": 2,
+          "input_tokens": 49228,
+          "output_tokens": 38675,
+          "cache_read_tokens": 22976,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      },
+      "tool_calls": 2,
+      "wire_chat_requests": 3,
+      "wire_usage": {
+        "reported_calls": 3,
+        "prompt_tokens": 72623,
+        "completion_tokens": 38688,
+        "cached_prompt_tokens": 23266
+      },
+      "response_model_ids": [
+        "deepseek-v4.1-flash"
+      ]
+    },
+    {
+      "case": "consistent",
+      "condition": "explicit_comparison",
+      "repetition": 1,
+      "prompt": "inputs/prompts/consistent--explicit_comparison.txt",
+      "run_id": "r16",
+      "finished": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 123.289,
+        "session_count": 1,
+        "has_response": true
+      },
+      "structured_output": {
+        "valid_json": true,
+        "parsed_verdict": "accept",
+        "error": null
+      },
+      "started": "2026-11-20T17:57:21Z",
+      "usage": {
+        "api_call_count": 3,
+        "input_tokens": 44387,
+        "output_tokens": 29554,
+        "cache_read_tokens": 27876,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "tasks": {
+        "title": {
+          "api_call_count": 1,
+          "input_tokens": 129,
+          "output_tokens": 12,
+          "cache_read_tokens": 290,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "review": {
+          "api_call_count": 2,
+          "input_tokens": 44258,
+          "output_tokens": 29542,
+          "cache_read_tokens": 27586,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      },
+      "tool_calls": 1,
+      "wire_chat_requests": 3,
+      "wire_usage": {
+        "reported_calls": 3,
+        "prompt_tokens": 72263,
+        "completion_tokens": 29554,
+        "cached_prompt_tokens": 27876
+      },
+      "response_model_ids": [
+        "deepseek-v4.1-flash"
+      ]
+    },
+    {
+      "case": "consistent",
+      "condition": "original_packet",
+      "repetition": 3,
+      "prompt": "inputs/prompts/consistent--original_packet.txt",
+      "run_id": "r17",
+      "finished": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 243.311,
+        "session_count": 1,
+        "has_response": true
+      },
+      "structured_output": {
+        "valid_json": true,
+        "parsed_verdict": "accept",
+        "error": null
+      },
+      "started": "2026-11-20T17:58:36Z",
+      "usage": {
+        "api_call_count": 3,
+        "input_tokens": 50824,
+        "output_tokens": 65266,
+        "cache_read_tokens": 23262,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "tasks": {
+        "title": {
+          "api_call_count": 1,
+          "input_tokens": 129,
+          "output_tokens": 12,
+          "cache_read_tokens": 290,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "review": {
+          "api_call_count": 2,
+          "input_tokens": 50695,
+          "output_tokens": 65254,
+          "cache_read_tokens": 22972,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      },
+      "tool_calls": 1,
+      "wire_chat_requests": 3,
+      "wire_usage": {
+        "reported_calls": 3,
+        "prompt_tokens": 74086,
+        "completion_tokens": 65266,
+        "cached_prompt_tokens": 23262
+      },
+      "response_model_ids": [
+        "deepseek-v4.1-flash"
+      ]
+    },
+    {
+      "case": "consistent",
+      "condition": "complete_packet",
+      "repetition": 2,
+      "prompt": "inputs/prompts/consistent--complete_packet.txt",
+      "run_id": "r18",
+      "finished": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 293.838,
+        "session_count": 1,
+        "has_response": true
+      },
+      "structured_output": {
+        "valid_json": true,
+        "parsed_verdict": "accept",
+        "error": null
+      },
+      "started": "2026-11-20T17:59:24Z",
+      "usage": {
+        "api_call_count": 10,
+        "input_tokens": 102746,
+        "output_tokens": 65254,
+        "cache_read_tokens": 531580,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "tasks": {
+        "title": {
+          "api_call_count": 1,
+          "input_tokens": 129,
+          "output_tokens": 13,
+          "cache_read_tokens": 290,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "review": {
+          "api_call_count": 9,
+          "input_tokens": 102617,
+          "output_tokens": 65241,
+          "cache_read_tokens": 531290,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      },
+      "tool_calls": 13,
+      "wire_chat_requests": 10,
+      "wire_usage": {
+        "reported_calls": 10,
+        "prompt_tokens": 634326,
+        "completion_tokens": 65254,
+        "cached_prompt_tokens": 531580
+      },
+      "response_model_ids": [
+        "deepseek-v4.1-flash"
+      ]
+    },
+    {
+      "case": "consistent",
+      "condition": "complete_packet",
+      "repetition": 1,
+      "prompt": "inputs/prompts/consistent--complete_packet.txt",
+      "run_id": "r19",
+      "finished": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 294.008,
+        "session_count": 1,
+        "has_response": true
+      },
+      "structured_output": {
+        "valid_json": true,
+        "parsed_verdict": "repair",
+        "error": null
+      },
+      "started": "2026-11-20T18:02:40Z",
+      "usage": {
+        "api_call_count": 4,
+        "input_tokens": 70877,
+        "output_tokens": 75589,
+        "cache_read_tokens": 94182,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "tasks": {
+        "title": {
+          "api_call_count": 1,
+          "input_tokens": 129,
+          "output_tokens": 14,
+          "cache_read_tokens": 290,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "review": {
+          "api_call_count": 3,
+          "input_tokens": 70748,
+          "output_tokens": 75575,
+          "cache_read_tokens": 93892,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      },
+      "tool_calls": 2,
+      "wire_chat_requests": 4,
+      "wire_usage": {
+        "reported_calls": 4,
+        "prompt_tokens": 165059,
+        "completion_tokens": 75589,
+        "cached_prompt_tokens": 94182
+      },
+      "response_model_ids": [
+        "deepseek-v4.1-flash"
+      ]
+    },
+    {
+      "case": "original",
+      "condition": "original_packet",
+      "repetition": 4,
+      "prompt": "inputs/prompts/original--original_packet.txt",
+      "run_id": "r20",
+      "finished": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 141.911,
+        "session_count": 1,
+        "has_response": true
+      },
+      "structured_output": {
+        "valid_json": true,
+        "parsed_verdict": "accept",
+        "error": null
+      },
+      "started": "2026-11-20T18:04:18Z",
+      "usage": {
+        "api_call_count": 3,
+        "input_tokens": 61510,
+        "output_tokens": 34896,
+        "cache_read_tokens": 3718,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "tasks": {
+        "title": {
+          "api_call_count": 1,
+          "input_tokens": 129,
+          "output_tokens": 13,
+          "cache_read_tokens": 290,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "review": {
+          "api_call_count": 2,
+          "input_tokens": 61381,
+          "output_tokens": 34883,
+          "cache_read_tokens": 3428,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      },
+      "tool_calls": 2,
+      "wire_chat_requests": 3,
+      "wire_usage": {
+        "reported_calls": 3,
+        "prompt_tokens": 65228,
+        "completion_tokens": 34896,
+        "cached_prompt_tokens": 3718
+      },
+      "response_model_ids": [
+        "deepseek-v4.1-flash"
+      ]
+    },
+    {
+      "case": "original",
+      "condition": "explicit_comparison",
+      "repetition": 4,
+      "prompt": "inputs/prompts/original--explicit_comparison.txt",
+      "run_id": "r21",
+      "finished": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 93.545,
+        "session_count": 1,
+        "has_response": true
+      },
+      "structured_output": {
+        "valid_json": true,
+        "parsed_verdict": "accept",
+        "error": null
+      },
+      "started": "2026-11-20T18:06:40Z",
+      "usage": {
+        "api_call_count": 2,
+        "input_tokens": 23593,
+        "output_tokens": 21055,
+        "cache_read_tokens": 2002,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "tasks": {
+        "title": {
+          "api_call_count": 1,
+          "input_tokens": 129,
+          "output_tokens": 13,
+          "cache_read_tokens": 290,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "review": {
+          "api_call_count": 1,
+          "input_tokens": 23464,
+          "output_tokens": 21042,
+          "cache_read_tokens": 1712,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      },
+      "tool_calls": 0,
+      "wire_chat_requests": 2,
+      "wire_usage": {
+        "reported_calls": 2,
+        "prompt_tokens": 25595,
+        "completion_tokens": 21055,
+        "cached_prompt_tokens": 2002
+      },
+      "response_model_ids": [
+        "deepseek-v4.1-flash"
+      ]
+    },
+    {
+      "case": "original",
+      "condition": "original_packet",
+      "repetition": 5,
+      "prompt": "inputs/prompts/original--original_packet.txt",
+      "run_id": "r22",
+      "finished": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 198.217,
+        "session_count": 1,
+        "has_response": true
+      },
+      "structured_output": {
+        "valid_json": true,
+        "parsed_verdict": "accept",
+        "error": null
+      },
+      "started": "2026-11-20T18:07:34Z",
+      "usage": {
+        "api_call_count": 3,
+        "input_tokens": 74900,
+        "output_tokens": 49941,
+        "cache_read_tokens": 3718,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "tasks": {
+        "title": {
+          "api_call_count": 1,
+          "input_tokens": 129,
+          "output_tokens": 15,
+          "cache_read_tokens": 290,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "review": {
+          "api_call_count": 2,
+          "input_tokens": 74771,
+          "output_tokens": 49926,
+          "cache_read_tokens": 3428,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      },
+      "tool_calls": 1,
+      "wire_chat_requests": 3,
+      "wire_usage": {
+        "reported_calls": 3,
+        "prompt_tokens": 78618,
+        "completion_tokens": 49941,
+        "cached_prompt_tokens": 3718
+      },
+      "response_model_ids": [
+        "deepseek-v4.1-flash"
+      ]
+    },
+    {
+      "case": "consistent",
+      "condition": "complete_packet",
+      "repetition": 3,
+      "prompt": "inputs/prompts/consistent--complete_packet.txt",
+      "run_id": "r23",
+      "finished": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 117.373,
+        "session_count": 1,
+        "has_response": true
+      },
+      "structured_output": {
+        "valid_json": true,
+        "parsed_verdict": "repair",
+        "error": null
+      },
+      "started": "2026-11-20T18:08:14Z",
+      "usage": {
+        "api_call_count": 3,
+        "input_tokens": 40803,
+        "output_tokens": 28657,
+        "cache_read_tokens": 27802,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "tasks": {
+        "title": {
+          "api_call_count": 1,
+          "input_tokens": 129,
+          "output_tokens": 12,
+          "cache_read_tokens": 290,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "review": {
+          "api_call_count": 2,
+          "input_tokens": 40674,
+          "output_tokens": 28645,
+          "cache_read_tokens": 27512,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      },
+      "tool_calls": 2,
+      "wire_chat_requests": 3,
+      "wire_usage": {
+        "reported_calls": 3,
+        "prompt_tokens": 68605,
+        "completion_tokens": 28657,
+        "cached_prompt_tokens": 27802
+      },
+      "response_model_ids": [
+        "deepseek-v4.1-flash"
+      ]
+    },
+    {
+      "case": "original",
+      "condition": "complete_packet",
+      "repetition": 2,
+      "prompt": "inputs/prompts/original--complete_packet.txt",
+      "run_id": "r24",
+      "finished": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 210.489,
+        "session_count": 1,
+        "has_response": true
+      },
+      "structured_output": {
+        "valid_json": true,
+        "parsed_verdict": "accept",
+        "error": null
+      },
+      "started": "2026-11-20T18:10:11Z",
+      "usage": {
+        "api_call_count": 4,
+        "input_tokens": 69996,
+        "output_tokens": 45894,
+        "cache_read_tokens": 93960,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "tasks": {
+        "title": {
+          "api_call_count": 1,
+          "input_tokens": 129,
+          "output_tokens": 12,
+          "cache_read_tokens": 290,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "review": {
+          "api_call_count": 3,
+          "input_tokens": 69867,
+          "output_tokens": 45882,
+          "cache_read_tokens": 93670,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      },
+      "tool_calls": 3,
+      "wire_chat_requests": 4,
+      "wire_usage": {
+        "reported_calls": 4,
+        "prompt_tokens": 163956,
+        "completion_tokens": 45894,
+        "cached_prompt_tokens": 93960
+      },
+      "response_model_ids": [
+        "deepseek-v4.1-flash"
+      ]
+    },
+    {
+      "case": "consistent",
+      "condition": "complete_packet",
+      "repetition": 4,
+      "prompt": "inputs/prompts/consistent--complete_packet.txt",
+      "run_id": "r25",
+      "finished": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 171.155,
+        "session_count": 1,
+        "has_response": true
+      },
+      "structured_output": {
+        "valid_json": true,
+        "parsed_verdict": "accept",
+        "error": null
+      },
+      "started": "2026-11-20T18:10:52Z",
+      "usage": {
+        "api_call_count": 2,
+        "input_tokens": 24342,
+        "output_tokens": 35280,
+        "cache_read_tokens": 2002,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "tasks": {
+        "title": {
+          "api_call_count": 1,
+          "input_tokens": 129,
+          "output_tokens": 12,
+          "cache_read_tokens": 290,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "review": {
+          "api_call_count": 1,
+          "input_tokens": 24213,
+          "output_tokens": 35268,
+          "cache_read_tokens": 1712,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      },
+      "tool_calls": 0,
+      "wire_chat_requests": 2,
+      "wire_usage": {
+        "reported_calls": 2,
+        "prompt_tokens": 26344,
+        "completion_tokens": 35280,
+        "cached_prompt_tokens": 2002
+      },
+      "response_model_ids": [
+        "deepseek-v4.1-flash"
+      ]
+    },
+    {
+      "case": "original",
+      "condition": "complete_packet",
+      "repetition": 5,
+      "prompt": "inputs/prompts/original--complete_packet.txt",
+      "run_id": "r26",
+      "finished": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 221.366,
+        "session_count": 1,
+        "has_response": true
+      },
+      "structured_output": {
+        "valid_json": true,
+        "parsed_verdict": "accept",
+        "error": null
+      },
+      "started": "2026-11-20T18:13:42Z",
+      "usage": {
+        "api_call_count": 5,
+        "input_tokens": 69380,
+        "output_tokens": 44306,
+        "cache_read_tokens": 112358,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "tasks": {
+        "title": {
+          "api_call_count": 1,
+          "input_tokens": 129,
+          "output_tokens": 14,
+          "cache_read_tokens": 290,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "review": {
+          "api_call_count": 4,
+          "input_tokens": 69251,
+          "output_tokens": 44292,
+          "cache_read_tokens": 112068,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      },
+      "tool_calls": 6,
+      "wire_chat_requests": 5,
+      "wire_usage": {
+        "reported_calls": 5,
+        "prompt_tokens": 181738,
+        "completion_tokens": 44306,
+        "cached_prompt_tokens": 112358
+      },
+      "response_model_ids": [
+        "deepseek-v4.1-flash"
+      ]
+    },
+    {
+      "case": "original",
+      "condition": "explicit_comparison",
+      "repetition": 3,
+      "prompt": "inputs/prompts/original--explicit_comparison.txt",
+      "run_id": "r27",
+      "finished": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 167.03,
+        "session_count": 1,
+        "has_response": true
+      },
+      "structured_output": {
+        "valid_json": true,
+        "parsed_verdict": "accept",
+        "error": null
+      },
+      "started": "2026-11-20T18:13:43Z",
+      "usage": {
+        "api_call_count": 3,
+        "input_tokens": 66414,
+        "output_tokens": 40441,
+        "cache_read_tokens": 3530,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "tasks": {
+        "title": {
+          "api_call_count": 1,
+          "input_tokens": 315,
+          "output_tokens": 13,
+          "cache_read_tokens": 104,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "review": {
+          "api_call_count": 2,
+          "input_tokens": 66099,
+          "output_tokens": 40428,
+          "cache_read_tokens": 3426,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      },
+      "tool_calls": 1,
+      "wire_chat_requests": 3,
+      "wire_usage": {
+        "reported_calls": 3,
+        "prompt_tokens": 69944,
+        "completion_tokens": 40441,
+        "cached_prompt_tokens": 3530
+      },
+      "response_model_ids": [
+        "deepseek-v4.1-flash"
+      ]
+    },
+    {
+      "case": "consistent",
+      "condition": "original_packet",
+      "repetition": 2,
+      "prompt": "inputs/prompts/consistent--original_packet.txt",
+      "run_id": "r28",
+      "finished": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 150.674,
+        "session_count": 1,
+        "has_response": true
+      },
+      "structured_output": {
+        "valid_json": true,
+        "parsed_verdict": "accept",
+        "error": null
+      },
+      "started": "2026-11-20T18:16:30Z",
+      "usage": {
+        "api_call_count": 4,
+        "input_tokens": 50341,
+        "output_tokens": 39299,
+        "cache_read_tokens": 69490,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "tasks": {
+        "title": {
+          "api_call_count": 1,
+          "input_tokens": 129,
+          "output_tokens": 13,
+          "cache_read_tokens": 290,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "review": {
+          "api_call_count": 3,
+          "input_tokens": 50212,
+          "output_tokens": 39286,
+          "cache_read_tokens": 69200,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      },
+      "tool_calls": 2,
+      "wire_chat_requests": 4,
+      "wire_usage": {
+        "reported_calls": 4,
+        "prompt_tokens": 119831,
+        "completion_tokens": 39299,
+        "cached_prompt_tokens": 69490
+      },
+      "response_model_ids": [
+        "deepseek-v4.1-flash"
+      ]
+    },
+    {
+      "case": "consistent",
+      "condition": "original_packet",
+      "repetition": 4,
+      "prompt": "inputs/prompts/consistent--original_packet.txt",
+      "run_id": "r29",
+      "finished": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 158.044,
+        "session_count": 1,
+        "has_response": true
+      },
+      "structured_output": {
+        "valid_json": true,
+        "parsed_verdict": "accept",
+        "error": null
+      },
+      "started": "2026-11-20T18:17:23Z",
+      "usage": {
+        "api_call_count": 3,
+        "input_tokens": 73741,
+        "output_tokens": 37896,
+        "cache_read_tokens": 3718,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "tasks": {
+        "title": {
+          "api_call_count": 1,
+          "input_tokens": 129,
+          "output_tokens": 13,
+          "cache_read_tokens": 290,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "review": {
+          "api_call_count": 2,
+          "input_tokens": 73612,
+          "output_tokens": 37883,
+          "cache_read_tokens": 3428,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      },
+      "tool_calls": 1,
+      "wire_chat_requests": 3,
+      "wire_usage": {
+        "reported_calls": 3,
+        "prompt_tokens": 77459,
+        "completion_tokens": 37896,
+        "cached_prompt_tokens": 3718
+      },
+      "response_model_ids": [
+        "deepseek-v4.1-flash"
+      ]
+    },
+    {
+      "case": "original",
+      "condition": "explicit_comparison",
+      "repetition": 5,
+      "prompt": "inputs/prompts/original--explicit_comparison.txt",
+      "run_id": "r30",
+      "finished": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 281.153,
+        "session_count": 1,
+        "has_response": true
+      },
+      "structured_output": {
+        "valid_json": true,
+        "parsed_verdict": "accept",
+        "error": null
+      },
+      "started": "2026-11-20T18:19:01Z",
+      "usage": {
+        "api_call_count": 4,
+        "input_tokens": 72497,
+        "output_tokens": 73598,
+        "cache_read_tokens": 72014,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "tasks": {
+        "title": {
+          "api_call_count": 1,
+          "input_tokens": 129,
+          "output_tokens": 12,
+          "cache_read_tokens": 290,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "review": {
+          "api_call_count": 3,
+          "input_tokens": 72368,
+          "output_tokens": 73586,
+          "cache_read_tokens": 71724,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      },
+      "tool_calls": 2,
+      "wire_chat_requests": 4,
+      "wire_usage": {
+        "reported_calls": 4,
+        "prompt_tokens": 144511,
+        "completion_tokens": 73598,
+        "cached_prompt_tokens": 72014
+      },
+      "response_model_ids": [
+        "deepseek-v4.1-flash"
+      ]
+    }
+  ],
+  "tool_calls": 83,
+  "elapsed_session_seconds": 5289.9890000000005,
+  "worker_seconds": 0,
+  "batch_wall_seconds": 2756.2916111946106,
+  "wire_prompt_tokens": 3667970,
+  "wire_completion_tokens": 1298892,
+  "wire_cached_prompt_tokens": 1944286,
+  "wire_and_session_usage_agree": true
+}

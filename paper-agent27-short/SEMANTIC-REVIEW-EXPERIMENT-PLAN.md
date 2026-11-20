@@ -1,7 +1,10 @@
 # SBIR semantic review experiment plan
 
 Date: 20 November 2026.
-Status: Plan saved; experiment not started.
+Status: Completed on 20 November 2026. All 30 planned reviews are accounted for.
+See the [findings and paper recommendation](../experiments/sbir-semantic-review/FINDINGS.md).
+Neither intervention detected the target contradiction in its five original-case
+reviews. The submitted manuscript and historical releases remain unchanged.
 
 Test whether a complete selection declaration and an explicit code-to-contract
 comparison help a semantic reviewer detect the documented SBIR selection

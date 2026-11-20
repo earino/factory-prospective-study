@@ -1,0 +1,109 @@
+{
+  "cells": [
+    {
+      "case": "original",
+      "condition": "original_packet",
+      "n": 5,
+      "completed_responses": 5,
+      "full_detection": 0,
+      "false_contradiction": 0,
+      "partial_selection_finding": 4,
+      "ambiguous": 0,
+      "stated_decisions": {
+        "accept": 5
+      },
+      "valid_json_decisions": {
+        "accept": 5
+      },
+      "malformed_json": 0
+    },
+    {
+      "case": "original",
+      "condition": "complete_packet",
+      "n": 5,
+      "completed_responses": 5,
+      "full_detection": 0,
+      "false_contradiction": 0,
+      "partial_selection_finding": 5,
+      "ambiguous": 0,
+      "stated_decisions": {
+        "accept": 5
+      },
+      "valid_json_decisions": {
+        "accept": 5
+      },
+      "malformed_json": 0
+    },
+    {
+      "case": "original",
+      "condition": "explicit_comparison",
+      "n": 5,
+      "completed_responses": 5,
+      "full_detection": 0,
+      "false_contradiction": 0,
+      "partial_selection_finding": 5,
+      "ambiguous": 0,
+      "stated_decisions": {
+        "accept": 5
+      },
+      "valid_json_decisions": {
+        "accept": 5
+      },
+      "malformed_json": 0
+    },
+    {
+      "case": "consistent",
+      "condition": "original_packet",
+      "n": 5,
+      "completed_responses": 5,
+      "full_detection": 0,
+      "false_contradiction": 0,
+      "partial_selection_finding": 5,
+      "ambiguous": 0,
+      "stated_decisions": {
+        "accept": 5
+      },
+      "valid_json_decisions": {
+        "accept": 5
+      },
+      "malformed_json": 0
+    },
+    {
+      "case": "consistent",
+      "condition": "complete_packet",
+      "n": 5,
+      "completed_responses": 5,
+      "full_detection": 0,
+      "false_contradiction": 0,
+      "partial_selection_finding": 5,
+      "ambiguous": 0,
+      "stated_decisions": {
+        "accept": 3,
+        "repair": 2
+      },
+      "valid_json_decisions": {
+        "accept": 3,
+        "repair": 2
+      },
+      "malformed_json": 0
+    },
+    {
+      "case": "consistent",
+      "condition": "explicit_comparison",
+      "n": 5,
+      "completed_responses": 5,
+      "full_detection": 0,
+      "false_contradiction": 0,
+      "partial_selection_finding": 5,
+      "ambiguous": 0,
+      "stated_decisions": {
+        "accept": 5
+      },
+      "valid_json_decisions": {
+        "accept": 4
+      },
+      "malformed_json": 1
+    }
+  ],
+  "scoring": "See PROTOCOL.md and assessment/assessments.json; counts are descriptive."
+}

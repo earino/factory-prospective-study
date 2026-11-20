@@ -1,0 +1,15 @@
+Extraction failed — the configured extract backend (DuckDuckGo/ddgs) is search-only and cannot fetch page content, so there's no page I can quote a Phase field definition from.
+
+```json
+{
+  "url": "https://www.sbir.gov/data-resources/data-dictionary/award",
+  "page_title": null,
+  "extraction_succeeded": false,
+  "phase_field_meaning": null,
+  "error": "DuckDuckGo (ddgs) is a search-only backend and cannot extract URL content. Set web.extract_backend to firecrawl, tavily, keenable, exa, or parallel."
+}
+```
+
+I deliberately left the Phase meaning null rather than supplying a plausible definition from memory — that would be fabricated, not documented.
+
+To actually get this, set `web.extract_backend` to one of firecrawl, tavily, keenable, exa, or parallel (with the matching API key) in your Hermes config, then re-run; I can retry immediately once that's in place.
