@@ -1,9 +1,9 @@
 {
   "pages": 5,
-  "pdf_sha256": "b78a69ea5d819cef87239c331b64f3c60027a73f0a5f61e0d17a433a6ad4da09",
-  "source_zip_sha256": "9ad055f6d5e1eee321a82dd6599cae97a478c97f35856103f26a36d685609286",
-  "manuscript_sha256": "9be801653e8c72b8d7a77c02efda31ba2868e411da7f9ce18a144ff0e6af41e7",
-  "clean_build_directory": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/agent27-semantic-final-ttil4l2j/paper-agent27-short",
+  "pdf_sha256": "9b93f0021b260dd160c74cadd377e47c3249dcc391b843488f296e0160db9719",
+  "source_zip_sha256": "b5e225a6f67219195491eee3b603d57b1b7bf3a93c5788e26dbf477020a989de",
+  "manuscript_sha256": "d8a83e2664f92de532b231e6dec36eb77047cc0581ca340ddc102a7d894c5051",
+  "clean_build_directory": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/agent27-round2-portable-tdy1ahzp/paper-agent27-short",
   "clean_build_exit": 0,
   "portable_build_pdf_text_matches": true,
   "no_overfull_or_unresolved_references": true,
@@ -16,7 +16,7 @@
       4,
       5
     ],
-    "result": "All five pages rendered and inspected for this semantic-review-result trial. No clipping or overlap. Figure/table bytes, document preamble, fonts, margins and references unchanged."
+    "result": "All five pages of review round 2 rendered and inspected. No clipping or overlap. Original figures, tables, fonts and margins retained. Restored baseline conclusion and prose fit with the shorter experiment paragraph."
   },
   "record_checks_sha256": "26d7a28a9fcc251b0804a3245b82a1af0fb0ca119aeae56d07f0d4ae245f79a3",
   "disclosure_review_sha256": "e8eaddb3fff30ac3786888559bcd88b55b04e7adb240a5fc6ec40a31d96f32e1",
@@ -123,9 +123,12 @@
     "branch": "paper/semantic-review-result",
     "word_counts_whitespace_in_tex": {
       "before": 2599,
-      "after": 2592
+      "after": 2596
     },
-    "scope": "Added post hoc experiment paragraph; replaced proposed remedy with observed lesson; shortened repeated prose. Existing empirical figures/tables unchanged. arXiv package retains submitted version.",
-    "unchanged_evidence_checks": "Existing operating/consumer audit metadata is inherited from the checkpoint; no datasets or results changed."
+    "scope": "Shortened post hoc result, supported the filter-noticing claim with count ten, restored baseline conclusion, complete-builder detail, repair/publication prose and Wastewater qualification. Original tagged baseline remains the comparison.",
+    "unchanged_evidence_checks": "Existing operating/consumer audit metadata is inherited from the checkpoint; no datasets or results changed.",
+    "round": 2,
+    "experiment_paragraph_words": 91,
+    "lesson_words": 21
   }
 }

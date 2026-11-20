@@ -236,3 +236,20 @@ rendered and inspected. The portable source ZIP rebuilds with matching PDF text,
 embedded fonts, and no overfull boxes or unresolved references. `output/QA.json`
 records artifact hashes and the final clean-build check. The main checkout,
 submitted PDFs, and arXiv upload package are untouched. No resubmission occurred.
+
+## Independent-review round 2 — 20 November 2026
+
+Shortened the experiment paragraph from 116 to 91 whitespace-delimited words and
+the lesson from 34 to 21. The result now explicitly states that all ten original-
+case reviews receiving the full descriptor noted relevant filters but failed to
+connect them to the contradictory declaration. The consistent-control result is
+reported without claiming discrimination; runtime differences remain explicit.
+Detailed grading, unrelated repairs, and malformed-output accounting stay in the
+public experiment records.
+
+Restored the tagged baseline's complete-builder detail, repair/publication prose,
+Wastewater lesson and conclusion. The baseline tag remains unchanged. All five
+pages were rendered and inspected; the portable archive builds to matching text,
+with embedded fonts and no overfull boxes or unresolved references. The Desktop
+comparison uses the original tagged PDF and this second revision, not the first
+trial as its baseline. Nothing was uploaded to HotCRP or arXiv.
