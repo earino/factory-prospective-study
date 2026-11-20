@@ -122,14 +122,14 @@ Stage & Done & Retry & Repair & Defer & Reject & Open & Total\\\midrule
 
 Construction stopped when reservations consumed the allowance after workers were deleted. Reconciling reservations with completed worker lifetimes restored construction from saved candidate state.
 
-Estimated recurring expenditure was about \$38, or \$2.74 per publication. All-peak inference pricing raises the ratio to \$3.92. Figure~\ref{fig:costs} shows the stage breakdown; detailed costs and tariff ranges are in the study repository.
+Estimated recurring expenditure was about \$38, or about \$2.74 per publication. All-peak inference pricing raises the ratio to \$3.92. Figure~\ref{fig:costs} shows the stage breakdown; detailed costs and tariff ranges are in the study repository.
 
 \subsection{Consumer use and predictive performance}
 All twelve evaluated releases supported completed prediction experiments through held-out scoring and received separate bounded source review. That review identified one selection contradiction, concerns, and conditions of use (Table~\ref{tab:releases}); the number of semantically valid releases remains unknown.
 
 Beyond successful execution, Fig.~\ref{fig:consumer} shows that modeling choices changed held-out performance within the released contracts. All three consumers exceeded the untuned reference on eleven tasks; the direction differed across runs on \emph{Route survival}. Paired comparisons with random search favored consumers in all three runs on nine tasks and favored random search on \emph{Phase I to II award}. The direction differed across runs on \emph{Route survival} and \emph{Next-period lead exceedance}. The selection and timing findings in Table~\ref{tab:releases} remain material to their use.
 
-Five of six listed conditions of use were stated in the releases. Four of eight concern entries were not found in the inspected release documents (Table~\ref{tab:releases}).
+Five of six listed conditions of use were stated in the releases. Of eight concern entries, one was stated, three partly stated, and four not found in the inspected release documents (Table~\ref{tab:releases}).
 
 \subsection{A population contradiction survived acceptance}\label{sec:validity}
 The \emph{Phase I to II award} task uses SBIR records to predict whether a firm's first Phase I award is followed by a Phase II award from the same agency within four fiscal years. Its published selection rule states: ``no outcome field is used to select rows.'' Yet the builder loops over \texttt{range(year + 1, year + 5)} and tests whether each future year occurs in \texttt{unknown\_phase.get((key, agency), set())}. A match sets \texttt{ambiguous = True}; the subsequent \texttt{continue} excludes that firm's row. Thus later award-phase information determines inclusion. Other filters exclude ambiguous phase or agency records. The release's limitations disclose some exclusions, contradicting its selection rule; their effect on scores is unmeasured.
@@ -143,7 +143,7 @@ A different condition appears in \emph{Wastewater exceedance}. A prior-year outc
 \section{Engineering Lessons}
 \textbf{Retain attempt and resource state} to expose repeated work and resume after worker-reservation failures.
 
-\textbf{Budget for execution as well as inference.} Thirty-five of 37 deferred candidates never completed a build. Construction, checks, and baseline fitting consumed 64\% of expenditure (Fig.~\ref{fig:costs}), with worker charges exceeding inference charges.
+\textbf{Budget for execution as well as inference.} Thirty-five of 37 deferred candidates never completed a build. Construction, checks, and baseline fitting consumed 64\% of expenditure (Fig.~\ref{fig:costs}), with construction's worker charges exceeding its inference charges.
 
 \textbf{Review the claims that will be published.} Don't treat a model reviewer's acceptance as evidence that selection rules match their code. For \emph{Phase I to II award}, the original review and ten reruns given the full declaration all accepted a filter that read later award records.
 

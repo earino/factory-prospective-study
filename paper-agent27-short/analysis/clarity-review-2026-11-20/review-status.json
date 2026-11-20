@@ -21,7 +21,7 @@
     "01 - Saved Round 5.pdf": "b0a9535ca9051d0851e17ad958d580c2c3b1d3bc74c0ed14eacc53e1c4c57b79",
     "02 - Clarity Revision.pdf": "44bedebd9723effe0ecaaf4c81fccd6e0807420af24c9b8b7a770076100cbcd4"
   },
-  "status": "Authentication failed before review; no model tokens consumed.",
+  "status": "Completed: one substantive adversarial comparison; two narrow corrections applied; no repeat review.",
   "material_evidence_checks": {
     "discovery_defer_attempts": 30,
     "overlap_with_discovery_completed_candidates": 0,
@@ -41,5 +41,26 @@
     "Engineering Lessons",
     "Limitations",
     "Conclusion"
-  ]
+  ],
+  "model": [
+    "claude-fable-5-2"
+  ],
+  "pdf_reads": [
+    {
+      "file_path": "/Users/earino/Desktop/Dataset Factory - Clarity Review/01 - Saved Round 5.pdf",
+      "pages": "1-5"
+    },
+    {
+      "file_path": "/Users/earino/Desktop/Dataset Factory - Clarity Review/02 - Clarity Revision.pdf",
+      "pages": "1-5"
+    }
+  ],
+  "review_sha256": "cb82f2791b9273ae5be44fb77ba6077cf74751fa4298a1325471aa45b4bfcb88",
+  "resolution": {
+    "construction_charges": "Scoped worker-versus-inference comparison explicitly to construction.",
+    "disclosure_counts": "Restored one stated, three partly stated, four not found in a short clause.",
+    "cost_rounding": "Added about before $2.74 in the body.",
+    "control_time_cap": "Checked all 36 selected control states, including Seattle retry-2 r1: zero fitting-CPU shortfalls. Kept targets wording and repository detail pointer.",
+    "stop": "No further reviewer invocation or scope expansion."
+  }
 }

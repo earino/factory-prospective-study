@@ -333,3 +333,22 @@ It failed authentication before inference: the CLI login expired and cannot rene
 Eduardo was asked to run `claude auth login`. No review has yet occurred; after
 login, run the saved prompt once, resolve only material errors, and stop. No
 HotCRP or arXiv upload occurred.
+
+### Adversarial review completed
+
+After Eduardo renewed CLI authentication, one `claude -p` comparison completed
+using `claude-fable-5-2`. Its two Read calls inspected pages 1–5 of both hashed
+PDFs. The unedited response is retained in
+`analysis/clarity-review-2026-11-20/review.md`. Verdict: keep the edited version
+with two small corrections, then stop. Scoped the worker/inference comparison
+to construction and restored partial disclosure in the short concern-count clause.
+Also made the rounded $2.74 explicitly approximate.
+
+Checked the reviewer's remaining factual question against all 36 selected control
+attempt states, including the recorded Seattle composite selection: each met or
+exceeded its fitting-CPU target. No cap-induced shortfall needs a new qualifier.
+The compact check retains paths, hashes and measured budgets. No new experiments
+or second review were run. The final PDF remains five pages and passes a fresh
+portable build and visual inspection; no conference or arXiv upload was made.
+Desktop `03 - Final Clarity Revision.pdf` contains the corrected final paper; the
+PDF that Claude actually reviewed remains unchanged as `02 - Clarity Revision.pdf`.

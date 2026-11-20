@@ -1,9 +1,9 @@
 {
   "pages": 5,
-  "pdf_sha256": "44bedebd9723effe0ecaaf4c81fccd6e0807420af24c9b8b7a770076100cbcd4",
-  "source_zip_sha256": "4d13870ed335dcac831c142afdaff5251ceaf1399e445d974a2822df810c6f18",
-  "manuscript_sha256": "6ab259112b987e5e7413f4c0e9a05d737a5114e8dd4cece7a4c6aa97ed2979b1",
-  "clean_build_directory": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/agent27-clarity-portable-kd657lm5/paper-agent27-short",
+  "pdf_sha256": "3277d68144672717fd6e6311156593c85b938ee420e30c7bc41370a4ffb2c69b",
+  "source_zip_sha256": "7e5532c97dc3322a28d3c23f6f6b5a5fc7ae875647b2a44ce262c610d8c872f7",
+  "manuscript_sha256": "32a84e5acb8d9d05d60bde9057749e41d07893d5e724b022dd3db2ba7ce0252c",
+  "clean_build_directory": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/agent27-clarity-final-csy0qosh/paper-agent27-short",
   "clean_build_exit": 0,
   "portable_build_pdf_text_matches": true,
   "no_overfull_or_unresolved_references": true,
@@ -16,7 +16,7 @@
       4,
       5
     ],
-    "result": "Clarity revision: all five pages rendered and inspected; no clipping or overlap. Figures, data rows, fonts and margins retained."
+    "result": "Final clarity revision: pages 1–3 render identically to the inspected review copy; pages 4–5 re-inspected after narrow corrections. Five pages; no clipping or overlap; data, figures, font sizes and margins unchanged."
   },
   "record_checks_sha256": "26d7a28a9fcc251b0804a3245b82a1af0fb0ca119aeae56d07f0d4ae245f79a3",
   "disclosure_review_sha256": "e8eaddb3fff30ac3786888559bcd88b55b04e7adb240a5fc6ec40a31d96f32e1",
@@ -123,7 +123,7 @@
     "branch": "paper/semantic-review-result",
     "word_counts_whitespace_in_tex": {
       "before": 2610,
-      "after": 2590
+      "after": 2599
     },
     "scope": "Agreed clarity pass only: distinguish candidate states from attempt outcomes, simplify cost and accounting prose, preserve fitting-CPU matching scope, state the consumer figure purpose, shorten disclosure counts and reduce operational-recovery contribution wording.",
     "unchanged_evidence_checks": "Existing operating/consumer audit metadata is inherited from the checkpoint; no datasets or results changed.",
@@ -150,10 +150,15 @@
     "comparison_tag": "agent27-semantic-review-round5-2026-11-20",
     "comparison_commit": "2fb394c9b3a279de6ad3c431ef2f36ae5a388f83",
     "adversarial_review": {
-      "status": "blocked before inference",
-      "reason": "Claude CLI login expired; user asked to run claude auth login",
-      "planned_comparisons": 1,
-      "prompt": "analysis/clarity-review-2026-11-20/prompt.txt"
+      "status": "complete",
+      "model": "claude-fable-5-2",
+      "comparisons_completed": 1,
+      "report": "analysis/clarity-review-2026-11-20/review.md",
+      "verdict": "Keep edited version with two small corrections",
+      "corrections_applied": true,
+      "control_cpu_shortfalls": 0,
+      "controls_checked": 36,
+      "followup_review_run": false
     }
   }
 }
