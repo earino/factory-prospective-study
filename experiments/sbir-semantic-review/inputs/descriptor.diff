@@ -1,0 +1,43 @@
+--- original
++++ consistent
+@@ -86,11 +86,12 @@
+         "Same-year multiple Phase I awards are included only when proposal dates identify a unique earliest record; otherwise the firm is excluded rather than given an arbitrary row.",
+         "Phase II records with missing agency or an unknown or missing phase in a label window are excluded, not treated as negative.",
+         "No label-derived group rates or persistence reference are shipped; each firm appears once.",
+-        "The target is an award-record event, not the underlying cause of non-conversion; voluntary exit and temporary suspension are not separately observed."
++        "The target is an award-record event, not the underlying cause of non-conversion; voluntary exit and temporary suspension are not separately observed.",
++        "The selected population is conditioned on later record completeness and phase/agency information; it is not the unrestricted award-time population."
+       ],
+       "selection": {
+-        "evidence": "Only fields on the index Phase I award record are features; award_date is derived from Proposal Award Date or fiscal year end. The target links later Phase II records by firm key and agency.",
+-        "kind": "prediction_time"
++        "kind": "outcome_conditioned",
++        "evidence": "One row per resolvable firm key (UEI, else DUNS, else normalized company name plus state), restricted to firms whose earliest award year is 2005 through 2018 and whose records in that earliest year all have Phase I. The four-year outcome window must end by the maximum award year in the frozen file. Exclude a firm if any of its records has an unparseable award year, any Phase II record has a missing agency, or any unknown/missing-phase record has a missing agency. Among candidate index Phase I records, require a unique earliest proposal_award_date when there are multiple records in the earliest year, and require a nonempty index agency. Also exclude the firm if an unknown/missing-phase record from that same agency occurs in years y+1 through y+4. These exclusions use the full current-vintage file, including later records and outcome-window phase information. The population is therefore conditional on this recorded label ascertainment, not an unconditional population identifiable at the index award date."
+       },
+       "training_label_timing": "unverified",
+       "use": "retrospective_research",
+@@ -244,12 +245,12 @@
+         }
+       ],
+       "outcome_horizon": "Up to four federal fiscal years after the index Phase I award year.",
+-      "population": "Firms whose earliest award record in the frozen SBIR.gov no-abstract file is a Phase I award with award_year from 2005 through 2018 and a resolvable firm key: UEI, else DUNS, else normalized company name plus state. Firms with any earlier award record of either phase, or whose earliest record is Phase II, are excluded. Each firm contributes one row; same-year multiple Phase I records are included only when proposal_award_date identifies a unique earliest record.",
+-      "prediction_time": "The Phase I award date: proposal_award_date when published and inside the federal fiscal year of award_year; otherwise the fiscal year end of award_year. Only fields on the index Phase I award record are read.",
++      "population": "One row per resolvable firm key (UEI, else DUNS, else normalized company name plus state), restricted to firms whose earliest award year is 2005 through 2018 and whose records in that earliest year all have Phase I. The four-year outcome window must end by the maximum award year in the frozen file. Exclude a firm if any of its records has an unparseable award year, any Phase II record has a missing agency, or any unknown/missing-phase record has a missing agency. Among candidate index Phase I records, require a unique earliest proposal_award_date when there are multiple records in the earliest year, and require a nonempty index agency. Also exclude the firm if an unknown/missing-phase record from that same agency occurs in years y+1 through y+4. These exclusions use the full current-vintage file, including later records and outcome-window phase information. The population is therefore conditional on this recorded label ascertainment, not an unconditional population identifiable at the index award date.",
++      "prediction_time": "The Phase I award date: proposal_award_date when published and inside the federal fiscal year of award_year; otherwise the fiscal year end of award_year. Only predictor features come from the index Phase I award record; population selection and labels use later records as declared in the population rule.",
+       "question": "Will a firm's first-ever SBIR/STTR Phase I award convert into a Phase II award from the same agency within four fiscal years?",
+       "simple_references": "Majority-class rate within each split; agency-by-award-year conversion base rate. Persistence is not available because each firm appears once and has no prior Phase I outcome to carry forward.",
+       "split_policy": "Fixed chronological split on award_year using half-open federal fiscal-year windows: train FY2005-2014 (2004-10-01 to 2014-10-01), eval FY2015-2016 (2014-10-01 to 2016-10-01), holdout FY2017-2018 (2016-10-01 to 2018-10-01). No embargo is applied because every feature is read from the index Phase I record and the label uses only later records. Rows require the four-year window to be closed by the maximum award year in the frozen file.",
+-      "target": "1 if the same firm (matched on UEI, else DUNS, else normalised company name plus state) has any Phase II record from the same agency with award_year in {y+1, y+2, y+3, y+4}, where y is the Phase I award_year; 0 if no such record exists in the frozen file. Rows are dropped when no firm identifier can be resolved or when y+4 exceeds the last complete award year in the file.",
++      "target": "1 if the same firm (matched on UEI, else DUNS, else normalised company name plus state) has any Phase II record from the same agency with award_year in {y+1, y+2, y+3, y+4}, where y is the Phase I award_year; 0 if no such record exists in the frozen file. Rows are dropped when no firm identifier can be resolved or when y+4 exceeds the last complete award year in the file. Apply all population exclusions before assigning either label; later unknown/missing-phase records can exclude a firm even if a Phase II record exists.",
+       "usefulness": "No source column records Phase I to Phase II conversion, so the label must be rebuilt by linking a later Phase II award to the same firm and agency. Conversion is the SBIR stage gate, and raw Phase I and Phase II counts are confounded by firm survival and agency differences, so within-agency award-time attributes can add signal."
+     },
+     "time_column": "award_date",
+@@ -278,7 +279,7 @@
+           "state",
+           "proposal_award_date"
+         ],
+-        "rule": "One row per firm key: keep only firms whose earliest award_year in the frozen file is a Phase I award from 2005 through 2018, with no earlier Phase II or Phase III record and with the four-year label window closed. Later Phase II records from the same firm key and agency define the target; no outcome field is used to select rows."
++        "rule": "One row per resolvable firm key (UEI, else DUNS, else normalized company name plus state), restricted to firms whose earliest award year is 2005 through 2018 and whose records in that earliest year all have Phase I. The four-year outcome window must end by the maximum award year in the frozen file. Exclude a firm if any of its records has an unparseable award year, any Phase II record has a missing agency, or any unknown/missing-phase record has a missing agency. Among candidate index Phase I records, require a unique earliest proposal_award_date when there are multiple records in the earliest year, and require a nonempty index agency. Also exclude the firm if an unknown/missing-phase record from that same agency occurs in years y+1 through y+4. These exclusions use the full current-vintage file, including later records and outcome-window phase information. The population is therefore conditional on this recorded label ascertainment, not an unconditional population identifiable at the index award date."
+       }
+     }
+   },

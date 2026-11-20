@@ -1,0 +1,43 @@
+{
+  "source_repository": "earino/dataset-factory",
+  "source_commit": "4e664b3d5fc9dc845bf25190d4bae7969b60a73f",
+  "source_hashes_verified": 15,
+  "release_version": "v-0d2e623e604ecf78",
+  "manifest_sha256": "7d593685f07eb2d2bd452c53541d786eddda01757298f735a4cb823a9efe20c5",
+  "builder_sha256": "83c612c6325b71e358d962750c56737f824cf2ed3d8751148a5f369c8e5ec73e",
+  "descriptor_sha256": "3b668f1e98c1c80ebeada1e2b055eb9c60a318c404b1e7e73149a60bc1370c78",
+  "builder_in_original_prompt_matches_published_bytes": true,
+  "population_in_original_prompt_matches_published_declaration": true,
+  "explicit_population_and_code_check_instructions": true,
+  "published_selection_rule": "One row per firm key: keep only firms whose earliest award_year in the frozen file is a Phase I award from 2005 through 2018, with no earlier Phase II or Phase III record and with the four-year label window closed. Later Phase II records from the same firm key and agency define the target; no outcome field is used to select rows.",
+  "selection_rule_absent_from_original_prompt": true,
+  "measurement_fields": [
+    "LICENSE-EVIDENCE.json",
+    "SOURCES.json",
+    "construction_notes",
+    "evaluation.json",
+    "evaluation_contract",
+    "qualification",
+    "source-checks.json"
+  ],
+  "source_check_passes": 17,
+  "later_unknown_phase_exclusions_reported_to_reviewer": 98,
+  "original_verdict": "accept",
+  "reviewer_explicitly_noticed_exclusions": true,
+  "reviewer_claimed_population_match": true,
+  "review_tool_calls": [
+    {
+      "name": "web_extract",
+      "urls": [
+        "https://www.sbir.gov/data-resources/data-dictionary/award",
+        "https://www.sbir.gov/data-resources"
+      ]
+    }
+  ],
+  "limits": [
+    "No new judgment, source reconstruction, or model fit was performed.",
+    "This verifies input and output records, not the model's hidden reasoning.",
+    "The effect of exclusions on predictive scores is not measured.",
+    "No counterfactual review tests whether supplying the omitted declaration would change acceptance."
+  ]
+}

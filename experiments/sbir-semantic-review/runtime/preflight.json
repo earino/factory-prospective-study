@@ -1,0 +1,10 @@
+{
+  "tool_names": [
+    "web_extract",
+    "web_search"
+  ],
+  "runtime_commit": "01382698fc32ec7740b6a204d9b7a6abeac74d33",
+  "config": "model:\n  default: deepseek-v4.1-flash\n  provider: ollama-cloud\nweb:\n  backend: firecrawl\nagent:\n  max_turns: 12\n",
+  "credentials": "OLLAMA_API_KEY from local Hermes environment; no publishing or production credentials passed",
+  "historical_difference": "Current local Hermes runtime and keyless Firecrawl web backend; original used hosted Hermes and web gateway. Original system prompt/config is not fully retained."
+}
