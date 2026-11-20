@@ -292,3 +292,19 @@ Portable build is five pages and text-identical to the inspected PDF, with embed
 fonts and no overfull boxes or unresolved references. Pages 1–3 render identically
 to round 3; pages 4–5 were inspected. Desktop round 4 again compares the exact tagged
 baseline with this version. Neither HotCRP nor arXiv was updated.
+
+## Targeted review edits, round 5 — 20 November 2026
+
+Made only the three required manuscript edits. The result states that the reruns
+test whether supplying the omitted declaration exposes the contradiction, without
+claiming to test the cause of historical acceptance. The lesson states the observed
+acceptance failure and proposes no remedy. Limitations names local Hermes and
+Firecrawl versus the original hosted runtime and web gateway, as recorded in
+`runtime/preflight.json` and the protocol. The model identifier and provider route
+were retained; the original full runtime configuration is unavailable. The abstract
+and all other manuscript text remain unchanged from round 4.
+
+The PDF remains five pages. Pages 1–3 render identically to round 4; pages 4–5
+were inspected. The portable archive builds to identical PDF text, with all fonts
+embedded and no overfull boxes or unresolved references. Desktop round 5 pairs
+this revision with the exact tagged baseline. No HotCRP or arXiv upload was made.

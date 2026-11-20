@@ -135,7 +135,7 @@ The \emph{Phase I to II award} task uses SBIR records to predict whether a firm'
 
 The original reviewer received the complete builder, population description, passing checks, and instructions to compare code with population rules, but not the full published selection declaration. Its response states ``Population matches the rule'' and ``unknown/missing phases in a window are excluded rather than labeled negative.'' It accepted the task with no findings or repair request. A separate pre-scoring review identified the contradiction from the published code and declaration.
 
-Ten post hoc reviews used the same model identifier and bounds with the full published descriptor; five also required matching each selection filter to its declaration. All ten accepted without detecting the contradiction.
+To test whether supplying the omitted declaration would expose the contradiction, we reran the review ten times with the original packet plus the full published descriptor, using the same model identifier and bounds; five reruns also required matching each selection filter to its declaration. All ten accepted without detecting the contradiction.
 
 A different condition appears in \emph{Wastewater exceedance}. A prior-year outcome is a legitimate input when available, but future rows can expose earlier labels through that feature. Our scorer supplies one row at a time; no leakage or consumer misconduct was observed in this scoring. Unrestricted batch use was not established safe.
 
@@ -144,7 +144,7 @@ A different condition appears in \emph{Wastewater exceedance}. A prior-year outc
 
 \textbf{Budget for execution as well as inference.} Thirty-five of 37 deferred candidates never completed a build. Construction, checks, and baseline fitting consumed 64\% of expenditure (Fig.~\ref{fig:costs}), with worker charges exceeding inference charges.
 
-\textbf{Review the claims that will be published.} Check each selection claim against its implementation; acceptance alone did not establish agreement in these reruns.
+\textbf{Review the claims that will be published.} Don't treat a model reviewer's acceptance as evidence that selection rules match their code. For \emph{Phase I to II award}, the original review and ten reruns given the full declaration all accepted a filter that read later award records.
 
 \textbf{Specify the scoring interface.} The history feature in \emph{Wastewater exceedance} shows why accessible rows and outcomes belong in the task contract. Successful execution and legitimate per-row features do not establish safe use under every interface.
 
@@ -154,7 +154,7 @@ AutoData~\cite{autodata-web} and DatasetResearch~\cite{datasetresearch} address 
 MLAgentBench evaluates agents performing ML experiments~\cite{mlagentbench}; our consumers characterize outcomes within the factory's released contracts. Studies of deployed agents emphasize reliability~\cite{production}, while AgentOps organizes lifecycle observability~\cite{agentops}. Jacobs and Wallach distinguish intended constructs from operational definitions~\cite{measurement}; the Agentic Benchmark Checklist separates task validity, outcome validity, and reporting~\cite{abc}. Datasheets connects provenance with intended use~\cite{datasheets}, and AutoDataBench examines generated task quality~\cite{autodatabench}.
 
 \section{Limitations and Evidence}
-This is one factory, one production-model family, and a short observation window. Post hoc tests cover one task and reviewer model, with runtime differences; they do not explain the historical acceptance. Public sources may have appeared in model training, and holdout isolation was procedural rather than technical. Source reviews were bounded and do not establish a defect rate across releases. Current-vintage records restrict historical forecasting claims: \emph{Trial within 36 months} inputs can postdate filing, \emph{Strike damage} and \emph{Hazmat release} use retrospective reports, and field-update timing remains unresolved for \emph{Permit completion}. Human policy, development, and responsibility remain outside the automated dataset decisions.
+This is one factory, one production-model family, and a short observation window. Post hoc tests cover one task and reviewer model, using local Hermes and Firecrawl instead of the hosted runtime and web gateway; they do not explain the historical acceptance. Public sources may have appeared in model training, and holdout isolation was procedural rather than technical. Source reviews were bounded and do not establish a defect rate across releases. Current-vintage records restrict historical forecasting claims: \emph{Trial within 36 months} inputs can postdate filing, \emph{Strike damage} and \emph{Hazmat release} use retrospective reports, and field-update timing remains unresolved for \emph{Permit completion}. Human policy, development, and responsibility remain outside the automated dataset decisions.
 
 Release pins, operating records, transcripts, reviews, frozen models, analysis code, and the semantic-review experiment are public in the study repository.\footnote{\url{https://github.com/earino/factory-prospective-study}}
 

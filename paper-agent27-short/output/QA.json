@@ -1,9 +1,9 @@
 {
   "pages": 5,
-  "pdf_sha256": "77203e2d39773e22f10cf9740c5eabfb0d333ca058db1d8182c9048ad59e6ad5",
-  "source_zip_sha256": "dba686c426ab1ec66488a780fa5f64d631558e0694661cb25e0eb1df717f9095",
-  "manuscript_sha256": "4b58d4286758d999622956da3ed9c6718edecb2d0bdc71f30fb3de2755f9a2e6",
-  "clean_build_directory": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/agent27-round4-portable-nahd_5fj/paper-agent27-short",
+  "pdf_sha256": "b0a9535ca9051d0851e17ad958d580c2c3b1d3bc74c0ed14eacc53e1c4c57b79",
+  "source_zip_sha256": "3ed981ebe90328583fa0794857109ab0d2935d15f886f7b0222d40a264e924e4",
+  "manuscript_sha256": "7b889fcd6a54074ba55eabbbee44d664db2fda94989bbfbe5067d0f3848ee56b",
+  "clean_build_directory": "/var/folders/p9/__dlw6gd29sg4m3s81v92xcw0000gn/T/agent27-round5-portable-cpwfyyd1/paper-agent27-short",
   "clean_build_exit": 0,
   "portable_build_pdf_text_matches": true,
   "no_overfull_or_unresolved_references": true,
@@ -16,7 +16,7 @@
       4,
       5
     ],
-    "result": "Round 4: pages 1–3 render identically to inspected round 3; pages 4–5 re-inspected. Five pages, no clipping or overlap; original figures/tables/fonts/margins retained."
+    "result": "Round 5: pages 1–3 render identically to inspected round 4; pages 4–5 re-inspected. Five pages, no clipping or overlap; original figures/tables/fonts/margins retained."
   },
   "record_checks_sha256": "26d7a28a9fcc251b0804a3245b82a1af0fb0ca119aeae56d07f0d4ae245f79a3",
   "disclosure_review_sha256": "e8eaddb3fff30ac3786888559bcd88b55b04e7adb240a5fc6ec40a31d96f32e1",
@@ -123,13 +123,13 @@
     "branch": "paper/semantic-review-result",
     "word_counts_whitespace_in_tex": {
       "before": 2599,
-      "after": 2559
+      "after": 2610
     },
-    "scope": "Two result sentences; explicit instruction arm; no control enumeration or quote. One-task/model/runtime qualification moved to Limitations. Brief actionable lesson without a new untested remedy. Other 20 reviews checked: no target contradiction reported.",
+    "scope": "Three requested edits only: name the question answered by the fuller-packet reruns without implying historical causation; replace the lesson with the observed acceptance failure and no proposed remedy; name local Hermes and Firecrawl versus hosted runtime and web gateway. Abstract unchanged.",
     "unchanged_evidence_checks": "Existing operating/consumer audit metadata is inherited from the checkpoint; no datasets or results changed.",
-    "round": 4,
-    "experiment_paragraph_words": 33,
-    "lesson_words": 23,
+    "round": 5,
+    "experiment_paragraph_words": 51,
+    "lesson_words": 46,
     "public_experiment_checks": {
       "PROTOCOL.md": {
         "url": "https://raw.githubusercontent.com/earino/factory-prospective-study/9b184d98317cb697021fcb9d3776739a60b30f01/experiments/sbir-semantic-review/PROTOCOL.md",
